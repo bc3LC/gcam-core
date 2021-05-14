@@ -46,7 +46,7 @@ module_energy_LA1011.en_bal_adj <- function(command, ...) {
     EIA_TOT_intlship_kbbld <- get_data(all_data, "energy/EIA_TOT_intlship_kbbld")
     EIA_ctry <- get_data(all_data, "energy/mappings/EIA_ctry")
     A22.globaltech_coef <- get_data(all_data, "energy/A22.globaltech_coef")
-    L101.en_bal_EJ_R_Si_Fi_Yh_full <- get_data(all_data, "L101.en_bal_EJ_R_Si_Fi_Yh_full")
+    L101.en_bal_EJ_R_Si_Fi_Yh_full <- get_data(all_data, "L101.en_bal_EJ_R_Si_Fi_Yh_full", strip_attributes = TRUE)
 
     EIA_RFO_intlship_kbbld %>%
       gather_years -> EIA_RFO_intlship_kbbld
@@ -118,6 +118,19 @@ module_energy_LA1011.en_bal_adj <- function(command, ...) {
       left_join(iso_GCAM_regID, by = "iso") %>%
       filter(!(is.na(GCAM_region_ID))) %>%
       select(Country, year, value, iso, GCAM_region_ID) -> L1011.in_EJ_ctry_intlship_TOT_Yh
+
+    # JS 12/2020: Extrapolate EIA data to 2015
+    L1011.in_EJ_ctry_intlship_TOT_Yh_2015<-L1011.in_EJ_ctry_intlship_TOT_Yh %>%
+      filter(year==2014) %>%
+      mutate(year=2015)
+
+    # JS 12/2020: Add 2015 to the dataset and group by iso
+    L1011.in_EJ_ctry_intlship_TOT_Yh<-L1011.in_EJ_ctry_intlship_TOT_Yh %>%
+      bind_rows(L1011.in_EJ_ctry_intlship_TOT_Yh_2015) %>%
+      group_by(year,iso,GCAM_region_ID) %>%
+      summarise(value=sum(value)) %>%
+      ungroup() %>%
+      arrange(iso)
 
     L1011.in_EJ_ctry_intlship_TOT_Yh %>%
       group_by(GCAM_region_ID, year) %>%

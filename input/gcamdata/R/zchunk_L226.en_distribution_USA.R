@@ -35,6 +35,7 @@ module_gcamusa_L226.en_distribution_USA <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "gcam-usa/states_subregions",
              FILE = "energy/A21.sector",
+             FILE = "energy/A_ff_RegionalSector",
              FILE = "energy/A26.sector",
              FILE = "gcam-usa/EIA_state_energy_prices",
              "L202.CarbonCoef",
@@ -70,19 +71,20 @@ module_gcamusa_L226.en_distribution_USA <- function(command, ...) {
 
     # Load required inputs
     states_subregions <- get_data(all_data, "gcam-usa/states_subregions")
-    A21.sector <- get_data(all_data, "energy/A21.sector")
-    A26.sector <- get_data(all_data, "energy/A26.sector")
-    EIA_state_energy_prices <- get_data(all_data, "gcam-usa/EIA_state_energy_prices")
-    L202.CarbonCoef <- get_data(all_data, "L202.CarbonCoef")
-    L226.Supplysector_en <- get_data(all_data, "L226.Supplysector_en")
-    L226.SubsectorLogit_en <- get_data(all_data, "L226.SubsectorLogit_en")
+    A21.sector <- get_data(all_data, "energy/A21.sector", strip_attributes = TRUE)
+    A_ff_regional_sector <- get_data(all_data, "energy/A_ff_RegionalSector", strip_attributes = TRUE) %>% mutate(traded=0)
+    A26.sector <- get_data(all_data, "energy/A26.sector", strip_attributes = TRUE)
+    EIA_state_energy_prices <- get_data(all_data, "gcam-usa/EIA_state_energy_prices", strip_attributes = TRUE)
+    L202.CarbonCoef <- get_data(all_data, "L202.CarbonCoef", strip_attributes = TRUE)
+    L226.Supplysector_en <- get_data(all_data, "L226.Supplysector_en", strip_attributes = TRUE)
+    L226.SubsectorLogit_en <- get_data(all_data, "L226.SubsectorLogit_en", strip_attributes = TRUE)
    # L226.SubsectorShrwt_en <- get_data(all_data, "L226.SubsectorShrwt_en")
-    L226.SubsectorShrwtFllt_en <- get_data(all_data, "L226.SubsectorShrwtFllt_en")
-    L226.SubsectorInterp_en <- get_data(all_data, "L226.SubsectorInterp_en")
+    L226.SubsectorShrwtFllt_en <- get_data(all_data, "L226.SubsectorShrwtFllt_en", strip_attributes = TRUE)
+    L226.SubsectorInterp_en <- get_data(all_data, "L226.SubsectorInterp_en", strip_attributes = TRUE)
     # L226.SubsectorInterpTo_en <- get_data(all_data, "L226.SubsectorInterpTo_en")
-    L226.GlobalTechCost_en <- get_data(all_data, "L226.GlobalTechCost_en")
-    L226.GlobalTechShrwt_en <- get_data(all_data, "L226.GlobalTechShrwt_en")
-    L226.StubTechCoef_electd <- get_data(all_data, "L226.StubTechCoef_electd")
+    L226.GlobalTechCost_en <- get_data(all_data, "L226.GlobalTechCost_en", strip_attributes = TRUE)
+    L226.GlobalTechShrwt_en <- get_data(all_data, "L226.GlobalTechShrwt_en", strip_attributes = TRUE)
+    L226.StubTechCoef_electd <- get_data(all_data, "L226.StubTechCoef_electd", strip_attributes = TRUE)
 
 
     # silence check package notes
@@ -119,7 +121,9 @@ module_gcamusa_L226.en_distribution_USA <- function(command, ...) {
     # L226.Supplysector_en_USA: Supply sector information for energy handling and delivery sectors
     # NOTE: Currently using FERC regions as a proxy for regional energy markets
     A21.sector %>%
+      bind_rows(A_ff_regional_sector) %>%
       select(supplysector, output.unit, input.unit, price.unit, logit.exponent, logit.type) %>%
+      mutate(logit.exponent= if_else(supplysector=="regional coal",-3,logit.exponent)) %>%
       filter(supplysector %in% gcamusa.REGIONAL_FUEL_MARKETS) ->
       A21.tmp
 

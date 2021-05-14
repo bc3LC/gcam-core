@@ -52,6 +52,7 @@
 #include <xercesc/dom/DOMNode.hpp>
 #include <boost/core/noncopyable.hpp>
 
+#include "util/base/include/definitions.h"
 #include "util/base/include/ivisitable.h"
 #include "util/base/include/data_definition_util.h"
 
@@ -72,9 +73,7 @@ class GcamFlowGraph;
 
 /*! 
 * \ingroup Objects
-* \brief A class which contains all the model's regions.  These regions may be MiniCAM (partial
-* equilibrium) regions or SGM (general equilibrium) regions as they are derived
-* from the Region base class.
+* \brief A class which contains all the model's regions.  
 *
 * The World class object is contained by the Scenario class object.  The world object controls
 * the calling of the regions which it has been told to solve (passed in an

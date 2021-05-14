@@ -52,7 +52,6 @@
 #include "util/base/include/xml_helper.h"
 #include "containers/include/world.h"
 #include "containers/include/region_minicam.h"
-#include "containers/include/region_cge.h"
 #include "containers/include/scenario.h"
 #include "util/base/include/model_time.h"
 #include "marketplace/include/marketplace.h"
@@ -152,10 +151,6 @@ void World::XMLParse( const DOMNode* node ){
             parseSingleNode( curr, mClimateModel, new HectorModel() );
         }
 #endif
-		// SGM regions
-        else if( nodeName == RegionCGE::getXMLNameStatic() ){
-            parseContainerNode( curr, mRegions, new RegionCGE() );
-        }
         else {
             ILogger& mainLog = ILogger::getLogger( "main_log" );
             mainLog.setLevel( ILogger::WARNING );
@@ -266,13 +261,6 @@ const string& World::getName() const {
 void World::initCalc( const int period ) {
 
     for( vector<Region*>::iterator i = mRegions.begin(); i != mRegions.end(); i++ ){
-        // Add supplies and demands to the marketplace in the base year for checking data consistency
-        // and for getting demand and supply totals.
-        // Need to update markets here after markets have been null by scenario.
-        // TODO: This should be combined with check data.
-        if( period == 0 ){
-            ( *i )->updateMarketplace( period );
-        }
         ( *i )->initCalc( period );
     }
     
@@ -292,6 +280,11 @@ void World::initCalc( const int period ) {
     
     // Reset the calc counter.
     mCalcCounter->startNewPeriod();
+#if GCAM_PARALLEL_ENABLED
+    // stash the period in the flow graph which just otherwise just set
+    // at the start of the model run and doesn't change
+    GcamFlowGraph::mPeriod = period;
+#endif
 }
 
 /*!
@@ -354,18 +347,10 @@ void World::calc( const int aPeriod, GcamFlowGraph *aWorkGraph, const vector<IAc
     mCalcCounter->incrementCount( aCalcList ? (double)(aCalcList->size()) / (double) mGlobalOrdering.size() : 1.0 );
 
     if( !aWorkGraph ) {
-        // If a work graph was not provided just use the global flow graph and set the
-        // calc list which is used to skip uncessary activities that are not contained in
-        // the given calc list.
+        // If a work graph was not provided just use the global flow graph
         aWorkGraph = mTBBGraphGlobal;
-        aWorkGraph->mCalcList = aCalcList;
     }
-    else {
-        // When a work graph is provided we assume all items in that graph should be
-        // calculated.
-        aWorkGraph->mCalcList = 0;
-    }
-    aWorkGraph->mPeriod = aPeriod;
+
     // do the model calculation
     aWorkGraph->mHead.try_put( tbb::flow::continue_msg() );
     aWorkGraph->mTBBFlowGraph.wait_for_all();

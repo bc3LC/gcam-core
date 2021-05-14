@@ -48,7 +48,6 @@
 #include "containers/include/world.h"
 #include "containers/include/region.h"
 #include "containers/include/region_minicam.h"
-#include "containers/include/region_cge.h"
 #include "containers/include/iinfo.h"
 #include "resources/include/resource.h"
 #include "sectors/include/afinal_demand.h"
@@ -72,8 +71,6 @@
 #include "demographics/include/demographic.h"
 #include "demographics/include/population.h"
 #include "demographics/include/population_mini_cam.h"
-#include "demographics/include/population_sgm_rate.h"
-#include "demographics/include/population_sgm_fixed.h"
 #include "demographics/include/age_cohort.h"
 #include "demographics/include/gender.h"
 #include "util/base/include/configuration.h"
@@ -87,16 +84,8 @@
 #include "technologies/include/base_technology.h"
 #include "technologies/include/ag_production_technology.h"
 #include "technologies/include/expenditure.h"
-#include "technologies/include/production_technology.h"
-#include "functions/include/sgm_input.h"
 #include "functions/include/node_input.h"
-#include "consumers/include/household_consumer.h"
-#include "consumers/include/govt_consumer.h"
-#include "consumers/include/trade_consumer.h"
-#include "consumers/include/invest_consumer.h"
-#include "sectors/include/factor_supply.h"
 #include "containers/include/national_account.h"
-#include "sectors/include/more_sector_info.h"
 #include "util/base/include/util.h"
 #include "technologies/include/default_technology.h"
 #include "technologies/include/iproduction_state.h"
@@ -113,6 +102,7 @@
 #include "functions/include/building_node_input.h"
 #include "functions/include/building_service_input.h"
 #include "functions/include/satiation_demand_function.h"
+#include "functions/include/food_demand_input.h"
 #include <typeinfo>
 
 // Whether to write a text file with the contents that are to be inserted
@@ -543,21 +533,6 @@ void XMLDBOutputter::endVisitRegionMiniCAM( const RegionMiniCAM* aRegionMiniCAM,
     XMLWriteClosingTag( aRegionMiniCAM->getXMLName(), mBuffer, mTabs.get() );
 }
 
-void XMLDBOutputter::startVisitRegionCGE( const RegionCGE* aRegionCGE, const int aPeriod ) {
-       // Write the opening region tag and the type of the base class.
-    XMLWriteOpeningTag( aRegionCGE->getXMLName(), mBuffer, mTabs.get(),
-        aRegionCGE->getName(), 0, Region::getXMLNameStatic() );
-}
-
-void XMLDBOutputter::endVisitRegionCGE( const RegionCGE* aRegionCGE, const int aPeriod ) {
-    assert( !mCurrentRegion.empty() );
-    // Clear the region name.
-    mCurrentRegion.clear();
-
-    // Write the closing region tag.
-    XMLWriteClosingTag( aRegionCGE->getXMLName(), mBuffer, mTabs.get() );
-}
-
 void XMLDBOutputter::startVisitResource( const AResource* aResource,
                                          const int aPeriod )
 {
@@ -796,9 +771,8 @@ void XMLDBOutputter::endVisitEnergyFinalDemand( const EnergyFinalDemand* aEnergy
 
 
     // Write the closing finalDemand tag.
-    XMLWriteClosingTag( aEnergyFinalDemand->getXMLNameStatic(), mBuffer, mTabs.get() );
+    XMLWriteClosingTag( aEnergyFinalDemand->getXMLName(), mBuffer, mTabs.get() );
 }
-
 
 void XMLDBOutputter::startVisitBaseTechnology( const BaseTechnology* aBaseTech, const int aPeriod ) {
     // writing blank technologies is not a big concern for sgm so just create a child buffer
@@ -945,8 +919,7 @@ void XMLDBOutputter::startVisitInput( const IInput* aInput, const int aPeriod ) 
     map<string, string> attrs;
 
     // children of input go in the child buffer
-    // note minicam is using real periods at this point where as sgm is
-    // always using -1 
+    // note minicam is using real periods at this point
     double maxPer = aPeriod == -1 ? modeltime->getmaxper() -1 : aPeriod;
     for( int i = 0; i <= maxPer; ++i ) {
         // isTechnologyOperating will crash for sgm so avoid calling it
@@ -1304,17 +1277,20 @@ void XMLDBOutputter::startVisitClimateModel( const IClimateModel* aClimateModel,
          writeItemUsingYear( "C2F6-concentration", "PPT",
                              aClimateModel->getConcentration( "C2F6", year ),
                              year );
-         writeItemUsingYear( "HCFC125-concentration", "PPT",
-                             aClimateModel->getConcentration( "HCFC125", year ),
+         writeItemUsingYear( "HFC125-concentration", "PPT",
+                             aClimateModel->getConcentration( "HFC125", year ),
                              year );
-         writeItemUsingYear( "HCFC134a-concentration", "PPT",
-                             aClimateModel->getConcentration( "HCFC134A", year ),
+         writeItemUsingYear( "HFC134a-concentration", "PPT",
+                             aClimateModel->getConcentration( "HFC134A", year ),
                              year );
-         writeItemUsingYear( "HCFC143A-concentration", "PPT",
-                             aClimateModel->getConcentration( "HCFC143A", year ),
+         writeItemUsingYear( "HFC143A-concentration", "PPT",
+                             aClimateModel->getConcentration( "HFC143A", year ),
                              year );
-         writeItemUsingYear( "HCFC245fa-concentration", "PPT",
-                             aClimateModel->getConcentration( "HCFC245fa", year ),
+         writeItemUsingYear( "HFC245fa-concentration", "PPT",
+                             aClimateModel->getConcentration( "HFC245fa", year ),
+                             year );
+        writeItemUsingYear( "HFC227ea-concentration", "PPT",
+                             aClimateModel->getConcentration( "HFC227ea", year ),
                              year );
          writeItemUsingYear( "SF6-concentration", "PPT",
                              aClimateModel->getConcentration( "SF6", year ),
@@ -1333,46 +1309,46 @@ void XMLDBOutputter::startVisitClimateModel( const IClimateModel* aClimateModel,
                              aClimateModel->getForcing( "CO2", util::round( year ) )
         + aClimateModel->getForcing( "CH4", util::round( year ) )
         + aClimateModel->getForcing( "N2O", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC125", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC134A", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC143A", util::round( year ) )
+        + aClimateModel->getForcing( "HFC125", util::round( year ) )
+        + aClimateModel->getForcing( "HFC134A", util::round( year ) )
+        + aClimateModel->getForcing( "HFC143A", util::round( year ) )
         + aClimateModel->getForcing( "HFC227ea", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC245fa", util::round( year ) )
+        + aClimateModel->getForcing( "HFC245fa", util::round( year ) )
         + aClimateModel->getForcing( "SF6", util::round( year ) )
         + aClimateModel->getForcing( "CF4", util::round( year ) )
         + aClimateModel->getForcing( "C2F6", util::round( year ) )
         + aClimateModel->getForcing( "OtherHC", util::round( year ) ),
                              year );
 
-        // Long-lived Forcing
-        writeItemUsingYear( "forcing-longlived", "W/m^2",
-                             aClimateModel->getForcing( "CO2", util::round( year ) )
-        + aClimateModel->getForcing( "CH4", util::round( year ) )
-        + aClimateModel->getForcing( "N2O", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC125", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC134A", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC143A", util::round( year ) )
+        // HFCs Forcing
+        writeItemUsingYear( "forcing-HFCs", "W/m^2",
+                             aClimateModel->getForcing( "HFC125", util::round( year ) )
+        + aClimateModel->getForcing( "HFC134A", util::round( year ) )
+        + aClimateModel->getForcing( "HFC143A", util::round( year ) )
         + aClimateModel->getForcing( "HFC227ea", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC245fa", util::round( year ) )
+        + aClimateModel->getForcing( "HFC245fa", util::round( year ) )
+        + aClimateModel->getForcing( "HFC23", util::round( year ) )
+        + aClimateModel->getForcing( "HFC32", util::round( year ) ),
+                             year );
+
+                // Long-lived Forcing
+        writeItemUsingYear( "forcing-halocarbons", "W/m^2",
+        aClimateModel->getForcing( "HFC125", util::round( year ) )
+        + aClimateModel->getForcing( "HFC134A", util::round( year ) )
+        + aClimateModel->getForcing( "HFC143A", util::round( year ) )
+        + aClimateModel->getForcing( "HFC227ea", util::round( year ) )
+        + aClimateModel->getForcing( "HFC245fa", util::round( year ) )
         + aClimateModel->getForcing( "SF6", util::round( year ) )
         + aClimateModel->getForcing( "CF4", util::round( year ) )
         + aClimateModel->getForcing( "C2F6", util::round( year ) )
         + aClimateModel->getForcing( "OtherHC", util::round( year ) )
         + aClimateModel->getForcing( "Montreal", util::round( year ) ),
                              year );
-
-                // Long-lived Forcing
-        writeItemUsingYear( "forcing-halocarbons", "W/m^2",
-        aClimateModel->getForcing( "HCFC125", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC134A", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC143A", util::round( year ) )
-        + aClimateModel->getForcing( "HFC227ea", util::round( year ) )
-        + aClimateModel->getForcing( "HCFC245fa", util::round( year ) )
-        + aClimateModel->getForcing( "SF6", util::round( year ) )
-        + aClimateModel->getForcing( "CF4", util::round( year ) )
-        + aClimateModel->getForcing( "C2F6", util::round( year ) )
-        + aClimateModel->getForcing( "OtherHC", util::round( year ) )
-        + aClimateModel->getForcing( "Montreal", util::round( year ) ),
+        
+        // PFCs Forcing
+        writeItemUsingYear( "forcing-PFCs", "W/m^2",
+        aClimateModel->getForcing( "CF4", util::round( year ) )
+        + aClimateModel->getForcing( "C2F6", util::round( year ) ),
                              year );
 
         // CO2 Forcing
@@ -1389,7 +1365,7 @@ void XMLDBOutputter::startVisitClimateModel( const IClimateModel* aClimateModel,
         writeItemUsingYear( "forcing-N2O", "W/m^2",
 						   aClimateModel->getForcing( "N2O", util::round( year ) ),
 						   year );
-		
+
 		// SO2 Forcing
         writeItemUsingYear( "forcing-SO2", "W/m^2",
 						   aClimateModel->getForcing( "SO2", util::round( year ) ),
@@ -1415,6 +1391,57 @@ void XMLDBOutputter::startVisitClimateModel( const IClimateModel* aClimateModel,
 						   aClimateModel->getForcing( "OC", util::round( year ) ),
 						   year );
 		
+        // StratH2O Forcing
+        writeItemUsingYear( "forcing-StratH2O", "W/m^2",
+                           aClimateModel->getForcing( "StratH2O", util::round( year ) ),
+                           year );
+        
+        // Albedo Forcing
+        writeItemUsingYear( "forcing-Albedo", "W/m^2",
+                           aClimateModel->getForcing( "Albedo", util::round( year ) ),
+                           year );
+        
+        // Add forcing for the larger F-gases individually
+        // SF6 Forcing
+        writeItemUsingYear( "forcing-SF6", "W/m^2",
+        aClimateModel->getForcing( "SF6", util::round( year ) ),
+                             year );
+        
+        // CF4 Forcing
+        writeItemUsingYear( "forcing-CF4", "W/m^2",
+                           aClimateModel->getForcing( "CF4", util::round( year ) ),
+                           year );
+              
+        // HFC125 Forcing
+        writeItemUsingYear( "forcing-HFC125", "W/m^2",
+                           aClimateModel->getForcing( "HFC125", util::round( year ) ),
+                           year );
+        
+        // HFC134a Forcing
+        writeItemUsingYear( "forcing-HFC134a", "W/m^2",
+                           aClimateModel->getForcing( "HFC134A", util::round( year ) ),
+                           year );
+        
+        // HFC23 Forcing
+        writeItemUsingYear( "forcing-HFC23", "W/m^2",
+                           aClimateModel->getForcing( "HFC23", util::round( year ) ),
+                           year );
+        
+        // HFC143a Forcing
+        writeItemUsingYear( "forcing-HFC143a", "W/m^2",
+                           aClimateModel->getForcing( "HFC143A", util::round( year ) ),
+                           year );
+        
+        // HFC245fa Forcing
+        writeItemUsingYear( "forcing-HFC245fa", "W/m^2",
+                           aClimateModel->getForcing( "HFC245fa", util::round( year ) ),
+                           year );
+        
+        // HFC32 Forcing
+        writeItemUsingYear( "forcing-HFC32", "W/m^2",
+                           aClimateModel->getForcing( "HFC32", util::round( year ) ),
+                           year );
+        
 		// long-lived F-gas Forcing
         writeItemUsingYear( "forcing-longlivedFgas", "W/m^2",
 						   aClimateModel->getForcing( "SF6", util::round( year ) )
@@ -1503,24 +1530,6 @@ void XMLDBOutputter::startVisitPopulationMiniCAM( const PopulationMiniCAM* aPopu
 
 void XMLDBOutputter::endVisitPopulationMiniCAM( const PopulationMiniCAM* aPopulation, const int aPeriod ){
     XMLWriteClosingTag( PopulationMiniCAM::getXMLNameStatic(), mBuffer, mTabs.get() );
-}
-
-void XMLDBOutputter::startVisitPopulationSGMRate( const PopulationSGMRate* aPopulation, const int aPeriod ){
-    XMLWriteOpeningTag( PopulationSGMRate::getXMLNameStatic(), mBuffer, mTabs.get(),
-                        "", aPopulation->getYear() );
-}
-
-void XMLDBOutputter::endVisitPopulationSGMRate( const PopulationSGMRate* aPopulation, const int aPeriod ){
-    XMLWriteClosingTag( PopulationSGMRate::getXMLNameStatic(), mBuffer, mTabs.get() );
-}
-
-void XMLDBOutputter::startVisitPopulationSGMFixed( const PopulationSGMFixed* aPopulation, const int aPeriod ){
-    XMLWriteOpeningTag( PopulationSGMFixed::getXMLNameStatic(), mBuffer, mTabs.get(),
-                        "", aPopulation->getYear() );
-}
-
-void XMLDBOutputter::endVisitPopulationSGMFixed( const PopulationSGMFixed* aPopulation, const int aPeriod ){
-    XMLWriteClosingTag( PopulationSGMFixed::getXMLNameStatic(), mBuffer, mTabs.get() );
 }
 
 void XMLDBOutputter::startVisitAgeCohort( const AgeCohort* aAgeCohort, const int aPeriod ){
@@ -1716,21 +1725,6 @@ void XMLDBOutputter::endVisitExpenditure( const Expenditure* aExpenditure, const
     delete parentBuffer;
 }
 
-void XMLDBOutputter::startVisitSGMInput( const SGMInput* aInput, const int aPeriod ) {
-    stringstream* parentBuffer = new stringstream();
-    mBufferStack.push( parentBuffer );
-    startVisitInput( aInput, aPeriod );
-}
-
-void XMLDBOutputter::endVisitSGMInput( const SGMInput* aInput, const int aPeriod ) {
-    endVisitInput( aInput, aPeriod );
-    iostream* parentBuffer = popBufferStack();
-    if( parentBuffer->rdbuf()->in_avail() ) {
-        mBuffer << parentBuffer->rdbuf();
-    }
-    delete parentBuffer;
-}
-
 void XMLDBOutputter::startVisitNodeInput( const NodeInput* aNodeInput, const int aPeriod ) {
     // write the nodeInput tag and it's children in temp buffers so that we can
     // check if anything was really written out and avoid writing blank nodeInputs
@@ -1749,9 +1743,6 @@ void XMLDBOutputter::startVisitNodeInput( const NodeInput* aNodeInput, const int
     if( !objects::isEqual<double>( aNodeInput->getPriceElasticity( 0 ), 0.0 ) ||
         !objects::isEqual<double>( aNodeInput->getIncomeElasticity( 0 ), 0.0 ) ) {
         // we have AIDADS/LES paramaters so write them out
-        XMLWriteElement( aNodeInput->getPriceElasticity( 0 ), "alpha-utility-param", *childBuffer, mTabs.get() );
-        XMLWriteElement( aNodeInput->getIncomeElasticity( 0 ), "beta-utility-param", *childBuffer, mTabs.get() );
-        XMLWriteElement( aNodeInput->getCoefficient( aPeriod ), "gamma-utility-param", *childBuffer, mTabs.get() );
         XMLWriteElement( aNodeInput->getPricePaid( "", aPeriod ), "price", *childBuffer, mTabs.get() );
         XMLWriteElement( aNodeInput->getPhysicalDemand( aPeriod ), "demand", *childBuffer, mTabs.get() );
     }
@@ -1776,143 +1767,6 @@ void XMLDBOutputter::endVisitNodeInput( const NodeInput* aNodeInput, const int a
     // clean up any extra buffers
     delete childBuffer;
     delete parentBuffer;
-}
-
-void XMLDBOutputter::startVisitHouseholdConsumer( const HouseholdConsumer* aHouseholdConsumer,
-                                                 const int aPeriod )
-{
-    XMLWriteOpeningTag( aHouseholdConsumer->getXMLName(), mBuffer, mTabs.get(), aHouseholdConsumer->getName(),
-        aHouseholdConsumer->getYear(), "baseTechnology" );
-
-    XMLWriteElement( aHouseholdConsumer->landDemand, "land-demand", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->laborDemand, "labor-demand", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->householdLandDemand, "household-land-demand", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->householdLaborDemand, "household-labor-demand", mBuffer, mTabs.get() );
-
-    XMLWriteElement( aHouseholdConsumer->socialSecurityTaxRate, "social-security-taxrate", mBuffer, mTabs.get() );
-    //XMLWriteElement( aHouseholdConsumer->incomeTaxRate, "income-tax-rate", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->personsPerHousehold, "persons-per-household", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->numberOfHouseholds, "number-of-households", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->totalLandArea, "total-land-area", mBuffer, mTabs.get() );
-
-    // label as govt-transfer?
-    XMLWriteElement( aHouseholdConsumer->transfer, "transfer", mBuffer, mTabs.get() );
-
-    XMLWriteElement( aHouseholdConsumer->landSupply, "land-supply", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->laborSupplyMaleUnSkLab, "unskilled-labor-supply-male", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->laborSupplyFemaleUnSkLab, "unskilled-labor-supply-female", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->laborSupplyMaleSkLab, "skilled-labor-supply-male", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->laborSupplyFemaleSkLab, "skilled-labor-supply-female", mBuffer, mTabs.get() );
-
-    XMLWriteElement( aHouseholdConsumer->workingAgePopMale, "working-age-pop-male", mBuffer, mTabs.get() );
-    XMLWriteElement( aHouseholdConsumer->workingAgePopFemale, "working-age-pop-female", mBuffer, mTabs.get() );
-
-    // need to put a buffer on the stack for the node inputs to write AIDADS/LES params
-    stringstream* parentBuffer = new stringstream();
-    mBufferStack.push( parentBuffer );
-}
-
-void XMLDBOutputter::endVisitHouseholdConsumer( const HouseholdConsumer* aHouseholdConsumer,
-                                               const int aPeriod )
-{
-    // the node inputs would have written themselves so we just need to pop the stack
-    // and copy the data to mBuffer
-    iostream* parentBuffer = popBufferStack();
-    if( parentBuffer->rdbuf()->in_avail() ) {
-        mBuffer << parentBuffer->rdbuf();
-    }
-    delete parentBuffer;
-
-    XMLWriteClosingTag( aHouseholdConsumer->getXMLName(), mBuffer, mTabs.get() );
-}
-
-void XMLDBOutputter::startVisitGovtConsumer( const GovtConsumer* aGovtConsumer, const int aPeriod ) {
-    XMLWriteOpeningTag( aGovtConsumer->getXMLName(), mBuffer, mTabs.get(), aGovtConsumer->getName(),
-        aGovtConsumer->getYear(), "baseTechnology" );
-
-    XMLWriteElement( aGovtConsumer->mTaxProportional.get(), "proportional-tax", mBuffer, mTabs.get() );
-    XMLWriteElement( aGovtConsumer->mTaxAdditive.get(), "additive-tax", mBuffer, mTabs.get() );
-    XMLWriteElement( aGovtConsumer->mTaxCorporate.get(), "corporate-income-tax", mBuffer, mTabs.get() );
-    XMLWriteElement( aGovtConsumer->mTaxIBT.get(), "indirect-buisness-tax", mBuffer, mTabs.get() );
-    XMLWriteElement( aGovtConsumer->mRho.get(), "rho", mBuffer, mTabs.get() );
-}
-
-void XMLDBOutputter::endVisitGovtConsumer( const GovtConsumer* aGovtConsumer, const int aPeriod ) {
-    XMLWriteClosingTag( aGovtConsumer->getXMLName(), mBuffer, mTabs.get() );
-}
-
-void XMLDBOutputter::startVisitTradeConsumer( const TradeConsumer* aTradeConsumer, const int aPeriod ) {
-    XMLWriteOpeningTag( aTradeConsumer->getXMLName(), mBuffer, mTabs.get(), aTradeConsumer->getName(),
-        aTradeConsumer->getYear(), "baseTechnology" );
-}
-
-void XMLDBOutputter::endVisitTradeConsumer( const TradeConsumer* aTradeConsumer, const int aPeriod ) {
-    XMLWriteClosingTag( aTradeConsumer->getXMLName(), mBuffer, mTabs.get() );
-}
-
-void XMLDBOutputter::startVisitInvestConsumer( const InvestConsumer* aInvestConsumer, const int aPeriod ) {
-    XMLWriteOpeningTag( aInvestConsumer->getXMLName(), mBuffer, mTabs.get(), aInvestConsumer->getName(),
-        aInvestConsumer->getYear(), "baseTechnology" );
-    XMLWriteElement( aInvestConsumer->mCapitalGoodPrice, "capital-good-price", mBuffer, mTabs.get() );
-}
-
-void XMLDBOutputter::endVisitInvestConsumer( const InvestConsumer* aInvestConsumer, const int aPeriod ) {
-    XMLWriteClosingTag( aInvestConsumer->getXMLName(), mBuffer, mTabs.get() );
-}
-
-void XMLDBOutputter::startVisitProductionTechnology( const ProductionTechnology* aProductionTechnology,
-                                                    const int aPeriod )
-{
-    XMLWriteOpeningTag( aProductionTechnology->getXMLName(), mBuffer, mTabs.get(), aProductionTechnology->getName(),
-        aProductionTechnology->getYear(), "baseTechnology" );
-
-    // could this info have been found elsewhere?
-    XMLWriteElement( aProductionTechnology->mCapitalStock, "capital-stock", mBuffer, mTabs.get());
-
-    XMLWriteElement( aProductionTechnology->mExpectedProfitRateReporting, "expected-profit-rate", mBuffer, mTabs.get());
-
-    XMLWriteElement( aProductionTechnology->mAnnualInvestment, "annual-investment", mBuffer, mTabs.get() );
-
-    const Modeltime* modeltime = scenario->getModeltime();
-    for( int i = 0; i < modeltime->getmaxper(); ++i ) {
-        double value = aProductionTechnology->mProfits[ i ];
-        if( !objects::isEqual<double>( value, 0.0 ) ) {
-            XMLWriteElement( value, "profit", mBuffer, mTabs.get(),
-                modeltime->getper_to_yr( i ) );
-        }
-        value = aProductionTechnology->mCostsReporting[ i ];
-        if( !objects::isEqual<double>( value, 0.0 ) ) {
-            XMLWriteElement( value, "cost", mBuffer, mTabs.get(),
-                modeltime->getper_to_yr( i ) );
-        }
-    }
-}
-
-void XMLDBOutputter::endVisitProductionTechnology( const ProductionTechnology* aProductionTechnology,
-                                                  const int aPeriod )
-{
-    XMLWriteClosingTag( aProductionTechnology->getXMLName(), mBuffer, mTabs.get() );
-}
-
-void XMLDBOutputter::startVisitFactorSupply( const FactorSupply* aFactorSupply, const int aPeriod ) {
-    // put year on this element or on the price?
-    XMLWriteOpeningTag( FactorSupply::getXMLNameStatic(), mBuffer, mTabs.get(), aFactorSupply->getName() );
-
-    const Modeltime* modeltime = scenario->getModeltime();
-    const Marketplace* marketplace = scenario->getMarketplace();
-    for( int i = 0; i < modeltime->getmaxper(); ++i ) {
-        double pricePaid = ( marketplace->getPrice(aFactorSupply->getName(), mCurrentRegion, i) +
-            ( aFactorSupply->moreSectorInfo->getValue(MoreSectorInfo::TRANSPORTATION_COST)
-            * aFactorSupply->moreSectorInfo->getValue(MoreSectorInfo::TRAN_COST_MULT) )
-            * aFactorSupply->moreSectorInfo->getValue(MoreSectorInfo::PROPORTIONAL_TAX_RATE)
-            + aFactorSupply->moreSectorInfo->getValue(MoreSectorInfo::ADDITIVE_TAX) ) // add carbon taxes
-            * 1 ;
-        XMLWriteElement( pricePaid, "price", mBuffer, mTabs.get(), modeltime->getper_to_yr( i ) );
-    }
-}
-
-void XMLDBOutputter::endVisitFactorSupply( const FactorSupply* aFactorSupply, const int aPeriod ) {
-    XMLWriteClosingTag( FactorSupply::getXMLNameStatic(), mBuffer, mTabs.get() );
 }
 
 void XMLDBOutputter::startVisitNationalAccount( const NationalAccount* aNationalAccount, const int aPeriod ) {
@@ -2023,6 +1877,31 @@ void XMLDBOutputter::startVisitBuildingServiceInput( const BuildingServiceInput*
 
 void XMLDBOutputter::endVisitBuildingServiceInput( const BuildingServiceInput* aBuildingServiceInput, const int aPeriod ) {
     endVisitInput( aBuildingServiceInput, aPeriod );
+}
+
+void XMLDBOutputter::startVisitFoodDemandInput( const FoodDemandInput* aFoodDemandInput, const int aPeriod ) {
+    // set the correct price/demand units which will be used in startVisitInput
+    mCurrentPriceUnit = "2005$/Mcal/day";
+    mCurrentInputUnit = "Pcal/yr";
+    startVisitInput( aFoodDemandInput, aPeriod );
+    mCurrentPriceUnit.clear();
+    mCurrentInputUnit.clear();
+
+    const Modeltime* modeltime = scenario->getModeltime();
+    for( int per = 0; per < modeltime->getmaxper(); ++per ) {
+        double perCapConv = aFoodDemandInput->getAnnualDemandConversionFactor( per );
+        double perCapDemand = aFoodDemandInput->getPhysicalDemand( per ) / perCapConv;
+        if( !objects::isEqual<double>( perCapDemand, 0.0 ) ) {
+            writeItemToBuffer( perCapDemand, "demand-percap",
+                *mBufferStack.top(), mTabs.get(), per, "Kcal/per/day" );
+        }
+        writeItemToBuffer( aFoodDemandInput->mRegionalBias[ per ], "regional-bias",
+            *mBufferStack.top(), mTabs.get(), per, "Kcal/per/day" );
+    }
+}
+
+void XMLDBOutputter::endVisitFoodDemandInput( const FoodDemandInput* aFoodDemandInput, const int aPeriod ) {
+    endVisitInput( aFoodDemandInput, aPeriod );
 }
 
 /*!

@@ -53,7 +53,7 @@
 		<Value name = "land5">../input/gcamdata/xml/land_input_5_IRR_MGMT.xml</Value>
 		<Value name = "protected_land2">../input/gcamdata/xml/protected_land_input_2.xml</Value>
 		<Value name = "protected_land3">../input/gcamdata/xml/protected_land_input_3.xml</Value>
-		<Value name = "demand">../input/gcamdata/xml/demand_input.xml</Value>
+		<Value name = "demand">../input/gcamdata/xml/ag_an_demand_input.xml</Value>
 		<Value name = "bio_trade">../input/gcamdata/xml/bio_trade.xml</Value>
 		<Value name = "ag_trade">../input/gcamdata/xml/ag_trade.xml</Value>
 
@@ -63,6 +63,12 @@
 		<Value name = "nonco2_unmgd">../input/gcamdata/xml/all_unmgd_emissions.xml</Value>
 		<Value name = "nonco2_aglu">../input/gcamdata/xml/all_aglu_emissions_IRR_MGMT.xml</Value>
 		<Value name = "nonco2_aglu_prot">../input/gcamdata/xml/all_protected_unmgd_emissions.xml</Value>
+		
+		<!-- Global nonCO2 GHG MAC files -->
+		<Value name = "nonco2_energy">../input/gcamdata/xml/all_energy_emissions_MAC.xml</Value>
+		<Value name = "nonco2_fgas">../input/gcamdata/xml/all_fgas_emissions_MAC.xml</Value>
+		<Value name = "nonco2_aglu">../input/gcamdata/xml/all_aglu_emissions_IRR_MGMT_MAC.xml</Value> 
+		<Value name = "nonco2_proc">../input/gcamdata/xml/ind_urb_processing_sectors_MAC.xml</Value> 
 		
 		<Value name = "unlim_supply_water">../input/gcamdata/xml/unlimited_water_supply.xml</Value>
 		<Value name = "water_supply">../input/gcamdata/xml/water_supply_constrained.xml</Value>
@@ -114,6 +120,7 @@
 		<Value name="stop-year">-1</Value>
 		<Value name="restart-period">-1</Value>
 		<Value name="restart-year">-1</Value>
+		<Value name="max-parallelism">-1</Value>
 	</Ints>
 	<Doubles>
 	</Doubles>
