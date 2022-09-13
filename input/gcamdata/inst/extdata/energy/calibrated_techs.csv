@@ -5,9 +5,9 @@
 # ----------
 sector,fuel,supplysector,subsector,technology,minicam.energy.input,calibration,secondary.output
 electricity generation,coal,electricity,coal,coal (conv pul),regional coal,input,heat
-electricity generation,gas,electricity,gas,gas (steam/CT),wholesale gas,input,heat
-electricity generation,gas,electricity,gas,gas (CC),wholesale gas,input,
-electricity generation,refined liquids,electricity,refined liquids,refined liquids (steam/CT),refined liquids industrial,input,heat
+electricity generation,gas,electricity,gas,gas (steam/CT),gas pipeline,input,heat
+electricity generation,gas,electricity,gas,gas (CC),gas pipeline,input,
+electricity generation,refined liquids,electricity,refined liquids,refined liquids (steam/CT),refining,input,heat
 electricity generation,biomass,electricity,biomass,biomass (conv),regional biomass,input,heat
 electricity generation,nuclear,electricity,nuclear,Gen_II_LWR,nuclearFuelGenII,output,
 electricity generation,hydro,electricity,hydro,hydro,,fixed output,
@@ -19,18 +19,18 @@ gas processing,coal,gas processing,coal gasification,coal gasification,regional 
 gas processing,gas,gas processing,natural gas,natural gas,regional natural gas,output,
 gas processing,biomass,gas processing,biomass gasification,biomass gasification,regional biomass,output,
 corn ethanol,corn,refining,biomass liquids,corn ethanol,regional corn for ethanol,output,
-corn ethanol,gas,refining,biomass liquids,corn ethanol,wholesale gas,output,
-corn ethanol,electricity,refining,biomass liquids,corn ethanol,elect_td_ind,output,
+corn ethanol,gas,refining,biomass liquids,corn ethanol,gas pipeline,output,
+corn ethanol,electricity,refining,biomass liquids,corn ethanol,elect_td_en,output,
 sugar cane ethanol,sugar,refining,biomass liquids,sugar cane ethanol,regional sugar for ethanol,output,
 biodiesel,biomass oil,refining,biomass liquids,biodiesel,regional biomassOil,output,
-biodiesel,gas,refining,biomass liquids,biodiesel,wholesale gas,output,
+biodiesel,gas,refining,biomass liquids,biodiesel,gas pipeline,output,
 cellulosic ethanol,biomass,refining,biomass liquids,cellulosic ethanol,regional biomass,output,
 FT biofuels,biomass,refining,biomass liquids,FT biofuels,regional biomass,output,
 gtl,gas,refining,gas to liquids,gas to liquids,regional natural gas,output,
 ctl,coal,refining,coal to liquids,coal to liquids,regional coal,output,
 oil refining,oil,refining,oil refining,oil refining,regional oil,output,
-oil refining,gas,refining,oil refining,oil refining,wholesale gas,output,
-oil refining,electricity,refining,oil refining,oil refining,elect_td_ind,output,
+oil refining,gas,refining,oil refining,oil refining,gas pipeline,output,
+oil refining,electricity,refining,oil refining,oil refining,elect_td_en,output,
 heat,biomass,district heat,biomass,biomass,delivered biomass,input,
 heat,coal,district heat,coal,coal,delivered coal,input,
 heat,electricity,district heat,electricity,electricity,elect_td_ind,input,
@@ -40,6 +40,7 @@ electricity ownuse,electricity,electricity_net_ownuse,electricity_net_ownuse,ele
 electricity distribution,electricity,elect_td_bld,elect_td_bld,elect_td_bld,electricity_net_ownuse,coefficient,
 electricity distribution,electricity,elect_td_ind,elect_td_ind,elect_td_ind,electricity_net_ownuse,coefficient,
 electricity distribution,electricity,elect_td_trn,elect_td_trn,elect_td_trn,electricity_net_ownuse,coefficient,
+electricity distribution,electricity,elect_td_en,elect_td_en,elect_td_en,electricity_net_ownuse,coefficient,
 gas pipeline,gas,gas pipeline,gas pipeline,gas pipeline,gas processing,coefficient,
 heat,biomass,district heat,biomass,biomass,delivered biomass,input,
 heat,coal,district heat,coal,coal,delivered coal,input,

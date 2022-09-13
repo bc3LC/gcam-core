@@ -13,15 +13,15 @@ electricity,coal,coal (conv pul CCS),regional coal
 electricity,coal,coal (conv pul),regional coal
 electricity,coal,coal (IGCC CCS),regional coal
 electricity,coal,coal (IGCC),regional coal
-electricity,gas,gas (CC CCS),wholesale gas
-electricity,gas,gas (CC),wholesale gas
-electricity,gas,gas (steam/CT),wholesale gas
+electricity,gas,gas (CC CCS),gas pipeline
+electricity,gas,gas (CC),gas pipeline
+electricity,gas,gas (steam/CT),gas pipeline
 electricity,geothermal,geothermal,geothermal
 electricity,nuclear,Gen_II_LWR,nuclearFuelGenII
 electricity,nuclear,Gen_III,nuclearFuelGenIII
-electricity,refined liquids,refined liquids (CC CCS),refined liquids industrial
-electricity,refined liquids,refined liquids (CC),refined liquids industrial
-electricity,refined liquids,refined liquids (steam/CT),refined liquids industrial
+electricity,refined liquids,refined liquids (CC CCS),refining
+electricity,refined liquids,refined liquids (CC),refining
+electricity,refined liquids,refined liquids (steam/CT),refining
 electricity,solar,CSP,global solar resource
 electricity,solar,PV,global solar resource
 electricity,wind,wind,onshore wind resource
