@@ -12,8 +12,12 @@ electricity_net_ownuse,electricity_net_ownuse,share-weight,final-calibration-yea
 elect_td_bld,elect_td_bld,share-weight,final-calibration-year,end-year,,linear
 elect_td_ind,elect_td_ind,share-weight,final-calibration-year,end-year,,linear
 elect_td_trn,elect_td_trn,share-weight,final-calibration-year,end-year,,linear
+elect_td_en,elect_td_en,share-weight,final-calibration-year,end-year,,linear
 gas pipeline,gas pipeline,share-weight,final-calibration-year,end-year,,linear
 wholesale gas,wholesale gas,share-weight,final-calibration-year,end-year,,linear
 delivered gas,delivered gas,share-weight,final-calibration-year,end-year,,linear
+delivered gas transport,delivered gas transport,share-weight,final-calibration-year,end-year,,linear
 refined liquids enduse,refined liquids enduse,share-weight,final-calibration-year,end-year,,linear
 refined liquids industrial,refined liquids industrial,share-weight,final-calibration-year,end-year,,linear
+refined liquids transport,refined liquids transport,share-weight,final-calibration-year,end-year,,linear
+refined liquids bunkers,refined liquids bunkers,share-weight,final-calibration-year,end-year,,linear
