@@ -14,12 +14,15 @@ regional corn for ethanol,corn
 elect_td_ind,electricity
 elect_td_bld,electricity
 elect_td_trn,electricity
+elect_td_en,electricity
 regional natural gas,gas
 wholesale gas,gas
 delivered gas,gas
+delivered gas transport,gas
 regional oil,oil
 regional sugar for ethanol,sugar
 regional sugarbeet for ethanol,sugarbeet
 refined liquids enduse,refined liquids
 refined liquids industrial,refined liquids
-
+refined liquids transport,refined liquids
+refined liquids bunkers,refined liquids

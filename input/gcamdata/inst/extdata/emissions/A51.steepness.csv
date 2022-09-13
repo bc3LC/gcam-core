@@ -14,6 +14,7 @@ district heat,refined liquids,refined liquids,,,,,,
 elect_td_bld,elect_td_bld,elect_td_bld,,,,,,
 elect_td_ind,elect_td_ind,elect_td_ind,,,,,,
 elect_td_trn,elect_td_trn,elect_td_trn,,,,,,
+elect_td_en,elect_td_en,elect_td_en,,,,,,
 electricity,biomass,biomass (conv),3.5,3.5,3.5,3.5,3.5,3.5
 electricity,biomass,biomass (IGCC CCS),3.5,3.5,3.5,3.5,3.5,3.5
 electricity,biomass,biomass (IGCC),3.5,3.5,3.5,3.5,3.5,3.5
