@@ -256,14 +256,30 @@ module_energy_L210.resources <- function(command, ...) {
       bind_rows(L111.RsrcCurves_EJ_R_Ffos, .) ->
       L111.RsrcCurves_EJ_R_Ffos
 
+
     # A. Output unit, price unit, market
+    `%!in%` = Negate(`%in%`)
+
     L210.rsrc_info <- A10.rsrc_info %>%
       # Repeat and add region to resource assumptions table
       repeat_add_columns(select(GCAM_region_names, region)) %>%
+      left_join_error_no_match(GCAM_region_names, by = "region") %>%
       # Remove traditional biomass from regions where it is not currently used
       filter(!(region %in% A_regions$region[A_regions$tradbio_region == 0] & resource == "traditional biomass")) %>%
+      # Remove offshore wind from regions where it is not currently used (Europe_Eastern)
+      filter(GCAM_region_ID %in% L120.RsrcCurves_EJ_R_offshore_wind$GCAM_region_ID) %>%
+      bind_rows(A10.rsrc_info %>%
+                  # Repeat and add region to resource assumptions table
+                  repeat_add_columns(select(GCAM_region_names, region)) %>%
+                  left_join_error_no_match(GCAM_region_names, by = "region") %>%
+                  # Remove traditional biomass from regions where it is not currently used
+                  filter(!(region %in% A_regions$region[A_regions$tradbio_region == 0] & resource == "traditional biomass")) %>%
+                  # Remove offshore wind from regions where it is not currently used (Europe_Eastern)
+                  filter(GCAM_region_ID %!in% L120.RsrcCurves_EJ_R_offshore_wind$GCAM_region_ID,
+                          resource != "offshore wind resource")) %>%
       # Reset regional markets to the names of the specific regions
-      mutate(market = if_else(market == "regional", region, market))
+      mutate(market = if_else(market == "regional", region, market)) %>%
+      select(-GCAM_region_ID)
 
     # L210.Rsrc: output unit, price unit, and market for depletable resources
     L210.Rsrc <- L210.rsrc_info %>%
@@ -333,6 +349,8 @@ module_energy_L210.resources <- function(command, ...) {
     L210.SmthRenewRsrcTechChange_offshore_wind <- write_to_all_regions(L120.TechChange_offshore_wind, c("region", "year","tech.change"), GCAM_region_names)
     L210.SmthRenewRsrcTechChange_offshore_wind %>%
       mutate(renewresource = "offshore wind resource", smooth.renewable.subresource = "offshore wind resource") %>%
+      left_join_error_no_match(GCAM_region_names, by = "region") %>%
+      filter(GCAM_region_ID %in% unique(L120.RsrcCurves_EJ_R_offshore_wind$GCAM_region_ID)) %>%
       select(region,renewresource, smooth.renewable.subresource, year.fillout = year, techChange = tech.change) -> L210.SmthRenewRsrcTechChange_offshore_wind
 
     # Tech change in the SSPs

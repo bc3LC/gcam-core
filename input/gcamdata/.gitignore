@@ -30,3 +30,11 @@ IEA_EnergyBalances_2019.csv.gz
 
 # junk produced when developing the python scripts
 *pycache*
+
+#other
+MidPrice_Austria_Onshore_Wind.xlsx
+inst/extdata/common/GCAM_region_names_orig.csv
+inst/extdata/common/GCAM_region_names_withOldID.csv
+inst/extdata/common/iso_GCAM_regID_orig.csv
+outputs - Copy/
+

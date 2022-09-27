@@ -1007,6 +1007,7 @@ module_energy_L223.electricity <- function(command, ...) {
     L223.StubTechCapFactor_elec %>%
       filter(stub.technology == "wind") %>%
       mutate(stub.technology = "wind_offshore") %>%
+      filter(region %in% unique(L120.RegCapFactor_offshore_wind$region)) %>%
       left_join_error_no_match(L120.RegCapFactor_offshore_wind ,
                                by = c("region")) %>%
       mutate(capacity.factor = round(CFmax, energy.DIGITS_CAPACITY_FACTOR)) %>%
@@ -1023,6 +1024,7 @@ module_energy_L223.electricity <- function(command, ...) {
       select(supplysector, subsector, technology) %>%
       repeat_add_columns(tibble(year = MODEL_YEARS)) %>%
       repeat_add_columns(tibble(region = gcam_regions)) %>%
+      filter(region %in% unique(L120.RegCapFactor_offshore_wind$region)) %>%
       mutate(minicam.non.energy.input = "regional price adjustment") %>%
       left_join_error_no_match(L120.GridCost_offshore_wind, by = c("region")) %>%
       rename(input.cost = grid.cost) %>%

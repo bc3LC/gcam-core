@@ -2,7 +2,7 @@
 # Title: GCAM 32-region names
 # Units: NA
 # Description: Maps GCAM region IDs to region names
-# Column types: ic 
+# Column types: ic
 # ----------
 GCAM_region_ID,region
 1,USA
@@ -37,3 +37,4 @@ GCAM_region_ID,region
 30,Taiwan
 31,Argentina
 32,Colombia
+33,Ukraine

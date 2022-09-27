@@ -12,3 +12,7 @@ Release*
 gas*.emk
 outFile*.csv
 debug*.xml
+
+#other
+run-gcam.bat
+configuration.xml

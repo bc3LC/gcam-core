@@ -312,6 +312,7 @@ module_energy_LA120.offshore_wind <- function(command, ...) {
 
     # Set grid connection cost for all regions
     GCAM_region_names %>%
+      filter(region %in% unique(L120.grid.cost$region)) %>%
       select(region) %>%
       left_join_error_no_match(L120.grid.cost %>%
                                  select(region, grid.cost),

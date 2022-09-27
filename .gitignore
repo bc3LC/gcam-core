@@ -76,3 +76,4 @@ xcuserdata
 *.xcuserstate
 .Rproj.user
 input/gcamdata/inst/extdata/emissions/CEDS/desktop.ini
+ModelInterface/
