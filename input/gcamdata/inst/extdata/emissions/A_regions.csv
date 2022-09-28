@@ -39,5 +39,3 @@ GCAM_region_ID,region,MAC_region,bio_N2O_coef,SO2_name,GAINS_region
 31,Argentina,Central and South America,0.008163204,SO2_3,Rest South America
 32,Colombia,Central and South America,0.008163204,SO2_3,Rest South America
 33,Ukraine,Eurasia,0.006412916,SO2_1,Ukraine+
-34,Ethiopia,Africa,0.009445905,SO2_3,Western Africa
-35,Kenya,Africa,0.009445905,SO2_3,Western Africa
