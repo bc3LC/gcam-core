@@ -199,14 +199,21 @@ module_energy_LA111.rsrc_fos_Prod <- function(command, ...) {
         L111.RsrcCurves_EJ_ctry_Ffos
 
       # Aggregate by GCAM regions (132-141)
-      L111.RsrcCurves_EJ_ctry_Ffos %>%
+      L111.RsrcCurves_EJ_R_Ffos<- L111.RsrcCurves_EJ_ctry_Ffos %>%
         left_join_error_no_match(select(iso_GCAM_regID, iso, GCAM_region_ID), by = "iso") %>%
         group_by(GCAM_region_ID, resource, subresource, grade) %>%
         summarise(available = sum(available)) %>%
         ungroup %>%
         left_join_keep_first_only(select(A11.fos_curves, resource, subresource, grade, extractioncost),
-                                  by = c("resource", "subresource", "grade")) ->
-        L111.RsrcCurves_EJ_R_Ffos
+                                  by = c("resource", "subresource", "grade")) %>%
+        complete(nesting(resource, subresource, grade), GCAM_region_ID = unique(iso_GCAM_regID$GCAM_region_ID)) %>%
+        replace_na(list(available = 0)) %>%
+        arrange(GCAM_region_ID) %>%
+        group_by(resource, subresource, grade) %>%
+        mutate(extractioncost = if_else(is.na(extractioncost), mean(extractioncost, na.rm=T),extractioncost)) %>%
+        ungroup()
+
+
 
       L111.RsrcCurves_EJ_R_Ffos %>%
         add_title("Fossil resource supply curves", overwrite = TRUE) %>%

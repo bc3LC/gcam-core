@@ -47,3 +47,5 @@ European Free Trade Association,electricity,nuclear,share-weight,final-calibrati
 European Free Trade Association,electricity,nuclear,share-weight,initial-future-year,2050,,linear
 European Free Trade Association,electricity,nuclear,share-weight,2050,2200,1,s-curve
 Ukraine,electricity,refined liquids,share-weight,final-calibration-year,2100,,fixed
+Ethiopia,electricity,refined liquids,share-weight,final-calibration-year,2100,,fixed
+Kenya,electricity,refined liquids,share-weight,final-calibration-year,2100,,fixed

@@ -38,3 +38,5 @@ GCAM_region_ID,region,tradbio_region,ethanol,biodiesel,biomassOil_tech,elect_td_
 31,Argentina,1,corn ethanol,biodiesel,Soybean,0.00075,0,D
 32,Colombia,1,sugar cane ethanol,biodiesel,OilCrop,0.00075,0,D
 33,Ukraine,0,corn ethanol,biodiesel,OilCrop,0.0002,1,D
+34,Ethiopia,1,corn ethanol,biodiesel,OilCrop,0.00025,0,E
+35,Kenya,1,corn ethanol,biodiesel,OilCrop,0.00025,0,E
