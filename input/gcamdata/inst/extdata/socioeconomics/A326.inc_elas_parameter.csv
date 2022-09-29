@@ -16,11 +16,11 @@ Central America and Caribbean,30,-5882,0.005
 Central Asia,30,-5882,0.005
 China,30,-5882,0.005
 Colombia,30,-5882,0.005
-EU-12,30,-5882,0.005
-EU-15,30,-5882,0.005
+EU_Southeast,30,-5882,0.005
+EU_Northwest,30,-5882,0.005
 Europe_Eastern,30,-5882,0.005
 Europe_Non_EU,30,-5882,0.005
-European Free Trade Association,30,-5882,0.005
+Norway,30,-5882,0.005
 India,30,-5882,0.005
 Indonesia,30,-5882,0.005
 Japan,30,-5882,0.005
@@ -37,3 +37,9 @@ Southeast Asia,30,-5882,0.005
 Taiwan,30,-5882,0.005
 USA,30,-5882,0.005
 Ukraine,30,-5882,0.005
+EU_Northeast,30,-5882,0.005
+EU_Central,30,-5882,0.005
+EU_North,30,-5882,0.005
+EU_Southwest,30,-5882,0.005
+UK+,30,-5882,0.005
+Italy+,30,-5882,0.005

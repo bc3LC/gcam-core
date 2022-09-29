@@ -3,7 +3,7 @@
 # Units: NA
 # Description: sets the number of years for soil carbon recovery following LUC
 # Original source: NA
-# Column types: ii 
+# Column types: ii
 # ----------
 GCAM_region_ID,soilTimeScale
 1,50
@@ -39,3 +39,9 @@ GCAM_region_ID,soilTimeScale
 31,50
 32,25
 33,50
+34,50
+35,50
+36,50
+37,50
+38,50
+39,50

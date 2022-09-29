@@ -291,6 +291,7 @@ module_energy_LA122.gasproc_refining <- function(command, ...) {
       L121.feed_output_ratio
 
     # 02/2020 modification (gpk) - replace with region-specific secondary output ratios for selected regions/commodities
+
     L122.in_EJ_R_1stgenbio_F_Yh %>%
       inner_join(L121.feed_output_ratio, by = c("passthrough.sector", "GCAM_commodity", "year")) %>%
       left_join(select(L121.BiomassOilRatios_kgGJ_R_C, GCAM_region_ID, GCAM_commodity, rev_output.ratio = SecOutRatio),

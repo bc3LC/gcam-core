@@ -93,6 +93,10 @@ module_aglu_LA108.ag_Feed_R_C_Y <- function(command, ...) {
       complete(GCAM_region_ID = unique(iso_GCAM_regID$GCAM_region_ID),
                GCAM_commodity, year, fill = list(value = 0)) %>%                                   # Fill in missing region/commodity combinations with 0
       left_join(L108.feedcakes, by = c("GCAM_region_ID", "GCAM_commodity", "year")) %>%            # Bring in the feedcakes quantities to deduct from the estimated oil crops -> feed
+      # Due to lack of region-specific data on SecOut coefficients, in some regions,
+      # the amount of feedcakes from Biofuel production is higher than the total feed
+      # reported in the FAO balances. This needs to be corrected to avoid negativities:
+      mutate(feedcakes = if_else(feedcakes > value, value, feedcakes)) %>%
       mutate(value = if_else(is.na(feedcakes), value, value - feedcakes)) %>%
       select(-feedcakes) %>%
       group_by(GCAM_region_ID, year) %>%

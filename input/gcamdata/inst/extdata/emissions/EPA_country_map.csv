@@ -14,7 +14,7 @@ Armenia,arm,10
 American Samoa,asm,29
 Antigua and Barbuda,atg,9
 Australia,aus,6
-Austria,aut,13
+Austria,aut,35
 Azerbaijan,aze,10
 Burundi,bdi,2
 Belgium,bel,13
@@ -37,7 +37,7 @@ Bhutan,btn,27
 Botswana,bwa,4
 Central African Republic,caf,5
 Canada,can,8
-Switzerland,che,16
+Switzerland,che,13
 Chile,chl,26
 China,chn,11
 Cote d'Ivoire,civ,5
@@ -54,8 +54,8 @@ Cuba,cub,9
 Curacao,cuw,9
 Cayman Islands,cym,9
 Cyprus,cyp,12
-Czechia,cze,12
-Czech Republic,cze,12
+Czechia,cze,35
+Czech Republic,cze,35
 Germany,deu,13
 Djibouti,dji,2
 Dominica,dma,9
@@ -66,21 +66,21 @@ Ecuador,ecu,26
 Egypt,egy,3
 Eritrea,eri,2
 Western Sahara,esh,3
-Spain,esp,13
-Estonia,est,12
+Spain,esp,37
+Estonia,est,34
 Ethiopia,eth,2
-Finland,fin,13
+Finland,fin,36
 Fiji,fji,29
-Falkland Islands,flk,13
+Falkland Islands,flk,31
 France,fra,13
-Faeroe Islands,fro,13
+Faeroe Islands,fro,38
 "Micronesia, Federated States of",fsm,29
 Micronesia (Federated States of),fsm,29
 Gabon,gab,5
-United Kingdom,gbr,13
+United Kingdom,gbr,38
 Georgia,geo,10
 Ghana,gha,5
-Gibraltar,gib,13
+Gibraltar,gib,37
 Guinea,gin,5
 NA,global,NA
 Guadeloupe,glp,9
@@ -88,9 +88,9 @@ Guadeloupe,glp,9
 Gambia,gmb,5
 Guinea-Bissau,gnb,5
 Equatorial Guinea,gnq,5
-Greece,grc,13
+Greece,grc,12
 Grenada,grd,9
-Greenland ,grl,13
+Greenland ,grl,38
 Guatemala,gtm,9
 French Guiana,guf,25
 Guam,gum,29
@@ -99,15 +99,15 @@ Hong Kong,hkg,11
 Honduras,hnd,9
 Croatia,hrv,15
 Haiti,hti,9
-Hungary,hun,12
+Hungary,hun,35
 Indonesia,idn,18
 India,ind,17
-Ireland,irl,13
+Ireland,irl,38
 Iran,irn,21
 Iraq,irq,21
-Iceland,isl,16
+Iceland,isl,38
 Israel,isr,21
-Italy,ita,13
+Italy,ita,39
 Jamaica,jam,9
 Jordan,jor,21
 Japan,jpn,19
@@ -125,12 +125,12 @@ Lebanon,lbn,21
 Liberia,lbr,5
 Libya,lby,3
 Saint Lucia,lca,9
-Liechtenstein,lie,16
+Liechtenstein,lie,13
 Sri Lanka,lka,27
 Lesotho,lso,4
-Lithuania,ltu,12
+Lithuania,ltu,34
 Luxembourg,lux,13
-Latvia,lva,12
+Latvia,lva,34
 Macao,mac,11
 Morocco,mar,3
 Moldova,mda,14
@@ -140,7 +140,7 @@ Mexico,mex,20
 Marshall Islands,mhl,29
 Macedonia,mkd,15
 Mali,mli,5
-Malta,mlt,12
+Malta,mlt,39
 Burma,mmr,29
 Montenegro,mne,15
 Mongolia,mng,10
@@ -168,11 +168,11 @@ Peru,per,26
 Philippines,phl,29
 Palau,plw,29
 Papua New Guinea,png,29
-Poland,pol,12
+Poland,pol,34
 Puerto Rico,pri,1
 "Korea, North",prk,29
 North Korea,prk,29
-Portugal,prt,13
+Portugal,prt,37
 Paraguay,pry,26
 Palestine,pse,21
 French Polynesia,pyf,29
@@ -189,20 +189,20 @@ Solomon Islands,slb,29
 Sierra Leone,sle,5
 El Salvador,slv,9
 Somalia,som,2
-Saint Pierre and Miquelon,spm,13
+Saint Pierre and Miquelon,spm,8
 Serbia,srb,15
 Kosovo,srb (kosovo),15
 South Sudan,ssd,2
 Sao Tome and Principe,stp,5
 Suriname,sur,25
-Slovakia,svk,12
-Slovenia,svn,12
-Sweden,swe,13
+Slovakia,svk,35
+Slovenia,svn,35
+Sweden,swe,36
 Swaziland,swz,4
 Sint Maarten,sxm,9
 Seychelles,syc,29
 Syria,syr,21
-Turks and Caicos Islands,tca,13
+Turks and Caicos Islands,tca,9
 Chad,tcd,5
 Togo,tgo,5
 Thailand,tha,29
@@ -223,19 +223,19 @@ United States,usa,1
 Uzbekistan,uzb,10
 Saint Vincent and the Grenadines,vct,9
 Venezuela,ven,25
-British Virgin Islands,vgb,13
+British Virgin Islands,vgb,9
 United States Virgin Islands,vir,1
 Vietnam,vnm,29
 Vanuatu,vut,29
-Wallis and Futuna Islands,wlf,13
+Wallis and Futuna Islands,wlf,6
 Samoa,wsm,29
 Yemen,yem,21
 South Africa,zaf,24
 Zambia,zmb,4
 Zimbabwe,zwe,4
-Andorra,and,13
-Holy See,ita,13
+Andorra,and,37
+Holy See,ita,39
 Monaco,fra,13
 Nauru,png,29
 Tuvalu,png,29
-San Marino,ita,13
+San Marino,ita,39

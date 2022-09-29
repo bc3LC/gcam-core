@@ -282,6 +282,7 @@ module_energy_LA120.offshore_wind <- function(command, ...) {
       summarise(total = sum(total)) %>%
       ungroup() %>%
       group_by(region) %>%
+      filter(total != 0) %>%
       mutate(share = total / sum(total)) %>%
       ungroup() -> L120.offshore_wind_potential_share
 

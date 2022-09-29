@@ -277,6 +277,11 @@ aglu.FOR_COST_SHARE          <- 0.59   # Non-land forestry cost share (from 2011
 # (endogenous) biomass prices in the final calibration year.
 aglu.PRICE_BIO_FRAC <- 1.2
 
+# Adjust the secondary output coefficients for some regions: the oilcrop procution mix in some countries (e.g., Slovenia or Finland)
+# differs from the EU-average, so the adjusments developed based on IIASA EU-based feedstock-specific production does not solve the problem
+# and the method uses produces negative estimates of feed demand:
+aglu.secOut.red<-0.2
+
 # Fertilizer application rate for biomass, and carbon yields. Values from Adler et al. 2007 (doi:10.1890/05-2018)
 aglu.BIO_GRASS_FERT_IO_GNM2 <- 5.6
 aglu.BIO_GRASS_YIELD_KGCM2  <- 0.34
@@ -511,6 +516,7 @@ energy.ELECTROLYZER_RENEWABLE_CAPACITY_RATIO <- 0.618  # unitless capacity ratio
 energy.WIND_CURVE_MIDPOINT <- 0.5
 energy.WIND_MIN_POTENTIAL <- 0.001
 energy.WIND_ELECTROLYSIS_KGH2_D <- 50000    # kg of h2 produced per day at a wind-electrolysis plant
+
 
 # Digits for rounding into XMLs
 energy.DIGITS_CALOUTPUT        <- 7
