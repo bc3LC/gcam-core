@@ -4,238 +4,238 @@
 # Units: Unitless
 # Column types: cci
 EPA_country,iso,GCAM_region_ID
-Aruba,abw,9
-Afghanistan,afg,27
-Angola,ago,4
-Albania,alb,15
-United Arab Emirates,are,21
-Argentina,arg,31
-Armenia,arm,10
-American Samoa,asm,29
-Antigua and Barbuda,atg,9
-Australia,aus,6
-Austria,aut,35
-Azerbaijan,aze,10
+Puerto Rico,pri,1
+United States,usa,1
+United States Virgin Islands,vir,1
 Burundi,bdi,2
-Belgium,bel,13
+Comoros,com,2
+Djibouti,dji,2
+Eritrea,eri,2
+Ethiopia,eth,2
+Kenya,ken,2
+Madagascar,mdg,2
+Mauritius,mus,2
+Reunion,reu,2
+Rwanda,rwa,2
+Sudan,sdn,2
+Somalia,som,2
+South Sudan,ssd,2
+Uganda,uga,2
+Algeria,dza,3
+Egypt,egy,3
+Western Sahara,esh,3
+Libya,lby,3
+Morocco,mar,3
+Tunisia,tun,3
+Angola,ago,4
+Botswana,bwa,4
+Lesotho,lso,4
+Mozambique,moz,4
+Malawi,mwi,4
+Namibia,nam,4
+Swaziland,swz,4
+Tanzania,tza,4
+Zambia,zmb,4
+Zimbabwe,zwe,4
 Benin,ben,5
 Burkina Faso,bfa,5
-Bangladesh,bgd,27
-Bulgaria,bgr,12
-Bahrain,bhr,21
-"Bahamas, The",bhs,9
-Bahamas,bhs,9
-Bosnia and Herzegovina,bih,15
-Belarus,blr,14
-Belize,blz,9
-Bermuda,bmu,9
-Bolivia,bol,26
-Brazil,bra,7
-Barbados,brb,9
-Brunei,brn,29
-Bhutan,btn,27
-Botswana,bwa,4
 Central African Republic,caf,5
-Canada,can,8
-Switzerland,che,13
-Chile,chl,26
-China,chn,11
 Cote d'Ivoire,civ,5
 Cameroon,cmr,5
 Congo (Kinshasa),cod,5
 Congo (Brazzaville),cog,5
-Cook Islands,cok,29
-Colombia,col,32
-Comoros,com,2
 Cabo Verde,cpv,5
 Cape Verde,cpv,5
-Costa Rica,cri,9
-Cuba,cub,9
-Curacao,cuw,9
-Cayman Islands,cym,9
-Cyprus,cyp,12
-Czechia,cze,35
-Czech Republic,cze,35
-Germany,deu,13
-Djibouti,dji,2
-Dominica,dma,9
-Denmark,dnk,13
-Dominican Republic,dom,9
-Algeria,dza,3
-Ecuador,ecu,26
-Egypt,egy,3
-Eritrea,eri,2
-Western Sahara,esh,3
-Spain,esp,37
-Estonia,est,34
-Ethiopia,eth,2
-Finland,fin,36
-Fiji,fji,29
-Falkland Islands,flk,31
-France,fra,13
-Faeroe Islands,fro,38
-"Micronesia, Federated States of",fsm,29
-Micronesia (Federated States of),fsm,29
 Gabon,gab,5
-United Kingdom,gbr,38
-Georgia,geo,10
 Ghana,gha,5
-Gibraltar,gib,37
 Guinea,gin,5
-NA,global,NA
-Guadeloupe,glp,9
 "Gambia, The",gmb,5
 Gambia,gmb,5
 Guinea-Bissau,gnb,5
 Equatorial Guinea,gnq,5
-Greece,grc,12
-Grenada,grd,9
-Greenland ,grl,38
-Guatemala,gtm,9
-French Guiana,guf,25
-Guam,gum,29
-Guyana,guy,25
-Hong Kong,hkg,11
-Honduras,hnd,9
-Croatia,hrv,15
-Haiti,hti,9
-Hungary,hun,35
-Indonesia,idn,18
-India,ind,17
-Ireland,irl,38
-Iran,irn,21
-Iraq,irq,21
-Iceland,isl,38
-Israel,isr,21
-Italy,ita,39
-Jamaica,jam,9
-Jordan,jor,21
-Japan,jpn,19
-Kazakhstan,kaz,10
-Kenya,ken,2
-Kyrgyzstan,kgz,10
-Cambodia,khm,29
-Kiribati,kir,29
-Saint Kitts and Nevis,kna,9
-"Korea, South",kor,28
-South Korea,kor,28
-Kuwait,kwt,21
-Laos,lao,29
-Lebanon,lbn,21
 Liberia,lbr,5
-Libya,lby,3
-Saint Lucia,lca,9
-Liechtenstein,lie,13
-Sri Lanka,lka,27
-Lesotho,lso,4
-Lithuania,ltu,34
-Luxembourg,lux,13
-Latvia,lva,34
-Macao,mac,11
-Morocco,mar,3
-Moldova,mda,14
-Madagascar,mdg,2
-Maldives,mdv,27
-Mexico,mex,20
-Marshall Islands,mhl,29
-Macedonia,mkd,15
 Mali,mli,5
-Malta,mlt,39
-Burma,mmr,29
-Montenegro,mne,15
-Mongolia,mng,10
-Mozambique,moz,4
 Mauritania,mrt,5
-Montserrat,msr,9
-Martinique,mtq,9
-Mauritius,mus,2
-Malawi,mwi,4
-Malaysia,mys,29
-Namibia,nam,4
-New Caledonia,ncl,29
 Niger,ner,5
 Nigeria,nga,5
-Nicaragua,nic,9
-Niue,niu,29
-Netherlands,nld,13
-Norway,nor,16
-Nepal,npl,27
+Senegal,sen,5
+Sierra Leone,sle,5
+Sao Tome and Principe,stp,5
+Chad,tcd,5
+Togo,tgo,5
+Australia,aus,6
 New Zealand,nzl,6
-Oman,omn,21
-Pakistan,pak,22
+Wallis and Futuna Islands,wlf,6
+Brazil,bra,7
+Canada,can,8
+Saint Pierre and Miquelon,spm,8
+Aruba,abw,9
+Antigua and Barbuda,atg,9
+"Bahamas, The",bhs,9
+Bahamas,bhs,9
+Belize,blz,9
+Bermuda,bmu,9
+Barbados,brb,9
+Costa Rica,cri,9
+Cuba,cub,9
+Curacao,cuw,9
+Cayman Islands,cym,9
+Dominica,dma,9
+Dominican Republic,dom,9
+Guadeloupe,glp,9
+Grenada,grd,9
+Guatemala,gtm,9
+Honduras,hnd,9
+Haiti,hti,9
+Jamaica,jam,9
+Saint Kitts and Nevis,kna,9
+Saint Lucia,lca,9
+Montserrat,msr,9
+Martinique,mtq,9
+Nicaragua,nic,9
 Panama,pan,9
+El Salvador,slv,9
+Sint Maarten,sxm,9
+Turks and Caicos Islands,tca,9
+Trinidad and Tobago,tto,9
+Saint Vincent and the Grenadines,vct,9
+British Virgin Islands,vgb,9
+Armenia,arm,10
+Azerbaijan,aze,10
+Georgia,geo,10
+Kazakhstan,kaz,10
+Kyrgyzstan,kgz,10
+Mongolia,mng,10
+Tajikistan,tjk,10
+Turkmenistan,tkm,10
+Uzbekistan,uzb,10
+China,chn,11
+Hong Kong,hkg,11
+Macao,mac,11
+Bulgaria,bgr,12
+Cyprus,cyp,12
+Greece,grc,12
+Romania,rou,12
+Belgium,bel,13
+Switzerland,che,13
+Germany,deu,13
+Denmark,dnk,13
+France,fra,13
+Liechtenstein,lie,13
+Luxembourg,lux,13
+Netherlands,nld,13
+Monaco,fra,13
+Belarus,blr,14
+Moldova,mda,14
+Albania,alb,15
+Bosnia and Herzegovina,bih,15
+Croatia,hrv,15
+Macedonia,mkd,15
+Montenegro,mne,15
+Serbia,srb,15
+Kosovo,srb (kosovo),15
+Turkey,tur,15
+Norway,nor,16
+Finland,fin,16
+Sweden,swe,16
+India,ind,17
+Indonesia,idn,18
+Japan,jpn,19
+Mexico,mex,20
+United Arab Emirates,are,21
+Bahrain,bhr,21
+Iran,irn,21
+Iraq,irq,21
+Israel,isr,21
+Jordan,jor,21
+Kuwait,kwt,21
+Lebanon,lbn,21
+Oman,omn,21
+Palestine,pse,21
+Qatar,qat,21
+Saudi Arabia,sau,21
+Syria,syr,21
+Yemen,yem,21
+Pakistan,pak,22
+Russia,rus,23
+South Africa,zaf,24
+French Guiana,guf,25
+Guyana,guy,25
+Suriname,sur,25
+Venezuela,ven,25
+Bolivia,bol,26
+Chile,chl,26
+Ecuador,ecu,26
 Peru,per,26
+Paraguay,pry,26
+Uruguay,ury,26
+Afghanistan,afg,27
+Bangladesh,bgd,27
+Bhutan,btn,27
+Sri Lanka,lka,27
+Maldives,mdv,27
+Nepal,npl,27
+"Korea, South",kor,28
+South Korea,kor,28
+American Samoa,asm,29
+Brunei,brn,29
+Cook Islands,cok,29
+Fiji,fji,29
+"Micronesia, Federated States of",fsm,29
+Micronesia (Federated States of),fsm,29
+Guam,gum,29
+Cambodia,khm,29
+Kiribati,kir,29
+Laos,lao,29
+Marshall Islands,mhl,29
+Burma,mmr,29
+Malaysia,mys,29
+New Caledonia,ncl,29
+Niue,niu,29
 Philippines,phl,29
 Palau,plw,29
 Papua New Guinea,png,29
-Poland,pol,34
-Puerto Rico,pri,1
 "Korea, North",prk,29
 North Korea,prk,29
-Portugal,prt,37
-Paraguay,pry,26
-Palestine,pse,21
 French Polynesia,pyf,29
-Qatar,qat,21
-Reunion,reu,2
-Romania,rou,12
-Russia,rus,23
-Rwanda,rwa,2
-Saudi Arabia,sau,21
-Sudan,sdn,2
-Senegal,sen,5
 Singapore,sgp,29
 Solomon Islands,slb,29
-Sierra Leone,sle,5
-El Salvador,slv,9
-Somalia,som,2
-Saint Pierre and Miquelon,spm,8
-Serbia,srb,15
-Kosovo,srb (kosovo),15
-South Sudan,ssd,2
-Sao Tome and Principe,stp,5
-Suriname,sur,25
-Slovakia,svk,35
-Slovenia,svn,35
-Sweden,swe,36
-Swaziland,swz,4
-Sint Maarten,sxm,9
 Seychelles,syc,29
-Syria,syr,21
-Turks and Caicos Islands,tca,9
-Chad,tcd,5
-Togo,tgo,5
 Thailand,tha,29
-Tajikistan,tjk,10
 Tokelau,tkl,29
-Turkmenistan,tkm,10
 Timor-Leste,tls,29
 Tonga,ton,29
-Trinidad and Tobago,tto,9
-Tunisia,tun,3
-Turkey,tur,15
-Taiwan / Chinese Taipei,twn,30
-Tanzania,tza,4
-Uganda,uga,2
-Ukraine,ukr,33
-Uruguay,ury,26
-United States,usa,1
-Uzbekistan,uzb,10
-Saint Vincent and the Grenadines,vct,9
-Venezuela,ven,25
-British Virgin Islands,vgb,9
-United States Virgin Islands,vir,1
 Vietnam,vnm,29
 Vanuatu,vut,29
-Wallis and Futuna Islands,wlf,6
 Samoa,wsm,29
-Yemen,yem,21
-South Africa,zaf,24
-Zambia,zmb,4
-Zimbabwe,zwe,4
-Andorra,and,37
-Holy See,ita,39
-Monaco,fra,13
 Nauru,png,29
 Tuvalu,png,29
-San Marino,ita,39
+Taiwan / Chinese Taipei,twn,30
+Argentina,arg,31
+Falkland Islands,flk,31
+Colombia,col,32
+Ukraine,ukr,33
+Estonia,est,34
+Lithuania,ltu,34
+Latvia,lva,34
+Poland,pol,34
+Austria,aut,35
+Czechia,cze,35
+Czech Republic,cze,35
+Hungary,hun,35
+Slovakia,svk,35
+Slovenia,svn,35
+Faeroe Islands,fro,36
+United Kingdom,gbr,36
+Greenland ,grl,36
+Ireland,irl,36
+Iceland,isl,36
+Spain,esp,37
+Gibraltar,gib,37
+Portugal,prt,37
+Andorra,and,37
+Italy,ita,37
+Malta,mlt,37
+Holy See,ita,37
+San Marino,ita,37
+NA,global,NA

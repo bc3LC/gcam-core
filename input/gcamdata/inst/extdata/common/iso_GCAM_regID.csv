@@ -64,8 +64,10 @@ tcd,Chad,Africa,5
 tgo,Togo,Africa,5
 aus,Australia,Australia_NZ,6
 nzl,New Zealand,Australia_NZ,6
+wlf,Wallis and Futuna,Australia_NZ,6
 bra,Brazil,Latin America,7
 can,Canada,Canada,8
+spm,Saint Pierre and Miquelon,Canada,8
 abw,Aruba,Latin America,9
 aia,Anguilla,Latin America,9
 ant,Netherlands Antilles,Latin America,9
@@ -93,8 +95,10 @@ mtq,Martinique,Western Europe,9
 nic,Nicaragua,Latin America,9
 pan,Panama,Latin America,9
 slv,El Salvador,Latin America,9
+tca,Turks and Caicos,Latin America,9
 tto,Trinidad and Tobago,Latin America,9
 vct,Saint Vincent and the Grenadines,Latin America,9
+vgb,"Virgin Islands, British",Latin America,9
 arm,Armenia,Former Soviet Union,10
 aze,Azerbaijan,Former Soviet Union,10
 geo,Georgia,Former Soviet Union,10
@@ -109,51 +113,19 @@ hkg,Hong Kong,Southeast Asia,11
 mac,Macau,Southeast Asia,11
 bgr,Bulgaria,Eastern Europe,12
 cyp,Cyprus,Western Europe,12
-cze,Czech Republic,Eastern Europe,35
-est,Estonia,Former Soviet Union,34
-hun,Hungary,Eastern Europe,35
-ltu,Lithuania,Former Soviet Union,34
-lva,Latvia,Former Soviet Union,34
-mlt,Malta,Western Europe,39
-pol,Poland,Eastern Europe,34
+grc,Greece,Western Europe,12
 rom,Romania,Eastern Europe,12
-svk,Slovakia,Eastern Europe,35
-svn,Slovenia,Eastern Europe,35
-and,Andorra,Western Europe,37
-aut,Austria,Western Europe,35
 bel,Belgium,Western Europe,13
-chi,Channel Islands,Western Europe,38
+che,Switzerland,Western Europe,13
 deu,Germany,Western Europe,13
 dnk,Denmark,Western Europe,13
-esp,Spain,Western Europe,37
-fin,Finland,Western Europe,36
-flk,Falkland Islands (Malvinas),Latin America,31
 fra,France,Western Europe,13
-fro,Faroe Islands,Western Europe,38
-gbr,United Kingdom,Western Europe,38
-ggy,Guernsey,Western Europe,38
-gib,Gibraltar,Western Europe,37
-grc,Greece,Western Europe,12
-grl,Greenland,Western Europe,38
-imn,Isle of Man,Western Europe,38
-irl,Ireland,Western Europe,38
-ita,Italy,Western Europe,39
-jey,Jersey,Western Europe,38
+lie,Liechtenstein,Western Europe,13
 lux,Luxembourg,Western Europe,13
 mco,Monaco,Western Europe,13
 nld,Netherlands,Western Europe,13
-prt,Portugal,Western Europe,37
-shn,Saint Helena,Africa,38
-smr,San Marino,Western Europe,39
-spm,Saint Pierre and Miquelon,Canada,8
-swe,Sweden,Western Europe,36
-tca,Turks and Caicos,Latin America,9
-vat,Vatican,Western Europe,39
-vgb,"Virgin Islands, British",Latin America,9
-wlf,Wallis and Futuna,Australia_NZ,6
 blr,Belarus,Former Soviet Union,14
 mda,"Moldova, Republic of",Former Soviet Union,14
-ukr,Ukraine,Former Soviet Union,33
 alb,Albania,Eastern Europe,15
 bih,Bosnia and Herzegovina,Eastern Europe,15
 hrv,Croatia,Eastern Europe,15
@@ -163,11 +135,10 @@ scg,Serbia and Montenegro,Eastern Europe,15
 srb,Serbia,Eastern Europe,15
 tur,Turkey,Western Europe,15
 yug,"Yugoslavia, Federal Republic of",Eastern Europe,15
-che,Switzerland,Western Europe,13
-isl,Iceland,Western Europe,38
-lie,Liechtenstein,Western Europe,13
+fin,Finland,Western Europe,16
 nor,Norway,Western Europe,16
 sjm,Svalbard and Jan Mayen Islands,Western Europe,16
+swe,Sweden,Western Europe,16
 ind,India,India,17
 idn,Indonesia,Southeast Asia,18
 jpn,Japan,Japan,19
@@ -246,4 +217,33 @@ vut,Vanuatu,Southeast Asia,29
 wsm,Samoa,Southeast Asia,29
 twn,Taiwan,Southeast Asia,30
 arg,Argentina,Latin America,31
+flk,Falkland Islands (Malvinas),Latin America,31
 col,Colombia,Latin America,32
+ukr,Ukraine,Former Soviet Union,33
+est,Estonia,Former Soviet Union,34
+ltu,Lithuania,Former Soviet Union,34
+lva,Latvia,Former Soviet Union,34
+pol,Poland,Eastern Europe,34
+aut,Austria,Western Europe,35
+cze,Czech Republic,Eastern Europe,35
+hun,Hungary,Eastern Europe,35
+svk,Slovakia,Eastern Europe,35
+svn,Slovenia,Eastern Europe,35
+chi,Channel Islands,Western Europe,36
+fro,Faroe Islands,Western Europe,36
+gbr,United Kingdom,Western Europe,36
+ggy,Guernsey,Western Europe,36
+grl,Greenland,Western Europe,36
+imn,Isle of Man,Western Europe,36
+irl,Ireland,Western Europe,36
+isl,Iceland,Western Europe,36
+jey,Jersey,Western Europe,36
+shn,Saint Helena,Africa,36
+and,Andorra,Western Europe,37
+esp,Spain,Western Europe,37
+gib,Gibraltar,Western Europe,37
+ita,Italy,Western Europe,37
+mlt,Malta,Western Europe,37
+prt,Portugal,Western Europe,37
+smr,San Marino,Western Europe,37
+vat,Vatican,Western Europe,37

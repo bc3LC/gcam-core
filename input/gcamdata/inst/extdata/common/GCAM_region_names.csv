@@ -20,7 +20,7 @@ GCAM_region_ID,region
 13,EU_Northwest
 14,Europe_Eastern
 15,Europe_Non_EU
-16,Norway
+16,EU_North
 17,India
 18,Indonesia
 19,Japan
@@ -40,7 +40,5 @@ GCAM_region_ID,region
 33,Ukraine
 34,EU_Northeast
 35,EU_Central
-36,EU_North
+36,UK+
 37,EU_Southwest
-38,UK+
-39,Italy+

@@ -296,22 +296,22 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
 
     # scale forest to avoid negative unmanaged forest area which caused issue for yield in Pakistan and African regions
     # L123.LC_bm2_R_MgdFor_Yh_GLU_beforeadjust, pulled from L123.LC_bm2_R_MgdFor_Yh_GLU before managed forest scaling, was used here.
-    # L120.LC_bm2_R_LT_Yh_GLU %>%
-    # left_join(L120.LC_bm2_R_LT_Yh_GLU %>%
-    #             spread(Land_Type, value, fill = 0) %>%
-    #             left_join(L123.LC_bm2_R_MgdFor_Yh_GLU_beforeadjust %>% select(-Land_Type),
-    #	by = c("GCAM_region_ID", "GLU", "year")) %>%
-    #             mutate(nonForScaler =
-    #                      if_else((Forest - MgdFor) < 0 & Forest > 0,
-    #                              1 + (Forest - MgdFor)/(Grassland + Shrubland + Pasture), 1),
-    #                    ForScaler = if_else((Forest - MgdFor) < 0 & Forest > 0,  MgdFor/Forest ,1)) %>%
-    #             select(GCAM_region_ID, GLU, year, nonForScaler, ForScaler),
-    #           by = c("GCAM_region_ID", "GLU", "year") ) %>%
-    # mutate(value = if_else(Land_Type %in% c("Grassland", "Shrubland" , "Pasture"),
-    #                         value * nonForScaler,
-    #                         if_else(Land_Type == "Forest", value * ForScaler, value) )) %>%
-    #  select(-nonForScaler, -ForScaler) ->
-    #  L120.LC_bm2_R_LT_Yh_GLU
+     L120.LC_bm2_R_LT_Yh_GLU %>%
+    left_join(L120.LC_bm2_R_LT_Yh_GLU %>%
+                spread(Land_Type, value, fill = 0) %>%
+                left_join(L123.LC_bm2_R_MgdFor_Yh_GLU_beforeadjust %>% select(-Land_Type),
+    	by = c("GCAM_region_ID", "GLU", "year")) %>%
+                mutate(nonForScaler =
+                         if_else((Forest - MgdFor) < 0 & Forest > 0,
+                                 1 + (Forest - MgdFor)/(Grassland + Shrubland + Pasture), 1),
+                       ForScaler = if_else((Forest - MgdFor) < 0 & Forest > 0,  MgdFor/Forest ,1)) %>%
+                select(GCAM_region_ID, GLU, year, nonForScaler, ForScaler),
+              by = c("GCAM_region_ID", "GLU", "year") ) %>%
+    mutate(value = if_else(Land_Type %in% c("Grassland", "Shrubland" , "Pasture"),
+                            value * nonForScaler,
+                            if_else(Land_Type == "Forest", value * ForScaler, value) )) %>%
+     select(-nonForScaler, -ForScaler) ->
+     L120.LC_bm2_R_LT_Yh_GLU
 
     # Subset the land types that are not further modified
     L120.LC_bm2_R_UrbanLand_Yh_GLU <- filter(L120.LC_bm2_R_LT_Yh_GLU, Land_Type == "UrbanLand")

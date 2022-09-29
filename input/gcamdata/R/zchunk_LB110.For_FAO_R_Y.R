@@ -88,7 +88,8 @@ module_aglu_LB110.For_FAO_R_Y <- function(command, ...) {
       #   instead of having flow and value for each year, region, commodity, we now want NetExp and Prod columns for each year, region, commodity.
       #   The new DSR eliminates the use of L110.For_ALL_bm3_R_Y.prelim
       spread(flow, value) %>%
-      #
+      # Correct that Prod cannot be smaller than NetExp as it happens in Ukraine
+      mutate(NetExp_bm3 = if_else(Prod_bm3 < NetExp_bm3, Prod_bm3, NetExp_bm3)) %>%
       mutate(Cons_bm3 = Prod_bm3 - NetExp_bm3) %>%                                     # form a new variable, consumption Cons = Prod-NetExp
       select(GCAM_region_ID, GCAM_commodity, year, Prod_bm3, NetExp_bm3, Cons_bm3) ->  # reorder columns
       L110.For_ALL_bm3_R_Y                                                             # save it in the region year R_Y tibble
