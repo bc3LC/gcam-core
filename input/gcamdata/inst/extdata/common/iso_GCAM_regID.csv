@@ -139,6 +139,10 @@ fin,Finland,Western Europe,16
 nor,Norway,Western Europe,16
 sjm,Svalbard and Jan Mayen Islands,Western Europe,16
 swe,Sweden,Western Europe,16
+est,Estonia,Former Soviet Union,16
+ltu,Lithuania,Former Soviet Union,16
+lva,Latvia,Former Soviet Union,16
+pol,Poland,Eastern Europe,16
 ind,India,India,17
 idn,Indonesia,Southeast Asia,18
 jpn,Japan,Japan,19
@@ -220,10 +224,6 @@ arg,Argentina,Latin America,31
 flk,Falkland Islands (Malvinas),Latin America,31
 col,Colombia,Latin America,32
 ukr,Ukraine,Former Soviet Union,33
-est,Estonia,Former Soviet Union,34
-ltu,Lithuania,Former Soviet Union,34
-lva,Latvia,Former Soviet Union,34
-pol,Poland,Eastern Europe,34
 aut,Austria,Western Europe,35
 cze,Czech Republic,Eastern Europe,35
 hun,Hungary,Eastern Europe,35
@@ -239,11 +239,11 @@ irl,Ireland,Western Europe,36
 isl,Iceland,Western Europe,36
 jey,Jersey,Western Europe,36
 shn,Saint Helena,Africa,36
-and,Andorra,Western Europe,37
-esp,Spain,Western Europe,37
-gib,Gibraltar,Western Europe,37
-ita,Italy,Western Europe,37
-mlt,Malta,Western Europe,37
-prt,Portugal,Western Europe,37
-smr,San Marino,Western Europe,37
-vat,Vatican,Western Europe,37
+and,Andorra,Western Europe,34
+esp,Spain,Western Europe,34
+gib,Gibraltar,Western Europe,34
+ita,Italy,Western Europe,34
+mlt,Malta,Western Europe,34
+prt,Portugal,Western Europe,34
+smr,San Marino,Western Europe,34
+vat,Vatican,Western Europe,34

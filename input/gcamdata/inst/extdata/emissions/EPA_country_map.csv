@@ -215,10 +215,10 @@ Argentina,arg,31
 Falkland Islands,flk,31
 Colombia,col,32
 Ukraine,ukr,33
-Estonia,est,34
-Lithuania,ltu,34
-Latvia,lva,34
-Poland,pol,34
+Estonia,est,16
+Lithuania,ltu,16
+Latvia,lva,16
+Poland,pol,16
 Austria,aut,35
 Czechia,cze,35
 Czech Republic,cze,35
@@ -230,12 +230,12 @@ United Kingdom,gbr,36
 Greenland ,grl,36
 Ireland,irl,36
 Iceland,isl,36
-Spain,esp,37
-Gibraltar,gib,37
-Portugal,prt,37
-Andorra,and,37
-Italy,ita,37
-Malta,mlt,37
-Holy See,ita,37
-San Marino,ita,37
+Spain,esp,34
+Gibraltar,gib,34
+Portugal,prt,34
+Andorra,and,34
+Italy,ita,34
+Malta,mlt,34
+Holy See,ita,34
+San Marino,ita,34
 NA,global,NA
