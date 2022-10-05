@@ -112,32 +112,38 @@ Uzbekistan,uzb,10
 China,chn,11
 Hong Kong,hkg,11
 Macao,mac,11
-Bulgaria,bgr,12
 Cyprus,cyp,12
 Greece,grc,12
-Romania,rou,12
+Spain,esp,12
+Gibraltar,gib,12
+Portugal,prt,12
+Andorra,and,12
+Italy,ita,12
+Malta,mlt,12
+Holy See,ita,12
+San Marino,ita,12
 Belgium,bel,13
-Switzerland,che,13
 Germany,deu,13
-Denmark,dnk,13
 France,fra,13
-Liechtenstein,lie,13
 Luxembourg,lux,13
 Netherlands,nld,13
 Monaco,fra,13
+Denmark,dnk,13
+Finland,fin,13
+Sweden,swe,13
 Belarus,blr,14
 Moldova,mda,14
 Albania,alb,15
 Bosnia and Herzegovina,bih,15
-Croatia,hrv,35
 Macedonia,mkd,15
 Montenegro,mne,15
 Serbia,srb,15
 Kosovo,srb (kosovo),15
 Turkey,tur,15
+Switzerland,che,16
+Liechtenstein,lie,16
 Norway,nor,16
-Finland,fin,16
-Sweden,swe,16
+Iceland,isl,16
 India,ind,17
 Indonesia,idn,18
 Japan,jpn,19
@@ -215,27 +221,21 @@ Argentina,arg,31
 Falkland Islands,flk,31
 Colombia,col,32
 Ukraine,ukr,33
-Estonia,est,16
-Lithuania,ltu,16
-Latvia,lva,16
-Poland,pol,16
+Faeroe Islands,fro,34
+United Kingdom,gbr,34
+Greenland ,grl,34
+Ireland,irl,34
+Bulgaria,bgr,35
+Romania,rou,35
+Estonia,est,35
+Lithuania,ltu,35
+Latvia,lva,35
+Poland,pol,35
+Croatia,hrv,35
 Austria,aut,35
 Czechia,cze,35
 Czech Republic,cze,35
 Hungary,hun,35
 Slovakia,svk,35
 Slovenia,svn,35
-Faeroe Islands,fro,36
-United Kingdom,gbr,36
-Greenland ,grl,36
-Ireland,irl,36
-Iceland,isl,36
-Spain,esp,34
-Gibraltar,gib,34
-Portugal,prt,34
-Andorra,and,34
-Italy,ita,34
-Malta,mlt,34
-Holy See,ita,34
-San Marino,ita,34
 NA,global,NA

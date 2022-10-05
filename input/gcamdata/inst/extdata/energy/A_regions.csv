@@ -16,11 +16,11 @@ GCAM_region_ID,region,tradbio_region,ethanol,biodiesel,biomassOil_tech,elect_td_
 9,Central America and Caribbean,1,sugar cane ethanol,biodiesel,OilPalm,0.00075,0,D
 10,Central Asia,0,corn ethanol,biodiesel,OilCrop,0.0001,0,D
 11,China,1,corn ethanol,biodiesel,Soybean,0.0001,1,D
-12,EU_Southeast,0,corn ethanol,biodiesel,OilCrop,0.0001,1,C
-13,EU_Northwest,0,corn ethanol,biodiesel,OilCrop,0.0001,0,C
+12,EU_South,0,corn ethanol,biodiesel,OilCrop,0.0001,0,C
+13,EU_North,0,corn ethanol,biodiesel,OilCrop,0.0001,0,C
 14,Europe_Eastern,0,corn ethanol,biodiesel,OilCrop,0.0002,1,D
 15,Europe_Non_EU,0,corn ethanol,biodiesel,OilCrop,0.0002,1,C
-16,EU_Northeast,0,corn ethanol,biodiesel,OilCrop,0.0001,1,C
+16,EFTA,0,corn ethanol,biodiesel,OilCrop,0.0001,1,C
 17,India,1,corn ethanol,biodiesel,Soybean,0.002,0,E
 18,Indonesia,1,sugar cane ethanol,biodiesel,OilPalm,0.00025,0,E
 19,Japan,0,corn ethanol,biodiesel,Soybean,0.0001,0,D
@@ -38,6 +38,5 @@ GCAM_region_ID,region,tradbio_region,ethanol,biodiesel,biomassOil_tech,elect_td_
 31,Argentina,1,corn ethanol,biodiesel,Soybean,0.00075,0,D
 32,Colombia,1,sugar cane ethanol,biodiesel,OilCrop,0.00075,0,D
 33,Ukraine,0,corn ethanol,biodiesel,OilCrop,0.0002,1,D
-34,EU_Southwest,0,corn ethanol,biodiesel,OilCrop,0.0001,0,C
+34,UK+,0,corn ethanol,biodiesel,OilCrop,0.0001,0,C
 35,EU_Central,0,corn ethanol,biodiesel,OilCrop,0.0001,1,C
-36,UK+,0,corn ethanol,biodiesel,OilCrop,0.0001,0,C
