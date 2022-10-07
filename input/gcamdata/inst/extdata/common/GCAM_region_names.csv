@@ -16,8 +16,8 @@ GCAM_region_ID,region
 9,Central America and Caribbean
 10,Central Asia
 11,China
-12,EU_South
-13,EU_North
+12,EU_Southwest
+13,EU_Northwest
 14,Europe_Eastern
 15,Europe_Non_EU
 16,EFTA
@@ -40,3 +40,7 @@ GCAM_region_ID,region
 33,Ukraine
 34,UK+
 35,EU_Central
+36,Poland
+37,EU_Southeast
+38,EU_Northeast
+39,Lithuania

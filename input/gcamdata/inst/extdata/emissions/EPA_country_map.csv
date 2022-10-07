@@ -112,8 +112,6 @@ Uzbekistan,uzb,10
 China,chn,11
 Hong Kong,hkg,11
 Macao,mac,11
-Cyprus,cyp,12
-Greece,grc,12
 Spain,esp,12
 Gibraltar,gib,12
 Portugal,prt,12
@@ -129,8 +127,6 @@ Luxembourg,lux,13
 Netherlands,nld,13
 Monaco,fra,13
 Denmark,dnk,13
-Finland,fin,13
-Sweden,swe,13
 Belarus,blr,14
 Moldova,mda,14
 Albania,alb,15
@@ -225,12 +221,6 @@ Faeroe Islands,fro,34
 United Kingdom,gbr,34
 Greenland ,grl,34
 Ireland,irl,34
-Bulgaria,bgr,35
-Romania,rou,35
-Estonia,est,35
-Lithuania,ltu,35
-Latvia,lva,35
-Poland,pol,35
 Croatia,hrv,35
 Austria,aut,35
 Czechia,cze,35
@@ -238,4 +228,14 @@ Czech Republic,cze,35
 Hungary,hun,35
 Slovakia,svk,35
 Slovenia,svn,35
+Poland,pol,36
+Cyprus,cyp,37
+Greece,grc,37
+Bulgaria,bgr,37
+Romania,rou,37
+Finland,fin,38
+Sweden,swe,38
+Estonia,est,38
+Lithuania,ltu,39
+Latvia,lva,38
 NA,global,NA

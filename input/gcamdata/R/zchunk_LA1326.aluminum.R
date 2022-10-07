@@ -217,8 +217,9 @@ module_energy_LA1326.aluminum <- function(command, ...) {
                   group_by(GCAM_region_ID, sector, year) %>% summarise(sum = sum(output)), by = c("GCAM_region_ID", "year", "sector")) %>%
       mutate(value = sum / output * value, sum = NULL) %>%
       bind_rows(L1326.IO_GJkg_R_aluminum_F_Yh_tmp %>% filter(fuel == "electricity")) %>%
-      mutate(value = replace_na(value, 0), input = NULL, output =NULL) ->
-      L1326.IO_GJkg_R_aluminum_F_Yh
+      mutate(value = replace_na(value, 0), input = NULL, output =NULL) %>%
+      # manually adjust IO coefficients for EU_ortheast in 2010 (calibration error)
+      mutate(value = if_else(year == 2010 & sector == "Alumina" & GCAM_region_ID == 38, value * 1.048477152, value))->L1326.IO_GJkg_R_aluminum_F_Yh
 
 
     # =======================================================
