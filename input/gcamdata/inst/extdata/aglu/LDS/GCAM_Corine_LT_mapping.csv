@@ -1,0 +1,52 @@
+# File: GCAM_Corine_LT_mapping.csv
+# Title: GCAM_Corine_LT_mapping
+# Units: NA
+# Original source: https://land.copernicus.eu/pan-european/corine-land-cover
+# Description: Maps Corine land types to GCAM categorization
+# Column types: cc
+# ----------
+Corine,GCAM
+Agro-forestry areas,Pasture
+Airports,Urbanland
+Annual crops associated with permanent crops,Cropland
+Bare rocks,RockIceDesert
+"Beaches, dunes, sands",RockIceDesert
+Broad-leaved forest,Forest
+Burnt areas,Cropland
+Coastal lagoons,
+Complex cultivation patterns,Cropland
+Coniferous forest,Forest
+Construction sites,Urbanland
+Continuous urban fabric,Urbanland
+Discontinuous urban fabric,Urbanland
+Dump sites,Urbanland
+Estuaries,
+Fruit trees and berry plantations,Cropland
+Glaciers and perpetual snow,RockIceDesert
+Green urban areas,Urbanland
+Industrial or commercial units,Urbanland
+Inland marshes,Tundra
+Peat bogs,Tundra
+Intertidal flats,
+"Land principally occupied by agriculture, with significant areas of natural vegetation",Cropland
+Mineral extraction sites,Urbanland
+Mixed forest,Forest
+Moors and heathland,Grassland
+Natural grasslands,Grassland
+Non-irrigated arable land,Cropland
+Olive groves,Cropland
+Pastures,Pasture
+Permanently irrigated land,Cropland
+Port areas,Urbanland
+Rice fields,Cropland
+Road and rail networks and associated land,Urbanland
+Salines,
+Salt marshes,
+Sclerophyllous vegetation,Shrubland
+Sea and ocean,
+Sparsely vegetated areas,Tundra
+Sport and leisure facilities,Urbanland
+Transitional woodland-shrub,Shrubland
+Vineyards,Cropland
+Water bodies,
+Water courses,
