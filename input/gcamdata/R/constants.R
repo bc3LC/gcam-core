@@ -102,6 +102,7 @@ CONV_KG_T <- 1 / CONV_T_KG
 CONV_T_METRIC_SHORT <- 1000 / 908  # Ratio between metric ton and short ton
 CONV_HA_BM2 <- 1e-5
 CONV_HA_M2 <- 10000
+CONV_KM2_HA <- 100
 CONV_THA_KGM2 <- 0.1   # tons C/ha -> kg C/m2
 CONV_G_TG <- 1e-12
 CONV_GG_TG <- 0.001 # gigagrams to tegagrams

@@ -24,6 +24,8 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
              FILE = "aglu/LDS/LDS_land_types",
              FILE = "aglu/SAGE_LT",
              FILE = "aglu/Various_CarbonData_LTsage",
+             FILE = "aglu/LDS/GCAM_Corine_LT_mapping",
+             FILE = "aglu/LDS/Corine_LT_km2",
              "L100.Land_type_area_ha",
              "L100.Ref_veg_carbon_Mg_per_ha",
              FILE = "aglu/LDS/L123.LC_bm2_R_MgdFor_Yh_GLU_beforeadjust"))
@@ -62,6 +64,8 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
       distinct() %>%
       spread(variable,value) %>%
       select(LT_SAGE,`mature age`,soil_c_houghton=soil_c,veg_c_houghton=veg_c)
+    GCAM_Corine_LT_mapping <- get_data(all_data, "aglu/LDS/GCAM_Corine_LT_mapping")
+    Corine_LT_km2 <- get_data(all_data, "aglu/LDS/Corine_LT_km2")
 
     # Perform computations
 
@@ -273,7 +277,37 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
     # Aggregate into GCAM regions and land types
     # Part 1: Land cover by GCAM land category in all model history/base years
     # Collapse land cover into GCAM regions and aggregate land types
-    L100.Land_type_area_ha %>%
+
+    # First clean the EU data from Corine: Aggregate for GCAM_LT, iso and year (TBD how to to expand to all hist years)
+    L120.Corine_LT_iso_GLU_Y<-Corine_LT_km2 %>%
+      gather(LT, value, -country, -iso, -glu_code) %>%
+      # Transform from km2 to bm2
+      mutate(Area_bm2 = value * CONV_KM2_HA * CONV_HA_BM2) %>%
+      select(-value) %>%
+      # add Corine land mapping and aggregate by GCAM LT (use left_join due to unmapped land categories)
+      left_join(GCAM_Corine_LT_mapping %>%
+                                 rename(LT = Corine), by = "LT") %>%
+      filter(complete.cases(.)) %>%
+      group_by(country, iso, glu_code, GCAM) %>%
+      summarise(Area_bm2 = sum(Area_bm2)) %>%
+      ungroup() %>%
+      # Add year: TBD how to calculate all historical years
+      # For the moment, repeat 2010 values to 2015 and keep previous historical years unmodified (LUC emission issues, TBD)
+      repeat_add_columns(tibble(year = c(2010:2015))) %>%
+      # Add "GLU" to glu_code to be consistent with L100.Land_type_area_ha. Be carfeul with the digits (and a 0)
+      mutate(glu_code = if_else(as.numeric(glu_code) < 100,paste0("GLU0", glu_code), paste0("GLU", glu_code))) %>%
+      select(iso, year, GLU = glu_code, Land_Type = GCAM, Area_bm2_Corine = Area_bm2)
+
+    a<-L100.Land_type_area_ha %>%
+      # First, aggregate by iso to substitute EU data by Corine:
+      group_by(GCAM_region_ID, iso, Land_Type, year, GLU) %>%
+      summarise(Area_bm2 = sum(Area_bm2)) %>%
+      ungroup() %>%
+      # Add data from Corine:
+      left_join(L120.Corine_LT_iso_GLU_Y , by = c("iso", "Land_Type", "year", "GLU")) %>%
+      mutate(Area_bm2 = if_else(is.na(Area_bm2_Corine), Area_bm2, Area_bm2_Corine)) %>%
+      select(-Area_bm2_Corine) %>%
+      # Now aggregate by GCAM region:
       group_by(GCAM_region_ID, Land_Type, year, GLU) %>%
       summarise(Area_bm2 = sum(Area_bm2)) %>%
       ungroup %>%
