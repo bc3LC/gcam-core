@@ -298,7 +298,7 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
       mutate(glu_code = if_else(as.numeric(glu_code) < 100,paste0("GLU0", glu_code), paste0("GLU", glu_code))) %>%
       select(iso, year, GLU = glu_code, Land_Type = GCAM, Area_bm2_Corine = Area_bm2)
 
-    a<-L100.Land_type_area_ha %>%
+    L100.Land_type_area_ha %>%
       # First, aggregate by iso to substitute EU data by Corine:
       group_by(GCAM_region_ID, iso, Land_Type, year, GLU) %>%
       summarise(Area_bm2 = sum(Area_bm2)) %>%
