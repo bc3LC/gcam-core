@@ -304,13 +304,14 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
       summarise(Area_bm2 = sum(Area_bm2)) %>%
       ungroup() %>%
       # Add data from Corine:
-      left_join(L120.Corine_LT_iso_GLU_Y , by = c("iso", "Land_Type", "year", "GLU")) %>%
-      mutate(Area_bm2 = if_else(is.na(Area_bm2_Corine), Area_bm2, Area_bm2_Corine)) %>%
+      full_join(L120.Corine_LT_iso_GLU_Y , by = c("iso", "Land_Type", "year", "GLU")) %>%
+      mutate(Area_bm2 = if_else(is.na(Area_bm2_Corine), Area_bm2, Area_bm2_Corine),
+             Area_bm2 = if_else(is.na(Area_bm2), Area_bm2_Corine, Area_bm2)) %>%
       select(-Area_bm2_Corine) %>%
       # Now aggregate by GCAM region:
       group_by(GCAM_region_ID, Land_Type, year, GLU) %>%
       summarise(Area_bm2 = sum(Area_bm2)) %>%
-      ungroup %>%
+      ungroup() %>%
       # Missing values should be set to 0 before interpolation, so that in-between years are interpolated correctly
       # We do his because Alan Di Vittorio (see sources above) isn't writing out all possible combinations of
       # country, GLU, year (of which there are 30), and land use category (of which there are also about 30).
