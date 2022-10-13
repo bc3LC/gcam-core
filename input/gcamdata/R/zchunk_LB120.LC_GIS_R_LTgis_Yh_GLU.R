@@ -8,7 +8,9 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L120.LC_bm2_R_LT_Yh_GLU}, \code{L120.LC_bm2_R_UrbanLand_Yh_GLU}, \code{L120.LC_bm2_R_Tundra_Yh_GLU}, \code{L120.LC_bm2_R_RckIceDsrt_Yh_GLU}, \code{L120.LC_bm2_ctry_LTsage_GLU}, \code{L120.LC_bm2_ctry_LTpast_GLU}. The corresponding file in the
+#' the generated outputs: \code{L120.LC_bm2_R_LT_Yh_GLU}, \code{L120.LC_bm2_R_UrbanLand_Yh_GLU}, \code{L120.LC_bm2_R_Tundra_Yh_GLU},
+#'  \code{L120.LC_bm2_R_RckIceDsrt_Yh_GLU}, \code{L120.LC_bm2_ctry_LTsage_GLU}, \code{L120.LC_bm2_ctry_LTpast_GLU}.\code{L120.Corine_LT_iso_GLU_Y}.
+#'   The corresponding file in the
 #' original data system was \code{LB120.LC_GIS_R_LTgis_Yh_GLU.R} (aglu level1).
 #' @details Aggregate the \code{L100.Land_type_area_ha} dataset, interpolate land use historical
 #' years, and split into various sub-categories. Missing values are set to zero because the GLU files don't include
@@ -37,7 +39,8 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
              "L120.LC_bm2_ctry_LTsage_GLU",
              "L120.LC_bm2_ctry_LTpast_GLU",
              "L120.LC_prot_land_frac_GLU",
-             "L120.LC_soil_veg_carbon_GLU"))
+             "L120.LC_soil_veg_carbon_GLU",
+             "L120.Corine_LT_iso_GLU_Y"))
   } else if(command == driver.MAKE) {
 
     iso <- GCAM_region_ID <- Land_Type <- year <- GLU <- Area_bm2 <- LT_HYDE <-
@@ -293,21 +296,19 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
       ungroup() %>%
       # Add year: TBD how to calculate all historical years
       # For the moment, repeat 2010 values to 2015 and keep previous historical years unmodified (LUC emission issues, TBD)
-      repeat_add_columns(tibble(year = c(2010:2015))) %>%
-      # Add "GLU" to glu_code to be consistent with L100.Land_type_area_ha. Be carfeul with the digits (and a 0)
-      mutate(glu_code = if_else(as.numeric(glu_code) < 100,paste0("GLU0", glu_code), paste0("GLU", glu_code))) %>%
-      select(iso, year, GLU = glu_code, Land_Type = GCAM, Area_bm2_Corine = Area_bm2)
+      repeat_add_columns(tibble(year = unique(L100.Land_type_area_ha$year))) %>%
+      select(iso, year, GLU = glu_code, Land_Type = GCAM, Area_bm2) %>%
+      left_join_error_no_match(iso_GCAM_regID, by ="iso")
+
 
     L100.Land_type_area_ha %>%
       # First, aggregate by iso to substitute EU data by Corine:
       group_by(GCAM_region_ID, iso, Land_Type, year, GLU) %>%
       summarise(Area_bm2 = sum(Area_bm2)) %>%
       ungroup() %>%
+      mutate(Area_bm2 = if_else(iso %in% L120.Corine_LT_iso_GLU_Y$iso, 0, Area_bm2)) %>%
       # Add data from Corine:
-      full_join(L120.Corine_LT_iso_GLU_Y , by = c("iso", "Land_Type", "year", "GLU")) %>%
-      mutate(Area_bm2 = if_else(is.na(Area_bm2_Corine), Area_bm2, Area_bm2_Corine),
-             Area_bm2 = if_else(is.na(Area_bm2), Area_bm2_Corine, Area_bm2)) %>%
-      select(-Area_bm2_Corine) %>%
+      bind_rows(L120.Corine_LT_iso_GLU_Y) %>%
       # Now aggregate by GCAM region:
       group_by(GCAM_region_ID, Land_Type, year, GLU) %>%
       summarise(Area_bm2 = sum(Area_bm2)) %>%
@@ -332,21 +333,21 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
     # scale forest to avoid negative unmanaged forest area which caused issue for yield in Pakistan and African regions
     # L123.LC_bm2_R_MgdFor_Yh_GLU_beforeadjust, pulled from L123.LC_bm2_R_MgdFor_Yh_GLU before managed forest scaling, was used here.
     L120.LC_bm2_R_LT_Yh_GLU %>%
-      left_join(L120.LC_bm2_R_LT_Yh_GLU %>%
-                  spread(Land_Type, value, fill = 0) %>%
-                  left_join(L123.LC_bm2_R_MgdFor_Yh_GLU_beforeadjust %>% select(-Land_Type),
-			by = c("GCAM_region_ID", "GLU", "year")) %>%
-                  mutate(nonForScaler =
-                           if_else((Forest - MgdFor) < 0 & Forest > 0,
-                                   1 + (Forest - MgdFor)/(Grassland + Shrubland + Pasture), 1),
-                         ForScaler = if_else((Forest - MgdFor) < 0 & Forest > 0,  MgdFor/Forest ,1)) %>%
-                  select(GCAM_region_ID, GLU, year, nonForScaler, ForScaler),
-                by = c("GCAM_region_ID", "GLU", "year") ) %>%
-      mutate(value = if_else(Land_Type %in% c("Grassland", "Shrubland" , "Pasture"),
-                             value * nonForScaler,
-                             if_else(Land_Type == "Forest", value * ForScaler, value) )) %>%
-      select(-nonForScaler, -ForScaler) ->
-      L120.LC_bm2_R_LT_Yh_GLU
+     left_join(L120.LC_bm2_R_LT_Yh_GLU %>%
+                 spread(Land_Type, value, fill = 0) %>%
+                 left_join(L123.LC_bm2_R_MgdFor_Yh_GLU_beforeadjust %>% select(-Land_Type),
+    	by = c("GCAM_region_ID", "GLU", "year")) %>%
+                 mutate(nonForScaler =
+                          if_else((Forest - MgdFor) < 0 & Forest > 0,
+                                  1 + (Forest - MgdFor)/(Grassland + Shrubland + Pasture), 1),
+                        ForScaler = if_else((Forest - MgdFor) < 0 & Forest > 0,  MgdFor/Forest ,1)) %>%
+                 select(GCAM_region_ID, GLU, year, nonForScaler, ForScaler),
+               by = c("GCAM_region_ID", "GLU", "year") ) %>%
+     mutate(value = if_else(Land_Type %in% c("Grassland", "Shrubland" , "Pasture"),
+                            value * nonForScaler,
+                            if_else(Land_Type == "Forest", value * ForScaler, value) )) %>%
+     select(-nonForScaler, -ForScaler) ->
+     L120.LC_bm2_R_LT_Yh_GLU
 
     # Subset the land types that are not further modified
     L120.LC_bm2_R_UrbanLand_Yh_GLU <- filter(L120.LC_bm2_R_LT_Yh_GLU, Land_Type == "UrbanLand")
@@ -385,8 +386,16 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
       add_comments("Land types from SAGE, HYDE, WDPA merged and reconciled; missing zeroes backfilled; interpolated to AGLU land cover years") %>%
       add_legacy_name("L120.LC_bm2_R_LT_Yh_GLU") %>%
       add_precursors("common/iso_GCAM_regID", "aglu/LDS/LDS_land_types", "aglu/SAGE_LT", "L100.Land_type_area_ha",
-                     "aglu/LDS/L123.LC_bm2_R_MgdFor_Yh_GLU_beforeadjust") ->
+                     "aglu/LDS/L123.LC_bm2_R_MgdFor_Yh_GLU_beforeadjust","aglu/LDS/GCAM_Corine_LT_mapping","aglu/LDS/Corine_LT_km2") ->
       L120.LC_bm2_R_LT_Yh_GLU
+
+    L120.Corine_LT_iso_GLU_Y %>%
+      add_title("Land cover for countries in Corine db / aggregate land type / historical year / GLU") %>%
+      add_units("bm2") %>%
+      add_comments("Land types from Corine merged and reconciled; missing zeroes backfilled; interpolated to AGLU land cover years") %>%
+      add_legacy_name("L120.Corine_LT_iso_GLU_Y") %>%
+      add_precursors("common/iso_GCAM_regID","aglu/LDS/GCAM_Corine_LT_mapping","aglu/LDS/Corine_LT_km2") ->
+      L120.Corine_LT_iso_GLU_Y
 
     L120.LC_bm2_R_UrbanLand_Yh_GLU %>%
       add_title("Urban land cover by GCAM region / historical year / GLU") %>%
@@ -445,7 +454,9 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
       add_legacy_name("L120.LC_soil_veg_carbon_GLU") %>%
       add_precursors("common/iso_GCAM_regID", "aglu/LDS/LDS_land_types", "aglu/SAGE_LT", "L100.Land_type_area_ha","L100.Ref_veg_carbon_Mg_per_ha","aglu/Various_CarbonData_LTsage")->L120.LC_soil_veg_carbon_GLU
 
-    return_data(L120.LC_bm2_R_LT_Yh_GLU, L120.LC_bm2_R_UrbanLand_Yh_GLU, L120.LC_bm2_R_Tundra_Yh_GLU, L120.LC_bm2_R_RckIceDsrt_Yh_GLU, L120.LC_bm2_ctry_LTsage_GLU, L120.LC_bm2_ctry_LTpast_GLU, L120.LC_prot_land_frac_GLU, L120.LC_soil_veg_carbon_GLU)
+    return_data(L120.LC_bm2_R_LT_Yh_GLU, L120.LC_bm2_R_UrbanLand_Yh_GLU, L120.LC_bm2_R_Tundra_Yh_GLU,
+                L120.LC_bm2_R_RckIceDsrt_Yh_GLU, L120.LC_bm2_ctry_LTsage_GLU, L120.LC_bm2_ctry_LTpast_GLU,
+                L120.LC_prot_land_frac_GLU, L120.LC_soil_veg_carbon_GLU, L120.Corine_LT_iso_GLU_Y)
   } else {
     stop("Unknown command")
   }
