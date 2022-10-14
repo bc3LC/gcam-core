@@ -7,7 +7,7 @@
 # ----------
 Corine,GCAM
 Agro-forestry areas,Pasture
-Airports,Urbanland
+Airports,UrbanLand
 Annual crops associated with permanent crops,Cropland
 Bare rocks,RockIceDesert
 "Beaches, dunes, sands",RockIceDesert
@@ -16,20 +16,20 @@ Burnt areas,Cropland
 Coastal lagoons,
 Complex cultivation patterns,Cropland
 Coniferous forest,Forest
-Construction sites,Urbanland
-Continuous urban fabric,Urbanland
-Discontinuous urban fabric,Urbanland
-Dump sites,Urbanland
+Construction sites,UrbanLand
+Continuous urban fabric,UrbanLand
+Discontinuous urban fabric,UrbanLand
+Dump sites,UrbanLand
 Estuaries,
 Fruit trees and berry plantations,Cropland
 Glaciers and perpetual snow,RockIceDesert
-Green urban areas,Urbanland
-Industrial or commercial units,Urbanland
-Inland marshes,Tundra
+Green urban areas,UrbanLand
+Industrial or commercial units,UrbanLand
+Inland marshes,Grassland
 Peat bogs,Tundra
 Intertidal flats,
 "Land principally occupied by agriculture, with significant areas of natural vegetation",Cropland
-Mineral extraction sites,Urbanland
+Mineral extraction sites,UrbanLand
 Mixed forest,Forest
 Moors and heathland,Grassland
 Natural grasslands,Grassland
@@ -37,15 +37,15 @@ Non-irrigated arable land,Cropland
 Olive groves,Cropland
 Pastures,Pasture
 Permanently irrigated land,Cropland
-Port areas,Urbanland
+Port areas,UrbanLand
 Rice fields,Cropland
-Road and rail networks and associated land,Urbanland
+Road and rail networks and associated land,UrbanLand
 Salines,
 Salt marshes,
 Sclerophyllous vegetation,Shrubland
 Sea and ocean,
-Sparsely vegetated areas,Tundra
-Sport and leisure facilities,Urbanland
+Sparsely vegetated areas,RockIceDesert
+Sport and leisure facilities,UrbanLand
 Transitional woodland-shrub,Shrubland
 Vineyards,Cropland
 Water bodies,

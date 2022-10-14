@@ -300,6 +300,8 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
       select(iso, year, GLU = glu_code, Land_Type = GCAM, Area_bm2) %>%
       left_join_error_no_match(iso_GCAM_regID, by ="iso")
 
+    L120.Corine_LT_iso_GLU_Y.code<-L120.Corine_LT_iso_GLU_Y %>% mutate(code = paste(GCAM_region_ID, GLU, Land_Type, sep = "_"))
+
 
     L100.Land_type_area_ha %>%
       # First, aggregate by iso to substitute EU data by Corine:
@@ -377,6 +379,22 @@ module_aglu_LB120.LC_GIS_R_LTgis_Yh_GLU <- function(command, ...) {
       summarise(Area_bm2 = mean(Area_bm2)) %>%
       ungroup ->
       L120.LC_bm2_ctry_LTpast_GLU
+
+
+    # Adjust L120.LC_soil_veg_carbon_GLU to include the LTs in Corine
+    # For the moment assign Ccoefs to zero in these new land types:
+
+    L120.LC_soil_veg_carbon_GLU<-L120.LC_soil_veg_carbon_GLU %>%
+      mutate(code = paste(GCAM_region_ID, GLU, Land_Type, sep = "_")) %>%
+      complete(code = unique(L120.Corine_LT_iso_GLU_Y.code$code)) %>%
+      select(-GCAM_region_ID, -GLU, -Land_Type) %>%
+      separate(code, c("GCAM_region_ID", "GLU", "Land_Type"), sep = "_") %>%
+      group_by(Land_Type) %>%
+      mutate(soil_c = if_else(is.na(soil_c), mean(as.numeric(soil_c), na.rm = T), soil_c),
+             veg_c = if_else(is.na(veg_c), mean(as.numeric(veg_c), na.rm = T), veg_c),
+             `mature age` = if_else(is.na(`mature age`), mean(as.numeric(`mature age`), na.rm = T), `mature age`),
+             GCAM_region_ID = as.numeric(GCAM_region_ID)) %>%
+      ungroup()
 
 
     # Produce outputs

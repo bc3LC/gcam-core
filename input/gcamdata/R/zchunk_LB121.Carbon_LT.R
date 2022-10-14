@@ -29,7 +29,8 @@ module_aglu_LB121.Carbon_LT <- function(command, ...) {
              "L120.LC_bm2_R_LT_Yh_GLU",
              "L120.LC_bm2_ctry_LTsage_GLU",
              "L120.LC_bm2_ctry_LTpast_GLU",
-             "L120.LC_soil_veg_carbon_GLU"))
+             "L120.LC_soil_veg_carbon_GLU",
+             "L120.Corine_LT_iso_GLU_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L121.CarbonContent_kgm2_R_LT_GLU",
              "L121.Yield_kgm2_R_Past_GLU",
@@ -54,6 +55,8 @@ module_aglu_LB121.Carbon_LT <- function(command, ...) {
     L120.LC_bm2_ctry_LTsage_GLU <- get_data(all_data, "L120.LC_bm2_ctry_LTsage_GLU")
     L120.LC_bm2_ctry_LTpast_GLU <- get_data(all_data, "L120.LC_bm2_ctry_LTpast_GLU")
     L120.LC_soil_veg_carbon_GLU <- get_data(all_data, "L120.LC_soil_veg_carbon_GLU", strip_attributes = TRUE)
+    L120.Corine_LT_iso_GLU_Y<-get_data(all_data, "L120.Corine_LT_iso_GLU_Y") %>%
+      mutate(code = paste(GCAM_region_ID, GLU, Land_Type, sep = "_"))
 
 
     # Convert characteristics by land type to correct units (kgC/m2)
@@ -77,6 +80,21 @@ module_aglu_LB121.Carbon_LT <- function(command, ...) {
                 soil_c = weighted.mean(soil_c, Area_bm2)) %>%
       ungroup ->
       L121.CarbonContent_kgm2_R_LTnatveg_GLU
+
+    # Adjust Corine data:
+    L121.CarbonContent_kgm2_R_LTnatveg_GLU<-L121.CarbonContent_kgm2_R_LTnatveg_GLU %>%
+      mutate(code = paste(GCAM_region_ID, GLU, Land_Type, sep = "_")) %>%
+      complete(code = unique(L120.Corine_LT_iso_GLU_Y$code)) %>%
+      select(-GCAM_region_ID, -GLU, -Land_Type) %>%
+      separate(code, c("GCAM_region_ID", "GLU", "Land_Type"), sep = "_") %>%
+      filter(Land_Type %in% L121.CarbonContent_kgm2_R_LTnatveg_GLU$Land_Type) %>%
+      group_by(Land_Type) %>%
+      mutate(soil_c = if_else(is.na(soil_c), mean(as.numeric(soil_c), na.rm = T), soil_c),
+             veg_c = if_else(is.na(veg_c), mean(as.numeric(veg_c), na.rm = T), veg_c),
+             `mature age` = if_else(is.na(`mature age`), mean(as.numeric(`mature age`), na.rm = T), `mature age`),
+             GCAM_region_ID = as.numeric(GCAM_region_ID)) %>%
+      ungroup()
+
 
     # Urban land and cropland
     L120.LC_bm2_R_LT_Yh_GLU %>%
@@ -148,7 +166,7 @@ module_aglu_LB121.Carbon_LT <- function(command, ...) {
       add_units("Years (mature age) and kgC/m2 (others)") %>%
       add_comments("From matching Houghton (1999) and SAGE data by GCAM region and land use type") %>%
       add_legacy_name("L121.CarbonContent_kgm2_R_LT_GLU") %>%
-      add_precursors("aglu/SAGE_LT", "aglu/Various_CarbonData_LTsage",
+      add_precursors("aglu/SAGE_LT", "aglu/Various_CarbonData_LTsage","L120.Corine_LT_iso_GLU_Y",
                      "L120.LC_bm2_R_LT_Yh_GLU", "L120.LC_bm2_ctry_LTsage_GLU", "L120.LC_bm2_ctry_LTpast_GLU") ->
       L121.CarbonContent_kgm2_R_LT_GLU
 
