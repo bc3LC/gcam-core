@@ -310,6 +310,10 @@ module_aglu_L202.an_input <- function(command, ...) {
 
     L202.Dairy_SecOut<-L102.Dairy_SecOut_preAdj %>%
       filter(year %in% MODEL_YEARS) %>%
+      bind_rows(L102.Dairy_SecOut_preAdj %>%
+                  filter(year %in% MODEL_FINAL_BASE_YEAR) %>%
+                  select(-year) %>%
+                  repeat_add_columns(tibble(year = MODEL_FUTURE_YEARS))) %>%
       mutate(supplysector = "Dairy") %>%
       repeat_add_columns(tibble(sub_tech = unique(L202.Dairy_tech$sub_tech))) %>%
       separate(sub_tech, c("subsector", "stub.technology"), sep = "___") %>%
