@@ -13,7 +13,7 @@
 #' \code{L202.Supplysector_in}, \code{L202.SubsectorAll_in}, \code{L202.StubTech_in}, \code{L202.StubTechInterp_in},
 #' \code{L202.GlobalTechCoef_in}, \code{L202.GlobalTechShrwt_in}, \code{L202.StubTechProd_in},
 #' \code{L202.Supplysector_an}, \code{L202.SubsectorAll_an}, \code{L202.GlobalTechShrwt_an}, \code{L202.StubTechInterp_an}
-#' \code{L202.StubTechProd_an}, \code{L202.StubTechCoef_an}, \code{L202.StubTechCost_an},
+#' \code{L202.StubTechProd_an}, \code{L202.StubTechCoef_an}, \code{L202.StubTechCost_an}, \code{L202.Dairy_SecOut}, \code{L202.Dairy_SecPmult},
 #'. The corresponding file in the
 #' original data system was \code{L202.an_input.R} (aglu level2).
 #' @details This chunk produces 22 animal-related resource tables: production, import, resource curves.
@@ -45,7 +45,9 @@ module_aglu_L202.an_input <- function(command, ...) {
              "L1091.GrossTrade_Mt_R_C_Y",
              "L132.ag_an_For_Prices",
              "L1321.ag_prP_R_C_75USDkg",
-             "L1321.an_prP_R_C_75USDkg"))
+             "L1321.an_prP_R_C_75USDkg",
+             FILE = "aglu/A_an_DairyBeef",
+             "L102.Dairy_SecOut_preAdj"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L202.RenewRsrc",
              "L202.RenewRsrcPrice",
@@ -69,8 +71,9 @@ module_aglu_L202.an_input <- function(command, ...) {
              "L202.StubTechProd_an",
              "L202.StubTechCoef_an",
              "L202.StubTechCost_an",
-             "L202.ag_consP_R_C_75USDkg"
-             ))
+             "L202.ag_consP_R_C_75USDkg",
+             "L202.Dairy_SecOut",
+             "L202.Dairy_SecPmult"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -104,6 +107,8 @@ module_aglu_L202.an_input <- function(command, ...) {
     L1091.GrossTrade_Mt_R_C_Y <- get_data(all_data, "L1091.GrossTrade_Mt_R_C_Y")
     L1321.ag_prP_R_C_75USDkg <- get_data(all_data, "L1321.ag_prP_R_C_75USDkg", strip_attributes = TRUE)
     L1321.an_prP_R_C_75USDkg <- get_data(all_data, "L1321.an_prP_R_C_75USDkg")
+    A_an_DairyBeef <- get_data(all_data, "aglu/A_an_DairyBeef")
+    L102.Dairy_SecOut_preAdj<-get_data(all_data, "L102.Dairy_SecOut_preAdj", strip_attributes = TRUE)
 
     # 2. Build tables
     # Base table for resources - add region names to Level1 data tables (lines 49-70 old file)
@@ -294,6 +299,25 @@ module_aglu_L202.an_input <- function(command, ...) {
              tech.share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
       select(LEVEL2_DATA_NAMES[["StubTechProd"]]) ->
       L202.StubTechProd_an
+
+    # Calculate the secondary-output coefficients to capture the share of beef produced from dairy-cattle
+    # Fist, adjust the coefficients to set a maximum produced from dairy cattle (aglu.MAX_DAIRYBEEF)
+    L202.DairyBeef<-A_an_DairyBeef %>%
+      mutate(share = pmin(share, aglu.MAX_DAIRYBEEF))
+
+    L202.Dairy_tech<-L202.StubTechProd_an %>% filter(supplysector == "Dairy") %>%
+      mutate(sub_tech = paste(subsector, stub.technology, sep = "___"))
+
+    L202.Dairy_SecOut<-L102.Dairy_SecOut_preAdj %>%
+      filter(year %in% MODEL_YEARS) %>%
+      mutate(supplysector = "Dairy") %>%
+      repeat_add_columns(tibble(sub_tech = unique(L202.Dairy_tech$sub_tech))) %>%
+      separate(sub_tech, c("subsector", "stub.technology"), sep = "___") %>%
+      select(LEVEL2_DATA_NAMES[["StubTechSecOut"]])
+
+    L202.Dairy_SecPmult<-L202.Dairy_SecOut %>%
+      mutate(pMultiplier = 0) %>%
+      select(LEVEL2_DATA_NAMES[["StubTechSecPmult"]])
 
     # In general, technologies need to be aggregated to compute subsector share-weights. If any technology
     # within a subsector has a value > 0, then the subsector share-weight should be 1.
@@ -520,6 +544,12 @@ module_aglu_L202.an_input <- function(command, ...) {
     L202.StubTechProd_an <- filter(L202.StubTechProd_an, !region %in% aglu.NO_AGLU_REGIONS)
     L202.StubTechCoef_an <- filter(L202.StubTechCoef_an, !region %in% aglu.NO_AGLU_REGIONS)
 
+    # Finally, re-adjust stub.tech production for beef to capture the secondary output effect (from dairy)
+    L202.StubTechProd_an<-L202.StubTechProd_an %>%
+      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
+      mutate(calOutputValue = if_else(supplysector == "Beef", calOutputValue * (1 - share), calOutputValue)) %>%
+      select(-share)
+
 
     # Produce outputs
     L202.RenewRsrc %>%
@@ -685,8 +715,24 @@ module_aglu_L202.an_input <- function(command, ...) {
       add_units("Unitless") %>%
       add_comments("Animal commodity production by subsector (mixed vs pastoral system) and technology (modeled feed commodity).") %>%
       add_legacy_name("L202.StubTechProd_an") %>%
-      add_precursors("aglu/A_an_technology", "L107.an_Prod_Mt_R_C_Sys_Fd_Y", "common/GCAM_region_names") ->
+      add_precursors("aglu/A_an_technology", "L107.an_Prod_Mt_R_C_Sys_Fd_Y", "common/GCAM_region_names","aglu/A_an_DairyBeef") ->
       L202.StubTechProd_an
+
+    L202.Dairy_SecOut %>%
+      add_title("Secondary output ratios for beef from dairy cattle") %>%
+      add_units("Unitless") %>%
+      add_comments("Regionally differentiated secondary output coefficients to distinguish between beef from dairy and non-dairy cattle") %>%
+      add_legacy_name("L202.Dairy_SecOut") %>%
+      add_precursors("aglu/A_an_technology", "L107.an_Prod_Mt_R_C_Sys_Fd_Y", "common/GCAM_region_names","aglu/A_an_DairyBeef","L102.Dairy_SecOut_preAdj") ->
+      L202.Dairy_SecOut
+
+    L202.Dairy_SecPmult %>%
+      add_title("P-Multiplier for dairy beef") %>%
+      add_units("Unitless") %>%
+      add_comments("Coefficient to graduate price of beef from dairy cattle") %>%
+      add_legacy_name("L202.Dairy_SecPmult") %>%
+      add_precursors("aglu/A_an_technology", "L107.an_Prod_Mt_R_C_Sys_Fd_Y", "common/GCAM_region_names","aglu/A_an_DairyBeef", "L102.Dairy_SecOut_preAdj") ->
+      L202.Dairy_SecPmult
 
     L202.StubTechCoef_an %>%
       add_title("Animal production input-output coefficients by technology and region") %>%
@@ -722,7 +768,7 @@ module_aglu_L202.an_input <- function(command, ...) {
                 L202.SubsectorAll_in, L202.SubsectorInterpTo_in, L202.StubTech_in, L202.StubTechInterp_in, L202.GlobalTechCoef_in,
                 L202.GlobalTechShrwt_in, L202.StubTechProd_in, L202.Supplysector_an, L202.SubsectorAll_an,
                 L202.GlobalTechShrwt_an, L202.StubTechInterp_an, L202.StubTechProd_an, L202.StubTechCoef_an,
-                L202.StubTechCost_an, L202.ag_consP_R_C_75USDkg)
+                L202.StubTechCost_an, L202.ag_consP_R_C_75USDkg, L202.Dairy_SecOut, L202.Dairy_SecPmult)
   } else {
     stop("Unknown command")
   }

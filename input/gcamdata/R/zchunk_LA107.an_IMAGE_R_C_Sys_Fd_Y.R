@@ -8,7 +8,7 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L107.an_Prod_Mt_R_C_Sys_Fd_Y}, \code{L107.an_Feed_Mt_R_C_Sys_Fd_Y}, \code{L107.an_FeedIO_R_C_Sys_Fd_Y}. The corresponding file in the
+#' the generated outputs:\code{L107.an_Feed_Mt_R_C_Sys_Fd_Y}, \code{L107.an_FeedIO_R_C_Sys_Fd_Y}. The corresponding file in the
 #' original data system was \code{LA107.an_IMAGE_R_C_Sys_Fd_Y.R} (aglu level1).
 #' @details This module builds three separate outputs at the GCAM region - GCAM commodity - Management system - Feed type - Year level of resolution.
 #' First, Animal Production is built at the country-level from IMAGE country-level total production, mixed system fraction, and feed type fraction and aggregated to region.
@@ -24,10 +24,11 @@ module_aglu_LA107.an_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
              "L100.IMAGE_an_Prodmixfrac_ctry_C_Y",
              "L100.IMAGE_an_Feedfrac_ctry_C_Sys_Fd_Y",
              "L100.IMAGE_an_FeedIO_ctry_C_Sys_Y",
-             "L105.an_Prod_Mt_ctry_C_Y"))
+             "L105.an_Prod_Mt_ctry_C_Y",
+             FILE = "aglu/A_an_DairyBeef",
+             FILE = "common/GCAM_region_names"))
   } else if(command == driver.DECLARE_OUTPUTS) {
-    return(c("L107.an_Prod_Mt_R_C_Sys_Fd_Y",
-             "L107.an_Feed_Mt_R_C_Sys_Fd_Y",
+    return(c("L107.an_Feed_Mt_R_C_Sys_Fd_Y",
              "L107.an_FeedIO_R_C_Sys_Fd_Y"))
   } else if(command == driver.MAKE) {
 
@@ -39,10 +40,12 @@ module_aglu_LA107.an_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
 
     # Load required inputs
     iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
+    GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
     L100.IMAGE_an_Prodmixfrac_ctry_C_Y <- get_data(all_data, "L100.IMAGE_an_Prodmixfrac_ctry_C_Y")
     L100.IMAGE_an_Feedfrac_ctry_C_Sys_Fd_Y <- get_data(all_data, "L100.IMAGE_an_Feedfrac_ctry_C_Sys_Fd_Y")
     L100.IMAGE_an_FeedIO_ctry_C_Sys_Y <- get_data(all_data, "L100.IMAGE_an_FeedIO_ctry_C_Sys_Y")
     L105.an_Prod_Mt_ctry_C_Y <- get_data(all_data, "L105.an_Prod_Mt_ctry_C_Y")
+    A_an_DairyBeef <- get_data(all_data, "aglu/A_an_DairyBeef")
 
     # Perform computations:
     #
@@ -63,7 +66,20 @@ module_aglu_LA107.an_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
     # Old comment: Multiply the total production by the fraction mixed, for the relevant commodities
     #
     #
-    #
+    # First, adjust beef production for feed estimation: now a percentage is a SecOutput from dairy:
+    # Load the shares that represent beef from dairy cattle
+    L202.DairyBeef<-A_an_DairyBeef %>%
+      mutate(share = pmin(share, aglu.MAX_DAIRYBEEF))
+
+    L105.an_Prod_Mt_ctry_C_Y<-L105.an_Prod_Mt_ctry_C_Y %>%
+     left_join_error_no_match(iso_GCAM_regID, by = "iso") %>%
+     left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+     left_join_error_no_match(L202.DairyBeef, by = "region") %>%
+     select(iso, GCAM_commodity, year, value, share) %>%
+     mutate(value = if_else(GCAM_commodity == "Beef", value * (1 - share), value)) %>%
+     select(-share)
+
+
     # Take the total production table L105 and filter so that the GCAM_commodity in L105 match the commodity in the
     # fraction of mixed production table, L100.IMAGE_an_Prodmixfrac_ctry_C_Y.
     L105.an_Prod_Mt_ctry_C_Y %>%
@@ -248,20 +264,6 @@ module_aglu_LA107.an_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
       L107.an_FeedIO_R_C_Sys_Fd_Y
 
     # Produce outputs
-    L107.an_Prod_Mt_R_C_Sys_Fd_Y %>%
-      add_title("Animal production by GCAM region / commodity / system / feed type / year") %>%
-      add_units("Megatons (Mt)") %>%
-      add_comments("IMAGE country-level data regarding feed type fraction and mixed versus") %>%
-      add_comments("pastoral system fraction are used to downscale IMAGE country-level total") %>%
-      add_comments("animal production data.") %>%
-      add_legacy_name("L107.an_Prod_Mt_R_C_Sys_Fd_Y") %>%
-      add_precursors("common/iso_GCAM_regID",
-                     "L100.IMAGE_an_Prodmixfrac_ctry_C_Y",
-                     "L100.IMAGE_an_Feedfrac_ctry_C_Sys_Fd_Y",
-                     "L100.IMAGE_an_FeedIO_ctry_C_Sys_Y",
-                     "L105.an_Prod_Mt_ctry_C_Y") ->
-      L107.an_Prod_Mt_R_C_Sys_Fd_Y
-
     L107.an_Feed_Mt_R_C_Sys_Fd_Y %>%
       add_title("Animal feed consumption by GCAM region / commodity / system / feed type / year") %>%
       add_units("Megatons (Mt)") %>%
@@ -272,7 +274,9 @@ module_aglu_LA107.an_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
                      "L100.IMAGE_an_Prodmixfrac_ctry_C_Y",
                      "L100.IMAGE_an_Feedfrac_ctry_C_Sys_Fd_Y",
                      "L100.IMAGE_an_FeedIO_ctry_C_Sys_Y",
-                     "L105.an_Prod_Mt_ctry_C_Y") ->
+                     "L105.an_Prod_Mt_ctry_C_Y",
+                     "aglu/A_an_DairyBeef",
+                     "common/GCAM_region_names") ->
       L107.an_Feed_Mt_R_C_Sys_Fd_Y
 
     L107.an_FeedIO_R_C_Sys_Fd_Y %>%
@@ -289,7 +293,7 @@ module_aglu_LA107.an_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
       L107.an_FeedIO_R_C_Sys_Fd_Y
 
 
-    return_data(L107.an_Prod_Mt_R_C_Sys_Fd_Y, L107.an_Feed_Mt_R_C_Sys_Fd_Y, L107.an_FeedIO_R_C_Sys_Fd_Y)
+    return_data(L107.an_Feed_Mt_R_C_Sys_Fd_Y, L107.an_FeedIO_R_C_Sys_Fd_Y)
   } else {
     stop("Unknown command")
   }

@@ -1,0 +1,40 @@
+# File: A_an_DairyBeef.csv
+# Title: Share of beef produced from dairy cattle per GCAM region
+# Units: share
+# Comments: These assumptions can be updated as more recent data becomses avilable
+# Source: GLEAM (2013)
+# Column types: cn
+# ----------
+region,share
+USA,0.24
+Africa_Eastern,0.59
+Africa_Northern,0.98
+Africa_Southern,0.59
+Africa_Western,0.59
+Australia_NZ,0.38
+Brazil,0.31
+Canada,0.24
+Central America and Caribbean,0.31
+Central Asia,0.99
+China,0.23
+EU-12,0.7
+EU-15,0.7
+Europe_Eastern,0.99
+Europe_Non_EU,0.99
+European Free Trade Association,0.7
+India,0.6
+Indonesia,0.6
+Japan,0.23
+Mexico,0.31
+Middle East,0.98
+Pakistan,0.98
+Russia,1
+South Africa,0.59
+South America_Northern,0.31
+South America_Southern,0.31
+South Asia,0.6
+South Korea,0.23
+Southeast Asia,0.23
+Taiwan,0.23
+Argentina,0.31
+Colombia,0.31

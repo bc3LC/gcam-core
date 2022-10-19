@@ -8,7 +8,9 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L105.an_Food_Mt_R_C_Y}, \code{L105.an_Food_Pcal_R_C_Y}, \code{L105.an_kcalg_R_C_Y}, \code{L105.an_Prod_Mt_R_C_Y}, \code{L105.an_Prod_Mt_ctry_C_Y}. The corresponding file in the
+#' the generated outputs: \code{L105.an_Food_Mt_R_C_Y}, \code{L105.an_Food_Pcal_R_C_Y}, \code{L105.an_kcalg_R_C_Y},
+#' \code{L105.an_Prod_Mt_R_C_Y}, \code{L105.an_Prod_Mt_ctry_C_Y}. \code{L102.Dairy_SecOut_preAdj}.
+#' The corresponding file in the
 #' original data system was \code{LA105.an_FAO_R_C_Y.R} (aglu level1).
 #' @details This chunk aggregates FAO animal products food consumption and production data up to GCAM commodities and GCAM regions,
 #' and calculates the average animal products caloric content by GCAM region / commodity / year.
@@ -21,13 +23,16 @@ module_aglu_LA105.an_FAO_R_C_Y <- function(command, ...) {
     return(c(FILE = "common/iso_GCAM_regID",
              FILE = "aglu/FAO/FAO_an_items_cal_SUA",
              "L100.FAO_an_Food_t",
-             "L100.FAO_an_Prod_t"))
+             "L100.FAO_an_Prod_t",
+             FILE = "aglu/A_an_DairyBeef",
+             FILE = "common/GCAM_region_names"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L105.an_Food_Mt_R_C_Y",
              "L105.an_Food_Pcal_R_C_Y",
              "L105.an_kcalg_R_C_Y",
              "L105.an_Prod_Mt_R_C_Y",
-             "L105.an_Prod_Mt_ctry_C_Y"))
+             "L105.an_Prod_Mt_ctry_C_Y",
+             "L102.Dairy_SecOut_preAdj"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -43,9 +48,11 @@ module_aglu_LA105.an_FAO_R_C_Y <- function(command, ...) {
 
     # Load required inputs
     iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
+    GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
     FAO_an_items_cal_SUA <- get_data(all_data, "aglu/FAO/FAO_an_items_cal_SUA")
     L100.FAO_an_Food_t <- get_data(all_data, "L100.FAO_an_Food_t")
     L100.FAO_an_Prod_t <- get_data(all_data, "L100.FAO_an_Prod_t")
+    A_an_DairyBeef <- get_data(all_data, "aglu/A_an_DairyBeef")
 
     # Process FAO animal products food consumption data: map in GCAM region and commodities, convert units, aggregate to region and commodity
     L100.FAO_an_Food_t %>%
@@ -99,6 +106,23 @@ module_aglu_LA105.an_FAO_R_C_Y <- function(command, ...) {
                GCAM_commodity, year, fill = list(value = 0)) ->
       L105.an_Prod_Mt_R_C_Y
 
+    #-------------------------------
+    # Adjust beef secondary outputs
+    # First, calculate output.ratios to represent beef from dairy cattle
+    L202.DairyBeef<-A_an_DairyBeef %>%
+      mutate(share = pmin(share, aglu.MAX_DAIRYBEEF))
+
+    L102.Dairy_SecOut_preAdj<- L105.an_Prod_Mt_R_C_Y %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      select(-GCAM_region_ID) %>%
+      filter(GCAM_commodity %in% c("Beef", "Dairy")) %>%
+      spread(GCAM_commodity, value) %>%
+      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
+      mutate(output.ratio = round((Beef * share)/Dairy, aglu.DIGITS_OUTPUT_RATIO),
+             secondary.output = "Beef") %>%
+      select(region, year, secondary.output, output.ratio)
+
+
     # Produce outputs
     L105.an_Food_Mt_R_C_Y %>%
       add_title("Animal consumption by GCAM region / commodity / year") %>%
@@ -137,7 +161,9 @@ module_aglu_LA105.an_FAO_R_C_Y <- function(command, ...) {
       add_legacy_name("L105.an_Prod_Mt_R_C_Y") %>%
       add_precursors("common/iso_GCAM_regID",
                      "aglu/FAO/FAO_an_items_cal_SUA",
-                     "L100.FAO_an_Prod_t") ->
+                     "L100.FAO_an_Prod_t",
+                     "common/GCAM_region_names",
+                     "aglu/A_an_DairyBeef") ->
       L105.an_Prod_Mt_R_C_Y
 
     L105.an_Prod_Mt_ctry_C_Y %>%
@@ -149,7 +175,16 @@ module_aglu_LA105.an_FAO_R_C_Y <- function(command, ...) {
       same_precursors_as(L105.an_Prod_Mt_R_C_Y) ->
       L105.an_Prod_Mt_ctry_C_Y
 
-    return_data(L105.an_Food_Mt_R_C_Y, L105.an_Food_Pcal_R_C_Y, L105.an_kcalg_R_C_Y, L105.an_Prod_Mt_R_C_Y, L105.an_Prod_Mt_ctry_C_Y)
+    L102.Dairy_SecOut_preAdj %>%
+      add_title("Unadjusted output-ratios for beef from dairy cattle") %>%
+      add_units("Unitless") %>%
+      add_comments("Regionally differentiated secondary output coefficients to distinguish between beef from dairy and non-dairy cattle") %>%
+      add_legacy_name("L102.Dairy_SecOut_preAdj") %>%
+      same_precursors_as(L105.an_Prod_Mt_R_C_Y) ->
+      L102.Dairy_SecOut_preAdj
+
+
+    return_data(L105.an_Food_Mt_R_C_Y, L105.an_Food_Pcal_R_C_Y, L105.an_kcalg_R_C_Y, L105.an_Prod_Mt_R_C_Y, L105.an_Prod_Mt_ctry_C_Y, L102.Dairy_SecOut_preAdj)
   } else {
     stop("Unknown command")
   }

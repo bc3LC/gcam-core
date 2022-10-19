@@ -24,7 +24,9 @@ module_water_L133.water_demand_livestock <- function(command, ...) {
              FILE = "water/FAO_an_items_Stocks",
              "L100.FAO_an_Stocks",
              "L100.FAO_an_Dairy_Stocks",
-             "L103.water_mapping_R_B_W_Ws_share"))
+             "L103.water_mapping_R_B_W_Ws_share",
+             FILE = "aglu/A_an_DairyBeef",
+             FILE = "common/GCAM_region_names"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L133.water_demand_livestock_R_C_W_km3_Mt",
              "L133.water_demand_livestock_R_B_W_km3"))
@@ -41,6 +43,8 @@ module_water_L133.water_demand_livestock <- function(command, ...) {
     L100.FAO_an_Stocks <- get_data(all_data, "L100.FAO_an_Stocks")
     L100.FAO_an_Dairy_Stocks <- get_data(all_data, "L100.FAO_an_Dairy_Stocks")
     L103.water_mapping_R_B_W_Ws_share <- get_data(all_data, "L103.water_mapping_R_B_W_Ws_share")
+    GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
+    A_an_DairyBeef <- get_data(all_data, "aglu/A_an_DairyBeef")
 
     # Silence package checks
     year <- iso <- item <- value <- dairy.to.total <- dairy.adj <-
@@ -50,6 +54,16 @@ module_water_L133.water_demand_livestock <- function(command, ...) {
 
     # ===================================================
     # Calculate livestock water coefficients by region ID / GCAM_commodity/ water type.
+    # First, adjust beef production to reflect the "dairy-secOut" effect and adjust water consumption/withdrawals
+    L202.DairyBeef<-A_an_DairyBeef %>%
+      mutate(share = pmin(share, aglu.MAX_DAIRYBEEF))
+
+    L105.an_Prod_Mt_R_C_Y<-L105.an_Prod_Mt_R_C_Y %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
+      mutate(value = if_else(GCAM_commodity == "Beef", value * (1 - share), value)) %>%
+      select(-share, -region)
+
 
     # Start by finding  the number of non-dairy producing livestock.
 
@@ -184,7 +198,9 @@ module_water_L133.water_demand_livestock <- function(command, ...) {
                      "water/LivestockWaterFootprint_MH2010",
                      "water/FAO_an_items_Stocks",
                      "L100.FAO_an_Stocks",
-                     "L100.FAO_an_Dairy_Stocks") ->
+                     "L100.FAO_an_Dairy_Stocks",
+                     "common/GCAM_region_names",
+                     "aglu/A_an_DairyBeef") ->
       L133.water_demand_livestock_R_C_W_km3_Mt
 
     L133.water_demand_livestock_R_B_W_km3 %>%
