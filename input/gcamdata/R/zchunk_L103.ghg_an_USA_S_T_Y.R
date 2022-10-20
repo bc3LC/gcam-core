@@ -19,11 +19,13 @@
 module_emissions_L103.ghg_an_USA_S_T_Y <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/iso_GCAM_regID",
+             FILE = "common/GCAM_region_names",
              FILE = "emissions/mappings/EPA_ghg_tech",
              FILE = "emissions/mappings/GCAM_sector_tech",
              FILE = "emissions/mappings/GCAM_sector_tech_Revised",
              "L107.an_Prod_Mt_R_C_Sys_Fd_Y",
-             FILE = "emissions/EPA_FCCC_AG_2005"))
+             FILE = "emissions/EPA_FCCC_AG_2005",
+             FILE = "aglu/A_an_DairyBeef"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L103.ghg_tgmt_USA_an_Sepa_F_2005"))
   } else if(command == driver.MAKE) {
@@ -36,8 +38,10 @@ module_emissions_L103.ghg_an_USA_S_T_Y <- function(command, ...) {
 
     # Load required inputs
     iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
+    GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
     EPA_ghg_tech <- get_data(all_data, "emissions/mappings/EPA_ghg_tech")
     GCAM_sector_tech <- get_data(all_data, "emissions/mappings/GCAM_sector_tech")
+    A_an_DairyBeef <- get_data(all_data, "aglu/A_an_DairyBeef")
 
     if (energy.TRAN_UCD_MODE == "rev.mode"){
       GCAM_sector_tech <- get_data(all_data, "emissions/mappings/GCAM_sector_tech_Revised")
@@ -69,16 +73,28 @@ module_emissions_L103.ghg_an_USA_S_T_Y <- function(command, ...) {
     # Map FAO production to EPA sectors and aggregate
     # Select region - US and year - 2005
     # The old data system uses US methane emission factors for 2005 for all historical values in all regions.
-    L107.an_Prod_Mt_R_C_Sys_Fd_Y %>%
+
+    # Adjust production to take out beef from dairy-cattle (not computed as beef emissions)
+
+    L202.DairyBeef<-A_an_DairyBeef %>%
+      mutate(share = pmin(share, aglu.MAX_DAIRYBEEF))
+
+
+    L107.an_Prod_US_Sepa_2005<- L107.an_Prod_Mt_R_C_Sys_Fd_Y %>%
       left_join_error_no_match( select(GCAM_sector_tech, sector, fuel, technology, EPA_agg_sector, EPA_agg_fuel),
                  by = c("GCAM_commodity" = "sector", "system" = "fuel" , "feed" = "technology")) %>%
       ungroup %>%
       mutate(year = as.numeric(year)) %>%
       filter(year == 2005, GCAM_region_ID == gcam.USA_CODE) %>%
+      mutate(region = gcam.USA_REGION) %>%
+      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
+      select(-region) %>%
+      mutate(value = if_else(GCAM_commodity == "Beef", value * (1 - share), value)) %>%
+      select(-share) %>%
       group_by(EPA_agg_sector, year) %>%
       select(EPA_agg_sector, year, value) %>%
-      summarise_if(is.numeric, sum) ->
-      L107.an_Prod_US_Sepa_2005
+      summarise_if(is.numeric, sum)
+
 
     # Calculate CH4 emissions factor
     L103.ghg_tg_USA_an_Sepa_F_2005 %>%
@@ -99,7 +115,9 @@ module_emissions_L103.ghg_an_USA_S_T_Y <- function(command, ...) {
                      "emissions/mappings/GCAM_sector_tech",
                      "emissions/mappings/GCAM_sector_tech_Revised",
                      "L107.an_Prod_Mt_R_C_Sys_Fd_Y",
-                     "emissions/EPA_FCCC_AG_2005") ->
+                     "emissions/EPA_FCCC_AG_2005",
+                     "aglu/A_an_DairyBeef",
+                     "common/GCAM_region_names") ->
       L103.ghg_tgmt_USA_an_Sepa_F_2005
 
     return_data(L103.ghg_tgmt_USA_an_Sepa_F_2005)
