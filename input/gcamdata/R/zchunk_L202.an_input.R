@@ -450,6 +450,9 @@ module_aglu_L202.an_input <- function(command, ...) {
 
     # Calculate the total cost of all inputs, for each animal commodity, first matching in the feed quantity and the price
     L202.an_Prod_Mt_R_C_Sys_Fd_Y.mlt %>%
+      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
+      mutate(value = if_else(GCAM_commodity == "Beef", value * (1 - share), value)) %>%
+      select(-share) %>%
       filter(year == max(MODEL_BASE_YEARS),
              !region %in% aglu.NO_AGLU_REGIONS) %>%
       rename(Prod_Mt = value) %>%
