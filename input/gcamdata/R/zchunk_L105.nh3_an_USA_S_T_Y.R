@@ -21,8 +21,7 @@ module_emissions_L105.nh3_an_USA_S_T_Y <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "emissions/mappings/EPA_tech",
              "L107.an_Prod_Mt_R_C_Sys_Fd_Y",
-             FILE = "emissions/EPA_NH3",
-             FILE = "aglu/A_an_DairyBeef"))
+             FILE = "emissions/EPA_NH3"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L105.nh3_tgmt_USA_an_Yh"))
   } else if(command == driver.MAKE) {
@@ -36,7 +35,6 @@ module_emissions_L105.nh3_an_USA_S_T_Y <- function(command, ...) {
     EPA_tech <- get_data(all_data, "emissions/mappings/EPA_tech")
     L107.an_Prod_Mt_R_C_Sys_Fd_Y <- get_data(all_data, "L107.an_Prod_Mt_R_C_Sys_Fd_Y")
     EPA_NH3 <- get_data(all_data, "emissions/EPA_NH3")
-    A_an_DairyBeef <- get_data(all_data, "aglu/A_an_DairyBeef")
 
     # ===================================================
 
@@ -58,17 +56,10 @@ module_emissions_L105.nh3_an_USA_S_T_Y <- function(command, ...) {
     # Process FAO production data:
     # Subset US data, aggregate to EPA sectors (all animal production)
     # Adjust production to take out beef from dairy-cattle (not computed as beef emissions)
-
-    L202.DairyBeef<-A_an_DairyBeef %>%
-      mutate(share = pmin(share, aglu.MAX_DAIRYBEEF))
-
     L105.out_Mt_USA_an_C_Sys_Fd_Yh <- L107.an_Prod_Mt_R_C_Sys_Fd_Y %>%
+      filter(system != "DairyBeef") %>%
       filter(GCAM_region_ID == gcam.USA_CODE) %>%
       mutate(region = gcam.USA_REGION) %>%
-      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
-      select(-region) %>%
-      mutate(value = if_else(GCAM_commodity == "Beef", value * (1 - share), value)) %>%
-      select(-share) %>%
       group_by(year) %>%
       summarize_at(vars(value), sum) %>%
       rename(production = value) %>%
@@ -102,8 +93,7 @@ module_emissions_L105.nh3_an_USA_S_T_Y <- function(command, ...) {
       add_legacy_name("L105.nh3_tgmt_USA_an_Yh") %>%
       add_precursors("emissions/mappings/EPA_tech",
                      "L107.an_Prod_Mt_R_C_Sys_Fd_Y",
-                     "emissions/EPA_NH3",
-                     "aglu/A_an_DairyBeef") ->
+                     "emissions/EPA_NH3") ->
       L105.nh3_tgmt_USA_an_Yh
 
     return_data(L105.nh3_tgmt_USA_an_Yh)
