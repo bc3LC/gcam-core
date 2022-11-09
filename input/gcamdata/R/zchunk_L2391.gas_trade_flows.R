@@ -357,7 +357,8 @@ module_energy_L2391.gas_trade_flows <- function(command, ...) {
                 by = c("region", "GCAM_Commodity", "GCAM_Commodity_traded", "year")) %>%
       replace_na(list(value = 0)) %>%
       mutate(calOutputValue = calOutputValue - value) %>%
-      select(-value) -> L2391.NG_export_calOutput_LNG
+      select(-value) %>%
+      mutate(calOutputValue = if_else(calOutputValue < 0, 0, calOutputValue))-> L2391.NG_export_calOutput_LNG
 
     # Summarize regional pipeline / global LNG consumption from statistical differences sector
     L2391.NG_import_calOutput_adj %>%
