@@ -213,6 +213,7 @@ generate_level2_data_names <- function() {
   level2_data_names[["DeleteGlobalTechInput"]] <- level2_data_names[["GlobalTechInput"]]
   level2_data_names[["GlobalIntTechCost"]] <- c("sector.name", "subsector.name", "intermittent.technology", "year", "minicam.non.energy.input", "input.cost")
   level2_data_names[["DeleteGlobalTech"]] <- level2_data_names[["GlobalTech"]]
+  level2_data_names[["TechProfitShutdown"]] <- c(level2_data_names[["TechYr"]], "median.shutdown.point", "profit.shutdown.steepness")
 
   # Stub technologies
   level2_data_names[["StubTech"]] <- c("region", "supplysector", "subsector", "stub.technology")

@@ -1,0 +1,63 @@
+# File: A21.stubtech_interp_R.csv
+# Title: Region-specific interpolation rules for regional natural gas pipeline trade
+# Source: assumptions based on existing pipeline connections
+# Units: NA
+# Column types: ccccccccic
+# ----------
+region,supplysector,subsector,stub.technology,pipeline.market,apply.to,from.year,to.year,to.value,interpolation.function
+Africa_Eastern,regional natural gas,imported pipeline gas,imported Afr_MidE pipeline gas,Afr_MidE,share-weight,final-calibration-year,end-year,1,fixed
+Africa_Northern,regional natural gas,imported pipeline gas,imported Afr_MidE pipeline gas,Afr_MidE,share-weight,final-calibration-year,end-year,1,fixed
+Africa_Southern,regional natural gas,imported pipeline gas,imported Afr_MidE pipeline gas,Afr_MidE,share-weight,final-calibration-year,end-year,1,fixed
+Africa_Western,regional natural gas,imported pipeline gas,imported Afr_MidE pipeline gas,Afr_MidE,share-weight,final-calibration-year,end-year,1,fixed
+Argentina,regional natural gas,imported pipeline gas,imported LA pipeline gas,LA,share-weight,final-calibration-year,end-year,1,fixed
+Australia_NZ,regional natural gas,imported pipeline gas,imported PAC pipeline gas,PAC,share-weight,final-calibration-year,end-year,1,fixed
+Brazil,regional natural gas,imported pipeline gas,imported LA pipeline gas,LA,share-weight,final-calibration-year,end-year,1,fixed
+Canada,regional natural gas,imported pipeline gas,imported N.Amer pipeline gas,N.Amer,share-weight,final-calibration-year,end-year,1,fixed
+Central America and Caribbean,regional natural gas,imported pipeline gas,imported LA pipeline gas,LA,share-weight,final-calibration-year,end-year,1,fixed
+Central Asia,regional natural gas,imported pipeline gas,imported Afr_MidE pipeline gas,Afr_MidE,share-weight,final-calibration-year,end-year,1,fixed
+Central Asia,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+China,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+China,regional natural gas,imported pipeline gas,imported PAC pipeline gas,PAC,share-weight,final-calibration-year,end-year,1,fixed
+Colombia,regional natural gas,imported pipeline gas,imported LA pipeline gas,LA,share-weight,final-calibration-year,end-year,1,fixed
+Europe_Eastern,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+Europe_Eastern,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+Europe_Non_EU,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+Europe_Non_EU,regional natural gas,imported pipeline gas,imported Afr_MidE pipeline gas,Afr_MidE,share-weight,final-calibration-year,end-year,1,fixed
+Europe_Non_EU,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+EFTA,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+EFTA,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+India,regional natural gas,imported pipeline gas,imported PAC pipeline gas,PAC,share-weight,final-calibration-year,end-year,1,fixed
+Indonesia,regional natural gas,imported pipeline gas,imported PAC pipeline gas,PAC,share-weight,final-calibration-year,end-year,1,fixed
+Japan,regional natural gas,imported pipeline gas,imported PAC pipeline gas,PAC,share-weight,final-calibration-year,end-year,1,fixed
+Mexico,regional natural gas,imported pipeline gas,imported N.Amer pipeline gas,N.Amer,share-weight,final-calibration-year,end-year,1,fixed
+Middle East,regional natural gas,imported pipeline gas,imported Afr_MidE pipeline gas,Afr_MidE,share-weight,final-calibration-year,end-year,1,fixed
+Middle East,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+Pakistan,regional natural gas,imported pipeline gas,imported PAC pipeline gas,PAC,share-weight,final-calibration-year,end-year,1,fixed
+Russia,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+South Africa,regional natural gas,imported pipeline gas,imported Afr_MidE pipeline gas,Afr_MidE,share-weight,final-calibration-year,end-year,1,fixed
+South America_Northern,regional natural gas,imported pipeline gas,imported LA pipeline gas,LA,share-weight,final-calibration-year,end-year,1,fixed
+South America_Southern,regional natural gas,imported pipeline gas,imported LA pipeline gas,LA,share-weight,final-calibration-year,end-year,1,fixed
+South Asia,regional natural gas,imported pipeline gas,imported PAC pipeline gas,PAC,share-weight,final-calibration-year,end-year,1,fixed
+South Korea,regional natural gas,imported pipeline gas,imported PAC pipeline gas,PAC,share-weight,final-calibration-year,end-year,1,fixed
+Southeast Asia,regional natural gas,imported pipeline gas,imported PAC pipeline gas,PAC,share-weight,final-calibration-year,end-year,1,fixed
+Taiwan,regional natural gas,imported pipeline gas,imported PAC pipeline gas,PAC,share-weight,final-calibration-year,end-year,1,fixed
+USA,regional natural gas,imported pipeline gas,imported N.Amer pipeline gas,N.Amer,share-weight,final-calibration-year,end-year,1,fixed
+EU_Southwest,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+EU_Southwest,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+EU_Southwest,regional natural gas,imported pipeline gas,imported Afr_MidE pipeline gas,Afr_MidE,share-weight,final-calibration-year,end-year,1,fixed
+EU_Northwest,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+EU_Northwest,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+EU_Southeast,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+EU_Southeast,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+EU_Northeast,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+EU_Northeast,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+Ukraine,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+Ukraine,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+UK+,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+UK+,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+EU_Central,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+EU_Central,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+Poland,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+Poland,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed
+Lithuania,regional natural gas,imported pipeline gas,imported EUR pipeline gas,EUR,share-weight,final-calibration-year,end-year,1,fixed
+Lithuania,regional natural gas,imported pipeline gas,imported RUS pipeline gas,RUS,share-weight,final-calibration-year,end-year,1,fixed

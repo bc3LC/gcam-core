@@ -153,6 +153,8 @@
 		<Value name = "process_emiss_USA">../input/gcamdata/xml/ind_urb_proc_emissions_USA.xml</Value>
 		<Value name = "refining_emiss_USA">../input/gcamdata/xml/refinery_emissions_USA.xml</Value>
 	
+        <Value name = "gas_trade">../input/gcamdata/xml/gas_trade.xml</Value>
+		<Value name = "gas_trade_USA_adj">../input/gcamdata/xml/USA_NG_price.xml</Value>
 		<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
 		
 
