@@ -178,7 +178,8 @@ module_energy_L2391.gas_trade_flows <- function(command, ...) {
       mutate(share = approx_fun(year, share, rule = 2)) %>%
       ungroup() %>%
       select(-GrossExp_EJ) %>%
-      filter(year %in% MODEL_BASE_YEARS) -> L2391.NG_export_shares
+      filter(year %in% MODEL_BASE_YEARS) %>%
+      replace_na(list(share = 0))-> L2391.NG_export_shares
 
     # Format traded data - exporting region is actually embedded in technology name
     L239.Production_tra %>%
