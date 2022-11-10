@@ -26,7 +26,8 @@ module_energy_LB1011.ff_GrossTrade <- function(command, ...) {
              FILE = "energy/mappings/comtrade_trade_flow",
              FILE = "energy/comtrade_ff_trade",
              FILE = "energy/A21.stubtech_interp_R",
-             FILE = "energy/GCAM_region_pipeline_bloc"))
+             FILE = "energy/GCAM_region_pipeline_bloc",
+             FILE = "energy/comtrade_ff_trade_adjEUR"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L1011.ff_GrossTrade_EJ_R_C_Y",
              "L1011.ff_GrossTrade_EJ_R_Y_LNG",
@@ -58,9 +59,16 @@ module_energy_LB1011.ff_GrossTrade <- function(command, ...) {
     comtrade_ff_trade <- get_data(all_data, "energy/comtrade_ff_trade")
     A21.stubtech_interp_R <- get_data(all_data, "energy/A21.stubtech_interp_R")
     GCAM_region_pipeline_bloc <- get_data(all_data, "energy/GCAM_region_pipeline_bloc")
+    comtrade_ff_trade_adjEUR <- get_data(all_data, "energy/comtrade_ff_trade_adjEUR")
 
 
     # ----------------------------------------
+
+    # Step 0: Add trade data from Eurostat. Improves the Comtrade estimations in EU.
+    # We use an additional file transformed to "comtrade format" (comtrade_ff_trade_adjEUR).
+    # This file can be periodically updated as new updated data becomes available
+    comtrade_ff_trade<-comtrade_ff_trade %>%
+      bind_rows(comtrade_ff_trade_adjEUR)
 
     # 1: Filter and prepare the bi-lateral trade flow volume data by country and comtrade commodity
     # Select columns, filter to the import and export quantity variables, and filter to traded GCAM commodities
@@ -281,7 +289,8 @@ module_energy_LB1011.ff_GrossTrade <- function(command, ...) {
                      "energy/mappings/comtrade_countrycode_ISO",
                      "energy/mappings/comtrade_commodity_code",
                      "energy/mappings/comtrade_trade_flow",
-                     "energy/comtrade_ff_trade") ->
+                     "energy/comtrade_ff_trade",
+                     "energy/comtrade_ff_trade_adjEUR") ->
       L1011.ff_GrossTrade_EJ_R_C_Y
 
     L1011.ff_GrossTrade_EJ_R_Y_LNG %>%
@@ -296,7 +305,8 @@ module_energy_LB1011.ff_GrossTrade <- function(command, ...) {
                      "energy/mappings/comtrade_countrycode_ISO",
                      "energy/mappings/comtrade_commodity_code",
                      "energy/mappings/comtrade_trade_flow",
-                     "energy/comtrade_ff_trade") ->
+                     "energy/comtrade_ff_trade",
+                     "energy/comtrade_ff_trade_adjEUR") ->
       L1011.ff_GrossTrade_EJ_R_Y_LNG
 
     L1011.ff_GrossTrade_EJ_R_Y_NG_pipe %>%
@@ -313,7 +323,8 @@ module_energy_LB1011.ff_GrossTrade <- function(command, ...) {
                      "energy/mappings/comtrade_trade_flow",
                      "energy/comtrade_ff_trade",
                      "energy/A21.stubtech_interp_R",
-                     "energy/GCAM_region_pipeline_bloc") ->
+                     "energy/GCAM_region_pipeline_bloc",
+                     "energy/comtrade_ff_trade_adjEUR") ->
       L1011.ff_GrossTrade_EJ_R_Y_NG_pipe
 
     L1011.ff_BilatTrade_EJ_R_Y_NG_pipe %>%
@@ -330,7 +341,8 @@ module_energy_LB1011.ff_GrossTrade <- function(command, ...) {
                      "energy/mappings/comtrade_trade_flow",
                      "energy/comtrade_ff_trade",
                      "energy/A21.stubtech_interp_R",
-                     "energy/GCAM_region_pipeline_bloc") ->
+                     "energy/GCAM_region_pipeline_bloc",
+                     "energy/comtrade_ff_trade_adjEUR") ->
       L1011.ff_BilatTrade_EJ_R_Y_NG_pipe
 
     return_data(L1011.ff_GrossTrade_EJ_R_C_Y,
