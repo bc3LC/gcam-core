@@ -115,7 +115,7 @@ module_socioeconomics_L102.GDP <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/iso_GCAM_regID",
              FILE = "socioeconomics/SSP_database_v9",
-             FILE = "socioeconomics/IMF_GDP_growth",
+             FILE = "socioeconomics/IMF_GDP_growth_imfoct22",
              FILE = "socioeconomics/GCAM3_GDP",
              "L100.gdp_mil90usd_ctry_Yh",
              "L101.Pop_thous_GCAM3_R_Y",
@@ -142,7 +142,7 @@ module_socioeconomics_L102.GDP <- function(command, ...) {
     # Load required inputs
     iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
     SSP_database_v9 <- get_data(all_data, "socioeconomics/SSP_database_v9")
-    IMF_GDP_growth <- get_data(all_data, "socioeconomics/IMF_GDP_growth")
+    IMF_GDP_growth <- get_data(all_data, "socioeconomics/IMF_GDP_growth_imfoct22")
     GCAM3_GDP <- get_data(all_data, "socioeconomics/GCAM3_GDP") %>%
       gather_years %>%
       mutate(value = as.numeric(value))
@@ -425,7 +425,7 @@ module_socioeconomics_L102.GDP <- function(command, ...) {
       add_legacy_name("L102.gdp_mil90usd_Scen_R_Y") %>%
       add_precursors("common/iso_GCAM_regID",
                      "socioeconomics/SSP_database_v9",
-                     "socioeconomics/IMF_GDP_growth",
+                     "socioeconomics/IMF_GDP_growth_imfoct22",
                      "L100.gdp_mil90usd_ctry_Yh") ->
       L102.gdp_mil90usd_Scen_R_Y
 
@@ -440,7 +440,7 @@ module_socioeconomics_L102.GDP <- function(command, ...) {
       add_legacy_name("L102.pcgdp_thous90USD_Scen_R_Y") %>%
       add_precursors("common/iso_GCAM_regID",
                      "socioeconomics/SSP_database_v9",
-                     "socioeconomics/IMF_GDP_growth",
+                     "socioeconomics/IMF_GDP_growth_imfoct22",
                      "L100.gdp_mil90usd_ctry_Yh",
                      "L101.Pop_thous_R_Yh",
                      "L101.Pop_thous_Scen_R_Yfut") ->
@@ -456,7 +456,7 @@ module_socioeconomics_L102.GDP <- function(command, ...) {
       add_legacy_name("L102.PPP_MER_R") %>%
       add_precursors("common/iso_GCAM_regID",
                      "socioeconomics/SSP_database_v9",
-                     "socioeconomics/IMF_GDP_growth",
+                     "socioeconomics/IMF_GDP_growth_imfoct22",
                      "L100.gdp_mil90usd_ctry_Yh") ->
       L102.PPP_MER_R
 

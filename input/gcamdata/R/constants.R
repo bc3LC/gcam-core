@@ -603,7 +603,7 @@ socioeconomics.UN_HISTORICAL_YEARS       <- c(1950, 1971:2015)  # Years for whic
 socioeconomics.FINAL_HIST_YEAR <- 2015
 
 # Sets the years during which the IMF projections are used over-riding the default (generally SSP) assumptions.
-socioeconomics.IMF_GDP_YEARS <- 2015:2024
+socioeconomics.IMF_GDP_YEARS <- 2015:2027
 
 socioeconomics.BASE_POP_SCEN         <- "SSP2"
 socioeconomics.BASE_GDP_SCENARIO     <- "SSP2"
