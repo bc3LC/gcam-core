@@ -557,12 +557,6 @@ module_energy_L2392.gas_trade <- function(command, ...) {
       mutate(price = price_hist) %>%
       select(-price_hist) ->  L2392.gas_price_adj_USA
 
-    #---------------------------------------
-    # Adjustment to avoid calibration error in EFTA:
-    L2392.TechCoef_reg_NG<-L2392.TechCoef_reg_NG %>%
-      mutate(coefficient = if_else(region == "EFTA" & subsector == "domestic natural gas" & year == 1990, 0.914828233, coefficient))
-
-
 
     # Produce outputs
     L2392.Delete_Supplysector_tra_NG %>%
