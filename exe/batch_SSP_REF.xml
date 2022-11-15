@@ -80,6 +80,8 @@
             <Value name = "gas_trade">../input/gcamdata/xml/gas_trade.xml</Value>
 			<Value name = "gas_trade_USA_adj">../input/gcamdata/xml/USA_NG_price.xml</Value>
 			<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
+
+		<Value name="policy-target-file">../input/policy/gas-prod-calib3-eur.xml</Value>
 			
 		</FileSet>
 	</ComponentSet>

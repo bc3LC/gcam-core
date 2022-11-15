@@ -1,0 +1,332 @@
+<scenario>
+   <world>
+      <region name="EFTA">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>EFTA</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2020">4.035368353</constraint>
+                </policy-portfolio-standard> 
+  <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2030">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2035">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2040">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2045">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2050">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2055">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2060">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2065">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2070">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2075">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2080">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2085">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2090">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2095">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2100">    <input-tax name="gas-prod-calib"/> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="EU_Central">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>EU_Central</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2020">0.118462191</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                   <resource-reserve-technology name="natural gas">
+
+<period year="1990">  <lifetime>10</lifetime> </period>
+<period year="2005">  <lifetime>10</lifetime> </period>
+<period year="2010">  <lifetime>10</lifetime> </period>
+<period year="2015">  <lifetime>10</lifetime> </period>
+                    </resource-reserve-technology>
+                    <technology name="natural gas">
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2030">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2035">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2040">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2045">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2050">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2055">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2060">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2065">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2070">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2075">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2080">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2085">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2090">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2095">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2100">    <input-tax name="gas-prod-calib"/> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+
+<region name="Poland">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>Poland</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2020">0.139881784</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                   <resource-reserve-technology name="natural gas">
+
+<period year="1990">  <lifetime>10</lifetime> </period>
+<period year="2005">  <lifetime>10</lifetime> </period>
+<period year="2010">  <lifetime>10</lifetime> </period>
+<period year="2015">  <lifetime>10</lifetime> </period>
+                    </resource-reserve-technology>
+                    <technology name="natural gas">
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2030">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2035">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2040">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2045">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2050">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2055">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2060">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2065">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2070">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2075">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2080">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2085">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2090">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2095">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2100">    <input-tax name="gas-prod-calib"/> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+
+<region name="EU_Northwest">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>EU_Northwest</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2020">0.92673469</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                   <resource-reserve-technology name="natural gas">
+
+<period year="1990">  <lifetime>10</lifetime> </period>
+<period year="2005">  <lifetime>10</lifetime> </period>
+<period year="2010">  <lifetime>10</lifetime> </period>
+<period year="2015">  <lifetime>10</lifetime> </period>
+                    </resource-reserve-technology>
+                    <technology name="natural gas">
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2030">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2035">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2040">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2045">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2050">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2055">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2060">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2065">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2070">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2075">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2080">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2085">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2090">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2095">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2100">    <input-tax name="gas-prod-calib"/> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="EU_Southeast">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>EU_Southeast</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2020">0.303630206</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                   <resource-reserve-technology name="natural gas">
+
+<period year="1990">  <lifetime>10</lifetime> </period>
+<period year="2005">  <lifetime>10</lifetime> </period>
+<period year="2010">  <lifetime>10</lifetime> </period>
+<period year="2015">  <lifetime>10</lifetime> </period>
+                    </resource-reserve-technology>
+                    <technology name="natural gas">
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2030">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2035">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2040">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2045">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2050">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2055">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2060">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2065">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2070">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2075">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2080">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2085">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2090">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2095">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2100">    <input-tax name="gas-prod-calib"/> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+
+<region name="EU_Southwest">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>EU_Southwest</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2020">0.137084594</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                   <resource-reserve-technology name="natural gas">
+
+<period year="1990">  <lifetime>10</lifetime> </period>
+<period year="2005">  <lifetime>10</lifetime> </period>
+<period year="2010">  <lifetime>10</lifetime> </period>
+<period year="2015">  <lifetime>10</lifetime> </period>
+                    </resource-reserve-technology>
+                    <technology name="natural gas">
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2030">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2035">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2040">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2045">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2050">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2055">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2060">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2065">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2070">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2075">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2080">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2085">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2090">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2095">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2100">    <input-tax name="gas-prod-calib"/> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="UK+">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>UK+</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2020">1.465007353</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                   <resource-reserve-technology name="natural gas">
+
+<period year="1990">  <lifetime>10</lifetime> </period>
+<period year="2005">  <lifetime>10</lifetime> </period>
+<period year="2010">  <lifetime>10</lifetime> </period>
+<period year="2015">  <lifetime>10</lifetime> </period>
+                    </resource-reserve-technology>
+                    <technology name="natural gas">
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2030">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2035">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2040">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2045">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2050">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2055">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2060">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2065">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2070">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2075">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2080">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2085">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2090">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2095">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2100">    <input-tax name="gas-prod-calib"/> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="Ukraine">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>Ukraine</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2020">0.653012945</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                   <resource-reserve-technology name="natural gas">
+
+<period year="1990">  <lifetime>10</lifetime> </period>
+<period year="2005">  <lifetime>10</lifetime> </period>
+<period year="2010">  <lifetime>10</lifetime> </period>
+<period year="2015">  <lifetime>10</lifetime> </period>
+                    </resource-reserve-technology>
+                    <technology name="natural gas">
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2030">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2035">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2040">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2045">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2050">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2055">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2060">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2065">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2070">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2075">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2080">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2085">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2090">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2095">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2100">    <input-tax name="gas-prod-calib"/> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="Europe_Eastern">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>Europe_Eastern</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2020">0.005222278</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                   <resource-reserve-technology name="natural gas">
+
+<period year="1990">  <lifetime>10</lifetime> </period>
+<period year="2005">  <lifetime>10</lifetime> </period>
+<period year="2010">  <lifetime>10</lifetime> </period>
+<period year="2015">  <lifetime>10</lifetime> </period>
+                    </resource-reserve-technology>
+                    <technology name="natural gas">
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2030">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2035">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2040">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2045">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2050">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2055">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2060">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2065">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2070">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2075">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2080">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2085">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2090">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2095">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2100">    <input-tax name="gas-prod-calib"/> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="Europe_Non_EU">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>Europe_Non_EU</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2020">0.030030083</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                   <resource-reserve-technology name="natural gas">
+
+<period year="1990">  <lifetime>10</lifetime> </period>
+<period year="2005">  <lifetime>10</lifetime> </period>
+<period year="2010">  <lifetime>10</lifetime> </period>
+<period year="2015">  <lifetime>10</lifetime> </period>
+                    </resource-reserve-technology>
+                    <technology name="natural gas">
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2030">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2035">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2040">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2045">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2050">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2055">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2060">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2065">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2070">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2075">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2080">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2085">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2090">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2095">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2100">    <input-tax name="gas-prod-calib"/> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+
+        </world>
+</scenario>

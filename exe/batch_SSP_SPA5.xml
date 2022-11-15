@@ -82,6 +82,8 @@
 			
 			<Value name = "solver">../input/solution/cal_broyden_config.xml</Value>
 
+		<Value name="policy-target-file">../input/policy/gas-prod-calib3-eur.xml</Value>
+
 		</FileSet>
 	</ComponentSet>
 	<ComponentSet name="SSP Harmonized">
