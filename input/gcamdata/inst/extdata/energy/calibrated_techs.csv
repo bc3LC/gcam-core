@@ -41,6 +41,7 @@ electricity distribution,electricity,elect_td_bld,elect_td_bld,elect_td_bld,elec
 electricity distribution,electricity,elect_td_ind,elect_td_ind,elect_td_ind,electricity_net_ownuse,coefficient,
 electricity distribution,electricity,elect_td_trn,elect_td_trn,elect_td_trn,electricity_net_ownuse,coefficient,
 electricity distribution,electricity,elect_td_en,elect_td_en,elect_td_en,electricity_net_ownuse,coefficient,
+electricity distribution,electricity,elect_td_h2,elect_td_h2,elect_td_h2,electricity_net_ownuse,coefficient,
 gas pipeline,gas,gas pipeline,gas pipeline,gas pipeline,gas processing,coefficient,
 heat,biomass,district heat,biomass,biomass,delivered biomass,input,
 heat,coal,district heat,coal,coal,delivered coal,input,

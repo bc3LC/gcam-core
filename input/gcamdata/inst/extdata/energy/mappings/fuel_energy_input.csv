@@ -14,10 +14,12 @@ regional corn for ethanol,corn
 elect_td_ind,electricity
 elect_td_bld,electricity
 elect_td_trn,electricity
+elect_td_h2,electricity
 elect_td_en,electricity
 regional natural gas,gas
 wholesale gas,gas
 delivered gas,gas
+delivered gas h2,gas
 delivered gas transport,gas
 regional oil,oil
 regional sugar for ethanol,sugar
