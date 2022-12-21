@@ -14,10 +14,12 @@ electricity_net_ownuse,electricity_net_ownuse,start-year,,1
 elect_td_bld,elect_td_bld,start-year,,1
 elect_td_ind,elect_td_ind,start-year,,1
 elect_td_trn,elect_td_trn,start-year,,1
+elect_td_h2,elect_td_h2,start-year,,1
 elect_td_en,elect_td_en,start-year,,1
 gas pipeline,gas pipeline,start-year,,1
 wholesale gas,wholesale gas,start-year,,1
 delivered gas,delivered gas,start-year,,1
+delivered gas h2,delivered gas h2,start-year,,1
 delivered gas transport,delivered gas transport,start-year,,1
 refined liquids enduse,refined liquids enduse,start-year,,1
 refined liquids industrial,refined liquids industrial,start-year,,1

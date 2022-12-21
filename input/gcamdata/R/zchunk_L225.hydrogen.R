@@ -173,7 +173,7 @@ module_energy_L225.hydrogen <- function(command, ...) {
       L225.GlobalTechCoef_h2_noprod #filter and convert efficiencies to coefficients for only end use and distribution pass-through sectors and technologies
 
     L225.GlobalTechCoef_h2 <- bind_rows(L225.GlobalTechCoef_h2,L225.GlobalTechCoef_h2_noprod) %>%
-      mutate(minicam.energy.input = if_else(minicam.energy.input == 'elect_td_trn (compression and refrigeration)','elect_td_trn',minicam.energy.input)) %>%
+      mutate(minicam.energy.input = if_else(minicam.energy.input == 'elect_td_h2 (compression and refrigeration)','elect_td_h2',minicam.energy.input)) %>%
       group_by(sector.name,subsector.name,technology,minicam.energy.input,units,year) %>%
       summarize(coefficient = sum(coefficient)) %>%
       ungroup()
