@@ -1,0 +1,2275 @@
+<scenario>
+   <world>
+      <region name="EU_Central">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU_Central</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">3.381578044</constraint>
+                                <constraint year="2030">3.228914434</constraint>
+                                <constraint year="2035">3.242147776</constraint>
+                                <constraint year="2040">3.232783092</constraint>
+                                <constraint year="2045">3.147151702</constraint>
+                                <constraint year="2050">3.120913738</constraint>
+                </policy-portfolio-standard>
+
+
+
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered coal">
+            <subsector name="delivered coal">
+               <technology name="delivered coal">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="elect_td_bld">
+               <technology name="elect_td_bld">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_ind">
+            <subsector name="elect_td_ind">
+               <technology name="elect_td_ind">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_trn">
+            <subsector name="elect_td_trn">
+               <technology name="elect_td_trn">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="wholesale gas">
+            <subsector name="wholesale gas">
+               <technology name="wholesale gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered gas">
+            <subsector name="delivered gas">
+               <technology name="delivered gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="delivered gas transport">
+            <subsector name="delivered gas transport">
+               <technology name="delivered gas transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids enduse">
+            <subsector name="refined liquids enduse">
+               <technology name="refined liquids enduse">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids industrial">
+            <subsector name="refined liquids industrial">
+               <technology name="refined liquids industrial">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="H2 wholesale delivery">
+            <subsector name="H2 liquid truck">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                </technology>
+            </subsector>
+             <subsector name="H2 pipeline">
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+        </supplysector>
+<supplysector name="H2 industrial">
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+
+        </supplysector>
+<supplysector name="H2 wholesale dispensing">
+            <subsector name="H2 delivery">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="natural gas steam reforming">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+        </supplysector>
+
+
+    </region>
+
+<region name="Poland">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>Poland</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">2.617046183</constraint>
+                                <constraint year="2030">2.497721468</constraint>
+                                <constraint year="2035">2.514743381</constraint>
+                                <constraint year="2040">2.503824342</constraint>
+                                <constraint year="2045">2.440209924</constraint>
+                                <constraint year="2050">2.389209831</constraint>
+                </policy-portfolio-standard>
+
+
+
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered coal">
+            <subsector name="delivered coal">
+               <technology name="delivered coal">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="elect_td_bld">
+               <technology name="elect_td_bld">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_ind">
+            <subsector name="elect_td_ind">
+               <technology name="elect_td_ind">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_trn">
+            <subsector name="elect_td_trn">
+               <technology name="elect_td_trn">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="wholesale gas">
+            <subsector name="wholesale gas">
+               <technology name="wholesale gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered gas">
+            <subsector name="delivered gas">
+               <technology name="delivered gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="delivered gas transport">
+            <subsector name="delivered gas transport">
+               <technology name="delivered gas transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids enduse">
+            <subsector name="refined liquids enduse">
+               <technology name="refined liquids enduse">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids industrial">
+            <subsector name="refined liquids industrial">
+               <technology name="refined liquids industrial">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                  <supplysector name="H2 wholesale delivery">
+            <subsector name="H2 liquid truck">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                </technology>
+            </subsector>
+             <subsector name="H2 pipeline">
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+        </supplysector>
+<supplysector name="H2 industrial">
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+
+        </supplysector>
+<supplysector name="H2 wholesale dispensing">
+            <subsector name="H2 delivery">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="natural gas steam reforming">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+        </supplysector>
+    </region>
+
+<region name="EU_Northwest">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU_Northwest</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">19.87266956</constraint>
+                                <constraint year="2030">18.96965544</constraint>
+                                <constraint year="2035">18.70392976</constraint>
+                                <constraint year="2040">18.51589127</constraint>
+                                <constraint year="2045">18.23822266</constraint>
+                                <constraint year="2050">18.06098394</constraint>
+                </policy-portfolio-standard>
+
+
+
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered coal">
+            <subsector name="delivered coal">
+               <technology name="delivered coal">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="elect_td_bld">
+               <technology name="elect_td_bld">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_ind">
+            <subsector name="elect_td_ind">
+               <technology name="elect_td_ind">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_trn">
+            <subsector name="elect_td_trn">
+               <technology name="elect_td_trn">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="wholesale gas">
+            <subsector name="wholesale gas">
+               <technology name="wholesale gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered gas">
+            <subsector name="delivered gas">
+               <technology name="delivered gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="delivered gas transport">
+            <subsector name="delivered gas transport">
+               <technology name="delivered gas transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids enduse">
+            <subsector name="refined liquids enduse">
+               <technology name="refined liquids enduse">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids industrial">
+            <subsector name="refined liquids industrial">
+               <technology name="refined liquids industrial">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                  <supplysector name="H2 wholesale delivery">
+            <subsector name="H2 liquid truck">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                </technology>
+            </subsector>
+             <subsector name="H2 pipeline">
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+        </supplysector>
+<supplysector name="H2 industrial">
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+
+        </supplysector>
+<supplysector name="H2 wholesale dispensing">
+            <subsector name="H2 delivery">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="natural gas steam reforming">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+        </supplysector>
+    </region>
+
+<region name="EU_Southeast">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU_Southeast</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">2.13921788</constraint>
+                                <constraint year="2030">2.042488481</constraint>
+                                <constraint year="2035">2.084144062</constraint>
+                                <constraint year="2040">2.11406656</constraint>
+                                <constraint year="2045">2.081896432</constraint>
+                                <constraint year="2050">2.041948795</constraint>
+                </policy-portfolio-standard>
+
+
+
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered coal">
+            <subsector name="delivered coal">
+               <technology name="delivered coal">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="elect_td_bld">
+               <technology name="elect_td_bld">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_ind">
+            <subsector name="elect_td_ind">
+               <technology name="elect_td_ind">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_trn">
+            <subsector name="elect_td_trn">
+               <technology name="elect_td_trn">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="wholesale gas">
+            <subsector name="wholesale gas">
+               <technology name="wholesale gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered gas">
+            <subsector name="delivered gas">
+               <technology name="delivered gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="delivered gas transport">
+            <subsector name="delivered gas transport">
+               <technology name="delivered gas transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids enduse">
+            <subsector name="refined liquids enduse">
+               <technology name="refined liquids enduse">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids industrial">
+            <subsector name="refined liquids industrial">
+               <technology name="refined liquids industrial">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                  <supplysector name="H2 wholesale delivery">
+            <subsector name="H2 liquid truck">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                </technology>
+            </subsector>
+             <subsector name="H2 pipeline">
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+        </supplysector>
+<supplysector name="H2 industrial">
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+
+        </supplysector>
+<supplysector name="H2 wholesale dispensing">
+            <subsector name="H2 delivery">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="natural gas steam reforming">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+        </supplysector>
+    </region>
+
+<region name="EU_Southwest">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU_Southwest</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">8.267289249</constraint>
+                                <constraint year="2030">7.741253821</constraint>
+                                <constraint year="2035">7.562043696</constraint>
+                                <constraint year="2040">7.372160544</constraint>
+                                <constraint year="2045">7.081308534</constraint>
+                                <constraint year="2050">6.836491963</constraint>
+                </policy-portfolio-standard>
+
+
+
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered coal">
+            <subsector name="delivered coal">
+               <technology name="delivered coal">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="elect_td_bld">
+               <technology name="elect_td_bld">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_ind">
+            <subsector name="elect_td_ind">
+               <technology name="elect_td_ind">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_trn">
+            <subsector name="elect_td_trn">
+               <technology name="elect_td_trn">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="wholesale gas">
+            <subsector name="wholesale gas">
+               <technology name="wholesale gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered gas">
+            <subsector name="delivered gas">
+               <technology name="delivered gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="delivered gas transport">
+            <subsector name="delivered gas transport">
+               <technology name="delivered gas transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids enduse">
+            <subsector name="refined liquids enduse">
+               <technology name="refined liquids enduse">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids industrial">
+            <subsector name="refined liquids industrial">
+               <technology name="refined liquids industrial">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                  <supplysector name="H2 wholesale delivery">
+            <subsector name="H2 liquid truck">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                </technology>
+            </subsector>
+             <subsector name="H2 pipeline">
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+        </supplysector>
+<supplysector name="H2 industrial">
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+
+        </supplysector>
+<supplysector name="H2 wholesale dispensing">
+            <subsector name="H2 delivery">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="natural gas steam reforming">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+        </supplysector>
+    </region>
+
+<region name="EU_Northeast">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU_Northeast</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">2.627948691</constraint>
+                                <constraint year="2030">2.520798577</constraint>
+                                <constraint year="2035">2.520915749</constraint>
+                                <constraint year="2040">2.49474638</constraint>
+                                <constraint year="2045">2.456289025</constraint>
+                                <constraint year="2050">2.43784437</constraint>
+                </policy-portfolio-standard>
+
+
+
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered coal">
+            <subsector name="delivered coal">
+               <technology name="delivered coal">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="elect_td_bld">
+               <technology name="elect_td_bld">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_ind">
+            <subsector name="elect_td_ind">
+               <technology name="elect_td_ind">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_trn">
+            <subsector name="elect_td_trn">
+               <technology name="elect_td_trn">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="wholesale gas">
+            <subsector name="wholesale gas">
+               <technology name="wholesale gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered gas">
+            <subsector name="delivered gas">
+               <technology name="delivered gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="delivered gas transport">
+            <subsector name="delivered gas transport">
+               <technology name="delivered gas transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids enduse">
+            <subsector name="refined liquids enduse">
+               <technology name="refined liquids enduse">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids industrial">
+            <subsector name="refined liquids industrial">
+               <technology name="refined liquids industrial">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                  <supplysector name="H2 wholesale delivery">
+            <subsector name="H2 liquid truck">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                </technology>
+            </subsector>
+             <subsector name="H2 pipeline">
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+        </supplysector>
+<supplysector name="H2 industrial">
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+
+        </supplysector>
+<supplysector name="H2 wholesale dispensing">
+            <subsector name="H2 delivery">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="natural gas steam reforming">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+        </supplysector>
+    </region>
+
+<region name="Lithuania">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>Lithuania</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.150319561</constraint>
+                                <constraint year="2030">0.138117721</constraint>
+                                <constraint year="2035">0.134689703</constraint>
+                                <constraint year="2040">0.130527367</constraint>
+                                <constraint year="2045">0.121338408</constraint>
+                                <constraint year="2050">0.113681258</constraint>
+                </policy-portfolio-standard>
+
+
+
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered coal">
+            <subsector name="delivered coal">
+               <technology name="delivered coal">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="elect_td_bld">
+               <technology name="elect_td_bld">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_ind">
+            <subsector name="elect_td_ind">
+               <technology name="elect_td_ind">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_trn">
+            <subsector name="elect_td_trn">
+               <technology name="elect_td_trn">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="wholesale gas">
+            <subsector name="wholesale gas">
+               <technology name="wholesale gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="delivered gas">
+            <subsector name="delivered gas">
+               <technology name="delivered gas">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="delivered gas transport">
+            <subsector name="delivered gas transport">
+               <technology name="delivered gas transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids enduse">
+            <subsector name="refined liquids enduse">
+               <technology name="refined liquids enduse">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="refined liquids industrial">
+            <subsector name="refined liquids industrial">
+               <technology name="refined liquids industrial">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+<supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                  <supplysector name="H2 wholesale delivery">
+            <subsector name="H2 liquid truck">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                </technology>
+            </subsector>
+             <subsector name="H2 pipeline">
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+        </supplysector>
+<supplysector name="H2 industrial">
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+
+
+        </supplysector>
+<supplysector name="H2 wholesale dispensing">
+            <subsector name="H2 delivery">
+               <technology name="H2 liquid truck">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="H2 pipeline">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+            <subsector name="forecourt production">
+               <technology name="electrolysis">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+
+               <technology name="natural gas steam reforming">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+                 </technology>
+            </subsector>
+        </supplysector>
+    </region>
+
+
+              </world>
+</scenario>
