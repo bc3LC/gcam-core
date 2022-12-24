@@ -1,0 +1,1089 @@
+<scenario>
+   <world>
+<region name="EU_Central">
+         <supplysector name="trn_pass_road_LDV_4W">
+            <tranSubsector name="Car">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2010.12072107468</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1894.53058744654</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1838.9195244</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1680.38074314703</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            <tranSubsector name="Large Car and Truck">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1567.53655183455</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1477.39681167175</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1421.69997394638</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1421.69997394638</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1421.69997394638</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2358.1261695</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2154.82502228137</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2033.03279946995</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2033.03279946995</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2033.03279946995</coefficient>
+                        <market-name>EU_Central</market-name>
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+
+
+
+
+
+
+
+
+         </supplysector>
+      </region>
+
+<region name="EU_Southeast">
+         <supplysector name="trn_pass_road_LDV_4W">
+            <tranSubsector name="Car">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2010.12072107468</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1894.53058744654</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1838.9195244</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1680.38074314703</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            <tranSubsector name="Large Car and Truck">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1567.53655183455</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1477.39681167175</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1421.69997394638</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1421.69997394638</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1421.69997394638</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2358.1261695</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2154.82502228137</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2033.03279946995</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2033.03279946995</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2033.03279946995</coefficient>
+                        <market-name>EU_Southeast</market-name>
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+
+
+
+
+
+
+
+
+         </supplysector>
+      </region>
+<region name="Poland">
+         <supplysector name="trn_pass_road_LDV_4W">
+            <tranSubsector name="Car">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2010.12072107468</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1894.53058744654</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1838.9195244</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1680.38074314703</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            
+
+
+
+
+
+
+
+
+         </supplysector>
+      </region>
+<region name="Lithuania">
+         <supplysector name="trn_pass_road_LDV_4W">
+            <tranSubsector name="Car">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2010.12072107468</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1894.53058744654</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1823.10809495088</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1838.9195244</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1680.38074314703</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1585.40444402243</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            <tranSubsector name="Large Car and Truck">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1567.53655183455</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1477.39681167175</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1421.69997394638</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1421.69997394638</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1421.69997394638</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2358.1261695</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2154.82502228137</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2033.03279946995</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2033.03279946995</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2033.03279946995</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+
+
+
+
+
+
+
+
+         </supplysector>
+      </region>
+
+            <region name="EU_Northwest">
+         <supplysector name="trn_pass_road_LDV_4W">
+            <tranSubsector name="Car">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1495.42567256033</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1419.1208299051</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1754.328412725</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1620.12228915154</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            <tranSubsector name="Large Car and Truck">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1856.2270883937</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1761.51217309487</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2177.59013535</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2011.00448999573</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            
+
+
+
+         </supplysector>
+      </region>
+<region name="EU_Northeast">
+         <supplysector name="trn_pass_road_LDV_4W">
+            <tranSubsector name="Car">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1495.42567256033</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1419.1208299051</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1754.328412725</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1620.12228915154</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            <tranSubsector name="Large Car and Truck">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1856.2270883937</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1761.51217309487</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2177.59013535</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2011.00448999573</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            
+
+
+
+         </supplysector>
+      </region>
+<region name="EU_Southwest">
+         <supplysector name="trn_pass_road_LDV_4W">
+            <tranSubsector name="Car">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1495.42567256033</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1419.1208299051</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1754.328412725</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1620.12228915154</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            <tranSubsector name="Large Car and Truck">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1856.2270883937</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1761.51217309487</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2177.59013535</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2011.00448999573</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            
+
+
+
+         </supplysector>
+      </region>
+<region name="UK+">
+         <supplysector name="trn_pass_road_LDV_4W">
+            <tranSubsector name="Car">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1495.42567256033</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1419.1208299051</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1379.03150123724</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1754.328412725</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1620.12228915154</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1551.50534514041</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            <tranSubsector name="Large Car and Truck">
+               <stub-technology name="Hybrid Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1856.2270883937</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1761.51217309487</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1711.75049038857</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+               <stub-technology name="Liquids">
+                  <period year="2020">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2177.59013535</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>2011.00448999573</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-energy-input name="refined liquids transport">
+                        <coefficient>1925.83253512532</coefficient>
+                       
+                     </minicam-energy-input>
+                  </period>
+               </stub-technology>
+            </tranSubsector>
+            
+
+
+
+         </supplysector>
+      </region>
+
+
+
+        </world>
+</scenario>
+
+
+
+
+
+
+
+
+

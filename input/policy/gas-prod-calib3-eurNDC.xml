@@ -1,0 +1,327 @@
+<scenario>
+   <world>
+      <region name="EFTA">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>EFTA</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">4.035368353</constraint>
+                </policy-portfolio-standard> 
+  <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="1975">    <input-tax name="gas-prod-calib"/> </period>
+<period year="1990">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2005">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2010">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2015">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2030">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2035">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2040">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2045">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2050">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2055">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2060">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2065">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2070">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2075">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2080">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2085">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2090">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2095">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2100">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0</input-cost> </minicam-non-energy-input> </period>
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="EU_Central">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>EU_Central</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">0.118462191</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="1975">    <input-tax name="gas-prod-calib"/> </period>
+<period year="1990">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2005">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2010">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2015">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2030">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2035">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2040">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2045">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2050">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2055">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2060">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2065">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2070">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2075">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2080">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2085">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2090">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2095">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2100">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.219769</input-cost> </minicam-non-energy-input> </period>
+                     </technology>
+                </reserve-subresource> </resource>  </region>
+
+<region name="Poland">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>Poland</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">0.139881784</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="1975">    <input-tax name="gas-prod-calib"/> </period>
+<period year="1990">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2005">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2010">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2015">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2030">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2035">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2040">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2045">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2050">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2055">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2060">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2065">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2070">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2075">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2080">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2085">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2090">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2095">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2100">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.260079</input-cost> </minicam-non-energy-input> </period>
+
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+
+<region name="EU_Northwest">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>EU_Northwest</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">0.92673469</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="1975">    <input-tax name="gas-prod-calib"/> </period>
+<period year="1990">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2005">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2010">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2015">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2030">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2035">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2040">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2045">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2050">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2055">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2060">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2065">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2070">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2075">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2080">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2085">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2090">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2095">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2100">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.532773</input-cost> </minicam-non-energy-input> </period>
+
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="EU_Southeast">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>EU_Southeast</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">0.303630206</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="1975">    <input-tax name="gas-prod-calib"/> </period>
+<period year="1990">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2005">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2010">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2015">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2030">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2035">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2040">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2045">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2050">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2055">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2060">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2065">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2070">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2075">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2080">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2085">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2090">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2095">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2100">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.324661</input-cost> </minicam-non-energy-input> </period>
+
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+
+<region name="EU_Southwest">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>EU_Southwest</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">0.137084594</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="1975">    <input-tax name="gas-prod-calib"/> </period>
+<period year="1990">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2005">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2010">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2015">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2030">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2035">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2040">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2045">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2050">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2055">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2060">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2065">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2070">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2075">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2080">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2085">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2090">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2095">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+                  <period year="2100">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.468258</input-cost>  </minicam-non-energy-input> </period>
+ 
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="UK+">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>UK+</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">1.465007353</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="1975">    <input-tax name="gas-prod-calib"/> </period>
+<period year="1990">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2005">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2010">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2015">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2030">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2035">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2040">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2045">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2050">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2055">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2060">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2065">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2070">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2075">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2080">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2085">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2090">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2095">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2100">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.127411</input-cost> </minicam-non-energy-input> </period>
+
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="Ukraine">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>Ukraine</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">0.653012945</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="1975">    <input-tax name="gas-prod-calib"/> </period>
+<period year="1990">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2005">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2010">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2015">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2030">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2035">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2040">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2045">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2050">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2055">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2060">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2065">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2070">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2075">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2080">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2085">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2090">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2095">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2100">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.0221335</input-cost> </minicam-non-energy-input> </period>
+ 
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="Europe_Eastern">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>Europe_Eastern</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">0.005222278</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="1975">    <input-tax name="gas-prod-calib"/> </period>
+<period year="1990">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2005">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2010">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2015">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2030">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2035">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2040">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2045">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2050">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2055">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2060">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2065">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2070">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2075">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2080">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2085">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2090">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2095">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2100">    <minicam-non-energy-input name="gas-prod-calib2020"> <input-cost>0.544424</input-cost> </minicam-non-energy-input> </period>
+ 
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+<region name="Europe_Non_EU">
+<policy-portfolio-standard name="gas-prod-calib">
+                                <market>Europe_Non_EU</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">0.030030083</constraint>
+                </policy-portfolio-standard>   <resource name="natural gas"> <reserve-subresource name="natural gas">
+                    <technology name="natural gas">
+<period year="1975">    <input-tax name="gas-prod-calib"/> </period>
+<period year="1990">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2005">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2010">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2015">    <input-tax name="gas-prod-calib"/> </period>
+<period year="2020">    <input-tax name="gas-prod-calib"/> </period>
+                  <period year="2025">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2030">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2035">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2040">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2045">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2050">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2055">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2060">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2065">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2070">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2075">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2080">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2085">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2090">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2095">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+                  <period year="2100">    <minicam-non-energy-input name="gas-prod-calib2020">  <input-cost>0.306084</input-cost> </minicam-non-energy-input> </period>
+
+                    </technology>
+                </reserve-subresource> </resource>  </region>
+
+        </world>
+</scenario>

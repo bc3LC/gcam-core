@@ -1,0 +1,1575 @@
+<scenario>
+   <world>
+<region name="EU_Northwest">
+            <supplysector name="refined liquids transport">
+<subsector name="refined liquids transport">
+<stub-technology name="refined liquids transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+            <supplysector name="delivered gas transport">
+<subsector name="delivered gas transport">
+<stub-technology name="delivered gas transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+      </region>
+<region name="EU_Southwest">
+            <supplysector name="refined liquids transport">
+<subsector name="refined liquids transport">
+<stub-technology name="refined liquids transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+            <supplysector name="delivered gas transport">
+<subsector name="delivered gas transport">
+<stub-technology name="delivered gas transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+      </region>
+<region name="EU_Northeast">
+            <supplysector name="refined liquids transport">
+<subsector name="refined liquids transport">
+<stub-technology name="refined liquids transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+            <supplysector name="delivered gas transport">
+<subsector name="delivered gas transport">
+<stub-technology name="delivered gas transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+      </region>
+<region name="UK+">
+            <supplysector name="refined liquids transport">
+<subsector name="refined liquids transport">
+<stub-technology name="refined liquids transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>5.05699581723094</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+            <supplysector name="delivered gas transport">
+<subsector name="delivered gas transport">
+<stub-technology name="delivered gas transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>1.07371089107752</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+      </region>
+
+<region name="EU_Central">
+            <supplysector name="refined liquids transport">
+<subsector name="refined liquids transport">
+<stub-technology name="refined liquids transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+            <supplysector name="delivered gas transport">
+<subsector name="delivered gas transport">
+<stub-technology name="delivered gas transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+      </region>
+<region name="EU_Southeast">
+            <supplysector name="refined liquids transport">
+<subsector name="refined liquids transport">
+<stub-technology name="refined liquids transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+            <supplysector name="delivered gas transport">
+<subsector name="delivered gas transport">
+<stub-technology name="delivered gas transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+      </region>
+<region name="Poland">
+            <supplysector name="refined liquids transport">
+<subsector name="refined liquids transport">
+<stub-technology name="refined liquids transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+            <supplysector name="delivered gas transport">
+<subsector name="delivered gas transport">
+<stub-technology name="delivered gas transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+      </region>
+<region name="Lithuania">
+            <supplysector name="refined liquids transport">
+<subsector name="refined liquids transport">
+<stub-technology name="refined liquids transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>3.50412466864624</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+            <supplysector name="delivered gas transport">
+<subsector name="delivered gas transport">
+<stub-technology name="delivered gas transport">
+                  <period year="2015">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2020">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2025">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2030">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2035">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2040">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2045">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2050">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2055">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2060">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2065">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2070">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2075">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2080">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2085">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2090">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2095">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+                  <period year="2100">
+                     <minicam-non-energy-input name="fuel-tax">
+                        <input-cost>0.504987072981841</input-cost>
+                     </minicam-non-energy-input>
+                  </period>
+               </stub-technology>
+            </subsector>
+         </supplysector>
+      </region>
+
+
+
+
+
+
+            
+
+
+        </world>
+</scenario>
+
+
+
+
+
+
+
+
+
