@@ -1,0 +1,235 @@
+<scenario>
+   <world>
+      <region name="EU_Central">
+        <policy-portfolio-standard name="DomGas-constraint">
+                                <market>EU_Central</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.00688957</constraint>
+                                <constraint year="2030">0.00569158</constraint>
+                                <constraint year="2035">0.00787633</constraint>
+                                <constraint year="2040">0.01257875</constraint>
+                                <constraint year="2045">0.01916168</constraint>
+                                <constraint year="2050">0.02634538</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="DomGas-constraint"/> </period>
+               </technology>
+            </subsector>
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+ <region name="Poland">
+        <policy-portfolio-standard name="DomGas-constraint">
+                                <market>Poland</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.1276538</constraint>
+                                <constraint year="2030">0.10944519</constraint>
+                                <constraint year="2035">0.10521583</constraint>
+                                <constraint year="2040">0.11382694</constraint>
+                                <constraint year="2045">0.11158466</constraint>
+                                <constraint year="2050">0.10424881</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="DomGas-constraint"/> </period>
+               </technology>
+            </subsector>
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+
+ <region name="EU_Northwest">
+        <policy-portfolio-standard name="DomGas-constraint">
+                                <market>EU_Northwest</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.3366947</constraint>
+                                <constraint year="2030">0.2527769</constraint>
+                                <constraint year="2035">0.2618585</constraint>
+                                <constraint year="2040">0.2815959</constraint>
+                                <constraint year="2045">0.3103523</constraint>
+                                <constraint year="2050">0.3326891</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="DomGas-constraint"/> </period>
+               </technology>
+            </subsector>
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+ <region name="EU_Southeast">
+        <policy-portfolio-standard name="DomGas-constraint">
+                                <market>EU_Southeast</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.2867355</constraint>
+                                <constraint year="2030">0.2566135</constraint>
+                                <constraint year="2035">0.2604343</constraint>
+                                <constraint year="2040">0.2663736</constraint>
+                                <constraint year="2045">0.2659842</constraint>
+                                <constraint year="2050">0.2804251</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="DomGas-constraint"/> </period>
+               </technology>
+            </subsector>
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+ <region name="EU_Southwest">
+        <policy-portfolio-standard name="DomGas-constraint">
+                                <market>EU_Southwest</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.039265469</constraint>
+                                <constraint year="2035">0.033457337</constraint>
+                                <constraint year="2035">0.037393628</constraint>
+                                <constraint year="2040">0.041844235</constraint>
+                                <constraint year="2045">0.049563275</constraint>
+                                <constraint year="2050">0.056550894</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="DomGas-constraint"/> </period>
+               </technology>
+            </subsector>
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+ <region name="EU_Northeast">
+        <policy-portfolio-standard name="DomGas-constraint">
+                                <market>EU_Northeast</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">0</constraint>
+                                <constraint year="2025">0</constraint>
+                                <constraint year="2030">0</constraint>
+                                <constraint year="2035">0</constraint>
+                                <constraint year="2040">0</constraint>
+                                <constraint year="2045">0</constraint>
+                                <constraint year="2050">0</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="DomGas-constraint"/> </period>
+               </technology>
+            </subsector>
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+<region name="Lithuania">
+        <policy-portfolio-standard name="DomGas-constraint">
+                                <market>Lithuania</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">0</constraint>
+                                <constraint year="2025">0</constraint>
+                                <constraint year="2030">0</constraint>
+                                <constraint year="2035">0</constraint>
+                                <constraint year="2040">0</constraint>
+                                <constraint year="2045">0</constraint>
+                                <constraint year="2050">0</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="DomGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="DomGas-constraint"/> </period>
+               </technology>
+            </subsector>
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+
+      
+        </world>
+</scenario>
+
+
