@@ -1,0 +1,339 @@
+<scenario>
+   <world>
+      <region name="EU_Central">
+        <policy-portfolio-standard name="ImpGas-constraint">
+                                <market>EU_Central</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.63852851</constraint>
+                                <constraint year="2030">0.525715186</constraint>
+                                <constraint year="2035">0.564709467</constraint>
+                                <constraint year="2040">0.591652189</constraint>
+                                <constraint year="2045">0.65791692</constraint>
+                                <constraint year="2050">0.63115743</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+
+<region name="Poland">
+        <policy-portfolio-standard name="ImpGas-constraint">
+                                <market>Poland</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.43155182</constraint>
+                                <constraint year="2030">0.38268708</constraint>
+                                <constraint year="2035">0.395758999</constraint>
+                                <constraint year="2040">0.386282405</constraint>
+                                <constraint year="2045">0.368398101</constraint>
+                                <constraint year="2050">0.322443962</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+
+<region name="EU_Northwest">
+        <policy-portfolio-standard name="ImpGas-constraint">
+                                <market>EU_Northwest</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">2.8487354</constraint>
+                                <constraint year="2030">2.3270531</constraint>
+                                <constraint year="2035">2.3536683</constraint>
+                                <constraint year="2040">2.3952729</constraint>
+                                <constraint year="2045">2.6494468</constraint>
+                                <constraint year="2050">2.5225714</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+
+<region name="EU_Southeast">
+        <policy-portfolio-standard name="ImpGas-constraint">
+                                <market>EU_Southeast</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.23117019</constraint>
+                                <constraint year="2030">0.214304079</constraint>
+                                <constraint year="2035">0.225031344</constraint>
+                                <constraint year="2040">0.21941371</constraint>
+                                <constraint year="2045">0.223437184</constraint>
+                                <constraint year="2050">0.213694185</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+
+<region name="EU_Southwest">
+        <policy-portfolio-standard name="ImpGas-constraint">
+                                <market>EU_Southwest</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">2.15142353</constraint>
+                                <constraint year="2030">1.84975898</constraint>
+                                <constraint year="2035">1.859736</constraint>
+                                <constraint year="2040">1.84938583</constraint>
+                                <constraint year="2045">1.94394077</constraint>
+                                <constraint year="2050">1.87993363</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+
+               <technology name="imported Afr_MidE pipeline gas">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+
+            </subsector>
+
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+
+<region name="EU_Northeast">
+        <policy-portfolio-standard name="ImpGas-constraint">
+                                <market>EU_Northeast</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.069501113</constraint>
+                                <constraint year="2030">0.061171073</constraint>
+                                <constraint year="2035">0.075670368</constraint>
+                                <constraint year="2040">0.086483064</constraint>
+                                <constraint year="2045">0.118754753</constraint>
+                                <constraint year="2050">0.142945</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+
+<region name="Lithuania">
+        <policy-portfolio-standard name="ImpGas-constraint">
+                                <market>Lithuania</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2025">0.074233921</constraint>
+                                <constraint year="2030">0.068708247</constraint>
+                                <constraint year="2035">0.067148685</constraint>
+                                <constraint year="2040">0.062900782</constraint>
+                                <constraint year="2045">0.061845913</constraint>
+                                <constraint year="2050">0.059748797</constraint>
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2025">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2030">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2035">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2040">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2045">    <input-tax name="ImpGas-constraint"/> </period>
+                  <period year="2050">    <input-tax name="ImpGas-constraint"/> </period>
+               </technology>
+            </subsector>
+
+            </nesting-subsector>
+        </supplysector>
+         
+    </region>
+
+      
+        </world>
+</scenario>
+
+

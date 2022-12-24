@@ -1,0 +1,2025 @@
+<scenario>
+   <world>
+      <region name="EU_Central">
+        <policy-portfolio-standard name="energy-constraint">
+                                <market>EU_Central</market>
+                                <policyType>subsidy</policyType>    
+                                <constraint year="2025">4.964489778</constraint>
+                                <constraint year="2030">4.943640649</constraint>
+                                <constraint year="2035">5.413797904</constraint>
+                                <constraint year="2040">5.638281796</constraint>
+                                <constraint year="2045">5.777210904</constraint>
+                                <constraint year="2050">5.881262695</constraint>
+
+                </policy-portfolio-standard>
+
+         <supplysector name="regional biomass">
+            <subsector name="regional biomass">
+               <technology name="regional biomass">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional coal">
+            <subsector name="regional coal">
+               <technology name="regional coal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            </nesting-subsector>
+
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+
+          </subsector>
+
+            </nesting-subsector>
+
+
+        </supplysector>
+         <supplysector name="regional oil">
+            <subsector name="crude oil">
+               <technology name="crude oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            <subsector name="unconventional oil">
+               <technology name="unconventional oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional biomassOil">
+            <subsector name="regional biomassOil">
+               <technology name="OilCrop">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional corn for ethanol">
+            <subsector name="regional corn for ethanol">
+               <technology name="regional corn for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional sugar for ethanol">
+            <subsector name="regional sugar for ethanol">
+               <technology name="regional sugar for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+            <supplysector name="electricity">
+                <subsector name="nuclear">
+               <technology name="Gen_III">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="hydro">
+               <technology name="hydro">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="geothermal">
+               <technology name="geothermal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="wind">
+               <technology name="wind">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_offshore">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="solar">
+               <technology name="PV">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="PV_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <technology name="rooftop_pv">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+
+    </region>
+
+
+<region name="Poland">
+        <policy-portfolio-standard name="energy-constraint">
+                                <market>Poland</market>
+                                <policyType>subsidy</policyType>    
+                                <constraint year="2025">4.400777098</constraint>
+                                <constraint year="2030">4.265361029</constraint>
+                                <constraint year="2035">4.496098403</constraint>
+                                <constraint year="2040">4.504074289</constraint>
+                                <constraint year="2045">4.439205055</constraint>
+                                <constraint year="2050">4.382969931</constraint>
+
+                </policy-portfolio-standard>
+
+         <supplysector name="regional biomass">
+            <subsector name="regional biomass">
+               <technology name="regional biomass">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional coal">
+            <subsector name="regional coal">
+               <technology name="regional coal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            </nesting-subsector>
+
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+
+          </subsector>
+
+            </nesting-subsector>
+
+
+        </supplysector>
+         <supplysector name="regional oil">
+            <subsector name="crude oil">
+               <technology name="crude oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            <subsector name="unconventional oil">
+               <technology name="unconventional oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional biomassOil">
+            <subsector name="regional biomassOil">
+               <technology name="OilCrop">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional corn for ethanol">
+            <subsector name="regional corn for ethanol">
+               <technology name="regional corn for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional sugar for ethanol">
+            <subsector name="regional sugar for ethanol">
+               <technology name="regional sugar for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+            <supplysector name="electricity">
+                <subsector name="nuclear">
+               <technology name="Gen_III">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="hydro">
+               <technology name="hydro">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="geothermal">
+               <technology name="geothermal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="wind">
+               <technology name="wind">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_offshore">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="solar">
+               <technology name="PV">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="PV_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <technology name="rooftop_pv">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+
+    </region>
+
+
+<region name="EU_Northwest">
+        <policy-portfolio-standard name="energy-constraint">
+                                <market>EU_Northwest</market>
+                                <policyType>subsidy</policyType>    
+                                <constraint year="2025">26.96605522</constraint>
+                                <constraint year="2030">26.19697561</constraint>
+                                <constraint year="2035">26.8499405</constraint>
+                                <constraint year="2040">26.80226585</constraint>
+                                <constraint year="2045">27.00547928</constraint>
+                                <constraint year="2050">27.14383426</constraint>
+
+                </policy-portfolio-standard>
+
+         <supplysector name="regional biomass">
+            <subsector name="regional biomass">
+               <technology name="regional biomass">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional coal">
+            <subsector name="regional coal">
+               <technology name="regional coal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            </nesting-subsector>
+
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+
+          </subsector>
+
+            </nesting-subsector>
+
+
+        </supplysector>
+         <supplysector name="regional oil">
+            <subsector name="crude oil">
+               <technology name="crude oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            <subsector name="unconventional oil">
+               <technology name="unconventional oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional biomassOil">
+            <subsector name="regional biomassOil">
+               <technology name="OilCrop">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional corn for ethanol">
+            <subsector name="regional corn for ethanol">
+               <technology name="regional corn for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional sugar for ethanol">
+            <subsector name="regional sugar for ethanol">
+               <technology name="regional sugar for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+            <supplysector name="electricity">
+                <subsector name="nuclear">
+               <technology name="Gen_III">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="hydro">
+               <technology name="hydro">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="geothermal">
+               <technology name="geothermal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="wind">
+               <technology name="wind">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_offshore">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="solar">
+               <technology name="PV">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="PV_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <technology name="rooftop_pv">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+
+    </region>
+
+
+<region name="EU_Southeast">
+        <policy-portfolio-standard name="energy-constraint">
+                                <market>EU_Southeast</market>
+                                <policyType>subsidy</policyType>    
+                                <constraint year="2025">3.337822903</constraint>
+                                <constraint year="2030">3.211123553</constraint>
+                                <constraint year="2035">3.434669381</constraint>
+                                <constraint year="2040">3.602609076</constraint>
+                                <constraint year="2045">3.739486113</constraint>
+                                <constraint year="2050">3.834138044</constraint>
+
+                </policy-portfolio-standard>
+
+         <supplysector name="regional biomass">
+            <subsector name="regional biomass">
+               <technology name="regional biomass">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional coal">
+            <subsector name="regional coal">
+               <technology name="regional coal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            </nesting-subsector>
+
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+
+          </subsector>
+
+            </nesting-subsector>
+
+
+        </supplysector>
+         <supplysector name="regional oil">
+            <subsector name="crude oil">
+               <technology name="crude oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            <subsector name="unconventional oil">
+               <technology name="unconventional oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional biomassOil">
+            <subsector name="regional biomassOil">
+               <technology name="OilCrop">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional corn for ethanol">
+            <subsector name="regional corn for ethanol">
+               <technology name="regional corn for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional sugar for ethanol">
+            <subsector name="regional sugar for ethanol">
+               <technology name="regional sugar for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+            <supplysector name="electricity">
+                <subsector name="nuclear">
+               <technology name="Gen_III">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="hydro">
+               <technology name="hydro">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="geothermal">
+               <technology name="geothermal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="wind">
+               <technology name="wind">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_offshore">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="solar">
+               <technology name="PV">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="PV_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <technology name="rooftop_pv">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+
+    </region>
+
+
+<region name="EU_Southwest">
+        <policy-portfolio-standard name="energy-constraint">
+                                <market>EU_Southwest</market>
+                                <policyType>subsidy</policyType>    
+                                <constraint year="2025">12.34187237</constraint>
+                                <constraint year="2030">11.97482809</constraint>
+                                <constraint year="2035">12.71309474</constraint>
+                                <constraint year="2040">13.08629692</constraint>
+                                <constraint year="2045">13.44301914</constraint>
+                                <constraint year="2050">13.4718133</constraint>
+
+                </policy-portfolio-standard>
+
+         <supplysector name="regional biomass">
+            <subsector name="regional biomass">
+               <technology name="regional biomass">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional coal">
+            <subsector name="regional coal">
+               <technology name="regional coal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            </nesting-subsector>
+
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+
+               <technology name="imported Afr_MidE pipeline gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+
+          </subsector>
+
+            </nesting-subsector>
+
+
+        </supplysector>
+         <supplysector name="regional oil">
+            <subsector name="crude oil">
+               <technology name="crude oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            <subsector name="unconventional oil">
+               <technology name="unconventional oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional biomassOil">
+            <subsector name="regional biomassOil">
+               <technology name="OilCrop">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional corn for ethanol">
+            <subsector name="regional corn for ethanol">
+               <technology name="regional corn for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional sugar for ethanol">
+            <subsector name="regional sugar for ethanol">
+               <technology name="regional sugar for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+            <supplysector name="electricity">
+                <subsector name="nuclear">
+               <technology name="Gen_III">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="hydro">
+               <technology name="hydro">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="geothermal">
+               <technology name="geothermal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="wind">
+               <technology name="wind">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_offshore">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="solar">
+               <technology name="PV">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="PV_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <technology name="rooftop_pv">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+
+    </region>
+
+
+<region name="EU_Northeast">
+        <policy-portfolio-standard name="energy-constraint">
+                                <market>EU_Northeast</market>
+                                <policyType>subsidy</policyType>    
+                                <constraint year="2025">3.583952929</constraint>
+                                <constraint year="2030">3.946359551</constraint>
+                                <constraint year="2035">4.595392391</constraint>
+                                <constraint year="2040">4.86078418</constraint>
+                                <constraint year="2045">5.045313005</constraint>
+                                <constraint year="2050">5.13981433</constraint>
+
+                </policy-portfolio-standard>
+
+         <supplysector name="regional biomass">
+            <subsector name="regional biomass">
+               <technology name="regional biomass">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional coal">
+            <subsector name="regional coal">
+               <technology name="regional coal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            </nesting-subsector>
+
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+
+          </subsector>
+
+            </nesting-subsector>
+
+
+        </supplysector>
+         <supplysector name="regional oil">
+            <subsector name="crude oil">
+               <technology name="crude oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            <subsector name="unconventional oil">
+               <technology name="unconventional oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional biomassOil">
+            <subsector name="regional biomassOil">
+               <technology name="OilCrop">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional corn for ethanol">
+            <subsector name="regional corn for ethanol">
+               <technology name="regional corn for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional sugar for ethanol">
+            <subsector name="regional sugar for ethanol">
+               <technology name="regional sugar for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+            <supplysector name="electricity">
+                <subsector name="nuclear">
+               <technology name="Gen_III">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="hydro">
+               <technology name="hydro">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="geothermal">
+               <technology name="geothermal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="wind">
+               <technology name="wind">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_offshore">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="solar">
+               <technology name="PV">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="PV_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <technology name="rooftop_pv">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+
+    </region>
+
+
+<region name="Lithuania">
+        <policy-portfolio-standard name="energy-constraint">
+                                <market>Lithuania</market>
+                                <policyType>subsidy</policyType>    
+                                <constraint year="2025">0.274482785</constraint>
+                                <constraint year="2030">0.272703736</constraint>
+                                <constraint year="2035">0.291847145</constraint>
+                                <constraint year="2040">0.305068641</constraint>
+                                <constraint year="2045">0.312397887</constraint>
+                                <constraint year="2050">0.316512117</constraint>
+
+                </policy-portfolio-standard>
+
+         <supplysector name="regional biomass">
+            <subsector name="regional biomass">
+               <technology name="regional biomass">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional coal">
+            <subsector name="regional coal">
+               <technology name="regional coal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+                <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            </nesting-subsector>
+
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+
+          </subsector>
+
+            </nesting-subsector>
+
+
+        </supplysector>
+         <supplysector name="regional oil">
+            <subsector name="crude oil">
+               <technology name="crude oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            <subsector name="unconventional oil">
+               <technology name="unconventional oil">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional biomassOil">
+            <subsector name="regional biomassOil">
+               <technology name="OilCrop">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional corn for ethanol">
+            <subsector name="regional corn for ethanol">
+               <technology name="regional corn for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="regional sugar for ethanol">
+            <subsector name="regional sugar for ethanol">
+               <technology name="regional sugar for ethanol">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+            <supplysector name="electricity">
+                <subsector name="nuclear">
+               <technology name="Gen_III">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="hydro">
+               <technology name="hydro">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="geothermal">
+               <technology name="geothermal">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="wind">
+               <technology name="wind">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_offshore">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="wind_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+                <subsector name="solar">
+               <technology name="PV">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="PV_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+               <technology name="CSP_storage">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+         <supplysector name="elect_td_bld">
+            <subsector name="rooftop_pv">
+               <technology name="rooftop_pv">
+                  <period year="2020">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="energy-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="energy-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+
+    </region>
+
+              </world>
+</scenario>
+
+
