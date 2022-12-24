@@ -409,18 +409,7 @@
 
                </technology>
 
-               <technology name="imported Afr_MidE pipeline gas">
-                  <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2035">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2040">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2045">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2050">    <input-subsidy name="RegGas-constraint"/> </period>
-
-               </technology>
-
-          </subsector>
+                         </subsector>
 
             </nesting-subsector>
 
@@ -488,17 +477,7 @@
 
                </technology>
 
-               <technology name="imported Afr_MidE pipeline gas">
-                  <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2035">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2040">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2045">    <input-subsidy name="RegGas-constraint"/> </period>
-                  <period year="2050">    <input-subsidy name="RegGas-constraint"/> </period>
-
-               </technology>
-
+               
           </subsector>
 
             </nesting-subsector>
