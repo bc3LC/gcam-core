@@ -4,12 +4,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>EU_Central</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">0.64541808</constraint>
-                                <constraint year="2030">0.531406766</constraint>
-                                <constraint year="2035">0.572585797</constraint>
-                                <constraint year="2040">0.604230939</constraint>
-                                <constraint year="2045">0.6770786</constraint>
-                                <constraint year="2050">0.65750281</constraint>
+                                <constraint year="2025">0.68015369</constraint>
+                                <constraint year="2030">0.5943908</constraint>
+                                <constraint year="2035">0.524725116</constraint>
+                                <constraint year="2040">0.538527456</constraint>
+                                <constraint year="2045">0.579875938</constraint>
+                                <constraint year="2050">0.532217283</constraint>
 
 
                 </policy-portfolio-standard>
@@ -20,6 +20,7 @@
            <nesting-subsector name="domestic natural gas">
             <subsector name="domestic natural gas">
                <technology name="domestic natural gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -35,6 +36,7 @@
            <nesting-subsector name="imported natural gas">
             <subsector name="imported LNG">
                <technology name="imported LNG">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -48,6 +50,7 @@
 
             <subsector name="imported pipeline gas">
                <technology name="imported EUR pipeline gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -72,12 +75,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>Poland</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">0.55920562</constraint>
-                                <constraint year="2030">0.49213227</constraint>
-                                <constraint year="2035">0.500974829</constraint>
-                                <constraint year="2040">0.500109345</constraint>
-                                <constraint year="2045">0.479982761</constraint>
-                                <constraint year="2050">0.426692772</constraint>
+                                <constraint year="2025">0.59024535</constraint>
+                                <constraint year="2030">0.55237401</constraint>
+                                <constraint year="2035">0.52339217</constraint>
+                                <constraint year="2040">0.51398015</constraint>
+                                <constraint year="2045">0.4648263</constraint>
+                                <constraint year="2050">0.388069586</constraint>
 
 
                 </policy-portfolio-standard>
@@ -88,6 +91,7 @@
            <nesting-subsector name="domestic natural gas">
             <subsector name="domestic natural gas">
                <technology name="domestic natural gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -103,6 +107,7 @@
            <nesting-subsector name="imported natural gas">
             <subsector name="imported LNG">
                <technology name="imported LNG">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -116,6 +121,7 @@
 
             <subsector name="imported pipeline gas">
                <technology name="imported EUR pipeline gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -140,12 +146,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>EU_Northwest</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">3.1854301</constraint>
-                                <constraint year="2030">2.57983</constraint>
-                                <constraint year="2035">2.6155268</constraint>
-                                <constraint year="2040">2.6768688</constraint>
-                                <constraint year="2045">2.9597991</constraint>
-                                <constraint year="2050">2.8552605</constraint>
+                                <constraint year="2025">3.6257466</constraint>
+                                <constraint year="2030">3.2108288</constraint>
+                                <constraint year="2035">2.8771888</constraint>
+                                <constraint year="2040">2.948803</constraint>
+                                <constraint year="2045">3.10184583</constraint>
+                                <constraint year="2050">2.87604514</constraint>
 
 
                 </policy-portfolio-standard>
@@ -156,6 +162,7 @@
            <nesting-subsector name="domestic natural gas">
             <subsector name="domestic natural gas">
                <technology name="domestic natural gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -171,6 +178,7 @@
            <nesting-subsector name="imported natural gas">
             <subsector name="imported LNG">
                <technology name="imported LNG">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -184,6 +192,7 @@
 
             <subsector name="imported pipeline gas">
                <technology name="imported EUR pipeline gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -208,12 +217,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>EU_Southeast</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">0.51790569</constraint>
-                                <constraint year="2030">0.470917579</constraint>
-                                <constraint year="2035">0.485465644</constraint>
-                                <constraint year="2040">0.48578731</constraint>
-                                <constraint year="2045">0.489421384</constraint>
-                                <constraint year="2050">0.494119285</constraint>
+                                <constraint year="2025">0.59134217</constraint>
+                                <constraint year="2030">0.56385109</constraint>
+                                <constraint year="2035">0.53685973</constraint>
+                                <constraint year="2040">0.504232031</constraint>
+                                <constraint year="2045">0.466639495</constraint>
+                                <constraint year="2050">0.448138221</constraint>
 
 
                 </policy-portfolio-standard>
@@ -224,6 +233,7 @@
            <nesting-subsector name="domestic natural gas">
             <subsector name="domestic natural gas">
                <technology name="domestic natural gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -239,6 +249,7 @@
            <nesting-subsector name="imported natural gas">
             <subsector name="imported LNG">
                <technology name="imported LNG">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -252,6 +263,7 @@
 
             <subsector name="imported pipeline gas">
                <technology name="imported EUR pipeline gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -276,12 +288,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>EU_Southwest</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">2.190688999</constraint>
-                                <constraint year="2030">1.883216317</constraint>
-                                <constraint year="2035">1.897129628</constraint>
-                                <constraint year="2040">1.891230065</constraint>
-                                <constraint year="2045">1.993504045</constraint>
-                                <constraint year="2050">1.936484524</constraint>
+                                <constraint year="2025">2.42889717</constraint>
+                                <constraint year="2030">2.22453064</constraint>
+                                <constraint year="2035">2.05317721</constraint>
+                                <constraint year="2040">2.01888703</constraint>
+                                <constraint year="2045">2.02037592</constraint>
+                                <constraint year="2050">1.90342451</constraint>
 
 
                 </policy-portfolio-standard>
@@ -292,6 +304,7 @@
            <nesting-subsector name="domestic natural gas">
             <subsector name="domestic natural gas">
                <technology name="domestic natural gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -307,6 +320,7 @@
            <nesting-subsector name="imported natural gas">
             <subsector name="imported LNG">
                <technology name="imported LNG">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -320,6 +334,7 @@
 
             <subsector name="imported pipeline gas">
                <technology name="imported EUR pipeline gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -331,6 +346,7 @@
                </technology>
 
                <technology name="imported Afr_MidE pipeline gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -355,12 +371,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>EU_Northeast</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">0.069501113</constraint>
-                                <constraint year="2030">0.061171073</constraint>
-                                <constraint year="2035">0.075670368</constraint>
-                                <constraint year="2040">0.086483064</constraint>
-                                <constraint year="2045">0.118754753</constraint>
-                                <constraint year="2050">0.142945</constraint>
+                                <constraint year="2025">0.078061141</constraint>
+                                <constraint year="2030">0.076634919</constraint>
+                                <constraint year="2035">0.0727473</constraint>
+                                <constraint year="2040">0.081230214</constraint>
+                                <constraint year="2045">0.106258528</constraint>
+                                <constraint year="2050">0.127729063</constraint>
 
 
                 </policy-portfolio-standard>
@@ -371,6 +387,7 @@
            <nesting-subsector name="domestic natural gas">
             <subsector name="domestic natural gas">
                <technology name="domestic natural gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -386,6 +403,7 @@
            <nesting-subsector name="imported natural gas">
             <subsector name="imported LNG">
                <technology name="imported LNG">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -399,6 +417,7 @@
 
             <subsector name="imported pipeline gas">
                <technology name="imported EUR pipeline gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -423,12 +442,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>Lithuania</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">0.074233921</constraint>
-                                <constraint year="2030">0.068708247</constraint>
-                                <constraint year="2035">0.067148685</constraint>
-                                <constraint year="2040">0.062900782</constraint>
-                                <constraint year="2045">0.061845913</constraint>
-                                <constraint year="2050">0.059748797</constraint>
+                                <constraint year="2025">0.096423266</constraint>
+                                <constraint year="2030">0.09187417</constraint>
+                                <constraint year="2035">0.085330154</constraint>
+                                <constraint year="2040">0.076884234</constraint>
+                                <constraint year="2045">0.072566984</constraint>
+                                <constraint year="2050">0.068420073</constraint>
 
 
                 </policy-portfolio-standard>
@@ -439,6 +458,7 @@
            <nesting-subsector name="domestic natural gas">
             <subsector name="domestic natural gas">
                <technology name="domestic natural gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -454,6 +474,7 @@
            <nesting-subsector name="imported natural gas">
             <subsector name="imported LNG">
                <technology name="imported LNG">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
@@ -467,6 +488,78 @@
 
             <subsector name="imported pipeline gas">
                <technology name="imported EUR pipeline gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="RegGas-constraint"/> </period>
+
+               </technology>
+
+               
+          </subsector>
+
+            </nesting-subsector>
+
+
+        </supplysector>
+         
+    </region>
+
+<region name="UK+">
+        <policy-portfolio-standard name="RegGas-constraint">
+                                <market>UK+</market>
+                                <policyType>subsidy</policyType>    
+                                <constraint year="2025">1.8545484</constraint>
+                                <constraint year="2030">1.50061442</constraint>
+                                <constraint year="2035">1.29662793</constraint>
+                                <constraint year="2040">1.30413761</constraint>
+                                <constraint year="2045">1.32815669</constraint>
+                                <constraint year="2050">1.27265776</constraint>
+
+
+                </policy-portfolio-standard>
+
+         
+         
+         <supplysector name="regional natural gas">
+           <nesting-subsector name="domestic natural gas">
+            <subsector name="domestic natural gas">
+               <technology name="domestic natural gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="RegGas-constraint"/> </period>
+
+               </technology>
+            </subsector>
+            </nesting-subsector>
+
+           <nesting-subsector name="imported natural gas">
+            <subsector name="imported LNG">
+               <technology name="imported LNG">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2035">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2040">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2045">    <input-subsidy name="RegGas-constraint"/> </period>
+                  <period year="2050">    <input-subsidy name="RegGas-constraint"/> </period>
+
+               </technology>
+            </subsector>
+
+            <subsector name="imported pipeline gas">
+               <technology name="imported EUR pipeline gas">
+                  <period year="2015">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2020">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2025">    <input-subsidy name="RegGas-constraint"/> </period>
                   <period year="2030">    <input-subsidy name="RegGas-constraint"/> </period>

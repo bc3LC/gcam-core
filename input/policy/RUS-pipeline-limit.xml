@@ -222,6 +222,38 @@
                     </technology>
                          </subsector> </nesting-subsector> </supplysector> </region>
 
+<region name="UK+">
+<policy-portfolio-standard name="RUS-pipeline-limit">
+                                <market>UK+</market>
+                                <policyType>tax</policyType>    
+                                <constraint fillout="1" year="2025">0</constraint>
+                </policy-portfolio-standard> <supplysector name="regional natural gas"><nesting-subsector name="imported natural gas"> <subsector name="imported pipeline gas">
+                    <technology name="imported RUS pipeline gas">
+<period year="1975">    <input-tax name="RUS-pipeline-limit"/> </period>
+<period year="1990">    <input-tax name="RUS-pipeline-limit"/> </period>
+<period year="2005">    <input-tax name="RUS-pipeline-limit"/> </period>
+<period year="2010">    <input-tax name="RUS-pipeline-limit"/> </period>
+<period year="2015">    <input-tax name="RUS-pipeline-limit"/> </period>
+<period year="2020">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2025">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2030">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2035">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2040">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2045">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2050">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2055">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2060">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2065">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2070">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2075">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2080">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2085">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2090">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2095">    <input-tax name="RUS-pipeline-limit"/> </period>
+                  <period year="2100">    <input-tax name="RUS-pipeline-limit"/> </period>
+                    </technology>
+                         </subsector> </nesting-subsector> </supplysector> </region>
+
 
 
         </world>
