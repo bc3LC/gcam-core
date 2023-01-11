@@ -1,0 +1,207 @@
+<scenario>
+   <world>
+<region name="EU_Northwest">
+                        <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <shell-conductance year="2025">0.921</shell-conductance>
+                        <shell-conductance year="2030">0.877</shell-conductance>
+                        <shell-conductance year="2035">0.877</shell-conductance>
+                        <shell-conductance year="2040">0.877</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+                        <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <shell-conductance year="2025">0.935</shell-conductance>
+                        <shell-conductance year="2030">0.895</shell-conductance>
+                        <shell-conductance year="2035">0.895</shell-conductance>
+                        <shell-conductance year="2040">0.895</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+      </region>
+<region name="EU_Southwest">
+                                    <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <shell-conductance year="2025">0.921</shell-conductance>
+                        <shell-conductance year="2030">0.877</shell-conductance>
+                        <shell-conductance year="2035">0.877</shell-conductance>
+                        <shell-conductance year="2040">0.877</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+                        <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <shell-conductance year="2025">0.935</shell-conductance>
+                        <shell-conductance year="2030">0.895</shell-conductance>
+                        <shell-conductance year="2035">0.895</shell-conductance>
+                        <shell-conductance year="2040">0.895</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+            
+      </region>
+<region name="EU_Northeast">
+                                    <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <shell-conductance year="2025">0.921</shell-conductance>
+                        <shell-conductance year="2030">0.877</shell-conductance>
+                        <shell-conductance year="2035">0.877</shell-conductance>
+                        <shell-conductance year="2040">0.877</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+                        <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <shell-conductance year="2025">0.935</shell-conductance>
+                        <shell-conductance year="2030">0.895</shell-conductance>
+                        <shell-conductance year="2035">0.895</shell-conductance>
+                        <shell-conductance year="2040">0.895</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+            
+      </region>
+<region name="UK+">
+                                    <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <shell-conductance year="2025">0.921</shell-conductance>
+                        <shell-conductance year="2030">0.877</shell-conductance>
+                        <shell-conductance year="2035">0.877</shell-conductance>
+                        <shell-conductance year="2040">0.877</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+                        <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <shell-conductance year="2025">0.935</shell-conductance>
+                        <shell-conductance year="2030">0.895</shell-conductance>
+                        <shell-conductance year="2035">0.895</shell-conductance>
+                        <shell-conductance year="2040">0.895</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+            
+      </region>
+
+<region name="EU_Central">
+            
+                                    <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <shell-conductance year="2025">1.014</shell-conductance>
+                        <shell-conductance year="2030">0.948</shell-conductance>
+                        <shell-conductance year="2035">0.948</shell-conductance>
+                        <shell-conductance year="2040">0.948</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+                        <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <shell-conductance year="2025">1.029</shell-conductance>
+                        <shell-conductance year="2030">0.967</shell-conductance>
+                        <shell-conductance year="2035">0.967</shell-conductance>
+                        <shell-conductance year="2040">0.967</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+      </region>
+<region name="EU_Southeast">
+                                    <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <shell-conductance year="2025">0.921</shell-conductance>
+                        <shell-conductance year="2030">0.877</shell-conductance>
+                        <shell-conductance year="2035">0.877</shell-conductance>
+                        <shell-conductance year="2040">0.877</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+                        <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <shell-conductance year="2025">0.935</shell-conductance>
+                        <shell-conductance year="2030">0.895</shell-conductance>
+                        <shell-conductance year="2035">0.895</shell-conductance>
+                        <shell-conductance year="2040">0.895</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+            
+      </region>
+<region name="Poland">
+            
+                                                <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <shell-conductance year="2025">1.014</shell-conductance>
+                        <shell-conductance year="2030">0.948</shell-conductance>
+                        <shell-conductance year="2035">0.948</shell-conductance>
+                        <shell-conductance year="2040">0.948</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+                        <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <shell-conductance year="2025">1.029</shell-conductance>
+                        <shell-conductance year="2030">0.967</shell-conductance>
+                        <shell-conductance year="2035">0.967</shell-conductance>
+                        <shell-conductance year="2040">0.967</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+      </region>
+<region name="Lithuania">
+
+                                    <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <shell-conductance year="2025">1.082</shell-conductance>
+                        <shell-conductance year="2030">1.006</shell-conductance>
+                        <shell-conductance year="2035">1.006</shell-conductance>
+                        <shell-conductance year="2040">1.006</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+                        <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <shell-conductance year="2025">1.098</shell-conductance>
+                        <shell-conductance year="2030">1.026</shell-conductance>
+                        <shell-conductance year="2035">1.026</shell-conductance>
+                        <shell-conductance year="2040">1.026</shell-conductance>
+                    </building-node-input>
+                </nodeInput>
+                        </gcam-consumer>
+            
+      </region>
+
+
+
+
+
+
+            
+
+
+        </world>
+</scenario>
+
+
+
+
+
+
+
+
+

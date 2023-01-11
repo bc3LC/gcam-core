@@ -1,0 +1,308 @@
+<scenario>
+   <world>
+      <region name="EU_Northwest">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">4</constraint>
+                                <constraint year="2025">4.5</constraint>
+                                <constraint year="2030">5</constraint>
+                                <constraint year="2035">5.5</constraint>
+                                <constraint year="2040">6</constraint>
+                                <constraint year="2045">6.5</constraint>
+                                <constraint year="2050">7</constraint>
+
+                </policy-portfolio-standard>
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+    </region>
+<region name="EU_Southwest">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">4</constraint>
+                                <constraint year="2025">4.5</constraint>
+                                <constraint year="2030">5</constraint>
+                                <constraint year="2035">5.5</constraint>
+                                <constraint year="2040">6</constraint>
+                                <constraint year="2045">6.5</constraint>
+                                <constraint year="2050">7</constraint>
+
+                </policy-portfolio-standard>
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+    </region>
+<region name="EU_Northeast">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">4</constraint>
+                                <constraint year="2025">4.5</constraint>
+                                <constraint year="2030">5</constraint>
+                                <constraint year="2035">5.5</constraint>
+                                <constraint year="2040">6</constraint>
+                                <constraint year="2045">6.5</constraint>
+                                <constraint year="2050">7</constraint>
+
+                </policy-portfolio-standard>
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+    </region>
+<region name="EU_Southeast">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">4</constraint>
+                                <constraint year="2025">4.5</constraint>
+                                <constraint year="2030">5</constraint>
+                                <constraint year="2035">5.5</constraint>
+                                <constraint year="2040">6</constraint>
+                                <constraint year="2045">6.5</constraint>
+                                <constraint year="2050">7</constraint>
+
+                </policy-portfolio-standard>
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+    </region>
+<region name="EU_Central">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">4</constraint>
+                                <constraint year="2025">4.5</constraint>
+                                <constraint year="2030">5</constraint>
+                                <constraint year="2035">5.5</constraint>
+                                <constraint year="2040">6</constraint>
+                                <constraint year="2045">6.5</constraint>
+                                <constraint year="2050">7</constraint>
+
+                </policy-portfolio-standard>
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+    </region>
+<region name="UK+">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">4</constraint>
+                                <constraint year="2025">4.5</constraint>
+                                <constraint year="2030">5</constraint>
+                                <constraint year="2035">5.5</constraint>
+                                <constraint year="2040">6</constraint>
+                                <constraint year="2045">6.5</constraint>
+                                <constraint year="2050">7</constraint>
+
+                </policy-portfolio-standard>
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+    </region>
+<region name="Poland">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">4</constraint>
+                                <constraint year="2025">4.5</constraint>
+                                <constraint year="2030">5</constraint>
+                                <constraint year="2035">5.5</constraint>
+                                <constraint year="2040">6</constraint>
+                                <constraint year="2045">6.5</constraint>
+                                <constraint year="2050">7</constraint>
+
+                </policy-portfolio-standard>
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+    </region>
+<region name="Lithuania">
+        <policy-portfolio-standard name="fe-constraint">
+                                <market>EU</market>
+                                <policyType>tax</policyType>    
+                                <constraint year="2020">4</constraint>
+                                <constraint year="2025">4.5</constraint>
+                                <constraint year="2030">5</constraint>
+                                <constraint year="2035">5.5</constraint>
+                                <constraint year="2040">6</constraint>
+                                <constraint year="2045">6.5</constraint>
+                                <constraint year="2050">7</constraint>
+
+                </policy-portfolio-standard>
+         <supplysector name="delivered biomass">
+            <subsector name="delivered biomass">
+               <technology name="delivered biomass">
+                  <period year="2020">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2025">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2030">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2035">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2040">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2045">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2050">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2055">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2060">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2065">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2070">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2075">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2080">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2085">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2090">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2095">    <input-tax name="fe-constraint"/> </period>
+                  <period year="2100">    <input-tax name="fe-constraint"/> </period>
+
+               </technology>
+            </subsector>
+        </supplysector>
+    </region>
+        </world>
+</scenario>

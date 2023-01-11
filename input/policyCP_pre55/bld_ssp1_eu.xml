@@ -1,0 +1,312 @@
+<scenario>
+    <world>
+<region name="EU_Southwest">
+            <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <satiation-demand-function>
+                            <satiation-level>1.9e-05</satiation-level>
+                            <satiation-adder>1.2888e-05</satiation-adder>
+                        </satiation-demand-function>
+                        <building-service-input name="comm others">
+                            <satiation-demand-function>
+                                <satiation-level>0.8853827</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <building-service-input name="resid others">
+                            <satiation-demand-function>
+                                <satiation-level>0.2950812</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <supplysector name="resid heating">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+            <supplysector name="resid others">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+        </region>
+<region name="EU_Northwest">
+            <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <satiation-demand-function>
+                            <satiation-level>1.9e-05</satiation-level>
+                            <satiation-adder>7.637e-06</satiation-adder>
+                        </satiation-demand-function>
+                        <building-service-input name="comm others">
+                            <satiation-demand-function>
+                                <satiation-level>0.8853827</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <building-service-input name="resid others">
+                            <satiation-demand-function>
+                                <satiation-level>0.2950812</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <supplysector name="resid heating">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+            <supplysector name="resid others">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+        </region>
+<region name="UK+">
+            <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <satiation-demand-function>
+                            <satiation-level>1.9e-05</satiation-level>
+                            <satiation-adder>9.058e-06</satiation-adder>
+                        </satiation-demand-function>
+                        <building-service-input name="comm others">
+                            <satiation-demand-function>
+                                <satiation-level>0.8853827</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <building-service-input name="resid others">
+                            <satiation-demand-function>
+                                <satiation-level>0.2950812</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <supplysector name="resid heating">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+            <supplysector name="resid others">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+        </region>
+<region name="EU_Central">
+            <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <satiation-demand-function>
+                            <satiation-level>1.9e-05</satiation-level>
+                            <satiation-adder>-8.116e-06</satiation-adder>
+                        </satiation-demand-function>
+                        <building-service-input name="comm others">
+                            <satiation-demand-function>
+                                <satiation-level>0.8853827</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <building-service-input name="resid others">
+                            <satiation-demand-function>
+                                <satiation-level>0.2950812</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <supplysector name="resid heating">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+            <supplysector name="resid others">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+        </region>
+<region name="Poland">
+            <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <satiation-demand-function>
+                            <satiation-level>1.9e-05</satiation-level>
+                            <satiation-adder>-2.767e-06</satiation-adder>
+                        </satiation-demand-function>
+                        <building-service-input name="comm others">
+                            <satiation-demand-function>
+                                <satiation-level>0.8853827</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <building-service-input name="resid others">
+                            <satiation-demand-function>
+                                <satiation-level>0.2950812</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <supplysector name="resid heating">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+            <supplysector name="resid others">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+        </region>
+<region name="EU_Southeast">
+            <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <satiation-demand-function>
+                            <satiation-level>1.9e-05</satiation-level>
+                            <satiation-adder>3.911e-06</satiation-adder>
+                        </satiation-demand-function>
+                        <building-service-input name="comm others">
+                            <satiation-demand-function>
+                                <satiation-level>0.8853827</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <building-service-input name="resid others">
+                            <satiation-demand-function>
+                                <satiation-level>0.2950812</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <supplysector name="resid heating">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+            <supplysector name="resid others">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+        </region>
+<region name="EU_Northeast">
+            <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <satiation-demand-function>
+                            <satiation-level>1.9e-05</satiation-level>
+                            <satiation-adder>-5.008e-06</satiation-adder>
+                        </satiation-demand-function>
+                        <building-service-input name="comm others">
+                            <satiation-demand-function>
+                                <satiation-level>0.8853827</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <building-service-input name="resid others">
+                            <satiation-demand-function>
+                                <satiation-level>0.320567697697259</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <supplysector name="resid heating">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+            <supplysector name="resid others">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+        </region>
+<region name="Lithuania">
+            <gcam-consumer name="comm">
+                <nodeInput name="comm">
+                    <building-node-input name="comm_building">
+                        <satiation-demand-function>
+                            <satiation-level>1.9e-05</satiation-level>
+                            <satiation-adder>-3.365e-06</satiation-adder>
+                        </satiation-demand-function>
+                        <building-service-input name="comm others">
+                            <satiation-demand-function>
+                                <satiation-level>0.8853827</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <gcam-consumer name="resid">
+                <nodeInput name="resid">
+                    <building-node-input name="resid_building">
+                        <building-service-input name="resid others">
+                            <satiation-demand-function>
+                                <satiation-level>0.2950812</satiation-level>
+                            </satiation-demand-function>
+                        </building-service-input>
+                    </building-node-input>
+                </nodeInput>
+            </gcam-consumer>
+            <supplysector name="resid heating">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+            <supplysector name="resid others">
+                <subsector name="coal">
+                    <fuelprefElasticity fillout="1" year="1975">-1.5</fuelprefElasticity>
+                </subsector>
+            </supplysector>
+        </region>
+</world>
+    
+    
+    
+    
+</scenario>

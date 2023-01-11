@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scenario>
+   <world>
+        <region name="Africa_Eastern"> <ghgpolicy name="CO2">     <market>SSA</market>  <constraint year="2020">172.808867332389</constraint>    <constraint year="2025">179.771524689407</constraint>   <constraint year="2030">194.211042720912</constraint>          </ghgpolicy>    </region>
+        <region name="Africa_Northern"> <ghgpolicy name="CO2">     <market>MENA</market>  <constraint year="2020">704.821277848905</constraint>    <constraint year="2025">713.718510556179</constraint>   <constraint year="2030">721.172369085118</constraint>          </ghgpolicy>    </region>
+        <region name="Africa_Southern"> <ghgpolicy name="CO2">     <market>SSA</market>              </ghgpolicy>    </region>
+        <region name="Africa_Western"> <ghgpolicy name="CO2">     <market>SSA</market>              </ghgpolicy>    </region>
+        <region name="Argentina"> <ghgpolicy name="CO2">     <market>L-Am</market>  <constraint year="2020">441.337537855417</constraint>    <constraint year="2025">441.344707990593</constraint>   <constraint year="2030">422.796132575617</constraint>          </ghgpolicy>    </region>
+        <region name="Australia_NZ"> <ghgpolicy name="CO2">     <market>N-Am_Aus</market>  <constraint year="2020">1563.65419863859</constraint>    <constraint year="2025">1438.17344412717</constraint>   <constraint year="2030">943.301949036396</constraint>          </ghgpolicy>    </region>
+        <region name="Brazil"> <ghgpolicy name="CO2">     <market>L-Am</market>              </ghgpolicy>    </region>
+        <region name="Canada"> <ghgpolicy name="CO2">     <market>N-Am_Aus</market>              </ghgpolicy>    </region>
+        <region name="Central America and Caribbean"> <ghgpolicy name="CO2">     <market>L-Am</market>              </ghgpolicy>    </region>
+        <region name="Central Asia"> <ghgpolicy name="CO2">     <market>Rest Asia</market>  <constraint year="2020">1196.07404679111</constraint>    <constraint year="2025">1159.20022747993</constraint>   <constraint year="2030">1073.5010816695</constraint>          </ghgpolicy>    </region>
+        <region name="China"> <ghgpolicy name="CO2">     <market>China</market>  <constraint year="2020">3433.36055624567</constraint>    <constraint year="2025">3538.32090891145</constraint>   <constraint year="2030">3423.15056382429</constraint>          </ghgpolicy>    </region>
+        <region name="Colombia"> <ghgpolicy name="CO2">     <market>L-Am</market>              </ghgpolicy>    </region>
+
+        <region name="Europe_Eastern"> <ghgpolicy name="CO2">     <market>Europe_Eastern</market>  <constraint year="2020">80.4534992826</constraint>    <constraint year="2025">67.0526194031999</constraint>   <constraint year="2030">63.9496674965161</constraint>          </ghgpolicy>    </region>
+        <region name="Ukraine"> <ghgpolicy name="CO2">     <market>Europe_Eastern</market>              </ghgpolicy>    </region>
+        <region name="Europe_Non_EU"> <ghgpolicy name="CO2">     <market>Europe_Non_EU</market>  <constraint year="2020">136.616438085986</constraint>    <constraint year="2025">150.012597109341</constraint>   <constraint year="2030">158.938304742072</constraint>          </ghgpolicy>    </region>
+        <region name="EFTA"> <ghgpolicy name="CO2">     <market>EFTA</market>  <constraint year="2020">22.9421853489999</constraint>    <constraint year="2025">18.1867209797238</constraint>   <constraint year="2030">12.4036698555479</constraint>          </ghgpolicy>    </region>
+        <region name="India"> <ghgpolicy name="CO2">     <market>India</market>  <constraint year="2020">710.533963569225</constraint>    <constraint year="2025">790.6881992791</constraint>   <constraint year="2030">871.068828769979</constraint>          </ghgpolicy>    </region>
+        <region name="Indonesia"> <ghgpolicy name="CO2">     <market>Rest Asia</market>              </ghgpolicy>    </region>
+        <region name="Japan"> <ghgpolicy name="CO2">     <market>Rest Asia</market>              </ghgpolicy>    </region>
+        <region name="Mexico"> <ghgpolicy name="CO2">     <market>L-Am</market>              </ghgpolicy>    </region>
+        <region name="Middle East"> <ghgpolicy name="CO2">     <market>MENA</market>              </ghgpolicy>    </region>
+        <region name="Russia"> <ghgpolicy name="CO2">     <market>Russia</market>  <constraint year="2020">488.234733887821</constraint>    <constraint year="2025">459.560711219843</constraint>   <constraint year="2030">450.596747668141</constraint>          </ghgpolicy>    </region>
+        <region name="South Africa"> <ghgpolicy name="CO2">     <market>SSA</market>              </ghgpolicy>    </region>
+        <region name="South America_Southern"> <ghgpolicy name="CO2">     <market>L-Am</market>              </ghgpolicy>    </region>
+        <region name="South Asia"> <ghgpolicy name="CO2">     <market>Rest Asia</market>              </ghgpolicy>    </region>
+        <region name="South Korea"> <ghgpolicy name="CO2">     <market>Rest Asia</market>              </ghgpolicy>    </region>
+        <region name="Southeast Asia"> <ghgpolicy name="CO2">     <market>Rest Asia</market>              </ghgpolicy>    </region>
+        <region name="Taiwan"> <ghgpolicy name="CO2">     <market>China</market>              </ghgpolicy>    </region>
+        <region name="USA"> <ghgpolicy name="CO2">     <market>N-Am_Aus</market>              </ghgpolicy>    </region>
+   </world>
+
+
+
+
+
+
+
+</scenario>
