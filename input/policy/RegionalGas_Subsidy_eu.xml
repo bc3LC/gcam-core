@@ -4,12 +4,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>EU_Central</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">0.68015369</constraint>
-                                <constraint year="2030">0.5943908</constraint>
-                                <constraint year="2035">0.524725116</constraint>
-                                <constraint year="2040">0.538527456</constraint>
-                                <constraint year="2045">0.579875938</constraint>
-                                <constraint year="2050">0.532217283</constraint>
+                                <constraint year="2025">0.69341706</constraint>
+                                <constraint year="2030">0.616556244</constraint>
+                                <constraint year="2035">0.534685746</constraint>
+                                <constraint year="2040">0.511807392</constraint>
+                                <constraint year="2045">0.52075206</constraint>
+                                <constraint year="2050">0.483417562</constraint>
 
 
                 </policy-portfolio-standard>
@@ -75,12 +75,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>Poland</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">0.59024535</constraint>
-                                <constraint year="2030">0.55237401</constraint>
-                                <constraint year="2035">0.52339217</constraint>
-                                <constraint year="2040">0.51398015</constraint>
-                                <constraint year="2045">0.4648263</constraint>
-                                <constraint year="2050">0.388069586</constraint>
+                                <constraint year="2025">0.53722386</constraint>
+                                <constraint year="2030">0.51391978</constraint>
+                                <constraint year="2035">0.48550264</constraint>
+                                <constraint year="2040">0.45481606</constraint>
+                                <constraint year="2045">0.4070362</constraint>
+                                <constraint year="2050">0.354826287</constraint>
 
 
                 </policy-portfolio-standard>
@@ -146,12 +146,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>EU_Northwest</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">3.6257466</constraint>
-                                <constraint year="2030">3.2108288</constraint>
-                                <constraint year="2035">2.8771888</constraint>
-                                <constraint year="2040">2.948803</constraint>
-                                <constraint year="2045">3.10184583</constraint>
-                                <constraint year="2050">2.87604514</constraint>
+                                <constraint year="2025">3.8153538</constraint>
+                                <constraint year="2030">3.3744726</constraint>
+                                <constraint year="2035">2.9039541</constraint>
+                                <constraint year="2040">2.7654193</constraint>
+                                <constraint year="2045">2.7664569</constraint>
+                                <constraint year="2050">2.6067929</constraint>
 
 
                 </policy-portfolio-standard>
@@ -217,12 +217,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>EU_Southeast</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">0.59134217</constraint>
-                                <constraint year="2030">0.56385109</constraint>
-                                <constraint year="2035">0.53685973</constraint>
-                                <constraint year="2040">0.504232031</constraint>
-                                <constraint year="2045">0.466639495</constraint>
-                                <constraint year="2050">0.448138221</constraint>
+                                <constraint year="2025">0.59322254</constraint>
+                                <constraint year="2030">0.56496122</constraint>
+                                <constraint year="2035">0.53220594</constraint>
+                                <constraint year="2040">0.489228989</constraint>
+                                <constraint year="2045">0.449251478</constraint>
+                                <constraint year="2050">0.431825582</constraint>
 
 
                 </policy-portfolio-standard>
@@ -288,12 +288,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>EU_Southwest</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">2.42889717</constraint>
-                                <constraint year="2030">2.22453064</constraint>
-                                <constraint year="2035">2.05317721</constraint>
-                                <constraint year="2040">2.01888703</constraint>
-                                <constraint year="2045">2.02037592</constraint>
-                                <constraint year="2050">1.90342451</constraint>
+                                <constraint year="2025">2.51318403</constraint>
+                                <constraint year="2030">2.29576784</constraint>
+                                <constraint year="2035">2.07580206</constraint>
+                                <constraint year="2040">1.94230397</constraint>
+                                <constraint year="2045">1.86752996</constraint>
+                                <constraint year="2050">1.76297791</constraint>
 
 
                 </policy-portfolio-standard>
@@ -371,12 +371,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>EU_Northeast</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">0.078061141</constraint>
-                                <constraint year="2030">0.076634919</constraint>
-                                <constraint year="2035">0.0727473</constraint>
-                                <constraint year="2040">0.081230214</constraint>
-                                <constraint year="2045">0.106258528</constraint>
-                                <constraint year="2050">0.127729063</constraint>
+                                <constraint year="2025">0.083974862</constraint>
+                                <constraint year="2030">0.080253184</constraint>
+                                <constraint year="2035">0.074321696</constraint>
+                                <constraint year="2040">0.080801584</constraint>
+                                <constraint year="2045">0.10226637</constraint>
+                                <constraint year="2050">0.121616344</constraint>
 
 
                 </policy-portfolio-standard>
@@ -442,12 +442,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>Lithuania</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">0.096423266</constraint>
-                                <constraint year="2030">0.09187417</constraint>
-                                <constraint year="2035">0.085330154</constraint>
-                                <constraint year="2040">0.076884234</constraint>
-                                <constraint year="2045">0.072566984</constraint>
-                                <constraint year="2050">0.068420073</constraint>
+                                <constraint year="2025">0.0945299</constraint>
+                                <constraint year="2030">0.090288208</constraint>
+                                <constraint year="2035">0.083736813</constraint>
+                                <constraint year="2040">0.074549385</constraint>
+                                <constraint year="2045">0.069954447</constraint>
+                                <constraint year="2050">0.066616476</constraint>
 
 
                 </policy-portfolio-standard>
@@ -513,12 +513,12 @@
         <policy-portfolio-standard name="RegGas-constraint">
                                 <market>UK+</market>
                                 <policyType>subsidy</policyType>    
-                                <constraint year="2025">1.8545484</constraint>
-                                <constraint year="2030">1.50061442</constraint>
-                                <constraint year="2035">1.29662793</constraint>
-                                <constraint year="2040">1.30413761</constraint>
-                                <constraint year="2045">1.32815669</constraint>
-                                <constraint year="2050">1.27265776</constraint>
+                                <constraint year="2025">1.8808022</constraint>
+                                <constraint year="2030">1.59476635</constraint>
+                                <constraint year="2035">1.36322601</constraint>
+                                <constraint year="2040">1.29579618</constraint>
+                                <constraint year="2045">1.25868168</constraint>
+                                <constraint year="2050">1.19032704</constraint>
 
 
                 </policy-portfolio-standard>

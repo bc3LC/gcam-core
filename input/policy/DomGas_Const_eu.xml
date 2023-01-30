@@ -4,12 +4,12 @@
         <policy-portfolio-standard name="DomGas-constraint">
                                 <market>EU_Central</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.00702086</constraint>
-                                <constraint year="2030">0.006100966</constraint>
-                                <constraint year="2035">0.007271097</constraint>
-                                <constraint year="2040">0.011341078</constraint>
-                                <constraint year="2045">0.016738825</constraint>
-                                <constraint year="2050">0.021487602</constraint>
+                                <constraint year="2025">0.00694537</constraint>
+                                <constraint year="2030">0.00633408</constraint>
+                                <constraint year="2035">0.007571601</constraint>
+                                <constraint year="2040">0.010519799</constraint>
+                                <constraint year="2045">0.01448051</constraint>
+                                <constraint year="2050">0.018869032</constraint>
                 </policy-portfolio-standard>
 
          
@@ -37,12 +37,12 @@
         <policy-portfolio-standard name="DomGas-constraint">
                                 <market>Poland</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.1305529</constraint>
-                                <constraint year="2030">0.1189397</constraint>
-                                <constraint year="2035">0.1153863</constraint>
-                                <constraint year="2040">0.1233993</constraint>
-                                <constraint year="2045">0.11381413</constraint>
-                                <constraint year="2050">0.09806987</constraint>
+                                <constraint year="2025">0.1245486</constraint>
+                                <constraint year="2030">0.1151928</constraint>
+                                <constraint year="2035">0.1133517</constraint>
+                                <constraint year="2040">0.114359</constraint>
+                                <constraint year="2045">0.10483341</constraint>
+                                <constraint year="2050">0.09531007</constraint>
                 </policy-portfolio-standard>
 
          
@@ -71,12 +71,12 @@
         <policy-portfolio-standard name="DomGas-constraint">
                                 <market>EU_Northwest</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.3853079</constraint>
-                                <constraint year="2030">0.320303</constraint>
-                                <constraint year="2035">0.2858587</constraint>
-                                <constraint year="2040">0.3084918</constraint>
-                                <constraint year="2045">0.3217238</constraint>
-                                <constraint year="2050">0.3319151</constraint>
+                                <constraint year="2025">0.4065415</constraint>
+                                <constraint year="2030">0.3370509</constraint>
+                                <constraint year="2035">0.2871877</constraint>
+                                <constraint year="2040">0.2852977</constraint>
+                                <constraint year="2045">0.2799032</constraint>
+                                <constraint year="2050">0.2975582</constraint>
                 </policy-portfolio-standard>
 
          
@@ -104,12 +104,12 @@
         <policy-portfolio-standard name="DomGas-constraint">
                                 <market>EU_Southeast</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.3106251</constraint>
-                                <constraint year="2030">0.2887693</constraint>
-                                <constraint year="2035">0.2723712</constraint>
-                                <constraint year="2040">0.2634636</constraint>
-                                <constraint year="2045">0.2390243</constraint>
-                                <constraint year="2050">0.240958</constraint>
+                                <constraint year="2025">0.3117971</constraint>
+                                <constraint year="2030">0.2899239</constraint>
+                                <constraint year="2035">0.2712491</constraint>
+                                <constraint year="2040">0.2576183</constraint>
+                                <constraint year="2045">0.2334203</constraint>
+                                <constraint year="2050">0.23308663</constraint>
                 </policy-portfolio-standard>
 
          
@@ -137,12 +137,12 @@
         <policy-portfolio-standard name="DomGas-constraint">
                                 <market>EU_Southwest</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.04338447</constraint>
-                                <constraint year="2035">0.03982804</constraint>
-                                <constraint year="2035">0.03931231</constraint>
-                                <constraint year="2040">0.04321903</constraint>
-                                <constraint year="2045">0.04760552</constraint>
-                                <constraint year="2050">0.05337001</constraint>
+                                <constraint year="2025">0.04499873</constraint>
+                                <constraint year="2035">0.04111974</constraint>
+                                <constraint year="2035">0.03948156</constraint>
+                                <constraint year="2040">0.04063407</constraint>
+                                <constraint year="2045">0.04241726</constraint>
+                                <constraint year="2050">0.04865481</constraint>
                 </policy-portfolio-standard>
 
          
@@ -236,12 +236,12 @@
         <policy-portfolio-standard name="DomGas-constraint">
                                 <market>UK+</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">1.062763</constraint>
-                                <constraint year="2030">0.7966806</constraint>
-                                <constraint year="2035">0.7048207</constraint>
-                                <constraint year="2040">0.756617</constraint>
-                                <constraint year="2045">0.8085946</constraint>
-                                <constraint year="2050">0.7846211</constraint>
+                                <constraint year="2025">1.0746863</constraint>
+                                <constraint year="2030">0.8450582</constraint>
+                                <constraint year="2035">0.7402503</constraint>
+                                <constraint year="2040">0.7566522</constraint>
+                                <constraint year="2045">0.7708808</constraint>
+                                <constraint year="2050">0.7388137</constraint>
                 </policy-portfolio-standard>
 
          

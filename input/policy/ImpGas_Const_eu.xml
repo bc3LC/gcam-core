@@ -4,12 +4,12 @@
         <policy-portfolio-standard name="ImpGas-constraint">
                                 <market>EU_Central</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.16576483</constraint>
-                                <constraint year="2030">0.147839134</constraint>
-                                <constraint year="2035">0.123180919</constraint>
-                                <constraint year="2040">0.120093478</constraint>
-                                <constraint year="2045">0.123325713</constraint>
-                                <constraint year="2050">0.109061081</constraint>
+                                <constraint year="2025">0.16788769</constraint>
+                                <constraint year="2030">0.153518464</constraint>
+                                <constraint year="2035">0.125125445</constraint>
+                                <constraint year="2040">0.113500593</constraint>
+                                <constraint year="2045">0.11081055</constraint>
+                                <constraint year="2050">0.10066593</constraint>
                 </policy-portfolio-standard>
 
          
@@ -52,12 +52,12 @@
         <policy-portfolio-standard name="ImpGas-constraint">
                                 <market>Poland</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.10203895</constraint>
-                                <constraint year="2030">0.09545071</constraint>
-                                <constraint year="2035">0.08238967</constraint>
-                                <constraint year="2040">0.07325835</constraint>
-                                <constraint year="2045">0.06071397</constraint>
-                                <constraint year="2050">0.052602616</constraint>
+                                <constraint year="2025">0.09145476</constraint>
+                                <constraint year="2030">0.08781008</constraint>
+                                <constraint year="2035">0.07497234</constraint>
+                                <constraint year="2040">0.06318826</constraint>
+                                <constraint year="2045">0.05202719</constraint>
+                                <constraint year="2050">0.046036847</constraint>
                 </policy-portfolio-standard>
 
          
@@ -100,12 +100,12 @@
         <policy-portfolio-standard name="ImpGas-constraint">
                                 <market>EU_Northwest</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">1.4842327</constraint>
-                                <constraint year="2030">1.3305168</constraint>
-                                <constraint year="2035">1.1167621</constraint>
-                                <constraint year="2040">1.0622652</constraint>
-                                <constraint year="2045">1.05340103</constraint>
-                                <constraint year="2050">0.91131204</constraint>
+                                <constraint year="2025">1.5549063</constraint>
+                                <constraint year="2030">1.3913697</constraint>
+                                <constraint year="2035">1.1217674</constraint>
+                                <constraint year="2040">0.9986566</constraint>
+                                <constraint year="2045">0.9505077</constraint>
+                                <constraint year="2050">0.8441927</constraint>
                 </policy-portfolio-standard>
 
          
@@ -148,12 +148,12 @@
         <policy-portfolio-standard name="ImpGas-constraint">
                                 <market>EU_Southeast</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.04262027</constraint>
-                                <constraint year="2030">0.03842439</constraint>
-                                <constraint year="2035">0.03256633</constraint>
-                                <constraint year="2040">0.025978031</constraint>
-                                <constraint year="2045">0.022098795</constraint>
-                                <constraint year="2050">0.020475841</constraint>
+                                <constraint year="2025">0.04241354</constraint>
+                                <constraint year="2030">0.03811092</constraint>
+                                <constraint year="2035">0.03183624</constraint>
+                                <constraint year="2040">0.024583089</constraint>
+                                <constraint year="2045">0.020591368</constraint>
+                                <constraint year="2050">0.019871692</constraint>
                 </policy-portfolio-standard>
 
          
@@ -196,12 +196,12 @@
         <policy-portfolio-standard name="ImpGas-constraint">
                                 <market>EU_Southwest</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">1.2392397</constraint>
-                                <constraint year="2030">1.0940194</constraint>
-                                <constraint year="2035">0.9302655</constraint>
-                                <constraint year="2040">0.8494702</constraint>
-                                <constraint year="2045">0.7802821</constraint>
-                                <constraint year="2050">0.6473475</constraint>
+                                <constraint year="2025">1.2780333</constraint>
+                                <constraint year="2030">1.1211511</constraint>
+                                <constraint year="2035">0.9357325</constraint>
+                                <constraint year="2040">0.8172609</constraint>
+                                <constraint year="2045">0.7261247</constraint>
+                                <constraint year="2050">0.6064921</constraint>
                 </policy-portfolio-standard>
 
          
@@ -256,12 +256,12 @@
         <policy-portfolio-standard name="ImpGas-constraint">
                                 <market>EU_Northeast</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.013180741</constraint>
-                                <constraint year="2030">0.013045719</constraint>
-                                <constraint year="2035">0.0120742</constraint>
-                                <constraint year="2040">0.013466594</constraint>
-                                <constraint year="2045">0.017429388</constraint>
-                                <constraint year="2050">0.020175443</constraint>
+                                <constraint year="2025">0.014050562</constraint>
+                                <constraint year="2030">0.013542384</constraint>
+                                <constraint year="2035">0.012331896</constraint>
+                                <constraint year="2040">0.013360384</constraint>
+                                <constraint year="2045">0.01676367</constraint>
+                                <constraint year="2050">0.019383344</constraint>
                 </policy-portfolio-standard>
 
          
@@ -304,12 +304,12 @@
         <policy-portfolio-standard name="ImpGas-constraint">
                                 <market>Lithuania</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.009392</constraint>
-                                <constraint year="2030">0.008232</constraint>
-                                <constraint year="2035">0.006903</constraint>
-                                <constraint year="2040">0.005633</constraint>
-                                <constraint year="2045">0.004953</constraint>
-                                <constraint year="2050">0.005642</constraint>
+                                <constraint year="2025">0.009204</constraint>
+                                <constraint year="2030">0.008096</constraint>
+                                <constraint year="2035">0.006776</constraint>
+                                <constraint year="2040">0.005411</constraint>
+                                <constraint year="2045">0.004730</constraint>
+                                <constraint year="2050">0.005469</constraint>
                 </policy-portfolio-standard>
 
          
@@ -351,12 +351,12 @@
         <policy-portfolio-standard name="ImpGas-constraint">
                                 <market>UK+</market>
                                 <policyType>tax</policyType>    
-                                <constraint year="2025">0.7917854</constraint>
-                                <constraint year="2030">0.70393382</constraint>
-                                <constraint year="2035">0.59180723</constraint>
-                                <constraint year="2040">0.54752061</constraint>
-                                <constraint year="2045">0.51956209</constraint>
-                                <constraint year="2050">0.48803666</constraint>
+                                <constraint year="2025">0.8061159</constraint>
+                                <constraint year="2030">0.74970815</constraint>
+                                <constraint year="2035">0.62297571</constraint>
+                                <constraint year="2040">0.53914398</constraint>
+                                <constraint year="2045">0.48780088</constraint>
+                                <constraint year="2050">0.45151334</constraint>
                 </policy-portfolio-standard>
 
          
