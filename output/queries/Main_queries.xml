@@ -506,6 +506,24 @@ local:generate-sector-input-coefs(remove($outputNameQueue, 1), $currTree, $coefs
             cost/text()</xPath>
                 <comments/>
             </supplyDemandQuery>
+
+<supplyDemandQuery title="traded gas by tech and vintage">
+                    <axis1 name="technology">technology</axis1>
+                    <axis2 name="Year">physical-output[@vintage]</axis2>
+                    <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and contains(@name,'traded')]/*[@type='subsector']/
+               *[@type='technology']/output-primary[@type='output']/physical-output/node()</xPath>
+                    <comments/>
+                    <showAttribute attribute-name="year" level="technology"/>
+                </supplyDemandQuery>
+
+<supplyDemandQuery title="regional natural gas by tech and vintage">
+                <axis1 name="technology">technology[@name]</axis1>
+                <axis2 name="Year">physical-output[@vintage]</axis2>
+                <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='regional natural gas')]/*[@type='subsector']//*[@type='technology']/*[@type='output']/physical-output/node()</xPath>
+                <comments/>
+                <showAttribute attribute-name="year" level="technology"/>
+            </supplyDemandQuery>
+
         </queryGroup>
         <queryGroup name="energy transformation">
             <queryGroup name="electricity">
