@@ -1,8 +1,8 @@
-# File: market_region_mappings.csv,
-# Title: Mapping file to combine regions into one market,
-# Units: NA,
-# Column types: cc,
-# ----------,
+# File: market_region_mappings.csv
+# Title: Mapping file to combine regions into one market
+# Units: NA
+# Column types: cc
+# ----------
 region,market
 EU-12,EU
 EU-15,EU
