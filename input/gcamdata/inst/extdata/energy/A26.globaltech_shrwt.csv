@@ -10,6 +10,8 @@ backup_electricity,gas,gas (steam/CT),1,1,1,1
 csp_backup,gas,CSP gas hybrid mode,1,1,1,1
 delivered biomass,delivered biomass,delivered biomass,1,1,1,1
 delivered coal,delivered coal,delivered coal,1,1,1,1
+delivered biomass industry,delivered biomass industry,delivered biomass industry,1,1,1,1
+delivered coal industry,delivered coal industry,delivered coal industry,1,1,1,1
 electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,1,1,1,1
 elect_td_bld,elect_td_bld,elect_td_bld,1,1,1,1
 elect_td_ind,elect_td_ind,elect_td_ind,1,1,1,1

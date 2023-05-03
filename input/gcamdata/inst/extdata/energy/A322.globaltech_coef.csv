@@ -4,8 +4,8 @@
 # Column types: ccccinnnn
 # ----------
 supplysector,subsector,technology,minicam.energy.input,traded,1971,2010,2050,2100
-ammonia,coal,coal,delivered coal,0,0.0445,0.0445,0.0364,0.0321
-ammonia,coal,coal CCS,delivered coal,0,0.0494,0.0494,0.0404,0.0357
+ammonia,coal,coal,delivered coal industry,0,0.0445,0.0445,0.0364,0.0321
+ammonia,coal,coal CCS,delivered coal industry,0,0.0494,0.0494,0.0404,0.0357
 ammonia,gas,gas,wholesale gas,0,0.04,0.0369,0.029,0.029
 ammonia,gas,gas CCS,wholesale gas,0,0.0457,0.0422,0.0332,0.0332
 ammonia,refined liquids,refined liquids,refined liquids industrial,0,0.0412,0.0371,0.0303,0.0268

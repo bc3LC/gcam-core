@@ -7,7 +7,9 @@
 # ----------
 supplysector,subsector,apply.to,from.year,to.year,to.value,interpolation.function
 delivered biomass,delivered biomass,share-weight,final-calibration-year,end-year,,linear
+delivered biomass industry,delivered biomass industry,share-weight,final-calibration-year,end-year,,linear
 delivered coal,delivered coal,share-weight,final-calibration-year,end-year,,linear
+delivered coal industry,delivered coal industry,share-weight,final-calibration-year,end-year,,linear
 electricity_net_ownuse,electricity_net_ownuse,share-weight,final-calibration-year,end-year,,linear
 elect_td_bld,elect_td_bld,share-weight,final-calibration-year,end-year,,linear
 elect_td_ind,elect_td_ind,share-weight,final-calibration-year,end-year,,linear

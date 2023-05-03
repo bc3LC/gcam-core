@@ -9,12 +9,14 @@ PrimaryFuelCO2Coef.name,PrimaryFuelCO2Coef,traded
 biomass,0,0
 regional biomass,23,0
 delivered biomass,23,0
+delivered biomass industry,23,0
 regional biomassOil,19.6,0
 regional sugar for ethanol,19.6,0
 regional corn for ethanol,19.6,0
 coal,27.3,0
 regional coal,27.3,0
 delivered coal,27.3,0
+delivered coal industry,27.3,0
 natural gas,14.2,0
 regional natural gas,14.2,0
 gas processing,14.2,0

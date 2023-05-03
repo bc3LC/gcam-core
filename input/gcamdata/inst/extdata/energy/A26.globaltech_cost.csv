@@ -9,7 +9,9 @@ supplysector,subsector,technology,minicam.non.energy.input,1971,1975,2005,2100
 backup_electricity,gas,gas (steam/CT),fixed and variable OM,1.84,1.84,1.84,1.69
 csp_backup,gas,CSP gas hybrid mode,fixed and variable OM,0,0,0,0
 delivered biomass,delivered biomass,delivered biomass,non-energy,0.14,0.14,0.14,0.14
+delivered biomass industry,delivered biomass industry,delivered biomass industry,non-energy,0.14,0.14,0.14,0.14
 delivered coal,delivered coal,delivered coal,non-energy,0.14,0.14,0.14,0.14
+delivered coal industry,delivered coal industry,delivered coal industry,non-energy,0.14,0.14,0.14,0.14
 electricity_net_ownuse,electricity_net_ownuse,electricity_net_ownuse,non-energy,0,0,0,0
 elect_td_bld,elect_td_bld,elect_td_bld,non-energy,3.03,3.03,2.81,1.79
 elect_td_ind,elect_td_ind,elect_td_ind,non-energy,0.75,0.75,0.7,0.44
