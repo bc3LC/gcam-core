@@ -1,0 +1,591 @@
+<scenario>
+      <world>
+
+<region name="EU-12">
+  <policy-portfolio-standard name="biofuel-target">
+            <market>EU</market>
+            <policyType>RES</policyType>
+            <constraint year="2020">1</constraint>
+
+
+                </policy-portfolio-standard>
+   <supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+                  <period year="2020">  <minicam-energy-input name="biofuel-target">   <coefficient>0.06</coefficient> </minicam-energy-input>               </period>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               </technology>
+            </subsector>
+         </supplysector>
+<supplysector name="refining">
+            <subsector name="biomass liquids">
+               <technology name="cellulosic ethanol">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+               </technology>
+               <technology name="cellulosic ethanol CCS level 1">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+               </technology>
+               <technology name="cellulosic ethanol CCS level 2">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+               </technology>
+
+               <technology name="FT biofuels">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+               <technology name="FT biofuels CCS level 1">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+               <technology name="FT biofuels CCS level 2">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+<technology name="BTL with hydrogen">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+               <technology name="biodiesel">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2025"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2030"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2035"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2040"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2045"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2050"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2055"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2060"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2065"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2070"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2075"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2080"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2085"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2090"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2095"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2100"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+               </technology>
+               <technology name="corn ethanol">
+                  <period year="2010">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+               <technology name="sugar cane ethanol">
+                  <period year="2010">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+            </subsector>
+         </supplysector>
+  <policy-portfolio-standard name="adv-biofuel-target">
+            <market>EU</market>
+            <policyType>RES</policyType>
+
+            <constraint year="2025">1</constraint>
+            <constraint year="2030">1</constraint>
+            <constraint year="2035">1</constraint>
+            <constraint year="2040">1</constraint>
+            <constraint year="2045">1</constraint>
+            <constraint year="2050">1</constraint>
+            <constraint year="2055">1</constraint>
+            <constraint year="2060">1</constraint>
+            <constraint year="2065">1</constraint>
+            <constraint year="2070">1</constraint>
+            <constraint year="2075">1</constraint>
+            <constraint year="2080">1</constraint>
+            <constraint year="2085">1</constraint>
+            <constraint year="2090">1</constraint>
+            <constraint year="2095">1</constraint>
+            <constraint year="2100">1</constraint>
+                </policy-portfolio-standard>
+   <supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+
+                  <period year="2025">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.01</coefficient> </minicam-energy-input>        </period>
+                  <period year="2030">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2035">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2040">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2045">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2050">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2055">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2060">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2065">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2070">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2075">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2080">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2085">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2090">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2095">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2100">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+               </technology>
+            </subsector>
+         </supplysector>
+        </region>
+
+
+
+<region name="EU-15">
+  <policy-portfolio-standard name="biofuel-target">
+            <market>EU</market>
+            <policyType>RES</policyType>
+            <constraint year="2020">1</constraint>
+
+
+                </policy-portfolio-standard>
+   <supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+                  <period year="2020">  <minicam-energy-input name="biofuel-target">   <coefficient>0.06</coefficient> </minicam-energy-input>               </period>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               </technology>
+            </subsector>
+         </supplysector>
+<supplysector name="refining">
+            <subsector name="biomass liquids">
+               <technology name="cellulosic ethanol">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+               </technology>
+               <technology name="cellulosic ethanol CCS level 1">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+               </technology>
+               <technology name="cellulosic ethanol CCS level 2">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>     </period>
+               </technology>
+
+               <technology name="FT biofuels">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+               <technology name="FT biofuels CCS level 1">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+               <technology name="FT biofuels CCS level 2">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+<technology name="BTL with hydrogen">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100"> <res-secondary-output name="adv-biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+               <technology name="biodiesel">
+                  <period year="2010"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2015"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2020"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2025"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2030"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2035"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2040"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2045"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2050"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2055"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2060"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2065"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2070"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2075"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2080"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2085"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2090"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2095"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+                  <period year="2100"> <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>             </period>
+               </technology>
+               <technology name="corn ethanol">
+                  <period year="2010">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+               <technology name="sugar cane ethanol">
+                  <period year="2010">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2015">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2020">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2025">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2030">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2035">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2040">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2045">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2050">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2055">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2060">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2065">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2070">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2075">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2080">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2085">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2090">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2095">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+                  <period year="2100">  <res-secondary-output name="biofuel-target"> <output-ratio>1</output-ratio>   </res-secondary-output>       </period>
+               </technology>
+            </subsector>
+         </supplysector>
+  <policy-portfolio-standard name="adv-biofuel-target">
+            <market>EU</market>
+            <policyType>RES</policyType>
+
+            <constraint year="2025">1</constraint>
+            <constraint year="2030">1</constraint>
+            <constraint year="2035">1</constraint>
+            <constraint year="2040">1</constraint>
+            <constraint year="2045">1</constraint>
+            <constraint year="2050">1</constraint>
+            <constraint year="2055">1</constraint>
+            <constraint year="2060">1</constraint>
+            <constraint year="2065">1</constraint>
+            <constraint year="2070">1</constraint>
+            <constraint year="2075">1</constraint>
+            <constraint year="2080">1</constraint>
+            <constraint year="2085">1</constraint>
+            <constraint year="2090">1</constraint>
+            <constraint year="2095">1</constraint>
+            <constraint year="2100">1</constraint>
+                </policy-portfolio-standard>
+   <supplysector name="refined liquids transport">
+            <subsector name="refined liquids transport">
+               <technology name="refined liquids transport">
+
+                  <period year="2025">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.01</coefficient> </minicam-energy-input>        </period>
+                  <period year="2030">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2035">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2040">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2045">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2050">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2055">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2060">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2065">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2070">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2075">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2080">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2085">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2090">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2095">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+                  <period year="2100">  <minicam-energy-input name="adv-biofuel-target">   <coefficient>0.035</coefficient> </minicam-energy-input>        </period>
+               </technology>
+            </subsector>
+         </supplysector>
+        </region>
+    </world>
+
+</scenario>
