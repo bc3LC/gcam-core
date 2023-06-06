@@ -5,7 +5,7 @@
 		<Value name="BatchFileName">batch_ag.xml</Value>
 		<Value name="policy-target-file">../input/policy/forcing_target_4p5.xml</Value>
 		<Value name="GHGInputFileName">../input/magicc/inputs/input_gases.emk</Value>
-		<Value write-output="1" append-scenario-name="0" name="xmldb-location">../output/database_basexdb_iamCompact_paperGas_fin</Value>
+		<Value write-output="1" append-scenario-name="0" name="xmldb-location">../output/database_basexdb_iamCompact_paperGas_fin2</Value>
 		<Value write-output="1" append-scenario-name="0" name="restart">./restart/restart</Value>
 		<Value write-output="1" append-scenario-name="1" name="xmlDebugFileName">debug.xml</Value>
 		<Value write-output="1" append-scenario-name="0" name="climatFileName">gas.emk</Value>
@@ -106,7 +106,7 @@
 		<Value name = "transportation">../input/gcamdata/xml/solar_low.xml</Value>
 		<Value name = "transportation">../input/gcamdata/xml/wind_low.xml</Value>
 
-		<Value name="policy-target-file">../input/policy/gas-prod-calib4-eurNDC.xml</Value>
+		<Value name="policy-target-file">../input/policy/gas-prod-calib5-eurNDC.xml</Value>
 
 
 		<Value name = "carbon_price">../input/policyCP_fit55/ccap_eu_combNDC.xml</Value>
@@ -150,7 +150,7 @@
 		<Value name="carbon-output-start-year">1705</Value>
 		<Value name="climateOutputInterval">5</Value>
 		<Value name="parallel-grain-size">50</Value>
-		<Value name="stop-period">11</Value>
+		<Value name="stop-period">7</Value>
 		<Value name="stop-year">-1</Value>
 		<Value name="restart-period">-1</Value>
 		<Value name="restart-year">-1</Value>
