@@ -72,6 +72,8 @@ class InputCapital;
 class CTaxInput;
 class InputAccounting;
 class TrackingNonEnergyInput;
+//maw
+class InputNetSubsidy;
 
 /*! 
  * \ingroup Objects
@@ -473,7 +475,7 @@ protected:
          DEFINE_SUBCLASS_FAMILY( IInput, MiniCAMInput, EnergyInput, NonEnergyInput,
                                  RenewableInput, InputSubsidy, InputTax, InputOMVar,
                                  InputOMFixed, InputCapital, CTaxInput, InputAccounting,
-                                 TrackingNonEnergyInput )
+                                 TrackingNonEnergyInput, InputNetSubsidy)
     )
 };
 

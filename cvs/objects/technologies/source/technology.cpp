@@ -1292,6 +1292,41 @@ double Technology::getCost( const int aPeriod ) const
     return mCosts[ aPeriod ];
 }
 
+/*! maw march 2017
+ * \brief Get the pure technology cost of the technology for a period.
+ * \details Returns the previously calculated cost for a period, but nets
+ *          out any subsidies (which are negative costs) or taxes
+ *          so that only technology and fuel costs are considered
+ * \pre calcCost has been called for the iteration.
+ * \param aPeriod Model period.
+ * \author Marshall Wise
+ * \return The total Pure Technology cost.
+ */
+double Technology::getPureTechnologyCost(const string& aRegionName,
+    const string& aSectorName,
+    const int aPeriod) const
+{
+    // Check that the cost has been calculated for the period. This could still
+    // be a stale cost however if the cost has not been calculated for the
+    // iteration.
+    //assert( mCosts[ aPeriod ] != -1 );
+
+    //double cost = mCosts[ aPeriod ];
+
+    double cost = getCost(aPeriod);
+
+    // Deduct subsidy and tax costs.
+    for (unsigned int i = 0; i < mInputs.size(); ++i) {
+        if (mInputs[i]->hasTypeFlag(IInput::SUBSIDY) || mInputs[i]->hasTypeFlag(IInput::TAX)) {
+            // TODO: Leontief assumption.
+            cost -= mInputs[i]->getPrice(aRegionName, aPeriod)
+                * mInputs[i]->getCoefficient(aPeriod);
+        }
+    }
+
+    return cost;
+}
+
 /*!
  * \brief Calculates the average fuel preference elasticity of all inputs.
  * \details Calculates the average fuel preference elasticity of all energy

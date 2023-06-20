@@ -338,6 +338,31 @@ double Sector::getPrice( const int aPeriod ) const {
     return sectorPrice;
 }
 
+/*! \brief Calculate and return weighted average price of subsectors including subsidies/taxes.
+ * \details maw may 29 207
+ * \param period Model period
+ * \return The weighted sector price.
+ * \author Sonny Kim, Josh Lurz, James Blackwood, Marshall Wise, modified 06/2023 by Russell Horowitz
+ * \param period Model period
+ * \return Weighted sector price.
+ */
+double Sector::getPriceWithNoSubsidyOrTax(const int aPeriod) const {
+    const vector<double> subsecShares = calcSubsectorShares( aPeriod );
+    double sectorPrice = 0;
+    double sumSubsecShares = 0;
+    for (unsigned int i = 0; i < mSubsectors.size(); ++i) {
+        // Subsectors with no share cannot affect price. The getPrice function
+        // is constant so skipping it will not avoid any side effects. What?
+        if (subsecShares[i] > util::getSmallNumber()) {
+            sumSubsecShares += subsecShares[i];
+            double currPrice = mSubsectors[i]->getPureTechnologyPrice( aPeriod );
+            sectorPrice += subsecShares[i] * currPrice;
+        }
+    }
+
+    return sectorPrice;
+}
+
 /*! \brief Returns true if all sub-Sector outputs are fixed or calibrated.
 *
 * Routine loops through all the subsectors in the current Sector. If output is

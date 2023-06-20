@@ -188,6 +188,15 @@ double EmptyTechnology::getTotalInputCost( const string& aRegionName,
     return 0;
 }
 
+// maw march 2017
+double EmptyTechnology::getPureTechnologyCost(const string& aRegionName,
+    const string& aSectorName,
+    const int aPeriod) const
+
+{
+    return 0;
+}
+
 double EmptyTechnology::getEnergyCost( const string& aRegionName,
                                  const string& aSectorName,
                                  const int aPeriod ) const

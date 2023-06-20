@@ -165,6 +165,8 @@ public:
     void toDebugXML( const int period, std::ostream& out, Tabs* tabs ) const;
     static const std::string& getXMLNameStatic();
     virtual double getPrice( const int aPeriod ) const;
+    //maw march 2017
+    virtual double getPureTechnologyPrice(const int aPeriod) const;
     virtual bool allOutputFixed( const int period ) const;
     virtual bool containsOnlyFixedOutputTechnologies( const int period ) const;
     virtual double getAverageFuelPrice( const int aPeriod ) const;

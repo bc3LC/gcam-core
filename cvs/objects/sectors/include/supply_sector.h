@@ -76,6 +76,8 @@ protected:
     virtual double getEnergyInput( const int aPeriod ) const;
     virtual double getOutput( const int aPeriod ) const;
     virtual double getPrice( const int aPeriod ) const;
+    //maw may 29 2017
+    virtual double getPriceWithNoSubsidyOrTax( const int aPeriod) const;
     virtual void setMarket();
 
     virtual void toDebugXMLDerived( const int period, std::ostream& out, Tabs* tabs ) const;

@@ -119,6 +119,17 @@ double AgSupplySector::getPrice( const int aPeriod ) const {
     return scenario->getMarketplace()->getPrice( mName, mRegionName, aPeriod, true );
 }
 
+/*! \brief Calculate the sector price with subsidy or tax. Return solved price as in getprice()
+ * \details AgSupplySectors are solved markets, so this function is overridden
+ *          to use the market price instead of an average subsector price.
+ * \param aGDP Regional GDP container.
+ * \param aPeriod model period.
+ * \return The sector price.
+ */
+double AgSupplySector::getPriceWithNoSubsidyOrTax( const int aPeriod) const {
+    return scenario->getMarketplace()->getPrice(mName, mRegionName, aPeriod, true);
+}
+
 /*! \brief Get the XML node name for output to XML.
 *
 * This public function accesses the private constant string, XML_NAME.

@@ -200,6 +200,11 @@ public:
 
     double getCost( const int aPeriod ) const;
 
+    //! maw march017
+    double getPureTechnologyCost(const std::string& aRegionName,
+        const std::string& aSectorName,
+        const int aPeriod) const;
+
     const std::string& getName() const;
 
     void setShareWeight( double shareWeightValue );

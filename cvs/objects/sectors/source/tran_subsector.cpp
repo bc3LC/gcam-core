@@ -181,6 +181,27 @@ double TranSubsector::getPrice( const int aPeriod ) const {
     return Subsector::getPrice( aPeriod );
 }
 
+/*! \brief returns the subsector price pure technology cost w/o subsidy and tax.
+ * \details Calculates and returns share-weighted total price (subsectorprice)
+ *          with or without value of time.
+ * \author Marshall Wise  maw march 2017
+ * \param aGDP Regional GDP object.
+ * \param aPeriod Model period
+ * \return The subsector price with or without value of time.
+ */
+double TranSubsector::getPureTechnologyPrice(const int aPeriod) const {
+    // mAddTimeValue is a boolean that determines whether the service price includes
+    // the value of time
+    if (mAddTimeValue) {
+        return getGeneralizedPrice(aPeriod);
+    }
+    // normal share-weighted total technology cost only
+    double mPrice = Subsector::getPureTechnologyPrice(aPeriod);
+    cout << mPrice << "\n";
+    return Subsector::getPureTechnologyPrice(aPeriod);
+}
+
+
 /*! \brief Get the time value for the period.
 * \param aGDP The regional GDP container.
 * \param aPeriod The model period.

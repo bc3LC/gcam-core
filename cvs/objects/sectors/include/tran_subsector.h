@@ -74,6 +74,8 @@ public:
     virtual void initCalc( const Demographic* aDemographics,
                            const int aPeriod );
     double getPrice( const int aPeriod ) const;
+    //maw march 2017
+    double getPureTechnologyPrice(const int aPeriod) const;
 
     virtual void setOutput( const double aVariableSubsectorDemand,
                             const double aFixedOutputScaleFactor,

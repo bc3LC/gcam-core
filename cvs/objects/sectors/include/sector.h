@@ -156,6 +156,9 @@ protected:
 
     virtual double getPrice( const int aPeriod ) const;
 
+    //maw may 29 2017
+    virtual double getPriceWithNoSubsidyOrTax( const int aPeriod) const;
+
 public:
     explicit Sector();
     virtual ~Sector();

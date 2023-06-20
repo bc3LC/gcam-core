@@ -79,7 +79,8 @@ public:
     virtual void supply( const int aPeriod );
 protected:
 	virtual double getPrice( const int aPeriod ) const;
-
+    //maw mar 2018
+    virtual double getPriceWithNoSubsidyOrTax( const int aPeriod) const;
     virtual void toDebugXMLDerived( const int period, std::ostream& out, Tabs* tabs ) const;
     virtual const std::string& getXMLName() const;
     virtual void setMarket();
