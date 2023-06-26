@@ -196,8 +196,6 @@ double TranSubsector::getPureTechnologyPrice(const int aPeriod) const {
         return getGeneralizedPrice(aPeriod);
     }
     // normal share-weighted total technology cost only
-    double mPrice = Subsector::getPureTechnologyPrice(aPeriod);
-    cout << mPrice << "\n";
     return Subsector::getPureTechnologyPrice(aPeriod);
 }
 

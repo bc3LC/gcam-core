@@ -149,6 +149,7 @@ void InputNetSubsidy::toDebugXML( const int aPeriod,
     XMLWriteOpeningTag ( getXMLNameStatic(), aOut, aTabs, mName );
     XMLWriteElement( mAdjustedCoefficients[ aPeriod ], "current-coef", aOut, aTabs );
     XMLWriteElement( mPhysicalDemand[ aPeriod ], "physical-demand", aOut, aTabs );
+    XMLWriteElement(mSectorName, "sector-name", aOut, aTabs);
     XMLWriteClosingTag( getXMLNameStatic(), aOut, aTabs );
 }
 
@@ -158,7 +159,7 @@ void InputNetSubsidy::completeInit( const string& aRegionName,
                                  const string& aTechName,
                                  const IInfo* aTechInfo )
 {
-    mSectorName = aSectorName;
+    //mSectorName = aSectorName;
 }
 
 void InputNetSubsidy::initCalc( const string& aRegionName,
@@ -237,7 +238,7 @@ double InputNetSubsidy::getPrice( const string& aRegionName,
 
     double netSectorSubsidy = marketInfo->getDouble( "netSectorSubsidy", true );
     
-    cout << netSectorSubsidy << "\n";
+    //cout << netSectorSubsidy << "\n";
 
     return - netSectorSubsidy;
 }

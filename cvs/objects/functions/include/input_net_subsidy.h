@@ -164,13 +164,13 @@ protected:
         
         //! Current coefficient after adjustments have been made by the technology's
         //! capture component.
-        DEFINE_VARIABLE( ARRAY | NOT_PARSABLE, "current-coef", mAdjustedCoefficients, objects::TechVintageVector<Value> )
+        DEFINE_VARIABLE( ARRAY | NOT_PARSABLE, "current-coef", mAdjustedCoefficients, objects::TechVintageVector<Value> ),
 
-        //DEFINE_VARIABLE(SIMPLE, "sector-name", mSectorName, std::string),
+        DEFINE_VARIABLE(SIMPLE, "sector-name", mSectorName, std::string)
     )
 
     //! Stash the current sector name for use in setPhysicalDemand
-    std::string mSectorName;
+    //std::string mSectorName;
 private:
     const static std::string XML_REPORTING_NAME; //!< tag name for reporting xml db
 };

@@ -317,9 +317,11 @@ void Subsector::initCalc( const Demographic* aDemographics,
 * \param aPeriod Model period
 */
 double Subsector::getPrice( const int aPeriod ) const {
+    //cout << "------------------" << mName << "------- Entering Subsector::getPrice-----------" << "\n";
     double subsectorPrice = 0.0; // initialize to 0 for summing
     double sharesum = 0.0;
     const vector<double>& techShares = calcTechShares( aPeriod );
+    //cout << "getPrice techShares calculated" << "\n";
     for ( unsigned int i = 0; i < mTechContainers.size(); ++i ) {
         double currCost = mTechContainers[i]->getNewVintageTechnology(aPeriod)->getCost( aPeriod );
         // calculate weighted average price for Subsector.
@@ -351,11 +353,15 @@ double Subsector::getPrice( const int aPeriod ) const {
  * \param aPeriod Model period
  */
 double Subsector::getPureTechnologyPrice(const int aPeriod) const {
+    //cout << "------------------" << mName << "------- Entering Subsector::getPureTechnologyPrice-----------" << "\n";
     double subsectorPrice = 0.0; // initialize to 0 for summing
     double sharesum = 0.0;
-    const vector<double> techShares = calcTechShares(aPeriod);
+    //cout << "Sharesum calculated" <<"\n";
+    const vector<double>& techShares = calcTechShares(aPeriod);
+    //cout << "techShares calculated" << "\n";
     for (unsigned int i = 0; i < mTechContainers.size(); ++i) {
         double currCost = mTechContainers[i]->getNewVintageTechnology(aPeriod)->getPureTechnologyCost(mRegionName, mSectorName, aPeriod);
+        //cout << "Curr Cost: " << currCost << "\n";
         // calculate weighted average price for Subsector.
         /*!
          * \note Negative prices may be produced and are valid.
@@ -370,9 +376,11 @@ double Subsector::getPureTechnologyPrice(const int aPeriod) const {
         // with a NaN price gets a share of zero.  Therefore, as long
         // as you use only subsectors with positive shares, you will
         // never see the NaN price.
+        //cout << "NA Price " << "\n";
         return numeric_limits<double>::signaling_NaN();
     }
     else {
+ /*       cout << "subsectorPrice: " << subsectorPrice << "\n";*/
         return subsectorPrice;
     }
 }
@@ -415,9 +423,11 @@ double Subsector::getAverageFuelPrice( const int aPeriod ) const {
 * \return A vector of technology shares.
 */
 const vector<double> Subsector::calcTechShares( const int aPeriod ) const {
+    //cout << "------------------" << mName << "------- Entering calcTechShares-----------" << "\n";
     vector<double> logTechShares ( mTechContainers.size() ); 
-
+    //cout << "mTechContainers.size: " << mTechContainers.size() << "\n";
     for( unsigned int i = 0; i < mTechContainers.size(); ++i ){
+        //cout << i << "\n";
         // determine shares based on Technology costs
         double lts = mTechContainers[ i ]->getNewVintageTechnology( aPeriod )->
             calcShare( mRegionName, mDiscreteChoiceModel, aPeriod );

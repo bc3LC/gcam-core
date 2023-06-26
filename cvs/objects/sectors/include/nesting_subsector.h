@@ -95,6 +95,8 @@ public:
                            const int aPeriod );
 
     virtual double getPrice( const int aPeriod ) const;
+    //rlh june 2023
+    virtual double getPureTechnologyPrice(const int aPeriod) const;
     virtual bool allOutputFixed( const int period ) const;
     virtual bool containsOnlyFixedOutputTechnologies( const int period ) const;
     virtual double getAverageFuelPrice( const int aPeriod ) const;

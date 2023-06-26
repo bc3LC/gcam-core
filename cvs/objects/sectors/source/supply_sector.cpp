@@ -219,18 +219,19 @@ void SupplySector::calcFinalSupplyPrice( const int aPeriod ){
 
     // Set the price into the market.
     Marketplace* marketplace = scenario->getMarketplace();
-
+    //cout << "------------------" << mName << "------- Entering calcFinalSupplyPrice-----------" << "\n";
     double subsidizedPrice = getPrice( aPeriod );
+    //cout << "subsidizedPrice:" << subsidizedPrice << "\n";
+    marketplace->setPrice(mName, mRegionName, subsidizedPrice, aPeriod, true);
 
-    marketplace->setPrice( mName, mRegionName, subsidizedPrice, aPeriod, true );
 
    //maw may 2017  get subsidized price, compute difference with regular sector
    // price, and then store difference as a marketinfor object
 
     double avgMarginalPrice = getPriceWithNoSubsidyOrTax( aPeriod);
-
+    //cout << "avgMarginalPrice: " << avgMarginalPrice << "\n";
     // subsidies are stored as positive price but then returned as negative cost in input get price
-    double netSectorSubsidy = avgMarginalPrice - subsidizedPrice;
+    double netSectorSubsidy = subsidizedPrice - avgMarginalPrice;
 
     IInfo* marketInfo = marketplace->getMarketInfo(mName, mRegionName, aPeriod, true);
     marketInfo->setDouble("netSectorSubsidy", netSectorSubsidy);

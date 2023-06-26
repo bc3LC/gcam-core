@@ -322,6 +322,7 @@ const vector<double> Sector::calcSubsectorShares( const int aPeriod ) const {
 * \return Weighted sector price.
 */
 double Sector::getPrice( const int aPeriod ) const {
+    //cout << "------------------" << mRegionName << "-" << mName << "------- Entering Sector::getPrice-----------" << "\n";
     const vector<double>& subsecShares = calcSubsectorShares( aPeriod );
     double sectorPrice = 0;
     double sumSubsecShares = 0;
@@ -334,7 +335,7 @@ double Sector::getPrice( const int aPeriod ) const {
             sectorPrice += subsecShares[ i ] * currPrice;
         }
     }
-    
+    //cout << "getPrice sectorPrice: " << sectorPrice << "\n";
     return sectorPrice;
 }
 
@@ -347,6 +348,7 @@ double Sector::getPrice( const int aPeriod ) const {
  * \return Weighted sector price.
  */
 double Sector::getPriceWithNoSubsidyOrTax(const int aPeriod) const {
+    //cout << "------------------" << mName << "------- Entering Sector::getPriceWithNoSubsidyOrTax-----------" << "\n";
     const vector<double> subsecShares = calcSubsectorShares( aPeriod );
     double sectorPrice = 0;
     double sumSubsecShares = 0;
@@ -355,11 +357,13 @@ double Sector::getPriceWithNoSubsidyOrTax(const int aPeriod) const {
         // is constant so skipping it will not avoid any side effects. What?
         if (subsecShares[i] > util::getSmallNumber()) {
             sumSubsecShares += subsecShares[i];
+            //cout << "Sector Price: " << sectorPrice << "\n";
             double currPrice = mSubsectors[i]->getPureTechnologyPrice( aPeriod );
+            //cout << "Curr Price: " << currPrice << "\n";
             sectorPrice += subsecShares[i] * currPrice;
         }
     }
-
+  
     return sectorPrice;
 }
 
