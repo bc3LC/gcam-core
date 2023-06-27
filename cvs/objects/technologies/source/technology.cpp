@@ -1315,9 +1315,18 @@ double Technology::getPureTechnologyCost(const string& aRegionName,
 
     double cost = getCost(aPeriod);
 
+
+
     // Deduct subsidy and tax costs.
     for (unsigned int i = 0; i < mInputs.size(); ++i) {
-        if (mInputs[i]->hasTypeFlag(IInput::SUBSIDY) || mInputs[i]->hasTypeFlag(IInput::TAX)) {
+
+        //if (mInputs[i]->hasTypeFlag(IInput::RES)) {
+        //    cout << "RES Input in " << aRegionName << " " << aSectorName << "\n";
+        //    cout << "Price == " << mInputs[i]->getPrice(aRegionName, aPeriod) << "\n";
+        //}
+
+
+        if (mInputs[i]->hasTypeFlag(IInput::SUBSIDY) || mInputs[i]->hasTypeFlag(IInput::TAX) || mInputs[i]->hasTypeFlag(IInput::RES)) {
             // TODO: Leontief assumption.
             cost -= mInputs[i]->getPrice(aRegionName, aPeriod)
                 * mInputs[i]->getCoefficient(aPeriod);

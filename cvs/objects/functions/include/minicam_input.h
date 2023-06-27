@@ -164,6 +164,9 @@ public:
 
     virtual void copyParamsInto( EnergyInput& aInput,
                                  const int aPeriod ) const {}
+								 
+	    virtual void copyParamsInto( RESInput& aInput,
+                                 const int aPeriod ) const {}
 
     virtual void copyParamsInto( NonEnergyInput& aInput,
                                  const int aPeriod ) const {}

@@ -233,6 +233,10 @@ void SupplySector::calcFinalSupplyPrice( const int aPeriod ){
     // subsidies are stored as positive price but then returned as negative cost in input get price
     double netSectorSubsidy = subsidizedPrice - avgMarginalPrice;
 
+    if (netSectorSubsidy > 0) {
+        cout << mRegionName << " " << "netSectorSubsidy: " << netSectorSubsidy << "\n";
+    }
+
     IInfo* marketInfo = marketplace->getMarketInfo(mName, mRegionName, aPeriod, true);
     marketInfo->setDouble("netSectorSubsidy", netSectorSubsidy);
     //end maw may 2017 changes

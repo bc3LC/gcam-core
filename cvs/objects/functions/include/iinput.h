@@ -74,6 +74,8 @@ class InputAccounting;
 class TrackingNonEnergyInput;
 //maw
 class InputNetSubsidy;
+//rlh
+class RESInput;
 
 /*! 
  * \ingroup Objects
@@ -145,7 +147,10 @@ public:
         RESOURCE = 1 << 15,
         
         //! Backup Energy Input
-        BACKUP_ENERGY = 1 << 16
+        BACKUP_ENERGY = 1 << 16,
+
+        //! RES
+        RES = 1 << 17
         
     };
 
@@ -442,6 +447,10 @@ public:
     virtual void copyParamsInto( EnergyInput& aInput,
                                  const int aPeriod ) const = 0;
 
+    //rlh 06-23
+    virtual void copyParamsInto(RESInput& aInput,
+        const int aPeriod) const = 0;
+
     virtual void copyParamsInto( NonEnergyInput& aInput,
                                  const int aPeriod ) const = 0;
 	virtual void copyParamsInto( InputCapital& aInput,
@@ -475,7 +484,7 @@ protected:
          DEFINE_SUBCLASS_FAMILY( IInput, MiniCAMInput, EnergyInput, NonEnergyInput,
                                  RenewableInput, InputSubsidy, InputTax, InputOMVar,
                                  InputOMFixed, InputCapital, CTaxInput, InputAccounting,
-                                 TrackingNonEnergyInput, InputNetSubsidy)
+                                 TrackingNonEnergyInput, InputNetSubsidy, RESInput)
     )
 };
 

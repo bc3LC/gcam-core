@@ -220,5 +220,6 @@
 #include "util/curves/include/xy_data_point.h"
 #include "util/base/include/object_meta_info.h"
 #include "functions/include/input_net_subsidy.h"
+#include "functions/include/res_input.h"
 
 #endif // _GCAM_DATA_CONTAINERS_H_
