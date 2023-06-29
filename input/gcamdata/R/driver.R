@@ -473,6 +473,7 @@ driver_drake <- function(
   return_plan_only = FALSE,
   write_xml = !return_data_map_only,
   xmldir = XML_DIR,
+  policyxmldir = POLICY_XML_DIR,
   quiet = FALSE,
   user_modifications = NULL,
   xml_suffix = NULL,
@@ -721,6 +722,10 @@ driver_drake <- function(
         # Add the xmldir to the XML output name and include those in the
         # target list.
         po_xml_path = file.path(xmldir, po_xml) %>% gsub("/{2,}", "/", .)# Don't want multiple consecutive slashes, as drake views that as separate object
+        # If policy xml chunk, add to policy xml
+        if (grepl("module_policy", chunk)){
+          po_xml_path = file.path(policyxmldir, po_xml) %>% gsub("/{2,}", "/", .)# Don't want multiple consecutive slashes, as drake views that as separate object
+        }
         target <- c(target, make.names(po_xml_path))
         # Generate the command to run the XML conversion:
         # `xml/out1.xml <- run_xml_conversion(set_xml_file_helper(out1.xml, file_out("xml/out1.xml")))`
