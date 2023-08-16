@@ -2,7 +2,7 @@
 # Title: Mapping between intermediate fuel names and minicam-energy-input names
 # Units: NA
 # Source: NA
-# Column types: cc 
+# Column types: cc
 # ----------
 minicam.energy.input,fuel
 regional biomass,biomass
@@ -30,3 +30,6 @@ refined liquids transport,refined liquids
 refined liquids bunkers,refined liquids
 delivered biomass industry,biomass
 delivered coal industry,coal
+delivered coal feedstocks,coal
+wholesale gas feedstocks,gas
+refined liquids feedstocks,refined liquids

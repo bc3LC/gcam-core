@@ -360,8 +360,8 @@ module_energy_L2325.chemical <- function(command, ...) {
       L2325.in_EJ_R_chemical_F_Yh # intermediate tibble
 
     L2325.in_EJ_R_chemical_F_Yh %>%
-      left_join_error_no_match(distinct(select(A325.globaltech_eff, subsector, technology, minicam.energy.input)),
-                               by = c("subsector", "stub.technology" = "technology")) %>%
+      left_join_error_no_match(distinct(select(A325.globaltech_eff, supplysector, subsector, technology, minicam.energy.input)),
+                               by = c("sector" = "supplysector", "subsector", "stub.technology" = "technology")) %>%
       mutate(calibrated.value = round(value, energy.DIGITS_CALOUTPUT),
              share.weight.year = year) ->
       L2325.StubTechCalInput_chemical_tmp

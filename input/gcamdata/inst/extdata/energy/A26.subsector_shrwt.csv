@@ -28,3 +28,6 @@ refined liquids industrial,refined liquids industrial,start-year,,1
 refined liquids transport,refined liquids transport,start-year,,1
 refined liquids bunkers,refined liquids bunkers,start-year,,1
 backup_electricity,hydrogen,start-year,,1
+wholesale gas feedstocks,wholesale gas feedstocks,start-year,,1
+refined liquids feedstocks,refined liquids feedstocks,start-year,,1
+delivered coal feedstocks,delivered coal feedstocks,start-year,,1

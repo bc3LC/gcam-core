@@ -27,3 +27,6 @@ refined liquids transport,refined liquids transport,share-weight,final-calibrati
 refined liquids bunkers,refined liquids bunkers,share-weight,final-calibration-year,end-year,,linear
 backup_electricity,hydrogen,share-weight,final-calibration-year,initial-future-year,,linear
 backup_electricity,hydrogen,share-weight,initial-future-year,2025,,linear
+wholesale gas feedstocks,wholesale gas feedstocks,share-weight,final-calibration-year,end-year,,linear
+refined liquids feedstocks,refined liquids feedstocks,share-weight,final-calibration-year,end-year,,linear
+delivered coal feedstocks,delivered coal feedstocks,share-weight,final-calibration-year,end-year,,linear

@@ -16,6 +16,6 @@ other industrial energy use,hydrogen,hydrogen,H2 industrial,,1,1,1,1.015,1.03,1.
 other industrial energy use,hydrogen,hydrogen cogen,H2 wholesale delivery,electricity,0.563320707,0.603,0.612,0.621,0.63,0.64,0.649,0.659,0.659
 other industrial energy use,refined liquids,refined liquids,refined liquids industrial,,0.917381318,0.982,1.001,1.018,1.033,1.047,1.062,1.077,1.077
 other industrial energy use,refined liquids,refined liquids cogen,refined liquids industrial,electricity,0.565189101,0.605,0.614,0.623,0.632,0.642,0.652,0.662,0.662
-other industrial feedstocks,coal,coal,delivered coal industry,,1,1,1,1,1,1,1,1,1
-other industrial feedstocks,gas,gas,wholesale gas,,1,1,1,1,1,1,1,1,1
-other industrial feedstocks,refined liquids,refined liquids,refined liquids industrial,,1,1,1,1,1,1,1,1,1
+other industrial feedstocks,coal,coal,delivered coal feedstocks,,1,1,1,1,1,1,1,1,1
+other industrial feedstocks,gas,gas,wholesale gas feedstocks,,1,1,1,1,1,1,1,1,1
+other industrial feedstocks,refined liquids,refined liquids,refined liquids feedstocks,,1,1,1,1,1,1,1,1,1

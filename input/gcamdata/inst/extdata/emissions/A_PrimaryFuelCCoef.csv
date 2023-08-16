@@ -1,10 +1,10 @@
-# File: A_PrimaryFuelCCoef.csv
-# Title: Global Default Emissions Factors
-# Description: assumed global default emissions factors
-# Units: kg C per GJ
-# Source: CDIAC inventory IEA energy balance some manual adjustments
-# Column types: cni
-# ----------
+# File: A_PrimaryFuelCCoef.csv,,
+# Title: Global Default Emissions Factors,,
+# Description: assumed global default emissions factors,,
+# Units: kg C per GJ,,
+# Source: CDIAC inventory IEA energy balance some manual adjustments,,
+# Column types: cni,,
+# ----------,,
 PrimaryFuelCO2Coef.name,PrimaryFuelCO2Coef,traded
 biomass,0,0
 regional biomass,23,0
@@ -39,3 +39,6 @@ regional woodpulp,0,0
 NonFoodDemand_sawnwood,0,0
 NonFoodDemand_woodpulp,0,0
 regional woodpulp for energy,23,0
+refined liquids feedstocks,19.6,0
+wholesale gas feedstocks,14.2,0
+delivered coal feedstocks,27.3,0

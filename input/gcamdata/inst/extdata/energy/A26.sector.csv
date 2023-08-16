@@ -3,7 +3,7 @@
 # Units: NA
 # Description: Characteristics of supply sectors for final energy delivery and reliability, setting the Units for price and inputs as well as the logit exponent.
 # Source: NA
-# Column types: ccccic 
+# Column types: ccccic
 # ----------
 supplysector,output.unit,input.unit,price.unit,logit.exponent,logit.type
 backup_electricity,EJ,EJ,1975$/GJ,-3,
@@ -27,3 +27,6 @@ refined liquids enduse,EJ,EJ,1975$/GJ,-3,
 refined liquids industrial,EJ,EJ,1975$/GJ,-3,
 refined liquids transport,EJ,EJ,1975$/GJ,-3,
 refined liquids bunkers,EJ,EJ,1975$/GJ,-3,
+refined liquids feedstocks,EJ,EJ,1975$/GJ,-3,
+wholesale gas feedstocks,EJ,EJ,1975$/GJ,-3,
+delivered coal feedstocks,EJ,EJ,1975$/GJ,-3,

@@ -20,6 +20,6 @@ chemical energy use,coal,coal,delivered coal industry,,0.808080285,0.865,0.891,0
 chemical energy use,coal,coal cogen,delivered coal industry,electricity,0.582004645,0.623,0.629,0.636,0.644,0.652,0.661,0.67,0.67
 chemical energy use,coal,coal CCS,delivered coal industry,,0.808080285,0.865,0.891,0.901,0.909,0.917,0.926,0.936,0.936
 chemical energy use,heat,heat,district heat,,1,1,1,1,1,1,1,1,1
-chemical feedstocks,refined liquids,refined liquids,refined liquids industrial,,1,1,1,1,1,1,1,1,1
-chemical feedstocks,gas,gas,wholesale gas,,1,1,1,1,1,1,1,1,1
-chemical feedstocks,coal,coal,delivered coal industry,,1,1,1,1,1,1,1,1,1
+chemical feedstocks,refined liquids,refined liquids,refined liquids feedstocks,,1,1,1,1,1,1,1,1,1
+chemical feedstocks,gas,gas,wholesale gas feedstocks,,1,1,1,1,1,1,1,1,1
+chemical feedstocks,coal,coal,delivered coal feedstocks,,1,1,1,1,1,1,1,1,1
