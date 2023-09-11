@@ -53,6 +53,18 @@ module_water_L133.water_demand_livestock <- function(command, ...) {
       GCAM_basin_ID <- NULL
 
     # ===================================================
+    # Calculate livestock water coefficients by region ID / GCAM_commodity/ water type.
+    # First, adjust beef production to reflect the "dairy-secOut" effect and adjust water consumption/withdrawals
+    L202.DairyBeef<-A_an_DairyBeef %>%
+      mutate(share = pmin(share, aglu.MAX_DAIRYBEEF))
+
+    L105.an_Prod_Mt_R_C_Y<-L105.an_Prod_Mt_R_C_Y %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
+      mutate(value = if_else(GCAM_commodity == "Beef", value * (1 - share), value)) %>%
+      select(-share, -region)
+
+
     # Start by finding  the number of non-dairy producing livestock.
 
     # Create a tibble of dairy producing stocks by country and FAO animal

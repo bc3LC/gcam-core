@@ -12,7 +12,6 @@ Beef,Pastoral,FodderHerb_Residue,share-weight,final-calibration-year,end-year,fi
 Beef,Pastoral,Pasture_FodderGrass,share-weight,final-calibration-year,end-year,fixed,Pasture_FodderGrass
 Beef,Pastoral,FeedCrops,share-weight,final-calibration-year,end-year,fixed,FeedCrops
 Beef,Pastoral,Scavenging_Other,share-weight,final-calibration-year,end-year,fixed,Scavenging_Other
-Beef,DairyBeef,DairyBeef,share-weight,final-calibration-year,end-year,fixed,DairyBeef
 Dairy,Mixed,FodderHerb_Residue,share-weight,final-calibration-year,end-year,fixed,FodderHerb_Residue
 Dairy,Mixed,Pasture_FodderGrass,share-weight,final-calibration-year,end-year,fixed,Pasture_FodderGrass
 Dairy,Mixed,FeedCrops,share-weight,final-calibration-year,end-year,fixed,FeedCrops

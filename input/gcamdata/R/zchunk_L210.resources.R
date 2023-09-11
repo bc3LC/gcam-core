@@ -15,8 +15,7 @@
 #' \code{L210.GrdRenewRsrcCurves_tradbio}, \code{L210.GrdRenewRsrcMax_tradbio}, \code{L210.RsrcTechChange_SSP1}, \code{L210.RsrcEnvironCost_SSP1},
 #' \code{L210.RsrcTechChange_SSP2}, \code{L210.RsrcEnvironCost_SSP2}, \code{L210.RsrcTechChange_SSP3}, \code{L210.RsrcEnvironCost_SSP3},
 #' \code{L210.RsrcTechChange_SSP4}, \code{L210.RsrcEnvironCost_SSP4}, \code{L210.RsrcTechChange_SSP5}, \code{L210.RsrcEnvironCost_SSP5},
-#' \code{L210.ResSubresourceProdLifetime}, \code{L210.ResReserveTechLifetime}, \code{L210.ResReserveTechDeclinePhase},
-#'  \code{L210.ResReserveTechProfitShutdown}, \code{L210.ResTechShrwt}, \code{L210.ResTechShrwt_EGS}, \code{L210.SmthRenewRsrcCurves_DairyBeef}
+#' \code{L210.ResSubresourceProdLifetime}, \code{L210.ResReserveTechLifetime}, \code{L210.ResReserveTechDeclinePhase}, \code{L210.ResReserveTechProfitShutdown}, \code{L210.ResTechShrwt}, \code{L210.ResTechShrwt_EGS}.
 #' The corresponding file in the original data system was \code{L210.resources.R} (energy level2).
 #' @details Resource market information, prices, TechChange parameters, supply curves, and environmental costs.
 #' @importFrom assertthat assert_that
@@ -50,8 +49,7 @@ module_energy_L210.resources <- function(command, ...) {
              "L117.RsrcCurves_EJ_R_tradbio",
              "L120.RsrcCurves_EJ_R_offshore_wind",
              "L120.TechChange_offshore_wind",
-             "L102.pcgdp_thous90USD_Scen_R_Y",
-             FILE = "energy/A19.DairyBeef_curves"))
+             "L102.pcgdp_thous90USD_Scen_R_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L210.Rsrc",
              "L210.RenewRsrc",
@@ -94,8 +92,7 @@ module_energy_L210.resources <- function(command, ...) {
              "L210.ResTechShrwt",
              "L210.ResTechShrwt_EGS",
              "L210.ResTechCoef",
-             "L210.ResTechCost",
-             "L210.SmthRenewRsrcCurves_DairyBeef"))
+             "L210.ResTechCost"))
   } else if(command == driver.MAKE) {
 
     # Silence package checks
@@ -148,7 +145,6 @@ module_energy_L210.resources <- function(command, ...) {
     L120.RsrcCurves_EJ_R_offshore_wind <- get_data(all_data, "L120.RsrcCurves_EJ_R_offshore_wind", strip_attributes = TRUE)
     L120.TechChange_offshore_wind <- get_data(all_data, "L120.TechChange_offshore_wind", strip_attributes = TRUE )
     L102.pcgdp_thous90USD_Scen_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_Scen_R_Y")
-    L119.RsrcCurves_Mt_R_DairyBeef <- get_data(all_data, "energy/A19.DairyBeef_curves", strip_attributes = TRUE)
 
     # Check for calibrated resource prices for final historical model year.
     # Otherwise, price behavior is undefinded, and so stop process.
@@ -429,20 +425,7 @@ module_energy_L210.resources <- function(command, ...) {
              year.fillout = min(MODEL_BASE_YEARS)) %>%
       select(region, renewresource = resource, smooth.renewable.subresource = subresource, year.fillout, maxSubResource, mid.price, curve.exponent, gdpSupplyElast)
 
-
-    # L210.SmthRenewRsrcCurves_DairyBeef: supply curves of DairyBeef
-    L210.SmthRenewRsrcCurves_DairyBeef <- L119.RsrcCurves_Mt_R_DairyBeef %>%
-      # Add region name
-      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
-      mutate(maxSubResource = round(maxSubResource, energy.DIGITS_MAX_SUB_RESOURCE),
-             mid.price = round(mid.price, energy.DIGITS_MID_PRICE),
-             curve.exponent = round(curve.exponent, energy.DIGITS_CURVE_EXPONENT),
-             gdpSupplyElast = round(gdpSupplyElast, energy.DIGITS_GDP_SUPPLY_ELAST),
-             year.fillout = min(MODEL_BASE_YEARS)) %>%
-      select(region, renewresource = resource, smooth.renewable.subresource = subresource, year.fillout, maxSubResource, mid.price, curve.exponent, gdpSupplyElast)
-
-
-     # L210.SmthRenewRsrcCurves_wind: supply curves of wind resources
+    # L210.SmthRenewRsrcCurves_wind: supply curves of wind resources
     L210.SmthRenewRsrcCurves_wind <- L114.RsrcCurves_EJ_R_wind %>%
       # Add region name
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
@@ -614,7 +597,6 @@ module_energy_L210.resources <- function(command, ...) {
              technology = subresource,
              share.weight = if_else(year > MODEL_FINAL_BASE_YEAR | prod_value > 0, 1, 0)) %>%
       filter(year %in% MODEL_YEARS) %>%
-      mutate(share.weight = if_else(resource == "DairyBeef", 1, share.weight)) %>%
       select(LEVEL2_DATA_NAMES[["ResTechShrwt"]]) ->
       L210.ResTechShrwt
     # We need to remove regions + Subresources which should not exist
@@ -770,14 +752,6 @@ module_energy_L210.resources <- function(command, ...) {
       add_precursors("L113.RsrcCurves_EJ_R_MSW", "common/GCAM_region_names") ->
       L210.SmthRenewRsrcCurves_MSW
 
-    L210.SmthRenewRsrcCurves_DairyBeef %>%
-      add_title("Supply curves of DairyBeef") %>%
-      add_units("maxSubResource: EJ; mid.price = $1975/GJ") %>%
-      add_comments("Data from A19.DairyBeef_curves") %>%
-      add_legacy_name("L210.SmthRenewRsrcCurves_DairyBeef") %>%
-      add_precursors("energy/A19.DairyBeef_curves", "common/GCAM_region_names") ->
-      L210.SmthRenewRsrcCurves_DairyBeef
-
     L210.SmthRenewRsrcCurves_wind %>%
       add_title("Supply curves of wind resources") %>%
       add_units("maxSubResource: EJ; mid.price: $1975/GJ") %>%
@@ -903,7 +877,7 @@ module_energy_L210.resources <- function(command, ...) {
                 L210.RsrcEnvironCost_SSP1, L210.RsrcTechChange_SSP2, L210.RsrcEnvironCost_SSP2, L210.RsrcTechChange_SSP3, L210.RsrcEnvironCost_SSP3,
                 L210.RsrcTechChange_SSP4, L210.RsrcEnvironCost_SSP4, L210.RsrcTechChange_SSP5, L210.RsrcEnvironCost_SSP5,
                 L210.ResSubresourceProdLifetime, L210.SubresourcePriceAdder, L210.ResReserveTechLifetime, L210.ResReserveTechDeclinePhase, L210.ResReserveTechProfitShutdown,
-                L210.ResTechShrwt, L210.ResTechShrwt_EGS, L210.ResTechCoef, L210.ResTechCost, L210.SmthRenewRsrcCurves_DairyBeef)
+                L210.ResTechShrwt, L210.ResTechShrwt_EGS, L210.ResTechCoef, L210.ResTechCost)
   } else {
     stop("Unknown command")
   }

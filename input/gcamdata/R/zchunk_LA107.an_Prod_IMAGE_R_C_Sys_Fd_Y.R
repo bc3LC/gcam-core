@@ -24,9 +24,7 @@ module_aglu_LA107.an_Prod_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
              "L100.IMAGE_an_Prodmixfrac_ctry_C_Y",
              "L100.IMAGE_an_Feedfrac_ctry_C_Sys_Fd_Y",
              "L100.IMAGE_an_FeedIO_ctry_C_Sys_Y",
-             "L105.an_Prod_Mt_ctry_C_Y",
-             FILE = "aglu/A_an_DairyBeef",
-             FILE = "common/GCAM_region_names"))
+             "L105.an_Prod_Mt_ctry_C_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L107.an_Prod_Mt_R_C_Sys_Fd_Y"))
   } else if(command == driver.MAKE) {
@@ -39,12 +37,10 @@ module_aglu_LA107.an_Prod_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
 
     # Load required inputs
     iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
-    GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
     L100.IMAGE_an_Prodmixfrac_ctry_C_Y <- get_data(all_data, "L100.IMAGE_an_Prodmixfrac_ctry_C_Y")
     L100.IMAGE_an_Feedfrac_ctry_C_Sys_Fd_Y <- get_data(all_data, "L100.IMAGE_an_Feedfrac_ctry_C_Sys_Fd_Y")
     L100.IMAGE_an_FeedIO_ctry_C_Sys_Y <- get_data(all_data, "L100.IMAGE_an_FeedIO_ctry_C_Sys_Y")
     L105.an_Prod_Mt_ctry_C_Y <- get_data(all_data, "L105.an_Prod_Mt_ctry_C_Y")
-    A_an_DairyBeef <- get_data(all_data, "aglu/A_an_DairyBeef")
 
 
     # Perform computations:
@@ -65,21 +61,7 @@ module_aglu_LA107.an_Prod_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
     # Calculating animal production by country, commodity, and system
     # Old comment: Multiply the total production by the fraction mixed, for the relevant commodities
     #
-
-    # First, adjust beef production for feed estimation: now a percentage is a SecOutput from dairy:
-    # Load the shares that represent beef from dairy cattle
-    L202.DairyBeef<-A_an_DairyBeef %>%
-      mutate(share = pmin(share, aglu.MAX_DAIRYBEEF))
-
-    L105.an_Prod_Mt_ctry_C_Y<-L105.an_Prod_Mt_ctry_C_Y %>%
-      left_join_error_no_match(iso_GCAM_regID, by = "iso") %>%
-      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
-      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
-      select(iso, GCAM_commodity, year, value, share) %>%
-      mutate(value = if_else(GCAM_commodity == "Beef", value * (1 - share), value)) %>%
-      select(-share)
-
-
+    #
     # Take the total production table L105 and filter so that the GCAM_commodity in L105 match the commodity in the
     # fraction of mixed production table, L100.IMAGE_an_Prodmixfrac_ctry_C_Y.
     L105.an_Prod_Mt_ctry_C_Y %>%
@@ -263,25 +245,6 @@ module_aglu_LA107.an_Prod_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
       ungroup ->
       L107.an_FeedIO_R_C_Sys_Fd_Y
 
-    # Final step: add secondary beef production from dairy-cattle:
-    L107.an_Prod_secOut_dairy<-get_data(all_data, "L105.an_Prod_Mt_ctry_C_Y") %>%
-      left_join_error_no_match(iso_GCAM_regID, by = "iso") %>%
-      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
-      group_by(GCAM_region_ID, region, GCAM_commodity, year) %>%
-      summarise(value = sum(value)) %>%
-      ungroup() %>%
-      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
-      filter(GCAM_commodity == "Beef") %>%
-      mutate(value =  value * share) %>%
-      select(-share, -region) %>%
-      mutate(system = "DairyBeef",
-             feed = "all")
-
-    # Calculate final beef production:
-    L107.an_Prod_Mt_R_C_Sys_Fd_Y<-L107.an_Prod_Mt_R_C_Sys_Fd_Y %>%
-      bind_rows(L107.an_Prod_secOut_dairy)
-
-
     # Produce outputs
     L107.an_Prod_Mt_R_C_Sys_Fd_Y %>%
       add_title("Animal production by GCAM region / commodity / system / feed type / year") %>%
@@ -291,12 +254,10 @@ module_aglu_LA107.an_Prod_IMAGE_R_C_Sys_Fd_Y <- function(command, ...) {
       add_comments("animal production data.") %>%
       add_legacy_name("L107.an_Prod_Mt_R_C_Sys_Fd_Y") %>%
       add_precursors("common/iso_GCAM_regID",
-                     "common/GCAM_region_names",
                      "L100.IMAGE_an_Prodmixfrac_ctry_C_Y",
                      "L100.IMAGE_an_Feedfrac_ctry_C_Sys_Fd_Y",
                      "L100.IMAGE_an_FeedIO_ctry_C_Sys_Y",
-                     "L105.an_Prod_Mt_ctry_C_Y",
-                     "aglu/A_an_DairyBeef") ->
+                     "L105.an_Prod_Mt_ctry_C_Y") ->
       L107.an_Prod_Mt_R_C_Sys_Fd_Y
 
 

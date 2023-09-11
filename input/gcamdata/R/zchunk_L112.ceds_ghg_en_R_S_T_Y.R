@@ -68,7 +68,8 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
              FILE = "emissions/GCAM_EPA_CH4N2O_energy_map",
              # BC OC assumption files
              FILE = "gcam-usa/emissions/BC_OC_assumptions",
-             FILE = "gcam-usa/emissions/BCOC_PM25_ratios"))
+             FILE = "gcam-usa/emissions/BCOC_PM25_ratios",
+             FILE = "aglu/A_an_DairyBeef"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L111.nonghg_tg_R_en_S_F_Yh",
              "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
@@ -223,6 +224,7 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
     L124.LC_bm2_R_Grass_Yh_GLU_adj <- get_data(all_data, "L124.LC_bm2_R_Grass_Yh_GLU_adj",strip_attributes = TRUE)
     L124.LC_bm2_R_UnMgdFor_Yh_GLU_adj <- get_data(all_data, "L124.LC_bm2_R_UnMgdFor_Yh_GLU_adj",strip_attributes = TRUE)
     L107.an_Prod_Mt_R_C_Sys_Fd_Y <- get_data(all_data, "L107.an_Prod_Mt_R_C_Sys_Fd_Y",strip_attributes = TRUE)
+    A_an_DairyBeef <- get_data(all_data, "aglu/A_an_DairyBeef")
     L101.ag_Prod_Mt_R_C_Y_GLU <- get_data(all_data, "L101.ag_Prod_Mt_R_C_Y_GLU",strip_attributes = TRUE)
     L111.ag_resbio_R_C <- get_data(all_data, "L111.ag_resbio_R_C",strip_attributes = TRUE)
     L122.LC_bm2_R_HarvCropLand_C_Yh_GLU <- get_data(all_data, "L122.LC_bm2_R_HarvCropLand_C_Yh_GLU",strip_attributes = TRUE)
@@ -762,8 +764,16 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
 
     #Compute EPA animal emissions.
     # First, adjust production to take out beef from dairy-cattle (not computed as beef emissions)
+    L202.DairyBeef<-A_an_DairyBeef %>%
+      mutate(share = pmin(share, aglu.MAX_DAIRYBEEF))
+
+
     L113.ghg_tg_R_an_C_Sys_Fd_Yh.mlt<-L107.an_Prod_Mt_R_C_Sys_Fd_Y %>%
-      filter(system != "DairyBeef") %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
+      select(-region) %>%
+      mutate(value = if_else(GCAM_commodity == "Beef", value * (1 - share), value)) %>%
+      select(-share) %>%
       rename(production = value) %>%
       left_join(GCAM_sector_tech, by = c("GCAM_commodity" = "sector", "system" = "fuel", "feed" = "technology")) %>%
       select(GCAM_region_ID, GCAM_commodity, system, feed, year, production, EPA_agg_sector, EDGAR_agg_sector) %>%
@@ -1697,7 +1707,7 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
       add_precursors("L102.ceds_GFED_nonco2_tg_R_S_F","L102.ceds_int_shipping_nonco2_tg_S_F","emissions/CEDS/ceds_sector_map","emissions/CEDS/ceds_fuel_map", "common/GCAM_region_names",
                      "common/iso_GCAM_regID","emissions/CEDS/CEDS_sector_tech_combustion", "emissions/CEDS/CEDS_sector_tech_combustion_revised",
                      "emissions/mappings/CEDS_sector_tech_proc", "L107.an_Prod_Mt_R_C_Sys_Fd_Y","emissions/mappings/CEDS_sector_tech_proc_revised",
-                     "L103.ghg_tgmt_USA_an_Sepa_F_2005") ->
+                     "L103.ghg_tgmt_USA_an_Sepa_F_2005","aglu/A_an_DairyBeef") ->
       L113.ghg_tg_R_an_C_Sys_Fd_Yh
 
 

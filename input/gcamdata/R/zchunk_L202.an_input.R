@@ -288,7 +288,7 @@ module_aglu_L202.an_input <- function(command, ...) {
       write_to_all_regions(LEVEL2_DATA_NAMES[["Tech"]], GCAM_region_names) %>%
       rename(stub.technology = technology) %>%
       repeat_add_columns(tibble(year = MODEL_BASE_YEARS)) %>%
-      left_join_error_no_match(L202.an_Prod_Mt_R_C_Sys_Fd_Y.mlt %>% mutate(feed = if_else(feed == "all", "DairyBeef", feed)),
+      left_join_error_no_match(L202.an_Prod_Mt_R_C_Sys_Fd_Y.mlt,
                                by = c("region", "supplysector" = "GCAM_commodity",
                                       "subsector" = "system", "stub.technology" = "feed",
                                       "year")) %>%
@@ -317,7 +317,6 @@ module_aglu_L202.an_input <- function(command, ...) {
       mutate(supplysector = "Dairy") %>%
       repeat_add_columns(tibble(sub_tech = unique(L202.Dairy_tech$sub_tech))) %>%
       separate(sub_tech, c("subsector", "stub.technology"), sep = "___") %>%
-      mutate(secondary.output = "DairyBeef") %>%
       select(LEVEL2_DATA_NAMES[["StubTechSecOut"]])
 
     L202.Dairy_SecPmult<-L202.Dairy_SecOut %>%
@@ -362,7 +361,6 @@ module_aglu_L202.an_input <- function(command, ...) {
       select(-coefficient) %>%
       left_join(final_coef_year_data, by = c("region", "supplysector", "subsector", "stub.technology", "minicam.energy.input", "market.name")) %>%
       bind_rows(filter(L202.StubTechCoef_an, ! year > final_coef_year)) %>%
-      mutate(coefficient = if_else(subsector == "DairyBeef", 1, coefficient)) %>%
       select(LEVEL2_DATA_NAMES[["StubTechCoef"]]) ->
       L202.StubTechCoef_an
 
@@ -452,10 +450,9 @@ module_aglu_L202.an_input <- function(command, ...) {
 
     # Calculate the total cost of all inputs, for each animal commodity, first matching in the feed quantity and the price
     L202.an_Prod_Mt_R_C_Sys_Fd_Y.mlt %>%
-      filter(system != "DairyBeef") %>%
-      #left_join_error_no_match(L202.DairyBeef, by = "region") %>%
-      #mutate(value = if_else(GCAM_commodity == "Beef", value * (1 - share), value)) %>%
-      #select(-share) %>%
+      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
+      mutate(value = if_else(GCAM_commodity == "Beef", value * (1 - share), value)) %>%
+      select(-share) %>%
       filter(year == max(MODEL_BASE_YEARS),
              !region %in% aglu.NO_AGLU_REGIONS) %>%
       rename(Prod_Mt = value) %>%
@@ -490,10 +487,9 @@ module_aglu_L202.an_input <- function(command, ...) {
       filter(!region %in% aglu.NO_AGLU_REGIONS) %>%
       mutate(stub.technology = technology,
              minicam.non.energy.input = "non-feed") %>%
-      left_join(select(L202.an_nonFeedCost_R_C, region, GCAM_commodity, system, nonFeedCost),
+      left_join_error_no_match(select(L202.an_nonFeedCost_R_C, region, GCAM_commodity, system, nonFeedCost),
                                by = c("region", supplysector = "GCAM_commodity", subsector = "system")) %>%
       mutate(input.cost = round(nonFeedCost, aglu.DIGITS_CALPRICE)) %>%
-      mutate(input.cost = if_else(subsector == "DairyBeef", 0.001, input.cost)) %>%
       select(LEVEL2_DATA_NAMES[["StubTechCost"]]) ->
       L202.StubTechCost_an
 
@@ -556,10 +552,10 @@ module_aglu_L202.an_input <- function(command, ...) {
     L202.StubTechCoef_an <- filter(L202.StubTechCoef_an, !region %in% aglu.NO_AGLU_REGIONS)
 
     # Finally, re-adjust stub.tech production for beef to capture the secondary output effect (from dairy)
-    #L202.StubTechProd_an<-L202.StubTechProd_an %>%
-    #  left_join_error_no_match(L202.DairyBeef, by = "region") %>%
-    #  mutate(calOutputValue = if_else(supplysector == "Beef" & subsector %in% c("Mixed", "Pastoral"), calOutputValue * (1 - share), calOutputValue)) %>%
-    #  select(-share)
+    L202.StubTechProd_an<-L202.StubTechProd_an %>%
+      left_join_error_no_match(L202.DairyBeef, by = "region") %>%
+      mutate(calOutputValue = if_else(supplysector == "Beef", calOutputValue * (1 - share), calOutputValue)) %>%
+      select(-share)
 
 
     # Produce outputs

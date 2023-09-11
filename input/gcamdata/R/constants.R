@@ -212,7 +212,6 @@ aglu.MIN_PROFIT_MARGIN <- 0.15  # Unitless and is used to ensure that Agricultur
 aglu.MAX_FAO_LDS_SCALER <- 5   # Unitless max multiplier in reconciling LDS harvested area with FAO harvested area by country and crop. Useful for preventing bad allocations of N fert in AFG, TWN, several others
 aglu.TREECROP_MATURE_AGE <- 10 # Number of years for vegetation carbon to reach peak, for tree crops
 aglu.MAX_DAIRYBEEF <- 0.8 # Maximum share of beef produced from dairy cattle (set to avoid market issues when share is documented to be higher than this limit e.g., Russia)
-aglu.PRICEADJ_DAIRYBEEF <- 0.5 # Adjust the price of DairyBeef relative to Beef
 
 # GLU (Geographic Land Unit) settings - see module_aglu_LA100.0_LDS_preprocessing
 aglu.GLU <- "GLU"
@@ -531,7 +530,7 @@ energy.DIGITS_HDDCDD           <- 0
 energy.DIGITS_INCELAS_IND      <- 3
 energy.DIGITS_INCELAS_TRN      <- 3
 energy.DIGITS_LOADFACTOR       <- 2
-energy.DIGITS_MAX_SUB_RESOURCE <- 7
+energy.DIGITS_MAX_SUB_RESOURCE <- 5
 energy.DIGITS_MID_PRICE        <- 3
 energy.DIGITS_MPKM             <- 0
 energy.DIGITS_OM               <- 2
