@@ -34,7 +34,6 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
     c(FILE = "common/iso_GCAM_regID",
       "L100.FAO_fallowland_kha",
       "L100.FAO_CL_kha",
-      "L100.FAO_harv_CL_kha",
       "L101.ag_HA_bm2_R_C_Y_GLU",
       "L101.ag_Prod_Mt_R_C_Y_GLU",
       "L120.LC_bm2_R_LT_Yh_GLU")
@@ -93,150 +92,56 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       # save as the Land C over table:
       L122.LC_bm2_R_CropLand_Y_GLU
 
-    # Calculating the average percent of cropland that is fallow in each region
-    # using the average cropland, fallow land, and land in temporary crops from FAO RESOURCESTAT
-    # The time series is unreliable, so using the average of all available years between 2008 and 2012
-    # (and applying to all historical years)
-    # And continue with calculating average crop land, fallow land, land in temporary crops:
-    # compile the ratio of "temporary crops" to total arable land in each region
-    # make table with fallow land compared to total arable land
-    # FAO fallow land data, L100.FAO_fallowland_kha, is appended to the FAO cropland data table. Quantities are aggregated
-    # from iso to GCAM region and the fraction of fallowland is calculated.
-    #
-    # The old data sytem uses match to append FAO fallow land data to FAO cropland data by iso. However, Ethiopia,
-    # Sudan, and Belgium-Luxembourg have all split into two distinct countries and FAO produces data for each.
-    # Specifically, there are two rows with iso = "eth" and two rows with iso = "sdn" and two rows with iso = "bel" in some FAO data.
-    # Because match only pulls the first value when there are multiple potential matches, both "eth" cropland rows get the first
-    # "eth" fallowland row, rather than their correct value. The same occurs for the two "sdn" and "bel" rows. The solution is simple:
-    # joining by iso and countries (or country.codes) instead of simply iso. Alternatively, aggregating to the iso level in each
-    # FAO table (L100.FAO_X) BEFORE doing further joins and calculations should also lead to the correct answer.
+    # Calculate fallow_frac in cropland based on FAO data
+    # And apply it to land data (moriai) L122.LC_bm2_R_CropLand_Y_GLU
+    # The assumption is that fallow share is that same across GLU
 
-    # Most (if not all) of what described above has been fixed in earlier steps
     # Take the FAO cropland table, L100.FAO_CL_kha:
     L100.FAO_CL_kha %>%
       # only include data in the right fallow land year range
-      filter(year %in% aglu.FALLOW_YEARS) %>%
+      #filter(year %in% aglu.FALLOW_YEARS) %>%
       # keep only the iso country and the value for each:
       select(iso, area_code, cropland = value, year) %>%
       # append in fallow land data in aglu.FALLOW_YEARS from FAO, L100.FAO_fallowland_kha, keeping NA values:
-      left_join(L100.FAO_fallowland_kha, by = c("iso", "area_code", "year")) %>%
-      # rename value to fallow and remove NAs:
-      rename(fallow = value) %>%
+      left_join_error_no_match(
+        L100.FAO_fallowland_kha %>% rename(fallow = value),
+        by = c("iso", "area_code", "year")) %>%
       na.omit() %>%
-      select(GCAM_region_ID, cropland, fallow) %>%
+      select(GCAM_region_ID, cropland, fallow, year) %>%
       ungroup() %>%
       # aggregate cropland and fallow values to the GCAM region level:
-      group_by(GCAM_region_ID) %>%
+      group_by(GCAM_region_ID, year) %>%
       summarise_all(sum) %>%
       # calculate the fraction of total land in each GCAM region that is fallow:
       mutate(fallow_frac = fallow / cropland) ->
       # store in a table of cropland, fallow information by region:
-      L122.cropland_fallow_R
-
-    # Lines 55-74 in original file
-    # Calculating the average percent of cropland that is not in active crop rotations in each region
-    # make table with cropped land compared to total arable land
-    # FAO harvested area data, L100.FAO_harv_CL_kha, is appended to the FAO cropland data table. Quantities are aggregated
-    # from iso to GCAM region and the fraction of cropped land is calculated.
-    #
-    # These lines of code also pull FAO data that is susceptible to the double labeling in Ethiopia, Sudan, and Belgium.
-    # The same match error occurs as above, and we fix in the same way:
-
-    # Take the FAO cropland table, L100.FAO_CL_kha:
-    L100.FAO_CL_kha %>%
-      # only include data in the right fallow land year range
-      filter(year %in% aglu.FALLOW_YEARS) %>%
-      # keep only the iso country and the value for each:
-      select(iso, area_code, cropland = value, year) %>%
-      # append in cropped land data in aglu.FALLOW_YEARS from FAO, L100.FAO_harv_CL_kha, keeping NA values:
-      left_join(L100.FAO_harv_CL_kha, by = c("iso", "area_code", "year")) %>%
-      # rename value to cropped and remove NAs:
-      rename(cropped = value) %>%
-      na.omit() %>%
-      # remove all columns that are not GCAM_region_ID, cropland, and cropped values:
-      select(GCAM_region_ID, cropland, cropped) %>%
-      ungroup() %>%
-      # aggregate cropland and cropped values to the GCAM region level:
-      group_by(GCAM_region_ID) %>%
-      summarise_all(sum) %>%
-      # calculate the fraction of total land in each GCAM region that is cropped:
-      mutate(cropped_frac = cropped/cropland) ->
-      # store in a table of cropland, cropped information by region:
-      L122.cropland_cropped_R
-
-    # Lines 76-89 in original file
-    # calculate the average amount of cropland that is not in production as the fallow land fraction,
-    # where available, or else the non-cropped cropland
-    # based on availability, using (1) fallow land fraction, (2) fraction of cropland not in crop rotations, or (3) 0
-    # Calculating cropland not in production is done via a series of nested if statements.
-
-    # take the unique GCAM regions
-    tibble::tibble(GCAM_region_ID = unique(iso_GCAM_regID$GCAM_region_ID)) %>%
-      # sort the ids:
-      arrange(GCAM_region_ID) %>%
-      # add a land type identifier for each region:
-      mutate(Land_Type = "Cropland",
-             # join in fallow land table, L122.cropland_fallow_R, to get the fallow_frac for each region,
-             # maintaining NA's for use in determining data availability to calculate nonharvested_frac:
-             fallow_frac = left_join(., L122.cropland_fallow_R, by = "GCAM_region_ID")[['fallow_frac']],
-             # join in cropped land table, L122.cropland_cropped_R, to get the cropped_frac for each region, and
-             # use to calculate the uncropped fraction, maintaining NA's to set to 0 later:
-             uncropped_frac = 1 - left_join(., L122.cropland_cropped_R, by = "GCAM_region_ID")[['cropped_frac']],
-             # calculate the nonharvested fraction of land via nested if statements
-             #   based on availability, using (1) fallow land fraction, (2) land not in crop rotations, or (3) 0
-             #   This step determines (1) versus (2):
-             #                           If there is no available fallow land data
-             nonharvested_frac = if_else(is.na(fallow_frac),
-                                         # use the uncropped fraction
-                                         uncropped_frac,
-                                         # otherwise, use the available fallow land data:
-                                         fallow_frac)) %>%
-      #   This step determines (3) when (1) and (2) are not available:
-      replace_na(list(nonharvested_frac = 0)) ->
-      # store in a table of nonharvested cropland fractions by region:
-      L122.nonharvested_cropland_R
-
-
-    # Lines 91-99 in original file
-    # applying regional average fallow fractions to all GLUs within each region
-    # making two tables: the fallow land table and then, using the fallow land table, the available cropland table
+      L122.cropland_fallow_Y_R
 
     # take cropland table with region, landtype and glu information for each year:
     L122.LC_bm2_R_CropLand_Y_GLU %>%
-      # join in the non harvested fraction for each region:
-      #   Note that there is no information for GCAM region 30 in L122.LC_bm2_R_CropLand_Y_GLU, even though
-      #   a nonharvested fraction (of 0) is calculated in L122.nonharvested_cropland_R.
-      left_join(L122.nonharvested_cropland_R, by = c("GCAM_region_ID", "Land_Type")) %>%
-      # drop unnecessary columns that come from the join:
-      select(-fallow_frac, -uncropped_frac) %>%
-      # use the nonharvested_frac and the cropland area information (value) for each Region-GLU-Year to calculate
-      # the amouunt of fallowland in that Region-GLU-Year = value * nonharvested_frac
-      mutate(value = value * nonharvested_frac,
-             # update the Land_Type identifier to reflect that this is now FallowLand, not Cropland
-             Land_Type = "FallowLand") %>%
-      # drop nonharvested_frac since no longer necessary:
-      select(-nonharvested_frac) ->
-      # store in a table of fallowland land cover in bm2 for each region-glu-year
+      left_join_error_no_match(
+        L122.cropland_fallow_Y_R %>% select(GCAM_region_ID, year, fallow_frac),
+        by = c("GCAM_region_ID", "year")) %>%
+      transmute(GCAM_region_ID, GLU, year,
+                value = value * fallow_frac,
+                Land_Type = "FallowLand") ->
       L122.LC_bm2_R_FallowLand_Y_GLU
+
 
     # Use the just made fallow land table to calculate a table of Available CropLand in each region-glu-year
     # Available cropland = totalcropland from L122.LC_bm2_R_CropLand_Y_GLU - fallowland from L122.LC_bm2_R_FallowLand_Y_GLU
     # Take the table of total cropland in each region-GLU-year:
     L122.LC_bm2_R_CropLand_Y_GLU %>%
+      spread(Land_Type, value) %>%
       # join in the land that is fallow in each region-glu-year
       # absolutely should match up and it's a problem at this point if they don't, so left_join_error_no_match:
-      left_join_error_no_match(L122.LC_bm2_R_FallowLand_Y_GLU, by = c("GCAM_region_ID", "GLU", "year")) %>%
-      # value.x = value from Cropland table, the total amount of cropland in the region-glu-year
-      # value.y = value from FallowLand table, the amount of fallowland in the region-glu-year
-      # therefore, available cropland value = value.x-value.y:
-      mutate(value = value.x-value.y) %>%
-      # remove value.x, value.y and Land_Type.y as now unnecessary:
-      select(-value.x, -value.y, -Land_Type.y) %>%
-      # rename Land_Type.x to Land_Type:
-      rename(Land_Type = Land_Type.x) ->
+      left_join_error_no_match(
+        L122.LC_bm2_R_FallowLand_Y_GLU %>%
+          spread(Land_Type, value), by = c("GCAM_region_ID", "GLU", "year")) %>%
+      transmute(GCAM_region_ID, GLU, year, Land_Type = "Cropland",
+                value = Cropland - FallowLand) ->
       # store in a table of available cropland:
       L122.LC_bm2_R_AvailableCropLand_Y_GLU
-
 
 
     # Calculate the harvested to cropped land ratio for all crops, by region, year, and GLU
@@ -256,11 +161,19 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       replace_na(list(Perennial = 0)) ->
       L122.ag_HA_bm2_R_Y_GLU
 
-    aglu.MAX_HA_TO_CROPLAND_Annual = 2.5
+
+    # Constraints for the minimum and maximum harvested:cropped ratios
+    # Source: Dalrymple, D.G. 1971, Survey of Multiple Cropping in Less Developed Nations, Foreign Econ. Dev. Serv., U.S. Dep. of Agricul., Washington, D.C.
+    # Cited in: Monfreda et al. 2008, Farming the Planet: 2., Global Biogeochemical Cycles 22, GB1022, http://dx.doi.org/10.1029/2007GB002947
+    # aglu.MIN_HA_TO_CROPLAND <- 1  # minimum harvested:cropped ratios
+    # aglu.MAX_HA_TO_CROPLAND <- 3  # maximum harvested:cropped ratios
+
+
+    aglu.MAX_HA_TO_CROPLAND_Annual = 2
     # Note that two regions GCAM_region_ID == 3 & GLU == "GLU087") | (GCAM_region_ID == 30 & GLU == "GLU078"
     # had issues in LB124 "Increase in cropland exceeds available unmanaged land"
     # So a larger CHF is used here
-    aglu.MAX_HA_TO_CROPLAND_Annual_SpecialAdjust = 3.5
+    aglu.MAX_HA_TO_CROPLAND_Annual_SpecialAdjust = 3
     aglu.MIN_HA_TO_CROPLAND_Annual = 1
 
     L122.ag_HA_bm2_R_Y_GLU %>%
@@ -534,7 +447,6 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "L100.FAO_fallowland_kha",
                      "L100.FAO_CL_kha",
-                     "L100.FAO_harv_CL_kha",
                      "L101.ag_HA_bm2_R_C_Y_GLU",
                      "L120.LC_bm2_R_LT_Yh_GLU") ->
       L122.ag_HA_bm2_R_Y_GLU_AnnualCHF
@@ -548,7 +460,6 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "L100.FAO_fallowland_kha",
                      "L100.FAO_CL_kha",
-                     "L100.FAO_harv_CL_kha",
                      "L101.ag_HA_bm2_R_C_Y_GLU",
                      "L101.ag_Prod_Mt_R_C_Y_GLU",
                      "L120.LC_bm2_R_LT_Yh_GLU") ->
@@ -563,7 +474,6 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "L100.FAO_fallowland_kha",
                      "L100.FAO_CL_kha",
-                     "L100.FAO_harv_CL_kha",
                      "L101.ag_HA_bm2_R_C_Y_GLU",
                      "L120.LC_bm2_R_LT_Yh_GLU") ->
       L122.LC_bm2_R_OtherArableLand_Yh_GLU
@@ -577,7 +487,6 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "L100.FAO_fallowland_kha",
                      "L100.FAO_CL_kha",
-                     "L100.FAO_harv_CL_kha",
                      "L101.ag_HA_bm2_R_C_Y_GLU",
                      "L120.LC_bm2_R_LT_Yh_GLU") ->
       L122.LC_bm2_R_ExtraCropLand_Yh_GLU
@@ -592,7 +501,6 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "L100.FAO_fallowland_kha",
                      "L100.FAO_CL_kha",
-                     "L100.FAO_harv_CL_kha",
                      "L101.ag_HA_bm2_R_C_Y_GLU",
                      "L120.LC_bm2_R_LT_Yh_GLU") ->
       L122.LC_bm2_R_HarvCropLand_C_Yh_GLU
@@ -607,7 +515,6 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "L100.FAO_fallowland_kha",
                      "L100.FAO_CL_kha",
-                     "L100.FAO_harv_CL_kha",
                      "L101.ag_HA_bm2_R_C_Y_GLU",
                      "L120.LC_bm2_R_LT_Yh_GLU") ->
       L122.LC_bm2_R_HarvCropLand_Yh_GLU

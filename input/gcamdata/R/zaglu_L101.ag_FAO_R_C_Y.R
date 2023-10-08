@@ -31,8 +31,7 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
       FILE = "aglu/LDS/LDS_land_types",
       "L100.FAO_PRODSTAT_TO_DOWNSCAL",
       "L100.LDS_ag_HA_ha",
-      "L100.LDS_ag_prod_t",
-      "L100.Land_type_area_ha")
+      "L100.LDS_ag_prod_t")
 
   MODULE_OUTPUTS <-
     c("L101.ag_HA_bm2_R_C_Y",
@@ -53,34 +52,53 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
       Category <- LT_SAGE <- LT_HYDE <- countries <- country.codes <-
       item.codes <- element <- element.codes <- GCAM_commodity <-
       value <- GCAM_region_ID <- year <- Mcal_t <- value.y <- value.x <-
-      item <- iso <- production <- harvested.area <- GCAM_subsector <- NULL # silence package check.
+      item <- iso <- production <- harvested_area <- GCAM_subsector <- NULL # silence package check.
 
     # Load required inputs ----
     get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
 
-# DOWNSCALE UPDATE Aggregate to GCAM regions first ----
+    # DOWNSCALE UPDATE Aggregate to GCAM regions first ----
     ## Generate LDS_ctry_crop_SHARES ----
     # we downscale the data from countries to basins, using the basin-within-country shares
     # of each GCAM commodity in the Monfreda (pre-processed by LDS) data on harvested area and production
     # Note - using GCAM commodities and regions. This avoids dropping data, particularly
     # for the grass fodder crops which are poorly matched with the FAO data.
-    L100.LDS_ag_HA_ha %>%
-      left_join_error_no_match(L100.LDS_ag_prod_t,
+
+    # Method update:
+    # Instead of downscaling production, we will create yield index and check/correct the distribution first
+    # The goal here is to ensure yield after downscaling makes sense
+
+    L100.LDS_ag_HA_ha %>% rename(harvested_area = value) %>%
+      left_join_error_no_match(L100.LDS_ag_prod_t %>% rename(production = value),
                                by = c("iso", "GLU", "GTAP_crop")) %>%                                           # Join the Monfreda/LDS datasets of production and harvested area
-      rename(harvested.area = value.x,
-             production = value.y) %>%
       left_join(FAO_ag_items_PRODSTAT[c("GTAP_crop", "GCAM_commodity", "GCAM_subsector")], by = "GTAP_crop") %>%                  # Join in the GCAM commodities and aggregate.
       drop_na(GCAM_commodity) %>%   # drop any crops not considered in GCAM
       left_join_error_no_match(iso_GCAM_regID, by = "iso") %>%
       group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector, GLU) %>%
-      summarise(harvested.area = sum(harvested.area),
+      summarise(harvested_area = sum(harvested_area),
                 production = sum(production)) %>%
       ungroup() %>%
+      mutate(yield = production / harvested_area) ->
+      LDS_ctry_crop_AreaProdYield
+
+    # Calculate region-average yield
+    LDS_ctry_crop_AreaProdYield %>%
       group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector) %>%
-      mutate(HA_share_GLU = harvested.area / sum(harvested.area),                                               # Compute the shares of country/crop/GLU within country/crop
+      summarize(yield_regional = sum(production) / sum(harvested_area)) %>%
+      ungroup() ->
+      LDS_ctry_crop_Yield_Regional
+
+    # Add yield index relative to the regional-average
+    LDS_ctry_crop_AreaProdYield %>%
+      left_join_error_no_match(LDS_ctry_crop_Yield_Regional,
+                               by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector")) %>%
+      mutate(yield_index_regional = yield / yield_regional) %>%
+      group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector) %>%
+      mutate(HA_share_GLU = harvested_area / sum(harvested_area),                                               # Compute the shares of country/crop/GLU within country/crop
              prod_share_GLU = production / sum(production)) %>%
       ungroup() ->
       LDS_ctry_crop_SHARES
+
 
     gcam.REGION_NUMBER <- iso_GCAM_regID %>% distinct(GCAM_region_ID) %>% nrow
     assertthat::assert_that(unique(LDS_ctry_crop_SHARES$GCAM_region_ID) %>%
@@ -92,30 +110,74 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
     # Harvested area is used to avoid compositional bias from different crop types in different basins.
     LDS_ctry_crop_SHARES %>%
       group_by(GCAM_region_ID, GLU) %>%
-      summarise(harvested.area = sum(harvested.area)) %>%
+      summarise(harvested_area = sum(harvested_area)) %>%
       ungroup() %>%
       group_by(GCAM_region_ID) %>%
-      mutate(default_share_GLU = harvested.area / sum(harvested.area)) %>%
+      mutate(default_share_GLU = harvested_area / sum(harvested_area)) %>%
       ungroup() %>%
       select(GCAM_region_ID, GLU, default_share_GLU) ->
       LDS_ctry_SHARES
 
-    # only take the columns required for later steps in the LDS_ctry_crop_SHARES data table
-    LDS_ctry_crop_SHARES <- select(LDS_ctry_crop_SHARES, GCAM_region_ID, GLU, GCAM_commodity, GCAM_subsector, HA_share_GLU, prod_share_GLU)
 
-    ### First group: crops and countries in BOTH datasetes (LDS/Monfreda and FAOSTAT) ----
+    # If downscaling production and area respectively, the yield will be the same with LDS source data
+    # However, the yield in LDS/Monfreda has low quality and unreasonably large variation
+    # We will still use area downscaling method but yield index and correct it first to calculate GLU production
+
+    LDS_ctry_crop_SHARES <-
+      select(LDS_ctry_crop_SHARES, GCAM_region_ID, GLU, GCAM_commodity,
+             GCAM_subsector, HA_share_GLU, prod_share_GLU, yield_index_regional)
+
     L100.FAO_PRODSTAT_TO_DOWNSCAL %>%
       group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year) %>%
-      summarise(Area_harvested_ha = sum(Area_harvested_ha),
-                Prod_t = sum(Prod_t)) %>%
-      ungroup() %>%
-      right_join(LDS_ctry_crop_SHARES, by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector")) %>%                                      # use right_join to exclude crops and countries not in the LDS data
-      drop_na() %>%                                                                                               # NAs are observations in LDS but not FAOSTAT. These are dropped.
-      mutate(Area_harvested_ha = Area_harvested_ha * HA_share_GLU,                                                      # multiply through by shares of GLU within country and crop
-             Prod_t = Prod_t * prod_share_GLU) %>%
-      select(-HA_share_GLU, -prod_share_GLU) ->
+      summarise(FAOArea_harvested_ha = sum(Area_harvested_ha),
+                FAOProd_t = sum(Prod_t)) %>%
+      mutate(FAOYield_tPerha = FAOProd_t / FAOArea_harvested_ha) %>%
+      replace_na(list(FAOYield_tPerha = 0)) %>%
+      ungroup() ->
+      L100.FAO_PRODSTAT_TO_DOWNSCAL_R
+
+    ### First group: crops and countries in BOTH datasetes (LDS/Monfreda and FAOSTAT) ----
+
+    # Ceiling to yield relative to regional average
+    # Note that this ratio could be still bigger as production/yield will be rescaled up to match FAO later
+    Yield_Ratio_Max_over_Mean = 1.3
+
+    L100.FAO_PRODSTAT_TO_DOWNSCAL_R %>%
+      # using inner join here instead of right join since LDS_ctry_crop_SHARES has fodder crops not in L100.FAO_PRODSTAT_TO_DOWNSCAL_R
+      inner_join(LDS_ctry_crop_SHARES, by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector")) %>%
+      # Downscale area using area share
+      mutate(GLUArea_harvested_ha = FAOArea_harvested_ha * HA_share_GLU) %>%
+      # a. ensure the two approaches are the same
+      # GLUProd_t_OldMethod was from downscaling production directly using prod share
+      # GLUProd_t_NewMethod was from using yield index, but no corrections had been made
+      # These are comfirmed so commented out here [keep for communication]
+      # mutate(GLUYield_tPerha = FAOYield_tPerha * yield_index_regional
+      #        # The two methods are the same
+      #        GLUProd_t_OldMethod = FAOProd_t * prod_share_GLU,
+      #        GLUProd_t_NewMethod = GLUArea_harvested_ha * GLUYield_tPerha) %>%
+
+      # b. update the new method to correct yield distribution
+      # Modify the new method to adjust yield_index_regional to set a max yield ratio to Yield_Ratio_Max_over_Mean
+    # E.g., USA corn max county yield is about 20-30% higher than national average
+    # and redo the method method calculation above
+    mutate(yield_index_regional = pmin(Yield_Ratio_Max_over_Mean, yield_index_regional),
+           GLUYield_tPerha = FAOYield_tPerha * yield_index_regional,
+           GLUProd_t = GLUArea_harvested_ha * GLUYield_tPerha) %>%
+      # However, the regional production will possibly be smaller than FAO due to the ceiliing
+      # We will need to scale all GLU production (and thus yield) up to mathch FAO
+      group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year) %>%
+      mutate(GLUProd_t_regional_to_scale = sum(GLUProd_t),
+             RegtionaScaler_FAO_LDS = if_else(GLUProd_t_regional_to_scale == 0, 0,
+                                              FAOProd_t / GLUProd_t_regional_to_scale),
+             GLUProd_t_ScaleToFAORegional = GLUProd_t * RegtionaScaler_FAO_LDS) %>%
+      select(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year, GLU,
+             Area_harvested_ha = GLUArea_harvested_ha,
+             Prod_t = GLUProd_t_ScaleToFAORegional) ->
       FAO_PRODSTAT_DOWNSCALED_matches
 
+    # The new production downscaling method using yield info was not applied to the second group here
+    # Not many crops are in the second crop and yield is assumed to be the same across a region
+    # since only area share was used and applied to both area and production
     ### Second group: country/crop observations missing in LDS/Monfreda where some crops for the country are available----
     L100.FAO_PRODSTAT_TO_DOWNSCAL %>%
       group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year) %>%
@@ -123,7 +185,7 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
                 Prod_t = sum(Prod_t)) %>%
       ungroup() %>%
       anti_join(LDS_ctry_crop_SHARES, by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector")) %>%                                        # Filter the dataset to only observations where the country and crop couldn't be matched
-      full_join(LDS_ctry_SHARES, by = "GCAM_region_ID") %>%
+       full_join(LDS_ctry_SHARES, by = "GCAM_region_ID") %>%
       drop_na() %>%                                                                                               # Drop places where entire country is not available in LDS/Monfreda data
       mutate(Area_harvested_ha = Area_harvested_ha * default_share_GLU,                                                 # multiply through by shares of GLU within country and crop
              Prod_t = Prod_t * default_share_GLU) %>%
@@ -156,7 +218,7 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
     # Process FAO production data: convert units, aggregate to region, commodity, and GLU
     ##* L101.ag_Prod_Mt_R_C_Y_GLU ----
     FAO_PRODSTAT_DOWNSCALED_new %>%
-      select(GCAM_region_ID, GCAM_commodity, GCAM_subsector, GLU, year, Prod_t) %>%                                                    # Select relevant columns (not harvested.area)
+      select(GCAM_region_ID, GCAM_commodity, GCAM_subsector, GLU, year, Prod_t) %>%                                                    # Select relevant columns (not harvested_area)
       rename(value = Prod_t) %>%                                                                            # Rename column since tests are expecting "value"                                                                     # Aggregate then map to appropriate data frame
       mutate(value = value * CONV_TON_MEGATON) %>%                                                              # Convert from tons to Mt
       ungroup() ->                                                                                              # Ungroup before complete
@@ -210,8 +272,8 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
       add_comments("FAO data downscaled to GLU then aggregated by GCAM region, commodity, and GLU") %>%
       add_comments("Data was also converted from HA to billion km2") %>%
       add_legacy_name("L101.ag_HA_bm2_R_C_Y_GLU") %>%
-      add_precursors("L100.FAO_PRODSTAT_TO_DOWNSCAL", "aglu/FAO/FAO_ag_items_PRODSTAT", "L100.LDS_ag_HA_ha", "common/iso_GCAM_regID",
-                     "aglu/LDS/LDS_land_types", "L100.Land_type_area_ha") ->
+      add_precursors("L100.FAO_PRODSTAT_TO_DOWNSCAL", "aglu/FAO/FAO_ag_items_PRODSTAT",
+                     "L100.LDS_ag_HA_ha", "common/iso_GCAM_regID") ->
       L101.ag_HA_bm2_R_C_Y_GLU
     L101.ag_HA_bm2_R_C_Y %>%
       add_title("Harvested area by GCAM region, commodity, and year") %>%
@@ -230,8 +292,8 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
       add_comments("USA alfalfa production was divided by 4 for consistency with USDA") %>%
       add_comments("Country/crop combinations with zero harvested area were assigned zero production") %>%
       add_legacy_name("L101.ag_Prod_Mt_R_C_Y_GLU") %>%
-      add_precursors("L100.FAO_PRODSTAT_TO_DOWNSCAL", "aglu/FAO/FAO_ag_items_PRODSTAT", "L100.LDS_ag_prod_t", "common/iso_GCAM_regID",
-                     "aglu/LDS/LDS_land_types", "L100.Land_type_area_ha") ->
+      add_precursors("L100.FAO_PRODSTAT_TO_DOWNSCAL", "aglu/FAO/FAO_ag_items_PRODSTAT",
+                     "L100.LDS_ag_prod_t", "common/iso_GCAM_regID") ->
       L101.ag_Prod_Mt_R_C_Y_GLU
     L101.ag_Prod_Mt_R_C_Y %>%
       add_title("Agricultural production by GCAM region, commodity, and year") %>%
