@@ -34,11 +34,9 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
       "L100.LDS_ag_prod_t")
 
   MODULE_OUTPUTS <-
-    c("L101.ag_HA_bm2_R_C_Y",
-      "L101.ag_HA_bm2_R_C_Y_GLU",
-      "L101.ag_Prod_Mt_R_C_Y",
-      "L101.ag_Prod_Mt_R_C_Y_GLU",
-      "L101.ag_Yield_kgm2_R_C_Y_GLU")
+    c("L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj",
+      "L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj",
+      "L101.ag_Yield_kgm2_R_C_Y_GLU_BeforeAdj")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -216,23 +214,14 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
 
 
     # Process FAO production data: convert units, aggregate to region, commodity, and GLU
-    ##* L101.ag_Prod_Mt_R_C_Y_GLU ----
+    ##* L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj ----
     FAO_PRODSTAT_DOWNSCALED_new %>%
       select(GCAM_region_ID, GCAM_commodity, GCAM_subsector, GLU, year, Prod_t) %>%                                                    # Select relevant columns (not harvested_area)
       rename(value = Prod_t) %>%                                                                            # Rename column since tests are expecting "value"                                                                     # Aggregate then map to appropriate data frame
       mutate(value = value * CONV_TON_MEGATON) %>%                                                              # Convert from tons to Mt
       ungroup() ->                                                                                              # Ungroup before complete
-      L101.ag_Prod_Mt_R_C_Y_GLU
+      L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj
 
-    # Also write out the production volumes without basin-level detail, or subsector differentiation (i.e. by region, crop, year)
-    ##* L101.ag_Prod_Mt_R_C_Y_GLU ----
-    L101.ag_Prod_Mt_R_C_Y_GLU %>%
-      group_by(GCAM_region_ID, GCAM_commodity, year) %>%
-      summarise(value = sum(value)) %>%
-      ungroup() %>%
-      complete(GCAM_region_ID = unique(iso_GCAM_regID$GCAM_region_ID),
-               GCAM_commodity, year, fill = list(value = 0))  ->                                                # Fill in missing region/commodity combinations with 0
-      L101.ag_Prod_Mt_R_C_Y
 
 
     # Now, Process FAO harvested area data: convert units, aggregate to region, commodity, and GLU
@@ -242,76 +231,49 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
       rename(value = Area_harvested_ha) %>%                                                                      # Rename column since tests are expecting "value"
       mutate(value = value * CONV_HA_BM2) %>%                                                                # Convert from hectares to billion m2
       ungroup() ->                                                                                           # Ungroup before complete
-      L101.ag_HA_bm2_R_C_Y_GLU
-
-    ##* L101.ag_HA_bm2_R_C_Y ----
-    L101.ag_HA_bm2_R_C_Y_GLU %>%
-      group_by(GCAM_region_ID, GCAM_commodity, year) %>%
-      summarise(value = sum(value)) %>%
-      ungroup() %>%
-      complete(GCAM_region_ID = unique(iso_GCAM_regID$GCAM_region_ID),
-               GCAM_commodity, year, fill = list(value = 0)) ->                                               # Fill in missing region/commodity combinations with 0
-      L101.ag_HA_bm2_R_C_Y
+      L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj
 
 
     # Calculate initial yield estimates in kilograms per square meter by region, crop, year, and GLU
     # Yield in kilograms per square meter
     ##* L101.ag_Yield_kgm2_R_C_Y_GLU ----
-    L101.ag_Prod_Mt_R_C_Y_GLU %>% rename(Prod = value) %>%
-      left_join(L101.ag_HA_bm2_R_C_Y_GLU %>% rename(Area = value),
+    L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj %>% rename(Prod = value) %>%
+      left_join(L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj %>% rename(Area = value),
                 by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU", "year")) %>%
       mutate(value = Prod / Area) %>%
       replace_na(list(value = 0)) %>%
       select(-Prod, -Area) %>%
       arrange(GLU) ->  # so we match old d.s. order
-      L101.ag_Yield_kgm2_R_C_Y_GLU
+      L101.ag_Yield_kgm2_R_C_Y_GLU_BeforeAdj
 
-    L101.ag_HA_bm2_R_C_Y_GLU %>%
+    L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj %>%
       add_title("Harvested area by GCAM region, commodity, year, and GLU") %>%
       add_units("billion km2") %>%
       add_comments("FAO data downscaled to GLU then aggregated by GCAM region, commodity, and GLU") %>%
       add_comments("Data was also converted from HA to billion km2") %>%
-      add_legacy_name("L101.ag_HA_bm2_R_C_Y_GLU") %>%
+      add_legacy_name("L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj") %>%
       add_precursors("L100.FAO_PRODSTAT_TO_DOWNSCAL", "aglu/FAO/FAO_ag_items_PRODSTAT",
                      "L100.LDS_ag_HA_ha", "common/iso_GCAM_regID") ->
-      L101.ag_HA_bm2_R_C_Y_GLU
-    L101.ag_HA_bm2_R_C_Y %>%
-      add_title("Harvested area by GCAM region, commodity, and year") %>%
-      add_units("billion km2") %>%
-      add_comments("FAO data downscaled to GLU then aggregated by GCAM region and commodity") %>%
-      add_comments("Data was also converted from HA to billion km2") %>%
-      add_comments("Country/crop combinations with zero production were assigned zero harvested area") %>%
-      add_legacy_name("L101.ag_HA_bm2_R_C_Y") %>%
-      same_precursors_as(L101.ag_HA_bm2_R_C_Y_GLU) ->
-      L101.ag_HA_bm2_R_C_Y
-    L101.ag_Prod_Mt_R_C_Y_GLU %>%
+      L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj
+    L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj %>%
       add_title("Agricultural production by GCAM region, commodity, year, and GLU") %>%
       add_units("Mt/yr") %>%
       add_comments("FAO data downscaled to GLU then aggregated by GCAM region, commodity, and GLU") %>%
       add_comments("Data was also converted from tons to Mt") %>%
       add_comments("USA alfalfa production was divided by 4 for consistency with USDA") %>%
       add_comments("Country/crop combinations with zero harvested area were assigned zero production") %>%
-      add_legacy_name("L101.ag_Prod_Mt_R_C_Y_GLU") %>%
+      add_legacy_name("L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj") %>%
       add_precursors("L100.FAO_PRODSTAT_TO_DOWNSCAL", "aglu/FAO/FAO_ag_items_PRODSTAT",
                      "L100.LDS_ag_prod_t", "common/iso_GCAM_regID") ->
-      L101.ag_Prod_Mt_R_C_Y_GLU
-    L101.ag_Prod_Mt_R_C_Y %>%
-      add_title("Agricultural production by GCAM region, commodity, and year") %>%
-      add_units("Mt/yr") %>%
-      add_comments("FAO data downscaled to GLU then aggregated by GCAM region and commodity") %>%
-      add_comments("Data was also converted from tons to Mt") %>%
-      add_comments("USA alfalfa production was divided by 4 for consistency with USDA") %>%
-      add_comments("Country/crop combinations with zero harvested area were assigned zero production") %>%
-      add_legacy_name("L101.ag_Prod_Mt_R_C_Y") %>%
-      same_precursors_as(L101.ag_Prod_Mt_R_C_Y_GLU) ->
-      L101.ag_Prod_Mt_R_C_Y
-    L101.ag_Yield_kgm2_R_C_Y_GLU %>%
+      L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj
+
+    L101.ag_Yield_kgm2_R_C_Y_GLU_BeforeAdj %>%
       add_title("Unadjusted agronomic yield by GCAM region / commodity / year / GLU") %>%
       add_units("kg/m2") %>%
       add_comments("Agricultural yield computed based on production and harvested area") %>%
-      add_legacy_name("L103.ag_Yield_kgm2_R_C_Y_GLU") %>%
-      same_precursors_as(L101.ag_Prod_Mt_R_C_Y_GLU) ->
-      L101.ag_Yield_kgm2_R_C_Y_GLU
+      add_legacy_name("L101.ag_Yield_kgm2_R_C_Y_GLU_BeforeAdj") %>%
+      same_precursors_as(L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj) ->
+      L101.ag_Yield_kgm2_R_C_Y_GLU_BeforeAdj
 
     # Return data ----
     return_data(MODULE_OUTPUTS)

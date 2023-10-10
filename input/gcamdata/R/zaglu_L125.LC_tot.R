@@ -19,40 +19,37 @@
 #' @importFrom dplyr arrange bind_rows filter group_by lag mutate select summarise
 #' @author MC May 2017
 module_aglu_L125.LC_tot <- function(command, ...) {
+
+  MODULE_INPUTS <-
+    c("L120.LC_bm2_R_UrbanLand_Yh_GLU",
+      "L120.LC_bm2_R_Tundra_Yh_GLU",
+      "L120.LC_bm2_R_RckIceDsrt_Yh_GLU",
+      "L122.LC_bm2_R_HarvCropLand_Yh_GLU",
+      "L122.LC_bm2_R_OtherArableLand_Yh_GLU",
+      "L123.LC_bm2_R_MgdPast_Yh_GLU",
+      "L123.LC_bm2_R_MgdFor_Yh_GLU",
+      "L124.LC_bm2_R_Shrub_Yh_GLU_adj",
+      "L124.LC_bm2_R_Grass_Yh_GLU_adj",
+      "L124.LC_bm2_R_UnMgdPast_Yh_GLU_adj",
+      "L124.LC_bm2_R_UnMgdFor_Yh_GLU_adj")
+
+  MODULE_OUTPUTS <-
+    c("L125.LC_bm2_R",
+      "L125.LC_bm2_R_GLU",
+      "L125.LC_bm2_R_LT_Yh_GLU")
+
   if(command == driver.DECLARE_INPUTS) {
-    return(c("L120.LC_bm2_R_UrbanLand_Yh_GLU",
-             "L120.LC_bm2_R_Tundra_Yh_GLU",
-             "L120.LC_bm2_R_RckIceDsrt_Yh_GLU",
-             "L122.LC_bm2_R_HarvCropLand_Yh_GLU",
-             "L122.LC_bm2_R_OtherArableLand_Yh_GLU",
-             "L123.LC_bm2_R_MgdPast_Yh_GLU",
-             "L123.LC_bm2_R_MgdFor_Yh_GLU",
-             "L124.LC_bm2_R_Shrub_Yh_GLU_adj",
-             "L124.LC_bm2_R_Grass_Yh_GLU_adj",
-             "L124.LC_bm2_R_UnMgdPast_Yh_GLU_adj",
-             "L124.LC_bm2_R_UnMgdFor_Yh_GLU_adj"))
+    return(MODULE_INPUTS)
   } else if(command == driver.DECLARE_OUTPUTS) {
-    return(c("L125.LC_bm2_R",
-             "L125.LC_bm2_R_GLU",
-             "L125.LC_bm2_R_LT_Yh_GLU"))
+    return(MODULE_OUTPUTS)
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
 
     year <- value <- GCAM_region_ID <- Land_Type <- GLU <- LC_bm2 <- NULL   # silence package check notes
 
-    # Load required inputs
-    L120.LC_bm2_R_UrbanLand_Yh_GLU <- get_data(all_data, "L120.LC_bm2_R_UrbanLand_Yh_GLU")
-    L120.LC_bm2_R_Tundra_Yh_GLU <- get_data(all_data, "L120.LC_bm2_R_Tundra_Yh_GLU")
-    L120.LC_bm2_R_RckIceDsrt_Yh_GLU <- get_data(all_data, "L120.LC_bm2_R_RckIceDsrt_Yh_GLU")
-    L122.LC_bm2_R_HarvCropLand_Yh_GLU <- get_data(all_data, "L122.LC_bm2_R_HarvCropLand_Yh_GLU")
-    L122.LC_bm2_R_OtherArableLand_Yh_GLU <- get_data(all_data, "L122.LC_bm2_R_OtherArableLand_Yh_GLU")
-    L123.LC_bm2_R_MgdPast_Yh_GLU <- get_data(all_data, "L123.LC_bm2_R_MgdPast_Yh_GLU")
-    L123.LC_bm2_R_MgdFor_Yh_GLU <- get_data(all_data, "L123.LC_bm2_R_MgdFor_Yh_GLU")
-    L124.LC_bm2_R_Shrub_Yh_GLU_adj <- get_data(all_data, "L124.LC_bm2_R_Shrub_Yh_GLU_adj", strip_attributes = TRUE)
-    L124.LC_bm2_R_Grass_Yh_GLU_adj <- get_data(all_data, "L124.LC_bm2_R_Grass_Yh_GLU_adj")
-    L124.LC_bm2_R_UnMgdPast_Yh_GLU_adj <- get_data(all_data, "L124.LC_bm2_R_UnMgdPast_Yh_GLU_adj")
-    L124.LC_bm2_R_UnMgdFor_Yh_GLU_adj <- get_data(all_data, "L124.LC_bm2_R_UnMgdFor_Yh_GLU_adj")
+    # Load required inputs ----
+    get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
 
 
     # -----------------------------------------------------------------------------
@@ -150,7 +147,7 @@ module_aglu_L125.LC_tot <- function(command, ...) {
       same_precursors_as(L125.LC_bm2_R) ->
       L125.LC_bm2_R_LT_Yh_GLU
 
-    return_data(L125.LC_bm2_R, L125.LC_bm2_R_GLU, L125.LC_bm2_R_LT_Yh_GLU)
+    return_data(MODULE_OUTPUTS)
   } else {
     stop("Unknown command")
   }

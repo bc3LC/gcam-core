@@ -27,19 +27,23 @@
 #' @importFrom assertthat assert_that
 #' @importFrom dplyr anti_join arrange bind_rows distinct filter if_else group_by left_join mutate select summarise summarise_all
 #' @importFrom tidyr replace_na
-#' @author ACS April 2017
+#' @author ACS April 2017 XZ 2023
 module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
 
   MODULE_INPUTS <-
     c(FILE = "common/iso_GCAM_regID",
       "L100.FAO_fallowland_kha",
       "L100.FAO_CL_kha",
-      "L101.ag_HA_bm2_R_C_Y_GLU",
-      "L101.ag_Prod_Mt_R_C_Y_GLU",
-      "L120.LC_bm2_R_LT_Yh_GLU")
+      "L120.LC_bm2_R_LT_Yh_GLU",
+      "L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj",
+      "L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj")
 
   MODULE_OUTPUTS <-
-    c("L122.ag_HA_bm2_R_Y_GLU_AnnualCHF",
+    c("L101.ag_HA_bm2_R_C_Y_GLU",
+      "L101.ag_Prod_Mt_R_C_Y_GLU",
+      "L101.ag_HA_bm2_R_C_Y",
+      "L101.ag_Prod_Mt_R_C_Y",
+      "L122.ag_HA_bm2_R_Y_GLU_AnnualCHF",
       "L122.ag_EcYield_kgm2_R_C_Y_GLU",
       "L122.LC_bm2_R_OtherArableLand_Yh_GLU",
       "L122.LC_bm2_R_ExtraCropLand_Yh_GLU",
@@ -54,14 +58,30 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
 
     Land_Type <- year <- . <- GCAM_region_ID <- GLU <- GCAM_commodity <-
       value <- iso <- countries <- cropland <- fallow <- fallow_frac <- cropped <-
-      cropped_frac <- uncropped_frac <- nonharvested_frac <- value.x <-
-      value.y <- Land_Type.y <- Land_Type.x <- GCAM_subsector <- NULL # silence package check.
+      cropped_frac <- uncropped_frac <- nonharvested_frac <-
+      GCAM_subsector <- NULL # silence package check.
 
     all_data <- list(...)[[1]]
 
     # Load required inputs ----
     get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
 
+
+    # Get harvested area ready ----
+
+    # In this process we will keep an eye on Perennial
+    # Sugar crops could be included as Perennial here
+    Perennial_Identifier <- "Tree|SugarCrop"
+
+    # Aggregate FAO harvested area in GLU, distinguished by Perennial or not
+    # We will calculate harvest frequency for Annual as Perennial has a frequency of 1
+    L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj %>%
+      mutate(type = if_else(grepl(Perennial_Identifier, GCAM_subsector), "Perennial", "Annual")) %>%
+      group_by(GCAM_region_ID, type, GLU, year) %>%
+      summarise(value = sum(value)) %>% ungroup() %>%
+      spread(type, value) %>%
+      replace_na(list(Perennial = 0)) ->
+      L122.ag_HA_bm2_R_Y_GLU_Perennial_Annual
 
 
     # Get cropland cover ready ----
@@ -75,9 +95,9 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
     # L122.LC_bm2_R_CropLand_Y_GLU (from Hyde), and vice versa.
     # Fill out the cropland table to include all R_GLUs in Monfreda:
     L122.LC_bm2_R_CropLand_Y_GLU %>%
-      # find the region-GLU combos in the Monfreda harvested area table L101.ag_HA_bm2_R_C_Y_GLU NOT contained
+      # find the region-GLU combos in the Monfreda harvested area table L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj NOT contained
       # in the L122.LC_bm2_R_CropLand_Y_GLU land cover table:
-      anti_join(L101.ag_HA_bm2_R_C_Y_GLU[,c("GCAM_region_ID", "GLU", "year")], .,
+      anti_join(L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj[,c("GCAM_region_ID", "GLU", "year")], .,
                 by = c("GCAM_region_ID", "GLU", "year")) %>%
       # save only the unique combinations:
       unique() %>%
@@ -102,25 +122,34 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
     L100.FAO_CL_kha %>%
       # only include data in the right fallow land year range
       # keep only the iso country and the value for each:
-      select(iso, area_code, cropland = value, year) %>%
+      select(iso, area_code, Arableland = value, year) %>%
       left_join_error_no_match(
         L100.FAO_fallowland_kha %>% rename(fallow = value),
         by = c("iso", "area_code", "year")) %>%
       na.omit() %>%
-      select(GCAM_region_ID, cropland, fallow, year) %>%
+      select(GCAM_region_ID, Arableland, fallow, year) %>%
       ungroup() %>%
-      # aggregate cropland and fallow values to the GCAM region level:
+      # aggregate Arableland and fallow values to the GCAM region level:
       group_by(GCAM_region_ID, year) %>%
       summarise_all(sum) %>%
+      left_join_error_no_match(
+        L122.ag_HA_bm2_R_Y_GLU_Perennial_Annual %>%
+          group_by(GCAM_region_ID, year) %>%
+          # conv to Kha
+          summarize(Annual = sum(Annual) * 100, Perennial = sum(Perennial) * 100),
+        by = c("GCAM_region_ID", "year")
+      ) %>%
       # calculate the fraction of total land in each GCAM region that is fallow:
-      mutate(fallow_frac = fallow / cropland) ->
-      # store in a table of cropland, fallow information by region:
-      L122.cropland_fallow_Y_R
+      mutate(fallow_frac = fallow / Arableland,
+             FAOAnnual = Arableland - fallow - Perennial,
+             FAOAnnualCHF = Annual / FAOAnnual) ->
+      # store in a table of Arableland, fallow information by region:
+      L122.cropland_fallow_FAOCHF_Y_R
 
     # take cropland table with region, landtype and glu information for each year:
     L122.LC_bm2_R_CropLand_Y_GLU %>%
       left_join_error_no_match(
-        L122.cropland_fallow_Y_R %>% select(GCAM_region_ID, year, fallow_frac),
+        L122.cropland_fallow_FAOCHF_Y_R %>% select(GCAM_region_ID, year, fallow_frac),
         by = c("GCAM_region_ID", "year")) %>%
       transmute(GCAM_region_ID, GLU, year,
                 value = value * fallow_frac,
@@ -128,22 +157,6 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       L122.LC_bm2_R_FallowLand_Y_GLU
 
 
-    # Get harvested area ready ----
-
-    # In this process we will keep an eye on Perennial
-
-    # Sugar crops could be included as Perennial here
-    Perennial_Identifier <- "Tree|SugarCrop"
-
-    # Aggregate FAO harvested area in GLU, distinguished by Perennial or not
-    # We will calculate harvest frequency for Annual as Perennial has a frequency of 1
-    L101.ag_HA_bm2_R_C_Y_GLU %>%
-      mutate(type = if_else(grepl(Perennial_Identifier, GCAM_subsector), "Perennial", "Annual")) %>%
-      group_by(GCAM_region_ID, type, GLU, year) %>%
-      summarise(value = sum(value)) %>% ungroup() %>%
-      spread(type, value) %>%
-      replace_na(list(Perennial = 0)) ->
-      L122.ag_HA_bm2_R_Y_GLU_Perennial_Annual
 
 
     # Connect data tables ----
@@ -168,18 +181,36 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
     # Source: Dalrymple, D.G. 1971, Survey of Multiple Cropping in Less Developed Nations, Foreign Econ. Dev. Serv., U.S. Dep. of Agricul., Washington, D.C.
     # Cited in: Monfreda et al. 2008, Farming the Planet: 2., Global Biogeochemical Cycles 22, GB1022, http://dx.doi.org/10.1029/2007GB002947
     aglu.MAX_HA_TO_CROPLAND_Annual = 2
-    # Note that two regions GCAM_region_ID == 3 & GLU == "GLU087") | (GCAM_region_ID == 30 & GLU == "GLU078"
-    # had issues in LB124 "Increase in cropland exceeds available unmanaged land"
-    # So a larger CHF is used here
-    aglu.MAX_HA_TO_CROPLAND_Annual_SpecialAdjust = 3.5
     aglu.MIN_HA_TO_CROPLAND_Annual = 1
 
 
-    L122.ag_HA_bm2_R_Y_GLU %>%
-      mutate(Cropland_min = Annual / aglu.MAX_HA_TO_CROPLAND_Annual + Perennial,
-             Cropland_min = if_else(
-               (GCAM_region_ID == 3 & GLU == "GLU087") | (GCAM_region_ID == 30 & GLU == "GLU078"),
-               Annual / aglu.MAX_HA_TO_CROPLAND_Annual_SpecialAdjust + Perennial, Cropland_min))  %>%
+    L122.cropland_fallow_FAOCHF_Y_R %>%
+      filter(year == max(MODEL_BASE_YEARS)) %>%
+      select(GCAM_region_ID, FAOAnnualCHF) %>%
+      mutate(FAOAnnualCHF = if_else(FAOAnnualCHF < 0, aglu.MAX_HA_TO_CROPLAND_Annual, FAOAnnualCHF),
+             # Two regions had negative values Indonesia and Colombia, setting to max values
+             FAOAnnualCHF = pmax(aglu.MIN_HA_TO_CROPLAND_Annual, FAOAnnualCHF),
+             FAOAnnualCHF = pmin(aglu.MAX_HA_TO_CROPLAND_Annual, FAOAnnualCHF)) ->
+      L122.FAO_AnnualCrop_CHF_R
+
+
+
+
+
+    # Note that two regions GCAM_region_ID == 3 & GLU == "GLU087") | (GCAM_region_ID == 30 & GLU == "GLU078"
+    # had issues in LB124 "Increase in cropland exceeds available unmanaged land"
+    # These two regions have no issues anymore with the new adjustments
+
+
+     L122.ag_HA_bm2_R_Y_GLU %>%
+       # conservative approach of using adjusted FAO CHF as max value
+       left_join_error_no_match(L122.FAO_AnnualCrop_CHF_R) %>%
+       mutate(Cropland_min = Annual / FAOAnnualCHF + Perennial)  %>%
+
+      # Old approach
+      # mutate(Cropland_min = Annual / aglu.MAX_HA_TO_CROPLAND_Annual + Perennial,
+      #        Cropland_min = if_else( (GCAM_region_ID == 3 & GLU == "GLU087"), Annual / 1.6 + Perennial, Cropland_min))  %>%
+
       # Update HarvCropLand_required which should not be smaller than Cropland_min to make sense fo CHF
       # Calculate the harvested to cropped land ratio for all crops, by region, year, and GLU
       # applying minimum and maximum harvested:cropped ratios
@@ -192,19 +223,6 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       select(-Cropland_min, -HarvCropLand_required) ->
       L122.ag_HA_bm2_R_Y_GLU_HarvCropLand
 
-
-
-    # [ToDo] More adjustments to move production and area across basin within a region ----
-    # this is because LDS land cover is inconsistent with LDS harvested area
-    # CHF could be crazy in some region, e.g., Africa_Northern
-
-
-
-
-    L122.ag_HA_bm2_R_Y_GLU_HarvCropLand %>%
-      select(GCAM_region_ID, GLU, year, "AnnualCropHarvestFrequency") ->
-    L122.ag_HA_bm2_R_Y_GLU_AnnualCHF
-
     # Calculating OtherArableLand ----
 
     # The minimum threshold on HA:CL means that some cropland in Hyde will not be assigned to a crop. This is mapped to "other arable land"
@@ -213,17 +231,152 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
     # The first step in executing the three above lines of comment is to calculate the residual land cover that is
     # cropland (may be positive or negative): residual = cropland - fallow land - harvested area by crop type
 
-
     L122.ag_HA_bm2_R_Y_GLU_HarvCropLand %>%
-      mutate(ResidualCropLand = HarvCropLand - AvailCropland,
-             # Calculating unused cropland; this is added with fallow land to calculate other arable land
+      mutate(# Calculating unused cropland; this is added with fallow land to calculate other arable land
              # Where residuals are negative, this is "unused" cropland that will be mapped to other arable land
-             UnusedCropLand = if_else(ResidualCropLand > 0, 0, -ResidualCropLand),
+             UnusedCropLand = pmax(0, AvailCropland - HarvCropLand),
              # Calculating extra cropland; this will be balanced by a deduction from unmanaged lands
              # Where residuals are positive, this is "extra" land that will later be deducted from other categories.
-             ExtraCropLand = if_else(ResidualCropLand < 0, 0, ResidualCropLand)) ->
-      L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others
+             ExtraCropLand = pmax(0, HarvCropLand - AvailCropland),
+             OtherArableLand = FallowLand + UnusedCropLand) ->
+      L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_0
 
+
+
+    # More adjustments to move production and area across basin within a region ----
+    # this is because LDS land cover is inconsistent with LDS harvested area
+    # CHF could be crazy in some region, e.g., Africa_Northern
+
+    # Here we create method to shift land area and production across basins within a region
+    # The key is to maintain total cropland in a basin unchanged by making use UnusedCropLand
+    # UnusedCropLand indeed explains such basin-level difference
+
+
+    L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_0 %>%
+      # filter relevant basins that will need adjustments
+      # when ExtraCropLand == 0 & UnusedCropLand == 0 no adjustment is needed and they will be bind back
+      filter(!(ExtraCropLand == 0 & UnusedCropLand == 0)) %>%
+      #filter(GCAM_region_ID %in% c(11), year == 2007) %>%
+      group_by(year, GCAM_region_ID) %>%
+      # Calculate the total areas for potential adjustments
+      # Need to consider CHF here for ExtraCropLand
+      mutate(totalUnused = sum(UnusedCropLand),
+             totalExtraNeeded = sum(ExtraCropLand * AnnualCropHarvestFrequency)) %>%
+      # Calculate shares
+      mutate(totalUnusedShare = UnusedCropLand / totalUnused,
+             totalExtraNeededShare = ExtraCropLand * AnnualCropHarvestFrequency / totalExtraNeeded) %>%
+      replace_na(list(totalUnusedShare = 0,
+                      totalExtraNeededShare = 0)) %>%
+      # min of (totalUnused, totalExtraNeeded) will be adjusted/moved
+      # total MoveIn = total MoveOut
+      mutate(MoveIn = totalUnusedShare * pmin(totalUnused, totalExtraNeeded),
+             MoveOut = totalExtraNeededShare * pmin(totalUnused, totalExtraNeeded),
+             AnnualMoveOutShare = MoveOut / Annual,
+             AnnualMoveInShare = MoveIn / Annual) %>%
+      ungroup() ->
+      L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_1
+
+    # Adding a check which should have no concern
+    assertthat::assert_that(L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_1 %>%
+                              filter(AnnualMoveOutShare >=1) %>% nrow == 0,
+                            msg = "Perennial is larger than available cropland")
+
+    # Move the land with in a region across basins
+    L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_1 %>%
+      mutate(Annual = Annual + MoveIn - MoveOut,
+             # update key land covers
+             UnusedCropLand0 = UnusedCropLand - MoveIn,
+             ExtraCropLand0 = ExtraCropLand - MoveOut,
+             HarvCropLand = Annual / AnnualCropHarvestFrequency + Perennial,
+             UnusedCropLand = pmax(0, AvailCropland - HarvCropLand),
+             ExtraCropLand = pmax(0, HarvCropLand - AvailCropland),
+             OtherArableLand = FallowLand + UnusedCropLand) %>%
+      select(names(L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_0) %>%
+               c("AnnualMoveOutShare", "AnnualMoveInShare") )->
+      L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_2
+
+    # Bind basins didn't need the adjustments
+    L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_2 %>%
+      bind_rows(
+      L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_0 %>%
+        filter((ExtraCropLand == 0 & UnusedCropLand == 0)) %>%
+        mutate(AnnualMoveOutShare = 0, AnnualMoveInShare = 0)) ->
+    L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others
+
+
+    ## update crop level area here ----
+    L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj %>%
+      mutate(type = if_else(grepl(Perennial_Identifier, GCAM_subsector),
+                            "Perennial", "Annual")) %>%
+      filter(type == "Annual") %>%
+      left_join_error_no_match(
+        L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others %>%
+          select(GCAM_region_ID, GLU, year, AnnualMoveOutShare, AnnualMoveInShare) %>%
+          mutate(type = "Annual"),
+        by = c("GCAM_region_ID", "GLU", "year", "type")
+      ) %>%
+      # Make the move at the crop level
+      mutate(value = value * (1 - AnnualMoveOutShare) * (1 + AnnualMoveInShare)) %>%
+      # bind Perennial back
+      bind_rows(
+        L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj %>%
+          mutate(type = if_else(grepl(Perennial_Identifier, GCAM_subsector),
+                                "Perennial", "Annual")) %>%
+          filter(type == "Perennial")
+      ) %>%
+      select(names(L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj)) ->
+      L101.ag_HA_bm2_R_C_Y_GLU
+
+
+    ##* L101.ag_HA_bm2_R_C_Y ----
+    L101.ag_HA_bm2_R_C_Y_GLU %>%
+      group_by(GCAM_region_ID, GCAM_commodity, year) %>%
+      summarise(value = sum(value)) %>%
+      ungroup() %>%
+      complete(GCAM_region_ID = unique(iso_GCAM_regID$GCAM_region_ID),
+               GCAM_commodity, year, fill = list(value = 0)) ->                                               # Fill in missing region/commodity combinations with 0
+      L101.ag_HA_bm2_R_C_Y
+
+
+    ## update crop level production here ----
+    L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj %>%
+      mutate(type = if_else(grepl(Perennial_Identifier, GCAM_subsector),
+                            "Perennial", "Annual")) %>%
+      filter(type == "Annual") %>%
+      left_join_error_no_match(
+        L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others %>%
+          select(GCAM_region_ID, GLU, year, AnnualMoveOutShare, AnnualMoveInShare) %>%
+          mutate(type = "Annual"),
+        by = c("GCAM_region_ID", "GLU", "year", "type")
+      ) %>%
+      # Make the move at the crop level
+      mutate(value = value * (1 - AnnualMoveOutShare) * (1 + AnnualMoveInShare)) %>%
+      # bind Perennial back
+      bind_rows(
+        L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj %>%
+          mutate(type = if_else(grepl(Perennial_Identifier, GCAM_subsector),
+                                "Perennial", "Annual")) %>%
+          filter(type == "Perennial")
+      ) %>%
+      select(names(L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj)) ->
+      L101.ag_Prod_Mt_R_C_Y_GLU
+
+    # Also write out the production volumes without basin-level detail, or subsector differentiation (i.e. by region, crop, year)
+    ##* L101.ag_Prod_Mt_R_C_Y ----
+    L101.ag_Prod_Mt_R_C_Y_GLU %>%
+      group_by(GCAM_region_ID, GCAM_commodity, year) %>%
+      summarise(value = sum(value)) %>%
+      ungroup() %>%
+      complete(GCAM_region_ID = unique(iso_GCAM_regID$GCAM_region_ID),
+               GCAM_commodity, year, fill = list(value = 0))  ->                                                # Fill in missing region/commodity combinations with 0
+      L101.ag_Prod_Mt_R_C_Y
+
+
+    # Pull data table that will be used later
+
+    L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others %>%
+      select(GCAM_region_ID, GLU, year, AnnualCropHarvestFrequency) ->
+      L122.ag_HA_bm2_R_Y_GLU_AnnualCHF
 
     L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others %>%
       select(GCAM_region_ID, GLU, year, ExtraCropLand) %>%
@@ -231,44 +384,21 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       L122.LC_bm2_R_ExtraCropLand_Y_GLU
 
 
-    # Calculating other arable land: known fallow plus discrepancy between sum of harvested area and cropland
-    # Assigning all cropland to other arable land wherever harvested area is zero
-    # If there are any land use regions with 0 harvested area (Monfreda) but positive cropland cover (Hyde), these are missing
-    # values in the above table, and all of this cropland should be assigned to other arable land.
-
-    # Anti join for checking  ----
-    # L122.LC_bm2_R_CropLand_Y_GLU %>%
-    #   anti_join(L122.ag_HA_bm2_R_Y_GLU_Perennial_Annual)
-
-    # Take FallowLand by region-GLU-year:
-    L122.LC_bm2_R_FallowLand_Y_GLU %>%
-      # update the Land_Type identifier
-      spread(Land_Type, value) %>%
-      # join the table of unused cropland by region-glu-year, L122.LC_bm2_UnusedCropLand_Y_GLU
-      # NAs retained as in old DS:
-      left_join(L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others %>%
-                  select(GCAM_region_ID, GLU, year, UnusedCropLand) ,
-                by = c("GCAM_region_ID", "GLU", "year")) %>%
-      mutate(value = FallowLand + UnusedCropLand) %>%
-      # remove unnecessary columns:
-      select(-FallowLand, -UnusedCropLand) %>%
-      mutate(Land_Type = "OtherArableLand") %>%
+    # Update OtherArableLand ----
+    # Deal with area that had land cover but no crops
+    # setting entirely to OtherArableLand
+    L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others %>%
+      select(GCAM_region_ID, GLU, year, OtherArableLand) %>%
       # join the cropland info so that can handle NA's
-      left_join(L122.LC_bm2_R_CropLand_Y_GLU, by = c("GCAM_region_ID", "GLU", "year")) %>%
-      # value.x = OtherArableLand value
-      # value.y = Cropland value
+      right_join(L122.LC_bm2_R_CropLand_Y_GLU %>% spread(Land_Type, value),
+                by = c("GCAM_region_ID", "GLU", "year")) %>%
       # Assigning cropland to other arable land wherever harvested area is zero
       # If there are any land use regions with 0 harvested area (Monfreda) but positive cropland cover (Hyde), these are missing
       # values in the above table, and all of this cropland should be assigned to other arable land.
-      # for NA values in OtherArableLand (value.x), replace with the cropland value (value.y):
-      mutate(value = if_else(is.na(value.x), value.y, value.x)) %>%
-      # remove unnecessary columns
-      select(-value.x, -value.y, -Land_Type.y) %>%
-      rename(Land_Type = Land_Type.x) ->
-      # store in a table of OtherArableLand by region-glu-year:
+      mutate(OtherArableLand = if_else(is.na(OtherArableLand), Cropland, OtherArableLand)) %>%
+      select(-Cropland) %>%
+      gather(Land_Type, value, OtherArableLand) ->
       L122.LC_bm2_R_OtherArableLand_Y_GLU
-
-
 
 
     # FAO harvested area for all crops is adjusted to cover here ----
@@ -290,6 +420,7 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
              Land_Type = "HarvCropLand") ->
       # store in a table of Harvested Cropland by region-commodity-glu-year:
       L122.LC_bm2_R_HarvCropLand_C_Y_GLU
+
 
     # Aggregate across crops to get harvested cropland area, by region/GLU/year
     # The harvested cropland area by region-commodity-glu-year table, L122.LC_bm2_R_HarvCropLand_C_Y_GLU,
@@ -419,7 +550,49 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
              GCAM_region_ID = as.integer(GCAM_region_ID)) ->
       L122.LC_bm2_R_HarvCropLand_Yh_GLU
 
-    # Produce outputs
+    # Produce outputs ----
+
+    # Update L101 files here after the Adj
+
+    L101.ag_HA_bm2_R_C_Y_GLU %>%
+      add_title("Harvested area by GCAM region, commodity, year, and GLU") %>%
+      add_units("billion km2") %>%
+      add_comments("FAO data downscaled to GLU then aggregated by GCAM region, commodity, and GLU") %>%
+      add_comments("Additional adjustments are made in zaglu_L122") %>%
+      add_legacy_name("L101.ag_HA_bm2_R_C_Y_GLU") %>%
+      add_precursors("common/iso_GCAM_regID",
+                     "L100.FAO_fallowland_kha",
+                     "L100.FAO_CL_kha",
+                     "L120.LC_bm2_R_LT_Yh_GLU",
+                     "L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj",
+                     "L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj") ->
+      L101.ag_HA_bm2_R_C_Y_GLU
+    L101.ag_HA_bm2_R_C_Y %>%
+      add_title("Harvested area by GCAM region, commodity, and year") %>%
+      add_units("billion km2") %>%
+      add_comments("FAO data downscaled to GLU then aggregated by GCAM region and commodity") %>%
+      add_comments("Additional adjustments are made in zaglu_L122") %>%
+      add_legacy_name("L101.ag_HA_bm2_R_C_Y") %>%
+      same_precursors_as(L101.ag_HA_bm2_R_C_Y_GLU) ->
+      L101.ag_HA_bm2_R_C_Y
+    L101.ag_Prod_Mt_R_C_Y_GLU %>%
+      add_title("Agricultural production by GCAM region, commodity, year, and GLU") %>%
+      add_units("Mt/yr") %>%
+      add_comments("FAO data downscaled to GLU then aggregated by GCAM region, commodity, and GLU") %>%
+      add_comments("Additional adjustments are made in zaglu_L122") %>%
+      add_legacy_name("L101.ag_Prod_Mt_R_C_Y_GLU") %>%
+      same_precursors_as(L101.ag_HA_bm2_R_C_Y_GLU) ->
+      L101.ag_Prod_Mt_R_C_Y_GLU
+    L101.ag_Prod_Mt_R_C_Y %>%
+      add_title("Agricultural production by GCAM region, commodity, and year") %>%
+      add_units("Mt/yr") %>%
+      add_comments("FAO data downscaled to GLU then aggregated by GCAM region and commodity") %>%
+      add_comments("Additional adjustments are made in zaglu_L122") %>%
+      add_legacy_name("L101.ag_Prod_Mt_R_C_Y") %>%
+      same_precursors_as(L101.ag_HA_bm2_R_C_Y_GLU) ->
+      L101.ag_Prod_Mt_R_C_Y
+
+
     L122.ag_HA_bm2_R_Y_GLU_AnnualCHF %>%
       add_title("Harvested area to cropland for annual crops ratio by GCAM region / year / GLU") %>%
       add_units("Unitless ratio") %>%
@@ -429,7 +602,7 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "L100.FAO_fallowland_kha",
                      "L100.FAO_CL_kha",
-                     "L101.ag_HA_bm2_R_C_Y_GLU",
+                     "L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj",
                      "L120.LC_bm2_R_LT_Yh_GLU") ->
       L122.ag_HA_bm2_R_Y_GLU_AnnualCHF
 
@@ -442,8 +615,8 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "L100.FAO_fallowland_kha",
                      "L100.FAO_CL_kha",
-                     "L101.ag_HA_bm2_R_C_Y_GLU",
-                     "L101.ag_Prod_Mt_R_C_Y_GLU",
+                     "L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj",
+                     "L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj",
                      "L120.LC_bm2_R_LT_Yh_GLU") ->
       L122.ag_EcYield_kgm2_R_C_Y_GLU
 
@@ -456,7 +629,7 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_precursors("common/iso_GCAM_regID",
                      "L100.FAO_fallowland_kha",
                      "L100.FAO_CL_kha",
-                     "L101.ag_HA_bm2_R_C_Y_GLU",
+                     "L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj",
                      "L120.LC_bm2_R_LT_Yh_GLU") ->
       L122.LC_bm2_R_OtherArableLand_Yh_GLU
 
@@ -466,11 +639,7 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_comments("Any land at the region-GLU level for which Harvested Cropland - Available Cropland is positive, ") %>%
       add_comments("making it extra.") %>%
       add_legacy_name("L122.LC_bm2_R_ExtraCropLand_Yh_GLU") %>%
-      add_precursors("common/iso_GCAM_regID",
-                     "L100.FAO_fallowland_kha",
-                     "L100.FAO_CL_kha",
-                     "L101.ag_HA_bm2_R_C_Y_GLU",
-                     "L120.LC_bm2_R_LT_Yh_GLU") ->
+      same_precursors_as(L122.LC_bm2_R_OtherArableLand_Yh_GLU)  ->
       L122.LC_bm2_R_ExtraCropLand_Yh_GLU
 
     L122.LC_bm2_R_HarvCropLand_C_Yh_GLU %>%
@@ -480,11 +649,7 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_comments("values by the HarvestedArea:CropLand ratio calculated from Monfreda, FAO, and Hyde land cover and ") %>%
       add_comments("harvested area data.") %>%
       add_legacy_name("L122.LC_bm2_R_HarvCropLand_C_Yh_GLU") %>%
-      add_precursors("common/iso_GCAM_regID",
-                     "L100.FAO_fallowland_kha",
-                     "L100.FAO_CL_kha",
-                     "L101.ag_HA_bm2_R_C_Y_GLU",
-                     "L120.LC_bm2_R_LT_Yh_GLU") ->
+      same_precursors_as(L122.LC_bm2_R_OtherArableLand_Yh_GLU)  ->
       L122.LC_bm2_R_HarvCropLand_C_Yh_GLU
 
     L122.LC_bm2_R_HarvCropLand_Yh_GLU %>%
@@ -494,11 +659,7 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       add_comments("values by the HarvestedArea:CropLand ratio calculated from Monfreda, FAO, and Hyde land cover and ") %>%
       add_comments("harvested area data. This commodity information is then aggregated to the region-GLU level.") %>%
       add_legacy_name("L122.LC_bm2_R_HarvCropLand_Yh_GLU") %>%
-      add_precursors("common/iso_GCAM_regID",
-                     "L100.FAO_fallowland_kha",
-                     "L100.FAO_CL_kha",
-                     "L101.ag_HA_bm2_R_C_Y_GLU",
-                     "L120.LC_bm2_R_LT_Yh_GLU") ->
+      same_precursors_as(L122.LC_bm2_R_OtherArableLand_Yh_GLU)  ->
       L122.LC_bm2_R_HarvCropLand_Yh_GLU
 
     return_data(MODULE_OUTPUTS)
