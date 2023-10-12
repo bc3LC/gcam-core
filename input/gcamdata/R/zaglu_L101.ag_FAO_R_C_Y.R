@@ -82,20 +82,36 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
     # Calculate region-average yield
     LDS_ctry_crop_AreaProdYield %>%
       group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector) %>%
-      summarize(yield_regional = sum(production) / sum(harvested_area)) %>%
-      ungroup() ->
-      LDS_ctry_crop_Yield_Regional
+      summarize(yield_regional = sum(production) / sum(harvested_area),
+                production = sum(production), harvested_area = sum(harvested_area)) %>%
+      ungroup() %>%
+      group_by(GCAM_commodity, GCAM_subsector) %>%
+      mutate(yield_world = sum(production) / sum(harvested_area)) %>%
+      ungroup() %>%
+      select(-production, -harvested_area) ->
+      LDS_ctry_crop_Yield_Regional_World
 
     # Add yield index relative to the regional-average
     LDS_ctry_crop_AreaProdYield %>%
-      left_join_error_no_match(LDS_ctry_crop_Yield_Regional,
+      left_join_error_no_match(LDS_ctry_crop_Yield_Regional_World,
                                by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector")) %>%
-      mutate(yield_index_regional = yield / yield_regional) %>%
+      mutate(yield_index_Rel_regional = yield / yield_regional,
+             yield_index_Rel_world = yield / yield_world) %>%
       group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector) %>%
       mutate(HA_share_GLU = harvested_area / sum(harvested_area),                                               # Compute the shares of country/crop/GLU within country/crop
              prod_share_GLU = production / sum(production)) %>%
       ungroup() ->
       LDS_ctry_crop_SHARES
+
+    LDS_ctry_crop_SHARES %>% #filter(GCAM_subsector == "CornC4") %>%
+      mutate(yield_index_Rel_world = pmin(5, yield_index_Rel_world)) %>%
+      ggplot() +
+      geom_boxplot(aes(x = GCAM_subsector, y = yield_index_Rel_world,
+                       fill = GCAM_subsector)) +
+      labs(x = "GCAM crops", y = "Tonne per ha") +
+      theme_bw() +
+      theme(axis.text.x = element_text(angle = 40, hjust = 1),
+        legend.position = "none") -> p;p
 
 
     gcam.REGION_NUMBER <- iso_GCAM_regID %>% distinct(GCAM_region_ID) %>% nrow
@@ -123,44 +139,70 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
 
     LDS_ctry_crop_SHARES <-
       select(LDS_ctry_crop_SHARES, GCAM_region_ID, GLU, GCAM_commodity,
-             GCAM_subsector, HA_share_GLU, prod_share_GLU, yield_index_regional)
+             GCAM_subsector, HA_share_GLU, prod_share_GLU, yield_index_Rel_world)
 
     L100.FAO_PRODSTAT_TO_DOWNSCAL %>%
+      mutate(FAOYield_tPerha_iso = if_else(Area_harvested_ha == 0, 0, Prod_t / Area_harvested_ha)) %>%
       group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year) %>%
       summarise(FAOArea_harvested_ha = sum(Area_harvested_ha),
-                FAOProd_t = sum(Prod_t)) %>%
-      mutate(FAOYield_tPerha = FAOProd_t / FAOArea_harvested_ha) %>%
-      replace_na(list(FAOYield_tPerha = 0)) %>%
-      ungroup() ->
+                FAOProd_t = sum(Prod_t),
+                FAOYield_tPerha_iso_regionalmax = max(FAOYield_tPerha_iso)) %>%
+      mutate(FAOYield_tPerha_regional = FAOProd_t / FAOArea_harvested_ha) %>%
+      replace_na(list(FAOYield_tPerha_regional = 0)) %>%
+      ungroup() %>%
+      group_by(GCAM_commodity, GCAM_subsector, year) %>%
+      mutate(FAOYield_tPerha_world = sum(FAOProd_t) / sum(FAOArea_harvested_ha)) %>%
+      ungroup() %>%
+       # clean outliers in FAOYield_tPerha_iso_regionalmax
+       # when iso max is > than 2* regional yield and FAOYield_tPerha_iso_regionalmax > 3* world, use regional
+      # FAOYield_Ratio_over_world_mean will be used as ceiling later
+      mutate(  FAOYield_tPerha_iso_regionalmax = if_else(
+               FAOYield_tPerha_iso_regionalmax > 3 * FAOYield_tPerha_world &
+               FAOYield_tPerha_iso_regionalmax > 2 * FAOYield_tPerha_regional,
+               FAOYield_tPerha_regional, FAOYield_tPerha_iso_regionalmax),
+             FAOYield_Ratio_over_world_mean = FAOYield_tPerha_iso_regionalmax / FAOYield_tPerha_world)  ->
       L100.FAO_PRODSTAT_TO_DOWNSCAL_R
 
     ### First group: crops and countries in BOTH datasetes (LDS/Monfreda and FAOSTAT) ----
 
-    # Ceiling to yield relative to regional average
-    # Note that this ratio could be still bigger as production/yield will be rescaled up to match FAO later
-    Yield_Ratio_Max_over_Mean = 1.3
 
     L100.FAO_PRODSTAT_TO_DOWNSCAL_R %>%
+      select(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year, FAOProd_t,
+             FAOArea_harvested_ha, FAOYield_Ratio_over_world_mean, FAOYield_tPerha_world,
+             FAOYield_tPerha_regional) %>%
       # using inner join here instead of right join since LDS_ctry_crop_SHARES has fodder crops not in L100.FAO_PRODSTAT_TO_DOWNSCAL_R
-      inner_join(LDS_ctry_crop_SHARES, by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector")) %>%
+      inner_join(LDS_ctry_crop_SHARES,
+                 by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector")) %>%
       # Downscale area using area share
       mutate(GLUArea_harvested_ha = FAOArea_harvested_ha * HA_share_GLU) %>%
-      # a. ensure the two approaches are the same
-      # GLUProd_t_OldMethod was from downscaling production directly using prod share
-      # GLUProd_t_NewMethod was from using yield index, but no corrections had been made
-      # These are comfirmed so commented out here [keep for communication]
-      # mutate(GLUYield_tPerha = FAOYield_tPerha * yield_index_regional
-      #        # The two methods are the same
-      #        GLUProd_t_OldMethod = FAOProd_t * prod_share_GLU,
-      #        GLUProd_t_NewMethod = GLUArea_harvested_ha * GLUYield_tPerha) %>%
 
-      # b. update the new method to correct yield distribution
-      # Modify the new method to adjust yield_index_regional to set a max yield ratio to Yield_Ratio_Max_over_Mean
-    # E.g., USA corn max county yield is about 20-30% higher than national average
+      # Update the new method to correct yield distribution
+      # a Modify the new method to adjust yield_index_Rel_world to set a max yield ratio to FAOYield_Ratio_over_world_mean
     # and redo the method method calculation above
-    mutate(yield_index_regional = pmin(Yield_Ratio_Max_over_Mean, yield_index_regional),
-           GLUYield_tPerha = FAOYield_tPerha * yield_index_regional,
-           GLUProd_t = GLUArea_harvested_ha * GLUYield_tPerha) %>%
+      mutate(yield_index_Rel_world = pmin(FAOYield_Ratio_over_world_mean, yield_index_Rel_world),
+             #yield_index_Rel_world = 1,
+             GLUYield_tPerha = FAOYield_tPerha_world * yield_index_Rel_world) %>%
+      # trimming regional distribution
+      # If GLUYield_tPerha is larger than n * regional average, setting to regional value
+
+     # b.Modify the new method to adjust yield_index_regional to set a max yield ratio to Yield_Ratio_Max_over_Mean
+    # E.g., USA corn max county yield is about 20-40% higher than national average
+
+      mutate(GLUYield_tPerha = pmin(FAOYield_tPerha_regional * 1.3, GLUYield_tPerha)) %>%
+
+      # So far, there could still be outliers
+      # e.g., one basin in Indonesia had much higher fruit yield than other basins in the region
+      # will set outliers to median in a basin
+      group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year) %>%
+      mutate(CLU_median = median(GLUYield_tPerha)) %>% ungroup %>%
+      group_by(GCAM_commodity, GCAM_subsector, year) %>%
+      mutate(outlier_thredshold = quantile(GLUYield_tPerha, 0.75) + 1.5 * IQR(GLUYield_tPerha) ) %>%   #Tukey
+      ungroup %>%
+      mutate(GLUYield_tPerha = if_else(GLUYield_tPerha > outlier_thredshold,
+                                       CLU_median, GLUYield_tPerha),
+             GLUProd_t = GLUArea_harvested_ha * GLUYield_tPerha) %>%
+
+
       # However, the regional production will possibly be smaller than FAO due to the ceiliing
       # We will need to scale all GLU production (and thus yield) up to mathch FAO
       group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year) %>%
@@ -168,6 +210,7 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
              RegtionaScaler_FAO_LDS = if_else(GLUProd_t_regional_to_scale == 0, 0,
                                               FAOProd_t / GLUProd_t_regional_to_scale),
              GLUProd_t_ScaleToFAORegional = GLUProd_t * RegtionaScaler_FAO_LDS) %>%
+      ungroup() %>%
       select(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year, GLU,
              Area_harvested_ha = GLUArea_harvested_ha,
              Prod_t = GLUProd_t_ScaleToFAORegional) ->

@@ -20,19 +20,26 @@
 #' @author KVC April 2017
 #' @export
 module_aglu_L151.ag_MIRCA_ctry_C_GLU_irr <- function(command, ...) {
+
+  MODULE_INPUTS <-
+    c(FILE = "aglu/AGLU_ctry",
+      FILE = "aglu/FAO/FAO_ag_items_PRODSTAT",
+      FILE = "aglu/FAO/FAO_ag_CROSIT",
+      "L100.LDS_ag_HA_ha",
+      "L100.LDS_ag_prod_t",
+      "L100.MIRCA_irrHA_ha",
+      "L100.MIRCA_rfdHA_ha")
+
+  MODULE_OUTPUTS <-
+    c("L151.ag_irrHA_ha_ctry_crop",
+      "L151.ag_rfdHA_ha_ctry_crop",
+      "L151.ag_irrProd_t_ctry_crop",
+      "L151.ag_rfdProd_t_ctry_crop")
+
   if(command == driver.DECLARE_INPUTS) {
-    return(c(FILE = "aglu/AGLU_ctry",
-             FILE = "aglu/FAO/FAO_ag_items_PRODSTAT",
-             FILE = "aglu/FAO/FAO_ag_CROSIT",
-             "L100.LDS_ag_HA_ha",
-             "L100.LDS_ag_prod_t",
-             "L100.MIRCA_irrHA_ha",
-             "L100.MIRCA_rfdHA_ha"))
+    return(MODULE_INPUTS)
   } else if(command == driver.DECLARE_OUTPUTS) {
-    return(c("L151.ag_irrHA_ha_ctry_crop",
-             "L151.ag_rfdHA_ha_ctry_crop",
-             "L151.ag_irrProd_t_ctry_crop",
-             "L151.ag_rfdProd_t_ctry_crop"))
+    return(MODULE_OUTPUTS)
   } else if(command == driver.MAKE) {
 
     MIRCA_crop <- value <- HA_irr <- HA_rfd <- iso <- GLU <- irrshareHA <-
@@ -43,14 +50,8 @@ module_aglu_L151.ag_MIRCA_ctry_C_GLU_irr <- function(command, ...) {
 
     all_data <- list(...)[[1]]
 
-    # Load required inputs
-    AGLU_ctry <- get_data(all_data, "aglu/AGLU_ctry")
-    FAO_ag_items_PRODSTAT <- get_data(all_data, "aglu/FAO/FAO_ag_items_PRODSTAT")
-    FAO_ag_CROSIT <- get_data(all_data, "aglu/FAO/FAO_ag_CROSIT")
-    L100.LDS_ag_HA_ha <- get_data(all_data, "L100.LDS_ag_HA_ha", strip_attributes = TRUE)
-    L100.LDS_ag_prod_t <- get_data(all_data, "L100.LDS_ag_prod_t")
-    L100.MIRCA_irrHA_ha <- get_data(all_data, "L100.MIRCA_irrHA_ha")
-    L100.MIRCA_rfdHA_ha <- get_data(all_data, "L100.MIRCA_rfdHA_ha")
+    # Load required inputs ----
+    get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
 
     # Compute shares of irrigated and rainfed harvested area from MIRCA data
     # Shares are by country (iso), land unit (GLU), and MIRCA_crop (different from GTAP crop or GCAM_commodity)
@@ -190,7 +191,7 @@ module_aglu_L151.ag_MIRCA_ctry_C_GLU_irr <- function(command, ...) {
       add_precursors("aglu/AGLU_ctry", "aglu/FAO/FAO_ag_CROSIT", "L100.LDS_ag_prod_t") ->
       L151.ag_rfdProd_t_ctry_crop
 
-    return_data(L151.ag_irrHA_ha_ctry_crop, L151.ag_rfdHA_ha_ctry_crop, L151.ag_irrProd_t_ctry_crop, L151.ag_rfdProd_t_ctry_crop)
+    return_data(MODULE_OUTPUTS)
   } else {
     stop("Unknown command")
   }

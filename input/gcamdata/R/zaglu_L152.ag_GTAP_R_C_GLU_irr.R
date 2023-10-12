@@ -15,18 +15,25 @@
 #' @importFrom dplyr group_by left_join mutate select summarise
 #' @author RC May 2017
 module_aglu_L152.ag_GTAP_R_C_GLU_irr <- function(command, ...) {
+
+  MODULE_INPUTS <-
+    c(FILE = "common/iso_GCAM_regID",
+      FILE = "aglu/FAO/FAO_ag_items_PRODSTAT",
+      "L151.ag_irrHA_ha_ctry_crop",
+      "L151.ag_rfdHA_ha_ctry_crop",
+      "L151.ag_irrProd_t_ctry_crop",
+      "L151.ag_rfdProd_t_ctry_crop")
+
+  MODULE_OUTPUTS <-
+    c("L152.ag_irrHA_bm2_R_C_GLU",
+      "L152.ag_rfdHA_bm2_R_C_GLU",
+      "L152.ag_irrProd_Mt_R_C_GLU",
+      "L152.ag_rfdProd_Mt_R_C_GLU")
+
   if(command == driver.DECLARE_INPUTS) {
-    return(c(FILE = "common/iso_GCAM_regID",
-             FILE = "aglu/FAO/FAO_ag_items_PRODSTAT",
-             "L151.ag_irrHA_ha_ctry_crop",
-             "L151.ag_rfdHA_ha_ctry_crop",
-             "L151.ag_irrProd_t_ctry_crop",
-             "L151.ag_rfdProd_t_ctry_crop"))
+    return(MODULE_INPUTS)
   } else if(command == driver.DECLARE_OUTPUTS) {
-    return(c("L152.ag_irrHA_bm2_R_C_GLU",
-             "L152.ag_rfdHA_bm2_R_C_GLU",
-             "L152.ag_irrProd_Mt_R_C_GLU",
-             "L152.ag_rfdProd_Mt_R_C_GLU"))
+    return(MODULE_OUTPUTS)
   } else if(command == driver.MAKE) {
 
     iso <- GCAM_region_ID <- GTAP_crop <- GCAM_commodity <- irrHA <- GLU <-
@@ -34,13 +41,8 @@ module_aglu_L152.ag_GTAP_R_C_GLU_irr <- function(command, ...) {
 
     all_data <- list(...)[[1]]
 
-    # Load required inputs
-    iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
-    FAO_ag_items_PRODSTAT <- get_data(all_data, "aglu/FAO/FAO_ag_items_PRODSTAT")
-    L151.ag_irrHA_ha_ctry_crop <- get_data(all_data, "L151.ag_irrHA_ha_ctry_crop")
-    L151.ag_rfdHA_ha_ctry_crop <- get_data(all_data, "L151.ag_rfdHA_ha_ctry_crop")
-    L151.ag_irrProd_t_ctry_crop <- get_data(all_data, "L151.ag_irrProd_t_ctry_crop")
-    L151.ag_rfdProd_t_ctry_crop <- get_data(all_data, "L151.ag_rfdProd_t_ctry_crop")
+    # Load required inputs ----
+    get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
 
     # For each of the four GTAP tables - irrigated harvest area, rainfed harvest area, irrigated production, and rainfed production:
     # First add GCAM region and commodity lookup vectors to iso and GTAP crop.
@@ -132,7 +134,7 @@ module_aglu_L152.ag_GTAP_R_C_GLU_irr <- function(command, ...) {
                      "L151.ag_rfdProd_t_ctry_crop") ->
       L152.ag_rfdProd_Mt_R_C_GLU
 
-    return_data(L152.ag_irrHA_bm2_R_C_GLU, L152.ag_rfdHA_bm2_R_C_GLU, L152.ag_irrProd_Mt_R_C_GLU, L152.ag_rfdProd_Mt_R_C_GLU)
+    return_data(MODULE_OUTPUTS)
   } else {
     stop("Unknown command")
   }

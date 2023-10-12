@@ -19,17 +19,24 @@
 #' @importFrom tidyr gather
 #' @author RC May 2017
 module_aglu_L181.ag_R_C_Y_GLU_irr_mgmt <- function(command, ...) {
+
+  MODULE_INPUTS <-
+    c("L171.LC_bm2_R_rfdHarvCropLand_C_Yh_GLU",
+      "L171.LC_bm2_R_irrHarvCropLand_C_Yh_GLU",
+      "L171.ag_irrEcYield_kgm2_R_C_Y_GLU",
+      "L171.ag_rfdEcYield_kgm2_R_C_Y_GLU")
+
+  MODULE_OUTPUTS <-
+    c("L181.LC_bm2_R_C_Yh_GLU_irr_level",
+      "L181.ag_EcYield_kgm2_R_C_Y_GLU_irr_level",
+      "L181.ag_Prod_Mt_R_C_Y_GLU_irr_level",
+      "L181.YieldMult_R_bio_GLU_irr",
+      "L181.LandShare_R_bio_GLU_irr")
+
   if(command == driver.DECLARE_INPUTS) {
-    return(c("L171.LC_bm2_R_rfdHarvCropLand_C_Yh_GLU",
-             "L171.LC_bm2_R_irrHarvCropLand_C_Yh_GLU",
-             "L171.ag_irrEcYield_kgm2_R_C_Y_GLU",
-             "L171.ag_rfdEcYield_kgm2_R_C_Y_GLU"))
+    return(MODULE_INPUTS)
   } else if(command == driver.DECLARE_OUTPUTS) {
-    return(c("L181.LC_bm2_R_C_Yh_GLU_irr_level",
-             "L181.ag_EcYield_kgm2_R_C_Y_GLU_irr_level",
-             "L181.ag_Prod_Mt_R_C_Y_GLU_irr_level",
-             "L181.YieldMult_R_bio_GLU_irr",
-             "L181.LandShare_R_bio_GLU_irr"))
+    return(MODULE_OUTPUTS)
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -38,11 +45,8 @@ module_aglu_L181.ag_R_C_Y_GLU_irr_mgmt <- function(command, ...) {
       Irr_Rfd <- LC_bm2_hi <- LC_bm2_lo <- landshare_hi <- landshare_lo <- level <- value <-
       year <- yield <- yieldmult_hi <- yieldmult_lo <- GCAM_subsector <- NULL  # silence package check notes
 
-    # Load required inputs
-    L171.LC_bm2_R_rfdHarvCropLand_C_Yh_GLU <- get_data(all_data, "L171.LC_bm2_R_rfdHarvCropLand_C_Yh_GLU")
-    L171.LC_bm2_R_irrHarvCropLand_C_Yh_GLU <- get_data(all_data, "L171.LC_bm2_R_irrHarvCropLand_C_Yh_GLU")
-    L171.ag_irrEcYield_kgm2_R_C_Y_GLU <- get_data(all_data, "L171.ag_irrEcYield_kgm2_R_C_Y_GLU")
-    L171.ag_rfdEcYield_kgm2_R_C_Y_GLU <- get_data(all_data, "L171.ag_rfdEcYield_kgm2_R_C_Y_GLU")
+    # Load required inputs ----
+    get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
 
     # In order to calculate weighted yield levels for aggregation, we don't want to be using the raw yields, as our
     # GCAM commodities may include a blend of heterogeneous yielding commodities. For example, cucumber yields are in
@@ -159,7 +163,7 @@ module_aglu_L181.ag_R_C_Y_GLU_irr_mgmt <- function(command, ...) {
       add_precursors() ->
       L181.LandShare_R_bio_GLU_irr
 
-    return_data(L181.LC_bm2_R_C_Yh_GLU_irr_level, L181.ag_EcYield_kgm2_R_C_Y_GLU_irr_level, L181.ag_Prod_Mt_R_C_Y_GLU_irr_level, L181.YieldMult_R_bio_GLU_irr, L181.LandShare_R_bio_GLU_irr)
+    return_data(MODULE_OUTPUTS)
   } else {
     stop("Unknown command")
   }
