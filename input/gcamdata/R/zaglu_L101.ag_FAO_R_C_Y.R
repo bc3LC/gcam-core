@@ -103,16 +103,6 @@ module_aglu_L101.ag_FAO_R_C_Y <- function(command, ...) {
       ungroup() ->
       LDS_ctry_crop_SHARES
 
-    LDS_ctry_crop_SHARES %>% #filter(GCAM_subsector == "CornC4") %>%
-      mutate(yield_index_Rel_world = pmin(5, yield_index_Rel_world)) %>%
-      ggplot() +
-      geom_boxplot(aes(x = GCAM_subsector, y = yield_index_Rel_world,
-                       fill = GCAM_subsector)) +
-      labs(x = "GCAM crops", y = "Tonne per ha") +
-      theme_bw() +
-      theme(axis.text.x = element_text(angle = 40, hjust = 1),
-        legend.position = "none") -> p;p
-
 
     gcam.REGION_NUMBER <- iso_GCAM_regID %>% distinct(GCAM_region_ID) %>% nrow
     assertthat::assert_that(unique(LDS_ctry_crop_SHARES$GCAM_region_ID) %>%
