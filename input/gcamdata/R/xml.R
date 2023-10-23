@@ -2,23 +2,6 @@
 
 # xml.R
 
-
-#' Method to return multiple xmls
-#'
-#' @param all_xml_names List of xml names
-#' @return A list of xmls that a function can output
-#' @export
-return_multiple_xmls <- function(list_of_xmls, all_xml_names) {
-  # for(xml_name in all_xml_names){
-  #   list_of_xmls[[xml_name]] <- get(xml_name)
-  # }
-  names(list_of_xmls) <- all_xml_names
-  outlist <- sapply(list_of_xmls, return_data)
-  names(outlist) <- all_xml_names
-
-  outlist
-}
-
 #' The basis to start a pipeline to convert data to an XML file.
 #'
 #' This method simply requires the name to save the XML file as and optionally the
@@ -258,6 +241,27 @@ add_rename_landnode_xml <- function(dot) {
   add_xml_data(dot, land_name_table, "NodeRename", NULL)
 }
 
+
+#' Add a table to an XML pipeline that instructs the ModelInterface to rename
+#' SubsectorX to Nesting-subsector.
+#'
+#' Such a table is necessary to help work around limitations in the XML processing
+#' that node names of the same name can not be nested with in each other:
+#' Nesting-subsector/Nesting-subsector/Subsector thus instead we say
+#' Subsector0/Subsector1/Subsector and rename as the last step.
+#' Therefore in most cases a user should add this table near the end of the XML pipeline.
+#' @param dot The current state of the pipeline started from \code{create_xml}
+#' @return A "data structure" to hold the various parts needed to run the model
+#' interface CSV to XML conversion.
+#' @author Clàudia Rodés
+#' @export
+add_rename_foodsubsec_xml <- function(dot) {
+  food_name_table <- tibble(from = paste0("subsector_nest", seq(1,2)),to = "nesting-subsector")
+
+  add_xml_data(dot, food_name_table, "NodeRename", NULL)
+}
+
+
 #' add_node_equiv_xml
 #'
 #' Add a table to an XML pipeline that instructs the ModelInterface to treat
@@ -450,7 +454,7 @@ cmp_xml_files <- function(fleft, fright, raw = FALSE)
   suppressWarnings({args <- normalizePath(c(py, fleft, fright))})
   if(raw) {
     rslt <- system2(cmd, args, stdout = TRUE, stderr=FALSE) # stderr output is
-                                        # not needed.
+    # not needed.
     if(is.null(attr(rslt, 'status'))) {
       ## For some reason, system2 doesn't set the status attribute isn't set when the call
       ## is successful
@@ -491,21 +495,21 @@ cmp_xml_files <- function(fleft, fright, raw = FALSE)
 #' @export
 run_xml_tests <- function(olddir, newdir = XML_DIR)
 {
-    oldfiles <- list.files(olddir, '\\.xml$', recursive=TRUE, full.names=TRUE)
-    newfiles <- file.path(newdir, sapply(oldfiles, basename))
+  oldfiles <- list.files(olddir, '\\.xml$', recursive=TRUE, full.names=TRUE)
+  newfiles <- file.path(newdir, sapply(oldfiles, basename))
 
-    if (length(oldfiles) == 0) {
-        warning('No XML files found in ', olddir)
-        return(0)
-    }
+  if (length(oldfiles) == 0) {
+    warning('No XML files found in ', olddir)
+    return(0)
+  }
 
-    isgood <- Map(cmp_xml_files, oldfiles, newfiles) %>% simplify2array
-    if (!all(isgood)) {
-        badfiles <- paste(sapply(newfiles[!isgood], basename), collapse = ' ')
-        warning('The following files had discrepancies: ', badfiles)
-    }
+  isgood <- Map(cmp_xml_files, oldfiles, newfiles) %>% simplify2array
+  if (!all(isgood)) {
+    badfiles <- paste(sapply(newfiles[!isgood], basename), collapse = ' ')
+    warning('The following files had discrepancies: ', badfiles)
+  }
 
-    sum(!isgood)
+  sum(!isgood)
 }
 
 #' A list of XML tag equivalence classes so that the ModelInterface when converting

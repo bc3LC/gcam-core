@@ -82,4 +82,8 @@ output/modelinterface/modelinterface
 exe/configuration*.xml
 /exe/country-specific_config
 /exe/old
-*outputs*
+*output*
+*ModelInterface*
+
+## Data
+st7_analysis/inputs/nutrition/

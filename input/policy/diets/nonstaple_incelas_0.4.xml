@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <region name="Africa_Eastern">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Africa_Northern">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Africa_Southern">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Africa_Western">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Argentina">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Australia_NZ">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Brazil">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Canada">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Central America and Caribbean">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Central Asia">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="China">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Colombia">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="EU-12">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="EU-15">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Europe_Eastern">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Europe_Non_EU">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="European Free Trade Association">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="India">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Indonesia">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Japan">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Mexico">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Middle East">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Pakistan">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Russia">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="South Africa">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="South America_Northern">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="South America_Southern">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="South Asia">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="South Korea">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Southeast Asia">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="Taiwan">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+        <region name="USA">
+            <gcam-consumer name="FoodDemand">
+                <nodeInput name="FoodDemand">
+                    <non-staples-food-demand-input name="FoodDemand_NonStaples">
+                        <income-elasticity>0.4</income-elasticity>
+                    </non-staples-food-demand-input>
+                </nodeInput>
+            </gcam-consumer>
+        </region>
+    </world>
+</scenario>
