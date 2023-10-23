@@ -1,0 +1,243 @@
+﻿iso,country_name,GCAM_region_ID
+abw,Aruba,9
+afg,Afghanistan,27
+ago,Angola,4
+aia,Anguilla,9
+alb,Albania,15
+and,Andorra,13
+ant,Netherlands Antilles,9
+are,United Arab Emirates,21
+arg,Argentina,31
+arm,Armenia,10
+asm,American Samoa,29
+atg,Antigua & Barbuda,9
+aus,Australia,6
+aut,Austria,13
+aze,Azerbaijan,10
+bdi,Burundi,2
+bel,Belgium,13
+ben,Benin,5
+bfa,Burkina Faso,5
+bgd,Bangladesh,27
+bgr,Bulgaria,12
+bhr,Bahrain,21
+bhs,Bahamas,9
+bih,Bosnia and Herzegovina,15
+blr,Belarus,14
+blz,Belize,9
+bmu,Bermuda,9
+bol,Bolivia,26
+bra,Brazil,7
+brb,Barbados,9
+brn,Brunei Darussalam,29
+btn,Bhutan,27
+bwa,Botswana,4
+caf,Central African Republic,5
+can,Canada,8
+cck,Cocos (Keeling) Islands,29
+che,Switzerland,16
+chi,Channel Islands,13
+chl,Chile,26
+chn,China,11
+civ,Cote dIvoire,5
+cmr,Cameroon,5
+cod,"Congo, the Democratic Republic of the",5
+cog,Congo,5
+cok,Cook Islands,29
+col,Colombia,32
+com,Comoros,2
+cpv,Cape Verde,5
+cri,Costa Rica,9
+cub,Cuba,9
+cuw,Curacao,9
+cym,Cayman Islands,9
+cyp,Cyprus,12
+cxr,Christmas Island,29
+cze,Czech Republic,12
+deu,Germany,13
+dji,Djibouti,2
+dma,Dominica,9
+dnk,Denmark,13
+dom,Dominican Republic,9
+dza,Algeria,3
+ecu,Ecuador,26
+egy,Egypt,3
+eri,Eritrea,2
+esh,Western Sahara,3
+esp,Spain,13
+est,Estonia,12
+eth,Ethiopia,2
+fin,Finland,13
+fji,Fiji,29
+flk,Falkland Islands (Malvinas),13
+fra,France,13
+fro,Faroe Islands,13
+fsm,"Micronesia, Federated States of",29
+gab,Gabon,5
+gbr,United Kingdom,13
+geo,Georgia,10
+ggy,Guernsey,13
+gha,Ghana,5
+gib,Gibraltar,13
+gin,Guinea,5
+glp,Guadeloupe,9
+gmb,Gambia,5
+gnb,Guinea-Bissau,5
+gnq,Equatorial Guinea,5
+grc,Greece,13
+grd,Grenada,9
+grl,Greenland,13
+gtm,Guatemala,9
+guf,French Guiana,25
+gum,Guam,29
+guy,Guyana,25
+hkg,Hong Kong,11
+hnd,Honduras,9
+hrv,Croatia,15
+hti,Haiti,9
+hun,Hungary,12
+idn,Indonesia,18
+imn,Isle of Man,13
+ind,India,17
+irl,Ireland,13
+irn,"Iran, Islamic Republic of",21
+irq,Iraq,21
+isl,Iceland,16
+isr,Israel,21
+ita,Italy,13
+jam,Jamaica,9
+jey,Jersey,13
+jor,Jordan,21
+jpn,Japan,19
+kaz,Kazakhstan,10
+ken,Kenya,2
+kgz,Kyrgyzstan,10
+khm,Cambodia,29
+kir,Kiribati,29
+kna,Saint Kitts and Nevis,9
+kor,"Korea, Republic of",28
+kwt,Kuwait,21
+lao,Lao Peoples Democratic Republic,29
+lbn,Lebanon,21
+lbr,Liberia,5
+lby,Libyan Arab Jamahiriya,3
+lca,Saint Lucia,9
+lie,Liechtenstein,16
+lka,Sri Lanka,27
+lso,Lesotho,4
+ltu,Lithuania,12
+lux,Luxembourg,13
+lva,Latvia,12
+mac,Macau,11
+mar,Morocco,3
+mco,Monaco,13
+mda,"Moldova, Republic of",14
+mdg,Madagascar,2
+mdv,Maldives,27
+mex,Mexico,20
+mhl,Marshall Islands,29
+mkd,"Macedonia, the former Yugoslav Republic of",15
+mli,Mali,5
+mlt,Malta,12
+mmr,Myanmar,29
+mne,Montenegro,15
+mng,Mongolia,10
+mnp,Northern Mariana Islands,29
+moz,Mozambique,4
+mrt,Mauritania,5
+msr,Montserrat,9
+mtq,Martinique,9
+mus,Mauritius,2
+mwi,Malawi,4
+mys,Malaysia,29
+myt,Mayotte,29
+nam,Namibia,4
+ncl,New Caledonia,29
+ner,Niger,5
+nfk,Norfolk Island,29
+nga,Nigeria,5
+nic,Nicaragua,9
+niu,Niue,29
+nld,Netherlands,13
+nor,Norway,16
+npl,Nepal,27
+nru,Nauru,29
+nzl,New Zealand,6
+omn,Oman,21
+pak,Pakistan,22
+pan,Panama,9
+pci,Pacific Islands Trust Territory,29
+pcn,Pitcairn Islands,29
+per,Peru,26
+phl,Philippines,29
+plw,Palau,29
+png,Papua New Guinea,29
+pol,Poland,12
+pri,Puerto Rico,1
+prk,"Korea, Democratic Peoples Republic of",29
+prt,Portugal,13
+pry,Paraguay,26
+pse,"Palestinian Territory, Occupied",21
+pyf,French Polynesia,29
+qat,Qatar,21
+reu,Reunion,2
+rom,Romania,12
+rus,Russian Federation,23
+rwa,Rwanda,2
+sau,Saudi Arabia,21
+scg,Serbia and Montenegro,15
+sdn,Sudan,2
+sen,Senegal,5
+sgp,Singapore,29
+shn,Saint Helena,13
+sjm,Svalbard and Jan Mayen Islands,16
+slb,Solomon Islands,29
+sle,Sierra Leone,5
+slv,El Salvador,9
+smr,San Marino,13
+som,Somalia,2
+spm,Saint Pierre and Miquelon,13
+srb,Serbia,15
+ssd,South Sudan,2
+stp,Sao Tome and Principe,5
+sur,Suriname,25
+svk,Slovakia,12
+svn,Slovenia,12
+swe,Sweden,13
+swz,Swaziland,4
+syc,Seychelles,29
+syr,Syrian Arab Republic,21
+tca,Turks and Caicos,13
+tcd,Chad,5
+tgo,Togo,5
+tha,Thailand,29
+tjk,Tajikistan,10
+tkl,Tokelau,29
+tkm,Turkmenistan,10
+tls,Timor Leste,29
+ton,Tonga,29
+tto,Trinidad and Tobago,9
+tun,Tunisia,3
+tur,Turkey,15
+tuv,Tuvalu,29
+twn,Taiwan,30
+tza,"Tanzania, United Republic of",4
+uga,Uganda,2
+ukr,Ukraine,14
+ury,Uruguay,26
+usa,United States of America,1
+uzb,Uzbekistan,10
+vat,Vatican,13
+vct,Saint Vincent and the Grenadines,9
+ven,Venezuela,25
+vgb,"Virgin Islands, British",13
+vir,"Virgin Islands, U.S.",1
+vnm,Viet Nam,29
+vut,Vanuatu,29
+wlf,Wallis and Futuna,13
+wsm,Samoa,29
+yem,Yemen,21
+yug,"Yugoslavia, Federal Republic of",15
+zaf,South Africa,24
+zmb,Zambia,4
+zwe,Zimbabwe,4
