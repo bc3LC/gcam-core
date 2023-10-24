@@ -1,0 +1,41 @@
+# File: A_spp_parameters.csv
+# Title: Plant protein enhanced diet models' parameters
+# Unit: Unitless
+# Description: parameters used in Plant Protein's diet computation
+# ssp_i: share of plant protein consumption in 2015
+# Source: ambrosia (GCAM) according to SSP2
+# Column types: cn
+# ----------
+region,spp_i
+USA,5.086812384
+Africa_Eastern,33.02695032
+Africa_Northern,10.08786441
+Africa_Southern,33.89711076
+Africa_Western,49.33876124
+Australia_NZ,3.449078988
+Brazil,6.992518282
+Canada,8.054829042
+Central America and Caribbean,13.24766073
+Central Asia,2.34836077
+China,5.88310542
+EU-12,2.011980271
+EU-15,3.654082812
+Europe_Eastern,2.090177103
+Europe_Non_EU,10.6148247
+European Free Trade Association,3.327847895
+India,22.54466012
+Indonesia,16.14589261
+Japan,3.401298498
+Mexico,8.087740012
+Middle East,11.77287835
+Pakistan,4.240169908
+Russia,1.899867432
+South Africa,2.833024288
+South America_Northern,5.062207269
+South America_Southern,5.544099329
+South Asia,19.41581323
+South Korea,5.054580132
+Southeast Asia,8.730268027
+Taiwan,6.10822775
+Argentina,1.137615004
+Colombia,4.851164371

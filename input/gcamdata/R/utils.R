@@ -18,6 +18,36 @@ get_xml_names <- function(csv_name, default_xml) {
 }
 
 
+#' return_xml_names
+#'
+#' Return list of xml names as output for chunk when they are included in csv file
+#'
+#' @param xml_names tibble of xml names
+#' @return Vector of xml names
+#' @author CR October 2023
+return_xml_names <- function(xml_names) {
+  assign('data', get(load(paste0('output/',xml_names))))
+  all_xml_names <- setNames(data$value, rep("XML", length(data$value)))
+  all_xml_names
+}
+
+
+#' return_multiple_xmls
+#'
+#' @param list_of_xmls List of xmls
+#' @param all_xml_names List of xml names
+#' @return A list of xmls that a function can output
+#' @author Russell Horowitz
+#' @export
+return_multiple_xmls <- function(list_of_xmls, all_xml_names) {
+  names(list_of_xmls) <- all_xml_names
+  outlist <- sapply(list_of_xmls, return_data)
+  names(outlist) <- all_xml_names
+
+  outlist
+}
+
+
 #' find_header
 #'
 #' Read a file line-by-line to find how far its header extends, and return it.

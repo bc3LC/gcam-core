@@ -3,6 +3,7 @@
 
 # setwd to file location === #####
 setwd('C:\\GCAM\\GCAM_7.0_Claudia\\gcam-core-iamcompact\\st7_analysis')
+.libPaths('C:\\Users\\claudia.rodes\\Documents\\R\\win-library')
 
 # load libraries and paths' variables, and extra functions and styles
 source('load_libs_paths.R')
@@ -42,7 +43,7 @@ share_plant_data = food_consumption_world %>%
   select(Units, scenario, nestingSector2, year, value) %>% unique() %>%
   # sum consumption by animal vs plant protein
   group_by(Units, scenario, nestingSector2, year) %>%
-  mutate(value = sum(value)) %>%
+  summarise(value = sum(value)) %>%
   ungroup() %>%
   # compute plant_share
   group_by(Units, scenario, year) %>%
@@ -75,9 +76,9 @@ print(summary(share_plant_data %>%
                 tidyr::pivot_wider(names_from = scenario, values_from = plant_share) %>%
                 mutate(diff_between_refs = St7_Reference_original - `St7_Reference_R-M-F`) %>%
                 pull(diff_between_refs)))
-###    Min. 1st Qu.  Median   Mean   3rd Qu.   Max.  NA's
-### -2.743  -2.553  -2.325  -2.305  -2.123  -1.716    10
-### the variation si of at most 2.7 percentual points between the scenarios =>
+###     Min.    1st Qu.     Median       Mean    3rd Qu.       Max.
+### -1.368e-01 -9.678e-02 -5.382e-02 -5.702e-02 -5.299e-03  6.000e-08
+### the variation si of at most 0.13 percentual points between the scenarios =>
 ### we consider as the reference scenario the one with the distinction R-M-F
 
 
@@ -126,6 +127,40 @@ pl_protein_share_regional = ggplot(data = share_plant_data_reg %>%
         title = element_text(size = 40))
 ggsave(pl_protein_share_regional, file = paste0(figures_path,dir_name,"/",'pl_protein_share_bars_regional.pdf'),
        width = 500, height = 500, units = 'mm')
+
+
+#### CALIBRATE SPP AND FUELPREFELAST PARAMETER =================================
+# ==============================================================================
+
+## calibrate relation between spp and fuelPrefElast
+selected_scen = c('St7_Reference_R-M-F','St7_calibrate_FuelPrefElast_fvv0.45')
+share_plant_data = read.csv(paste0(outputs_path,"spp/calibration_food_consumption.csv"), skip = 1, header = TRUE) %>%
+  rename_with(~ gsub("^X", "", .), starts_with("X")) %>%
+  rename(nestingSector1 = subsector,
+         nestingSector2 = subsector.1,
+         nestingSector3 = subsector.2) %>%
+  separate(nestingSector1, into = c("nestingSector1", "rest"), sep = ",", extra = "merge") %>% select(-rest) %>%
+  separate(nestingSector2, into = c("nestingSector2", "rest"), sep = ",", extra = "merge") %>% select(-rest) %>%
+  separate(nestingSector3, into = c("nestingSector3", "rest"), sep = ",", extra = "merge") %>% select(-rest) %>%
+  select(1:17,21) %>% unique() %>%
+  tidyr::pivot_longer(cols = 7:17, names_to = 'year', values_to = 'value') %>%
+  # subset protein
+  dplyr::filter(nestingSector1 == 'Protein') %>%
+  select(Units, scenario, nestingSector2, year, value) %>% unique() %>%
+  # sum consumption by animal vs plant protein
+  group_by(Units, scenario, nestingSector2, year) %>%
+  summarise(value = sum(value)) %>%
+  ungroup() %>%
+  # compute plant_share
+  group_by(Units, scenario, year) %>%
+  summarise(plant_share = 100 * sum(value[nestingSector2 == "Plant"]) / sum(value)) %>%
+  ungroup() %>%
+  rename_scen() %>% filter(scenario %in% selected_scen)
+write.csv(share_plant_data, file = paste0(outputs_path, 'spp/st7_calibrate_spp_fuelPrefElast.csv'))
+conversion_factor = 0.45/share_plant_data[share_plant_data$year == '2050' & share_plant_data$scenario == 'St7_calibrate_FuelPrefElast_fvv0.45',]$plant_share
+print(conversion_factor)
+### conversion factor: fuelPrefElast = spp_f * 0.007325504
+
 
 
 #### STUDY 2015 MICRO & MACRO NUTRIENTS INTAKE =================================

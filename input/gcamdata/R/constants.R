@@ -33,6 +33,7 @@ MODEL_BASE_YEARS        <- c(1975, 1990, 2005, 2010, 2015)
 MODEL_FUTURE_YEARS      <- seq(2020, 2100, 5)
 MODEL_YEARS             <- c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)
 MODEL_FINAL_BASE_YEAR   <- 2015
+MODEL_HALF_CENTURY_YEAR <- 2050
 
 
 # GCAM constants ======================================================================
@@ -1139,3 +1140,7 @@ gcamusa.DUST <- TRUE
 # MODEL_FUTURE_YEARS <- seq(2010, 2100, 5)  # normally seq(2015, 2100, 5)
 # MODEL_BASE_YEARS <- c(1975, 1990, 2005)   # normally (1975, 1990, 2005, 2010)
 # MODEL_YEARS <- c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)
+
+# Behavior and trends ======================================================================
+beh.min.fuelPriceElasticity = 0
+beh.max.fuelPriceElasticity = 1

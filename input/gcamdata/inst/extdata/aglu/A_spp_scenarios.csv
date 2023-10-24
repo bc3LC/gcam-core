@@ -1,0 +1,29 @@
+# File: A_spp_scenarios.csv
+# Title: Plant protein enhanced diet scenarios
+# Unit: Unitless
+# Description: scenario name and computation description of spp_f
+# ssp_i: share of plant protein consumption in 2015
+# ssp_f: share of plant protein consumption in 2050
+# Column types: cc
+# ----------
+scen_name,spp_f_computation
+x2,2*spp_i
+x3,3*spp_i
++5,spp_i+5
++10,spp_i+10
++15,spp_i+15
++20,spp_i+20
++25,spp_i+25
++35,spp_i+35
++40,spp_i+40
++45,spp_i+45
++50,spp_i+50
+all10,10
+all15,15
+all20,20
+all25,25
+all30,30
+all35,35
+all40,40
+all45,45
+all50,50
