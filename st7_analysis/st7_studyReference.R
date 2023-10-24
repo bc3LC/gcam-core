@@ -102,7 +102,7 @@ share_plant_data_reg = food_consumption_regional %>%
   filter(scenario %in% selected_scen) %>% rename_scen()
 
 tmp_share_plant_data_reg = share_plant_data_reg %>% filter(year == 2015)
-save(tmp_share_plant_data_reg, file = paste0(outputs_path, 'st7_studyReference_reference_values_plant_sahre_2015.csv'))
+write.csv(tmp_share_plant_data_reg, file = paste0(outputs_path, 'st7_studyReference_reference_values_plant_share_2015.csv'))
 rm(tmp_share_plant_data_reg)
 
 pl_protein_share_regional = ggplot(data = share_plant_data_reg %>%

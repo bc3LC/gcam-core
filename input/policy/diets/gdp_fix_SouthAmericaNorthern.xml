@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>        
+		<region name="South America_Northern">
+            <nationalAccountContainer>
+                <nationalAccount year="2020">
+                    <GDP>200478.0</GDP>
+                </nationalAccount>
+                <nationalAccount year="2025">
+                    <GDP>200478.0</GDP>
+                </nationalAccount>
+                <nationalAccount year="2030">
+                    <GDP>200478.0</GDP>
+                </nationalAccount>
+                <nationalAccount year="2035">
+                    <GDP>200478.0</GDP>
+                </nationalAccount>
+                <nationalAccount year="2040">
+                    <GDP>200478.0</GDP>
+                </nationalAccount>
+                <nationalAccount year="2045">
+                    <GDP>200478.0</GDP>
+                </nationalAccount>
+                <nationalAccount year="2050">
+                    <GDP>200478.0</GDP>
+                </nationalAccount>
+                <nationalAccount year="2055">
+                    <GDP>200478.0</GDP>
+                </nationalAccount>
+            </nationalAccountContainer>
+        </region>         
+    </world>
+</scenario>
