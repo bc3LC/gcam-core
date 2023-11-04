@@ -31,7 +31,8 @@ module_aglu_L125.LC_tot <- function(command, ...) {
       "L124.LC_bm2_R_Shrub_Yh_GLU_adj",
       "L124.LC_bm2_R_Grass_Yh_GLU_adj",
       "L124.LC_bm2_R_UnMgdPast_Yh_GLU_adj",
-      "L124.LC_bm2_R_UnMgdFor_Yh_GLU_adj")
+      "L124.LC_bm2_R_UnMgdFor_Yh_GLU_adj",
+      "L120.LC_bm2_R_LT_Yh_GLU")
 
   MODULE_OUTPUTS <-
     c("L125.LC_bm2_R",
@@ -74,8 +75,32 @@ module_aglu_L125.LC_tot <- function(command, ...) {
       summarise(value = sum(value)) ->                      # Adding up total land area by region, year, and GLU
       L125.LC_bm2_R_Yh_GLU
 
+    L125.LC_bm2_R_LT_Yh_GLU %>%
+      filter(year %in% MODEL_BASE_YEARS) %>%
+      #filter(year == 2015) %>% #distinct(Land_Type) %>%
+      group_by(year, GCAM_region_ID, GLU) %>%
+      summarize(AreaNew = sum(value)) %>% ungroup() %>%
+      left_join_error_no_match(
+        L120.LC_bm2_R_LT_Yh_GLU %>% #filter(year == 2015) %>% #distinct(Land_Type)
+          group_by(year, GCAM_region_ID, GLU) %>%
+          summarize(AreaOld = sum(value)) %>% ungroup(),
+        by = c("year", "GCAM_region_ID", "GLU")
+      ) %>%
+      mutate(Diff = abs(AreaNew - AreaOld), PercDiff = Diff / AreaOld * 100) ->
+      L125.LC_bm2_R_LT_Yh_GLU_Check
+
+    assertthat::assert_that(
+      # GLU level area diff < 0.1 and percent diff < 0.1%
+      L125.LC_bm2_R_LT_Yh_GLU_Check %>% distinct(Diff) %>% pull %>% max < 0.1 &
+        L125.LC_bm2_R_LT_Yh_GLU_Check %>% distinct(PercDiff) %>% pull %>% max < 0.1
+    )
+
+
     # It's necessary to make sure the Land Cover changing rates are within certain tolerances
     # We don't do this under timeshift because the tolerance check fails...and it's not clear if that means anything or not
+
+    # remove this check as it is not necessary and the total land check is added above
+      UNDER_TIMESHIFT = T
     if(!UNDER_TIMESHIFT) {
       L125.LC_bm2_R_Yh_GLU %>%
         filter(year %in% aglu.AGLU_HISTORICAL_YEARS) %>%
@@ -85,9 +110,9 @@ module_aglu_L125.LC_tot <- function(command, ...) {
         LC_check
 
       # Stop if the rate is outside of the tolerance boundaries
-      out <- abs(LC_check$change_rate - 1) > aglu.LAND_TOLERANCE
-      if(any(out, na.rm = TRUE)) {
-        print(na.omit(LC_check[out,]))
+      LC_check %>% filter(abs(change_rate - 1) > aglu.LAND_TOLERANCE) -> LC_check_out
+      if(nrow(LC_check_out) >0 ) {
+        print(na.omit(LC_check_out))
         stop("ERROR: Interannual fluctuation in global land cover exceeds tolerance threshold of ", aglu.LAND_TOLERANCE)
       }
     }

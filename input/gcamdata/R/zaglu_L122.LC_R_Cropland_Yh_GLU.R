@@ -66,6 +66,21 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
     # Load required inputs ----
     get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
 
+    # Goals
+    # Connecting harvested area (FAO) to cropland cover (HYDE)
+    # Providing data for OtherArableLand and HarvCropLand
+    # Technically speaking OtherArableLand + HarvCropLand = Cropland
+    # But when more cropland is needed  OtherArableLand + HarvCropLand = Cropland + ExtraCropLand
+    # ExtraCropLand is used later to move unmanaged land to cropland (module L124)
+
+    # We will also track perennial or annual crops to ensure harvest frequency makes sense
+
+    # Downscaling fallowland
+    # There are two sources of cropland: HYDE (gird) and FAO (arable land at country-level)
+    # Mostly okay in comparison at country-level
+    # So we will assume fallow land to cropland ratio (calculated per FAO at country-level) is the same across basins
+
+
 
     # Get harvested area ready ----
 
@@ -189,12 +204,10 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       select(GCAM_region_ID, FAOAnnualCHF) %>%
       mutate(FAOAnnualCHF = if_else(FAOAnnualCHF < 0, aglu.MAX_HA_TO_CROPLAND_Annual, FAOAnnualCHF),
              # Two regions had negative values Indonesia and Colombia, setting to max values
+             # Adding min & max
              FAOAnnualCHF = pmax(aglu.MIN_HA_TO_CROPLAND_Annual, FAOAnnualCHF),
              FAOAnnualCHF = pmin(aglu.MAX_HA_TO_CROPLAND_Annual, FAOAnnualCHF)) ->
       L122.FAO_AnnualCrop_CHF_R
-
-
-
 
 
     # Note that two regions GCAM_region_ID == 3 & GLU == "GLU087") | (GCAM_region_ID == 30 & GLU == "GLU078"
@@ -211,7 +224,7 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       # mutate(Cropland_min = Annual / aglu.MAX_HA_TO_CROPLAND_Annual + Perennial,
       #        Cropland_min = if_else( (GCAM_region_ID == 3 & GLU == "GLU087"), Annual / 1.6 + Perennial, Cropland_min))  %>%
 
-      # Update HarvCropLand_required which should not be smaller than Cropland_min to make sense fo CHF
+      # Update HarvCropLand_required which should not be smaller than Cropland_min to make sense for CHF
       # Calculate the harvested to cropped land ratio for all crops, by region, year, and GLU
       # applying minimum and maximum harvested:cropped ratios
       # Maximum harvested:cropped ratio may cause cropland to expand
@@ -252,29 +265,30 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
     # UnusedCropLand indeed explains such basin-level difference
 
 
-    L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_0 %>%
-      # filter relevant basins that will need adjustments
-      # when ExtraCropLand == 0 & UnusedCropLand == 0 no adjustment is needed and they will be bind back
-      filter(!(ExtraCropLand == 0 & UnusedCropLand == 0)) %>%
-      #filter(GCAM_region_ID %in% c(11), year == 2007) %>%
-      group_by(year, GCAM_region_ID) %>%
-      # Calculate the total areas for potential adjustments
-      # Need to consider CHF here for ExtraCropLand
-      mutate(totalUnused = sum(UnusedCropLand),
-             totalExtraNeeded = sum(ExtraCropLand * AnnualCropHarvestFrequency)) %>%
-      # Calculate shares
-      mutate(totalUnusedShare = UnusedCropLand / totalUnused,
-             totalExtraNeededShare = ExtraCropLand * AnnualCropHarvestFrequency / totalExtraNeeded) %>%
-      replace_na(list(totalUnusedShare = 0,
-                      totalExtraNeededShare = 0)) %>%
-      # min of (totalUnused, totalExtraNeeded) will be adjusted/moved
-      # total MoveIn = total MoveOut
-      mutate(MoveIn = totalUnusedShare * pmin(totalUnused, totalExtraNeeded),
-             MoveOut = totalExtraNeededShare * pmin(totalUnused, totalExtraNeeded),
-             AnnualMoveOutShare = MoveOut / Annual,
-             AnnualMoveInShare = MoveIn / Annual) %>%
-      ungroup() ->
-      L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_1
+     L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_0 %>%
+       # filter relevant basins that will need adjustments
+       # when ExtraCropLand == 0 & UnusedCropLand == 0 no adjustment is needed and they will be bind back
+       filter(!(ExtraCropLand == 0 & UnusedCropLand == 0)) %>%
+       mutate(ExtraAnnualHA = ExtraCropLand * AnnualCropHarvestFrequency) %>%
+       group_by(year, GCAM_region_ID) %>%
+       # Calculate the total areas for potential adjustments
+       # Need to consider CHF here for ExtraCropLand
+       mutate(totalUnused = sum(UnusedCropLand),
+              totalExtraNeeded = sum(ExtraAnnualHA)) %>%
+       # Calculate shares
+       mutate(totalUnusedShare = UnusedCropLand / totalUnused,
+              totalExtraNeededShare = ExtraAnnualHA / totalExtraNeeded) %>%
+       replace_na(list(totalUnusedShare = 0,
+                       totalExtraNeededShare = 0)) %>%
+       # min of (totalUnused, totalExtraNeeded) will be adjusted/moved
+       # total MoveIn = total MoveOut in harvested area
+       mutate(MoveIn = totalUnusedShare * pmin(totalUnused, totalExtraNeeded),
+              MoveOut = totalExtraNeededShare * pmin(totalUnused, totalExtraNeeded),
+              MoveOutCover = MoveOut / AnnualCropHarvestFrequency,
+              AnnualMoveOutShare = MoveOut / Annual,
+              AnnualMoveInShare = MoveIn / Annual) %>%
+       ungroup() ->
+       L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_1
 
     # Adding a check which should have no concern
     assertthat::assert_that(L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_1 %>%
@@ -286,13 +300,13 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       mutate(Annual = Annual + MoveIn - MoveOut,
              # update key land covers
              UnusedCropLand0 = UnusedCropLand - MoveIn,
-             ExtraCropLand0 = ExtraCropLand - MoveOut,
+             ExtraCropLand0 = ExtraCropLand - MoveOutCover,
              HarvCropLand = Annual / AnnualCropHarvestFrequency + Perennial,
              UnusedCropLand = pmax(0, AvailCropland - HarvCropLand),
              ExtraCropLand = pmax(0, HarvCropLand - AvailCropland),
              OtherArableLand = FallowLand + UnusedCropLand) %>%
       select(names(L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_0) %>%
-               c("AnnualMoveOutShare", "AnnualMoveInShare") )->
+               c("MoveOut", "MoveIn") )->
       L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_2
 
     # Bind basins didn't need the adjustments
@@ -300,31 +314,214 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       bind_rows(
       L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others_adj_0 %>%
         filter((ExtraCropLand == 0 & UnusedCropLand == 0)) %>%
-        mutate(AnnualMoveOutShare = 0, AnnualMoveInShare = 0)) ->
+        mutate(MoveOut = 0, MoveIn = 0)) ->
     L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others
 
 
     ## update crop level area here ----
+
+    # Get an indicator to filter relevant data that need adjustments
+    L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others %>%
+      select(GCAM_region_ID, GLU, year, MoveOut, MoveIn) %>%
+      mutate(Move = if_else(MoveOut >0, "Out", if_else(MoveIn >0, "In", "None"))) %>%
+      distinct(GCAM_region_ID, GLU, year, Move, MoveOut, MoveIn) %>%
+      mutate(value = if_else(MoveOut >0, -MoveOut, MoveIn))->
+      MoveIndicator
+
+    # Get data ready in a format for adjustments
     L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj %>%
       mutate(type = if_else(grepl(Perennial_Identifier, GCAM_subsector),
                             "Perennial", "Annual")) %>%
       filter(type == "Annual") %>%
-      left_join_error_no_match(
-        L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others %>%
-          select(GCAM_region_ID, GLU, year, AnnualMoveOutShare, AnnualMoveInShare) %>%
-          mutate(type = "Annual"),
-        by = c("GCAM_region_ID", "GLU", "year", "type")
-      ) %>%
-      # Make the move at the crop level
-      mutate(value = value * (1 - AnnualMoveOutShare) * (1 + AnnualMoveInShare)) %>%
-      # bind Perennial back
+      select(-GCAM_commodity, -type) ->
+      ag_HA_bm2_Annual_R_C_Y_GLU0
+
+
+    ag_HA_bm2_Annual_R_C_Y_GLU0 %>%
+      # Bind target GLU Total values by adding a new GLU: zGLUTotalTarget
+      # Area per crop should in a region should be maintained/targeted
       bind_rows(
-        L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj %>%
-          mutate(type = if_else(grepl(Perennial_Identifier, GCAM_subsector),
-                                "Perennial", "Annual")) %>%
-          filter(type == "Perennial")
+        ag_HA_bm2_Annual_R_C_Y_GLU0 %>%
+          dplyr::group_by_at(vars(-GLU, -value)) %>%
+          summarize(zGLUTotalTarget = sum(value)) %>%
+          ungroup() %>% gather(GLU, value, "zGLUTotalTarget")
       ) %>%
-      select(names(L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj)) ->
+      # Bind target Crop Total values by adding a new sector: zCropTotalTarget
+      # This is after the moves
+      # Total area per GLU should be maintained/targeted
+      bind_rows(
+        ag_HA_bm2_Annual_R_C_Y_GLU0 %>%
+          dplyr::group_by_at(vars(-GCAM_subsector, -value)) %>%
+          summarize(zCropTotal = sum(value)) %>%
+          ungroup() %>%
+          # join the moves
+          left_join_error_no_match(
+            MoveIndicator %>%
+              select(GCAM_region_ID, GLU, year, zMove = value),
+            by = c("GCAM_region_ID", "GLU", "year")
+          ) %>%
+          mutate(zCropTotalTarget = zCropTotal + zMove) %>%
+          select(-zMove, -zCropTotal) %>%
+          gather(GCAM_subsector, value, zCropTotalTarget)
+      ) ->
+      ag_HA_bm2_Annual_R_C_Y_GLU_WithTargets
+
+
+
+    # Helper function to quickly add row sum to a df
+
+    AddRowSum <- function(.df,
+                          .Rows = NULL,
+                          .Cols = NULL,
+                          .TotalColName = NULL,
+                          .TargetColName = NULL,
+                          .TargetRowName = NULL,
+                          .GroupVar = NULL,
+                          .ReturnMAE = FALSE){
+      .df %>%
+        spread(get(.Cols), value, fill = 0) -> .df1
+
+      .df1 %>%
+        left_join_error_no_match(
+          .df1 %>%
+            gather(RowName, value, -c(.GroupVar, .Rows)) %>%
+            filter(!RowName %in% .TargetColName) %>%
+            dplyr::group_by_at(vars(-RowName, -value)) %>%
+            summarize(!!.TotalColName := sum(value), .groups = "drop") %>%
+            ungroup(), by = c(.GroupVar, .Rows)
+        ) -> df2
+
+      if (.ReturnMAE == TRUE) {
+        df2 %>% filter(!get(.Rows) %in% .TargetRowName) %>%
+          dplyr::group_by_at(dplyr::all_of(.GroupVar)) %>%
+          summarize(MAE = mean(abs(get(.TargetColName) - get(.TotalColName))),
+                    .groups = "drop") -> MAE
+        return(MAE)
+      } else{
+        return(df2)
+      }
+    }
+
+
+    ApplyRowScaler <- function(.df,
+                               .Rows = NULL,
+                               .Cols = NULL,
+                               .TotalColName = NULL,
+                               .TargetColName = NULL,
+                               .TargetRowName = NULL,
+                               .GroupVar = NULL){
+      .df %>%
+        mutate(zScaler = if_else(get(.TotalColName) == 0, 1, get(.TargetColName) / get(.TotalColName)))  %>%
+        gather(RowName, value, -c(dplyr::all_of(.GroupVar), dplyr::all_of(.Rows), "zScaler")) %>%
+        filter(!RowName %in% .TotalColName) %>%
+        # keep target unchanged
+        mutate(zScaler = if_else(RowName == .TargetColName| get(.Rows) == .TargetRowName , 1, zScaler)) %>%
+        mutate(value = value * zScaler) %>% select(-zScaler) %>%
+        rename(!!.Cols := RowName)
+    }
+
+    # df is a table in long form with TargetColName and TargetRowName defined
+
+    ReBalanceMatrix <- function(df,
+                                Rows = "GLU",
+                                Cols = "GCAM_subsector",
+                                TotalColName = "zCropTotal",
+                                TotalRowName = "zGLUTotal",
+                                TargetColName = "zCropTotalTarget",
+                                TargetRowName = "zGLUTotalTarget",
+                                GroupVar = NULL ){
+
+      # Adjust columns to match Col targets
+      df %>%
+        AddRowSum(.Cols = Cols,
+                  .Rows = Rows,
+                  .TotalColName = TotalColName,
+                  .TargetColName = TargetColName,
+                  .TargetRowName = TargetRowName,
+                  .GroupVar = GroupVar ) %>%
+        ApplyRowScaler(.Rows = Rows,
+                       .Cols = Cols,
+                       .TotalColName = TotalColName,
+                       .TargetColName = TargetColName,
+                       .TargetRowName = TargetRowName,
+                       .GroupVar = GroupVar) -> df1
+
+      # Adjust rows to match Row targets
+      df1 %>%
+        AddRowSum(.Cols = Rows,
+                  .Rows = Cols,
+                  .TotalColName = TotalRowName,
+                  .TargetColName = TargetRowName,
+                  .TargetRowName= TargetColName,
+                  .GroupVar = GroupVar ) %>%
+        ApplyRowScaler(.Rows = Cols,
+                       .Cols = Rows,
+                       .TotalColName = TotalRowName,
+                       .TargetColName = TargetRowName,
+                       .TargetRowName = TargetColName,
+                       .GroupVar = GroupVar ) -> df2
+
+      return(df2)
+    }
+
+    ReCur_ReBalanceMatrix <- function(.df, .MAE_Target = 0.001){
+
+
+      .df %>%
+        AddRowSum(.Rows = "GLU",
+                  .Cols = "GCAM_subsector",
+                  .TotalColName = "zCropTotal",
+                  .TargetColName = "zCropTotalTarget",
+                  .TargetRowName = "zGLUTotalTarget",
+                  .ReturnMAE = TRUE) %>% pull(MAE) -> MAE
+      # If print the MAE-minimizing process
+      #print(MAE)
+
+      if (MAE > .MAE_Target) {
+
+        # Rebalance
+        .df %>% ReBalanceMatrix -> .df_ReBal
+
+        # Recursive here to evaluate in the next loop
+        ReCur_ReBalanceMatrix(.df_ReBal, .MAE_Target = .MAE_Target)
+
+      } else{
+
+        return(.df)
+      }
+
+    }
+
+    start_time <- Sys.time()
+
+    # Note that adjustments are only made for base years!
+    ag_HA_bm2_Annual_R_C_Y_GLU_WithTargets %>%
+      filter(year %in% MODEL_BASE_YEARS) %>%
+      dplyr::nest_by(year, GCAM_region_ID) %>%
+      mutate(data = ReCur_ReBalanceMatrix(data, .MAE_Target = 0.001) %>% list) %>%
+      tidyr::unnest(cols = data) %>% ungroup() ->
+      L101.ag_HA_bm2_R_C_Y_GLU
+
+    end_time <- Sys.time()
+    print(end_time - start_time)
+
+    assertthat::assert_that(
+      # in the spread for matrix, fill = 0 was used so there could be zeros
+      L101.ag_HA_bm2_R_C_Y_GLU %>% ungroup() %>%
+        filter(GLU != "zGLUTotalTarget", GCAM_subsector != "zCropTotalTarget") %>%
+        #select(-updated) %>%
+        anti_join(L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj %>% select(-value),
+                  by = c("year", "GCAM_region_ID", "GCAM_subsector", "GLU")) %>%
+        distinct(value) %>% pull() == 0
+    )
+
+
+    L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj %>%
+      rename(value_old = value) %>%
+      left_join(L101.ag_HA_bm2_R_C_Y_GLU %>% ungroup(),
+                by = c("GCAM_region_ID", "GCAM_subsector", "GLU", "year")) %>%
+      mutate(value = if_else(is.na(value), value_old, value)) %>%
+      select(-value_old) ->
       L101.ag_HA_bm2_R_C_Y_GLU
 
 
@@ -339,27 +536,28 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
 
 
     ## update crop level production here ----
-    L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj %>%
-      mutate(type = if_else(grepl(Perennial_Identifier, GCAM_subsector),
-                            "Perennial", "Annual")) %>%
-      filter(type == "Annual") %>%
+
+    L101.ag_HA_bm2_R_C_Y_GLU_BeforeAdj %>%
+      rename(HABeforeAdj = value) %>%
       left_join_error_no_match(
-        L122.ag_HA_bm2_R_Y_GLU_HarvCropLand_Others %>%
-          select(GCAM_region_ID, GLU, year, AnnualMoveOutShare, AnnualMoveInShare) %>%
-          mutate(type = "Annual"),
-        by = c("GCAM_region_ID", "GLU", "year", "type")
+        L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj %>% rename(ProdBeforeAdj = value),
+        by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU", "year")
       ) %>%
-      # Make the move at the crop level
-      mutate(value = value * (1 - AnnualMoveOutShare) * (1 + AnnualMoveInShare)) %>%
-      # bind Perennial back
-      bind_rows(
-        L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj %>%
-          mutate(type = if_else(grepl(Perennial_Identifier, GCAM_subsector),
-                                "Perennial", "Annual")) %>%
-          filter(type == "Perennial")
-      ) %>%
-      select(names(L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj)) ->
+      mutate(YieldBeforeAdj = if_else(HABeforeAdj == 0, 0, ProdBeforeAdj / HABeforeAdj)) %>%
+      select(-HABeforeAdj) %>%
+      left_join_error_no_match(L101.ag_HA_bm2_R_C_Y_GLU %>% rename(HA = value),
+                               by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU", "year")) %>%
+      mutate(Prod = HA * YieldBeforeAdj) %>%
+      # Need to ensure regional total production is not affected
+      # And relative yield relationship is maintained
+      group_by(GCAM_region_ID, GCAM_commodity, GCAM_subsector, year) %>%
+      mutate(ProdReg = sum(ProdBeforeAdj), ProdRegToScale = sum(Prod),
+             value = Prod * ProdReg / ProdRegToScale) %>%
+      replace_na(list(value = 0)) %>%
+      ungroup() %>%
+      select(names(L101.ag_Prod_Mt_R_C_Y_GLU_BeforeAdj))->
       L101.ag_Prod_Mt_R_C_Y_GLU
+
 
     # Also write out the production volumes without basin-level detail, or subsector differentiation (i.e. by region, crop, year)
     ##* L101.ag_Prod_Mt_R_C_Y ----
@@ -368,7 +566,7 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
       summarise(value = sum(value)) %>%
       ungroup() %>%
       complete(GCAM_region_ID = unique(iso_GCAM_regID$GCAM_region_ID),
-               GCAM_commodity, year, fill = list(value = 0))  ->                                                # Fill in missing region/commodity combinations with 0
+               GCAM_commodity, year, fill = list(value = 0))  ->
       L101.ag_Prod_Mt_R_C_Y
 
 
