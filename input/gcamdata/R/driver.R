@@ -646,6 +646,7 @@ driver_drake <- function(
     chunks_to_run <- c(unfound_inputs$input, chunklist$name)
    }
   dir.create(xmldir, showWarnings = FALSE, recursive = TRUE)
+  dir.create(policyxmldir, showWarnings = FALSE, recursive = TRUE)
 
   # Loop over each chunk and add a target for it and the command to build it
   # as appropriate for if it is just loading a FILE or running an actual chunk.
