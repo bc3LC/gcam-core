@@ -38,7 +38,7 @@ module_policy_L310.resource_subsidy <- function(command, ...) {
     A_resource_subsidy <- get_data(all_data, "policy/A_resource_subsidy") %>%
       mutate(xml = if_else(grepl(".xml", xml), xml, paste0(xml, ".xml")))
 
-    # Set resource basic info ------------------
+    # 1. Set resource basic info ------------------
     L310.RenewRsrc <- A_resource_subsidy %>%
       mutate(market = region,
              price.unit = "1975$/GJ") %>%
@@ -112,7 +112,8 @@ module_policy_L310.resource_subsidy <- function(command, ...) {
       left_join(distinct(A_resource_subsidy, xml, region, supplysector, tranSubsector = subsector, tech.to.copy, new.tech.name),
                 by = c("region", "supplysector", "tranSubsector", "stub.technology" = "tech.to.copy")) %>%
       mutate(stub.technology = new.tech.name,
-             calibrated.value = 0) %>%
+             calibrated.value = 0,
+             tech.share.weight = 0) %>%
       select(-new.tech.name)
 
     L310.StubTranTechShwtFuture <- L310.StubTranTechCalInput %>%
