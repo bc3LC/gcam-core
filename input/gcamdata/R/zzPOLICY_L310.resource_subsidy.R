@@ -41,7 +41,9 @@ module_policy_L310.resource_subsidy <- function(command, ...) {
              "L310.FuelPrefElast_bld",
              "L310.StubTech_bld",
              "L310.StubTechEff_bld",
+             "L310.StubTechCoef_bld",
              "L310.StubTechCalInputNoShrwt_bld",
+             "L310.StubTechShrwt_bld",
              "L310.StubTechIntGainOutputRatio"))
   } else if(command == driver.MAKE) {
 
@@ -201,10 +203,10 @@ module_policy_L310.resource_subsidy <- function(command, ...) {
 
     # Stubtech info
     L310.SubsectorShrwt <- subsector.to.copy %>%
-      select(xml, region, supplysector, subsector, subsidy.year = year) %>%
-      repeat_add_columns(tibble(year = MODEL_YEARS)) %>%
-      mutate(share.weight = if_else(year == subsidy.year, 1, 0)) %>%
-      select(-subsidy.year) %>%
+      select(xml, region, supplysector, subsector, year) %>%
+      mutate(share.weight = 1) %>%
+      complete(nesting(xml, region, supplysector, subsector), year = MODEL_YEARS) %>%
+      replace_na(list(share.weight = 0)) %>%
       # don't want to change subsector shareweight if subsector already exists
       anti_join(get_data(all_data, "L244.SubsectorShrwtFllt_bld"), by = c("region", "supplysector", "subsector"))
 
@@ -224,23 +226,27 @@ module_policy_L310.resource_subsidy <- function(command, ...) {
     L310.StubTechEff_bld <- get_data(all_data, "L244.StubTechEff_bld") %>%
       semi_join(subsector.to.copy, by = c("region", "supplysector", "subsector" = "subs.to.copy")) %>%
       left_join(subsector.to.copy, by = c("region", "supplysector", "subsector" = "subs.to.copy")) %>%
-      select(region, supplysector, subsector = subsector.y, stub.technology = new.tech.name, year = year.x,
+      select(xml, region, supplysector, subsector = subsector.y, stub.technology = new.tech.name, year = year.x,
              minicam.energy.input, efficiency, market.name) %>%
       filter(!grepl("EE", stub.technology))
 
     # add in the subsidy cost
-    L310.StubTechEff_bld_subsidy <- subsector.to.copy %>%
+    L310.StubTechCoef_bld <- subsector.to.copy %>%
       select(xml, region, supplysector, subsector, stub.technology = new.tech.name,
-             minicam.energy.input = subsidy.name, efficiency = coefficient) %>%
+             minicam.energy.input = subsidy.name, coefficient) %>%
       mutate(market.name = region) %>%
       repeat_add_columns(tibble(year = MODEL_YEARS))
-
-    L310.StubTechEff_bld <- bind_rows(L310.StubTechEff_bld, L310.StubTechEff_bld_subsidy)
 
     L310.StubTechCalInputNoShrwt_bld <- L310.StubTechEff_bld %>%
       mutate(calibrated.value = 0) %>%
       filter(year %in% MODEL_BASE_YEARS) %>%
       select(-market.name, -efficiency)
+
+    L310.StubTechShrwt_bld <- subsector.to.copy %>%
+      select(xml, region, supplysector, subsector, stub.technology = new.tech.name, share.weight = shareweight, subsidy.year = year) %>%
+      repeat_add_columns(tibble(year = MODEL_YEARS)) %>%
+      mutate(share.weight = if_else(year == subsidy.year, 1, 0)) %>%
+      select(-subsidy.year)
 
     # Only relevant for other techs
     L310.StubTechIntGainOutputRatio <- get_data(all_data, "L244.StubTechIntGainOutputRatio") %>%
@@ -375,18 +381,30 @@ module_policy_L310.resource_subsidy <- function(command, ...) {
       add_precursors("policy/A_resource_subsidy") ->
       L310.StubTechEff_bld
 
+    L310.StubTechCoef_bld %>%
+      add_title("L310.StubTechCoef_bld", overwrite = T) %>%
+      add_units("Unitless") %>%
+      add_precursors("policy/A_resource_subsidy") ->
+      L310.StubTechCoef_bld
+
     L310.StubTechCalInputNoShrwt_bld %>%
       add_title("L310.StubTechCalInputNoShrwt_bld", overwrite = T) %>%
       add_units("Unitless") %>%
       add_precursors("policy/A_resource_subsidy") ->
       L310.StubTechCalInputNoShrwt_bld
 
+    L310.StubTechShrwt_bld %>%
+      add_title("L310.StubTechShrwt_bld", overwrite = T) %>%
+      add_units("Unitless") %>%
+      add_precursors("policy/A_resource_subsidy") ->
+      L310.StubTechShrwt_bld
+
+
     L310.StubTechIntGainOutputRatio %>%
       add_title("L310.StubTechIntGainOutputRatio", overwrite = T) %>%
       add_units("Unitless") %>%
       add_precursors("policy/A_resource_subsidy") ->
       L310.StubTechIntGainOutputRatio
-
 
 
     return_data(L310.RenewRsrc, L310.RenewRsrcPrice,
@@ -409,7 +427,9 @@ module_policy_L310.resource_subsidy <- function(command, ...) {
                 L310.FuelPrefElast_bld,
                 L310.StubTech_bld,
                 L310.StubTechEff_bld,
+                L310.StubTechCoef_bld,
                 L310.StubTechCalInputNoShrwt_bld,
+                L310.StubTechShrwt_bld,
                 L310.StubTechIntGainOutputRatio)
   } else {
     stop("Unknown command")

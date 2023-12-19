@@ -33,7 +33,9 @@ module_policy_resource_subsidy_xml <- function(command, ...) {
                    "L310.FuelPrefElast_bld",
                    "L310.StubTech_bld",
                    "L310.StubTechEff_bld",
+                   "L310.StubTechCoef_bld",
                    "L310.StubTechCalInputNoShrwt_bld",
+                   "L310.StubTechShrwt_bld",
                    "L310.StubTechIntGainOutputRatio")
   if(command == driver.DECLARE_INPUTS) {
     return(INPUT_NAMES)
@@ -133,7 +135,15 @@ module_policy_resource_subsidy_xml <- function(command, ...) {
         filter(xml == xml_name) %>%
         select(-xml)
 
+      L310.StubTechCoef_bld_tmp <- L310.StubTechCoef_bld %>%
+        filter(xml == xml_name) %>%
+        select(-xml)
+
       L310.StubTechCalInputNoShrwt_bld_tmp <- L310.StubTechCalInputNoShrwt_bld %>%
+        filter(xml == xml_name) %>%
+        select(-xml)
+
+      L310.StubTechShrwt_bld_tmp <- L310.StubTechShrwt_bld %>%
         filter(xml == xml_name) %>%
         select(-xml)
 
@@ -164,7 +174,9 @@ module_policy_resource_subsidy_xml <- function(command, ...) {
                add_xml_data(L310.FuelPrefElast_bld_tmp, "FuelPrefElast") %>%
                add_xml_data(L310.StubTech_bld_tmp, "StubTech") %>%
                add_xml_data(L310.StubTechEff_bld_tmp, "StubTechEff") %>%
+               add_xml_data(L310.StubTechCoef_bld_tmp, "StubTechCoef") %>%
                add_xml_data(L310.StubTechCalInputNoShrwt_bld_tmp, "StubTechCalInputNoShrwt") %>%
+               add_xml_data(L310.StubTechShrwt_bld_tmp, "StubTechShrwt") %>%
                add_xml_data(L310.StubTechIntGainOutputRatio_tmp, "StubTechIntGainOutputRatio") %>%
                add_xml_data(L310.GlobalTechShrwt_bld_tmp, "GlobalTechShrwt") %>%
                add_node_equiv_xml("input") %>%
@@ -191,7 +203,9 @@ module_policy_resource_subsidy_xml <- function(command, ...) {
                               "L310.FuelPrefElast_bld",
                               "L310.StubTech_bld",
                               "L310.StubTechEff_bld",
+                              "L310.StubTechCoef_bld",
                               "L310.StubTechCalInputNoShrwt_bld",
+                              "L310.StubTechShrwt_bld",
                               "L310.StubTechIntGainOutputRatio"))
 
     }
