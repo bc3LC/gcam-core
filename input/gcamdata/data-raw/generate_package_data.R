@@ -238,6 +238,7 @@ generate_level2_data_names <- function() {
   level2_data_names[["StubTechCalorieContent"]] <- c(level2_data_names[["StubTechEff"]])
   level2_data_names[["StubTechProd"]] <- c(level2_data_names[["StubTechYr"]], "calOutputValue", "share.weight.year", "subs.share.weight", "tech.share.weight")
   level2_data_names[["StubTechCalInput"]] <- c(level2_data_names[["StubTechYr"]], "minicam.energy.input", "calibrated.value", "share.weight.year", "subs.share.weight", "tech.share.weight")
+  level2_data_names[["StubTechCalInputNoShrwt"]] <- c(level2_data_names[["StubTechYr"]], "minicam.energy.input", "calibrated.value")
   level2_data_names[["StubTechCapital"]] <- c(level2_data_names[["StubTechYr"]], "input.capital", "capital.overnight", "fixed.charge.rate")
   level2_data_names[["StubTechFCR"]] <- c(level2_data_names[["StubTechYr"]], "input.capital", "fixed.charge.rate")
   level2_data_names[["StubTechOMfixed"]] <- c(level2_data_names[["StubTechYr"]], "input.OM.fixed", "OM.fixed")
