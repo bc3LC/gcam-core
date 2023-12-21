@@ -1,8 +1,11 @@
-# File: A_resource_subsidy.csv,,,,,,,,,,,,
-# Title: Create new resource to implement subsidy,,,,,,,,,,,,
-# Units: Varies,,,,,,,,,,,,
-# Column types: ccccninnccccn,,,,,,,,,,,,
-# ----------,,,,,,,,,,,,
-xml,region,subsidy.name,output.unit,maxSubResource,year,shareweight,non.energy.input.cost,supplysector,subsector,new.tech.name,tech.to.copy,coefficient
-policy_subsidy_BEV_India.xml,India,subsidy2025,1990$,8000000000,2025,0.5,0.14,trn_pass_road_LDV_4W,Car,BEV-subsidy_2025,BEV,8104271
-policy_subsidy_BEV_India.xml,India,subsidy2030,1990$,4000000000,2030,0.924142,0.13,trn_pass_road_LDV_4W,Car,BEV-subsidy_2030,BEV,8104271
+# File: A_resource_subsidy.csv,,,,,,,,,,,,,
+# Title: Create new resource to implement subsidy,,,,,,,,,,,,,
+# Units: Varies,,,,,,,,,,,,,
+# Column types: ccccninnccccnn,,,,,,,,,,,,,
+# ----------,,,,,,,,,,,,,
+xml,region,subsidy.name,output.unit,maxSubResource,year,shareweight,non.energy.input.cost,supplysector,subsector,new.tech.name,tech.to.copy,coefficient,lifetime
+policy_subsidy_BEV_India.xml,India,subsidy2025,1990$,8000000000,2025,0.5,0.14,trn_pass_road_LDV_4W,Car,BEV-subsidy_2025,BEV,8104271,
+policy_subsidy_BEV_India.xml,India,subsidy2030,1990$,4000000000,2030,0.924142,0.13,trn_pass_road_LDV_4W,Car,BEV-subsidy_2030,BEV,8104271,
+policy_subsidy_BEV_India.xml,India,subsidy2025,1990$,8000000000,2025,0.5,0.14,trn_pass_road_LDV_4W,Large Car and Truck,BEV-subsidy_2025,BEV,8104271,
+policy_subsidy_bld_EU15.xml,EU-15,subsidy2025,1990$,1.00E+06,2025,1,0,resid heating,EE,EE-subsidy_2025,electricity,1000,30
+policy_subsidy_bld_EU15.xml,EU-15,subsidy2030,1990$,2.00E+06,2030,1,0,resid heating,EE,EE-subsidy_2030,electricity,2000,30

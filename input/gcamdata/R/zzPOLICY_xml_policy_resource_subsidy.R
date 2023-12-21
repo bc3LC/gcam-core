@@ -32,6 +32,7 @@ module_policy_resource_subsidy_xml <- function(command, ...) {
                    "L310.SubsectorLogit_bld",
                    "L310.FuelPrefElast_bld",
                    "L310.StubTech_bld",
+                   "L310.StubTechLifetime_bld",
                    "L310.StubTechEff_bld",
                    "L310.StubTechCoef_bld",
                    "L310.StubTechCalInputNoShrwt_bld",
@@ -131,6 +132,12 @@ module_policy_resource_subsidy_xml <- function(command, ...) {
         filter(xml == xml_name) %>%
         select(-xml)
 
+
+      L310.StubTechLifetime_bld_tmp <- L310.StubTechLifetime_bld %>%
+        filter(xml == xml_name) %>%
+        select(-xml)
+
+
       L310.StubTechEff_bld_tmp <- L310.StubTechEff_bld %>%
         filter(xml == xml_name) %>%
         select(-xml)
@@ -178,6 +185,7 @@ module_policy_resource_subsidy_xml <- function(command, ...) {
                add_xml_data(L310.StubTechCalInputNoShrwt_bld_tmp, "StubTechCalInputNoShrwt") %>%
                add_xml_data(L310.StubTechShrwt_bld_tmp, "StubTechShrwt") %>%
                add_xml_data(L310.StubTechIntGainOutputRatio_tmp, "StubTechIntGainOutputRatio") %>%
+               add_xml_data(L310.StubTechLifetime_bld_tmp, "StubTechLifetime") %>%
                add_xml_data(L310.GlobalTechShrwt_bld_tmp, "GlobalTechShrwt") %>%
                add_node_equiv_xml("input") %>%
                add_xml_data(L310.GlobalTechTrackCapital_bld_tmp, "GlobalTechTrackCapital") %>%
@@ -202,6 +210,7 @@ module_policy_resource_subsidy_xml <- function(command, ...) {
                               "L310.SubsectorLogit_bld",
                               "L310.FuelPrefElast_bld",
                               "L310.StubTech_bld",
+                              "L310.StubTechLifetime_bld",
                               "L310.StubTechEff_bld",
                               "L310.StubTechCoef_bld",
                               "L310.StubTechCalInputNoShrwt_bld",
