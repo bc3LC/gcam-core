@@ -229,6 +229,7 @@ module_policy_L310.resource_subsidy <- function(command, ...) {
 
     L310.StubTechLifetime_bld <- subsector.to.copy %>%
       select(xml, region, supplysector, subsector, stub.technology = new.tech.name, lifetime) %>%
+      filter(!is.na(lifetime)) %>%
       repeat_add_columns(tibble(year = MODEL_YEARS))
 
     L310.StubTechEff_bld <- get_data(all_data, "L244.StubTechEff_bld") %>%
