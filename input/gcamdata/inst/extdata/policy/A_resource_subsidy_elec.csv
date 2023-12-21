@@ -1,0 +1,10 @@
+# File: A_resource_subsidy_elec.csv,,,,,,,,,,,,
+# Title: Create new resource to implement subsidy in the electricity sector,,,,,,,,,,,,
+# Units: Varies,,,,,,,,,,,,
+# Column types: ccccninnccccn,,,,,,,,,,,,
+# ----------,,,,,,,,,,,,
+xml,region,subsidy.name,output.unit,maxSubResource,year,shareweight,capital-overnight,supplysector,subsector,new.tech.name,tech.to.copy,coefficient
+policy_subsidy_elec_USA.xml,USA,subsidy2025,1990$,1.00E+06,2025,0.5,200,electricity,solar,PV_subsidy_2025,PV,10000
+policy_subsidy_elec_USA.xml,USA,subsidy2030,1990$,2.00E+06,2030,1,150,electricity,solar,PV_subsidy_2030,PV,20000
+policy_subsidy_elec_USA.xml,USA,subsidy2025,1990$,1.00E+06,2025,0.5,200,electricity,wind,wind_subsidy2025,wind,10000
+policy_subsidy_elec_USA.xml,USA,subsidy2030,1990$,2.00E+06,2030,1,150,electricity,wind,wind_subsidy2030,wind,20000
