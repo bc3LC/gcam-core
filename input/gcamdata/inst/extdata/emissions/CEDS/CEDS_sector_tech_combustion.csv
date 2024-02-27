@@ -95,8 +95,8 @@ resid heating,traditional biomass,traditional biomass,bld_resid,biomass
 resid others,traditional biomass,traditional biomass,bld_resid,biomass
 trn_pass_road_LDV_2W,Motorcycle (50-250cc),Liquids,LDV_2W,refined liquids
 trn_freight_road,Truck,Liquids,Truck,refined liquids
-agricultural energy use,mobile,refined liquids,agricultural energy use,refined liquids
-agricultural energy use,stationary,refined liquids,agricultural energy use,refined liquids
+agricultural energy use,mobile,refined liquids agr,agricultural energy use,refined liquids
+agricultural energy use,stationary,refined liquids agr,agricultural energy use,refined liquids
 agricultural energy use,stationary,gas,agricultural energy use,gas
 agricultural energy use,stationary,biomass,agricultural energy use,biomass
 agricultural energy use,stationary,coal,agricultural energy use,coal

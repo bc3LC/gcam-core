@@ -230,8 +230,8 @@ agricultural energy use,stationary,district heat,,,,,,
 agricultural energy use,stationary,electricity,,,,,,
 agricultural energy use,stationary,gas,3.5,3.5,3.5,3.5,3.5,3.5
 agricultural energy use,stationary,gas cogen,,,,,,
-agricultural energy use,mobile,refined liquids,3.5,3.5,3.5,3.5,3.5,3.5
-agricultural energy use,stationary,refined liquids,3.5,3.5,3.5,3.5,3.5,3.5
+agricultural energy use,mobile,refined liquids agr,3.5,3.5,3.5,3.5,3.5,3.5
+agricultural energy use,stationary,refined liquids agr,3.5,3.5,3.5,3.5,3.5,3.5
 agricultural energy use,stationary,refined liquids cogen,,,,,,
 mining energy use,stationary,biomass,3.5,3.5,3.5,3.5,3.5,3.5
 mining energy use,stationary,biomass cogen,,,,,,

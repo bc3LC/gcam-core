@@ -19,7 +19,10 @@ crude oil,refined liquids
 regional oil,refined liquids
 refining,refined liquids
 refined liquids industrial,refined liquids
-refined liquids enduse,refined liquids
+refined liquids buildings,refined liquids
+refined liquids agr,refined liquids
+refined liquids transport,refined liquids
+refined liquids bunkers,refined liquids
 unconventional oil upscaling,refined liquids
 delivered coal industry,coal
 refined liquids feedstocks,refined liquids

@@ -6,6 +6,8 @@
 # ----------
 supplysector,output.unit,input.unit,price.unit,logit.exponent,traded,logit.type
 regional biomass,EJ,EJ,1975$/GJ,-3,0,
+regional biomass energy sector,EJ,EJ,1975$/GJ,-3,0,
+regional biomass liquids,EJ,EJ,1975$/GJ,-3,0,
 regional corn for ethanol,EJ,EJ,1975$/GJ,-3,0,
 regional sugar for ethanol,EJ,EJ,1975$/GJ,-3,0,
 regional biomassOil,EJ,EJ,1975$/GJ,-3,0,
