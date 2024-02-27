@@ -6,7 +6,7 @@
 # ----------
 minicam.energy.input,fuel
 regional biomass,biomass
-delivered biomass,biomass
+delivered biomass buildings,biomass
 regional biomassOil,biomass oil
 regional coal,coal
 delivered coal,coal
@@ -20,6 +20,7 @@ delivered gas,gas
 regional oil,oil
 regional sugar for ethanol,sugar
 regional sugarbeet for ethanol,sugarbeet
-refined liquids enduse,refined liquids
+refined liquids buildings,refined liquids
+refined liquids agr,refined liquids
 refined liquids industrial,refined liquids
 

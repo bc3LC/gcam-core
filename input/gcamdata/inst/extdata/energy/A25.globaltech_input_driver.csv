@@ -9,8 +9,8 @@ H2 central production,coal,coal chemical,regional coal
 H2 central production,coal,coal chemical CCS,regional coal
 H2 central production,gas,natural gas steam reforming,regional natural gas
 H2 central production,gas,gas ATR CCS,regional natural gas
-H2 central production,biomass,biomass to H2,regional biomass
-H2 central production,biomass,biomass to H2 CCS,regional biomass
+H2 central production,biomass,biomass to H2,regional biomass energy sector
+H2 central production,biomass,biomass to H2 CCS,regional biomass energy sector
 H2 central production,nuclear,electrolysis,nuclearFuelGenIII
 H2 central production,electricity,electrolysis,elect_td_ind
 H2 central production,wind,electrolysis,onshore wind resource
