@@ -137,8 +137,8 @@ agricultural energy use,stationary,district heat,,,,,,
 agricultural energy use,stationary,electricity,,,,,,
 agricultural energy use,stationary,gas,70,46,80,50,50,60
 agricultural energy use,stationary,gas cogen,,,,,,
-agricultural energy use,mobile,refined liquids,70,82,80,70,90,60
-agricultural energy use,stationary,refined liquids,70,82,80,70,90,60
+agricultural energy use,mobile,refined liquids agr,70,82,80,70,90,60
+agricultural energy use,stationary,refined liquids agr,70,82,80,70,90,60
 agricultural energy use,stationary,refined liquids cogen,,,,,,
 mining energy use,stationary,biomass,70,59.5,80,98,96,60
 mining energy use,stationary,biomass cogen,,,,,,

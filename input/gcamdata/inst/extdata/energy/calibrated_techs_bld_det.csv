@@ -4,7 +4,7 @@
 # Column types: cccccccccc
 # ----------
 sector,fuel,service,supplysector,subsector,technology,minicam.energy.input,gcam.consumer,nodeInput,building.node.input
-bld_resid,biomass,resid heating modern,resid heating modern,biomass,biomass,delivered biomass,resid,resid,resid_building
+bld_resid,biomass,resid heating modern,resid heating modern,biomass,biomass,delivered biomass buildings,resid,resid,resid_building
 bld_resid,coal,resid heating coal,resid heating coal,coal,coal,delivered coal,resid,resid,resid_building
 bld_resid,electricity,resid heating modern,resid heating modern,electricity,electricity,elect_td_bld,resid,resid,resid_building
 bld_resid,gas,resid heating modern,resid heating modern,gas,gas,delivered gas,resid,resid,resid_building
@@ -13,14 +13,14 @@ bld_resid,traditional biomass,resid heating TradBio,resid heating TradBio,tradit
 bld_resid,heat,resid heating modern,resid heating modern,district heat,district heat,district heat,resid,resid,resid_building
 bld_resid,electricity,resid cooling modern,resid cooling modern,electricity,electricity,elect_td_bld,resid,resid,resid_building
 bld_resid,gas,resid cooling modern,resid cooling modern,gas,gas,delivered gas,resid,resid,resid_building
-bld_resid,biomass,resid others modern,resid others modern,biomass,biomass,delivered biomass,resid,resid,resid_building
+bld_resid,biomass,resid others modern,resid others modern,biomass,biomass,delivered biomass buildings,resid,resid,resid_building
 bld_resid,coal,resid others coal,resid others coal,coal,coal,delivered coal,resid,resid,resid_building
 bld_resid,electricity,resid others modern,resid others modern,electricity,electricity,elect_td_bld,resid,resid,resid_building
 bld_resid,gas,resid others modern,resid others modern,gas,gas,delivered gas,resid,resid,resid_building
 bld_resid,refined liquids,resid others modern,resid others modern,refined liquids,refined liquids,refined liquids buildings,resid,resid,resid_building
 bld_resid,traditional biomass,resid others TradBio,resid others TradBio,traditional biomass,traditional biomass,traditional biomass,resid,resid,resid_building
 bld_resid,heat,resid others modern,resid others modern,district heat,district heat,district heat,resid,resid,resid_building
-bld_comm,biomass,comm heating,comm heating,biomass,biomass,delivered biomass,comm,comm,comm_building
+bld_comm,biomass,comm heating,comm heating,biomass,biomass,delivered biomass buildings,comm,comm,comm_building
 bld_comm,coal,comm heating,comm heating,coal,coal,delivered coal,comm,comm,comm_building
 bld_comm,electricity,comm heating,comm heating,electricity,electricity,elect_td_bld,comm,comm,comm_building
 bld_comm,gas,comm heating,comm heating,gas,gas,delivered gas,comm,comm,comm_building
@@ -28,7 +28,7 @@ bld_comm,refined liquids,comm heating,comm heating,refined liquids,refined liqui
 bld_comm,heat,comm heating,comm heating,district heat,district heat,district heat,comm,comm,comm_building
 bld_comm,electricity,comm cooling,comm cooling,electricity,electricity,elect_td_bld,comm,comm,comm_building
 bld_comm,gas,comm cooling,comm cooling,gas,gas,delivered gas,comm,comm,comm_building
-bld_comm,biomass,comm others,comm others,biomass,biomass,delivered biomass,comm,comm,comm_building
+bld_comm,biomass,comm others,comm others,biomass,biomass,delivered biomass buildings,comm,comm,comm_building
 bld_comm,coal,comm others,comm others,coal,coal,delivered coal,comm,comm,comm_building
 bld_comm,electricity,comm others,comm others,electricity,electricity,elect_td_bld,comm,comm,comm_building
 bld_comm,gas,comm others,comm others,gas,gas,delivered gas,comm,comm,comm_building

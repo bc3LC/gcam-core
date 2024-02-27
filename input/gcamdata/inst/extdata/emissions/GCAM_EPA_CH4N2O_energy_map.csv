@@ -153,8 +153,8 @@ trn_pass_road_LDV,2W and 3W,NG,Combustion_general
 agricultural energy use,stationary,biomass,Combustion_general
 agricultural energy use,stationary,coal,Combustion_general
 agricultural energy use,stationary,gas,Combustion_general
-agricultural energy use,stationary,refined liquids,Combustion_general
-agricultural energy use,mobile,refined liquids,Combustion_general
+agricultural energy use,stationary,refined liquids agr,Combustion_general
+agricultural energy use,mobile,refined liquids agr,Combustion_general
 alumina,biomass,biomass,Combustion_general
 alumina,coal,coal,Combustion_general
 alumina,gas,gas,Combustion_general
