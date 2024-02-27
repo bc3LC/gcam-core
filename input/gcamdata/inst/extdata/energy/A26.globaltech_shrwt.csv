@@ -8,7 +8,7 @@
 supplysector,subsector,technology,1971,2100
 backup_electricity,gas,gas (steam/CT),1,1
 csp_backup,gas,CSP gas hybrid mode,1,1
-delivered biomass,delivered biomass,delivered biomass,1,1
+delivered biomass buildings,delivered biomass buildings,delivered biomass buildings,1,1
 delivered biomass industry,delivered biomass industry,delivered biomass industry,1,1
 delivered coal,delivered coal,delivered coal,1,1
 delivered coal industry,delivered coal industry,delivered coal industry,1,1
@@ -24,10 +24,16 @@ wholesale gas,wholesale gas,wholesale gas,1,1
 delivered gas,delivered gas,delivered gas,1,1
 delivered gas h2,delivered gas h2,delivered gas h2,1,1
 delivered gas transport,delivered gas transport,delivered gas transport,1,1
-refined liquids enduse,refined liquids enduse,refined liquids enduse,1,1
+refined liquids buildings,refined liquids buildings,refined liquids buildings,1,1
 refined liquids industrial,refined liquids industrial,refined liquids industrial,1,1
+refined liquids agr,refined liquids agr,refined liquids agr,1,1
 refined liquids transport,refined liquids transport,refined liquids transport,1,1
 refined liquids bunkers,refined liquids bunkers,refined liquids bunkers,1,1
+refined liquids buildings,refined liquids buildings,refined liquids buildings biofuel,1,1
+refined liquids industrial,refined liquids industrial,refined liquids industrial biofuel,1,1
+refined liquids agr,refined liquids agr,refined liquids agr biofuel,1,1
+refined liquids transport,refined liquids transport,refined liquids transport biofuel,1,1
+refined liquids bunkers,refined liquids bunkers,refined liquids bunkers biofuel,1,1
 refined liquids feedstocks,refined liquids feedstocks,refined liquids feedstocks,1,1
 wholesale gas feedstocks,wholesale gas feedstocks,wholesale gas feedstocks,1,1
 delivered coal feedstocks,delivered coal feedstocks,delivered coal feedstocks,1,1

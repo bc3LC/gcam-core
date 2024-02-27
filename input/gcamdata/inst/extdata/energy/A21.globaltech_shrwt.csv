@@ -5,6 +5,8 @@
 # ----------
 supplysector,subsector,technology,1971,2100
 regional biomass,regional biomass,regional biomass,1,1
+regional biomass energy sector,regional biomass,regional biomass,1,1
+regional biomass liquids,regional biomass,regional biomass,1,1
 regional corn for ethanol,regional corn for ethanol,regional corn for ethanol,1,1
 regional sugar for ethanol,regional sugar for ethanol,regional sugar for ethanol,1,1
 regional biomassOil,regional biomassOil,biomassOil,0,0

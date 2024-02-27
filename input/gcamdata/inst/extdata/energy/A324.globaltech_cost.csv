@@ -4,7 +4,7 @@
 # Column types: ccccnnnnnnnnn
 # ---------
 supplysector,subsector,technology,minicam.non.energy.input,1971,2010,2025,2030,2035,2040,2045,2050,2100
-agricultural energy use,mobile,refined liquids,non-energy,18.84,18.84,18.84,18.84,18.84,18.84,18.84,18.84,18.84
+agricultural energy use,mobile,refined liquids agr,non-energy,18.84,18.84,18.84,18.84,18.84,18.84,18.84,18.84,18.84
 agricultural energy use,mobile,electricity,non-energy,29.7672,29.7672,29.7672,28.0716,26.5644,24.8688,23.1732,21.666,21.666
 agricultural energy use,mobile,hydrogen,non-energy,22.608,22.608,22.608,22.2312,21.8544,21.4776,21.1008,20.724,20.724
 mining energy use,mobile,refined liquids,non-energy,37.05,37.05,37.05,37.05,37.05,37.05,37.05,37.05,37.05
@@ -15,7 +15,7 @@ construction energy use,mobile,electricity,non-energy,87.7848,87.7848,87.7848,82
 construction energy use,mobile,hydrogen,non-energy,66.672,66.672,66.672,65.5608,64.4496,63.3384,62.2272,61.116,61.116
 construction,construction,construction,non-energy,3,3,3,3,3,3,3,3,3
 construction feedstocks,refined liquids,refined liquids,non-energy,0,0,0,0,0,0,0,0,0
-agricultural energy use,stationary,refined liquids,non-energy,5,5,5,5,5,5,5,5,5
+agricultural energy use,stationary,refined liquids agr,non-energy,5,5,5,5,5,5,5,5,5
 agricultural energy use,stationary,gas,non-energy,5,5,5,5,5,5,5,5,5
 agricultural energy use,stationary,biomass,non-energy,5,5,5,5,5,5,5,5,5
 agricultural energy use,stationary,electricity,non-energy,5,5,5,5,5,5,5,5,5

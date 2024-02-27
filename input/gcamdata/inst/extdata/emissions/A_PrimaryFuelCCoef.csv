@@ -7,8 +7,10 @@
 # ----------,,
 PrimaryFuelCO2Coef.name,PrimaryFuelCO2Coef,traded
 biomass,0,0
-regional biomass,23,0
-delivered biomass,23,0
+regional biomass,0,0
+regional biomass energy sector,23,0
+regional biomass liquids,23,0
+delivered biomass buildings,23,0
 delivered biomass industry,23,0
 regional biomassOil,19.6,0
 regional sugar for ethanol,19.6,0
@@ -27,10 +29,11 @@ delivered gas transport,14.2,0
 crude oil,19.6,0
 regional oil,19.6,0
 refining,19.6,0
-refined liquids industrial,19.6,0
-refined liquids enduse,19.6,0
-refined liquids transport,19.6,0
-refined liquids bunkers,19.6,0
+refined liquids industrial,0,0
+refined liquids agr,0,0
+refined liquids buildings,0,0
+refined liquids transport,0,0
+refined liquids bunkers,0,0
 limestone,0.08,0
 unconventional oil upscaling,1.5,0
 refined liquids feedstocks,19.6,0

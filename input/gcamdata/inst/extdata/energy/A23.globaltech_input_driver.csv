@@ -5,10 +5,10 @@
 # Column types: cccc
 # ----------
 supplysector,subsector,technology,input.name
-electricity,biomass,biomass (conv CCS),regional biomass
-electricity,biomass,biomass (conv),regional biomass
-electricity,biomass,biomass (IGCC CCS),regional biomass
-electricity,biomass,biomass (IGCC),regional biomass
+electricity,biomass,biomass (conv CCS),regional biomass energy sector
+electricity,biomass,biomass (conv),regional biomass energy sector
+electricity,biomass,biomass (IGCC CCS),regional biomass energy sector
+electricity,biomass,biomass (IGCC),regional biomass energy sector
 electricity,coal,coal (conv pul CCS),regional coal
 electricity,coal,coal (conv pul),regional coal
 electricity,coal,coal (IGCC CCS),regional coal

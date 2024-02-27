@@ -6,7 +6,7 @@
 # Column types: cccccnc ,,,,,,
 # ----------,,,,,,
 supplysector,subsector,apply.to,from.year,to.year,to.value,interpolation.function
-delivered biomass,delivered biomass,share-weight,final-calibration-year,end-year,,linear
+delivered biomass buildings,delivered biomass buildings,share-weight,final-calibration-year,end-year,,linear
 delivered biomass industry,delivered biomass industry,share-weight,final-calibration-year,end-year,,linear
 delivered coal,delivered coal,share-weight,final-calibration-year,end-year,,linear
 delivered coal industry,delivered coal industry,share-weight,final-calibration-year,end-year,,linear
@@ -22,8 +22,9 @@ wholesale gas,wholesale gas,share-weight,final-calibration-year,end-year,,linear
 delivered gas,delivered gas,share-weight,final-calibration-year,end-year,,linear
 delivered gas h2,delivered gas h2,share-weight,final-calibration-year,end-year,,linear
 delivered gas transport,delivered gas transport,share-weight,final-calibration-year,end-year,,linear
-refined liquids enduse,refined liquids enduse,share-weight,final-calibration-year,end-year,,linear
+refined liquids buildings,refined liquids buildings,share-weight,final-calibration-year,end-year,,linear
 refined liquids industrial,refined liquids industrial,share-weight,final-calibration-year,end-year,,linear
+refined liquids agr,refined liquids agr,share-weight,final-calibration-year,end-year,,linear
 refined liquids transport,refined liquids transport,share-weight,final-calibration-year,end-year,,linear
 refined liquids bunkers,refined liquids bunkers,share-weight,final-calibration-year,end-year,,linear
 wholesale gas feedstocks,wholesale gas feedstocks,share-weight,final-calibration-year,end-year,,linear
