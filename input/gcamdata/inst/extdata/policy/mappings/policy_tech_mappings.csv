@@ -1,0 +1,556 @@
+# File: policy_tech_mappings.csv,,,
+# Title: Policy technology mapping,,,
+# Units: NA,,,
+# Column types: cccc,,,
+# ----------,,,
+tech_mapping,supplysector,subsector,stub.technology
+BIODIESEL,refining,biomass liquids,FT biofuels
+BIODIESEL,refining,biomass liquids,FT biofuels CCS level 1
+BIODIESEL,refining,biomass liquids,FT biofuels CCS level 2
+BIODIESEL,refining,biomass liquids,biodiesel
+BIOFUEL_ADV,refining,biomass liquids,cellulosic ethanol
+BIOFUEL_ADV,refining,biomass liquids,cellulosic ethanol CCS level 1
+BIOFUEL_ADV,refining,biomass liquids,cellulosic ethanol CCS level 2
+BIOFUEL_ADV,refining,biomass liquids,FT biofuels
+BIOFUEL_ADV,refining,biomass liquids,FT biofuels CCS level 1
+BIOFUEL_ADV,refining,biomass liquids,FT biofuels CCS level 2
+BIOFUEL_ADV,refining,biomass liquids,BTL with hydrogen
+BIOFUEL_ALL,refining,biomass liquids,cellulosic ethanol
+BIOFUEL_ALL,refining,biomass liquids,cellulosic ethanol CCS level 1
+BIOFUEL_ALL,refining,biomass liquids,cellulosic ethanol CCS level 2
+BIOFUEL_ALL,refining,biomass liquids,FT biofuels
+BIOFUEL_ALL,refining,biomass liquids,FT biofuels CCS level 1
+BIOFUEL_ALL,refining,biomass liquids,FT biofuels CCS level 2
+BIOFUEL_ALL,refining,biomass liquids,corn ethanol
+BIOFUEL_ALL,refining,biomass liquids,sugar cane ethanol
+BIOFUEL_ALL,refining,biomass liquids,biodiesel
+BIOFUEL_ALL,refining,biomass liquids,BTL with hydrogen
+BIOFUEL_ALL_PLUS_H2,refining,biomass liquids,cellulosic ethanol
+BIOFUEL_ALL_PLUS_H2,refining,biomass liquids,cellulosic ethanol CCS level 1
+BIOFUEL_ALL_PLUS_H2,refining,biomass liquids,cellulosic ethanol CCS level 2
+BIOFUEL_ALL_PLUS_H2,refining,biomass liquids,FT biofuels
+BIOFUEL_ALL_PLUS_H2,refining,biomass liquids,FT biofuels CCS level 1
+BIOFUEL_ALL_PLUS_H2,refining,biomass liquids,FT biofuels CCS level 2
+BIOFUEL_ALL_PLUS_H2,refining,biomass liquids,corn ethanol
+BIOFUEL_ALL_PLUS_H2,refining,biomass liquids,sugar cane ethanol
+BIOFUEL_ALL_PLUS_H2,refining,biomass liquids,biodiesel
+BIOFUEL_ALL_PLUS_H2,refining,biomass liquids,BTL with hydrogen
+BIOFUEL_ALL_PLUS_H2,H2 wholesale dispensing,H2 delivery,H2 liquid truck
+BIOFUEL_ALL_PLUS_H2,H2 wholesale dispensing,H2 delivery,H2 pipeline
+BIOFUEL_ALL_PLUS_H2,H2 wholesale dispensing,forecourt production,electrolysis
+BIOFUEL_ALL_PLUS_H2,H2 wholesale dispensing,forecourt production,natural gas steam reforming
+BIOFUEL_FOODFEED,refining,biomass liquids,corn ethanol
+BIOFUEL_FOODFEED,refining,biomass liquids,sugar cane ethanol
+BIOFUEL_FOODFEED,refining,biomass liquids,biodiesel
+BIOFUEL_NODIESEL,refining,biomass liquids,cellulosic ethanol
+BIOFUEL_NODIESEL,refining,biomass liquids,cellulosic ethanol CCS level 1
+BIOFUEL_NODIESEL,refining,biomass liquids,cellulosic ethanol CCS level 2
+BIOFUEL_NODIESEL,refining,biomass liquids,corn ethanol
+BIOFUEL_NODIESEL,refining,biomass liquids,sugar cane ethanol
+BIOFUEL_NODIESEL,refining,biomass liquids,BTL with hydrogen
+CELLULOSIC_ETHANOL,refining,biomass liquids,cellulosic ethanol
+CELLULOSIC_ETHANOL,refining,biomass liquids,cellulosic ethanol CCS level 1
+CELLULOSIC_ETHANOL,refining,biomass liquids,cellulosic ethanol CCS level 2
+COAL_IND,delivered coal industry,delivered coal industry,delivered coal industry
+ELEC_BIO,electricity,biomass,biomass (conv)
+ELEC_BIO,electricity,biomass,biomass (IGCC)
+ELEC_BIO,electricity,biomass,biomass (conv CCS)
+ELEC_COAL_NO_CCS,electricity,coal,coal (conv pul)
+ELEC_COAL_NO_CCS,electricity,coal,coal (IGCC)
+ELEC_GEO,electricity,geothermal,geothermal
+ELEC_NUCLEAR,electricity,nuclear,Gen_III
+ELEC_NUCLEAR,electricity,nuclear,Gen_II_LWR
+ELEC_PV,electricity,solar,PV
+ELEC_PV,electricity,solar,PV_storage
+ELEC_PV,elect_td_bld,rooftop_pv,rooftop_pv
+ELEC_RES,elect_td_bld,elect_td_bld,elect_td_bld
+ELEC_RES,elect_td_en,elect_td_en,elect_td_en
+ELEC_RES,elect_td_h2,elect_td_h2,elect_td_h2
+ELEC_RES,elect_td_ind,elect_td_ind,elect_td_ind
+ELEC_RES,elect_td_trn,elect_td_trn,elect_td_trn
+ELEC_RES_CHINA,elect_td_bld,elect_td_bld,elect_td_bld
+ELEC_RES_CHINA,elect_td_bld,rooftop_pv,rooftop_pv
+ELEC_RES_CHINA,elect_td_en,elect_td_en,elect_td_en
+ELEC_RES_CHINA,elect_td_h2,elect_td_h2,elect_td_h2
+ELEC_RES_CHINA,elect_td_ind,elect_td_ind,elect_td_ind
+ELEC_RES_CHINA,elect_td_trn,elect_td_trn,elect_td_trn
+ELEC_ROOFTOP_PV,elect_td_bld,rooftop_pv,rooftop_pv
+ELEC_SOLAR_ALL,electricity,solar,PV
+ELEC_SOLAR_ALL,electricity,solar,PV_storage
+ELEC_SOLAR_ALL,electricity,solar,CSP
+ELEC_SOLAR_ALL,electricity,solar,CSP_storage
+ELEC_SOLAR_ALL,elect_td_bld,rooftop_pv,rooftop_pv
+ELEC_WIND_ALL,electricity,wind,wind
+ELEC_WIND_ALL,electricity,wind,wind_storage
+ELEC_WIND_ALL,electricity,wind,wind_offshore
+ELEC_WIND_OFFSHORE,electricity,wind,wind_offshore
+ELEC_WIND_ONSHORE,electricity,wind,wind
+ELEC_WIND_ONSHORE,electricity,wind,wind_storage
+ELEC_NON_RENEWABLE,electricity,coal,coal (IGCC)
+ELEC_NON_RENEWABLE,electricity,coal,coal (conv pul)
+ELEC_NON_RENEWABLE,electricity,gas,gas (CC)
+ELEC_NON_RENEWABLE,electricity,gas,gas (steam/CT)
+ELEC_NON_RENEWABLE,electricity,refined liquids,refined liquids (CC)
+ELEC_NON_RENEWABLE,electricity,refined liquids,refined liquids (steam/CT)
+ELEC_NON_RENEWABLE,electricity,nuclear,Gen_III
+ELEC_NON_RENEWABLE,electricity,nuclear,Gen_II_LWR
+ELEC_RENEWABLE,electricity,biomass,biomass (IGCC)
+ELEC_RENEWABLE,electricity,biomass,biomass (conv)
+ELEC_RENEWABLE,elect_td_bld,rooftop_pv,rooftop_pv
+ELEC_RENEWABLE,electricity,solar,CSP
+ELEC_RENEWABLE,electricity,solar,CSP_storage
+ELEC_RENEWABLE,electricity,solar,PV
+ELEC_RENEWABLE,electricity,solar,PV_storage
+ELEC_RENEWABLE,electricity,wind,wind
+ELEC_RENEWABLE,electricity,wind,wind_offshore
+ELEC_RENEWABLE,electricity,wind,wind_storage
+ELEC_RENEWABLE,electricity,geothermal,geothermal
+ELEC_RENEWABLE,electricity,hydro,hydro
+EN_CARRIER_ELEC,electricity,hydro,hydro
+EN_CARRIER_ELEC,electricity,wind,wind
+EN_CARRIER_ELEC,electricity,wind,wind_offshore
+EN_CARRIER_ELEC,electricity,wind,wind_storage
+EN_CARRIER_ELEC,electricity,solar,PV
+EN_CARRIER_ELEC,electricity,solar,PV_storage
+EN_CARRIER_ELEC,elec_geothermal,geothermal,geothermal (recirculating)
+EN_CARRIER_ELEC,elec_geothermal,geothermal,geothermal (dry_hybrid)
+EN_CARRIER_ELEC,elec_CSP,CSP,CSP (recirculating)
+EN_CARRIER_ELEC,elec_CSP,CSP,CSP (dry_hybrid)
+EN_CARRIER_ELEC,elec_CSP_storage,CSP_storage,CSP_storage (recirculating)
+EN_CARRIER_ELEC,elec_CSP_storage,CSP_storage,CSP_storage (dry_hybrid)
+EN_CARRIER_ELEC,elec_biomass (conv),biomass (conv),biomass (conv) (once through)
+EN_CARRIER_ELEC,elec_biomass (conv),biomass (conv),biomass (conv) (seawater)
+EN_CARRIER_ELEC,elec_biomass (conv),biomass (conv),biomass (conv) (recirculating)
+EN_CARRIER_ELEC,elec_biomass (conv),biomass (conv),biomass (conv) (cooling pond)
+EN_CARRIER_ELEC,elec_biomass (conv),biomass (conv),biomass (conv) (dry cooling)
+EN_CARRIER_ELEC,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (once through)
+EN_CARRIER_ELEC,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (seawater)
+EN_CARRIER_ELEC,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (recirculating)
+EN_CARRIER_ELEC,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (dry cooling)
+EN_CARRIER_ELEC,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (once through)
+EN_CARRIER_ELEC,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (seawater)
+EN_CARRIER_ELEC,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (recirculating)
+EN_CARRIER_ELEC,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (dry cooling)
+EN_CARRIER_ELEC,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (once through)
+EN_CARRIER_ELEC,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (seawater)
+EN_CARRIER_ELEC,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (recirculating)
+EN_CARRIER_ELEC,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (dry cooling)
+EN_CARRIER_ELEC_NF,electricity,hydro,hydro
+EN_CARRIER_ELEC_NF,electricity,wind,wind
+EN_CARRIER_ELEC_NF,electricity,wind,wind_offshore
+EN_CARRIER_ELEC_NF,electricity,wind,wind_storage
+EN_CARRIER_ELEC_NF,electricity,solar,PV
+EN_CARRIER_ELEC_NF,electricity,solar,PV_storage
+EN_CARRIER_ELEC_NF,elec_geothermal,geothermal,geothermal (recirculating)
+EN_CARRIER_ELEC_NF,elec_geothermal,geothermal,geothermal (dry_hybrid)
+EN_CARRIER_ELEC_NF,elec_CSP,CSP,CSP (recirculating)
+EN_CARRIER_ELEC_NF,elec_CSP,CSP,CSP (dry_hybrid)
+EN_CARRIER_ELEC_NF,elec_CSP_storage,CSP_storage,CSP_storage (recirculating)
+EN_CARRIER_ELEC_NF,elec_CSP_storage,CSP_storage,CSP_storage (dry_hybrid)
+EN_CARRIER_ELEC_NF,elec_biomass (conv),biomass (conv),biomass (conv) (once through)
+EN_CARRIER_ELEC_NF,elec_biomass (conv),biomass (conv),biomass (conv) (seawater)
+EN_CARRIER_ELEC_NF,elec_biomass (conv),biomass (conv),biomass (conv) (recirculating)
+EN_CARRIER_ELEC_NF,elec_biomass (conv),biomass (conv),biomass (conv) (cooling pond)
+EN_CARRIER_ELEC_NF,elec_biomass (conv),biomass (conv),biomass (conv) (dry cooling)
+EN_CARRIER_ELEC_NF,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (once through)
+EN_CARRIER_ELEC_NF,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (seawater)
+EN_CARRIER_ELEC_NF,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (recirculating)
+EN_CARRIER_ELEC_NF,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (dry cooling)
+EN_CARRIER_ELEC_NF,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (once through)
+EN_CARRIER_ELEC_NF,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (seawater)
+EN_CARRIER_ELEC_NF,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (recirculating)
+EN_CARRIER_ELEC_NF,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (dry cooling)
+EN_CARRIER_ELEC_NF,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (once through)
+EN_CARRIER_ELEC_NF,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (seawater)
+EN_CARRIER_ELEC_NF,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (recirculating)
+EN_CARRIER_ELEC_NF,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (dry cooling)
+EN_CARRIER_ELEC_NF,elec_Gen_III,Gen_III,Gen_III (cooling pond)
+EN_CARRIER_ELEC_NF,elec_Gen_III,Gen_III,Gen_III (once through)
+EN_CARRIER_ELEC_NF,elec_Gen_III,Gen_III,Gen_III (recirculating)
+EN_CARRIER_ELEC_NF,elec_Gen_III,Gen_III,Gen_III (seawater)
+EN_CARRIER_ELEC_NF,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (cooling pond)
+EN_CARRIER_ELEC_NF,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (once through)
+EN_CARRIER_ELEC_NF,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (recirculating)
+EN_CARRIER_ELEC_NF,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (seawater)
+EN_CARRIER_FUEL,H2 central production,biomass,biomass to H2
+EN_CARRIER_FUEL,H2 central production,biomass,biomass to H2 CCS
+EN_CARRIER_FUEL,H2 central production,wind,electrolysis
+EN_CARRIER_FUEL,H2 central production,solar,electrolysis
+EN_CARRIER_FUEL,refining,biomass liquids,cellulosic ethanol
+EN_CARRIER_FUEL,refining,biomass liquids,cellulosic ethanol CCS level 1
+EN_CARRIER_FUEL,refining,biomass liquids,cellulosic ethanol CCS level 2
+EN_CARRIER_FUEL,refining,biomass liquids,FT biofuels
+EN_CARRIER_FUEL,refining,biomass liquids,FT biofuels CCS level 1
+EN_CARRIER_FUEL,refining,biomass liquids,FT biofuels CCS level 2
+EN_CARRIER_FUEL,refining,biomass liquids,corn ethanol
+EN_CARRIER_FUEL,refining,biomass liquids,biodiesel
+EN_CARRIER_FUEL,refining,biomass liquids,BTL with hydrogen
+EN_CARRIER_FUEL,refining,biomass liquids,sugar cane ethanol
+EN_CARRIER_FUEL,gas processing,biomass gasification,biomass gasification
+FE_BUNKERS_NO_PV,delivered biomass,delivered biomass,delivered biomass
+FE_BUNKERS_NO_PV,delivered coal,delivered coal,delivered coal
+FE_BUNKERS_NO_PV,delivered biomass industry,delivered biomass industry,delivered biomass industry
+FE_BUNKERS_NO_PV,delivered coal industry,delivered coal industry,delivered coal industry
+FE_BUNKERS_NO_PV,wholesale gas,wholesale gas,wholesale gas
+FE_BUNKERS_NO_PV,delivered gas,delivered gas,delivered gas
+FE_BUNKERS_NO_PV,delivered gas transport,delivered gas transport,delivered gas transport
+FE_BUNKERS_NO_PV,refined liquids enduse,refined liquids enduse,refined liquids enduse
+FE_BUNKERS_NO_PV,refined liquids transport,refined liquids transport,refined liquids transport
+FE_BUNKERS_NO_PV,refined liquids industrial,refined liquids industrial,refined liquids industrial
+FE_BUNKERS_NO_PV,refined liquids bunkers,refined liquids bunkers,refined liquids bunkers
+FE_BUNKERS_NO_PV,H2 wholesale delivery,H2 liquid truck,H2 liquid truck
+FE_BUNKERS_NO_PV,H2 wholesale delivery,H2 pipeline,H2 pipeline
+FE_BUNKERS_NO_PV,H2 industrial,forecourt production,electrolysis
+FE_BUNKERS_NO_PV,H2 wholesale dispensing,H2 delivery,H2 liquid truck
+FE_BUNKERS_NO_PV,H2 wholesale dispensing,H2 delivery,H2 pipeline
+FE_BUNKERS_NO_PV,H2 wholesale dispensing,forecourt production,electrolysis
+FE_BUNKERS_NO_PV,H2 wholesale dispensing,forecourt production,natural gas steam reforming
+FE_BUNKERS_NO_PV,elect_td_bld,elect_td_bld,elect_td_bld
+FE_BUNKERS_NO_PV,elect_td_ind,elect_td_ind,elect_td_ind
+FE_BUNKERS_NO_PV,elect_td_trn,elect_td_trn,elect_td_trn
+FE_NO_PV,delivered biomass,delivered biomass,delivered biomass
+FE_NO_PV,delivered coal,delivered coal,delivered coal
+FE_NO_PV,delivered biomass industry,delivered biomass industry,delivered biomass industry
+FE_NO_PV,delivered coal industry,delivered coal industry,delivered coal industry
+FE_NO_PV,wholesale gas,wholesale gas,wholesale gas
+FE_NO_PV,delivered gas,delivered gas,delivered gas
+FE_NO_PV,delivered gas transport,delivered gas transport,delivered gas transport
+FE_NO_PV,refined liquids enduse,refined liquids enduse,refined liquids enduse
+FE_NO_PV,refined liquids transport,refined liquids transport,refined liquids transport
+FE_NO_PV,refined liquids industrial,refined liquids industrial,refined liquids industrial
+FE_NO_PV,H2 wholesale delivery,H2 liquid truck,H2 liquid truck
+FE_NO_PV,H2 wholesale delivery,H2 pipeline,H2 pipeline
+FE_NO_PV,H2 industrial,forecourt production,electrolysis
+FE_NO_PV,H2 wholesale dispensing,H2 delivery,H2 liquid truck
+FE_NO_PV,H2 wholesale dispensing,H2 delivery,H2 pipeline
+FE_NO_PV,H2 wholesale dispensing,forecourt production,electrolysis
+FE_NO_PV,H2 wholesale dispensing,forecourt production,natural gas steam reforming
+FE_NO_PV,elect_td_bld,elect_td_bld,elect_td_bld
+FE_NO_PV,elect_td_ind,elect_td_ind,elect_td_ind
+FE_NO_PV,elect_td_trn,elect_td_trn,elect_td_trn
+FE_RES,delivered biomass,delivered biomass,delivered biomass
+FE_RES,delivered coal,delivered coal,delivered coal
+FE_RES,delivered biomass industry,delivered biomass industry,delivered biomass industry
+FE_RES,wholesale gas,wholesale gas,wholesale gas
+FE_RES,delivered gas,delivered gas,delivered gas
+FE_RES,delivered gas transport,delivered gas transport,delivered gas transport
+FE_RES,refined liquids enduse,refined liquids enduse,refined liquids enduse
+FE_RES,refined liquids transport,refined liquids transport,refined liquids transport
+FE_RES,refined liquids industrial,refined liquids industrial,refined liquids industrial
+FE_RES,H2 wholesale delivery,H2 liquid truck,H2 liquid truck
+FE_RES,H2 wholesale delivery,H2 pipeline,H2 pipeline
+FE_RES,H2 industrial,forecourt production,electrolysis
+FE_RES,H2 wholesale dispensing,H2 delivery,H2 liquid truck
+FE_RES,H2 wholesale dispensing,H2 delivery,H2 pipeline
+FE_RES,H2 wholesale dispensing,forecourt production,electrolysis
+FE_RES,H2 wholesale dispensing,forecourt production,natural gas steam reforming
+FE_RES,elect_td_bld,elect_td_bld,elect_td_bld
+FE_RES,elect_td_bld,rooftop_pv,rooftop_pv
+FE_RES,elect_td_ind,elect_td_ind,elect_td_ind
+FE_RES,elect_td_trn,elect_td_trn,elect_td_trn
+FE_RES,elect_td_h2,elect_td_h2,elect_td_h2
+FE_RES,elect_td_en,elect_td_en,elect_td_en
+FE_RES,district heat,biomass,biomass
+FE_RES,district heat,coal,coal
+FE_RES,district heat,gas,gas
+FE_RES,district heat,refined liquids,refined liquids
+FEEDSTOCKS_BUNKERS,chemical feedstocks,gas,gas
+FEEDSTOCKS_BUNKERS,chemical feedstocks,refined liquids,refined liquids
+FEEDSTOCKS_BUNKERS,construction feedstocks,refined liquids,refined liquids
+FEEDSTOCKS_BUNKERS,other industrial feedstocks,coal,coal
+FEEDSTOCKS_BUNKERS,other industrial feedstocks,refined liquids,refined liquids
+FEEDSTOCKS_BUNKERS,refined liquids bunkers,refined liquids bunkers,refined liquids bunkers
+FEEDSTOCKSRL,refined liquids feedstocks,refined liquids feedstocks,refined liquids feedstocks
+GREEN_H2,H2 central production,biomass,biomass to H2
+GREEN_H2,H2 central production,biomass,biomass to H2 CCS
+GREEN_H2,H2 central production,wind,electrolysis
+GREEN_H2,H2 central production,solar,electrolysis
+GREEN_H2_ELECTROLYSIS,H2 central production,biomass,biomass to H2
+GREEN_H2_ELECTROLYSIS,H2 central production,biomass,biomass to H2 CCS
+GREEN_H2_ELECTROLYSIS,H2 central production,electricity,electrolysis
+GREEN_H2_ELECTROLYSIS,H2 central production,wind,electrolysis
+GREEN_H2_ELECTROLYSIS,H2 central production,solar,electrolysis
+GREEN_H2_ELECTROLYSIS,H2 industrial,forecourt production,electrolysis
+GREEN_H2_ELECTROLYSIS,H2 wholesale dispensing,forecourt production,electrolysis
+H2_ALL,H2 central production,coal,coal chemical
+H2_ALL,H2 central production,coal,coal chemical CCS
+H2_ALL,H2 central production,gas,natural gas steam reforming
+H2_ALL,H2 central production,gas,natural gas steam reforming CCS
+H2_ALL,H2 central production,biomass,biomass to H2
+H2_ALL,H2 central production,biomass,biomass to H2 CCS
+H2_ALL,H2 central production,nuclear,thermal splitting
+H2_ALL,H2 central production,electricity,electrolysis
+H2_ALL,H2 central production,wind,electrolysis
+H2_ALL,H2 central production,solar,electrolysis
+H2_ALL,H2 industrial,forecourt production,electrolysis
+H2_ALL,H2 wholesale dispensing,forecourt production,natural gas steam reforming
+H2_ALL,H2 wholesale dispensing,forecourt production,electrolysis
+H2_NOGREEN,H2 central production,coal,coal chemical
+H2_NOGREEN,H2 central production,coal,coal chemical CCS
+H2_NOGREEN,H2 central production,gas,natural gas steam reforming
+H2_NOGREEN,H2 central production,gas,natural gas steam reforming CCS
+H2_NOGREEN,H2 central production,nuclear,thermal splitting
+H2_NOGREEN,H2 central production,electricity,electrolysis
+H2_NOGREEN,H2 industrial,forecourt production,electrolysis
+H2_NOGREEN,H2 wholesale dispensing,forecourt production,natural gas steam reforming
+H2_NOGREEN,H2 wholesale dispensing,forecourt production,electrolysis
+IND_EN,elect_td_ind,elect_td_ind,elect_td_ind
+IND_EN,refined liquids industrial,refined liquids industrial,refined liquids industrial
+IND_EN,delivered coal industry,delivered coal industry,delivered coal industry
+IND_EN,wholesale gas,wholesale gas,wholesale gas
+IND_EN,delivered biomass industry,delivered biomass industry,delivered biomass industry
+IND_EN,H2 industrial,H2 delivery,H2 delivery
+IND_EN,H2 industrial,forecourt production,electrolysis
+PRIMARY_ENERGY,regional biomass,regional biomass,regional biomass
+PRIMARY_ENERGY,regional coal,domestic coal,domestic coal
+PRIMARY_ENERGY,regional coal,imported coal,imported coal
+PRIMARY_ENERGY,gas processing,natural gas,natural gas
+PRIMARY_ENERGY,H2 central production,gas,natural gas steam reforming
+PRIMARY_ENERGY,refining,gas to liquids,gas to liquids
+PRIMARY_ENERGY,regional oil,domestic crude oil,domestic crude oil
+PRIMARY_ENERGY,regional oil,imported crude oil,imported crude oil
+PRIMARY_ENERGY,regional biomassOil,regional biomassOil,Soybean
+PRIMARY_ENERGY,regional biomassOil,regional biomassOil,OilCrop
+PRIMARY_ENERGY,regional biomassOil,regional biomassOil,OilPalm
+PRIMARY_ENERGY,regional corn for ethanol,regional corn for ethanol,regional corn for ethanol
+PRIMARY_ENERGY,regional sugar for ethanol,regional sugar for ethanol,regional sugar for ethanol
+PRIMARY_ENERGY,elec_CSP,CSP,CSP (dry_hybrid)
+PRIMARY_ENERGY,elec_CSP,CSP,CSP (recirculating)
+PRIMARY_ENERGY,elec_CSP_storage,CSP_storage,CSP_storage (dry_hybrid)
+PRIMARY_ENERGY,elec_CSP_storage,CSP_storage,CSP_storage (recirculating)
+PRIMARY_ENERGY,elec_Gen_III,Gen_III,Gen_III (cooling pond)
+PRIMARY_ENERGY,elec_Gen_III,Gen_III,Gen_III (once through)
+PRIMARY_ENERGY,elec_Gen_III,Gen_III,Gen_III (recirculating)
+PRIMARY_ENERGY,elec_Gen_III,Gen_III,Gen_III (seawater)
+PRIMARY_ENERGY,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (cooling pond)
+PRIMARY_ENERGY,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (once through)
+PRIMARY_ENERGY,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (recirculating)
+PRIMARY_ENERGY,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (seawater)
+PRIMARY_ENERGY,elec_geothermal,geothermal,geothermal (dry_hybrid)
+PRIMARY_ENERGY,elec_geothermal,geothermal,geothermal (recirculating)
+PRIMARY_ENERGY,elect_td_bld,rooftop_pv,rooftop_pv
+PRIMARY_ENERGY,electricity,hydro,hydro
+PRIMARY_ENERGY,electricity,solar,PV
+PRIMARY_ENERGY,electricity,solar,PV_storage
+PRIMARY_ENERGY,electricity,wind,wind
+PRIMARY_ENERGY,electricity,wind,wind_offshore
+PRIMARY_ENERGY,electricity,wind,wind_storage
+PRIMARY_ENERGY,H2 central production,solar,electrolysis
+PRIMARY_ENERGY,H2 central production,wind,electrolysis
+PRIMARY_ENERGY,H2 central production,nuclear,thermal splitting
+PRIMARY_ENERGY_FOSSIL,regional coal,domestic coal,domestic coal
+PRIMARY_ENERGY_FOSSIL,regional coal,imported coal,imported coal
+PRIMARY_ENERGY_FOSSIL,gas processing,natural gas,natural gas
+PRIMARY_ENERGY_FOSSIL,regional oil,domestic crude oil,domestic crude oil
+PRIMARY_ENERGY_FOSSIL,regional oil,imported crude oil,imported crude oil
+PRIMARY_ENERGY_FOSSIL,H2 central production,gas,natural gas steam reforming
+REF_LIQ_TRN,refined liquids transport,refined liquids transport,refined liquids transport
+REF_LIQ_TRN_BUNKERS,refined liquids transport,refined liquids transport,refined liquids transport
+REF_LIQ_TRN_BUNKERS,refined liquids bunkers,refined liquids bunkers,refined liquids bunkers
+REG_NAT_GAS,regional natural gas,domestic natural gas,domestic natural gas
+REG_NAT_GAS,regional natural gas,imported natural gas,imported natural gas
+RESID,resid cooling,electricity,electricity
+RESID,resid heating,electricity,electricity
+RESID,resid heating,biomass,biomass
+RESID,resid heating,coal,coal
+RESID,resid heating,gas,gas
+RESID,resid heating,gas,hydrogen
+RESID,resid heating,refined liquids,refined liquids
+RESID,resid heating,district heat,district heat
+RESID,resid others,electricity,electricity
+RESID,resid others,biomass,biomass
+RESID,resid others,coal,coal
+RESID,resid others,gas,gas
+RESID,resid others,gas,hydrogen
+RESID,resid others,refined liquids,refined liquids
+RESID,resid others,district heat,district heat
+RESID_ELEC,resid cooling,electricity,electricity
+RESID_ELEC,resid heating,electricity,electricity
+RESID_ELEC,resid others,electricity,electricity
+ROOFTOP_PV,elect_td_bld,rooftop_pv,rooftop_pv
+TPES_BIO,regional biomass,regional biomass,regional biomass
+TPES_BIO,regional biomassOil,regional biomassOil,Soybean
+TPES_BIO,regional biomassOil,regional biomassOil,OilCrop
+TPES_BIO,regional biomassOil,regional biomassOil,OilPalm
+TPES_BIO,regional sugar for ethanol,regional sugar for ethanol,regional sugar for ethanol
+TPES_BIO,regional corn for ethanol,regional corn for ethanol,regional corn for ethanol
+TPES_CHINA,elec_CSP,CSP,CSP (dry_hybrid)
+TPES_CHINA,elec_CSP,CSP,CSP (recirculating)
+TPES_CHINA,elec_CSP_storage,CSP_storage,CSP_storage (dry_hybrid)
+TPES_CHINA,elec_CSP_storage,CSP_storage,CSP_storage (recirculating)
+TPES_CHINA,elec_Gen_III,Gen_III,Gen_III (cooling pond)
+TPES_CHINA,elec_Gen_III,Gen_III,Gen_III (once through)
+TPES_CHINA,elec_Gen_III,Gen_III,Gen_III (recirculating)
+TPES_CHINA,elec_Gen_III,Gen_III,Gen_III (seawater)
+TPES_CHINA,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (cooling pond)
+TPES_CHINA,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (once through)
+TPES_CHINA,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (recirculating)
+TPES_CHINA,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (seawater)
+TPES_CHINA,elec_geothermal,geothermal,geothermal (dry_hybrid)
+TPES_CHINA,elec_geothermal,geothermal,geothermal (recirculating)
+TPES_CHINA,elect_td_bld,rooftop_pv,rooftop_pv
+TPES_CHINA,electricity,hydro,hydro
+TPES_CHINA,electricity,solar,PV
+TPES_CHINA,electricity,solar,PV_storage
+TPES_CHINA,electricity,wind,wind
+TPES_CHINA,electricity,wind,wind_offshore
+TPES_CHINA,electricity,wind,wind_storage
+TPES_CHINA,chemical feedstocks,gas,gas
+TPES_CHINA,chemical feedstocks,refined liquids,refined liquids
+TPES_CHINA,construction feedstocks,refined liquids,refined liquids
+TPES_CHINA,other industrial feedstocks,coal,coal
+TPES_CHINA,other industrial feedstocks,refined liquids,refined liquids
+TPES_CHINA,refined liquids bunkers,refined liquids bunkers,refined liquids bunkers
+TPES_GAS,regional biomass,regional biomass,regional biomass
+TPES_GAS,regional biomassOil,regional biomassOil,Soybean
+TPES_GAS,regional biomassOil,regional biomassOil,OilCrop
+TPES_GAS,regional biomassOil,regional biomassOil,OilPalm
+TPES_GAS,regional coal,domestic coal,domestic coal
+TPES_GAS,regional coal,imported coal,imported coal
+TPES_GAS,regional corn for ethanol,regional corn for ethanol,regional corn for ethanol
+TPES_GAS,regional natural gas,domestic natural gas,domestic natural gas
+TPES_GAS,regional natural gas,imported natural gas,imported natural gas
+TPES_GAS,regional oil,domestic crude oil,domestic crude oil
+TPES_GAS,regional oil,imported crude oil,imported crude oil
+TPES_GAS,elec_CSP,CSP,CSP (dry_hybrid)
+TPES_GAS,elec_CSP,CSP,CSP (recirculating)
+TPES_GAS,elec_CSP_storage,CSP_storage,CSP_storage (dry_hybrid)
+TPES_GAS,elec_CSP_storage,CSP_storage,CSP_storage (recirculating)
+TPES_GAS,elec_Gen_III,Gen_III,Gen_III (cooling pond)
+TPES_GAS,elec_Gen_III,Gen_III,Gen_III (once through)
+TPES_GAS,elec_Gen_III,Gen_III,Gen_III (recirculating)
+TPES_GAS,elec_Gen_III,Gen_III,Gen_III (seawater)
+TPES_GAS,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (cooling pond)
+TPES_GAS,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (once through)
+TPES_GAS,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (recirculating)
+TPES_GAS,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (seawater)
+TPES_GAS,elec_geothermal,geothermal,geothermal (dry_hybrid)
+TPES_GAS,elec_geothermal,geothermal,geothermal (recirculating)
+TPES_GAS,elect_td_bld,rooftop_pv,rooftop_pv
+TPES_GAS,electricity,hydro,hydro
+TPES_GAS,electricity,solar,PV
+TPES_GAS,electricity,solar,PV_storage
+TPES_GAS,electricity,wind,wind
+TPES_GAS,electricity,wind,wind_offshore
+TPES_GAS,electricity,wind,wind_storage
+TPES_GAS,resid heating,traditional biomass,traditional biomass
+TPES_GAS,resid others,traditional biomass,traditional biomass
+TPES_RENEWABLE,regional biomass,regional biomass,regional biomass
+TPES_RENEWABLE,regional biomassOil,regional biomassOil,Soybean
+TPES_RENEWABLE,regional biomassOil,regional biomassOil,OilCrop
+TPES_RENEWABLE,regional biomassOil,regional biomassOil,OilPalm
+TPES_RENEWABLE,regional sugar for ethanol,regional sugar for ethanol,regional sugar for ethanol
+TPES_RENEWABLE,regional corn for ethanol,regional corn for ethanol,regional corn for ethanol
+TPES_RENEWABLE,elec_CSP,CSP,CSP (dry_hybrid)
+TPES_RENEWABLE,elec_CSP,CSP,CSP (recirculating)
+TPES_RENEWABLE,elec_CSP_storage,CSP_storage,CSP_storage (dry_hybrid)
+TPES_RENEWABLE,elec_CSP_storage,CSP_storage,CSP_storage (recirculating)
+TPES_RENEWABLE,elec_Gen_III,Gen_III,Gen_III (cooling pond)
+TPES_RENEWABLE,elec_Gen_III,Gen_III,Gen_III (once through)
+TPES_RENEWABLE,elec_Gen_III,Gen_III,Gen_III (recirculating)
+TPES_RENEWABLE,elec_Gen_III,Gen_III,Gen_III (seawater)
+TPES_RENEWABLE,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (cooling pond)
+TPES_RENEWABLE,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (once through)
+TPES_RENEWABLE,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (recirculating)
+TPES_RENEWABLE,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (seawater)
+TPES_RENEWABLE,elec_geothermal,geothermal,geothermal (dry_hybrid)
+TPES_RENEWABLE,elec_geothermal,geothermal,geothermal (recirculating)
+TPES_RENEWABLE,elect_td_bld,rooftop_pv,rooftop_pv
+TPES_RENEWABLE,electricity,hydro,hydro
+TPES_RENEWABLE,electricity,solar,PV
+TPES_RENEWABLE,electricity,solar,PV_storage
+TPES_RENEWABLE,electricity,wind,wind
+TPES_RENEWABLE,electricity,wind,wind_offshore
+TPES_RENEWABLE,electricity,wind,wind_storage
+TPES_RENEWABLE,H2 central production,solar,electrolysis
+TPES_RENEWABLE,H2 central production,wind,electrolysis
+TPES_RENEWABLE,H2 central production,nuclear,thermal splitting
+TPES_RENEWABLE_FEEDSTOCKSRL,regional biomass,regional biomass,regional biomass
+TPES_RENEWABLE_FEEDSTOCKSRL,regional biomassOil,regional biomassOil,Soybean
+TPES_RENEWABLE_FEEDSTOCKSRL,regional biomassOil,regional biomassOil,OilCrop
+TPES_RENEWABLE_FEEDSTOCKSRL,regional biomassOil,regional biomassOil,OilPalm
+TPES_RENEWABLE_FEEDSTOCKSRL,regional sugar for ethanol,regional sugar for ethanol,regional sugar for ethanol
+TPES_RENEWABLE_FEEDSTOCKSRL,regional corn for ethanol,regional corn for ethanol,regional corn for ethanol
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_CSP,CSP,CSP (dry_hybrid)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_CSP,CSP,CSP (recirculating)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_CSP_storage,CSP_storage,CSP_storage (dry_hybrid)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_CSP_storage,CSP_storage,CSP_storage (recirculating)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_Gen_III,Gen_III,Gen_III (cooling pond)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_Gen_III,Gen_III,Gen_III (once through)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_Gen_III,Gen_III,Gen_III (recirculating)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_Gen_III,Gen_III,Gen_III (seawater)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (cooling pond)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (once through)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (recirculating)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (seawater)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_geothermal,geothermal,geothermal (dry_hybrid)
+TPES_RENEWABLE_FEEDSTOCKSRL,elec_geothermal,geothermal,geothermal (recirculating)
+TPES_RENEWABLE_FEEDSTOCKSRL,elect_td_bld,rooftop_pv,rooftop_pv
+TPES_RENEWABLE_FEEDSTOCKSRL,electricity,hydro,hydro
+TPES_RENEWABLE_FEEDSTOCKSRL,electricity,solar,PV
+TPES_RENEWABLE_FEEDSTOCKSRL,electricity,solar,PV_storage
+TPES_RENEWABLE_FEEDSTOCKSRL,electricity,wind,wind
+TPES_RENEWABLE_FEEDSTOCKSRL,electricity,wind,wind_offshore
+TPES_RENEWABLE_FEEDSTOCKSRL,electricity,wind,wind_storage
+TPES_RENEWABLE_FEEDSTOCKSRL,H2 central production,solar,electrolysis
+TPES_RENEWABLE_FEEDSTOCKSRL,H2 central production,wind,electrolysis
+TPES_RENEWABLE_FEEDSTOCKSRL,H2 central production,nuclear,thermal splitting
+TPES_RENEWABLE_FEEDSTOCKSRL,refined liquids feedstocks,refined liquids feedstocks,refined liquids feedstocks
+TPES_RES_elec,elec_CSP,CSP,CSP (dry_hybrid)
+TPES_RES_elec,elec_CSP,CSP,CSP (recirculating)
+TPES_RES_elec,elec_CSP_storage,CSP_storage,CSP_storage (dry_hybrid)
+TPES_RES_elec,elec_CSP_storage,CSP_storage,CSP_storage (recirculating)
+TPES_RES_elec,elec_Gen_III,Gen_III,Gen_III (cooling pond)
+TPES_RES_elec,elec_Gen_III,Gen_III,Gen_III (once through)
+TPES_RES_elec,elec_Gen_III,Gen_III,Gen_III (recirculating)
+TPES_RES_elec,elec_Gen_III,Gen_III,Gen_III (seawater)
+TPES_RES_elec,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (cooling pond)
+TPES_RES_elec,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (once through)
+TPES_RES_elec,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (recirculating)
+TPES_RES_elec,elec_Gen_II_LWR,Gen_II_LWR,Gen_II_LWR (seawater)
+TPES_RES_elec,elec_geothermal,geothermal,geothermal (dry_hybrid)
+TPES_RES_elec,elec_geothermal,geothermal,geothermal (recirculating)
+TPES_RES_elec,elect_td_bld,rooftop_pv,rooftop_pv
+TPES_RES_elec,electricity,hydro,hydro
+TPES_RES_elec,electricity,solar,PV
+TPES_RES_elec,electricity,solar,PV_storage
+TPES_RES_elec,electricity,wind,wind
+TPES_RES_elec,electricity,wind,wind_offshore
+TPES_RES_elec,electricity,wind,wind_storage
+TPES_RES_primary,regional biomass,regional biomass,regional biomass
+TPES_RES_primary,regional coal,domestic coal,domestic coal
+TPES_RES_primary,regional coal,imported coal,imported coal
+TPES_RES_primary,regional natural gas,domestic natural gas,domestic natural gas
+TPES_RES_primary,regional natural gas,imported natural gas,imported natural gas
+TPES_RES_primary,regional oil,domestic crude oil,domestic crude oil
+TPES_RES_primary,regional oil,imported crude oil,imported crude oil
+TPES_RES_primary,regional biomassOil,regional biomassOil,Soybean
+TPES_RES_primary,regional biomassOil,regional biomassOil,OilCrop
+TPES_RES_primary,regional biomassOil,regional biomassOil,OilPalm
+TPES_RES_primary,regional corn for ethanol,regional corn for ethanol,regional corn for ethanol
+TPES_RES_primary,regional sugar for ethanol,regional sugar for ethanol,regional sugar for ethanol
+TRAD_BIO,resid heating,traditional biomass,traditional biomass
+TRAD_BIO,resid others,traditional biomass,traditional biomass
+PALMOIL_IMP,regional oilpalm,imported oilpalm,imported oilpalm
+COMM,comm cooling,electricity,electricity
+COMM,comm cooling,gas,gas
+COMM,comm heating,biomass,biomass
+COMM,comm heating,electricity,electricity
+COMM,comm heating,gas,gas
+COMM,comm heating,gas,hydrogen
+COMM,comm heating,refined liquids,refined liquids
+COMM,comm others,biomass,biomass
+COMM,comm others,biomass,biomass
+COMM,comm others,coal,coal
+COMM,comm others,coal,coal
+COMM,comm others,electricity,electricity
+COMM,comm others,gas,gas
+COMM,comm others,gas,hydrogen
+COMM,comm others,gas,gas
+COMM,comm others,gas,hydrogen
+COMM,comm others,refined liquids,refined liquids
+COMM_ELEC,comm others,electricity,electricity
+COMM_ELEC,comm cooling,electricity,electricity
+COMM_ELEC,comm heating,electricity,electricity
+ELEC_BLD,elect_td_bld,elect_td_bld,elect_td_bld
+ELEC_BLD,elect_td_bld,rooftop_pv,rooftop_pv
