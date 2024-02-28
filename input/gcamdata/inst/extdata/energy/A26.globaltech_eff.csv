@@ -34,5 +34,10 @@ refined liquids agr,refined liquids agr,refined liquids agr biofuel,refining,1,1
 refined liquids transport,refined liquids transport,refined liquids transport biofuel,refining,1,1,1
 refined liquids bunkers,refined liquids bunkers,refined liquids bunkers biofuel,refining,1,1,1
 refined liquids feedstocks,refined liquids feedstocks,refined liquids feedstocks,refining,1,1,1
+refined liquids buildings,refined liquids buildings,refined liquids buildings biofuel,biofuel_tracker,1,1,1
+refined liquids industrial,refined liquids industrial,refined liquids industrial biofuel,biofuel_tracker,1,1,1
+refined liquids agr,refined liquids agr,refined liquids agr biofuel,biofuel_tracker,1,1,1
+refined liquids transport,refined liquids transport,refined liquids transport biofuel,biofuel_tracker,1,1,1
+refined liquids bunkers,refined liquids bunkers,refined liquids bunkers biofuel,biofuel_tracker,1,1,1
 wholesale gas feedstocks,wholesale gas feedstocks,wholesale gas feedstocks,gas pipeline,1,1,1
 delivered coal feedstocks,delivered coal feedstocks,delivered coal feedstocks,regional coal,1,1,1

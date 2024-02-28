@@ -1,0 +1,16 @@
+# File: A22.globaltech_ressecout.csv,,,,,,
+# Title: Secondary output of bioliquid refining for tracking purposes,,,,,,
+# Units: NA,,,,,,
+# Column types: cccciii,,,,,,
+# ----------,,,,,,
+supplysector,subsector,technology,res.secondary.output,1971,2020,2100
+refining,biomass liquids,cellulosic ethanol,biofuel_tracker,1,1,1
+refining,biomass liquids,cellulosic ethanol CCS level 1,biofuel_tracker,1,1,1
+refining,biomass liquids,cellulosic ethanol CCS level 2,biofuel_tracker,1,1,1
+refining,biomass liquids,FT biofuels,biofuel_tracker,1,1,1
+refining,biomass liquids,FT biofuels CCS level 1,biofuel_tracker,1,1,1
+refining,biomass liquids,FT biofuels CCS level 2,biofuel_tracker,1,1,1
+refining,biomass liquids,corn ethanol,biofuel_tracker,1,1,1
+refining,biomass liquids,sugar cane ethanol,biofuel_tracker,1,1,1
+refining,biomass liquids,biodiesel,biofuel_tracker,1,1,1
+refining,biomass liquids,BTL with hydrogen,biofuel_tracker,1,1,1

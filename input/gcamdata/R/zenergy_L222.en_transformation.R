@@ -41,6 +41,7 @@ module_energy_L222.en_transformation <- function(command, ...) {
              FILE = "energy/A22.globaltech_co2capture",
              FILE = "energy/A22.globaltech_retirement",
              FILE = "energy/A22.globaltech_keyword",
+             FILE = "energy/A22.globaltech_ressecout",
              "L122.out_EJ_R_gasproc_F_Yh",
              "L122.out_EJ_R_refining_F_Yh",
              "L122.IO_R_oilrefining_F_Yh"))
@@ -64,10 +65,12 @@ module_energy_L222.en_transformation <- function(command, ...) {
              "L222.GlobalTechLifetime_en",
              "L222.GlobalTechProfitShutdown_en",
              "L222.GlobalTechKeyword_en",
+             "L222.GlobalTechResSecOut_en",
              "L222.StubTechProd_gasproc",
              "L222.StubTechProd_refining",
              "L222.StubTechCoef_refining",
-             "L222.GlobalTechCost_low_en"))
+             "L222.GlobalTechCost_low_en",
+             "L222.RESCreditMkt"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -96,6 +99,7 @@ module_energy_L222.en_transformation <- function(command, ...) {
     A22.globaltech_co2capture <- get_data(all_data, "energy/A22.globaltech_co2capture")
     A22.globaltech_retirement <- get_data(all_data, "energy/A22.globaltech_retirement", strip_attributes = TRUE)
     A22.globaltech_keyword <- get_data(all_data, "energy/A22.globaltech_keyword", strip_attributes = TRUE)
+    A22.globaltech_ressecout <- get_data(all_data, "energy/A22.globaltech_ressecout")
     L122.out_EJ_R_gasproc_F_Yh <- get_data(all_data, "L122.out_EJ_R_gasproc_F_Yh")
     L122.out_EJ_R_refining_F_Yh <- get_data(all_data, "L122.out_EJ_R_refining_F_Yh", strip_attributes = TRUE)
     L122.IO_R_oilrefining_F_Yh <- get_data(all_data, "L122.IO_R_oilrefining_F_Yh")
@@ -325,6 +329,30 @@ module_energy_L222.en_transformation <- function(command, ...) {
       select(sector.name = supplysector, subsector.name = subsector, technology, primary.consumption, year) %>%
       filter(year %in% MODEL_YEARS) ->
       L222.GlobalTechKeyword_en
+
+    # L222.GlobalTechResSecOut_en: Global tech primary energy keywords to ensure first gen
+    # biomass gets picked up by the primary energy queries
+    A22.globaltech_ressecout %>%
+      gather_years() %>%
+      complete(nesting(supplysector, subsector, technology, res.secondary.output),
+               year = sort(unique(c(year, MODEL_YEARS)))) %>%
+      # Interpolate to all years
+      group_by(sector.name = supplysector, subsector.name = subsector, technology, res.secondary.output) %>%
+      mutate(output.ratio = round(approx_fun(year, value, rule = 2), energy.DIGITS_COEFFICIENT)) %>%
+      ungroup() %>%
+      filter(year %in% MODEL_YEARS) %>%
+      select(LEVEL2_DATA_NAMES[["GlobalTechRESSecOut"]]) ->
+      L222.GlobalTechResSecOut_en
+
+    # Set up RES market
+    L222.RESCreditMkt <- tibble(region = GCAM_region_names$region,
+                              policyType = "RES") %>%
+      repeat_add_columns(tibble(year = MODEL_FUTURE_YEARS)) %>%
+      mutate(constraint = 1,
+             price.unit = "1975$/GJ",
+             output.unit = "EJ",
+             market = region) %>%
+      repeat_add_columns(tibble(policy.portfolio.standard = unique(A22.globaltech_ressecout$res.secondary.output)))
 
     #2d. Calibration and region-specific data
     #  generate base year calibrated outputs of gas processing by interpolating from historical values
@@ -658,13 +686,26 @@ module_energy_L222.en_transformation <- function(command, ...) {
       add_precursors("energy/A22.globaltech_cost_low") ->
       L222.GlobalTechCost_low_en
 
+    L222.GlobalTechResSecOut_en %>%
+      add_title("Secondary output for biofuel tracking") %>%
+      add_units("output ratio") %>%
+      add_precursors("energy/A22.globaltech_ressecout") ->
+      L222.GlobalTechResSecOut_en
+
+    L222.RESCreditMkt %>%
+      add_title("RES market for biofuel tracking") %>%
+      add_units("NA") %>%
+      add_precursors("energy/A22.globaltech_ressecout") ->
+      L222.RESCreditMkt
+
     return_data(L222.Supplysector_en, L222.SectorUseTrialMarket_en, L222.SubsectorLogit_en, L222.SubsectorShrwt_en,
                 L222.SubsectorShrwtFllt_en, L222.SubsectorInterp_en, L222.SubsectorInterpTo_en,
                 L222.StubTech_en, L222.GlobalTechInterp_en, L222.GlobalTechCoef_en, L222.GlobalTechCost_en, L222.GlobalTechTrackCapital_en,
                 L222.GlobalTechShrwt_en, L222.GlobalTechCapture_en, L222.GlobalTechShutdown_en,
                 L222.GlobalTechSCurve_en, L222.GlobalTechLifetime_en, L222.GlobalTechProfitShutdown_en,
                 L222.StubTechProd_gasproc, L222.StubTechProd_refining, L222.StubTechCoef_refining,
-                L222.GlobalTechCost_low_en, L222.GlobalTechKeyword_en)
+                L222.GlobalTechCost_low_en, L222.GlobalTechKeyword_en, L222.GlobalTechResSecOut_en,
+                L222.RESCreditMkt)
   } else {
     stop("Unknown command")
   }
