@@ -110,7 +110,6 @@ module_policy_L3221.CCap <- function(command, ...) {
       mutate(region = if_else(!is.na(region), region, market))
 
     L3221.CCap_link_regions <- L3221.CCap_constraint %>%
-      filter(market != "World") %>%
       # first filter to needed markets
       semi_join(market_region_mappings, by = "market") %>%
       # then add in all regions
