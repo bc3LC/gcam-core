@@ -18,7 +18,8 @@ module_policy_CCap_xml <- function(command, ...) {
              "L3221.CCap_tech",
              "L3221.CCap_tranTech",
              "L3221.CCap_resource",
-             "L3221.CCap_GHG_Link"))
+             "L3221.CCap_GHG_Link",
+             "L3221.CCap_global_tech"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(all_xml_names)
   } else if(command == driver.MAKE) {
@@ -32,6 +33,7 @@ module_policy_CCap_xml <- function(command, ...) {
     L3221.CCap_tranTech <- get_data(all_data, "L3221.CCap_tranTech")
     L3221.CCap_resource <- get_data(all_data, "L3221.CCap_resource")
     L3221.CCap_GHG_Link <- get_data(all_data, "L3221.CCap_GHG_Link")
+    L3221.CCap_global_tech <- get_data(all_data, "L3221.CCap_global_tech")
     # ===================================================
     # Need to split L3221.CCap_constraint into years with fillout and years without
     L3221.CCap_constraint_fillout <- L3221.CCap_constraint %>%
@@ -71,6 +73,11 @@ module_policy_CCap_xml <- function(command, ...) {
       L3221.CCap_GHG_Link_tmp <- L3221.CCap_GHG_Link %>%
         filter(xml == xml_name) %>%
         select(-xml)
+
+      L3221.CCap_global_tech_tmp <- L3221.CCap_global_tech %>%
+        filter(xml == xml_name) %>%
+        select(-xml)
+
       # Produce outputs
       assign(xml_name,
              create_xml(xml_name) %>%
@@ -83,12 +90,14 @@ module_policy_CCap_xml <- function(command, ...) {
                add_xml_data(L3221.CCap_GHG_Link_tmp, "GHGConstrLinkPriceAdj") %>%
                add_xml_data(L3221.CCap_GHG_Link_tmp, "GHGConstrLinkDemandAdj") %>%
                add_xml_data(L3221.CCap_GHG_Link_tmp, "GHGConstrLinkMktUnits") %>%
+               add_xml_data(L3221.CCap_global_tech_tmp, "GlobalTechCO2") %>%
                add_precursors("L3221.CCap_constraint",
                               "L3221.CCap_link_regions",
                               "L3221.CCap_tech",
                               "L3221.CCap_tranTech",
                               "L3221.CCap_resource",
-                              "L3221.CCap_GHG_Link")
+                              "L3221.CCap_GHG_Link",
+                              "L3221.CCap_global_tech")
       )
     }
 

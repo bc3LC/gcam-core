@@ -48,7 +48,8 @@ module_policy_L3221.CCap <- function(command, ...) {
              "L3221.CCap_tech",
              "L3221.CCap_tranTech",
              "L3221.CCap_resource",
-             "L3221.CCap_GHG_Link"))
+             "L3221.CCap_GHG_Link",
+             "L3221.CCap_global_tech"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -109,6 +110,7 @@ module_policy_L3221.CCap <- function(command, ...) {
       mutate(region = if_else(!is.na(region), region, market))
 
     L3221.CCap_link_regions <- L3221.CCap_constraint %>%
+      filter(market != "World") %>%
       # first filter to needed markets
       semi_join(market_region_mappings, by = "market") %>%
       # then add in all regions
@@ -122,7 +124,8 @@ module_policy_L3221.CCap <- function(command, ...) {
     # CO2 constraints in most cases
     # For technologies, we need all regions
     tech_all_regions <- bind_rows(L3221.CCap_constraint, L3221.CCap_link_regions)  %>%
-      distinct(xml, market, region, ghgpolicy, mapping.name)
+      distinct(xml, market, region, ghgpolicy, mapping.name) %>%
+      filter(market != "World")
 
     # Need to add all techs for the given regions/sectors
     # First for non-transport techs, then for transport techs, then for resources
@@ -207,7 +210,30 @@ module_policy_L3221.CCap <- function(command, ...) {
     # Check that there are no NAs
     stopifnot(!any(is.na(L3221.CCap_resource)))
 
-    # 5. Adjust any GDPIntensity targets -------------------------
+    # 5 Global tech db technologies ---------------
+    # For technologies, we need all regions
+    tech_global_db <- L3221.CCap_constraint  %>%
+      distinct(xml, market, ghgpolicy, mapping.name) %>%
+      filter(market == "World")
+
+    if (nrow(tech_global_db) == 0){
+      # If no caps to implement, create empty tibble
+      tbl_colnames <- c("xml", LEVEL2_DATA_NAMES[["GlobalTechCO2"]])
+      L3221.CCap_global_tech <- tibble::tibble(!!!tbl_colnames, .rows = 0, .name_repair = ~ tbl_colnames)
+    } else {
+    # Need to add all techs for the given regions/sectors
+    # First for non-transport techs, then for transport techs, then for resources
+    L3221.CCap_global_tech <- policy_mappings %>%
+      # global-tech-db won't work for resources
+      select(-resource, -reserve.subresource) %>%
+      mutate(mapping.name = if_else(is.na(mapping.name), tech_mapping, mapping.name)) %>%
+      right_join(tech_global_db, by = c("mapping.name")) %>%
+      mutate(subsector = if_else(is.na(subsector), tranSubsector, subsector)) %>%
+      select(xml, CO2 = ghgpolicy, sector.name = supplysector, subsector.name = subsector, technology = stub.technology) %>%
+      repeat_add_columns(tibble(year = MODEL_YEARS))
+    }
+
+    # 6. Adjust any GDPIntensity targets -------------------------
     if (any(!is.na(L3221.CCap_constraint$GDPIntensity_BaseYear))){
       GDP_Intensity_targets <- L3221.CCap_constraint %>%
         filter(!is.na(GDPIntensity_BaseYear))
@@ -262,7 +288,7 @@ module_policy_L3221.CCap <- function(command, ...) {
 
     }
 
-    # 6. Get ghg link for each -------------------------
+    # 7. Get ghg link for each -------------------------
     L3221.CCap_GHG_Link <- A_CCap_Constraint %>%
       distinct(xml, link.type, market, ghgpolicy, adjust.year) %>%
       left_join(market_region_mappings, by = "market") %>%
@@ -332,9 +358,18 @@ module_policy_L3221.CCap <- function(command, ...) {
                      "policy/A_CTax_Link") ->
     L3221.CCap_GHG_Link
 
+    L3221.CCap_global_tech %>%
+      add_title("CO2 Names for global-tech-db", overwrite = T) %>%
+      add_units("NA") %>%
+      add_precursors("policy/A_CCap_Constraint",
+                     "policy/mappings/policy_tech_mappings",
+                     "policy/mappings/policy_tranSubsector_mappings",
+                     "policy/mappings/policy_resource_mappings") ->
+      L3221.CCap_global_tech
+
     return_data(L3221.CCap_constraint, L3221.CCap_link_regions,
                 L3221.CCap_tech, L3221.CCap_tranTech, L3221.CCap_resource,
-                L3221.CCap_GHG_Link)
+                L3221.CCap_GHG_Link, L3221.CCap_global_tech)
   } else {
     stop("Unknown command")
   }

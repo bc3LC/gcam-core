@@ -507,6 +507,7 @@ generate_level2_data_names <- function() {
   level2_data_names[["StubTranTechRESOutput"]] <- c("region", "supplysector", "tranSubsector", "stub.technology", "year", "res.secondary.output", "output.ratio")
   level2_data_names[["ExoShutdown"]] <- c("region", "supplysector", "subsector", "stub.technology", "period", "exogenous.shutdown.decider", "year", "output.scalar")
 
+  level2_data_names[["GlobalTechCO2"]] <- c("sector.name", "subsector.name", "technology", "year", "CO2")
   level2_data_names
 }
 

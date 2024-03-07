@@ -707,6 +707,8 @@ StubTranTechRESOutput, world/+{name}region, region/+{name}supplysector, supplyse
 
 ExoShutdown, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}stub-technology, stub-technology/+{year}period, period/+{name}exogenous-shutdown-decider, exogenous-shutdown-decider/+{year}output-scalar, exogenous-shutdown-decider/+output-scalar, scenario, scenario/world
 
+GlobalTechCO2, global-technology-database/+{sector-name}location-info, global-technology-database/+{subsector-name}location-info, location-info/+{name}technology, technology/+{year}period, period/+{name}CO2, scenario, scenario/world, world/global-technology-database
+
 #####, LAND ALLOCATOR
 
 
