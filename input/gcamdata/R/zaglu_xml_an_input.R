@@ -34,7 +34,17 @@ module_aglu_an_input_xml <- function(command, ...) {
       "L202.StubTechInterp_an",
       "L202.StubTechProd_an",
       "L202.StubTechCoef_an",
-      "L202.StubTechCost_an")
+      "L202.StubTechCost_an",
+       "L202.StubTechCost_For_proc",
+      "L202.StubTechProd_in_Forest",
+      "L202.StubTechProd_in_pulp_energy",
+      "L2082.StubTechCoef_laborcapital_an",
+      "L2082.StubTechCoef_laborcapital_an_tfp_MA",
+      "L2082.StubTechCost_an_adj",
+      FILE = "aglu/IMAGE/GCAM_IMAGE_region_mapping",
+      FILE = "aglu/IMAGE/IMAGE_an_feed_bySystem",
+      FILE = "aglu/IMAGE/IMAGE_an_head_bySystem",
+      FILE = "aglu/IMAGE/IMAGE_an_meat")
 
   MODULE_OUTPUTS <-
     c(XML = "an_input.xml")
@@ -71,13 +81,6 @@ module_aglu_an_input_xml <- function(command, ...) {
     L202.StubTechCoef_an <- get_data(all_data, "L202.StubTechCoef_an")
     L202.StubTechCost_an <- get_data(all_data, "L202.StubTechCost_an")
 
-
-
-    # Use new IMAGE data for livestock productivity growth ----
-    GCAM_IMAGE_region_mapping <- get_data(all_data, "aglu/IMAGE/GCAM_IMAGE_region_mapping")
-    IMAGE_an_feed_bySystem <- get_data(all_data, "aglu/IMAGE/IMAGE_an_feed_bySystem")
-    IMAGE_an_head_bySystem <- get_data(all_data, "aglu/IMAGE/IMAGE_an_head_bySystem")
-    IMAGE_an_meat <- get_data(all_data, "aglu/IMAGE/IMAGE_an_meat")
 
     # Allocate meat production to system by animal
 
