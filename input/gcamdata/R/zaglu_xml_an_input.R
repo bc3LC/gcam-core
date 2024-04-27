@@ -41,6 +41,7 @@ module_aglu_an_input_xml <- function(command, ...) {
       "L2082.StubTechCoef_laborcapital_an",
       "L2082.StubTechCoef_laborcapital_an_tfp_MA",
       "L2082.StubTechCost_an_adj",
+      # Use new IMAGE data for livestock productivity growth ----
       FILE = "aglu/IMAGE/GCAM_IMAGE_region_mapping",
       FILE = "aglu/IMAGE/IMAGE_an_feed_bySystem",
       FILE = "aglu/IMAGE/IMAGE_an_head_bySystem",
@@ -150,15 +151,22 @@ module_aglu_an_input_xml <- function(command, ...) {
       select(year, IMAGE_region, supplysector, subsector, GrowthRate) ->
       IMAGE_IO_GrowthRate
 
-
-    L202.StubTechCoef_an %>% filter(year <= MODEL_FINAL_BASE_YEAR) %>%
+    L202.StubTechCoef_an %>%
+      filter(!supplysector %in% c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat")) %>%
       bind_rows(
-        L202.StubTechCoef_an %>% filter(year >  MODEL_FINAL_BASE_YEAR) %>%
-          left_join(GCAM_IMAGE_region_mapping, by = "region") %>%
-          left_join(IMAGE_IO_GrowthRate,
-                    by = c("supplysector", "subsector", "year", "IMAGE_region")) %>%
-          mutate(coefficient = coefficient * GrowthRate) %>%
-          select(-GCAM_region_ID, -IMAGE_region, -GrowthRate)
+        L202.StubTechCoef_an %>%
+          filter(supplysector %in% c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat"),
+                 year <= MODEL_FINAL_BASE_YEAR) %>%
+          bind_rows(
+            L202.StubTechCoef_an %>%
+              filter(supplysector %in% c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat"),
+                     year >  MODEL_FINAL_BASE_YEAR) %>%
+              left_join(GCAM_IMAGE_region_mapping, by = "region") %>%
+              left_join(IMAGE_IO_GrowthRate,
+                        by = c("supplysector", "subsector", "year", "IMAGE_region")) %>%
+              mutate(coefficient = coefficient * GrowthRate) %>%
+              select(-GCAM_region_ID, -IMAGE_region, -GrowthRate)
+          )
       ) ->
       L202.StubTechCoef_an
 
