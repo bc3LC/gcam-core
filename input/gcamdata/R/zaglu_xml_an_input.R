@@ -83,92 +83,120 @@ module_aglu_an_input_xml <- function(command, ...) {
     L202.StubTechCost_an <- get_data(all_data, "L202.StubTechCost_an")
 
 
-    # Allocate meat production to system by animal
+    LivestockFCRImprovement = TRUE
 
-    IMAGE_an_head_bySystem %>%
-      filter(year %in% c(MODEL_FINAL_BASE_YEAR, MODEL_FUTURE_YEARS) ) %>%
-      gather(IMAGE_region, value, -year:-commodity) %>%
-      spread(system, value) %>%
-      mutate(mixed_share = `intensive grazing system` / (`intensive grazing system` + `extensive grazing system`)) %>%
-      replace_na(list(mixed_share = 1)) %>%
-      select(year, commodity, IMAGE_region, mixed_share) %>%
-      left_join(
-        data.frame(commodity = c("non-dairy cattle", "dairy cattle", "pigs", "poultry", "sheep & goats"),
-                   supplysector = c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat")),
-        by = "commodity"
-      ) %>%
-      filter(!is.na(supplysector) ) %>%
-      select(-commodity)->
-      IMAGE_MixedTechShare
-
-    IMAGE_an_meat %>%
-      filter(year %in% c(MODEL_FINAL_BASE_YEAR, MODEL_FUTURE_YEARS) ) %>%
-      gather(IMAGE_region, value, -year:-commodity) %>%
-      left_join(
-        data.frame(commodity = c("beef", "milk", "pork", "poultry & eggs", "mutton & goat meat"),
-                   supplysector = c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat")),
-        by = "commodity"
-      ) %>% filter(!is.na(supplysector) ) %>% select(-commodity) ->
-      IMAGE_an_meat1
+    if (LivestockFCRImprovement == TRUE) {
+      # Update L202.StubTechCoef_an
 
 
-    IMAGE_an_meat1 %>%
-      left_join_error_no_match(IMAGE_MixedTechShare, by = c("year", "IMAGE_region", "supplysector")) %>%
-      mutate(Mixed = mixed_share * value, Pastoral = value - Mixed) %>%
-      select(-value, -mixed_share) %>%
-      gather(subsector, meat, Mixed, Pastoral) %>% arrange(year) ->
-      IMAGE_an_meat_bySystem
+      # Allocate meat production to system by animal
+
+      IMAGE_an_head_bySystem %>%
+        filter(year %in% c(MODEL_FINAL_BASE_YEAR, MODEL_FUTURE_YEARS) ) %>%
+        gather(IMAGE_region, value, -year:-commodity) %>%
+        spread(system, value) %>%
+        mutate(mixed_share = `intensive grazing system` / (`intensive grazing system` + `extensive grazing system`)) %>%
+        replace_na(list(mixed_share = 1)) %>%
+        select(year, commodity, IMAGE_region, mixed_share) %>%
+        left_join_error_no_match(
+          tibble(commodity = c("non-dairy cattle", "dairy cattle", "pigs", "poultry", "sheep & goats"),
+                 supplysector = c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat")),
+          by = "commodity"
+        ) %>%
+        select(-commodity)->
+        IMAGE_MixedTechShare
+
+      IMAGE_an_meat %>%
+        filter(year %in% c(MODEL_FINAL_BASE_YEAR, MODEL_FUTURE_YEARS) ) %>%
+        gather(IMAGE_region, value, -year:-commodity) %>%
+        filter(commodity != "total") %>%
+        left_join_error_no_match(
+          tibble(commodity = c("beef", "milk", "pork", "poultry & eggs", "mutton & goat meat"),
+                 supplysector = c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat")),
+          by = "commodity"
+        ) %>%
+        select(-commodity) ->
+        IMAGE_an_meat1
 
 
-    IMAGE_an_feed_bySystem %>%
-      filter(year %in% c(MODEL_FINAL_BASE_YEAR, MODEL_FUTURE_YEARS) ) %>%
-      gather(IMAGE_region, value, -year:-commodity) %>%
-      dplyr::group_by_at(vars(-feed, -value)) %>%
-      summarize(value = sum(value), .groups = "drop") %>%
-      left_join(
-        data.frame(commodity = c("non-dairy cattle", "dairy cattle", "pigs", "poultry", "sheep & goats"),
-                   supplysector = c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat")),
-        by = "commodity"
-      ) %>%
-      filter(!is.na(supplysector) ) %>%
-      select(-commodity) %>%
-      spread(system, value) %>%
-      rename(Mixed = `intensive grazing system`,
-             Pastoral = `extensive grazing system`) %>%
-      select(-total) %>%
-      gather(subsector, feed, Mixed, Pastoral) %>% arrange(year) ->
-      IMAGE_an_feed_bySystem1
+      IMAGE_an_meat1 %>%
+        left_join_error_no_match(IMAGE_MixedTechShare,
+                                 by = c("year", "IMAGE_region", "supplysector")) %>%
+        mutate(Mixed = mixed_share * value, Pastoral = value - Mixed) %>%
+        select(-value, -mixed_share) %>%
+        gather(subsector, meat, Mixed, Pastoral) %>% arrange(year) ->
+        IMAGE_an_meat_bySystem
 
-    IMAGE_an_meat_bySystem %>%
-      left_join(IMAGE_an_feed_bySystem1,
-                by = c("year", "IMAGE_region", "supplysector", "subsector")) %>%
-      mutate(IOCoef = feed / meat) %>%
-      replace_na(list(IOCoef = 1)) %>%
-      mutate(IOCoef = if_else(is.infinite(IOCoef), 1, IOCoef)) %>%
-      group_by(IMAGE_region, supplysector, subsector) %>%
-      mutate(GrowthRate = IOCoef / IOCoef[year == MODEL_FINAL_BASE_YEAR]) %>%
-      ungroup() %>%
-      select(year, IMAGE_region, supplysector, subsector, GrowthRate) ->
-      IMAGE_IO_GrowthRate
 
-    L202.StubTechCoef_an %>%
-      filter(!supplysector %in% c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat")) %>%
-      bind_rows(
-        L202.StubTechCoef_an %>%
-          filter(supplysector %in% c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat"),
-                 year <= MODEL_FINAL_BASE_YEAR) %>%
-          bind_rows(
-            L202.StubTechCoef_an %>%
-              filter(supplysector %in% c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat"),
-                     year >  MODEL_FINAL_BASE_YEAR) %>%
-              left_join(GCAM_IMAGE_region_mapping, by = "region") %>%
-              left_join(IMAGE_IO_GrowthRate,
-                        by = c("supplysector", "subsector", "year", "IMAGE_region")) %>%
-              mutate(coefficient = coefficient * GrowthRate) %>%
-              select(-GCAM_region_ID, -IMAGE_region, -GrowthRate)
-          )
-      ) ->
-      L202.StubTechCoef_an
+      IMAGE_an_feed_bySystem %>%
+        filter(year %in% c(MODEL_FINAL_BASE_YEAR, MODEL_FUTURE_YEARS) ) %>%
+        gather(IMAGE_region, value, -year:-commodity) %>%
+        dplyr::group_by_at(vars(-feed, -value)) %>%
+        summarize(value = sum(value), .groups = "drop") %>%
+        filter(commodity != "total", system != "total") %>%
+        left_join_error_no_match(
+          data.frame(commodity = c("non-dairy cattle", "dairy cattle", "pigs", "poultry", "sheep & goats"),
+                     supplysector = c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat")),
+          by = "commodity"
+        ) %>%
+        select(-commodity) %>%
+        spread(system, value) %>%
+        rename(Mixed = `intensive grazing system`,
+               Pastoral = `extensive grazing system`) %>%
+        gather(subsector, feed, Mixed, Pastoral) %>% arrange(year) ->
+        IMAGE_an_feed_bySystem1
+
+      IMAGE_an_meat_bySystem %>%
+        left_join_error_no_match(IMAGE_an_feed_bySystem1,
+                                 by = c("year", "IMAGE_region", "supplysector", "subsector")) %>%
+        mutate(feed = if_else(meat == 0 , 0, feed),
+               IOCoef = feed / meat) %>%
+        replace_na(list(IOCoef = 1)) %>%
+        group_by(IMAGE_region, supplysector, subsector) %>%
+        mutate(GrowthRate = IOCoef / IOCoef[year == MODEL_FINAL_BASE_YEAR]) %>%
+        ungroup() %>%
+        select(year, IMAGE_region, supplysector, subsector, GrowthRate) ->
+        IMAGE_IO_GrowthRate
+
+      IMAGE_IO_GrowthRate %>%
+        #filter(IMAGE_region == "Northern Africa", subsector == "Mixed") %>%
+        group_by_at(vars(-year, -GrowthRate)) %>%
+        # setting a min value of the change in IO growth
+        # IO coef should be monotonically decreasing
+        mutate(g = GrowthRate / lag(GrowthRate),
+               g1 = pmin(1, g)) %>%
+        replace_na(list(g1 = 1)) %>%
+        mutate(GrowthRate1 = cumprod(g1)) %>%
+        select(year, IMAGE_region, supplysector, subsector, GrowthRate = GrowthRate1) %>%
+        ungroup() ->
+        IMAGE_IO_GrowthRate
+
+      L202.StubTechCoef_an %>%
+        filter(supplysector %in% c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat"),
+               year >  MODEL_FINAL_BASE_YEAR) %>%
+        left_join_error_no_match(GCAM_IMAGE_region_mapping, by = "region") %>%
+        left_join_error_no_match(IMAGE_IO_GrowthRate,
+                                 by = c("supplysector", "subsector", "year", "IMAGE_region")) %>%
+        mutate(coefficient = coefficient * GrowthRate) %>%
+        select(-GCAM_region_ID, -IMAGE_region, -GrowthRate)  %>%
+        bind_rows(
+          L202.StubTechCoef_an %>%
+            filter(supplysector %in% c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat"),
+                   year <= MODEL_FINAL_BASE_YEAR)
+        ) ->
+        L202.StubTechCoef_an_live
+
+      L202.StubTechCoef_an_live %>%
+        bind_rows(
+          L202.StubTechCoef_an %>%
+            filter(!supplysector %in% c("Beef", "Dairy", "Pork", "Poultry", "SheepGoat"))
+        ) ->
+        L202.StubTechCoef_an
+
+    }
+
+
+
 
 
     # ===================================================
