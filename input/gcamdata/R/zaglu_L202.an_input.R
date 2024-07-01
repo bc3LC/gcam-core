@@ -576,12 +576,15 @@ module_aglu_L202.an_input <- function(command, ...) {
     # Step 5 Phase out negative nonFeedCost
     # phase out negative nonFeedCost to zero till the last future year
     # max(MODEL_FUTURE_YEARS) can be changed to other years
+    Zero_Cost_year <- max(MODEL_FUTURE_YEARS)
+    Zero_Cost_year <- 2050
+
     L202.an_nonFeedCost_R_C_3 %>%
       filter(nonFeedCost <0) %>%
       repeat_add_columns(tibble(year = MODEL_YEARS)) %>%
       # linear interpolation to 0 in the last year
       mutate(nonFeedCost = if_else(year > MODEL_FINAL_BASE_YEAR, NA_real_, nonFeedCost),
-             nonFeedCost = if_else(year == max(MODEL_FUTURE_YEARS), 0, nonFeedCost)) %>%
+             nonFeedCost = if_else(year >= Zero_Cost_year, 0, nonFeedCost)) %>%
       group_by_at(vars(-year, -nonFeedCost)) %>%
       mutate(nonFeedCost = approx_fun(year, nonFeedCost, rule = 1)) %>%
       ungroup() %>%
