@@ -304,7 +304,10 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
 
     L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_SSP %>%
       filter(year >= 2020) %>%
-      select(scenario, region, energy.final.demand, year, income.elasticity) ->
+      select(scenario, region, energy.final.demand, year, income.elasticity) %>%
+      # Taiwan and South American North has constant GDPs after 2050 per our assumptions
+      # this led to inf in income elasticity
+      mutate(income.elasticity = replace(income.elasticity, is.infinite(income.elasticity), 0)) ->
       L100.IncomeElasticity_Food_ExoDiet_2050EL2_SSP
 
 
