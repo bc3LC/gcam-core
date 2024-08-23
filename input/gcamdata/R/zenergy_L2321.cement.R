@@ -48,8 +48,8 @@ module_energy_L2321.cement <- function(command, ...) {
              "L1321.out_Mt_R_cement_Yh",
              "L1321.IO_GJkg_R_cement_F_Yh",
              "L1321.in_EJ_R_cement_F_Y",
-             "L101.Pop_thous_GCAM_IC_R_Y",
-             "L102.pcgdp_thous90USD_GCAM_IC_R_Y",
+             "L101.Pop_thous_GCAM3_R_Y",
+             "L102.pcgdp_thous90USD_GCAM3_R_Y",
              "L102.pcgdp_thous90USD_Scen_R_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L2321.Supplysector_cement",
@@ -96,8 +96,8 @@ module_energy_L2321.cement <- function(command, ...) {
     L1321.IO_GJkg_R_cement_F_Yh <- get_data(all_data, "L1321.IO_GJkg_R_cement_F_Yh", strip_attributes = TRUE)
     L1321.in_EJ_R_cement_F_Y <- get_data(all_data, "L1321.in_EJ_R_cement_F_Y", strip_attributes = TRUE)
     A321.inc_elas_output <- get_data(all_data, "socioeconomics/A321.inc_elas_output", strip_attributes = TRUE)
-    L101.Pop_thous_GCAM_IC_R_Y <- get_data(all_data, "L101.Pop_thous_GCAM_IC_R_Y")
-    L102.pcgdp_thous90USD_GCAM_IC_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_GCAM_IC_R_Y")
+    L101.Pop_thous_GCAM3_R_Y <- get_data(all_data, "L101.Pop_thous_GCAM3_R_Y")
+    L102.pcgdp_thous90USD_GCAM3_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_GCAM3_R_Y")
     L102.pcgdp_thous90USD_Scen_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_Scen_R_Y")
 
     # ===================================================
@@ -399,7 +399,7 @@ module_energy_L2321.cement <- function(command, ...) {
 
     # L2321.IncomeElasticity_cement_scen: income elasticity of cement (scenario-specific)
     # First, calculate the per-capita GDP pathways of every GDP scenario and combine
-    L102.pcgdp_thous90USD_GCAM_IC_R_Y %>%
+    L102.pcgdp_thous90USD_GCAM3_R_Y %>%
       # Combine GCAM 3.0 with the SSPs, and subset only the relevant years
       mutate(scenario = "GCAM3") %>%
       bind_rows(L102.pcgdp_thous90USD_Scen_R_Y) %>%
@@ -421,7 +421,7 @@ module_energy_L2321.cement <- function(command, ...) {
       left_join_error_no_match(GCAM_region_names, by = 'GCAM_region_ID') %>%
       mutate(year = max(MODEL_BASE_YEARS)) %>%
       left_join_error_no_match(L2321.BaseService_cement, by = c("year", "region")) %>%
-      left_join_error_no_match(L101.Pop_thous_GCAM_IC_R_Y, by = c("year", "GCAM_region_ID")) %>%
+      left_join_error_no_match(L101.Pop_thous_GCAM3_R_Y, by = c("year", "GCAM_region_ID")) %>%
       mutate(value = base.service * CONV_MIL_THOUS / value) %>%
       select(-base.service, -energy.final.demand) ->
       L2321.Output_cement # intermediate tibble
@@ -473,8 +473,8 @@ module_energy_L2321.cement <- function(command, ...) {
         add_comments("First calculate cement output as the base-year cement output times the GDP ratio raised to the income elasticity") %>%
         add_comments("Then back out the appropriate income elasticities from cement output") %>%
         add_legacy_name(paste0("L2321.IncomeElasticity_cement_", tolower(ieo))) %>%
-        add_precursors("L102.pcgdp_thous90USD_GCAM_IC_R_Y", "L102.pcgdp_thous90USD_Scen_R_Y", "common/GCAM_region_names", "energy/A321.demand", "energy/calibrated_techs",
-                       "L1321.out_Mt_R_cement_Yh", "L101.Pop_thous_GCAM_IC_R_Y", "socioeconomics/A321.inc_elas_output") ->
+        add_precursors("L102.pcgdp_thous90USD_GCAM3_R_Y", "L102.pcgdp_thous90USD_Scen_R_Y", "common/GCAM_region_names", "energy/A321.demand", "energy/calibrated_techs",
+                       "L1321.out_Mt_R_cement_Yh", "L101.Pop_thous_GCAM3_R_Y", "socioeconomics/A321.inc_elas_output") ->
         x
       assign(paste0("L2321.IncomeElasticity_cement_", tolower(ieo)), x)
     }

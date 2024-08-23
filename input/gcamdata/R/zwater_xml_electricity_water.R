@@ -1,3 +1,4 @@
+
 # Copyright 2019 Battelle Memorial Institute; see the LICENSE file.
 
 #' module_water_electricity_water_xml
@@ -221,7 +222,7 @@ module_water_electricity_water_xml <- function(command, ...) {
         add_xml_data(L2233.StubTechTrackCapital_elec, "StubTechCost")
     }
 
-      tmp  %>%
+    tmp  %>%
       add_xml_data(L2233.StubTechEff_elec_cool, "StubTechEff") %>%
       add_xml_data(L2233.StubTechSecOut_desal_elec_cool, "StubTechSecOut") %>%
       add_xml_data(L2233.StubTechProd_elec_cool, "StubTechProd") %>%

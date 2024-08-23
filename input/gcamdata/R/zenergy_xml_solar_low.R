@@ -29,7 +29,9 @@ module_energy_solar_low_xml <- function(command, ...) {
 
     # This xml is empty if using EUREF data
     if (energy.ELEC_COST_SOURCE %in% c("EUREF", "WEO", "WEO-EUREF")){
-      create_xml("solar_low.xml") ->
+      create_xml("solar_low.xml") %>%
+        add_precursors("L223.GlobalTechCapital_sol_low", "L223.GlobalIntTechCapital_sol_low",
+                       "L223.StubTechCapFactor_elec") ->
         solar_low.xml
     } else {
     # need to convert to standard non energy input for rooftop_pv for capital tracking purposes

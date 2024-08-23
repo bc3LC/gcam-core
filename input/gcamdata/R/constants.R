@@ -604,6 +604,13 @@ energy.IRON_STEEL.DOMESTIC_SW <- c("Africa_Southern","Indonesia","Africa_Norther
 energy.IRON_STEEL.TRADED_SW <- c("Africa_Southern traded iron and steel","Indonesia traded iron and steel","Africa_Northern traded iron and steel","Africa_Eastern traded iron and steel","Africa_Western traded iron and steel","South Asia traded iron and steel","Southeast Asia traded iron and steel")
 
 # Socioeconomics constants ======================================================================
+socioeconomics.SSP_DB_BASEYEAR <- 2020 # base year of SSP data base v3.0.1
+socioeconomics.GDP_Adj_Moving_Average_ISO <- c("ven")
+socioeconomics.GDP_Adj_Moving_Average_Duration <- 15 # used for smoothing GDP for South_America_North
+socioeconomics.GDP_Adj_No_Neg_Growth_ISO <- c("ven", "twn")
+socioeconomics.GDP_Adj_No_Neg_Growth_Year <- 2025 # used for adjusting GDP projection to avoid negative GDP growth after this year (for Taiwan and South_America_North)
+
+socioeconomics.CORE_GCAM_SCENARIO <- "gSSP2"
 
 # Population years - note that these sequences shouldn't have any overlap,
 # and should contain all historical years used by other modules
@@ -617,8 +624,6 @@ socioeconomics.PWT_CONSTANT_CURRENCY_YEAR <- 2011 # Currency base year in Penn W
 # we do the SSP scenarios if we update to UN 2015 population.)
 socioeconomics.FINAL_HIST_YEAR <- 2015
 
-# Sets the years during which the IMF projections are used over-riding the default (generally SSP) assumptions.
-socioeconomics.IMF_GDP_YEARS <- 2015:2024
 # There will be an imblance of trade by region historically which is implicitly balanced by
 # capital flows.  We can phase this out by the year assumed below (linearly).  Note, setting a value
 # beyond the final model year will hold the final historical net capital flows constant.  Either

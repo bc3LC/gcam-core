@@ -59,8 +59,8 @@ module_energy_L232.other_industry <- function(command, ...) {
              "L1326.in_EJ_R_indenergy_F_Yh",
              "L1324.in_EJ_R_indfeed_F_Yh",
              FILE = "socioeconomics/A32.inc_elas_output",
-             "L101.Pop_thous_GCAM_IC_R_Y",
-             "L102.pcgdp_thous90USD_GCAM_IC_R_Y",
+             "L101.Pop_thous_GCAM3_R_Y",
+             "L102.pcgdp_thous90USD_GCAM3_R_Y",
              "L102.pcgdp_thous90USD_Scen_R_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L232.Supplysector_ind",
@@ -116,8 +116,8 @@ module_energy_L232.other_industry <- function(command, ...) {
     L1324.in_EJ_R_indenergy_F_Yh <- get_data(all_data, "L1326.in_EJ_R_indenergy_F_Yh")
     L1324.in_EJ_R_indfeed_F_Yh <- get_data(all_data, "L1324.in_EJ_R_indfeed_F_Yh", strip_attributes = TRUE)
     A32.inc_elas_output <- get_data(all_data, "socioeconomics/A32.inc_elas_output")
-    L101.Pop_thous_GCAM_IC_R_Y <- get_data(all_data, "L101.Pop_thous_GCAM_IC_R_Y")
-    L102.pcgdp_thous90USD_GCAM_IC_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_GCAM_IC_R_Y")
+    L101.Pop_thous_GCAM3_R_Y <- get_data(all_data, "L101.Pop_thous_GCAM3_R_Y")
+    L102.pcgdp_thous90USD_GCAM3_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_GCAM3_R_Y")
     L102.pcgdp_thous90USD_Scen_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_Scen_R_Y")
 
     # ===================================================
@@ -551,7 +551,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.BaseService_ind
 
     # L232.IncomeElasticity_ind_scen: income elasticity of industry (scenario-specific)
-    L102.pcgdp_thous90USD_GCAM_IC_R_Y %>%
+    L102.pcgdp_thous90USD_GCAM3_R_Y %>%
       # Combine GCAM 3.0 with the SSPs, and subset only the relevant years
       mutate(scenario = 'GCAM3') %>%
       bind_rows(L102.pcgdp_thous90USD_Scen_R_Y) %>%
@@ -573,7 +573,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       left_join_error_no_match(GCAM_region_names, by = 'GCAM_region_ID') %>%
       mutate(year = max(MODEL_BASE_YEARS)) %>%
       left_join_error_no_match(L232.BaseService_ind, by = c("year", "region")) %>%
-      left_join_error_no_match(L101.Pop_thous_GCAM_IC_R_Y, by = c("year", "GCAM_region_ID")) %>%
+      left_join_error_no_match(L101.Pop_thous_GCAM3_R_Y, by = c("year", "GCAM_region_ID")) %>%
       mutate(value = base.service * CONV_BIL_THOUS / value) %>%
       select(-base.service, -energy.final.demand) ->
       L232.Output_ind
@@ -633,7 +633,7 @@ module_energy_L232.other_industry <- function(command, ...) {
         add_comments("Then back out the appropriate income elasticities from industrial output") %>%
         add_comments("Note lower income elasticities for SSP1 are hard-coded.") %>%
         add_legacy_name(paste0("L232.IncomeElasticity_ind_", tolower(ieo))) %>%
-        add_precursors("L102.pcgdp_thous90USD_GCAM_IC_R_Y", "L102.pcgdp_thous90USD_Scen_R_Y", "common/GCAM_region_names", "L1326.in_EJ_R_indenergy_F_Yh", "L123.in_EJ_R_indchp_F_Yh", "energy/calibrated_techs", "L1324.in_EJ_R_indfeed_F_Yh", "energy/A32.globaltech_eff", "energy/A32.globaltech_shrwt", "energy/A32.demand", "L101.Pop_thous_GCAM_IC_R_Y", "socioeconomics/A32.inc_elas_output") ->
+        add_precursors("L102.pcgdp_thous90USD_GCAM3_R_Y", "L102.pcgdp_thous90USD_Scen_R_Y", "common/GCAM_region_names", "L1326.in_EJ_R_indenergy_F_Yh", "L123.in_EJ_R_indchp_F_Yh", "energy/calibrated_techs", "L1324.in_EJ_R_indfeed_F_Yh", "energy/A32.globaltech_eff", "energy/A32.globaltech_shrwt", "energy/A32.demand", "L101.Pop_thous_GCAM3_R_Y", "socioeconomics/A32.inc_elas_output") ->
         x
       assign(paste0("L232.IncomeElasticity_ind_", tolower(ieo)), x)
     }

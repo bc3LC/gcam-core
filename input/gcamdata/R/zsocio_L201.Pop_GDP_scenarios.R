@@ -8,7 +8,7 @@
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs,
 #' a vector of output names, or (if \code{command} is "MAKE") all
-#' the generated outputs: \code{L201.InterestRate}, \code{L201.LaborForceFillout}, \code{L201.PPPConvert}, \code{L201.BaseGDP_Scen}, \code{L201.Pop_gSSP1}, \code{L201.Pop_gSSP2}, \code{L201.Pop_gSSP3}, \code{L201.Pop_gSSP4}, \code{L201.Pop_gSSP5}, \code{L201.Pop_SSP1}, \code{L201.Pop_SSP2}, \code{L201.Pop_SSP3}, \code{L201.Pop_SSP4}, \code{L201.Pop_SSP5}, \code{L201.TotalFactorProductivity_gSSP1}, \code{L201.TotalFactorProductivity_gSSP2}, \code{L201.TotalFactorProductivity_gSSP3}, \code{L201.TotalFactorProductivity_gSSP4}, \code{L201.TotalFactorProductivity_gSSP5}, \code{L201.TotalFactorProductivity_SSP1}, \code{L201.TotalFactorProductivity_SSP2}, \code{L201.TotalFactorProductivity_SSP3}, \code{L201.TotalFactorProductivity_SSP4}, and \code{L201.TotalFactorProductivity_SSP5}. The corresponding file in the
+#' the generated outputs: \code{L201.InterestRate}, \code{L201.LaborForceFillout}, \code{L201.PPPConvert}, \code{L201.BaseGDP_Scen}, \code{L201.Pop_GCAM3},\code{L201.GDP_GCAM3}, \code{L201.Pop_gSSP1}, \code{L201.Pop_gSSP2}, \code{L201.Pop_gSSP3}, \code{L201.Pop_gSSP4}, \code{L201.Pop_gSSP5}, \code{L201.Pop_SSP1}, \code{L201.Pop_SSP2}, \code{L201.Pop_SSP3}, \code{L201.Pop_SSP4}, \code{L201.Pop_SSP5}, \code{L201.TotalFactorProductivity_gSSP1}, \code{L201.TotalFactorProductivity_gSSP2}, \code{L201.TotalFactorProductivity_gSSP3}, \code{L201.TotalFactorProductivity_gSSP4}, \code{L201.TotalFactorProductivity_gSSP5}, \code{L201.TotalFactorProductivity_SSP1}, \code{L201.TotalFactorProductivity_SSP2}, \code{L201.TotalFactorProductivity_SSP3}, \code{L201.TotalFactorProductivity_SSP4}, and \code{L201.TotalFactorProductivity_SSP5}. The corresponding file in the
 #' original data system was \code{L201.Pop_GDP_scenarios.R} (socioeconomics level2).
 #' @details Produces default interest rate by region, historical and future population by region and SSP scenario,
 #' and uses per-capita GDP to calculate labor productivity by region and scenario.
@@ -23,8 +23,8 @@ module_socio_L201.Pop_GDP_scenarios <- function(command, ...) {
              "L101.Pop_thous_Scen_R_Yfut",
              "L102.gdp_mil90usd_Scen_R_Y",
              "L102.PPP_MER_R",
-             "L101.Pop_thous_GCAM_IC_R_Y",
-             "L102.gdp_mil90usd_GCAM_IC_R_Y"))
+             "L101.Pop_thous_GCAM3_R_Y",
+             "L102.gdp_mil90usd_GCAM3_R_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L201.GDP_Scen",
              "L201.PPPConvert",
@@ -32,9 +32,9 @@ module_socio_L201.Pop_GDP_scenarios <- function(command, ...) {
              paste0("L201.Pop_SSP", seq(1, 5)),
              paste0("L201.TotalFactorProductivity_gSSP", seq(1, 5)),
              paste0("L201.TotalFactorProductivity_SSP", seq(1, 5)),
-             "L201.GDP_GCAM_IC",
+             "L201.GDP_GCAM3",
              "L201.TotalFactorProductivity_GCAM3",
-             "L201.Pop_GCAM_IC"))
+             "L201.Pop_GCAM3"))
   } else if(command == driver.MAKE) {
 
     all_data <- list(...)[[1]]
@@ -55,8 +55,8 @@ module_socio_L201.Pop_GDP_scenarios <- function(command, ...) {
     L101.Pop_thous_Scen_R_Yfut <- get_data(all_data, "L101.Pop_thous_Scen_R_Yfut")
     L102.gdp_mil90usd_Scen_R_Y <- get_data(all_data, "L102.gdp_mil90usd_Scen_R_Y", strip_attributes = TRUE)
     L102.PPP_MER_R <- get_data(all_data, "L102.PPP_MER_R", strip_attributes = TRUE)
-    L101.Pop_thous_GCAM_IC_R_Y <- get_data(all_data, "L101.Pop_thous_GCAM_IC_R_Y", strip_attributes = TRUE)
-    L102.gdp_mil90usd_GCAM_IC_R_Y <- get_data(all_data, "L102.gdp_mil90usd_GCAM_IC_R_Y", strip_attributes = TRUE)
+    L101.Pop_thous_GCAM3_R_Y <- get_data(all_data, "L101.Pop_thous_GCAM3_R_Y", strip_attributes = TRUE)
+    L102.gdp_mil90usd_GCAM3_R_Y <- get_data(all_data, "L102.gdp_mil90usd_GCAM3_R_Y", strip_attributes = TRUE)
 
     gcam_macro_TFP_open %>%
       select(scenario, region, year, productivity) ->
@@ -117,15 +117,15 @@ module_socio_L201.Pop_GDP_scenarios <- function(command, ...) {
                add_legacy_name(paste0("L201.Pop_", i)))
     }
 
-    # L201.Pop_GCAM_IC: Population by region from the GCAM 3.0 core scenario
-    L201.Pop_GCAM_IC <- L101.Pop_thous_GCAM_IC_R_Y %>%
+    # L201.Pop_GCAM3: Population by region from the GCAM 3.0 core scenario
+    L201.Pop_GCAM3 <- L101.Pop_thous_GCAM3_R_Y %>%
       filter(year %in% MODEL_YEARS) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       mutate(value = round(value, socioeconomics.POP_DIGITS)) %>%
       select(region, year, totalPop = value)
 
-    # L201.GDP_GCAM_IC: GDP for GCAM 7.0 iam compact
-    L201.GDP_GCAM_IC <- L102.gdp_mil90usd_GCAM_IC_R_Y %>%
+    # L201.GDP_GCAM3: GDP for GCAM 7.0 iam compact
+    L201.GDP_GCAM3 <- L102.gdp_mil90usd_GCAM3_R_Y %>%
       filter(year %in% MODEL_YEARS) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       mutate(GDP = round(value, socioeconomics.GDP_DIGITS)) %>%
@@ -150,22 +150,22 @@ module_socio_L201.Pop_GDP_scenarios <- function(command, ...) {
       add_precursors("common/GCAM_region_names",  "L102.gdp_mil90usd_Scen_R_Y") ->
         L201.GDP_Scen
 
-    L201.GDP_GCAM_IC %>%
+    L201.GDP_GCAM3 %>%
       add_title("GCAM7 Model IAM COMPACT GDP by Region and year") %>%
       add_units("Million 1990 USD") %>%
       add_comments("The base GDP which will used when run in fixed or calibrated GDP modes") %>%
       add_comments("When in open GDP mode the actual GDP in modeled years may differ.") %>%
       add_precursors("common/GCAM_region_names",
-                     "L102.gdp_mil90usd_GCAM_IC_R_Y")  ->
-      L201.GDP_GCAM_IC
+                     "L102.gdp_mil90usd_GCAM3_R_Y")  ->
+      L201.GDP_GCAM3
 
-    L201.Pop_GCAM_IC %>%
+    L201.Pop_GCAM3 %>%
       add_title("GCAM7 Model IAM COMPACT population by Region and year") %>%
       add_units("thousand persons") %>%
-      add_comments("Filtered years and renamed columns in L101.Pop_thous_GCAM_IC_R_Y") %>%
-      add_legacy_name("L201.Pop_GCAM_IC") %>%
-      add_precursors("common/GCAM_region_names",  "L101.Pop_thous_GCAM_IC_R_Y") ->
-      L201.Pop_GCAM_IC
+      add_comments("Filtered years and renamed columns in L101.Pop_thous_GCAM3_R_Y") %>%
+      add_legacy_name("L201.Pop_GCAM3") %>%
+      add_precursors("common/GCAM_region_names",  "L101.Pop_thous_GCAM3_R_Y") ->
+      L201.Pop_GCAM3
 
 
     return_data(L201.PPPConvert, L201.GDP_Scen,
@@ -173,7 +173,7 @@ module_socio_L201.Pop_GDP_scenarios <- function(command, ...) {
                 L201.Pop_SSP1, L201.Pop_SSP2, L201.Pop_SSP3, L201.Pop_SSP4, L201.Pop_SSP5,
                 L201.TotalFactorProductivity_gSSP1, L201.TotalFactorProductivity_gSSP2, L201.TotalFactorProductivity_gSSP3, L201.TotalFactorProductivity_gSSP4, L201.TotalFactorProductivity_gSSP5,
                 L201.TotalFactorProductivity_SSP1, L201.TotalFactorProductivity_SSP2, L201.TotalFactorProductivity_SSP3, L201.TotalFactorProductivity_SSP4, L201.TotalFactorProductivity_SSP5,
-                L201.GDP_GCAM_IC, L201.TotalFactorProductivity_GCAM3, L201.Pop_GCAM_IC)
+                L201.GDP_GCAM3, L201.TotalFactorProductivity_GCAM3, L201.Pop_GCAM3)
   } else {
     stop("Unknown command")
   }

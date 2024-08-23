@@ -25,7 +25,7 @@ module_policy_L301.ceilings_floors <- function(command, ...) {
              "L2233.GlobalTechEff_elec_cool",
              "L222.GlobalTechCoef_en",
              "L201.GDP_Scen",
-             "L201.GDP_GCAM_IC",
+             "L201.GDP_GCAM3",
              FILE = "policy/GCAM_results/OutputsByTech",
              "L221.StubTech_en",
              "L222.StubTech_en",
@@ -80,7 +80,7 @@ module_policy_L301.ceilings_floors <- function(command, ...) {
     L222.GlobalTechCoef_en <- get_data(all_data, "L222.GlobalTechCoef_en")
     L2233.GlobalTechEff_elec_cool <- get_data(all_data, "L2233.GlobalTechEff_elec_cool")
 
-    L201.GDP_GCAM_IC <- get_data(all_data, "L201.GDP_GCAM_IC")
+    L201.GDP_GCAM3 <- get_data(all_data, "L201.GDP_GCAM3")
     A_OutputsByTech <- get_data(all_data, "policy/GCAM_results/OutputsByTech") %>%
       gather_years()
 
@@ -116,7 +116,7 @@ module_policy_L301.ceilings_floors <- function(command, ...) {
         filter(!is.na(GDPIntensity_BaseYear))
 
       # First calculate GDP series - we have baseGDP, growth rate in perCapitaGDP and population
-      L301.GDP <- L201.GDP_GCAM_IC
+      L301.GDP <- L201.GDP_GCAM3
 
       # Next get the energy technologies that we want to constraint
       L301.energy_consumption <- select(GDP_Intensity_targets, region, policy.portfolio.standard, GDPIntensity_BaseYear, tech_mapping) %>%

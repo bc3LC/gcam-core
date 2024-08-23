@@ -78,7 +78,7 @@ module_energy_L223.electricity <- function(command, ...) {
              "L120.GridCost_offshore_wind",
              "L120.RegCapFactor_offshore_wind",
              "L1232.desalsecout_R_elec_F_tech",
-             "L102.gdp_mil90usd_GCAM_IC_ctry_Y",
+             "L102.gdp_mil90usd_GCAM3_ctry_Y",
              FILE = "energy/WEO2022_elec_params",
              FILE = "energy/mappings/weo_region_mapping",
              FILE = "energy/mappings/weo_elec_mapping"))
@@ -196,7 +196,7 @@ module_energy_L223.electricity <- function(command, ...) {
     L1231.out_EJ_R_elec_F_tech_Yh <- get_data(all_data, "L1231.out_EJ_R_elec_F_tech_Yh")
     L1231.eff_R_elec_F_tech_Yh <- get_data(all_data, "L1231.eff_R_elec_F_tech_Yh")
     L1232.desalsecout_R_elec_F_tech <- get_data(all_data, "L1232.desalsecout_R_elec_F_tech", strip_attributes = TRUE)
-    L102.gdp_mil90usd_GCAM_IC_ctry_Y <- get_data(all_data, "L102.gdp_mil90usd_GCAM_IC_ctry_Y")
+    L102.gdp_mil90usd_GCAM3_ctry_Y <- get_data(all_data, "L102.gdp_mil90usd_GCAM3_ctry_Y")
     L126.IO_R_elecownuse_F_Yh <- get_data(all_data, "L126.IO_R_elecownuse_F_Yh")
 
     WEO2022_elec_params <- get_data(all_data, "energy/WEO2022_elec_params")
@@ -263,7 +263,7 @@ module_energy_L223.electricity <- function(command, ...) {
       L223.SubsectorShrwt_nuc_ctry
 
     # Filter to final year GDPs to prepare for weighting country-level shareweights
-    L102.gdp_mil90usd_GCAM_IC_ctry_Y %>%
+    L102.gdp_mil90usd_GCAM3_ctry_Y %>%
       filter(year == max(HISTORICAL_YEARS)) %>%
       select(iso, value) %>%
       rename(weight = value) ->
@@ -1530,7 +1530,7 @@ module_energy_L223.electricity <- function(command, ...) {
       add_comments("Assumptions in A23.subsector_shrwt_nuc_R are used to generate country-level shareweights, which are then weighted by size of GDP") %>%
       add_comments("where country-level weights are not available. These are aggregated and interpolated for regional shareweights") %>%
       add_legacy_name("L223.SubsectorShrwt_nuc") %>%
-      add_precursors("common/iso_GCAM_regID", "energy/A23.subsector_shrwt_nuc_R", "L102.gdp_mil90usd_GCAM_IC_ctry_Y") ->
+      add_precursors("common/iso_GCAM_regID", "energy/A23.subsector_shrwt_nuc_R", "L102.gdp_mil90usd_GCAM3_ctry_Y") ->
       L223.SubsectorShrwt_nuc
 
     L223.SubsectorShrwt_renew %>%
