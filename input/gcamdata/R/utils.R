@@ -150,7 +150,8 @@ extract_header_info <- function(header_lines, label, filename, required = FALSE,
       info
 
     if(any(grepl(",,+$", info))) {
-      warning("Multiple commas at end of header line in ", filename)
+      # warning("Multiple commas at end of header line in ", filename)
+      info <- gsub(",,+$", "", info)
     }
     if(nchar(paste(info, collapse = "")) == 0) {
       stop("Empty metadata label '", label, "' found in ", basename(filename))
