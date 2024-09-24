@@ -6,10 +6,10 @@
 # Column types: cccccnnc
 # ----------
 sector.name,subsector.name,technology,minicam.energy.input,units,2015,2040,notes
-H2 central production,biomass,biomass to H2,regional biomass,GJ in /kg H2 out,0.26374,0.25472,
+H2 central production,biomass,biomass to H2,regional biomass energy sector,GJ in /kg H2 out,0.26374,0.25472,
 H2 central production,biomass,biomass to H2,regional natural gas,GJ in /kg H2 out,0.00622,0.00311,
 H2 central production,biomass,biomass to H2,elect_td_ind,GJ in /kg H2 out,0.00353,0.0034,
-H2 central production,biomass,biomass to H2 CCS,regional biomass,GJ in /kg H2 out,,,H2A 2018 did not report Biomass + CCS assumptions.
+H2 central production,biomass,biomass to H2 CCS,regional biomass energy sector,GJ in /kg H2 out,,,H2A 2018 did not report Biomass + CCS assumptions.
 H2 central production,biomass,biomass to H2 CCS,regional natural gas,GJ in /kg H2 out,,,H2A 2018 did not report Biomass + CCS assumptions.
 H2 central production,biomass,biomass to H2 CCS,elect_td_ind,GJ in /kg H2 out,,,H2A 2018 did not report Biomass + CCS assumptions.
 H2 central production,coal,coal chemical,regional coal,GJ in /kg H2 out,,,H2A 2018 did not report Coal without CCS assumptions.

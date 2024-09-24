@@ -4,7 +4,7 @@
 # Column types: ccccnnn
 # ----------
 supplysector,subsector,technology,minicam.energy.input,1971,2010,2100
-iron and steel,BLASTFUR,Biomass-based,delivered biomass,0.016777903,0.016777903,0.016777903
+iron and steel,BLASTFUR,Biomass-based,delivered biomass industry,0.016777903,0.016777903,0.016777903
 iron and steel,BLASTFUR,Biomass-based,refined liquids industrial,0.00001,0.00001,0.00001
 iron and steel,BLASTFUR,Biomass-based,elect_td_ind,0.000548226,0.000548226,0.000548226
 iron and steel,BLASTFUR,Biomass-based,wholesale gas,0.00001,0.00001,0.00001

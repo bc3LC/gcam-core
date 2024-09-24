@@ -14,7 +14,7 @@ Africa_Eastern,2,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0
 Africa_Eastern,2,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 Africa_Eastern,2,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.001136307
 Africa_Eastern,2,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0
-Africa_Eastern,2,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Africa_Eastern,2,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Africa_Eastern,2,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 Africa_Eastern,2,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.001136307
 Africa_Eastern,2,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0
@@ -39,7 +39,7 @@ Africa_Northern,3,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.032
 Africa_Northern,3,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 Africa_Northern,3,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.000328101
 Africa_Northern,3,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000437469
-Africa_Northern,3,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Africa_Northern,3,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Africa_Northern,3,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 Africa_Northern,3,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.000328101
 Africa_Northern,3,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000437469
@@ -64,7 +64,7 @@ Africa_Western,5,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0
 Africa_Western,5,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 Africa_Western,5,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.000328101
 Africa_Western,5,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.005041557
-Africa_Western,5,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Africa_Western,5,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Africa_Western,5,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 Africa_Western,5,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.000328101
 Africa_Western,5,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.005041557
@@ -89,7 +89,7 @@ Argentina,31,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.00329056
 Argentina,31,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.006970806
 Argentina,31,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0
 Argentina,31,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.003565373
-Argentina,31,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Argentina,31,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Argentina,31,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.006970806
 Argentina,31,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0
 Argentina,31,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.003565373
@@ -114,7 +114,7 @@ Australia_NZ,6,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.022894
 Australia_NZ,6,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.000134884
 Australia_NZ,6,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.001707631
 Australia_NZ,6,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.001525722
-Australia_NZ,6,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Australia_NZ,6,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Australia_NZ,6,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.000134884
 Australia_NZ,6,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.001707631
 Australia_NZ,6,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.001525722
@@ -139,7 +139,7 @@ Brazil,7,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.015222387
 Brazil,7,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.001631027
 Brazil,7,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.00206222
 Brazil,7,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000620655
-Brazil,7,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Brazil,7,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Brazil,7,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.001631027
 Brazil,7,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.00206222
 Brazil,7,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000620655
@@ -164,7 +164,7 @@ Canada,8,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.015582117
 Canada,8,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 Canada,8,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.001519831
 Canada,8,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.004352487
-Canada,8,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Canada,8,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Canada,8,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 Canada,8,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.001519831
 Canada,8,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.004352487
@@ -189,7 +189,7 @@ Central America and Caribbean,9,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delive
 Central America and Caribbean,9,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 Central America and Caribbean,9,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0
 Central America and Caribbean,9,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.00768476
-Central America and Caribbean,9,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Central America and Caribbean,9,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Central America and Caribbean,9,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 Central America and Caribbean,9,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0
 Central America and Caribbean,9,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.00768476
@@ -214,7 +214,7 @@ Central Asia,10,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.06567
 Central Asia,10,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.008076531
 Central Asia,10,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.011903897
 Central Asia,10,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.001399097
-Central Asia,10,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Central Asia,10,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Central Asia,10,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.008076531
 Central Asia,10,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.011903897
 Central Asia,10,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.001399097
@@ -239,7 +239,7 @@ China,11,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.023464971
 China,11,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.000122184
 China,11,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.00229346
 China,11,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,1.26E-04
-China,11,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+China,11,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 China,11,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.000122184
 China,11,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.00229346
 China,11,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,1.26E-04
@@ -264,7 +264,7 @@ Colombia,32,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.110362433
 Colombia,32,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.002981182
 Colombia,32,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.003388073
 Colombia,32,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000574682
-Colombia,32,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Colombia,32,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Colombia,32,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.002981182
 Colombia,32,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.003388073
 Colombia,32,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000574682
@@ -289,7 +289,7 @@ EU-12,12,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.019695658
 EU-12,12,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,1.18E-04
 EU-12,12,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.002018066
 EU-12,12,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.001909421
-EU-12,12,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+EU-12,12,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 EU-12,12,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,1.18E-04
 EU-12,12,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.002018066
 EU-12,12,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.001909421
@@ -314,7 +314,7 @@ EU-15,13,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.014603658
 EU-15,13,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.001033468
 EU-15,13,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.001445249
 EU-15,13,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.001237728
-EU-15,13,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+EU-15,13,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 EU-15,13,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.001033468
 EU-15,13,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.001445249
 EU-15,13,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.001237728
@@ -339,7 +339,7 @@ Europe_Eastern,14,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.019
 Europe_Eastern,14,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.000320754
 Europe_Eastern,14,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.002335626
 Europe_Eastern,14,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.003754289
-Europe_Eastern,14,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Europe_Eastern,14,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Europe_Eastern,14,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.000320754
 Europe_Eastern,14,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.002335626
 Europe_Eastern,14,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.003754289
@@ -364,7 +364,7 @@ Europe_Non_EU,15,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.0237
 Europe_Non_EU,15,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.000432827
 Europe_Non_EU,15,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.000976115
 Europe_Non_EU,15,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000347103
-Europe_Non_EU,15,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Europe_Non_EU,15,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Europe_Non_EU,15,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.000432827
 Europe_Non_EU,15,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.000976115
 Europe_Non_EU,15,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000347103
@@ -389,7 +389,7 @@ European Free Trade Association,16,iron and steel,BLASTFUR,BLASTFUR CCS,2010,del
 European Free Trade Association,16,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.001317998
 European Free Trade Association,16,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.005271792
 European Free Trade Association,16,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000697349
-European Free Trade Association,16,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+European Free Trade Association,16,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 European Free Trade Association,16,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.001317998
 European Free Trade Association,16,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.005271792
 European Free Trade Association,16,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000697349
@@ -414,7 +414,7 @@ India,17,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.067057215
 India,17,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.000945489
 India,17,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.001321704
 India,17,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,3.45E-06
-India,17,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+India,17,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 India,17,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.000945489
 India,17,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.001321704
 India,17,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,3.45E-06
@@ -439,7 +439,7 @@ Indonesia,18,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.05858642
 Indonesia,18,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.020724425
 Indonesia,18,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0
 Indonesia,18,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.001366831
-Indonesia,18,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Indonesia,18,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Indonesia,18,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.020724425
 Indonesia,18,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0
 Indonesia,18,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.001366831
@@ -464,7 +464,7 @@ Japan,19,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.018062976
 Japan,19,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.001029933
 Japan,19,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.001612855
 Japan,19,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000519358
-Japan,19,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Japan,19,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Japan,19,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.001029933
 Japan,19,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.001612855
 Japan,19,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000519358
@@ -489,7 +489,7 @@ Mexico,20,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.015842042
 Mexico,20,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.000906835
 Mexico,20,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.000563977
 Mexico,20,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.001980536
-Mexico,20,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Mexico,20,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Mexico,20,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.000906835
 Mexico,20,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.000563977
 Mexico,20,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.001980536
@@ -514,7 +514,7 @@ Middle East,21,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.011180
 Middle East,21,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 Middle East,21,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.000434347
 Middle East,21,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000333755
-Middle East,21,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Middle East,21,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Middle East,21,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 Middle East,21,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.000434347
 Middle East,21,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000333755
@@ -539,7 +539,7 @@ Pakistan,22,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.026776129
 Pakistan,22,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 Pakistan,22,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0
 Pakistan,22,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.002457484
-Pakistan,22,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Pakistan,22,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Pakistan,22,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 Pakistan,22,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0
 Pakistan,22,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.002457484
@@ -564,7 +564,7 @@ Russia,23,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.023926717
 Russia,23,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.000370281
 Russia,23,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.00201789
 Russia,23,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.004786034
-Russia,23,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Russia,23,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Russia,23,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.000370281
 Russia,23,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.00201789
 Russia,23,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.004786034
@@ -589,7 +589,7 @@ South Africa,24,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.04935
 South Africa,24,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 South Africa,24,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.00103727
 South Africa,24,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.001503902
-South Africa,24,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+South Africa,24,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 South Africa,24,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 South Africa,24,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.00103727
 South Africa,24,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.001503902
@@ -614,7 +614,7 @@ South America_Northern,25,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered co
 South America_Northern,25,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 South America_Northern,25,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0
 South America_Northern,25,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0
-South America_Northern,25,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+South America_Northern,25,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 South America_Northern,25,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 South America_Northern,25,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0
 South America_Northern,25,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0
@@ -639,7 +639,7 @@ South America_Southern,26,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered co
 South America_Southern,26,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.013485765
 South America_Southern,26,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.005586113
 South America_Southern,26,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000486995
-South America_Southern,26,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+South America_Southern,26,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 South America_Southern,26,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.013485765
 South America_Southern,26,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.005586113
 South America_Southern,26,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000486995
@@ -664,7 +664,7 @@ South Asia,27,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.2047364
 South Asia,27,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 South Asia,27,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0
 South Asia,27,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0
-South Asia,27,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+South Asia,27,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 South Asia,27,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 South Asia,27,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0
 South Asia,27,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0
@@ -689,7 +689,7 @@ South Korea,28,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.018494
 South Korea,28,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.000274472
 South Korea,28,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.001775643
 South Korea,28,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.00066032
-South Korea,28,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+South Korea,28,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 South Korea,28,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.000274472
 South Korea,28,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.001775643
 South Korea,28,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.00066032
@@ -714,7 +714,7 @@ Southeast Asia,29,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.063
 Southeast Asia,29,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.003324789
 Southeast Asia,29,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.001135359
 Southeast Asia,29,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000156455
-Southeast Asia,29,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Southeast Asia,29,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Southeast Asia,29,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.003324789
 Southeast Asia,29,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.001135359
 Southeast Asia,29,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000156455
@@ -739,7 +739,7 @@ Taiwan,30,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.018036657
 Taiwan,30,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.001204616
 Taiwan,30,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.001441674
 Taiwan,30,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000177022
-Taiwan,30,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Taiwan,30,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Taiwan,30,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.001204616
 Taiwan,30,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.001441674
 Taiwan,30,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000177022
@@ -764,7 +764,7 @@ USA,1,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.017109489
 USA,1,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0.000799413
 USA,1,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.001136307
 USA,1,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.003715627
-USA,1,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+USA,1,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 USA,1,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0.000799413
 USA,1,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.001136307
 USA,1,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.003715627
@@ -789,7 +789,7 @@ Africa_Southern,4,iron and steel,BLASTFUR,BLASTFUR CCS,2010,delivered coal,0.032
 Africa_Southern,4,iron and steel,BLASTFUR,BLASTFUR CCS,2010,refined liquids industrial,0
 Africa_Southern,4,iron and steel,BLASTFUR,BLASTFUR CCS,2010,elect_td_ind,0.000328101
 Africa_Southern,4,iron and steel,BLASTFUR,BLASTFUR CCS,2010,wholesale gas,0.000437469
-Africa_Southern,4,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass,
+Africa_Southern,4,iron and steel,BLASTFUR,Biomass-based,2010,delivered biomass industry,
 Africa_Southern,4,iron and steel,BLASTFUR,Biomass-based,2010,refined liquids industrial,0
 Africa_Southern,4,iron and steel,BLASTFUR,Biomass-based,2010,elect_td_ind,0.000328101
 Africa_Southern,4,iron and steel,BLASTFUR,Biomass-based,2010,wholesale gas,0.000437469

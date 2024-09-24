@@ -318,7 +318,7 @@ module_energy_L125.hydrogen <- function(command, ...) {
       unique()->bio_no_CCS_improv_2040_NG
 
     bio_no_CCS_eff %>%
-      filter(minicam.energy.input == 'regional biomass') %>%
+      filter(minicam.energy.input == 'regional biomass energy sector') %>%
       select(improvement_to_2040)%>%
       unique() -> bio_no_CCS_improv_2040_bio
 

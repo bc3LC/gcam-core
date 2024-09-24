@@ -18,10 +18,9 @@ wholesale gas,wholesale gas,share-weight,final-calibration-year,end-year,,linear
 delivered gas,delivered gas,share-weight,final-calibration-year,end-year,,linear
 backup_electricity,hydrogen,share-weight,final-calibration-year,initial-future-year,,linear
 backup_electricity,hydrogen,share-weight,initial-future-year,2025,,linear
-delivered gas h2,delivered gas h2,share-weight,final-calibration-year,end-year,,linear
-delivered gas transport,delivered gas transport,share-weight,final-calibration-year,end-year,,linear
 refined liquids buildings,refined liquids buildings,share-weight,final-calibration-year,end-year,,linear
 refined liquids industrial,refined liquids industrial,share-weight,final-calibration-year,end-year,,linear
 refined liquids agr,refined liquids agr,share-weight,final-calibration-year,end-year,,linear
 refined liquids transport,refined liquids transport,share-weight,final-calibration-year,end-year,,linear
 refined liquids bunkers,refined liquids bunkers,share-weight,final-calibration-year,end-year,,linear
+refined liquids feedstocks,refined liquids feedstocks,share-weight,final-calibration-year,end-year,,linear

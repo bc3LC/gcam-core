@@ -12,7 +12,7 @@ iron and steel,coal,iron and steel,BLASTFUR,coal,BLASTFUR CCS,delivered coal,out
 iron and steel,refined liquids,iron and steel,BLASTFUR,refined liquids,BLASTFUR CCS,refined liquids industrial,output,
 iron and steel,electricity,iron and steel,BLASTFUR,electricity,BLASTFUR CCS,elect_td_ind,output,
 iron and steel,gas,iron and steel,BLASTFUR,gas,BLASTFUR CCS,wholesale gas,output,
-iron and steel,biomass,iron and steel,BLASTFUR,biomass,Biomass-based,delivered biomass,output,
+iron and steel,biomass,iron and steel,BLASTFUR,biomass,Biomass-based,delivered biomass industry,output,
 iron and steel,refined liquids,iron and steel,BLASTFUR,refined liquids,Biomass-based,refined liquids industrial,output,
 iron and steel,electricity,iron and steel,BLASTFUR,electricity,Biomass-based,elect_td_ind,output,
 iron and steel,gas,iron and steel,BLASTFUR,gas,Biomass-based,wholesale gas,output,
