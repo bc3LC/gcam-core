@@ -1,0 +1,8 @@
+# File: policy_tranSubsector_mappings.csv,,
+# Title: Mappings between CO2 market and tranSubsector,,
+# Units: NA,,
+# Comments: default is to include all technologies except biomass techs,,
+# Column types: ccc,,
+# ----------,,
+mapping.name,supplysector,tranSubsector
+ETS,trn_pass,Domestic Aviation

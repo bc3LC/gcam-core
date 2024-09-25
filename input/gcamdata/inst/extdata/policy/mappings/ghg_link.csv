@@ -1,0 +1,35 @@
+# File: ghg_link.csv,,,,,
+# Title: GHG gases to include in tax policies,,,,,
+# Units: Various,,,,,
+# Column types: ccnncc,,,,,
+# ----------,,,,,
+link.type,linked.ghg.policy,price.adjust,demand.adjust,price.unit,output.unit
+afolu,CO2_LUC,0.2,1,1990$/tC,MTC
+afolu,CH4_AGR,7.363569422,7.363569422,1990$/GgCH4,TgCH4
+afolu,CH4_AWB,7.363569422,7.363569422,1990$/GgCH4,TgCH4
+afolu,N2O_AGR,74.4538686,74.4538686,1990$/GgN2O,TgN2O
+afolu,N2O_AWB,74.4538686,74.4538686,1990$/GgN2O,TgN2O
+indCCS,indCO2ccs90,0.1,0.1,1990$/tC,MTC
+supCCS,supCO2ccs92,0.08,0.08,1990$/tC,MTC
+supCCS,supCO2ccs88,0.12,0.12,1990$/tC,MTC
+supCCS,supCO2ccs82,0.18,0.18,1990$/tC,MTC
+supCCS,supCO2ccs90,0.1,0.1,1990$/tC,MTC
+supCCS,supCO2ccs26,0.74,0.74,1990$/tC,MTC
+afolu2,CO2_LUC,0.2,1,1990$/tC,MTC
+sup,supCO2ccs92,0.08,0.08,1990$/tC,MTC
+sup,supCO2ccs88,0.12,0.12,1990$/tC,MTC
+sup,supCO2ccs82,0.18,0.18,1990$/tC,MTC
+sup,supCO2ccs90,0.1,0.1,1990$/tC,MTC
+sup,supCO2ccs26,0.74,0.74,1990$/tC,MTC
+sup,CO2_FUG,1,1,1990$/tC,MTC
+indluc,CO2_LUC,0.2,1,1990$/tC,MTC
+indluc,indCO2ccs90,0.1,0.1,1990$/tC,MTC
+supluc,CO2_LUC,0.2,1,1990$/tC,MTC
+supluc,supCO2ccs92,0.08,0.08,1990$/tC,MTC
+supluc,supCO2ccs88,0.12,0.12,1990$/tC,MTC
+supluc,supCO2ccs82,0.18,0.18,1990$/tC,MTC
+supluc,supCO2ccs90,0.1,0.1,1990$/tC,MTC
+supluc,supCO2ccs26,0.74,0.74,1990$/tC,MTC
+supluc,CO2_FUG,1,1,1990$/tC,MTC
+bldluc,CO2_LUC,0.2,1,1990$/tC,MTC
+trnluc,CO2_LUC,0.2,1,1990$/tC,MTC

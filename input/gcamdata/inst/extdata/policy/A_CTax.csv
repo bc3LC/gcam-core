@@ -1,0 +1,13 @@
+# File: A_CTax.csv,,,,,,,,,,,,,,,,,,,,,,
+# Title: Carbon taxes by region,,,,,,,,,,,,,,,,,,,,,,
+# Units: 1990$/tC,,,,,,,,,,,,,,,,,,,,,,
+# Comments: link.type needs to correspoond to a link.type in A_Ctax_Link; give different ghgpolicy names for different regions if not linked; market.overwrite writes the region name to the market name,,,,,,,,,,,,,,,,,,,,,,
+# Leave tax empty for all but 1 linked regions (same ghgpolicy),,,,,,,,,,,,,,,,,,,,,,
+# Column types: cccciinnnnnnnnnnnnnnnnn,,,,,,,,,,,,,,,,,,,,,,
+# ----------,,,,,,,,,,,,,,,,,,,,,,
+xml,link.type,market,ghgpolicy,year.fillout,market.overwrite,2020,2025,2030,2035,2040,2045,2050,2055,2060,2065,2070,2075,2080,2085,2090,2095,2100
+policy_ctax0_dummy.xml,,World,supCO2,2020,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+policy_ctax0_dummy.xml,,World,indCO2,2020,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+policy_ctax0_dummy.xml,,World,trnCO2,2020,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+policy_ctax0_dummy.xml,,World,bldCO2,2020,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+policy_ctax0_dummy.xml,,World,afoluCO2,2020,,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1

@@ -1,0 +1,432 @@
+# File: CO2byTech.csv,,,,,,,,
+# Title: CO2 by tech used for GDP intensity policies,,,,,,,,
+# Comments: Heavily filtered; could be even more filtered to just the needed sectors;resource emissions added here with repeat subsector column in tech column,,,,,,,,
+# Units: MTC,,,,,,,,
+# Column types: ccccnnnnc,,,,,,,,
+# ----------,,,,,,,,
+region,sector,subsector,technology,1990,2005,2010,2015,Units
+China,H2 central production,biomass,biomass to H2,0,0,0,0,MTC
+China,H2 central production,gas,natural gas steam reforming,0,0,0,0,MTC
+China,H2 wholesale dispensing,forecourt production,natural gas steam reforming,0,0,0,0,MTC
+China,N fertilizer,coal,coal,17.4068,33.6783,39.9423,43.9795,MTC
+China,N fertilizer,gas,gas,1.62878,3.15133,3.73745,4.11875,MTC
+China,N fertilizer,hydrogen,hydrogen,0,0,0,0,MTC
+China,N fertilizer,refined liquids,refined liquids,1.38858,2.68659,3.18628,3.50834,MTC
+China,agricultural energy use,mobile,refined liquids,9.73461,9.73329,9.27187,11.6286,MTC
+China,agricultural energy use,stationary,coal,12.0426,10.9124,12.7945,15.5852,MTC
+China,agricultural energy use,stationary,gas,0.0594412,0,0.024965,0.046958,MTC
+China,agricultural energy use,stationary,refined liquids,2.43365,2.43332,2.31797,2.90715,MTC
+China,alumina,coal,coal,0,4.36575,11.422,14.6139,MTC
+China,alumina,coal,coal CCS,0,0,0,0,MTC
+China,alumina,gas,gas,0,0.394815,1.03296,1.32161,MTC
+China,alumina,gas,gas CCS,0,0,0,0,MTC
+China,alumina,refined liquids,refined liquids,0,0.197215,0.515993,0.66018,MTC
+China,alumina,refined liquids,refined liquids CCS,0,0,0,0,MTC
+China,backup_electricity,gas,gas (steam/CT),0,0,0,0,MTC
+China,cement,cement,cement,28.806,145.501,221.68,221.68,MTC
+China,chemical energy use,coal,coal,14.646,53.9386,68.9286,86.1704,MTC
+China,chemical energy use,gas,gas,0,1.47856,3.67259,5.423,MTC
+China,chemical energy use,refined liquids,refined liquids,2.18813,3.08779,13.8957,8.47935,MTC
+China,chemical feedstocks,gas,gas,1.70685,2.39903,1.92698,3.36888,MTC
+China,chemical feedstocks,refined liquids,refined liquids,0,0,0,0,MTC
+China,comm heating,coal,coal,17.3386,25.1297,29.0412,34.2546,MTC
+China,comm heating,gas,gas,0.218921,1.86536,2.7552,4.8194,MTC
+China,comm heating,refined liquids,refined liquids,2.5496,5.31745,7.26716,8.58597,MTC
+China,comm others,biomass,biomass,0.0106168,0.0048806,0.0029532,0.0038824,MTC
+China,comm others,coal,coal,7.8784,11.4186,13.1959,15.5648,MTC
+China,comm others,gas,gas,0.0654067,0.557312,0.823171,1.43989,MTC
+China,comm others,refined liquids,refined liquids,1.30344,2.71845,3.7152,4.38942,MTC
+China,construction energy use,mobile,refined liquids,1.21756,2.73113,3.96247,4.75667,MTC
+China,construction energy use,stationary,coal,2.45926,3.64089,4.28085,5.20421,MTC
+China,construction energy use,stationary,gas,0.527243,0.0743015,0.0576577,0.107589,MTC
+China,construction energy use,stationary,refined liquids,0.30439,0.682783,0.990619,1.18917,MTC
+China,csp_backup,gas,CSP gas hybrid mode,0,0,0,0,MTC
+China,delivered gas h2,delivered gas h2,delivered gas h2,0,0,0,0,MTC
+China,desalinated water,gas,distillation,2.52E-04,0.00118633,0.00185841,0.00226785,MTC
+China,desalinated water,refined liquids,distillation,0.00251991,0.00553058,0.00460292,0.00403778,MTC
+China,district heat,biomass,biomass,0,0.465046,1.08606,1.41881,MTC
+China,district heat,coal,coal,16.9885,2.57709,7.7426,10.2099,MTC
+China,district heat,gas,gas,0.129582,0,0,0,MTC
+China,district heat,refined liquids,refined liquids,2.94462,2.37698,4.7301,3.86441,MTC
+China,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (dry cooling),0,0,0,0,MTC
+China,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (once through),0,0,0,0,MTC
+China,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (recirculating),0,0,0,0,MTC
+China,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (seawater),0,0,0,0,MTC
+China,elec_biomass (conv),biomass (conv),biomass (conv) (cooling pond),0,0.120568,0.785009,1.47653,MTC
+China,elec_biomass (conv),biomass (conv),biomass (conv) (dry cooling),7.11E-06,0.139688,0.909483,1.71066,MTC
+China,elec_biomass (conv),biomass (conv),biomass (conv) (once through),7.11E-06,0.2997,1.9513,3.67024,MTC
+China,elec_biomass (conv),biomass (conv),biomass (conv) (recirculating),4.98E-05,1.11767,7.27701,13.6874,MTC
+China,elec_biomass (conv),biomass (conv),biomass (conv) (seawater),4.27E-05,0.0447807,0.291576,0.548431,MTC
+China,elec_coal (IGCC),coal (IGCC),coal (IGCC) (dry cooling),0,0,0,0,MTC
+China,elec_coal (IGCC),coal (IGCC),coal (IGCC) (once through),0,0,0,0,MTC
+China,elec_coal (IGCC),coal (IGCC),coal (IGCC) (recirculating),0,0,0,0,MTC
+China,elec_coal (IGCC),coal (IGCC),coal (IGCC) (seawater),0,0,0,0,MTC
+China,elec_coal (conv pul),coal (conv pul),coal (conv pul) (cooling pond),10.3587,45.0237,65.3001,79.4483,MTC
+China,elec_coal (conv pul),coal (conv pul),coal (conv pul) (dry cooling),6.95294,51.7665,186.814,227.238,MTC
+China,elec_coal (conv pul),coal (conv pul),coal (conv pul) (once through),26.6778,112.772,93.9539,114.168,MTC
+China,elec_coal (conv pul),coal (conv pul),coal (conv pul) (recirculating),103.455,419.962,564.917,687,MTC
+China,elec_coal (conv pul),coal (conv pul),coal (conv pul) (seawater),10.065,22.4526,28.7248,33.994,MTC
+China,elec_gas (CC),gas (CC),gas (CC) (cooling pond),0.0152601,0.0352044,0,0.171437,MTC
+China,elec_gas (CC),gas (CC),gas (CC) (dry cooling),0.0176772,0.0573221,0,0.206292,MTC
+China,elec_gas (CC),gas (CC),gas (CC) (once through),0.0379293,0.117868,0,0.440225,MTC
+China,elec_gas (CC),gas (CC),gas (CC) (recirculating),0.141449,0.543342,0,1.68987,MTC
+China,elec_gas (CC),gas (CC),gas (CC) (seawater),0.00566731,0.216244,0,0.157909,MTC
+China,elec_gas (steam/CT),gas (steam/CT),gas (steam/CT) (cooling pond),0.0101621,0.0783234,0.741687,1.12189,MTC
+China,elec_gas (steam/CT),gas (steam/CT),gas (steam/CT) (dry cooling),0.0117761,0.127524,0.928532,1.34997,MTC
+China,elec_gas (steam/CT),gas (steam/CT),gas (steam/CT) (once through),0.0252656,0.262225,1.97075,2.88084,MTC
+China,elec_gas (steam/CT),gas (steam/CT),gas (steam/CT) (recirculating),0.0942181,1.2088,7.7841,11.0585,MTC
+China,elec_gas (steam/CT),gas (steam/CT),gas (steam/CT) (seawater),0.00377706,0.48109,1.12625,1.03335,MTC
+China,elec_refined liquids (CC),refined liquids (CC),refined liquids (CC) (dry cooling),0,0,0,0,MTC
+China,elec_refined liquids (CC),refined liquids (CC),refined liquids (CC) (once through),0,0,0,0,MTC
+China,elec_refined liquids (CC),refined liquids (CC),refined liquids (CC) (recirculating),0,0,0,0,MTC
+China,elec_refined liquids (CC),refined liquids (CC),refined liquids (CC) (seawater),0,0,0,0,MTC
+China,elec_refined liquids (steam/CT),refined liquids (steam/CT),refined liquids (steam/CT) (cooling pond),0.709088,0.712901,0.210456,0.137009,MTC
+China,elec_refined liquids (steam/CT),refined liquids (steam/CT),refined liquids (steam/CT) (dry cooling),0.825601,0.827588,0.245085,0.160865,MTC
+China,elec_refined liquids (steam/CT),refined liquids (steam/CT),refined liquids (steam/CT) (once through),1.77007,1.77508,0.525435,0.344475,MTC
+China,elec_refined liquids (steam/CT),refined liquids (steam/CT),refined liquids (steam/CT) (recirculating),6.62669,6.63014,1.96739,1.29802,MTC
+China,elec_refined liquids (steam/CT),refined liquids (steam/CT),refined liquids (steam/CT) (seawater),0.313397,0.28498,0.0935774,0.0770511,MTC
+China,gas pipeline,gas pipeline,gas pipeline,0.184272,0.517729,1.01465,1.27782,MTC
+China,gas processing,biomass gasification,biomass gasification,0,2.40946,4.91111,5.23255,MTC
+China,gas processing,coal gasification,coal gasification,1.71477,5.28582,4.21906,6.56152,MTC
+China,iron and steel,BLASTFUR,BLASTFUR,54.6784,213.032,366.697,434.157,MTC
+China,iron and steel,BLASTFUR,BLASTFUR with hydrogen,0,0,0,0,MTC
+China,iron and steel,BLASTFUR,Biomass-based,0,0,0,0,MTC
+China,iron and steel,EAF with DRI,EAF with DRI,0.961568,0.965743,1.48001,2.05783,MTC
+China,iron and steel,EAF with scrap,EAF with scrap,2.41211,1.38731,1.01328,0.513934,MTC
+China,mining energy use,mobile,refined liquids,0.41876,0.756133,1.17686,1.8818,MTC
+China,mining energy use,stationary,coal,4.186,6.68639,11.806,8.22457,MTC
+China,mining energy use,stationary,gas,0.0350698,0.224688,0.177729,0.529027,MTC
+China,mining energy use,stationary,refined liquids,0.10469,0.189032,0.294216,0.470449,MTC
+China,other industrial energy use,biomass,biomass,0.0049059,0.0048599,0.0039629,0.007038,MTC
+China,other industrial energy use,coal,coal,125.512,218.644,264.699,205.449,MTC
+China,other industrial energy use,gas,gas,0.98687,3.3781,16.4879,17.0648,MTC
+China,other industrial energy use,gas,gas cogen,0,0,0.0188122,0.0206525,MTC
+China,other industrial energy use,refined liquids,refined liquids,13.5923,32.6831,29.6668,20.8765,MTC
+China,other industrial feedstocks,coal,coal,15.1626,12.1648,18.4094,37.843,MTC
+China,other industrial feedstocks,refined liquids,refined liquids,0,0,0,0,MTC
+China,process heat cement,coal,coal,24.5937,96.5232,152.947,152.947,MTC
+China,process heat cement,refined liquids,refined liquids,1.12704,4.42332,7.00901,7.00901,MTC
+China,refining,biomass liquids,BTL with hydrogen,0,0,0,0,MTC
+China,refining,biomass liquids,FT biofuels,0,0,0,0,MTC
+China,refining,biomass liquids,biodiesel,0,0.00262359,0.0332725,0.0422176,MTC
+China,refining,biomass liquids,cellulosic ethanol,0,0,0,0,MTC
+China,refining,biomass liquids,corn ethanol,0,0.123425,0.222655,0.27823,MTC
+China,refining,coal to liquids,coal to liquids,0,0,1.05615,3.19083,MTC
+China,refining,gas to liquids,gas to liquids,0,0,0,0,MTC
+China,refining,oil refining,oil refining,6.37523,14.4803,33.2111,42.9014,MTC
+China,regional biomass,regional biomass,regional biomass,-0.0162159,-6.65783,-21.3987,-32.2097,MTC
+China,regional biomassOil,regional biomassOil,Soybean,0,-0.0372126,-0.471931,-0.598808,MTC
+China,regional corn for ethanol,regional corn for ethanol,regional corn for ethanol,0,-0.535727,-0.966435,-1.20766,MTC
+China,resid heating,coal,coal,51.1411,32.8249,30.2766,30.0169,MTC
+China,resid heating,gas,gas,0.603361,4.00515,9.12567,12.5757,MTC
+China,resid heating,refined liquids,refined liquids,0.448248,2.70901,3.34387,5.31868,MTC
+China,resid others,biomass,biomass,5.87E-04,0.0010718,0.0015525,0.0019711,MTC
+China,resid others,coal,coal,42.2467,27.1161,25.011,24.7964,MTC
+China,resid others,gas,gas,0.511757,3.39707,7.74017,10.6664,MTC
+China,resid others,refined liquids,refined liquids,2.03764,12.3146,15.2005,24.1776,MTC
+China,trn_aviation_intl,International Aviation,Liquids,1.66317,5.71903,7.38686,9.90215,MTC
+China,trn_freight,Domestic Ship,Hybrid Liquids,0,0,0,0,MTC
+China,trn_freight,Domestic Ship,Liquids,2.0574,11.4556,13.2114,17.1779,MTC
+China,trn_freight,Freight Rail,Coal,7.49032,0,0,0.00342862,MTC
+China,trn_freight,Freight Rail,Hybrid Liquids,0,0,0,0,MTC
+China,trn_freight,Freight Rail,Liquids,1.34628,7.39803,10.5387,15.0921,MTC
+China,trn_freight_road,Heavy truck,Hybrid Liquids,0,0,0,0,MTC
+China,trn_freight_road,Heavy truck,Liquids,2.17259,11.6356,16.541,23.6532,MTC
+China,trn_freight_road,Light truck,Hybrid Liquids,0,0,0,0,MTC
+China,trn_freight_road,Light truck,Liquids,3.91204,21.4214,30.5069,43.6793,MTC
+China,trn_freight_road,Light truck,NG,0,6.25E-05,2.85E-04,6.89E-04,MTC
+China,trn_freight_road,Medium truck,Hybrid Liquids,0,0,0,0,MTC
+China,trn_freight_road,Medium truck,Liquids,1.50105,6.79773,9.51984,13.4672,MTC
+China,trn_pass,Domestic Aviation,Liquids,0.726318,6.40608,10.6305,16.5284,MTC
+China,trn_pass,Passenger Rail,Liquids,0.3036,1.64272,2.33721,3.34412,MTC
+China,trn_pass_road,Bus,Hybrid Liquids,0,0,0,0,MTC
+China,trn_pass_road,Bus,Liquids,3.7603,20.1092,28.5835,40.8701,MTC
+China,trn_pass_road,Bus,NG,0,0.682671,3.13564,7.56787,MTC
+China,trn_pass_road_LDV,2W and 3W,Liquids,2.0361,9.98464,14.0875,20.0366,MTC
+China,trn_pass_road_LDV_4W,Car,Hybrid Liquids,0,0,0,0,MTC
+China,trn_pass_road_LDV_4W,Car,Liquids,1.65211,8.35005,11.8126,16.8332,MTC
+China,trn_pass_road_LDV_4W,Car,NG,0,0.0981182,0.450674,1.0877,MTC
+China,trn_pass_road_LDV_4W,Large Car and Truck,Hybrid Liquids,0,0,0,0,MTC
+China,trn_pass_road_LDV_4W,Large Car and Truck,Liquids,0.530515,2.69172,3.80921,5.42949,MTC
+China,trn_pass_road_LDV_4W,Mini Car,Hybrid Liquids,0,0,0,0,MTC
+China,trn_pass_road_LDV_4W,Mini Car,Liquids,0.439189,2.20407,3.11614,4.43858,MTC
+China,trn_pass_road_LDV_4W,Mini Car,NG,0,0.092837,0.426421,1.02917,MTC
+China,trn_shipping_intl,International Ship,Hybrid Liquids,0,0,0,0,MTC
+China,trn_shipping_intl,International Ship,Liquids,3.71487,12.759,25.9771,22.9021,MTC
+China,crude oil,unconventional oil,unconventional oil,0,0,0,0,MTC
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,

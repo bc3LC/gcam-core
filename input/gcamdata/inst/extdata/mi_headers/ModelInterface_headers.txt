@@ -11,7 +11,7 @@ MAGICC, MagiccModel/+last-historical-year, MagiccModel/+bc-unit-forcing, MagiccM
 
 hector, HectorModel/+hector-end-year, HectorModel/+emissions-switch-year, HectorModel/+hector-ini-file, scenario, scenario/world, world/HectorModel
 
-NoClimateModel, world/no-climate-model, scenario, scenario/world, 
+NoClimateModel, world/no-climate-model, scenario, scenario/world,
 
 DeleteMAGICC, world/{delete=1}MagiccModel, scenario, scenario/world
 
@@ -357,7 +357,7 @@ GlobalTechAccountInput,global-technology-database/+{sector-name}location-info, g
 
 DeleteGlobalTechInput, global-technology-database/+{sector-name}location-info, global-technology-database/+{subsector-name}location-info, location-info/+{name}technology, technology/+{year}period, period/+{name;delete=1}minicam-energy-input, scenario, scenario/world, world/global-technology-database
 
-GlobalTechInputPMult, global-technology-database/+{sector-name}location-info, global-technology-database/+{subsector-name}location-info, location-info/+{name}technology, technology/+{year}period, period/+{name}minicam-energy-input, minicam-energy-input/+price-unit-conversion, scenario, scenario/world, world/global-technology-database  
+GlobalTechInputPMult, global-technology-database/+{sector-name}location-info, global-technology-database/+{subsector-name}location-info, location-info/+{name}technology, technology/+{year}period, period/+{name}minicam-energy-input, minicam-energy-input/+price-unit-conversion, scenario, scenario/world, world/global-technology-database
 
 DeleteGlobalTech, global-technology-database/+{sector-name}location-info, global-technology-database/+{subsector-name}location-info, location-info/+{name;delete=1}technology, scenario, scenario/world, world/global-technology-database
 
@@ -682,6 +682,30 @@ GHGConstrLink, world/+{name}region, region/+{name}linked-ghg-policy, linked-ghg-
 GHGConstrLinkAdj, world/+{name}region, region/+{name}linked-ghg-policy, linked-ghg-policy/+{year;fillout=1}price-adjust, linked-ghg-policy/+price-adjust, linked-ghg-policy/+{year;fillout=1}demand-adjust, linked-ghg-policy/+demand-adjust, scenario, scenario/world, world/region
 
 GHGConstrLinkMkt, world/+{name}region, region/+{name}linked-ghg-policy, linked-ghg-policy/+market, linked-ghg-policy/+linked-policy, scenario, scenario, scenario/world, world/region
+
+GHGConstrFillout, world/+{name}region, region/+{name}ghgpolicy, ghgpolicy/+market, ghgpolicy/+{year;fillout=1}constraint, ghgpolicy/+constraint, scenario, scenario/world, world/region
+
+GHGConstrLinkPriceAdj, world/+{name}region, region/+{name}linked-ghg-policy, linked-ghg-policy/+{year;fillout=1}price-adjust, linked-ghg-policy/+price-adjust, scenario, scenario/world, world/region
+
+GHGConstrLinkDemandAdj, world/+{name}region, region/+{name}linked-ghg-policy, linked-ghg-policy/+{year;fillout=1}demand-adjust, linked-ghg-policy/+demand-adjust, scenario, scenario/world, world/region
+
+GHGConstrLinkPriceAdjHist, world/+{name}region, region/+{name}linked-ghg-policy, linked-ghg-policy/+{year;fillout=1}price-adjust, linked-ghg-policy/+price-adjust, scenario, scenario/world, world/region
+
+GHGConstrLinkDemandAdjHist, world/+{name}region, region/+{name}linked-ghg-policy, linked-ghg-policy/+{year;fillout=1}demand-adjust, linked-ghg-policy/+demand-adjust, scenario, scenario/world, world/region
+
+GHGConstrLinkMktUnits, world/+{name}region, region/+{name}linked-ghg-policy, linked-ghg-policy/+market, linked-ghg-policy/+linked-policy, linked-ghg-policy/+price-unit, linked-ghg-policy/+output-unit, scenario, scenario/world, world/region
+
+GHGTax, world/+{name}region, region/+{name}ghgpolicy, ghgpolicy/+market, ghgpolicy/+{year}fixedTax, ghgpolicy/+fixedTax, scenario, scenario/world, world/region
+
+GHGTaxFillout, world/+{name}region, region/+{name}ghgpolicy, ghgpolicy/+market, ghgpolicy/+{year;fillout=1}fixedTax, ghgpolicy/+fixedTax, scenario, scenario/world, world/region
+
+StubTechCO2, world/+{name}region, region/+{name}supplysector, supplysector/+{name}subsector, subsector/+{name}technology, technology/+{year}period, period/+{name}CO2, scenario, scenario/world
+
+StubTranTechCO2, world/+{name}region, region/+{name}supplysector, supplysector/+{name}tranSubsector, tranSubsector/+{name}technology, technology/+{year}period, period/+{name}CO2, scenario, scenario/world
+
+ResTechCO2, world/+{name}region, region/+{name}resource, resource/+{name}reserve-subresource, reserve-subresource/+{name}resource-reserve-technology, resource-reserve-technology/+{year}period, period/+{name}CO2, scenario, scenario/world
+
+GlobalTechCO2, global-technology-database/+{sector-name}location-info, global-technology-database/+{subsector-name}location-info, location-info/+{name}technology, technology/+{year}period, period/+{name}CO2, scenario, scenario/world, world/global-technology-database
 
 #####, LAND ALLOCATOR
 

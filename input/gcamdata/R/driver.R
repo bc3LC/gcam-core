@@ -473,6 +473,7 @@ driver_drake <- function(
   return_plan_only = FALSE,
   write_xml = !return_data_map_only,
   xmldir = XML_DIR,
+  policyxmldir = POLICY_XML_DIR,
   quiet = FALSE,
   user_modifications = NULL,
   xml_suffix = NULL,
@@ -637,11 +638,16 @@ driver_drake <- function(
        unique()
 
      chunks_to_run <- dstrace_chunks(run_chunks, verts)
+     # Need to explicitly remove any stop_before chunks
+     if (!missing(stop_before)){
+       chunks_to_run <- chunks_to_run[chunks_to_run != stop_before]
+     }
    }
    else {
     chunks_to_run <- c(unfound_inputs$input, chunklist$name)
    }
   dir.create(xmldir, showWarnings = FALSE, recursive = TRUE)
+  dir.create(policyxmldir, showWarnings = FALSE, recursive = TRUE)
 
   # Loop over each chunk and add a target for it and the command to build it
   # as appropriate for if it is just loading a FILE or running an actual chunk.
@@ -716,6 +722,10 @@ driver_drake <- function(
         # Add the xmldir to the XML output name and include those in the
         # target list.
         po_xml_path = file.path(xmldir, po_xml) %>% gsub("/{2,}", "/", .)# Don't want multiple consecutive slashes, as drake views that as separate object
+        # If policy xml chunk, add to policy xml
+        if (grepl("module_policy", chunk)){
+          po_xml_path = file.path(policyxmldir, po_xml) %>% gsub("/{2,}", "/", .)# Don't want multiple consecutive slashes, as drake views that as separate object
+        }
         target <- c(target, make.names(po_xml_path))
         # Generate the command to run the XML conversion:
         # `xml/out1.xml <- run_xml_conversion(set_xml_file_helper(out1.xml, file_out("xml/out1.xml")))`

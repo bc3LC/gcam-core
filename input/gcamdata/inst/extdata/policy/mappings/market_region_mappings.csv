@@ -1,0 +1,38 @@
+# File: market_region_mappings.csv
+# Title: Mapping file to combine regions into one market
+# Units: NA
+# Column types: cc
+# ----------
+region,market
+Africa_Eastern,World
+Africa_Northern,World
+Africa_Southern,World
+Africa_Western,World
+Argentina,World
+Australia_NZ,World
+Brazil,World
+Canada,World
+Central America and Caribbean,World
+Central Asia,World
+China,World
+Colombia,World
+EU-12,World
+EU-15,World
+Europe_Eastern,World
+Europe_Non_EU,World
+European Free Trade Association,World
+India,World
+Indonesia,World
+Japan,World
+Mexico,World
+Middle East,World
+Pakistan,World
+Russia,World
+South Africa,World
+South America_Northern,World
+South America_Southern,World
+South Asia,World
+South Korea,World
+Southeast Asia,World
+Taiwan,World
+USA,World

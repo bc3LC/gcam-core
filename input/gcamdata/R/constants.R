@@ -4,6 +4,7 @@
 
 OUTPUTS_DIR              <- "outputs/"
 XML_DIR                  <- "xml/"
+POLICY_XML_DIR           <- "xml_policy/"
 COMMENT_CHAR             <- "#"
 UNDER_TIMESHIFT          <- FALSE
 YEAR_PATTERN             <- "^(1|2)[0-9]{3}$"   # a 1 or 2 followed by three digits, and nothing else

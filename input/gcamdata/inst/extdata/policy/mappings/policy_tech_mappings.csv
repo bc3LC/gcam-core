@@ -1,0 +1,174 @@
+# File: policy_tech_mappings.csv,,,
+# Title: Policy technology mapping,,,
+# Units: NA,,,
+# Column types: cccc,,,
+# ----------,,,
+tech_mapping,supplysector,subsector,stub.technology
+afolu,agricultural energy use,stationary,coal
+afolu,agricultural energy use,stationary,gas
+afolu,refined liquids agr,refined liquids agr,refined liquids agr
+bld,comm cooling,gas,gas
+bld,comm heating,biomass,biomass
+bld,comm heating,coal,coal
+bld,comm heating,gas,gas
+bld,comm others,biomass,biomass
+bld,comm others,coal,coal
+bld,comm others,gas,gas
+bld,delivered biomass buildings,delivered biomass buildings,delivered biomass buildings
+bld,district heat,biomass,biomass
+bld,district heat,coal,coal
+bld,district heat,gas,gas
+bld,refined liquids buildings,refined liquids buildings,refined liquids buildings
+bld,resid cooling,gas,gas
+bld,resid heating,biomass,biomass
+bld,resid heating,coal,coal
+bld,resid heating,gas,gas
+bld,resid others,biomass,biomass
+bld,resid others,coal,coal
+bld,resid others,gas,gas
+ind,N fertilizer,coal,coal
+ind,N fertilizer,gas,gas
+ind,N fertilizer,hydrogen,hydrogen
+ind,alumina,biomass,biomass
+ind,alumina,coal,coal
+ind,alumina,gas,gas
+ind,cement,cement,cement
+ind,chemical energy use,biomass,biomass
+ind,chemical energy use,coal,coal
+ind,chemical energy use,gas,gas
+ind,chemical feedstocks,coal,coal
+ind,chemical feedstocks,gas,gas
+ind,construction energy use,stationary,biomass
+ind,construction energy use,stationary,coal
+ind,construction energy use,stationary,gas
+ind,delivered biomass industry,delivered biomass industry,delivered biomass industry
+ind,iron and steel,BLASTFUR,BLASTFUR
+ind,iron and steel,BLASTFUR,BLASTFUR with hydrogen
+ind,iron and steel,BLASTFUR,Biomass-based
+ind,iron and steel,EAF with DRI,EAF with DRI
+ind,iron and steel,EAF with scrap,EAF with scrap
+ind,mining energy use,stationary,biomass
+ind,mining energy use,stationary,coal
+ind,mining energy use,stationary,gas
+ind,other industrial energy use,biomass,biomass
+ind,other industrial energy use,biomass,biomass cogen
+ind,other industrial energy use,coal,coal
+ind,other industrial energy use,coal,coal cogen
+ind,other industrial energy use,gas,gas
+ind,other industrial energy use,gas,gas cogen
+ind,other industrial feedstocks,coal,coal
+ind,other industrial feedstocks,gas,gas
+ind,process heat cement,biomass,biomass
+ind,process heat cement,coal,coal
+ind,process heat cement,gas,gas
+ind,refined liquids industrial,refined liquids industrial,refined liquids industrial
+sup,H2 central production,biomass,biomass to H2
+sup,H2 central production,gas,natural gas steam reforming
+sup,H2 wholesale dispensing,forecourt production,natural gas steam reforming
+sup,backup_electricity,gas,gas (steam/CT)
+sup,csp_backup,gas,CSP gas hybrid mode
+sup,delivered gas h2,delivered gas h2,delivered gas h2
+sup,desalinated water,gas,distillation
+sup,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (dry cooling)
+sup,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (once through)
+sup,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (recirculating)
+sup,elec_biomass (IGCC),biomass (IGCC),biomass (IGCC) (seawater)
+sup,elec_biomass (conv),biomass (conv),biomass (conv) (cooling pond)
+sup,elec_biomass (conv),biomass (conv),biomass (conv) (dry cooling)
+sup,elec_biomass (conv),biomass (conv),biomass (conv) (once through)
+sup,elec_biomass (conv),biomass (conv),biomass (conv) (recirculating)
+sup,elec_biomass (conv),biomass (conv),biomass (conv) (seawater)
+sup,elec_coal (IGCC),coal (IGCC),coal (IGCC) (dry cooling)
+sup,elec_coal (IGCC),coal (IGCC),coal (IGCC) (once through)
+sup,elec_coal (IGCC),coal (IGCC),coal (IGCC) (recirculating)
+sup,elec_coal (IGCC),coal (IGCC),coal (IGCC) (seawater)
+sup,elec_coal (conv pul),coal (conv pul),coal (conv pul) (cooling pond)
+sup,elec_coal (conv pul),coal (conv pul),coal (conv pul) (dry cooling)
+sup,elec_coal (conv pul),coal (conv pul),coal (conv pul) (once through)
+sup,elec_coal (conv pul),coal (conv pul),coal (conv pul) (recirculating)
+sup,elec_coal (conv pul),coal (conv pul),coal (conv pul) (seawater)
+sup,elec_gas (CC),gas (CC),gas (CC) (cooling pond)
+sup,elec_gas (CC),gas (CC),gas (CC) (dry cooling)
+sup,elec_gas (CC),gas (CC),gas (CC) (once through)
+sup,elec_gas (CC),gas (CC),gas (CC) (recirculating)
+sup,elec_gas (CC),gas (CC),gas (CC) (seawater)
+sup,elec_gas (steam/CT),gas (steam/CT),gas (steam/CT) (cooling pond)
+sup,elec_gas (steam/CT),gas (steam/CT),gas (steam/CT) (dry cooling)
+sup,elec_gas (steam/CT),gas (steam/CT),gas (steam/CT) (once through)
+sup,elec_gas (steam/CT),gas (steam/CT),gas (steam/CT) (recirculating)
+sup,elec_gas (steam/CT),gas (steam/CT),gas (steam/CT) (seawater)
+sup,elec_refined liquids (CC),refined liquids (CC),refined liquids (CC) (dry cooling)
+sup,elec_refined liquids (CC),refined liquids (CC),refined liquids (CC) (once through)
+sup,elec_refined liquids (CC),refined liquids (CC),refined liquids (CC) (recirculating)
+sup,elec_refined liquids (CC),refined liquids (CC),refined liquids (CC) (seawater)
+sup,elec_refined liquids (steam/CT),refined liquids (steam/CT),refined liquids (steam/CT) (cooling pond)
+sup,elec_refined liquids (steam/CT),refined liquids (steam/CT),refined liquids (steam/CT) (dry cooling)
+sup,elec_refined liquids (steam/CT),refined liquids (steam/CT),refined liquids (steam/CT) (once through)
+sup,elec_refined liquids (steam/CT),refined liquids (steam/CT),refined liquids (steam/CT) (recirculating)
+sup,elec_refined liquids (steam/CT),refined liquids (steam/CT),refined liquids (steam/CT) (seawater)
+sup,gas pipeline,gas pipeline,gas pipeline
+sup,gas processing,biomass gasification,biomass gasification
+sup,gas processing,coal gasification,coal gasification
+sup,refining,biomass liquids,BTL with hydrogen
+sup,refining,biomass liquids,FT biofuels
+sup,refining,biomass liquids,biodiesel
+sup,refining,biomass liquids,cellulosic ethanol
+sup,refining,biomass liquids,corn ethanol
+sup,refining,coal to liquids,coal to liquids
+sup,refining,gas to liquids,gas to liquids
+sup,refining,oil refining,oil refining
+sup,regional biomass energy sector,regional biomass,regional biomass
+trn,refined liquids bunkers,refined liquids bunkers,refined liquids bunkers
+trn,refined liquids transport,refined liquids transport,refined liquids transport
+trn,trn_freight,Freight Rail,Coal
+trn,trn_freight_road,Light truck,NG
+trn,trn_pass_road,Bus,NG
+trn,trn_pass_road_LDV,2W and 3W,NG
+trn,trn_pass_road_LDV_4W,Car,NG
+trn,trn_pass_road_LDV_4W,Large Car and Truck,NG
+trn,trn_pass_road_LDV_4W,Mini Car,NG
+supCO2ccs92,H2 central production,biomass,biomass to H2 CCS
+supCO2ccs92,H2 central production,coal,coal chemical CCS
+supCO2ccs92,H2 central production,gas,natural gas steam reforming CCS
+indCO2ccs90,N fertilizer,coal,coal CCS
+indCO2ccs90,N fertilizer,gas,gas CCS
+indCO2ccs90,alumina,biomass,biomass CCS
+indCO2ccs90,alumina,coal,coal CCS
+indCO2ccs90,alumina,gas,gas CCS
+indCO2ccs90,cement,cement,cement CCS
+indCO2ccs90,chemical energy use,biomass,biomass CCS
+indCO2ccs90,chemical energy use,coal,coal CCS
+indCO2ccs90,chemical energy use,gas,gas CCS
+supCO2ccs88,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (dry cooling)
+supCO2ccs88,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (once through)
+supCO2ccs88,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (recirculating)
+supCO2ccs88,elec_biomass (IGCC CCS),biomass (IGCC CCS),biomass (IGCC CCS) (seawater)
+supCO2ccs88,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (dry cooling)
+supCO2ccs88,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (once through)
+supCO2ccs88,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (recirculating)
+supCO2ccs88,elec_biomass (conv CCS),biomass (conv CCS),biomass (conv CCS) (seawater)
+supCO2ccs88,elec_coal (IGCC CCS),coal (IGCC CCS),coal (IGCC CCS) (dry cooling)
+supCO2ccs88,elec_coal (IGCC CCS),coal (IGCC CCS),coal (IGCC CCS) (once through)
+supCO2ccs88,elec_coal (IGCC CCS),coal (IGCC CCS),coal (IGCC CCS) (recirculating)
+supCO2ccs88,elec_coal (IGCC CCS),coal (IGCC CCS),coal (IGCC CCS) (seawater)
+supCO2ccs88,elec_coal (conv pul CCS),coal (conv pul CCS),coal (conv pul CCS) (dry cooling)
+supCO2ccs88,elec_coal (conv pul CCS),coal (conv pul CCS),coal (conv pul CCS) (once through)
+supCO2ccs88,elec_coal (conv pul CCS),coal (conv pul CCS),coal (conv pul CCS) (recirculating)
+supCO2ccs88,elec_coal (conv pul CCS),coal (conv pul CCS),coal (conv pul CCS) (seawater)
+supCO2ccs88,elec_gas (CC CCS),gas (CC CCS),gas (CC CCS) (dry cooling)
+supCO2ccs88,elec_gas (CC CCS),gas (CC CCS),gas (CC CCS) (once through)
+supCO2ccs88,elec_gas (CC CCS),gas (CC CCS),gas (CC CCS) (recirculating)
+supCO2ccs88,elec_gas (CC CCS),gas (CC CCS),gas (CC CCS) (seawater)
+supCO2ccs88,elec_refined liquids (CC CCS),refined liquids (CC CCS),refined liquids (CC CCS) (dry cooling)
+supCO2ccs88,elec_refined liquids (CC CCS),refined liquids (CC CCS),refined liquids (CC CCS) (once through)
+supCO2ccs88,elec_refined liquids (CC CCS),refined liquids (CC CCS),refined liquids (CC CCS) (recirculating)
+supCO2ccs88,elec_refined liquids (CC CCS),refined liquids (CC CCS),refined liquids (CC CCS) (seawater)
+indCO2ccs90,iron and steel,BLASTFUR,BLASTFUR CCS
+indCO2ccs90,iron and steel,BLASTFUR,BLASTFUR CCS with hydrogen
+indCO2ccs90,iron and steel,EAF with DRI,EAF with DRI CCS
+supCO2ccs82,refining,biomass liquids,FT biofuels CCS level 1
+supCO2ccs90,refining,biomass liquids,FT biofuels CCS level 2
+supCO2ccs26,refining,biomass liquids,cellulosic ethanol CCS level 1
+supCO2ccs90,refining,biomass liquids,cellulosic ethanol CCS level 2
+supCO2ccs82,refining,coal to liquids,coal to liquids CCS level 1
+supCO2ccs90,refining,coal to liquids,coal to liquids CCS level 2

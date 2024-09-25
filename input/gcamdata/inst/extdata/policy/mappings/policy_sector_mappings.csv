@@ -1,0 +1,11 @@
+# File: policy_sector_mappings.csv,
+# Title: Mappings between CO2 market and sectors,
+# Units: NA,
+# Comments: only list supplysector; default is to include all technologies except biomass techs,
+# Column types: cc,
+# ----------,
+mapping.name,supplysector
+BUILD_SECTORS_NOCOOL,resid heating
+BUILD_SECTORS_NOCOOL,resid others
+BUILD_SECTORS_NOCOOL,comm heating
+BUILD_SECTORS_NOCOOL,comm others

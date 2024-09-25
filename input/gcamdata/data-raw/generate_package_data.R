@@ -497,9 +497,21 @@ generate_level2_data_names <- function() {
   level2_data_names[["PortfolioStdMaxPrice"]] <- c("region", "policy.portfolio.standard", "max.price")
   level2_data_names[["GHGConstrMkt"]] <- c("region", "ghgpolicy", "market")
   level2_data_names[["GHGConstr"]] <- c("region", "ghgpolicy", "market", "constraint.year", "constraint")
+  level2_data_names[["GHGConstrFillout"]] <- c(level2_data_names[["GHGConstr"]], "year.fillout")
   level2_data_names[["GHGConstrLink"]] <- c("region", "linked.ghg.policy", "price.adjust", "demand.adjust", "market", "linked.policy", "price.unit", "output.unit")
   level2_data_names[["GHGConstrLinkAdj"]] <- c("region", "linked.ghg.policy", "price.adjust.year.fillout", "price.adjust",  "demand.adjust.year.fillout", "demand.adjust")
   level2_data_names[["GHGConstrLinkMkt"]] <- c("region", "linked.ghg.policy", "market", "linked.policy")
+  level2_data_names[["GHGConstrLinkPriceAdj"]] <- c("region", "linked.ghg.policy", "year", "price.adjust")
+  level2_data_names[["GHGConstrLinkDemandAdj"]] <- c("region", "linked.ghg.policy", "year", "demand.adjust")
+  level2_data_names[["GHGConstrLinkPriceAdjHist"]] <- c("region", "linked.ghg.policy", "year", "price.adjust")
+  level2_data_names[["GHGConstrLinkDemandAdjHist"]] <- c("region", "linked.ghg.policy", "year", "demand.adjust")
+  level2_data_names[["GHGConstrLinkMktUnits"]] <- c("region", "linked.ghg.policy", "market", "linked.policy", "price.unit", "output.unit")
+  level2_data_names[["GHGTax"]] <- c("region", "ghgpolicy", "market", "year", "fixedTax")
+  level2_data_names[["GHGTaxFillout"]] <- c(level2_data_names[["GHGTax"]], "year.fillout")
+  level2_data_names[["StubTechCO2"]] <- c("region", "supplysector", "subsector", "stub.technology", "year", "CO2")
+  level2_data_names[["StubTranTechCO2"]] <- c("region", "supplysector", "tranSubsector", "stub.technology", "year", "CO2")
+  level2_data_names[["ResTechCO2"]] <- c("region", "resource", "reserve.subresource", "resource.reserve.technology", "year", "CO2")
+  level2_data_names[["GlobalTechCO2"]] <- c("sector.name", "subsector.name", "technology", "year", "CO2")
 
   level2_data_names
 }

@@ -2,6 +2,22 @@
 
 # xml.R
 
+#' Method to return multiple xmls
+#'
+#' @param all_xml_names List of xml names
+#' @return A list of xmls that a function can output
+#' @export
+return_multiple_xmls <- function(list_of_xmls, all_xml_names) {
+  # for(xml_name in all_xml_names){
+  #   list_of_xmls[[xml_name]] <- get(xml_name)
+  # }
+  names(list_of_xmls) <- all_xml_names
+  outlist <- sapply(list_of_xmls, return_data)
+  names(outlist) <- all_xml_names
+
+  outlist
+}
+
 #' The basis to start a pipeline to convert data to an XML file.
 #'
 #' This method simply requires the name to save the XML file as and optionally the
