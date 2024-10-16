@@ -122,6 +122,8 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
       mutate(nonLandVariableCost = round(calPrice * cost_PrP_ratio, aglu.DIGITS_CALPRICE)) %>%
       select(LEVEL2_DATA_NAMES[["AgCost"]])
 
+
+
     # Assign nonLandVariableCost of bioenergy production, assuming the same level to all four technologies
     # Start with the yield table to determine where bioenergy crops are being read in, get both grass and tree crops
     L201.AgYield_bio_grass %>%

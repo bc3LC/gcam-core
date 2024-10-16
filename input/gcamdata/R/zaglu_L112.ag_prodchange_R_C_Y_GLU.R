@@ -192,7 +192,7 @@ module_aglu_L112.ag_prodchange_R_C_Y_GLU <- function(command, ...) {
       # Match in GCAM regions
       left_join_error_no_match(select(iso_GCAM_regID, GCAM_region_ID, iso), by = "iso") %>%
       # Match in GCAM commodities
-      left_join_error_no_match(select(FAO_ag_items_PRODSTAT, GCAM_commodity, GCAM_subsector, GTAP_crop), by = "GTAP_crop") %>%
+      left_join_error_no_match(distinct(FAO_ag_items_PRODSTAT, GCAM_commodity, GCAM_subsector, GTAP_crop), by = "GTAP_crop") %>%
       # Multiply base-year harvested area by the future productivity multipliers to approximate future production change
       mutate(Prod_mod = value * Mult) %>%
       # Aggregate by GCAM region / zone / commodity / year

@@ -53,7 +53,15 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
 
     get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
 
-
+    # check years
+    # to remove
+    FAO_AgProd_Kt_All %>% filter(year >= 1973) -> FAO_AgProd_Kt_All
+    FAO_AgArea_Kha_All %>% filter(year >= 1973) -> FAO_AgArea_Kha_All
+    assertthat::assert_that(unique(c(min(GCAM_AgLU_SUA_APE_1973_2019$year),
+                                   min(FAO_AgProd_Kt_All$year),
+                                   min(FAO_AgArea_Kha_All$year)) ) %>% length() == 1,
+                             msg = "Check data years to ensure they have the same starting years, e.g., 1973; it matters for 5-year average for initial years"
+                              )
 
     # Key sets and mappings ----
     # Note that fodder crops are included in COMM_CROP though SUA did not have them;
@@ -92,7 +100,7 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
     L100.FAO_ag_Prod_t <-
       FAO_AgProd_Kt_All %>%
       filter(CropMeat %in% c("Crop_Fodder", "Crop_NonFodder")) %>%
-      transmute(iso, GCAM_region_ID, item, item_code, year, GCAM_commodity, GCAM_subsector,
+      transmute(iso, GCAM_region_ID, item_code, year, GCAM_commodity, GCAM_subsector,
                 element = "Prod_t", value = value * 1000) %>%
       # Adding 5-year moving average here
       dplyr::group_by_at(dplyr::vars(-year, -value)) %>%
@@ -106,7 +114,7 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
     # The file will be used for fertilization related calculation
     L100.FAO_ag_HA_ha <-
       FAO_AgArea_Kha_All %>%
-      transmute(iso, GCAM_region_ID, item, item_code, year, GCAM_commodity, GCAM_subsector,
+      transmute(iso, GCAM_region_ID, item_code, year, GCAM_commodity, GCAM_subsector,
                 element = "Area_harvested_ha", value = value * 1000) %>%
       # Adding 5-year moving average here
       dplyr::group_by_at(dplyr::vars(-year, -value)) %>%
