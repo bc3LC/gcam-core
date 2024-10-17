@@ -1,7 +1,7 @@
 # File: AGLU_ctry.csv
 # Title: Mapping of countries in AGLU databases to ISO codes
 # Units: NA
-# Description: Note that both French Guiana and French Guyana are added for now and  Saint Helena,, Ascension and Tristan da Cunha is added. Area_code should be used later, though they are the same region. Function FAO_AREA_DISAGGREGATE_HIST_DISSOLUTION_ALL deals with region changes over time in gcamdata.,,,,,,,,,
+# Description: Note that both French Guiana and French Guyana are added for now and  Saint Helena,, Ascension and Tristan da Cunha is added. Area_code should be used later, though they are the same region. Function FAO_AREA_DISAGGREGATE_HIST_DISSOLUTION_ALL deals with region changes over time in gcamdata.
 # Last update: 4-2-2022 (XZ)
 # Column types: ciccciccciccc
 # ----------
