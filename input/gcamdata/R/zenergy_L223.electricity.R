@@ -429,7 +429,7 @@ module_energy_L223.electricity <- function(command, ...) {
         # if there is a value for 2050, we don't want to use the GCAM 2100 assumption
         # hard-coded
         mutate(`2100` = if_else(is.na(`2050`), `2100`, `2050`))
-      }
+    }
 
     L223.GlobalTechEff %>%
       fill_exp_decay_extrapolate(MODEL_YEARS) %>%
@@ -1388,7 +1388,7 @@ module_energy_L223.electricity <- function(command, ...) {
         rename(capital.overnight = value) %>%
         # Add in fixed charge rate
         left_join_error_no_match(distinct(L113.globaltech_capital_ATB, supplysector, subsector, technology, fixed.charge.rate),
-                  by = c("supplysector", "subsector", "stub.technology" = "technology"))
+                                 by = c("supplysector", "subsector", "stub.technology" = "technology"))
 
       # O&M costs need to be divided between fixed and variable
       # Use the split in global tech db (mostly coming from EUREF scenario)
@@ -1399,7 +1399,7 @@ module_energy_L223.electricity <- function(command, ...) {
         rename(L223.GlobalTechOMvar_elec, cost.type = input.OM.var, cost = OM.var),
         rename(L223.GlobalIntTechOMvar_elec, technology = intermittent.technology,
                cost.type = input.OM.var, cost = OM.var)
-        )  %>%
+      )  %>%
         group_by(supplysector = sector.name, subsector = subsector.name,
                  stub.technology = technology, year) %>%
         summarise(fixed_ratio = cost[cost.type == "OM-fixed"] / sum(cost)) %>%
@@ -1438,7 +1438,7 @@ module_energy_L223.electricity <- function(command, ...) {
       L223.StubTechOMfixed <-  tibble::tibble(!!!LEVEL2_DATA_NAMES[["StubTechOMfixed"]], .rows = 0,
                                               .name_repair = ~ LEVEL2_DATA_NAMES[["StubTechOMfixed"]])
       L223.StubTechOMvar <-  tibble::tibble(!!!LEVEL2_DATA_NAMES[["StubTechOMvar"]], .rows = 0,
-                                              .name_repair = ~ LEVEL2_DATA_NAMES[["StubTechOMvar"]])
+                                            .name_repair = ~ LEVEL2_DATA_NAMES[["StubTechOMvar"]])
     }
 
     # L223.StubTechSecOut_desal: secondary output of desalinated seawater from electricity technologies
@@ -2033,24 +2033,24 @@ module_energy_L223.electricity <- function(command, ...) {
       L223.StubTechOMvar
 
     return_data(L223.Supplysector_elec, L223.ElecReserve, L223.SectorUseTrialMarket_elec, L223.SubsectorLogit_elec, L223.SubsectorShrwt_elec,
-     L223.SubsectorShrwtFllt_elec, L223.SubsectorShrwt_coal, L223.SubsectorShrwt_nuc, L223.SubsectorShrwt_renew,
-      L223.SubsectorInterp_elec, L223.SubsectorInterpTo_elec, L223.StubTech_elec,
-      L223.GlobalIntTechEff_elec, L223.GlobalTechEff_elec, L223.GlobalTechCapFac_elec,
-      L223.GlobalIntTechCapFac_elec, L223.GlobalTechCapital_elec, L223.GlobalIntTechCapital_elec,
-      L223.GlobalTechOMfixed_elec, L223.GlobalIntTechOMfixed_elec, L223.GlobalTechOMvar_elec,
-      L223.GlobalIntTechOMvar_elec, L223.GlobalTechShrwt_elec, L223.GlobalTechInterp_elec,
-      L223.GlobalIntTechShrwt_elec, L223.PrimaryRenewKeyword_elec, L223.PrimaryRenewKeywordInt_elec,
-       L223.AvgFossilEffKeyword_elec, L223.GlobalTechCapture_elec, L223.GlobalIntTechBackup_elec,
-       L223.StubTechCapFactor_elec,L223.StubTechCost_offshore_wind, L223.GlobalTechShutdown_elec,
-       L223.GlobalIntTechShutdown_elec, L223.GlobalTechSCurve_elec, L223.GlobalIntTechSCurve_elec,
-       L223.GlobalTechLifetime_elec, L223.GlobalIntTechLifetime_elec, L223.GlobalTechProfitShutdown_elec,
-       L223.GlobalIntTechProfitShutdown_elec, L223.StubTechCalInput_elec, L223.StubTechFixOut_elec,
-       L223.StubTechFixOut_hydro, L223.StubTechProd_elec, L223.StubTechEff_elec, L223.StubTechSecOut_desal,
-       L223.GlobalTechCapital_sol_adv, L223.GlobalIntTechCapital_sol_adv, L223.GlobalTechCapital_wind_adv,
-        L223.GlobalIntTechCapital_wind_adv, L223.GlobalTechCapital_geo_adv, L223.GlobalTechCapital_nuc_adv,
-        L223.GlobalTechCapital_sol_low, L223.GlobalIntTechCapital_sol_low, L223.GlobalTechCapital_wind_low,
-        L223.GlobalIntTechCapital_wind_low, L223.GlobalTechCapital_geo_low, L223.GlobalTechCapital_nuc_low,
-        L223.GlobalTechCapital_bio_low, L223.StubTechCapital, L223.StubTechOMfixed, L223.StubTechOMvar)
+                L223.SubsectorShrwtFllt_elec, L223.SubsectorShrwt_coal, L223.SubsectorShrwt_nuc, L223.SubsectorShrwt_renew,
+                L223.SubsectorInterp_elec, L223.SubsectorInterpTo_elec, L223.StubTech_elec,
+                L223.GlobalIntTechEff_elec, L223.GlobalTechEff_elec, L223.GlobalTechCapFac_elec,
+                L223.GlobalIntTechCapFac_elec, L223.GlobalTechCapital_elec, L223.GlobalIntTechCapital_elec,
+                L223.GlobalTechOMfixed_elec, L223.GlobalIntTechOMfixed_elec, L223.GlobalTechOMvar_elec,
+                L223.GlobalIntTechOMvar_elec, L223.GlobalTechShrwt_elec, L223.GlobalTechInterp_elec,
+                L223.GlobalIntTechShrwt_elec, L223.PrimaryRenewKeyword_elec, L223.PrimaryRenewKeywordInt_elec,
+                L223.AvgFossilEffKeyword_elec, L223.GlobalTechCapture_elec, L223.GlobalIntTechBackup_elec,
+                L223.StubTechCapFactor_elec,L223.StubTechCost_offshore_wind, L223.GlobalTechShutdown_elec,
+                L223.GlobalIntTechShutdown_elec, L223.GlobalTechSCurve_elec, L223.GlobalIntTechSCurve_elec,
+                L223.GlobalTechLifetime_elec, L223.GlobalIntTechLifetime_elec, L223.GlobalTechProfitShutdown_elec,
+                L223.GlobalIntTechProfitShutdown_elec, L223.StubTechCalInput_elec, L223.StubTechFixOut_elec,
+                L223.StubTechFixOut_hydro, L223.StubTechProd_elec, L223.StubTechEff_elec, L223.StubTechSecOut_desal,
+                L223.GlobalTechCapital_sol_adv, L223.GlobalIntTechCapital_sol_adv, L223.GlobalTechCapital_wind_adv,
+                L223.GlobalIntTechCapital_wind_adv, L223.GlobalTechCapital_geo_adv, L223.GlobalTechCapital_nuc_adv,
+                L223.GlobalTechCapital_sol_low, L223.GlobalIntTechCapital_sol_low, L223.GlobalTechCapital_wind_low,
+                L223.GlobalIntTechCapital_wind_low, L223.GlobalTechCapital_geo_low, L223.GlobalTechCapital_nuc_low,
+                L223.GlobalTechCapital_bio_low, L223.StubTechCapital, L223.StubTechOMfixed, L223.StubTechOMvar)
   } else {
     stop("Unknown command")
   }

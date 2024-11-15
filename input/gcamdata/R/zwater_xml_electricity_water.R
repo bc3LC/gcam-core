@@ -1,4 +1,3 @@
-
 # Copyright 2019 Battelle Memorial Institute; see the LICENSE file.
 
 #' module_water_electricity_water_xml

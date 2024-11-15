@@ -83,7 +83,7 @@ module_water_L232.water_demand_manufacturing <- function(command, ...) {
       add_precursors("common/GCAM_region_names",
                      "water/water_td_sectors",
                      "energy/A32.globaltech_coef",
-                     #"L132.water_km3_R_ind_Yh",
+                     "L132.water_km3_R_ind_Yh",
                      "L232.StubTechProd_industry") ->
       L232.TechCoef
 
