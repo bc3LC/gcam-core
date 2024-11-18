@@ -89,6 +89,7 @@ module_water_electricity_water_xml <- function(command, ...) {
       return(df)
     }
 
+
     # Load required inputs
     L223.Supplysector_elec <- rename_to_rooftop(all_data, "L223.Supplysector_elec")
     L223.SubsectorShrwtFllt_elec <- rename_to_rooftop(all_data, "L223.SubsectorShrwtFllt_elec")
@@ -151,6 +152,16 @@ module_water_electricity_water_xml <- function(command, ...) {
 
     # Silence package checks
     technology <- NULL
+
+
+    # Temporary fix the 1990 Central Asia calibration/solution issue ----
+    # the issue seems also related to electricity.xml
+    # Lower the value from 0.218257183 to 0.217734568, by applying 0.997605507
+    L2233.StubTechEff_elec_cool %>%
+      mutate(efficiency = if_else(
+        region == "Central Asia" & year == 1990 & minicam.energy.input == "regional coal",
+        efficiency * 0.997605507, efficiency)) ->
+      L2233.StubTechEff_elec_cool
 
 
     # ===================================================

@@ -208,7 +208,7 @@ module_energy_L1012.en_bal_EFW <- function(command, ...) {
       left_join_error_no_match(EFW_mapping_agg, by = c("sector" = "agg_sector", "fuel")) %>%
       left_join_error_no_match(L1012.en_bal_EJ_R_Si_Fi_Yh, by = c("GCAM_region_ID", from.sector = "sector", "fuel", "year")) %>%
       left_join_error_no_match(L1012.en_bal_EJ_R_Si_Fi_Yh, by = c("GCAM_region_ID", from.sector.2 = "sector", "fuel", "year"),
-                suffix = c(".1", ".2")) %>%
+                               suffix = c(".1", ".2")) %>%
       mutate(energy_EJ.1rev = if_else(value.1 * efw.MAX_COMM_ENERGY_MUNI_EFW >= deduction_EJ,
                                       value.1 - deduction_EJ,
                                       value.1 * (1 - efw.MAX_COMM_ENERGY_MUNI_EFW))) %>%
