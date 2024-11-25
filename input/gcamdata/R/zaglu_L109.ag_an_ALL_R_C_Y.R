@@ -286,27 +286,40 @@ module_aglu_L109.ag_an_ALL_R_C_Y <- function(command, ...) {
       # here we specify regional scaler to avoid other use adj in Pakistan (so later food adj is avoided)
       # this also a longer story and including storage for pork will help in future
 
-      L109.an_ALL_Mt_R_C_Y_1 %>%
-        filter(year == 2019, GCAM_commodity == "Pork", GCAM_region_ID != 22) %>%
-        group_by(GCAM_commodity, year, negOther) %>%
-        # world processed by neg or pos
-        summarise(OtherUses_Mt = sum(OtherUses_Mt, na.rm = T)) %>%
-        ungroup() %>%
-        spread(negOther, OtherUses_Mt) %>%
-        mutate(World_pos_scaler = -Neg/Pos) %>%
-        select(-Neg, -Pos) ->
-        Pos_OtherUse_scaler_adj
+      # check T/F data exist
+      L109.an_ALL_Mt_R_C_Y_1 %>% filter(year == 2019, GCAM_commodity == "Pork") %>% nrow() > 0 ->
+        NeedPork2019_adj
 
-      # Bind back other scalers
-      Pos_OtherUse_scaler_adj %>%
-        repeat_add_columns(L109.an_ALL_Mt_R_C_Y_1 %>% distinct(GCAM_region_ID)) %>%
-        mutate(World_pos_scaler = if_else(GCAM_region_ID == 22, 0, World_pos_scaler)) %>%
-        bind_rows(
-          Pos_OtherUse_scaler %>%
-            filter(!(year == 2019 & GCAM_commodity == "Pork")) %>%
-            repeat_add_columns(L109.an_ALL_Mt_R_C_Y_1 %>% distinct(GCAM_region_ID))
-        ) ->
-        Pos_OtherUse_scaler
+      if (NeedPork2019_adj) {
+        # update scaler
+        L109.an_ALL_Mt_R_C_Y_1 %>%
+          filter(year == 2019, GCAM_commodity == "Pork", GCAM_region_ID != 22) %>%
+          group_by(GCAM_commodity, year, negOther) %>%
+          # world processed by neg or pos
+          summarise(OtherUses_Mt = sum(OtherUses_Mt, na.rm = T)) %>%
+          ungroup() %>%
+          spread(negOther, OtherUses_Mt) %>%
+          mutate(World_pos_scaler = -Neg/Pos) %>%
+          select(-Neg, -Pos) ->
+          Pos_OtherUse_scaler_adj
+
+        # Bind back other scalers
+        Pos_OtherUse_scaler_adj %>%
+          repeat_add_columns(L109.an_ALL_Mt_R_C_Y_1 %>% distinct(GCAM_region_ID)) %>%
+          mutate(World_pos_scaler = if_else(GCAM_region_ID == 22, 0, World_pos_scaler)) %>%
+          bind_rows(
+            Pos_OtherUse_scaler %>%
+              filter(!(year == 2019 & GCAM_commodity == "Pork")) %>%
+              repeat_add_columns(L109.an_ALL_Mt_R_C_Y_1 %>% distinct(GCAM_region_ID))
+          ) ->
+          Pos_OtherUse_scaler
+
+      } else {
+
+        Pos_OtherUse_scaler %>%
+          repeat_add_columns(L109.an_ALL_Mt_R_C_Y_1 %>% distinct(GCAM_region_ID)) ->
+          Pos_OtherUse_scaler
+      }
 
 
       # NA scalers mean no negative other uses in all region for the item
