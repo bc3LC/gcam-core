@@ -1,0 +1,36 @@
+# File: A_FuelStandards_Market.csv,,,,,,,,,,,
+# Title: Fuel Standard Policies Market,,,,,,,,,,,
+# Comments: SSP_sce is the transport UCD scenario to use for the coefs for the years listed here but CORE will be used for all other years and techs; assuming that vans represent 25% of EU Large Cars and Trucks,,,,,,,,,,,
+# Units: gCO2/vkm,,,,,,,,,,,
+# Column types: ccccccccnnnn,,,,,,,,,,,
+# ----------,,,,,,,,,,,
+xml,policy_name,market,SSP_sce,region,supplysector,tranSubsector,Units,2020,2025,2030,2100
+policy_fuelst_mkt_bra.xml,fuelst_mkt_bra,Brazil,CORE,Brazil,trn_pass_road_LDV_4W,Mini Car,gCO2/vkm,156.4684,,,
+policy_fuelst_mkt_bra.xml,fuelst_mkt_bra,Brazil,CORE,Brazil,trn_pass_road_LDV_4W,Car,gCO2/vkm,156.4684,,,
+policy_fuelst_mkt_bra.xml,fuelst_mkt_bra,Brazil,CORE,Brazil,trn_pass_road_LDV_4W,Large Car and Truck,gCO2/vkm,156.4684,,,
+policy_fuelst_mkt_can.xml,fuelst_mkt_can,Canada,CORE,Canada,trn_pass_road_LDV_4W,Car,gCO2/vkm,158.7456391,122.8343495,,
+policy_fuelst_mkt_can.xml,fuelst_mkt_can,Canada,CORE,Canada,trn_pass_road_LDV_4W,Large Car and Truck,gCO2/vkm,158.7456391,122.8343495,,
+policy_fuelst_mkt_ind.xml,fuelst_mkt_ind,India,CORE,India,trn_pass_road_LDV_4W,Mini Car,gCO2/vkm,125,113,,
+policy_fuelst_mkt_ind.xml,fuelst_mkt_ind,India,CORE,India,trn_pass_road_LDV_4W,Car,gCO2/vkm,125,113,,
+policy_fuelst_mkt_ind.xml,fuelst_mkt_ind,India,CORE,India,trn_pass_road_LDV_4W,Large Car and Truck,gCO2/vkm,125,113,,
+policy_fuelst_mkt_jap.xml,fuelst_mkt_jap,Japan,CORE,Japan,trn_pass_road_LDV_4W,Mini Car,gCO2/vkm,160.786332,147.98742,135.188,
+policy_fuelst_mkt_jap.xml,fuelst_mkt_jap,Japan,CORE,Japan,trn_pass_road_LDV_4W,Car,gCO2/vkm,160.786332,147.98742,135.188,
+policy_fuelst_mkt_jap.xml,fuelst_mkt_jap,Japan,CORE,Japan,trn_pass_road_LDV_4W,Large Car and Truck,gCO2/vkm,160.786332,147.98742,135.188,
+policy_fuelst_mkt_kor.xml,fuelst_mkt_kor,South Korea,CORE,South Korea,trn_pass_road_LDV_4W,Car,gCO2/vkm,154.6,133.1,111.6,
+policy_fuelst_mkt_kor.xml,fuelst_mkt_kor,South Korea,CORE,South Korea,trn_pass_road_LDV_4W,Large Car and Truck,gCO2/vkm,154.6,133.1,111.6,
+policy_fuelst_mkt_usa.xml,fuelst_mkt_usa,USA,CORE,USA,trn_pass_road_LDV_4W,Car,gCO2/vkm,155.34,131.73,131.73,
+policy_fuelst_mkt_usa.xml,fuelst_mkt_usa,USA,CORE,USA,trn_pass_road_LDV_4W,Large Car and Truck,gCO2/vkm,155.34,131.73,131.73,
+policy_fuelst_mkt_ind.xml,fuelst_mkt_ind_lighttruck,India,CORE,India,trn_freight_road,Light truck,gCO2/vkm,223.67,186.11,186.11,
+policy_fuelst_mkt_ind.xml,fuelst_mkt_ind_medtruck,India,CORE,India,trn_freight_road,Medium truck,gCO2/vkm,401.1,351.59,351.59,
+policy_fuelst_mkt_ind.xml,fuelst_mkt_ind_heavytruck,India,CORE,India,trn_freight_road,Heavy truck,gCO2/vkm,595.78,498.78,498.78,
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu_lighttruck,EU,CORE,EU-12,trn_freight_road,Light truck,gCO2/vkm,,220.7623,186.6238,159.313
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu_medtruck,EU,CORE,EU-12,trn_freight_road,Medium truck,gCO2/vkm,,346.82059,293.18854,250.2829
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu_heavytruck,EU,CORE,EU-12,trn_freight_road,Heavy truck,gCO2/vkm,,863.1157,729.6442,622.867
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu_lighttruck,EU,CORE,EU-15,trn_freight_road,Light truck,gCO2/vkm,,220.7623,186.6238,159.313
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu_medtruck,EU,CORE,EU-15,trn_freight_road,Medium truck,gCO2/vkm,,346.82059,293.18854,250.2829
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu_heavytruck,EU,CORE,EU-15,trn_freight_road,Heavy truck,gCO2/vkm,,863.1157,729.6442,622.867
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu,EU,CORE,EU-12,trn_pass_road_LDV_4W,Car,gCO2/vkm,,92.15,76.475,59.375
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu,EU,CORE,EU-12,trn_pass_road_LDV_4W,Large Car and Truck,gCO2/vkm,,104.76,87.41775,69.88875
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu,EU,CORE,EU-15,trn_pass_road_LDV_4W,Mini Car,gCO2/vkm,,92.15,76.475,59.375
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu,EU,CORE,EU-15,trn_pass_road_LDV_4W,Car,gCO2/vkm,,92.15,76.475,59.375
+policy_fuelst_mkt_eu.xml,fuelst_mkt_eu,EU,CORE,EU-15,trn_pass_road_LDV_4W,Large Car and Truck,gCO2/vkm,,104.76,87.41775,69.88875

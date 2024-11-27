@@ -1,0 +1,16 @@
+# File: A_aeei.csv,,,,,,
+# Title: AEEI (autonomous energy efficiency improvement index) parameters by region and sector,,,,,,
+# Units: Unitless (change in energy output per input),,,,,,
+# Comments: Used to adjust final energy demand,,,,,,
+# Column types: cccnnnn,,,,,,
+# ----------,,,,,,
+xml,region,energy.final.demand,2020,2025,2030,2100
+policy_aeei_usa.xml,USA,other industry,0,9.52E-05,0.000420074,0.000420074
+policy_aeei_usa.xml,USA,construction,0,9.52E-05,0.000420074,0.000420074
+policy_aeei_usa.xml,USA,agricultural energy use,0,9.52E-05,0.000420074,0.000420074
+policy_aeei_usa.xml,USA,mining energy use,0,9.52E-05,0.000420074,0.000420074
+policy_aeei_usa.xml,USA,iron and steel,0,9.52E-05,0.000420074,0.000420074
+policy_aeei_usa.xml,USA,chemical,0,9.52E-05,0.000420074,0.000420074
+policy_aeei_usa.xml,USA,aluminum,0,9.52E-05,0.000420074,0.000420074
+policy_aeei_usa.xml,USA,trn_pass,0.000422192,7.92E-04,0.000732867,0.000732867
+policy_aeei_usa.xml,USA,trn_freight,0.000369953,0.000641598,0.000579513,0.000579513

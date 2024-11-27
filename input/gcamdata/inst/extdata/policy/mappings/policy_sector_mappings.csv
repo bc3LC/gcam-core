@@ -1,0 +1,44 @@
+# File: policy_sector_mappings.csv,
+# Title: Mappings between CO2 market and sectors,
+# Units: NA,
+# Comments: only list supplysector; default is to include all technologies except biomass techs,
+# Column types: cc,
+# ----------,
+mapping.name,supplysector
+ETS,other industrial energy use
+ETS,other industrial feedstocks
+ETS,cement
+ETS,process heat cement
+ETS,N fertilizer
+ETS,chemical energy use
+ETS,chemical feedstocks
+ETS,alumina
+ETS,mining energy use
+ETS,iron and steel
+ETS,refining
+ETS,gas processing
+ETS,district heat
+ETS,backup_electricity
+ETS,elec_coal (IGCC)
+ETS,elec_coal (conv pul)
+ETS,elec_refined liquids (CC)
+ETS,elec_refined liquids (steam/CT)
+ETS,elec_gas (CC)
+ETS,elec_gas (steam/CT)
+BUILD_SECTORS_NOCOOL,resid heating
+BUILD_SECTORS_NOCOOL,resid others
+BUILD_SECTORS_NOCOOL,comm heating
+BUILD_SECTORS_NOCOOL,comm others
+CO2_CHINA_INDUSTRY,other industrial energy use
+CO2_CHINA_INDUSTRY,other industrial feedstocks
+CO2_CHINA_INDUSTRY,N fertilizer
+CO2_CHINA_INDUSTRY,chemical energy use
+CO2_CHINA_INDUSTRY,chemical feedstocks
+CO2_CHINA_INDUSTRY,alumina
+CO2_CHINA_INDUSTRY,mining energy use
+CO2_CHINA_INDUSTRY,iron and steel
+CO2_CHINA_INDUSTRY,construction energy use
+TRN_4W,trn_pass_road_LDV_4W
+CEMENT,cement
+CEMENT,process heat cement
+IRONSTEEL,iron and steel

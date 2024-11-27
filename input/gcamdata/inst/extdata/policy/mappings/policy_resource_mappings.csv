@@ -1,0 +1,7 @@
+# File: policy_resource_mappings.csv,,
+# Title: Mappings between CO2 market and resource production,,
+# Units: NA,,
+# Column types: ccc,,
+# ----------,,
+mapping.name,resource,reserve.subresource
+CO2_CHINA_INDUSTRY,crude oil,unconventional oil

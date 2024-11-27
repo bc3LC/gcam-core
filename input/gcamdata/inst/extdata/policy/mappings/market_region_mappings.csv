@@ -1,0 +1,72 @@
+# File: market_region_mappings.csv,
+# Title: Mapping file to combine regions into one market,
+# Units: NA,
+# Column types: cc,
+# ----------,
+region,market
+EU-12,EU
+EU-15,EU
+Australia_NZ,Non-A5
+Canada,Non-A5
+EU-12,Non-A5
+EU-15,Non-A5
+Europe_Eastern,Non-A5
+European Free Trade Association,Non-A5
+Japan,Non-A5
+USA,Non-A5
+Russia,Non-A5_FormerSoviet
+Central Asia,Non-A5_FormerSoviet
+Africa_Eastern,A5_Group1
+Africa_Northern,A5_Group1
+Africa_Southern,A5_Group1
+Africa_Western,A5_Group1
+Argentina,A5_Group1
+Brazil,A5_Group1
+Central America and Caribbean,A5_Group1
+China,A5_Group1
+Colombia,A5_Group1
+Europe_Non_EU,A5_Group1
+Indonesia,A5_Group1
+Mexico,A5_Group1
+Pakistan,A5_Group1
+South Africa,A5_Group1
+South America_Northern,A5_Group1
+South America_Southern,A5_Group1
+South Asia,A5_Group1
+South Korea,A5_Group1
+Southeast Asia,A5_Group1
+Taiwan,A5_Group1
+India,A5_Group2
+Middle East,A5_Group2
+Africa_Eastern,World
+Africa_Northern,World
+Africa_Southern,World
+Africa_Western,World
+Argentina,World
+Australia_NZ,World
+Brazil,World
+Canada,World
+Central America and Caribbean,World
+Central Asia,World
+China,World
+Colombia,World
+EU-12,World
+EU-15,World
+Europe_Eastern,World
+Europe_Non_EU,World
+European Free Trade Association,World
+India,World
+Indonesia,World
+Japan,World
+Mexico,World
+Middle East,World
+Pakistan,World
+Russia,World
+South Africa,World
+South America_Northern,World
+South America_Southern,World
+South Asia,World
+South Korea,World
+Southeast Asia,World
+Taiwan,World
+USA,World
