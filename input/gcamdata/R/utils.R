@@ -2,6 +2,25 @@
 
 # utils.R
 
+#' get_xml_names
+#'
+#' Return list of xml names as output for chunk when they are included in csv file
+#'
+#' @param csv_name CSV file with xml column that contains output xml names
+#' @param default_xml A default xml to output if no xml names provided for any output
+#' @return Vector of xml names
+#' @author Russell Horowitz
+get_xml_names <- function(csv_name, default_xml) {
+  all_xml_names <- suppressMessages(readr::read_csv(paste0("inst/extdata/", csv_name), comment = "#"))
+  all_xml_names <- union(unique(all_xml_names$xml), default_xml)
+  names(all_xml_names) <- rep("XML", length(all_xml_names))
+  for(i in 1:length(all_xml_names)){
+    if (!grepl(".xml", all_xml_names[i])){
+      all_xml_names[i] <- paste0(all_xml_names[i], ".xml")
+    }
+  }
+  all_xml_names
+}
 
 #' find_header
 #'
@@ -70,8 +89,7 @@ load_csv_files <- function(filenames, optionals, quiet = FALSE, dummy = NULL, ..
     # Read the file header and extract the column type info from it
     assert_that(file.exists(fqfn))
     header <- find_header(fqfn)
-    col_types <- extract_header_info(header, label = "Column types:", fqfn, required = TRUE)
-
+    col_types <- gsub(" |,", "", extract_header_info(header, label = "Column types:", fqfn, required = TRUE))
     # Attempt the file read
     # Note `options(warn = 2)` forces all warnings to errors...
     op <- options(warn = 2)
@@ -150,7 +168,8 @@ extract_header_info <- function(header_lines, label, filename, required = FALSE,
       info
 
     if(any(grepl(",,+$", info))) {
-      warning("Multiple commas at end of header line in ", filename)
+      # warning("Multiple commas at end of header line in ", filename)
+      info <- gsub(",,+$", "", info)
     }
     if(nchar(paste(info, collapse = "")) == 0) {
       stop("Empty metadata label '", label, "' found in ", basename(filename))
