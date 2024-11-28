@@ -18,7 +18,7 @@
 	</Files>
 	<ScenarioComponents>
         <Value name = "climate">../input/gcamdata/xml/hector.xml</Value>
-		<Value name = "socioeconomics">../input/gcamdata/xml/socioeconomics_GCAM_iam_compact.xml</Value>
+		<Value name = "socioeconomics">../input/gcamdata/xml/socioeconomics_gSSP2.xml</Value>
 		<Value name = "resources">../input/gcamdata/xml/resources.xml</Value>
 		<Value name = "energy_supply">../input/gcamdata/xml/en_supply.xml</Value>
 		<Value name = "energy_transformation">../input/gcamdata/xml/en_transformation.xml</Value>
@@ -120,7 +120,7 @@
         <Value name = "BRA_RES">../input/gcamdata/xml_policy/policy_res_bra.xml</Value>
         <!--Value name = "BRA_TPES">../input/gcamdata/xml_policy/policy_tpesres_bra.xml</Value-->
         <Value name = "BRA_BIO">../input/gcamdata/xml_policy/policy_biofuel_bra.xml</Value>
-        <Value name = "BRA_AFFOR">../input/gcamdata/xml_policy/policy_affor_bra.xml</Value> <!----------added------------>
+        <Value name = "BRA_AFFOR">../input/CP_NDC_LTT/policy_affor_bra_2035.xml</Value> <!----------added------------>
 
         <Value name = "CAN_CTAX">../input/gcamdata/xml_policy/policy_ctax_can_GHG.xml</Value>
         <Value name = "CAN_NOCOAL">../input/gcamdata/xml_policy/policy_coalPhaseout_can.xml</Value>
@@ -147,7 +147,7 @@
         <Value name = "EU_ETS">../input/gcamdata/xml_policy/policy_ccap_eu_2020.xml</Value>
         <Value name = "EU_ETS">../input/CP_NDC_LTT/policy_ccap_eu_NDC.xml</Value> <!----------adapted for 2030 ETS price------------>
         <!--Value name = "EU_TPES">../input/gcamdata/xml_policy/policy_tpes_eu.xml</Value-->
-        <Value name = "EU_FE">../input/gcamdata/xml_policy/policy_fe_eu.xml</Value>
+        <Value name = "EU_FE">../input/gcamdata/xml_policy/policy_fe_eu_2045.xml</Value>
         <Value name = "EU_H2">../input/gcamdata/xml_policy/policy_greenH2_eu.xml</Value>
         <Value name = "EU_EV">../input/gcamdata/xml_policy/policy_4Wfuel_po_eu.xml</Value>
         <Value name = "EU_RE">../input/gcamdata/xml_policy/policy_RE_targets_EU.xml</Value> <!----------adapted for post-2030------------>
@@ -253,7 +253,7 @@
         <Value name = "nonCO2_MAC_NDC2030">../input/gcamdata/xml_policy/price_nonco2_mac_LTT.xml</Value>
 
         <Value name = "GHG_caps_NDC2030">../input/gcamdata/xml_policy/policy_GHG_constraint_2030_NDC_2020removals.xml</Value>
-        <Value name = "GHG_caps_NDCpost2030">../input/CP_NDC_LTT/policy_GHG_constraint_LTT_NDC_adp2.xml</Value>
+           <Value name = "GHG_LTT_NDCpost2030">../input/CP_NDC_LTT/policy_GHG_constraint_LTT_NDC_adp.xml</Value>
 
 
         <Value name = "kigali_MAC">../input/gcamdata/xml_policy/kigali_fgas_MAC.xml</Value>

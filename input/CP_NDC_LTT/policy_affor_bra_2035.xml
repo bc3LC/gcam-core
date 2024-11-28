@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <region name="Brazil">
+            <policy-portfolio-standard name="afforestation">
+                <market>Brazil</market>
+                <policyType>subsidy</policyType>
+                <constraint year="2020">3076.773594</constraint>
+                <constraint year="2025">3156.773594</constraint>
+                <constraint year="2030">3156.773594</constraint>
+                <constraint year="2035">3156.773594</constraint>
+<fixedTax fillout="1" year="2040">0</fixedTax>
+
+
+            </policy-portfolio-standard>
+            <LandAllocatorRoot name="root">
+                <LandNode name="AgroForestLand_OrinocoR">
+                    <LandNode name="AgroForest_NonPasture_OrinocoR">
+                        <LandNode name="AllForestLand_OrinocoR">
+                            <UnmanagedLandLeaf name="UnmanagedForest_OrinocoR">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </UnmanagedLandLeaf>
+                            <LandLeaf name="Forest_OrinocoR">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </LandLeaf>
+                        </LandNode>
+                    </LandNode>
+                </LandNode>
+                <LandNode name="AgroForestLand_SAmerCstNE">
+                    <LandNode name="AgroForest_NonPasture_SAmerCstNE">
+                        <LandNode name="AllForestLand_SAmerCstNE">
+                            <UnmanagedLandLeaf name="UnmanagedForest_SAmerCstNE">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </UnmanagedLandLeaf>
+                            <LandLeaf name="Forest_SAmerCstNE">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </LandLeaf>
+                        </LandNode>
+                    </LandNode>
+                </LandNode>
+                <LandNode name="AgroForestLand_AmazonR">
+                    <LandNode name="AgroForest_NonPasture_AmazonR">
+                        <LandNode name="AllForestLand_AmazonR">
+                            <UnmanagedLandLeaf name="UnmanagedForest_AmazonR">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </UnmanagedLandLeaf>
+                            <LandLeaf name="Forest_AmazonR">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </LandLeaf>
+                        </LandNode>
+                    </LandNode>
+                </LandNode>
+                <LandNode name="AgroForestLand_BrzCstN">
+                    <LandNode name="AgroForest_NonPasture_BrzCstN">
+                        <LandNode name="AllForestLand_BrzCstN">
+                            <UnmanagedLandLeaf name="UnmanagedForest_BrzCstN">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </UnmanagedLandLeaf>
+                            <LandLeaf name="Forest_BrzCstN">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </LandLeaf>
+                        </LandNode>
+                    </LandNode>
+                </LandNode>
+                <LandNode name="AgroForestLand_TocantinsR">
+                    <LandNode name="AgroForest_NonPasture_TocantinsR">
+                        <LandNode name="AllForestLand_TocantinsR">
+                            <UnmanagedLandLeaf name="UnmanagedForest_TocantinsR">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </UnmanagedLandLeaf>
+                            <LandLeaf name="Forest_TocantinsR">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </LandLeaf>
+                        </LandNode>
+                    </LandNode>
+                </LandNode>
+                <LandNode name="AgroForestLand_BrzCstE">
+                    <LandNode name="AgroForest_NonPasture_BrzCstE">
+                        <LandNode name="AllForestLand_BrzCstE">
+                            <UnmanagedLandLeaf name="UnmanagedForest_BrzCstE">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </UnmanagedLandLeaf>
+                            <LandLeaf name="Forest_BrzCstE">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </LandLeaf>
+                        </LandNode>
+                    </LandNode>
+                </LandNode>
+                <LandNode name="AgroForestLand_ParnaibaR">
+                    <LandNode name="AgroForest_NonPasture_ParnaibaR">
+                        <LandNode name="AllForestLand_ParnaibaR">
+                            <UnmanagedLandLeaf name="UnmanagedForest_ParnaibaR">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </UnmanagedLandLeaf>
+                            <LandLeaf name="Forest_ParnaibaR">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </LandLeaf>
+                        </LandNode>
+                    </LandNode>
+                </LandNode>
+                <LandNode name="AgroForestLand_SaoFrancR">
+                    <LandNode name="AgroForest_NonPasture_SaoFrancR">
+                        <LandNode name="AllForestLand_SaoFrancR">
+                            <UnmanagedLandLeaf name="UnmanagedForest_SaoFrancR">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </UnmanagedLandLeaf>
+                            <LandLeaf name="Forest_SaoFrancR">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </LandLeaf>
+                        </LandNode>
+                    </LandNode>
+                </LandNode>
+                <LandNode name="AgroForestLand_BrzCstS">
+                    <LandNode name="AgroForest_NonPasture_BrzCstS">
+                        <LandNode name="AllForestLand_BrzCstS">
+                            <UnmanagedLandLeaf name="UnmanagedForest_BrzCstS">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </UnmanagedLandLeaf>
+                            <LandLeaf name="Forest_BrzCstS">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </LandLeaf>
+                        </LandNode>
+                    </LandNode>
+                </LandNode>
+                <LandNode name="AgroForestLand_RioLaPlata">
+                    <LandNode name="AgroForest_NonPasture_RioLaPlata">
+                        <LandNode name="AllForestLand_RioLaPlata">
+                            <UnmanagedLandLeaf name="UnmanagedForest_RioLaPlata">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </UnmanagedLandLeaf>
+                            <LandLeaf name="Forest_RioLaPlata">
+                                <land-constraint-policy>afforestation</land-constraint-policy>
+                            </LandLeaf>
+                        </LandNode>
+                    </LandNode>
+                </LandNode>
+            </LandAllocatorRoot>
+        </region>
+    </world>
+</scenario>

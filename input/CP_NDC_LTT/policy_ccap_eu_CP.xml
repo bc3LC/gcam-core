@@ -5,7 +5,7 @@
                 <market>EU</market>
                 <constraint year="2025">387.8102662</constraint>
                 <constraint year="2030">242.367</constraint>
-                <fixedTax fillout="1" year="2035">349.248</fixedTax>
+                <fixedTax fillout="1" year="2035">321.447</fixedTax>
             </ghgpolicy>
             <supplysector name="other industrial energy use">
                 <subsector name="coal">
