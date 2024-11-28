@@ -12,8 +12,8 @@ process heat paper,gas,gas cogen,wholesale gas,electricity,1.67,1.67
 process heat paper,refined liquids,refined liquids,refined liquids industrial,,1.25,1.25
 process heat paper,refined liquids,refined liquids cogen,refined liquids industrial,electricity,1.67,1.67
 process heat paper,heat,heat,district heat,,1,1
-process heat paper,coal,coal,delivered coal,,1.25,1.25
-process heat paper,coal,coal cogen,delivered coal,electricity,1.67,1.67
+process heat paper,coal,coal,delivered coal industry,,1.25,1.25
+process heat paper,coal,coal cogen,delivered coal industry,electricity,1.67,1.67
 process heat paper,electricity,electric boiler,elect_td_ind,,1,1
 process heat paper,electricity,electric heat pump,elect_td_ind,,0.45,0.45
 process heat paper,hydrogen,hydrogen,H2 industrial,,1.18,1.18

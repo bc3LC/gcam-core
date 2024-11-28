@@ -5,8 +5,8 @@
 # Column types: cccccnn
 # ----------
 supplysector,subsector,technology,minicam.energy.input,secondary.output,1975,2100
-process heat food processing,biomass,biomass,delivered biomass,,1.43,1.43
-process heat food processing,biomass,biomass cogen,delivered biomass,electricity,1.82,1.82
+process heat food processing,biomass,biomass,delivered biomass industry,,1.43,1.43
+process heat food processing,biomass,biomass cogen,delivered biomassbiomass industry,electricity,1.82,1.82
 process heat food processing,gas,gas,wholesale gas,,1.25,1.25
 process heat food processing,gas,gas cogen,wholesale gas,electricity,1.67,1.67
 process heat food processing,gas,gas with solar,wholesale gas,,1,1
@@ -14,8 +14,8 @@ process heat food processing,gas,gas with solar,global solar resource,,0.33,0.33
 process heat food processing,refined liquids,refined liquids,refined liquids industrial,,1.25,1.25
 process heat food processing,refined liquids,refined liquids cogen,refined liquids industrial,electricity,1.67,1.67
 process heat food processing,heat,heat,district heat,,1,1
-process heat food processing,coal,coal,delivered coal,,1.25,1.25
-process heat food processing,coal,coal cogen,delivered coal,electricity,1.67,1.67
+process heat food processing,coal,coal,delivered coal industry,,1.25,1.25
+process heat food processing,coal,coal cogen,delivered coal industry,electricity,1.67,1.67
 process heat food processing,electricity,electricity,elect_td_ind,,1,1
 process heat food processing,electricity,electric heat pump,elect_td_ind,,0.45,0.45
 process heat food processing,electricity,electricity with solar,elect_td_ind,,0.8,0.8
