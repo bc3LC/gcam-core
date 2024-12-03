@@ -14,15 +14,15 @@
 #' @importFrom dplyr bind_rows distinct filter if_else left_join mutate select
 #' @author RLH April 2023
 module_policy_L354.FuelStandards <- function(command, ...) {
+  MODULE_INPUTS <- c(FILE = "policy/A_FuelStandards",
+                     "L254.StubTranTechCoef",
+                     "UCD_trn_data",
+                     FILE = "policy/mappings/UCD_addtl_subsector_mapping",
+                     FILE = "energy/mappings/UCD_ctry",
+                     FILE = "common/GCAM_region_names",
+                     FILE = "common/iso_GCAM_regID")
   if(command == driver.DECLARE_INPUTS) {
-    return(c(FILE = "policy/A_FuelStandards",
-             "L254.StubTranTechCoef",
-             "UCD_trn_data",
-             FILE = "policy/mappings/UCD_addtl_subsector_mapping",
-             FILE = "energy/mappings/UCD_ctry",
-             FILE = "common/GCAM_region_names",
-             FILE = "common/iso_GCAM_regID"
-    ))
+    return(MODULE_INPUTS)
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L354.FuelStandards"))
   } else if(command == driver.MAKE) {
@@ -30,13 +30,7 @@ module_policy_L354.FuelStandards <- function(command, ...) {
     all_data <- list(...)[[1]]
 
     # Load required inputs ---------------
-    A_FuelStandards <- get_data(all_data, "policy/A_FuelStandards")
-    L254.StubTranTechCoef <- get_data(all_data, "L254.StubTranTechCoef")
-    UCD_trn_data <- get_data(all_data, "UCD_trn_data")
-    UCD_addtl_subsector_mapping <- get_data(all_data, "policy/mappings/UCD_addtl_subsector_mapping")
-    UCD_ctry <- get_data(all_data, "energy/mappings/UCD_ctry")
-    GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
-    iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
+    get_data_list(all_data, MODULE_INPUTS)
 
     # 1. Convert to long and interpolate ---------------
     L354.FuelStandards_long <- A_FuelStandards %>%
