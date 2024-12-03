@@ -19,7 +19,7 @@ module_energy_L1092.iron_steel_GrossTrade <- function(command, ...){
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "energy/WSA_steel_prod_cons_1970_2018",
              FILE = "energy/WSA_steel_trade_1970_2018",
-             FILE = "energy/mappings/WSA_gcam_mapping",
+             FILE = "energy/mappings/WSA_ctry_mapping",
              FILE = "energy/mappings/comtrade_countrycode_ISO",
              FILE = "energy/mappings/comtrade_countrycode_ISO",
              FILE = "energy/Rt_iron_steel_bilateral_trade",
@@ -41,7 +41,7 @@ module_energy_L1092.iron_steel_GrossTrade <- function(command, ...){
     # Load required inputs
     WSA_steel_prod_cons_1970_2018 <- get_data(all_data, "energy/WSA_steel_prod_cons_1970_2018",strip_attributes = TRUE)
     WSA_steel_trade_1970_2018 <- get_data(all_data, "energy/WSA_steel_trade_1970_2018",strip_attributes = TRUE)
-    WSA_gcam_mapping <- get_data(all_data, "energy/mappings/WSA_gcam_mapping",strip_attributes = TRUE)
+    WSA_ctry_mapping <- get_data(all_data, "energy/mappings/WSA_ctry_mapping",strip_attributes = TRUE)
     GCAM_region_names <- get_data(all_data, "common/GCAM_region_names",strip_attributes = TRUE)
     iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID",strip_attributes = TRUE)
     comtrade_countrycode_ISO <- get_data(all_data, "energy/mappings/comtrade_countrycode_ISO",strip_attributes = TRUE)
@@ -80,6 +80,27 @@ module_energy_L1092.iron_steel_GrossTrade <- function(command, ...){
       mutate(imports=ifelse(consumption > 0 & ((imports == 0 & exports == 0) | (imports == 0 & exports == 0 & production == 0)),consumption,imports)) %>%
       select(Country,year,imports,exports,consumption,production)%>%
       gather(key="metric",value="value",'imports':'production') -> WSA_steel_all_1970_2018
+
+    # rather than hard coding the mapping with a file, adjust country names here
+    WSA_gcam_mapping <- WSA_steel_all_1970_2018 %>%
+      distinct(Country) %>%
+      # replace some country names
+      left_join(WSA_ctry_mapping, by = c("Country")) %>%
+      mutate(GCAM_country = if_else(is.na(GCAM_country), Country, GCAM_country)) %>%
+      left_join(iso_GCAM_regID %>% distinct(country_name, GCAM_region_ID), by = c("GCAM_country" = "country_name")) %>%
+      left_join(GCAM_region_names, by = c("GCAM_region_ID")) %>%
+      # explicitly filter out some regions that we don't know how to map
+      filter(! region %in% c("Other Africa", "Other Europe")) %>%
+      # there are some "other" regions that need to be adjusted
+      mutate(region = case_when(
+        Country == "Other Asia" ~ "Southeast Asia",
+        Country == "Other C.I.S." ~ "Central Asia",
+        Country == "Other Middle East" ~ "Middle East",
+        Country == "Other North America" ~ "Central America and Caribbean",
+        Country == "Other Oceania" ~ "Southeast Asia",
+        Country == "Other South America" ~ "South America_Northern",
+        is.character(region) ~ region
+        )) %>%  select(Country, GCAM_region = region)
 
     #aggregate country-level data to GCAM_region-level data
     WSA_steel_all_1970_2018 %>%
@@ -206,7 +227,6 @@ module_energy_L1092.iron_steel_GrossTrade <- function(command, ...){
              value=ifelse(metric %in% c("domestic_supply"),value+intra_exports,value))%>%
       select(-intra_exports)-> LB1092.Tradebalance_iron_steel_Mt_R_Y
 
-
     # Produce outputs
     LB1092.Tradebalance_iron_steel_Mt_R_Y %>%
       add_title("Gross trade of semi-finished and finished steel, by region / year.") %>%
@@ -214,7 +234,7 @@ module_energy_L1092.iron_steel_GrossTrade <- function(command, ...){
       add_comments("Determined from WSA steel production, consumption, imports, and exports data; only includes trade between countries in different GCAM regions") %>%
       add_precursors("energy/WSA_steel_prod_cons_1970_2018",
                      "energy/WSA_steel_trade_1970_2018",
-                     "energy/mappings/WSA_gcam_mapping",
+                     "energy/mappings/WSA_ctry_mapping",
                      "energy/mappings/comtrade_countrycode_ISO",
                      "energy/Rt_iron_steel_bilateral_trade",
                      "common/GCAM_region_names",

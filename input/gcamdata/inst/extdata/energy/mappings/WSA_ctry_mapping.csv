@@ -1,0 +1,27 @@
+# File: WSA_ctry_mapping.csv
+# Title: WSA countries to GCAM countries in iso_GCAM_regID
+# Units: NA
+# Description: Maps WSA (world steel association) countries to GCAM countries
+# Column types: cc
+# ----------
+Country,GCAM_country
+Belgium-Luxembourg,Belgium
+Bosnia-Herzegovina,Bosnia and Herzegovina
+Czechia,Czech Republic
+D.P.R. Korea,"Korea, Democratic Peoples Republic of"
+Dem. Rep. of the Congo,"Congo, the Democratic Republic of the"
+"Hong Kong, China",Hong Kong
+Iran,"Iran, Islamic Republic of"
+Ivory Coast,Cote dIvoire
+Libya,Libyan Arab Jamahiriya
+Macedonia,"Macedonia, the former Yugoslav Republic of"
+Moldova,"Moldova, Republic of"
+North Korea,"Korea, Democratic Peoples Republic of"
+Russia,Russian Federation
+Serbia-Montenegro,Serbia and Montenegro
+Slovak Republic,Slovakia
+South Korea,"Korea, Republic of"
+Syria,Syrian Arab Republic
+"Taiwan, China",Taiwan
+Tanzania,"Tanzania, United Republic of"
+United States,United States of America
