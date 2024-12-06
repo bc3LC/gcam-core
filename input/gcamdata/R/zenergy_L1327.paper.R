@@ -189,9 +189,14 @@ module_energy_L1327.paper <- function(command, ...) {
 
       left_join(L1327.out_Mt_R_paper_Yh %>% rename(paper_prod=value) %>% select(-sector), by = c("GCAM_region_ID","year")) %>%
       mutate(paper_prod=if_else(is.na(paper_prod),0,paper_prod),
+    # We can have cases where a very small amount of non-zero biomass is initialized from IEA.
+    #This is problematic because it results in large values of pulp, forest being consumed to produce miniscule biomass.
+    #We correct this by first calculating the energy coefficient and replacing the biomass with a 0 when coefficients are over 100.
+    # Note that when biomass is set to 0, it is initialized based on actual paper production below which results in a more realistic coefficient.
+             coefficient = woodpulp_tons / biomass_EJ,
       ## Manual adjustment for Africa_Northern - fix extremely high coefficient by setting biomass to zero (will be replaced with default value)
              biomass_EJ = if_else(GCAM_region_ID == 3, 0, biomass_EJ),
-
+      biomass_EJ = if_else(coefficient>100, 0, biomass_EJ),
              coefficient = woodpulp_tons / biomass_EJ)
 
     # Where reported biomass is 0, replace Inf coefficient with global median,
