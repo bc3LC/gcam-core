@@ -387,25 +387,99 @@ module_aglu_L109.ag_an_ALL_R_C_Y <- function(command, ...) {
 
 
 
-    # Adjust self-trade to ensure export < production ----
+    # For South Korea sugar crop, Argentina palm had data problem
+    # Adding dummy other use as 1% of stock in historical MODEL_BASE_YEARS, when no current consumption
+    # Stocks is adjusted
+
+    L109.an_ALL_Mt_R_C_Y %>%
+      mutate(CurrentConsumption = Food_Mt + OtherUses_Mt) ->
+      L109.an_ALL_Mt_R_C_Y_4
+
+    # Adjustment is very simple since we do not have balance constraint of stock carryover
+    # in historical years due to losses and gaps
+    # Pakistain Pork will have issue
+
+    L109.an_ALL_Mt_R_C_Y_4 %>%
+      filter(year %in% MODEL_BASE_YEARS[MODEL_BASE_YEARS != max(MODEL_BASE_YEARS)],
+             `Closing stocks` > 0 & CurrentConsumption == 0,
+             GCAM_commodity %in% Storage_commodities) %>%
+      mutate(OtherUses_Mt = 0.01 * `Closing stocks`,
+             `Closing stocks` = `Closing stocks` - OtherUses_Mt,
+             CurrentConsumption = Food_Mt + OtherUses_Mt) ->
+      L109.an_ALL_Mt_R_C_Y_5
+
+    # Bind rows to get full table
+    L109.an_ALL_Mt_R_C_Y_4 %>%
+      filter(!(year %in% MODEL_BASE_YEARS[MODEL_BASE_YEARS != max(MODEL_BASE_YEARS)] &
+               `Closing stocks` > 0 & CurrentConsumption == 0 &
+                 GCAM_commodity %in% Storage_commodities)) %>%
+      bind_rows(
+        L109.an_ALL_Mt_R_C_Y_5) ->
+      L109.an_ALL_Mt_R_C_Y
+
+    ## Address Zero closing storage issue (potential) for Storage_commodities ----
+
+    # adding dummy tiny storage
+    L109.an_ALL_Mt_R_C_Y %>%
+      filter(year %in% MODEL_BASE_YEARS, `Closing stocks` == 0,
+             GCAM_commodity %in% Storage_commodities) %>%
+      mutate(`Closing stocks` = `Closing stocks` + 0.01 * CurrentConsumption,
+             `Opening stocks` = `Opening stocks` + 0.01 * CurrentConsumption) ->
+      L109.an_ALL_Mt_R_C_Y_6
+
+    # Bind rows to get full table
+    L109.an_ALL_Mt_R_C_Y %>%
+      filter(!(year %in% MODEL_BASE_YEARS & `Closing stocks` == 0 &
+                 GCAM_commodity %in% Storage_commodities)) %>%
+      bind_rows(L109.an_ALL_Mt_R_C_Y_6) %>%
+      select(-CurrentConsumption ) ->
+      L109.an_ALL_Mt_R_C_Y
+
+
+
+    # Part 3 Adjust self-trade to ensure export < domestic supply (production + opening stock) ----
     # this was an assumption in GCAM cpp
     # the assumption could be strong e.g., US does not product OilPalm but could export OilPalm product
+
+    ## 3.1 crops
+    # Method 1 (not used): generalized adjustment
+    L109.ag_ALL_Mt_R_C_Y %>%
+      # reduce import and export both by the same (GrossExp_Mt - Prod_Mt - `Opening stocks`)
+      mutate(GrossImp_Mt = if_else(GrossExp_Mt > (Prod_Mt + `Opening stocks`),
+                                   GrossImp_Mt - (GrossExp_Mt - Prod_Mt - `Opening stocks`), GrossImp_Mt),
+             GrossExp_Mt = if_else(GrossExp_Mt > (Prod_Mt + `Opening stocks`),
+                                   (Prod_Mt + `Opening stocks`), GrossExp_Mt)) ->
+      L109.ag_ALL_Mt_R_C_Y_a
+
+    # Method 1 is not used since there would be more errors (palm and suger crops related) due to the adjustments
+
+    # Method 2 (old method; now used with special cases):  adjustments to ensure export < production
     L109.ag_ALL_Mt_R_C_Y %>%
       # reduce import and export both by the same (GrossExp_Mt - Prod_Mt)
       mutate(GrossImp_Mt = if_else(GrossExp_Mt > Prod_Mt,
                                    GrossImp_Mt - (GrossExp_Mt - Prod_Mt),GrossImp_Mt),
              GrossExp_Mt = if_else(GrossExp_Mt > Prod_Mt,
                                    Prod_Mt, GrossExp_Mt)) ->
-      L109.ag_ALL_Mt_R_C_Y_a
+      L109.ag_ALL_Mt_R_C_Y_b
 
     # remove trade adj for a special case to avoid negative trade values
+    # two cases added for now
     L109.ag_ALL_Mt_R_C_Y %>%
-      filter(year == 1975, GCAM_region_ID == 18, GCAM_commodity == "OtherGrain") %>%
+      filter((year == 1975 & GCAM_region_ID == 10 & GCAM_commodity == "Soybean") |
+               (year == 1975 & GCAM_region_ID == 18 & GCAM_commodity == "OtherGrain") |
+               (year == 2021 & GCAM_region_ID == 8 & GCAM_commodity == "Legumes")) %>%
       bind_rows(
-        L109.ag_ALL_Mt_R_C_Y_a %>%
-          filter(!(year == 1975 & GCAM_region_ID == 18 & GCAM_commodity == "OtherGrain"))
+        L109.ag_ALL_Mt_R_C_Y_b %>%
+          filter(!(year == 1975 & GCAM_region_ID == 10 & GCAM_commodity == "Soybean") &
+                   !(year == 1975 & GCAM_region_ID == 18 & GCAM_commodity == "OtherGrain") &
+                   !(year == 2021 & GCAM_region_ID == 8 & GCAM_commodity == "Legumes"))
       ) ->
       L109.ag_ALL_Mt_R_C_Y
+
+    if(any(filter(L109.ag_ALL_Mt_R_C_Y, year %in% MODEL_BASE_YEARS)$GrossImp_Mt < 0)){
+      stop("Negative trade values.") }
+
+    ## 3.2 livestock
 
     L109.an_ALL_Mt_R_C_Y %>%
       # reduce import and export both by the same (GrossExp_Mt - Prod_Mt)
