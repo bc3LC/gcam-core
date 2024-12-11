@@ -127,7 +127,16 @@ module_socio_L2323.iron_steel_Inc_Elas_scenarios <- function(command, ...) {
       left_join_error_no_match(L101_Pop_hist_and_fut, by = c("scenario", "GCAM_region_ID", "year", "region")) %>%
       left_join_error_no_match(A323.inc_elas_parameter, by = c( "region")) %>%
       mutate(per_capita_steel = a * exp(b/(pcgdp_90thousUSD * 1000)) * (1-m) ^ (year- 1990),
-             steel_cons = per_capita_steel * population*0.000001)
+             steel_cons = per_capita_steel * population*0.000001,
+             # calculated India steel is 50% historical,
+             # so manually filling with 2019, 2021 average from https://worldsteel.org/data/world-steel-in-figures-2023/
+             steel_cons = if_else(year == 2020 & region == "India", 104.4, steel_cons)) %>%
+      # then linearly interpolating India in 2025 from 2020 and 2030
+      group_by(scenario, GCAM_region_ID, region) %>%
+      mutate(steel_cons = if_else(year == 2025 & region == "India",
+                                  (steel_cons[year == 2020] + steel_cons[year == 2030]) / 2,
+                                  steel_cons)) %>%
+      ungroup
 
 
   #Rebuild a new tibble save the previous year value
@@ -176,7 +185,7 @@ module_socio_L2323.iron_steel_Inc_Elas_scenarios <- function(command, ...) {
     #Rebuild a new tibble save the previous year value
     L2323.pcgdp_thous90USD_GCAM3_R_Y_5_before <- L2323.pcgdp_thous90USD_GCAM3_R_Y %>%
       mutate(year= year+5,pcgdp_90thousUSD_before = pcgdp_90thousUSD ,steel_cons_before = steel_cons) %>%
-      select(scenario,GCAM_region_ID,region, year,pcgdp_90thousUSD_before,steel_cons_before )
+      select(GCAM_region_ID,region, year,pcgdp_90thousUSD_before,steel_cons_before )
 
     L2323.iron_steel_incelas_gcam3 <- L2323.pcgdp_thous90USD_GCAM3_R_Y %>%
       left_join(L2323.pcgdp_thous90USD_GCAM3_R_Y_5_before, by = c("GCAM_region_ID", "year","region"))%>%
