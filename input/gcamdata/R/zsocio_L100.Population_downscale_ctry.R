@@ -143,7 +143,7 @@ module_socio_L100.Population_downscale_ctry <- function(command, ...) {
     # Need to create population ratios & iso codes for countries in UN, but not Maddison.
     # Renaming (Romania), adding countries (Timor-Leste, South Sudan, Vatican, Kosovo), in other cases Iso disaggregation,
     # where population ratios will remain the same from parent to child (X---> A,B,C where X=A=B=C)
-    new_UN_iso <- filter(maddison_hist_ratio, iso %in% c("idn", "scg", "chi", "sdn", "rom", "itl","alb", "ant", "glp")) %>%
+    new_UN_iso <- filter(maddison_hist_ratio, iso %in% c("idn", "scg", "chi", "sdn", "rom", "ita","alb", "ant", "glp")) %>%
       mutate(iso = replace(iso, iso == "idn", "tls"), #Create Timor-Leste iso using Indonesia pop ratio
              iso = replace(iso, iso == "scg", "mne"), #Create Montenegro iso using Serbia & Montenegro pop ratio
              iso = replace(iso, iso == "chi", "jey"), #Create Jersey iso using the Channel Islands pop ratio
@@ -172,8 +172,14 @@ module_socio_L100.Population_downscale_ctry <- function(command, ...) {
       filter(iso != "chi") %>%
       filter(iso != "rom")
 
-    # BYU-TODO: Add check here to see if there are still any iso's in UN data are not in updated madison data and probably error if so.
+    # Adding check here to see if there are still any iso's in UN data are not in updated madison data and probably error if so.
     # Since the UN data will be regularly updated, this will help debugging future updates
+    UN_iso <- tolower(unique(UN_popTot$Country))
+    maddison_iso <- unique(maddison_hist_ratio$iso)
+    missing_iso <- UN_iso[!(UN_iso %in% maddison_iso)]
+    if (length(missing_iso > 0)) {
+      stop(paste0("The following iso's are in UN data but are missing from madison data: ", toString(missing_iso)))
+    }
 
     # Sixth, apply Maddison ratios for historic periods to UN population data that begin in 1950
     # Clean raw UN population data
