@@ -300,6 +300,9 @@ module_aglu_L108.ag_Feed_R_C_Y <- function(command, ...) {
       L108.ag_Feed_Mt_R_C_Y
 
 
+    assertthat::assert_that(
+      L108.ag_Feed_Mt_R_C_Y %>% filter(year %in% MODEL_BASE_YEARS, value <0) %>% nrow ==0,
+      msg = "Check negative feed in base years here")
 
 
     # Part 6: Compute net exports of FodderHerb ----
