@@ -317,8 +317,7 @@ module_gcamusa_L171.nonghg_trn <- function(command, ...) {
       separate(variable, into = c("pollutant", "year", "region"), sep="\\.", convert = T) %>%
       mutate(pollutant = gsub("PM2_5", "PM2.5", pollutant)) %>%
       ###NOTE: filtering out some fuels for now for lack of efficiency/service demand data, and also the CO2 data
-      filter(pollutant != "CO2" & !(Fuel %in% gcamusa.MARKAL_LDV_FILTER_OUT_FUELS)) %>%
-      mutate(year = if_else(year == 2020, 2021L, year))
+      filter(pollutant != "CO2" & !(Fuel %in% gcamusa.MARKAL_LDV_FILTER_OUT_FUELS))
 
     # Gather a table for use in calculating degradation of EFs for future vintages
     L171.LDV_USA_emiss_degrades <- MARKAL_LDV_EFs_gpm.long %>%
@@ -464,8 +463,7 @@ module_gcamusa_L171.nonghg_trn <- function(command, ...) {
       separate(variable, into = c("pollutant", "year", "region"), sep="\\.", convert = T) %>%
       mutate(pollutant = gsub("PM2_5", "PM2.5", pollutant)) %>%
       ###NOTE: filtering out the CO2 data
-      filter(pollutant != "CO2") %>%
-      mutate(year = if_else(year == 2020, 2021L, year))
+      filter(pollutant != "CO2")
 
     # Gather a table for use in calculating degradation of EFs for each vintage
     L171.HDV_USA_emiss_degrades <- MARKAL_HDV_EFs_gpm.long %>%
