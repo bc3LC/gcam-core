@@ -143,7 +143,7 @@ module_socio_L100.Population_downscale_ctry <- function(command, ...) {
     # Need to create population ratios & iso codes for countries in UN, but not Maddison.
     # Renaming (Romania), adding countries (Timor-Leste, South Sudan, Vatican, Kosovo), in other cases Iso disaggregation,
     # where population ratios will remain the same from parent to child (X---> A,B,C where X=A=B=C)
-    new_UN_iso <- filter(maddison_hist_ratio, iso %in% c("idn", "scg", "chi", "sdn", "rom", "ita","alb", "ant", "glp")) %>%
+    new_UN_iso <- filter(maddison_hist_ratio, iso %in% c("idn", "scg", "chi", "sdn", "rom", "ita","alb", "ant", "glp", "shn", "nru")) %>%
       mutate(iso = replace(iso, iso == "idn", "tls"), #Create Timor-Leste iso using Indonesia pop ratio
              iso = replace(iso, iso == "scg", "mne"), #Create Montenegro iso using Serbia & Montenegro pop ratio
              iso = replace(iso, iso == "chi", "jey"), #Create Jersey iso using the Channel Islands pop ratio
@@ -152,13 +152,16 @@ module_socio_L100.Population_downscale_ctry <- function(command, ...) {
              iso = replace(iso, iso == "ita", "vat"), #Create Vatican(Holy See) iso using Italy pop ratio
              iso = replace(iso, iso == "alb", "xkx"), #Create Kosovo iso using Albania pop ratio
              iso = replace(iso, iso == "ant", "bes"), #Create Bonaire, Sint Eustatius and Saba iso using Netherlands Antilles pop ratio
-             iso = replace(iso, iso == "glp", "blm")  #Create Saint Barthelemy iso using Guadalupe pop ratio
+             iso = replace(iso, iso == "glp", "blm"), #Create Saint Barthelemy iso using Guadalupe pop ratio
+             iso = replace(iso, iso == "shn", "flk"), #Create the Falkland Islands iso using Saint Helena, Ascension and Tristan da Cunha pop ratio
+             iso = replace(iso, iso == "nru", "niu")  #Create Niue iso using the Republic of Nauru pop ratio
              ) %>%
-      bind_rows(filter(maddison_hist_ratio, iso %in% c("scg", "chi", "ant", "glp"))) %>%
+      bind_rows(filter(maddison_hist_ratio, iso %in% c("scg", "chi", "ant", "glp", "nru"))) %>%
       mutate(iso = replace(iso, iso == "scg", "srb"), #Create Serbia iso using Serbia & Montenegro pop ratio
              iso = replace(iso, iso == "chi", "ggy"), #Create Guernsey iso using the Channel Islands pop ratio
              iso = replace(iso, iso == "ant", "cuw"), #Create Curacao iso using Netherlands Antilles pop ratio
-             iso = replace(iso, iso == "glp", "maf")  #Create Saint Martin iso using Guadalupe pop ratio
+             iso = replace(iso, iso == "glp", "maf"), #Create Saint Martin iso using Guadalupe pop ratio
+             iso = replace(iso, iso == "nru", "tkl")  #Create Tokelau iso using the Republic of Nauru pop ratio
              ) %>%
       bind_rows(filter(maddison_hist_ratio, iso %in% c("ant"))) %>%
       mutate(iso = replace(iso, iso == "ant", "sxm"))  #Create Sint Maarten iso using Netherlands Antilles pop ratio
@@ -178,7 +181,7 @@ module_socio_L100.Population_downscale_ctry <- function(command, ...) {
     maddison_iso <- unique(maddison_hist_ratio$iso)
     missing_iso <- UN_iso[!(UN_iso %in% maddison_iso)]
     if (length(missing_iso > 0)) {
-      stop(paste0("The following iso's are in UN data but are missing from madison data: ", toString(missing_iso)))
+      stop(paste0("Error: The following iso's are in UN data but are missing from madison data: ", toString(missing_iso)))
     }
 
     # Sixth, apply Maddison ratios for historic periods to UN population data that begin in 1950
