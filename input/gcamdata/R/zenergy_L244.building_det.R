@@ -1415,7 +1415,7 @@ module_energy_L244.building_det <- function(command, ...) {
     # - For price, the data does not show a clear trend, so negative price elasticities are taken from literature (could be easily changed by the user):
     #   -0.4 for TradBio and -0.5 for coal. Given the fitted logarithmic model, they can be directly set as elasticieties n the regression.
 
-    prelast_tradBio <- -0.4
+    prelast_tradBio <- -2
     prelast_coal <- -0.5
 
     # First, estimate the parameters for the function to estimate coal demand:
