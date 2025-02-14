@@ -152,7 +152,7 @@ module_energy_L1011.en_bal_adj <- function(command, ...) {
     # Re-calculate TPES after all adjustments are made
     L1011.en_bal_EJ_R_Si_Fi_Yh %>%
       filter(grepl("(in_|net_)", sector)) %>%
-      mutate(sector = "TPES") %>%
+      mutate(sector = energy.TPES_flow) %>%
       group_by(GCAM_region_ID, sector, fuel, year) %>%
       summarise(value = sum(value)) -> L1011.in_EJ_R_Si_Fi_Yh
 
@@ -192,7 +192,7 @@ module_energy_L1011.en_bal_adj <- function(command, ...) {
       select(GCAM_region_ID, sector, fuel, year, value) %>%
       # Changing the fuel to gas, sector to TPES so we can easily join it with gas in the next step
       mutate(fuel = "gas",
-             sector = "TPES") -> L1011.out_EJ_R_gasproc_coal_Yh
+             sector = energy.TPES_flow) -> L1011.out_EJ_R_gasproc_coal_Yh
 
     # Subtract gasified coal from natural gas TPES
     L1011.en_bal_EJ_R_Si_Fi_Yh %>%
@@ -207,7 +207,7 @@ module_energy_L1011.en_bal_adj <- function(command, ...) {
     # need to return to original energy balance data and reduce the coal input to gas works (can
     # re-allocate to another sector if desired)
 
-    if(nrow(filter(L1011.en_bal_EJ_R_Si_Fi_Yh, sector == "TPES", fuel == "gas", value < 0)) > 0) {
+    if(nrow(filter(L1011.en_bal_EJ_R_Si_Fi_Yh, sector == energy.TPES_flow, fuel == "gas", value < 0)) > 0) {
       stop("Exogenous IO coef on coal input to gas works caused an increase in natural gas beyond the regional TPES of gas")
     }
 

@@ -234,6 +234,11 @@ module_emissions_L102.nonco2_ceds_R_S_Y <- function(command, ...) {
         L102.ceds_int_shipping_nonco2_tg_S_F <- extract_prebuilt_data("L102.ceds_int_shipping_nonco2_tg_S_F")
       }
 
+      # Make sure data is current to base year
+      if (max(L102.ceds_GFED_nonco2_tg_R_S_F$year) < max(HISTORICAL_YEARS)) {
+        stop(paste0("ERROR: CEDS historical emissions data needs to be updated to extend to ",max(HISTORICAL_YEARS)," in module_emissions_L102.nonco2_ceds_R_S_Y"))
+      }
+
       return_data(L102.ceds_GFED_nonco2_tg_R_S_F, L102.ceds_GFED_nonco2_tg_C_S_F, L102.ceds_int_shipping_nonco2_tg_S_F)
 
     } else {
