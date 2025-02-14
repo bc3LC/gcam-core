@@ -48,6 +48,16 @@ if (!(all(MODEL_FUTURE_YEARS %in% FUTURE_YEARS))) {
 # model time periods
 MODEL_YEARS             <- c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)
 
+# Used in utility functions such as set_years or gather_years to allow users to set
+# years as the following constants which can then be automatically set the currently
+# configured values
+YEAR_RECODE <- c("start-year" =  min(MODEL_BASE_YEARS),
+                 "final-calibration-year" = MODEL_FINAL_BASE_YEAR,
+                 "final-historical-year" = as.numeric(max(HISTORICAL_YEARS)),
+                 "initial-future-year" = min(MODEL_FUTURE_YEARS),
+                 "initial-nonhistorical-year" = min(MODEL_YEARS[MODEL_YEARS > max(HISTORICAL_YEARS)]),
+                 "end-year" = max(MODEL_FUTURE_YEARS))
+
 
 # GCAM constants ======================================================================
 

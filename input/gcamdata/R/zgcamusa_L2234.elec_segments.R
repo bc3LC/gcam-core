@@ -795,7 +795,7 @@ module_gcamusa_L2234.elec_segments <- function(command, ...) {
     # there has always been only one technology in the calibration period per fuel so their efficiencies
     # (in L223.StubTechEff_elec_USA) are based on the actual historical efficiency in the L123.eff_R_elec_F_Yh.csv file.
     L123.eff_R_elec_F_Yh %>%
-      gather_years("eff_actual") %>%
+      rename(eff_actual = value) %>%
       filter(GCAM_region_ID == gcam.USA_CODE,
              year %in% MODEL_BASE_YEARS) -> L2234.fuel_eff_actual
 

@@ -383,8 +383,41 @@ gather_years <- function(d, value_col = "value", year_pattern = YEAR_PATTERN, na
 
   . <- year <- value <- NULL  # silence package check notes
 
+  # find year columns
+  year_cols_ind <- grepl(year_pattern, names(d)) | (names(d) %in% names(YEAR_RECODE))
+  year_cols <- names(d)[year_cols_ind]
+  # recode any columns that match the set_year constants
+  year_cols_recoded <- as.character(dplyr::recode(year_cols, !!!YEAR_RECODE, .default = suppressWarnings(as.numeric(year_cols))))
+
+  # do some error checking to ensure we do not resolve to year columns that are no
+  # longer in order
+  # note that while this _may_ actually be ok (constant values or NAs that would be removed),
+  # for now, we just keep the error checking simple
+  for(year_ind in seq_along(year_cols)) {
+    if(year_ind > 1) {
+      prev_year_recoded <- year_cols_recoded[year_ind-1]
+      curr_year_recoded <- year_cols_recoded[year_ind]
+      if(prev_year_recoded >= curr_year_recoded) {
+        # generate an error message noting the years that are out of order
+        prev_year_col <- year_cols[year_ind-1]
+        message_list <- c("gather_years resolved to out of order years: ", prev_year_col)
+        # if the column was recoded note the constant as well as the resolved year
+        if(prev_year_col != prev_year_recoded) {
+          message_list <- c(message_list, " (", prev_year_recoded, ")")
+        }
+        curr_year_col <- year_cols[year_ind]
+        message_list <- c(message_list,  " >= ", curr_year_col)
+        if(curr_year_col != curr_year_recoded) {
+          message_list <- c(message_list, " (", curr_year_recoded, ")")
+        }
+        stop(paste0(message_list))
+      }
+    }
+  }
+
+  # actually rename columns and do the gather
+  names(d)[year_cols_ind] = year_cols_recoded
   d %>%
-    tidyr::gather(year, value, matches(year_pattern), na.rm = na.rm) %>%
-    mutate(year = as.integer(year)) %>%
-    stats::setNames(sub("value", value_col, names(.)))
+    tidyr::gather(year, {{value_col}}, tidyr::any_of(year_cols_recoded), na.rm = na.rm) %>%
+    mutate(year = as.integer(year))
 }
