@@ -236,7 +236,18 @@ module_emissions_L102.nonco2_ceds_R_S_Y <- function(command, ...) {
 
       # Make sure data is current to base year
       if (max(L102.ceds_GFED_nonco2_tg_R_S_F$year) < max(HISTORICAL_YEARS)) {
-        stop(paste0("ERROR: CEDS historical emissions data needs to be updated to extend to ",max(HISTORICAL_YEARS)," in module_emissions_L102.nonco2_ceds_R_S_Y"))
+        warning(paste0("ERROR: CEDS historical emissions data needs to be updated to extend to ",max(HISTORICAL_YEARS)," in module_emissions_L102.nonco2_ceds_R_S_Y"))
+
+        # copy data forward to be able to continue processing
+        L102.ceds_GFED_nonco2_tg_R_S_F %>%
+          copy_data_forward_long("emissions", HISTORICAL_YEARS, GCAM_region_ID, Non.CO2, CEDS_agg_sector, CEDS_agg_fuel) ->
+          L102.ceds_GFED_nonco2_tg_R_S_F
+        L102.ceds_GFED_nonco2_tg_C_S_F %>%
+          copy_data_forward_long("emissions", HISTORICAL_YEARS, iso, sector, fuel, units, Non.CO2, CEDS_agg_sector, CEDS_agg_fuel) ->
+          L102.ceds_GFED_nonco2_tg_C_S_F
+        L102.ceds_int_shipping_nonco2_tg_S_F %>%
+          copy_data_forward_long("emissions", HISTORICAL_YEARS, sector, fuel, units, Non.CO2, CEDS_agg_sector, CEDS_agg_fuel) ->
+          L102.ceds_int_shipping_nonco2_tg_S_F
       }
 
       return_data(L102.ceds_GFED_nonco2_tg_R_S_F, L102.ceds_GFED_nonco2_tg_C_S_F, L102.ceds_int_shipping_nonco2_tg_S_F)

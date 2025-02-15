@@ -647,7 +647,10 @@ module_energy_L113.atb_cost <- function(command, ...) {
 
     # Merge cost data with GCAM_USA battery cost structure file
     A23.elecS_globaltech_non_energy_inputs %>%
+      tidyr::expand(tidyr::nesting(supplysector, subsector, technology), period = unique(A23.elecS_globaltech_non_energy_inputs$period, MODEL_YEARS)) %>%
+      left_join(A23.elecS_globaltech_non_energy_inputs, by=c("supplysector", "subsector", "technology", "period")) %>%
       select(-capital.cost, -fixed.om, -variable.om) %>%
+      tidyr::fill(lifetime, steepness, half.life, fcr, capacity.factor, .direction = "up") %>%
       left_join_error_no_match(A23.globaltech_capital_atb_battery,
                                by = c("technology", "period")) -> L113.elecS_globaltech_capital_battery_ATB
 
