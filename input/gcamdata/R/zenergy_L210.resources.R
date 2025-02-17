@@ -469,7 +469,9 @@ module_energy_L210.resources <- function(command, ...) {
     L210.RsrcCurves_fos <- L111.RsrcCurves_EJ_R_Ffos %>%
       # Add region name
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
-      mutate(available = round(available, energy.DIGITS_RESOURCE)) %>%
+      # Note: we give many digits here in case some grades had to be added to be able
+      # to cover calibrated historical production where such resolution will be needed
+      mutate(available = round(available, energy.DIGITS_CALOUTPUT)) %>%
       select(region, resource = resource, subresource, grade, available, extractioncost)
 
     # L210.RsrcCurves_U: supply curves of uranium resources
@@ -663,10 +665,11 @@ module_energy_L210.resources <- function(command, ...) {
     # interpolating tech costs for the base year
     A21.globalrsrctech_cost %>%
       complete(nesting(resource, reserve.subresource, resource.reserve.technology, minicam.non.energy.input),
-               year = c(year, MODEL_FINAL_BASE_YEAR)) %>%
+               year = c(year, MODEL_YEARS)) %>%
       group_by(resource, reserve.subresource, resource.reserve.technology, minicam.non.energy.input) %>%
       mutate(input.cost = approx_fun(year, input.cost, rule = 2)) %>%
-      ungroup() -> A21.globalrsrctech_cost
+      ungroup() %>%
+      filter(year %in% MODEL_YEARS) -> A21.globalrsrctech_cost
 
     L210.ResSubresourceProdLifetime %>%
       mutate(resource.reserve.technology = reserve.subresource,
@@ -683,13 +686,14 @@ module_energy_L210.resources <- function(command, ...) {
       repeat_add_columns(GCAM_region_names) %>%
       select(LEVEL2_DATA_NAMES[["ResReserveTechCost"]]) -> L210.ResTechCost
 
-    # write tech coefficients for the base year (coefficient does not need interpolation)
+    # write tech coefficients for the resource tech energy inputs
     A21.globalrsrctech_coef %>%
-      complete(nesting(resource, reserve.subresource, resource.reserve.technology, minicam.energy.input), year = MODEL_FINAL_BASE_YEAR) %>%
+      complete(nesting(resource, reserve.subresource, resource.reserve.technology, minicam.energy.input), year = MODEL_YEARS) %>%
       arrange(year) %>%
       group_by(resource, reserve.subresource, resource.reserve.technology, minicam.energy.input) %>%
-      mutate(coefficient = if_else(is.na(coefficient), lag(coefficient), coefficient)) %>%
-      ungroup() -> A21.globalrsrctech_coef
+      mutate(coefficient = approx_fun(year, coefficient, rule = 2)) %>%
+      ungroup() %>%
+      filter(year %in% MODEL_YEARS) -> A21.globalrsrctech_coef
 
     A21.globalrsrctech_coef %>%
       repeat_add_columns(GCAM_region_names) %>%

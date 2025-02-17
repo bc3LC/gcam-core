@@ -23,7 +23,7 @@ FLAG_XML             <- "FLAG_XML"              # xml data
 
 # Historical years for level 1 data processing. All chunks that produce historical data
 # for model calibration are required to produce annual data covering this entire span.
-HISTORICAL_YEARS        <- 1971:2015
+HISTORICAL_YEARS        <- 1971:2021
 
 # Future years for level 1 data processing, for the few chunks that
 # produce future data (e.g., population projections)
@@ -34,7 +34,7 @@ MODEL_BASE_YEARS        <- unique(c(1975, 1990, 2005, 2010, 2015, max(HISTORICAL
 MODEL_FINAL_BASE_YEAR   <- max(MODEL_BASE_YEARS)
 
 # Future (not calibrated) model periods. Only level 2 chunks should reference these
-MODEL_FUTURE_YEARS      <- seq(2020, 2100, 5)
+MODEL_FUTURE_YEARS      <- seq(2025, 2100, 5)
 
 # Make sure years are consistent
 if (min(MODEL_FUTURE_YEARS) <= max(HISTORICAL_YEARS)) {
@@ -211,7 +211,7 @@ SO2_SHIP_LIMIT_POLICY_MULTIPLIER <- 0.001 * 2
 # AgLU constants ======================================================================
 
 # Time
-aglu.MODEL_MEAN_PERIOD_LENGTH <- 5       # AgLU data use a moving average over this period length in LA.100
+aglu.MODEL_MEAN_PERIOD_LENGTH <- 1       # AgLU data use a moving average over this period length in LA.100
 aglu.MODEL_PRICE_YEARS      <- 2013:2017 # consistent with aglu.MODEL_SUA_MEAN_PERIODS
 aglu.MODEL_MACRONUTRIENT_YEARS <- 2013:2017   # consistent with aglu.MODEL_SUA_MEAN_PERIODS; FAO only has data for after 2010
 aglu.MODEL_COST_YEARS       <- 2008:2016
@@ -654,7 +654,7 @@ energy.ATB_HISTORICAL_YEARS <- c(2017, 2019, 2021, 2022)
 # latest ATB year but the user can choose an ATB base year from recent history
 # (from 2015-energy.ATB_LATEST_YEAR)
 energy.ATB_BASE_YEAR <- max(energy.ATB_HISTORICAL_YEARS) - 2
-energy.ATB_LATEST_YEAR <- 2020
+energy.ATB_LATEST_YEAR <- MODEL_FINAL_BASE_YEAR
 energy.ATB_MID_YEAR <- 2035
 energy.ATB_TARGET_YEAR <- 2035
 gcamusa.STORAGE_TECH <- "battery"
