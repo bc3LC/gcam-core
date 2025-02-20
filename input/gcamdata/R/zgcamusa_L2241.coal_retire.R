@@ -303,7 +303,7 @@ module_gcamusa_L2241.coal_retire <- function(command, ...) {
     # then create a new vintage bin, otherwise lump it in with the last bin
     if (MODEL_FINAL_BASE_YEAR - max(COAL_VINTAGE_BREAKS) >= COAL.MIN.VINAGE.SIZE) {
       gcamusa.COAL_VINTAGE_LABELS <- c("before 1950", head(intervals, -1), paste0(max(COAL_VINTAGE_BREAKS)+1, "-", MODEL_FINAL_BASE_YEAR))
-      gcamusa.COAL_VINTAGE_BREAKS <- c(0, head(COAL_VINTAGE_BREAKS, -1), MODEL_FINAL_BASE_YEAR)
+      gcamusa.COAL_VINTAGE_BREAKS <- c(0, COAL_VINTAGE_BREAKS, MODEL_FINAL_BASE_YEAR)
     } else if (MODEL_FINAL_BASE_YEAR - max(COAL_VINTAGE_BREAKS) < COAL.MIN.VINAGE.SIZE & MODEL_FINAL_BASE_YEAR - max(COAL_VINTAGE_BREAKS) > 0) {
       gcamusa.COAL_VINTAGE_LABELS <- c("before 1950", head(intervals, -2), paste0(max(head(COAL_VINTAGE_BREAKS, -1))+1, "-", MODEL_FINAL_BASE_YEAR))
       gcamusa.COAL_VINTAGE_BREAKS <- c(0, head(COAL_VINTAGE_BREAKS, -1), MODEL_FINAL_BASE_YEAR)
