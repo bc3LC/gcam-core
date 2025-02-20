@@ -22,7 +22,8 @@ module_gcamusa_L1236.elec_load_segments_solver <- function(command, ...) {
              "L1234.out_EJ_grid_elec_F",
              "L1235.grid_elec_supply_USA",
              "L1235.elecS_demand_fraction_USA",
-             "L1235.elecS_horizontal_vertical_USA"))
+             "L1235.elecS_horizontal_vertical_USA",
+             "L1235.elecS_horizontal_vertical_GCAM_coeff_USA"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L1236.grid_elec_supply_USA",
              "L1236.elecS_demand_fraction_adj_USA"))
@@ -55,6 +56,7 @@ module_gcamusa_L1236.elec_load_segments_solver <- function(command, ...) {
     L1235.grid_elec_supply_USA <- get_data(all_data, "L1235.grid_elec_supply_USA", strip_attributes = TRUE)
     L1235.elecS_demand_fraction_USA <- get_data(all_data, "L1235.elecS_demand_fraction_USA", strip_attributes = TRUE)
     L1235.elecS_horizontal_vertical_USA <- get_data(all_data, "L1235.elecS_horizontal_vertical_USA", strip_attributes = TRUE)
+    L1235.elecS_horizontal_vertical_GCAM_coeff_USA <- get_data(all_data, "L1235.elecS_horizontal_vertical_GCAM_coeff_USA", strip_attributes = TRUE)
 
     # ===================================================
     # Data Processing
@@ -1266,7 +1268,8 @@ module_gcamusa_L1236.elec_load_segments_solver <- function(command, ...) {
       add_comments("In the case of model years not in gcamusa.LOAD_SEG_CAL_YEARS we need to") %>%
       add_comments("extend the fuel to segment attribution, however that will result in inconsistent") %>%
       add_comments("energy totals by segment, so we adjust the vertical coefficients to compensate") %>%
-      same_precursors_as(L1236.grid_elec_supply_USA) ->
+      same_precursors_as(L1236.grid_elec_supply_USA) %>%
+      add_precursors("L1235.elecS_horizontal_vertical_GCAM_coeff_USA") ->
       L1236.elecS_demand_fraction_adj_USA
 
     return_data(L1236.grid_elec_supply_USA, L1236.elecS_demand_fraction_adj_USA)
