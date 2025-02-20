@@ -478,6 +478,10 @@ module_gcamusa_L271.nonghg_trn <- function(command, ...) {
     ef_col_name <- "final.emissions.coefficient"
     L271.nonco2_trn_emiss_control_USA <- replace_outlier_EFs(L271.nonco2_trn_emiss_control_USA_scaled, to_group, names, ef_col_name)
 
+    # TODO: Needs some fresh thought in conjuction with the L1 processing
+    L271.nonco2_trn_emiss_control_USA %>%
+      mutate(start.year = if_else(start.year == 2015, 2021, start.year)) ->
+      L271.nonco2_trn_emiss_control_USA
 
     # ===================================================
 
