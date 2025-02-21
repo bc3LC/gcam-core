@@ -403,6 +403,7 @@ module_energy_L210.resources <- function(command, ...) {
       # with the next available value (`.direction = "up"`)
       tidyr::fill(value, .direction = "up") %>%
       ungroup() %>%
+      filter(year %in% MODEL_FUTURE_YEARS) %>%
       repeat_add_columns(GCAM_region_names) %>%
       # Add subresource type
       left_join_error_no_match(A10.subrsrc_info, by = c("resource", "subresource"))
@@ -583,7 +584,8 @@ module_energy_L210.resources <- function(command, ...) {
       complete(nesting(SSP, resource, reserve.subresource, resource.reserve.technology), year = c(MODEL_FINAL_BASE_YEAR, MODEL_FUTURE_YEARS)) %>%
       group_by(SSP, resource, reserve.subresource, resource.reserve.technology) %>%
       mutate(value = approx_fun(year, value, rule = 2)) %>%
-      ungroup()
+      ungroup() %>%
+      filter(year %in% MODEL_FUTURE_YEARS)
 
     # L210.RsrcEnvironCost_SSPs: environmental cost for depletable resources in SSPs
     # Repeat and add region to assumed techchange tables
