@@ -5,8 +5,16 @@
 # Original source: Land_nesting_structure.xls
 # Column types: in 
 # ----------
-year,ghost.share
-2020,0.0
-2025,0.005
-2035,0.02
-2100,0.05
+year,preference,ghost.share
+2020,High,0
+2020,High,0
+2030,High,0.01
+2035,High,0.025
+2050,High,0.07
+2100,High,0.07
+2020,Low,0
+2025,Low,0
+2025,Low,0.01
+2035,Low,0.01
+2050,Low,0.02
+2100,Low,0.02
