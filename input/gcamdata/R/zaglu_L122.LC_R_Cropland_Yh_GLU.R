@@ -137,16 +137,18 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
     L100.FAO_CL_kha %>%
       # only include data in the right fallow land year range
       # keep only the iso country and the value for each:
-      select(iso, area_code, Arableland = value, year) %>%
-      left_join_error_no_match(
-        L100.FAO_fallowland_kha %>% rename(fallow = value),
+      select(GCAM_region_ID, iso, area_code, Arableland = value, year) %>%
+      left_join(
+        L100.FAO_fallowland_kha %>%
+          transmute(iso, area_code, year, fallow = value),
         by = c("iso", "area_code", "year")) %>%
+      replace_na(list(fallow = 0)) %>%
       na.omit() %>%
       select(GCAM_region_ID, Arableland, fallow, year) %>%
       ungroup() %>%
       # aggregate Arableland and fallow values to the GCAM region level:
       group_by(GCAM_region_ID, year) %>%
-      summarise_all(sum) %>%
+      summarise_all(sum) %>%  ungroup %>%
       left_join_error_no_match(
         L122.ag_HA_bm2_R_Y_GLU_Perennial_Annual %>%
           group_by(GCAM_region_ID, year) %>%
@@ -217,7 +219,7 @@ module_aglu_L122.LC_R_Cropland_Yh_GLU <- function(command, ...) {
 
      L122.ag_HA_bm2_R_Y_GLU %>%
        # conservative approach of using adjusted FAO CHF as max value
-       left_join_error_no_match(L122.FAO_AnnualCrop_CHF_R) %>%
+       left_join_error_no_match(L122.FAO_AnnualCrop_CHF_R, by = "GCAM_region_ID") %>%
        mutate(Cropland_min = Annual / FAOAnnualCHF + Perennial)  %>%
 
       # Old approach
