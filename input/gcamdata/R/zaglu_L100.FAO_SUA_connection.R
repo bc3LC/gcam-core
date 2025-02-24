@@ -24,10 +24,7 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       "FAO_AgProd_Kt_All",
       "FAO_AgArea_Kha_All",
       "FAO_Food_Macronutrient_All_2010_2019",
-      "FAO_Food_MacronutrientRate_2010_2019_MaxValue",
-      FILE = "aglu/AgMIP/GCAM_FoodWaste_Share_Pathway_SSP",
-      FILE = "aglu/A_demand_food_staples",
-      FILE = "aglu/A_demand_food_nonstaples")
+      "FAO_Food_MacronutrientRate_2010_2019_MaxValue")
 
   MODULE_OUTPUTS <-
     c("L100.FAO_SUA_APE_balance",
@@ -37,17 +34,13 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       "L105.an_Prod_Mt_R_C_Y",
       "L105.an_Prod_Mt_ctry_C_Y",
       "L101.ag_Food_Mt_R_C_Y",
-      "L105.an_Food_Mt_R_C_Y",
-      "L101.CropMeat_Food_Pcal_R_C_Y",
+      "L101.an_Food_Mt_R_C_Y",
       "L101.ag_Feed_Mt_R_C_Y",
-<<<<<<< HEAD
-      "L1091.GrossTrade_Mt_R_C_Y")
-=======
       "L101.GrossTrade_Mt_R_C_Y",
       "L101.ag_Storage_Mt_R_C_Y",
       "L100.demand_food_staples",
-      "L100.demand_food_nonstaples")
->>>>>>> 08e409a10 (Introducing food waste and generating future waste pathways for SSP1)
+      "L100.demand_food_nonstaples",
+      "DF_Macronutrient_FoodItem4")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -62,6 +55,7 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
     # Load required inputs ----
 
     get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
+
 
     # check years
     # to remove
@@ -314,36 +308,6 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       DF_Macronutrient_FoodItem4 %>%
       transmute(GCAM_region_ID, GCAM_commodity, year, value = MKcal/1000)
 
-    ## 3.1 Food waste model  ----
-
-    if (FoodWasteModel == TRUE) {
-
-      L100.demand_food_staples %>% mutate(income.elesticity = 0.03) ->
-        L100.demand_food_staples
-      L100.demand_food_nonstaples%>% mutate(income.elesticity = 0.3) ->
-        L100.demand_food_nonstaples
-
-      ##* L101.ag_Food_Pcal_R_C_Y ----
-      # Note that we don't have historical waste shares so applying 2015/2020 values
-      # 2015 (MODEL_FINAL_BASE_YEAR) has the same base values so use gSSP2 here
-      L101.CropMeat_Food_Pcal_R_C_Y <-
-        DF_Macronutrient_FoodItem4 %>%
-        left_join_error_no_match(
-          # Base year food waste
-          GCAM_FoodWaste_Share_Pathway_SSP %>%
-            filter(year == MODEL_FINAL_BASE_YEAR, scenario == "gSSP2") %>% select(-year),
-          by = c("GCAM_commodity", "GCAM_region_ID")
-        ) %>%
-        transmute(GCAM_region_ID, GCAM_commodity, year, value = MKcal/1000 * (1 - WasteShare))
-
-      ##* L101.ag_Food_Pcal_R_C_Y_WithWaste ----
-      L101.CropMeat_Food_Pcal_R_C_Y_WithWaste <-
-        DF_Macronutrient_FoodItem4 %>%
-        transmute(GCAM_region_ID, GCAM_commodity, year, value = MKcal/1000)
-
-    }
-
-    rm(list = ls(pattern = "DF_Macronutrient_FoodItem*"))
 
 
     # 4. Feed and trade ----
@@ -413,6 +377,16 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       add_precursors("FAO_AgProd_Kt_All") ->
       L105.an_Prod_Mt_ctry_C_Y
 
+    DF_Macronutrient_FoodItem4 %>%
+      add_title("FAO food consumption by GCAM region, commodity, and year") %>%
+      add_units("MKcal") %>%
+      add_comments("Aggregates FAO data by GCAM region, commodity, and year; including waste") %>%
+      add_legacy_name("DF_Macronutrient_FoodItem4") %>%
+      add_precursors("common/GCAM_region_names",
+                     "aglu/FAO/FAO_ag_items_PRODSTAT",
+                     "FAO_Food_Macronutrient_All_2010_2019",
+                     "FAO_Food_MacronutrientRate_2010_2019_MaxValue") ->
+      DF_Macronutrient_FoodItem4
 
     L101.ag_Food_Mt_R_C_Y %>%
       add_title("FAO food consumption by GCAM region, commodity, and year") %>%
@@ -425,35 +399,6 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
                      "FAO_Food_Macronutrient_All_2010_2019",
                      "FAO_Food_MacronutrientRate_2010_2019_MaxValue") ->
       L101.ag_Food_Mt_R_C_Y
-
-    L101.CropMeat_Food_Pcal_R_C_Y %>%
-      add_title("FAO food calories consumption by GCAM region, commodity, and year") %>%
-      add_units("Pcal") %>%
-      add_comments("Aggregates FAO data by GCAM region, commodity, and year") %>%
-      add_comments("Data is also converted from tons to Pcal") %>%
-      add_legacy_name("L101.CropMeat_Food_Pcal_R_C_Y") %>%
-      add_precursors("common/GCAM_region_names",
-                     "aglu/FAO/FAO_ag_items_PRODSTAT",
-                     "FAO_Food_Macronutrient_All_2010_2019",
-                     "FAO_Food_MacronutrientRate_2010_2019_MaxValue",
-                     "aglu/AgMIP/GCAM_FoodWaste_Share_Pathway_SSP") ->
-      L101.CropMeat_Food_Pcal_R_C_Y
-
-    L100.demand_food_staples %>%
-      add_title("Food demand parameters for staple food") %>%
-      add_units("NA") %>%
-      add_comments("Income elasticity is updated if food waste is modeled") %>%
-      add_legacy_name("L100.demand_food_staples") %>%
-      add_precursors("aglu/A_demand_food_staples") ->
-      L100.demand_food_staples
-
-    L100.demand_food_nonstaples %>%
-      add_title("Food demand parameters for nonstaple food") %>%
-      add_units("NA") %>%
-      add_comments("Income elasticity is updated if food waste is modeled") %>%
-      add_legacy_name("L100.demand_food_nonstaples") %>%
-      add_precursors("aglu/A_demand_food_nonstaples") ->
-      L100.demand_food_nonstaples
 
     L101.an_Food_Mt_R_C_Y %>%
       add_title("Animal consumption by GCAM region / commodity / year") %>%

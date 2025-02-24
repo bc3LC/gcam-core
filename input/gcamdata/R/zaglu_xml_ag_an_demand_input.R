@@ -40,14 +40,16 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       "L203.NonStapleBaseService",
       "L203.GlobalTechInterp_demand",
       FILE = "common/GCAM_region_names",
-      FILE = "aglu/AgMIP/GCAM_FoodWaste_Share_Pathway_SSP")
+      "L100.AgMIP_FoodWaste_Share_Pathway_SSP")
 
   MODULE_OUTPUTS <-
     c(XML = "ag_an_demand_input.xml",
       XML = "ag_an_demand_input_NonFood.xml",
       XML = "ag_an_demand_input_Food.xml",
       XML = "ag_an_demand_input_Food_Waste_SSP1.xml",
-      XML = "ag_an_demand_input_Food_Waste_SSP1_HalfWaste2050.xml")
+      XML = "ag_an_demand_input_Food_Waste_SSP1_HalfWaste2050.xml",
+      XML = "ag_an_demand_input_Food_Waste_SSP2.xml",
+      XML = "ag_an_demand_input_Food_Waste_SSP2_HalfWaste2050.xml")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -139,13 +141,13 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
 
 
     # adding waste pathways ----
-    ## only adding SSP1 for CWF for now----
+    ## Adding SSP1 for CWF for now----
     # the pathways were developed based on per capital income vs. waste share
     # implying income elasticity of waste could increase
 
     L203.StubCalorieContent %>%
       left_join(
-        GCAM_FoodWaste_Share_Pathway_SSP %>% filter(scenario == "gSSP1") %>%
+        L100.AgMIP_FoodWaste_Share_Pathway_SSP %>% filter(scenario == "gSSP1") %>%
           left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
           transmute(region, subsector = GCAM_commodity, year, WasteShare) %>%
           mutate(WasteScaler = (1 - WasteShare) ) %>%
@@ -184,7 +186,7 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
 
     L203.StubCalorieContent %>%
       left_join(
-        GCAM_FoodWaste_Share_Pathway_SSP %>% filter(scenario == "gSSP1") %>%
+        L100.AgMIP_FoodWaste_Share_Pathway_SSP %>% filter(scenario == "gSSP1") %>%
           left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
           transmute(region, subsector = GCAM_commodity, year, WasteShare = HalfWaste2050) %>%
           mutate(WasteScaler = (1 - WasteShare) ) %>%
@@ -220,6 +222,89 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       add_xml_data(L203.NonStapleBaseService, "NonStapleBaseService") %>%
       add_precursors(MODULE_INPUTS) ->
       ag_an_demand_input_Food_Waste_SSP1_HalfWaste2050.xml
+
+
+    ## Adding SSP2 for core for now----
+    # the pathways were developed based on per capital income vs. waste share
+    # implying income elasticity of waste could increase
+
+    L203.StubCalorieContent %>%
+      left_join(
+        L100.AgMIP_FoodWaste_Share_Pathway_SSP %>% filter(scenario == "gSSP2") %>%
+          left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+          transmute(region, subsector = GCAM_commodity, year, WasteShare) %>%
+          mutate(WasteScaler = (1 - WasteShare) ) %>%
+          group_by(region, subsector) %>%
+          mutate(WasteScaler = WasteScaler / WasteScaler[year == 2020]) %>%
+          ungroup %>% select(-WasteShare),
+        by = c("region", "subsector", "year")
+      ) %>%
+      replace_na(list(WasteScaler = 1)) %>%
+      mutate(efficiency = WasteScaler * efficiency) %>%
+      select(names(L203.StubCalorieContent)) ->
+      L203.StubCalorieContent_WasteTrend
+
+    create_xml("ag_an_demand_input_Food_Waste_SSP2.xml") %>%
+      add_logit_tables_xml(L203.Supplysector_demand %>% filter(!grepl("NonFood", supplysector)), "Supplysector") %>%
+      add_logit_tables_xml_generate_levels(L203.SubsectorAll_demand_food,
+                                           "SubsectorLogit","subsector","nesting-subsector",1,FALSE) %>%
+      add_xml_data_generate_levels(L203.StubTech_demand_food, "StubTech","subsector","nesting-subsector",1,FALSE) %>%
+      add_xml_data_generate_levels(L203.StubTechProd_food, "StubTechProd", "subsector","nesting-subsector",1,FALSE) %>%
+      add_xml_data_generate_levels(L203.StubCalorieContent_WasteTrend, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
+      add_node_equiv_xml("subsector") %>%
+      add_logit_tables_xml(L203.NestingSubsectorAll_demand_food, "SubsectorAll", "SubsectorLogit") %>%
+      add_xml_data(L203.GlobalTechCoef_demand %>% filter(!grepl("NonFood", sector.name)), "GlobalTechCoef") %>%
+      add_xml_data(L203.GlobalTechShrwt_demand %>% filter(!grepl("NonFood", sector.name)), "GlobalTechShrwt") %>%
+      add_xml_data(L203.GlobalTechInterp_demand %>% filter(!grepl("NonFood", sector.name)), "GlobalTechInterp") %>%
+      add_xml_data(L203.SubregionalShares, "SubregionalShares") %>%
+      add_xml_data(L203.DemandFunction_food, "DemandFunction_food") %>%
+      add_xml_data(L203.DemandStapleParams, "DemandStapleParams") %>%
+      add_xml_data(L203.DemandNonStapleParams, "DemandNonStapleParams") %>%
+      add_xml_data(L203.DemandStapleRegBias, "DemandStapleRegBias") %>%
+      add_xml_data(L203.DemandNonStapleRegBias, "DemandNonStapleRegBias") %>%
+      add_xml_data(L203.StapleBaseService, "StapleBaseService") %>%
+      add_xml_data(L203.NonStapleBaseService, "NonStapleBaseService") %>%
+      add_precursors(MODULE_INPUTS) ->
+      ag_an_demand_input_Food_Waste_SSP2.xml
+
+    L203.StubCalorieContent %>%
+      left_join(
+        L100.AgMIP_FoodWaste_Share_Pathway_SSP %>% filter(scenario == "gSSP2") %>%
+          left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+          transmute(region, subsector = GCAM_commodity, year, WasteShare = HalfWaste2050) %>%
+          mutate(WasteScaler = (1 - WasteShare) ) %>%
+          group_by(region, subsector) %>%
+          mutate(WasteScaler = WasteScaler / WasteScaler[year == 2020]) %>%
+          ungroup %>% select(-WasteShare),
+        by = c("region", "subsector", "year")
+      ) %>%
+      replace_na(list(WasteScaler = 1)) %>%
+      mutate(efficiency = WasteScaler * efficiency) %>%
+      select(names(L203.StubCalorieContent)) ->
+      L203.StubCalorieContent_HalfWaste2050
+
+    create_xml("ag_an_demand_input_Food_Waste_SSP2_HalfWaste2050.xml") %>%
+      add_logit_tables_xml(L203.Supplysector_demand %>% filter(!grepl("NonFood", supplysector)), "Supplysector") %>%
+      add_logit_tables_xml_generate_levels(L203.SubsectorAll_demand_food,
+                                           "SubsectorLogit","subsector","nesting-subsector",1,FALSE) %>%
+      add_xml_data_generate_levels(L203.StubTech_demand_food, "StubTech","subsector","nesting-subsector",1,FALSE) %>%
+      add_xml_data_generate_levels(L203.StubTechProd_food, "StubTechProd", "subsector","nesting-subsector",1,FALSE) %>%
+      add_xml_data_generate_levels(L203.StubCalorieContent_HalfWaste2050, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
+      add_node_equiv_xml("subsector") %>%
+      add_logit_tables_xml(L203.NestingSubsectorAll_demand_food, "SubsectorAll", "SubsectorLogit") %>%
+      add_xml_data(L203.GlobalTechCoef_demand %>% filter(!grepl("NonFood", sector.name)), "GlobalTechCoef") %>%
+      add_xml_data(L203.GlobalTechShrwt_demand %>% filter(!grepl("NonFood", sector.name)), "GlobalTechShrwt") %>%
+      add_xml_data(L203.GlobalTechInterp_demand %>% filter(!grepl("NonFood", sector.name)), "GlobalTechInterp") %>%
+      add_xml_data(L203.SubregionalShares, "SubregionalShares") %>%
+      add_xml_data(L203.DemandFunction_food, "DemandFunction_food") %>%
+      add_xml_data(L203.DemandStapleParams, "DemandStapleParams") %>%
+      add_xml_data(L203.DemandNonStapleParams, "DemandNonStapleParams") %>%
+      add_xml_data(L203.DemandStapleRegBias, "DemandStapleRegBias") %>%
+      add_xml_data(L203.DemandNonStapleRegBias, "DemandNonStapleRegBias") %>%
+      add_xml_data(L203.StapleBaseService, "StapleBaseService") %>%
+      add_xml_data(L203.NonStapleBaseService, "NonStapleBaseService") %>%
+      add_precursors(MODULE_INPUTS) ->
+      ag_an_demand_input_Food_Waste_SSP2_HalfWaste2050.xml
 
     return_data(MODULE_OUTPUTS)
   } else {

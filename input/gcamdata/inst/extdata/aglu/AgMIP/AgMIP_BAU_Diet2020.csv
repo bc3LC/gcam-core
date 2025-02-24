@@ -1,0 +1,675 @@
+# File: AgMIP_BAU_Diet2020.csv
+# Title: BAU scenario 2020 diet by region and sector
+# Units: Pcal
+# Description: Since we changed to exogenous diet targets and new AgMIP scenarios start after 2020 so we need to reconcile 2020 diet values
+# Column types: ccn
+# ----------
+Region,GCAM_commodity,2020
+Africa_Eastern,Corn,40.1919
+Africa_Eastern,Fruits,9.41727
+Africa_Eastern,Vegetables,2.97502
+Africa_Eastern,MiscCrop,1.35412
+Africa_Eastern,FiberCrop,0.247639
+Africa_Eastern,OilCrop,5.28061
+Africa_Eastern,OilPalm,5.67059
+Africa_Eastern,Soybean,0.828894
+Africa_Eastern,OtherGrain,47.0972
+Africa_Eastern,Beef,3.57047
+Africa_Eastern,Dairy,11.1157
+Africa_Eastern,OtherMeat_Fish,2.90624
+Africa_Eastern,Pork,0.7662
+Africa_Eastern,Poultry,0.925466
+Africa_Eastern,SheepGoat,1.41657
+Africa_Eastern,Legumes,20.0653
+Africa_Eastern,NutsSeeds,4.78436
+Africa_Eastern,Rice,15.0288
+Africa_Eastern,RootTuber,24.424
+Africa_Eastern,SugarCrop,14.105
+Africa_Eastern,Wheat,29.4349
+Africa_Northern,Corn,20.5371
+Africa_Northern,Fruits,8.67988
+Africa_Northern,Vegetables,6.26504
+Africa_Northern,MiscCrop,0.689626
+Africa_Northern,FiberCrop,0.00416032
+Africa_Northern,OilCrop,5.56153
+Africa_Northern,OilPalm,0.385747
+Africa_Northern,Soybean,8.06366
+Africa_Northern,OtherGrain,4.96647
+Africa_Northern,Beef,2.17591
+Africa_Northern,Dairy,8.7708
+Africa_Northern,OtherMeat_Fish,2.82891
+Africa_Northern,Pork,0.00497559
+Africa_Northern,Poultry,4.1013
+Africa_Northern,SheepGoat,1.12749
+Africa_Northern,Legumes,3.12141
+Africa_Northern,NutsSeeds,1.60892
+Africa_Northern,Rice,10.5993
+Africa_Northern,RootTuber,4.43077
+Africa_Northern,SugarCrop,11.5539
+Africa_Northern,Wheat,66.4543
+Africa_Southern,Corn,38.8815
+Africa_Southern,Fruits,3.83566
+Africa_Southern,Vegetables,1.11951
+Africa_Southern,MiscCrop,0.197352
+Africa_Southern,FiberCrop,0.45427
+Africa_Southern,OilCrop,4.41534
+Africa_Southern,OilPalm,4.62263
+Africa_Southern,Soybean,2.53714
+Africa_Southern,OtherGrain,4.29613
+Africa_Southern,Beef,1.66445
+Africa_Southern,Dairy,2.58152
+Africa_Southern,OtherMeat_Fish,1.99145
+Africa_Southern,Pork,1.86146
+Africa_Southern,Poultry,1.21974
+Africa_Southern,SheepGoat,0.281332
+Africa_Southern,Legumes,6.84365
+Africa_Southern,NutsSeeds,4.18188
+Africa_Southern,Rice,9.41171
+Africa_Southern,RootTuber,22.7333
+Africa_Southern,SugarCrop,7.29589
+Africa_Southern,Wheat,10.2218
+Africa_Western,Corn,42.4648
+Africa_Western,Fruits,13.3486
+Africa_Western,Vegetables,5.66403
+Africa_Western,MiscCrop,1.49111
+Africa_Western,FiberCrop,1.63328
+Africa_Western,OilCrop,6.92496
+Africa_Western,OilPalm,23.6812
+Africa_Western,Soybean,2.22061
+Africa_Western,OtherGrain,51.0039
+Africa_Western,Beef,2.40678
+Africa_Western,Dairy,3.38666
+Africa_Western,OtherMeat_Fish,4.91173
+Africa_Western,Pork,1.51854
+Africa_Western,Poultry,2.18688
+Africa_Western,SheepGoat,1.43744
+Africa_Western,Legumes,15.941
+Africa_Western,NutsSeeds,21.2389
+Africa_Western,Rice,52.5522
+Africa_Western,RootTuber,102.874
+Africa_Western,SugarCrop,15.0417
+Africa_Western,Wheat,25.1663
+Argentina,Corn,1.22132
+Argentina,Fruits,0.852147
+Argentina,Vegetables,0.572472
+Argentina,MiscCrop,0.167816
+Argentina,FiberCrop,0.0211403
+Argentina,OilCrop,3.02125
+Argentina,Soybean,0.735318
+Argentina,OtherGrain,0.731496
+Argentina,Beef,3.70637
+Argentina,Dairy,2.81727
+Argentina,OtherMeat_Fish,0.475104
+Argentina,Pork,1.42349
+Argentina,Poultry,2.18837
+Argentina,SheepGoat,0.0942452
+Argentina,Legumes,0.239947
+Argentina,NutsSeeds,0.0696654
+Argentina,Rice,1.0805
+Argentina,RootTuber,1.07777
+Argentina,SugarCrop,4.48014
+Argentina,Wheat,10.2818
+Australia_NZ,Corn,0.316777
+Australia_NZ,Fruits,0.779168
+Australia_NZ,Vegetables,0.593526
+Australia_NZ,MiscCrop,0.33673
+Australia_NZ,FiberCrop,0.458594
+Australia_NZ,OilCrop,2.33485
+Australia_NZ,OilPalm,0.597797
+Australia_NZ,Soybean,0.16629
+Australia_NZ,OtherGrain,1.05002
+Australia_NZ,Beef,0.980548
+Australia_NZ,Dairy,3.47462
+Australia_NZ,OtherMeat_Fish,1.00078
+Australia_NZ,Pork,0.932414
+Australia_NZ,Poultry,1.55665
+Australia_NZ,SheepGoat,0.65409
+Australia_NZ,Legumes,0.0982628
+Australia_NZ,NutsSeeds,0.617707
+Australia_NZ,Rice,0.735647
+Australia_NZ,RootTuber,0.860111
+Australia_NZ,SugarCrop,3.24107
+Australia_NZ,Wheat,5.27607
+Brazil,Corn,13.1722
+Brazil,Fruits,6.67332
+Brazil,Vegetables,2.14316
+Brazil,MiscCrop,0.55352
+Brazil,FiberCrop,1.78855
+Brazil,OilCrop,5.05522
+Brazil,OilPalm,3.45826
+Brazil,Soybean,16.4671
+Brazil,OtherGrain,5.26735
+Brazil,Beef,8.16606
+Brazil,Dairy,13.4447
+Brazil,OtherMeat_Fish,1.59434
+Brazil,Pork,8.12866
+Brazil,Poultry,9.72404
+Brazil,SheepGoat,0.178728
+Brazil,Legumes,7.30515
+Brazil,NutsSeeds,0.680056
+Brazil,Rice,16.7639
+Brazil,RootTuber,6.66474
+Brazil,SugarCrop,22.421
+Brazil,Wheat,20.36
+Canada,Corn,1.58304
+Canada,Fruits,1.074
+Canada,Vegetables,0.681453
+Canada,MiscCrop,0.261116
+Canada,FiberCrop,0.00442295
+Canada,OilCrop,4.21506
+Canada,OilPalm,0
+Canada,Soybean,0.245466
+Canada,OtherGrain,1.02648
+Canada,Beef,0.820007
+Canada,Dairy,2.54898
+Canada,OtherMeat_Fish,0.397303
+Canada,Pork,2.00217
+Canada,Poultry,1.61045
+Canada,SheepGoat,0.0584256
+Canada,Legumes,0.89276
+Canada,NutsSeeds,0.903781
+Canada,Rice,1.07041
+Canada,RootTuber,1.56262
+Canada,SugarCrop,3.49786
+Canada,Wheat,5.78737
+Central America and Caribbean,Corn,11.5994
+Central America and Caribbean,Fruits,3.93046
+Central America and Caribbean,Vegetables,1.02146
+Central America and Caribbean,MiscCrop,0.310841
+Central America and Caribbean,FiberCrop,0.00880942
+Central America and Caribbean,OilCrop,1.52527
+Central America and Caribbean,OilPalm,2.75177
+Central America and Caribbean,Soybean,3.48808
+Central America and Caribbean,OtherGrain,1.55643
+Central America and Caribbean,Beef,1.1895
+Central America and Caribbean,Dairy,3.30531
+Central America and Caribbean,OtherMeat_Fish,1.0125
+Central America and Caribbean,Pork,1.78441
+Central America and Caribbean,Poultry,2.80674
+Central America and Caribbean,SheepGoat,0.0532959
+Central America and Caribbean,Legumes,3.38952
+Central America and Caribbean,NutsSeeds,0.499666
+Central America and Caribbean,Rice,9.1283
+Central America and Caribbean,RootTuber,2.60116
+Central America and Caribbean,SugarCrop,10.2875
+Central America and Caribbean,Wheat,8.20816
+Central Asia,Corn,1.64453
+Central Asia,Fruits,2.40919
+Central Asia,Vegetables,3.518
+Central Asia,MiscCrop,0.577769
+Central Asia,FiberCrop,1.88093
+Central Asia,OilCrop,3.97764
+Central Asia,OilPalm,0.0249043
+Central Asia,Soybean,0.201583
+Central Asia,OtherGrain,1.51241
+Central Asia,Beef,3.38789
+Central Asia,Dairy,9.92266
+Central Asia,OtherMeat_Fish,1.34083
+Central Asia,Pork,0.610021
+Central Asia,Poultry,1.3225
+Central Asia,SheepGoat,1.38859
+Central Asia,Legumes,0.444353
+Central Asia,NutsSeeds,0.551083
+Central Asia,Rice,1.44104
+Central Asia,RootTuber,3.34636
+Central Asia,SugarCrop,5.17645
+Central Asia,Wheat,29.6865
+China,Corn,21.7559
+China,Fruits,36.5432
+China,Vegetables,82.9785
+China,MiscCrop,1.5154
+China,FiberCrop,6.19177
+China,OilCrop,22.3246
+China,OilPalm,22.5322
+China,Soybean,39.5292
+China,OtherGrain,30.0375
+China,Beef,10.8361
+China,Dairy,18.4614
+China,OtherMeat_Fish,29.1345
+China,Pork,134.722
+China,Poultry,49.6348
+China,SheepGoat,6.3815
+China,Legumes,5.10787
+China,NutsSeeds,37.3173
+China,Rice,315.983
+China,RootTuber,58.0505
+China,SugarCrop,29.9349
+China,Wheat,213.082
+Colombia,Corn,3.79354
+Colombia,Fruits,3.16105
+Colombia,Vegetables,0.44708
+Colombia,MiscCrop,0.166586
+Colombia,FiberCrop,0.02539
+Colombia,OilCrop,0.412976
+Colombia,OilPalm,2.87638
+Colombia,Soybean,1.36608
+Colombia,OtherGrain,0.952543
+Colombia,Beef,1.39162
+Colombia,Dairy,2.48722
+Colombia,OtherMeat_Fish,0.429714
+Colombia,Pork,0.879619
+Colombia,Poultry,1.94414
+Colombia,SheepGoat,0.0099803
+Colombia,Legumes,0.861463
+Colombia,NutsSeeds,0.102797
+Colombia,Rice,4.2724
+Colombia,RootTuber,2.42042
+Colombia,SugarCrop,8.05551
+Colombia,Wheat,3.38541
+EU-12,Corn,1.88999
+EU-12,Fruits,1.87004
+EU-12,Vegetables,1.92848
+EU-12,MiscCrop,0.644947
+EU-12,FiberCrop,5.07E-04
+EU-12,OilCrop,4.95874
+EU-12,OilPalm,0.109587
+EU-12,Soybean,0.682288
+EU-12,OtherGrain,6.27525
+EU-12,Beef,0.474401
+EU-12,Dairy,8.95429
+EU-12,OtherMeat_Fish,1.2004
+EU-12,Pork,8.33785
+EU-12,Poultry,3.31854
+EU-12,SheepGoat,0.151299
+EU-12,Legumes,0.510371
+EU-12,NutsSeeds,0.554911
+EU-12,Rice,0.586163
+EU-12,RootTuber,3.53771
+EU-12,SugarCrop,7.75543
+EU-12,Wheat,19.978
+EU-15,Corn,6.53245
+EU-15,Fruits,11.329
+EU-15,Vegetables,7.48903
+EU-15,MiscCrop,4.08032
+EU-15,FiberCrop,0.109998
+EU-15,OilCrop,28.9232
+EU-15,OilPalm,1.69169
+EU-15,Soybean,8.60337
+EU-15,OtherGrain,13.2899
+EU-15,Beef,6.79226
+EU-15,Dairy,43.3591
+EU-15,OtherMeat_Fish,8.03241
+EU-15,Pork,26.3965
+EU-15,Poultry,13.4614
+EU-15,SheepGoat,1.44765
+EU-15,Legumes,2.70439
+EU-15,NutsSeeds,5.68597
+EU-15,Rice,5.5467
+EU-15,RootTuber,11.3047
+EU-15,SugarCrop,33.4706
+EU-15,Wheat,77.1337
+Europe_Eastern,Corn,2.01786
+Europe_Eastern,Fruits,1.14307
+Europe_Eastern,Vegetables,1.66839
+Europe_Eastern,MiscCrop,0.274942
+Europe_Eastern,FiberCrop,0
+Europe_Eastern,OilCrop,2.98309
+Europe_Eastern,OilPalm,0.00111235
+Europe_Eastern,Soybean,0.295488
+Europe_Eastern,OtherGrain,3.79728
+Europe_Eastern,Beef,1.01664
+Europe_Eastern,Dairy,4.91644
+Europe_Eastern,OtherMeat_Fish,1.04136
+Europe_Eastern,Pork,2.5272
+Europe_Eastern,Poultry,2.52228
+Europe_Eastern,SheepGoat,0.0275022
+Europe_Eastern,Legumes,0.228624
+Europe_Eastern,NutsSeeds,0.356922
+Europe_Eastern,Rice,0.44417
+Europe_Eastern,RootTuber,4.04519
+Europe_Eastern,SugarCrop,5.9625
+Europe_Eastern,Wheat,14.4934
+Europe_Non_EU,Corn,5.23367
+Europe_Non_EU,Fruits,3.58606
+Europe_Non_EU,Vegetables,3.3565
+Europe_Non_EU,MiscCrop,0.950833
+Europe_Non_EU,FiberCrop,0.913602
+Europe_Non_EU,OilCrop,5.56923
+Europe_Non_EU,OilPalm,2.98207
+Europe_Non_EU,Soybean,0.100251
+Europe_Non_EU,OtherGrain,1.34215
+Europe_Non_EU,Beef,1.85118
+Europe_Non_EU,Dairy,10.0544
+Europe_Non_EU,OtherMeat_Fish,0.939878
+Europe_Non_EU,Pork,1.20145
+Europe_Non_EU,Poultry,2.69782
+Europe_Non_EU,SheepGoat,0.757034
+Europe_Non_EU,Legumes,2.77554
+Europe_Non_EU,NutsSeeds,1.80806
+Europe_Non_EU,Rice,2.01719
+Europe_Non_EU,RootTuber,2.38848
+Europe_Non_EU,SugarCrop,7.70534
+Europe_Non_EU,Wheat,31.259
+European Free Trade Association,Corn,0.0122867
+European Free Trade Association,Fruits,0.410969
+European Free Trade Association,Vegetables,0.223758
+European Free Trade Association,MiscCrop,0.260603
+European Free Trade Association,FiberCrop,1.18E-04
+European Free Trade Association,OilCrop,0.862065
+European Free Trade Association,OilPalm,1.46E-05
+European Free Trade Association,Soybean,0.0797231
+European Free Trade Association,OtherGrain,0.53024
+European Free Trade Association,Beef,0.301766
+European Free Trade Association,Dairy,1.88296
+European Free Trade Association,OtherMeat_Fish,0.434989
+European Free Trade Association,Pork,1.09628
+European Free Trade Association,Poultry,0.396266
+European Free Trade Association,SheepGoat,0.0803223
+European Free Trade Association,Legumes,0.11991
+European Free Trade Association,NutsSeeds,0.287846
+European Free Trade Association,Rice,0.123709
+European Free Trade Association,RootTuber,0.308626
+European Free Trade Association,SugarCrop,1.48079
+European Free Trade Association,Wheat,2.78967
+India,Corn,23.1733
+India,Fruits,28.8587
+India,Vegetables,25.3907
+India,MiscCrop,7.86955
+India,FiberCrop,7.73519
+India,OilCrop,43.1663
+India,OilPalm,14.1918
+India,Soybean,18.8265
+India,OtherGrain,41.1471
+India,Beef,1.90713
+India,Dairy,93.1727
+India,OtherMeat_Fish,5.32338
+India,Pork,1.3809
+India,Poultry,8.33735
+India,SheepGoat,1.08771
+India,Legumes,58.2385
+India,NutsSeeds,19.1005
+India,Rice,270.097
+India,RootTuber,22.6692
+India,SugarCrop,95.6387
+India,Wheat,209.902
+Indonesia,Corn,13.5501
+Indonesia,Fruits,7.26244
+Indonesia,Vegetables,3.31447
+Indonesia,MiscCrop,1.51073
+Indonesia,FiberCrop,0
+Indonesia,OilCrop,7.38579
+Indonesia,OilPalm,11.9658
+Indonesia,Soybean,4.50724
+Indonesia,OtherGrain,0.208878
+Indonesia,Beef,0.992849
+Indonesia,Dairy,1.48154
+Indonesia,OtherMeat_Fish,5.52053
+Indonesia,Pork,1.05297
+Indonesia,Poultry,3.89712
+Indonesia,SheepGoat,0.149464
+Indonesia,Legumes,0.833089
+Indonesia,NutsSeeds,3.73766
+Indonesia,Rice,90.6528
+Indonesia,RootTuber,18.3026
+Indonesia,SugarCrop,18.5013
+Indonesia,Wheat,17.738
+Japan,Corn,4.05879
+Japan,Fruits,1.60404
+Japan,Vegetables,2.40167
+Japan,MiscCrop,1.40415
+Japan,FiberCrop,0
+Japan,OilCrop,8.52367
+Japan,OilPalm,0.905021
+Japan,Soybean,7.04979
+Japan,OtherGrain,1.65439
+Japan,Beef,1.23836
+Japan,Dairy,5.18926
+Japan,OtherMeat_Fish,3.7901
+Japan,Pork,4.58465
+Japan,Poultry,5.68431
+Japan,SheepGoat,0.0401455
+Japan,Legumes,0.573286
+Japan,NutsSeeds,1.01399
+Japan,Rice,24.7115
+Japan,RootTuber,2.44967
+Japan,SugarCrop,7.02541
+Japan,Wheat,15.9891
+Mexico,Corn,33.4489
+Mexico,Fruits,3.47184
+Mexico,Vegetables,1.39817
+Mexico,MiscCrop,0.247772
+Mexico,FiberCrop,0.0116536
+Mexico,OilCrop,2.03968
+Mexico,OilPalm,2.7491
+Mexico,Soybean,3.42615
+Mexico,OtherGrain,3.00939
+Mexico,Beef,2.41015
+Mexico,Dairy,5.38885
+Mexico,OtherMeat_Fish,1.46368
+Mexico,Pork,5.92053
+Mexico,Poultry,6.26738
+Mexico,SheepGoat,0.157204
+Mexico,Legumes,3.51097
+Mexico,NutsSeeds,1.14234
+Mexico,Rice,2.00276
+Mexico,RootTuber,1.04159
+Mexico,SugarCrop,13.076
+Mexico,Wheat,8.05332
+Middle East,Corn,6.51801
+Middle East,Fruits,10.942
+Middle East,Vegetables,5.78087
+Middle East,MiscCrop,2.25292
+Middle East,FiberCrop,0.314561
+Middle East,OilCrop,12.7599
+Middle East,OilPalm,8.9096
+Middle East,Soybean,7.1055
+Middle East,OtherGrain,2.6171
+Middle East,Beef,2.56804
+Middle East,Dairy,10.9495
+Middle East,OtherMeat_Fish,3.28073
+Middle East,Pork,0.13608
+Middle East,Poultry,9.3161
+Middle East,SheepGoat,2.25582
+Middle East,Legumes,5.1196
+Middle East,NutsSeeds,3.89013
+Middle East,Rice,21.7884
+Middle East,RootTuber,4.94402
+Middle East,SugarCrop,22.3998
+Middle East,Wheat,84.7851
+Pakistan,Corn,9.07857
+Pakistan,Fruits,2.42165
+Pakistan,Vegetables,1.44546
+Pakistan,MiscCrop,0.501128
+Pakistan,FiberCrop,0.719809
+Pakistan,OilCrop,0.567511
+Pakistan,OilPalm,4.1565
+Pakistan,Soybean,0.171732
+Pakistan,OtherGrain,0.976895
+Pakistan,Beef,2.30602
+Pakistan,Dairy,25.5132
+Pakistan,OtherMeat_Fish,1.71426
+Pakistan,Pork,1.55E-04
+Pakistan,Poultry,1.75692
+Pakistan,SheepGoat,0.733594
+Pakistan,Legumes,2.83453
+Pakistan,NutsSeeds,0.529592
+Pakistan,Rice,8.3912
+Pakistan,RootTuber,1.96708
+Pakistan,SugarCrop,15.116
+Pakistan,Wheat,56.2148
+Russia,Corn,0.171137
+Russia,Fruits,2.62541
+Russia,Vegetables,2.62095
+Russia,MiscCrop,0.664043
+Russia,OilCrop,10.6869
+Russia,Soybean,0.626939
+Russia,OtherGrain,5.6229
+Russia,Beef,3.25209
+Russia,Dairy,12.3883
+Russia,OtherMeat_Fish,2.91189
+Russia,Pork,6.85279
+Russia,Poultry,6.08311
+Russia,SheepGoat,0.318351
+Russia,Legumes,0.816929
+Russia,NutsSeeds,0.580294
+Russia,Rice,1.87871
+Russia,RootTuber,7.19762
+Russia,SugarCrop,14.119
+Russia,Wheat,41.5629
+South Africa,Corn,14.7404
+South Africa,Fruits,0.409838
+South Africa,Vegetables,0.508608
+South Africa,MiscCrop,0.140144
+South Africa,FiberCrop,0.0093249
+South Africa,OilCrop,2.20725
+South Africa,OilPalm,1.79264
+South Africa,Soybean,1.83235
+South Africa,OtherGrain,1.73682
+South Africa,Beef,2.03507
+South Africa,Dairy,1.47671
+South Africa,OtherMeat_Fish,0.578234
+South Africa,Pork,0.734844
+South Africa,Poultry,2.57783
+South Africa,SheepGoat,0.341033
+South Africa,Legumes,0.299128
+South Africa,NutsSeeds,0.227118
+South Africa,Rice,2.53381
+South Africa,RootTuber,1.11745
+South Africa,SugarCrop,5.00659
+South Africa,Wheat,7.62872
+South America_Northern,Corn,1.17005
+South America_Northern,Fruits,0.795977
+South America_Northern,Vegetables,0.224099
+South America_Northern,MiscCrop,0.0592722
+South America_Northern,FiberCrop,0.00667732
+South America_Northern,OilCrop,0.270817
+South America_Northern,OilPalm,0.677874
+South America_Northern,Soybean,1.98127
+South America_Northern,OtherGrain,0.242123
+South America_Northern,Beef,0.449853
+South America_Northern,Dairy,1.17765
+South America_Northern,OtherMeat_Fish,0.208006
+South America_Northern,Pork,0.389971
+South America_Northern,Poultry,0.906847
+South America_Northern,SheepGoat,0.0122589
+South America_Northern,Legumes,0.401182
+South America_Northern,NutsSeeds,0.0302942
+South America_Northern,Rice,0.779689
+South America_Northern,RootTuber,0.197002
+South America_Northern,SugarCrop,2.77533
+South America_Northern,Wheat,1.10581
+South America_Southern,Corn,6.75304
+South America_Southern,Fruits,3.76746
+South America_Southern,Vegetables,1.06096
+South America_Southern,MiscCrop,0.384469
+South America_Southern,FiberCrop,0.166881
+South America_Southern,OilCrop,1.47184
+South America_Southern,OilPalm,2.13456
+South America_Southern,Soybean,2.72813
+South America_Southern,OtherGrain,2.5216
+South America_Southern,Beef,2.03065
+South America_Southern,Dairy,3.87235
+South America_Southern,OtherMeat_Fish,1.5993
+South America_Southern,Pork,2.49984
+South America_Southern,Poultry,3.63165
+South America_Southern,SheepGoat,0.118746
+South America_Southern,Legumes,1.51071
+South America_Southern,NutsSeeds,0.551506
+South America_Southern,Rice,8.90759
+South America_Southern,RootTuber,5.45609
+South America_Southern,SugarCrop,7.66297
+South America_Southern,Wheat,13.2202
+South Asia,Corn,3.69764
+South Asia,Fruits,3.74423
+South Asia,Vegetables,3.82578
+South Asia,MiscCrop,1.76223
+South Asia,FiberCrop,0.0688459
+South Asia,OilCrop,5.53922
+South Asia,OilPalm,6.50869
+South Asia,Soybean,4.2833
+South Asia,OtherGrain,1.15549
+South Asia,Beef,0.8429
+South Asia,Dairy,4.61166
+South Asia,OtherMeat_Fish,2.94301
+South Asia,Pork,0.069297
+South Asia,Poultry,1.34437
+South Asia,SheepGoat,0.603521
+South Asia,Legumes,5.15654
+South Asia,NutsSeeds,0.877428
+South Asia,Rice,97.0492
+South Asia,RootTuber,6.77572
+South Asia,SugarCrop,9.03428
+South Asia,Wheat,27.1134
+South Korea,Corn,1.37223
+South Korea,Fruits,0.817258
+South Korea,Vegetables,1.72182
+South Korea,MiscCrop,0.178023
+South Korea,FiberCrop,0.199227
+South Korea,OilCrop,2.2449
+South Korea,OilPalm,1.32995
+South Korea,Soybean,3.9645
+South Korea,OtherGrain,0.838542
+South Korea,Beef,0.795931
+South Korea,Dairy,0.810139
+South Korea,OtherMeat_Fish,1.988
+South Korea,Pork,1.88603
+South Korea,Poultry,1.25402
+South Korea,SheepGoat,0.012915
+South Korea,Legumes,0.174754
+South Korea,NutsSeeds,0.709304
+South Korea,Rice,10.5113
+South Korea,RootTuber,0.553335
+South Korea,SugarCrop,3.82038
+South Korea,Wheat,5.74071
+Southeast Asia,Corn,14.319
+Southeast Asia,Fruits,11.9841
+Southeast Asia,Vegetables,8.73017
+Southeast Asia,MiscCrop,1.547
+Southeast Asia,FiberCrop,0.385392
+Southeast Asia,OilCrop,11.1652
+Southeast Asia,OilPalm,7.27501
+Southeast Asia,Soybean,8.4515
+Southeast Asia,OtherGrain,3.49511
+Southeast Asia,Beef,2.06978
+Southeast Asia,Dairy,3.64823
+Southeast Asia,OtherMeat_Fish,9.89913
+Southeast Asia,Pork,17.7589
+Southeast Asia,Poultry,8.16861
+Southeast Asia,SheepGoat,0.270174
+Southeast Asia,Legumes,5.60251
+Southeast Asia,NutsSeeds,5.65821
+Southeast Asia,Rice,140.008
+Southeast Asia,RootTuber,9.12944
+Southeast Asia,SugarCrop,29.7174
+Southeast Asia,Wheat,18.6015
+Taiwan,Corn,0.444823
+Taiwan,Fruits,0.589825
+Taiwan,Vegetables,0.545075
+Taiwan,MiscCrop,0.174016
+Taiwan,OilCrop,0.336482
+Taiwan,OilPalm,0.627681
+Taiwan,Soybean,3.01902
+Taiwan,OtherGrain,0.383419
+Taiwan,Beef,0.101675
+Taiwan,Dairy,0.443299
+Taiwan,OtherMeat_Fish,0.29464
+Taiwan,Pork,1.60553
+Taiwan,Poultry,0.920385
+Taiwan,SheepGoat,0.0261678
+Taiwan,Legumes,0.161772
+Taiwan,NutsSeeds,0.461027
+Taiwan,Rice,2.69781
+Taiwan,RootTuber,0.166806
+Taiwan,SugarCrop,1.59087
+Taiwan,Wheat,2.44376
+USA,Corn,13.5306
+USA,Fruits,7.78259
+USA,Vegetables,4.88893
+USA,MiscCrop,2.6061
+USA,FiberCrop,1.02998
+USA,OilCrop,8.92329
+USA,OilPalm,0.114855
+USA,Soybean,32.0557
+USA,OtherGrain,13.066
+USA,Beef,10.2161
+USA,Dairy,33.1285
+USA,OtherMeat_Fish,3.8994
+USA,Pork,11.3518
+USA,Poultry,19.1044
+USA,SheepGoat,0.25048
+USA,Legumes,3.42178
+USA,NutsSeeds,8.93417
+USA,Rice,7.17741
+USA,RootTuber,10.5131
+USA,SugarCrop,31.3616
+USA,Wheat,58.2628
