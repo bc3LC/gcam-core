@@ -68,15 +68,6 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
                               )
 
 
-    A_demand_food_staples -> L100.demand_food_staples
-    A_demand_food_nonstaples -> L100.demand_food_nonstaples
-    # If FoodWasteModel == TRUE, income elasticity will be updated (lower) and food calorie intake is represented
-    # Note that food waste pathway will be needed in configuration & aglu_ag_an_demand_input_xml
-    FoodWasteModel = TRUE
-    # If False, the original food demand model representing calorie supply is used
-    # However, if TRUE, the original food demand model parameter will be updated (see later in this chunk!)
-
-
     # Key sets and mappings ----
     # Note that fodder crops are included in COMM_CROP though SUA did not have them;
     COMM_CROP <- FAO_ag_items_PRODSTAT %>% filter(!is.na(GCAM_commodity)) %>% distinct(GCAM_commodity) %>% pull

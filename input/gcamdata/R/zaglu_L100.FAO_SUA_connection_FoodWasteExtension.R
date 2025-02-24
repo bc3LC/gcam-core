@@ -47,6 +47,7 @@ module_aglu_L100.FAO_SUA_connection_FoodWasteExtension <- function(command, ...)
     # Note that food waste pathway will be needed in configuration & aglu_ag_an_demand_input_xml
     FoodWasteModel = TRUE
     # If False, the original food demand model representing calorie supply is used
+    # However, if TRUE, the original food demand model parameter will be updated (see later in this chunk!)
 
 
     ##* L101.ag_Food_Pcal_R_C_Y ----
