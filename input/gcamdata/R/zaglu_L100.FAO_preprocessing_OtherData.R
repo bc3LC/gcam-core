@@ -182,6 +182,12 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
 
     #Section3. Fertilizer and Land cover ----
 
+    # assert that we have the right item/element names here
+    assertthat::assert_that(
+      c("Agricultural Use", "Production") %in%
+        (GCAMFAOSTAT_NFertilizer %>% distinct(element) %>% pull) %>% all()
+    )
+
     ##* L100.FAO_Fert_Cons_tN ----
     GCAMFAOSTAT_NFertilizer %>%
       filter(element == "Agricultural Use") %>%
@@ -208,6 +214,12 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
       L100.FAO_Fert_Prod_tN
 
 
+    # assert that we have the right item names
+    assertthat::assert_that(
+      c("Arable land", "Temporary fallow", "Temporary crops") %in%
+        (GCAMFAOSTAT_LandCover %>% distinct(item) %>% pull) %>% all()
+    )
+
     ##* L100.FAO_CL_kha ----
     GCAMFAOSTAT_LandCover %>%
       filter(item == "Arable land") %>%
@@ -223,7 +235,7 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
 
     ##* L100.FAO_fallowland_kha ----
     GCAMFAOSTAT_LandCover %>%
-      filter(item == "Land with temporary fallow") %>%
+      filter(item == "Temporary fallow") %>%
       gather_years() %>% filter(!is.na(value)) %>%
       FAO_REG_YEAR_MAP %>%
       add_title("FAO fallow land area by country, year") %>%
@@ -236,7 +248,7 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
 
     ##* L100.FAO_harv_CL_kha ----
     GCAMFAOSTAT_LandCover %>%
-      filter(item == "Land under temporary crops") %>%
+      filter(item == "Temporary crops") %>%
       gather_years() %>% filter(!is.na(value)) %>%
       FAO_REG_YEAR_MAP %>%
       add_title("FAO harvested cropland (temporary crops) area by country, year") %>%
