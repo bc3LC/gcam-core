@@ -1230,7 +1230,7 @@ module_gcamusa_L1236.elec_load_segments_solver <- function(command, ...) {
         group_by(grid_region, horiz.segment, year) %>%
         mutate(implied.gen = sum(gr.gen * horiz.coef * vert.coef)) %>%
         ungroup() %>%
-        tidyr::nest(.by = c("grid_region", "year")) %>%
+        tidyr::nest(data = -c("grid_region", "year")) %>%
         mutate(data = lapply(data, set_coef_group)) %>%
         tidyr::unnest(c(data)) %>%
         rename(vertical_segment = vert.segment, demand_fraction = vert.coef) ->

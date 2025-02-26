@@ -418,7 +418,7 @@ gather_years <- function(d, value_col = "value", year_pattern = YEAR_PATTERN, na
   # actually rename columns and do the gather
   names(d)[year_cols_ind] = year_cols_recoded
   d %>%
-    tidyr::gather(year, {{value_col}}, tidyr::any_of(year_cols_recoded), na.rm = na.rm) %>%
+    tidyr::gather(year, {{value_col}}, dplyr::any_of(year_cols_recoded), na.rm = na.rm) %>%
     mutate(year = as.integer(year))
 }
 
