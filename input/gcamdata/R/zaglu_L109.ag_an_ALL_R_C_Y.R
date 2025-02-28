@@ -562,6 +562,7 @@ module_aglu_L109.ag_an_ALL_R_C_Y <- function(command, ...) {
       L109.ag_ALL_Mt_R_C_Y_a
 
     # Method 1 is not used since there would be more errors (palm and suger crops related) due to the adjustments
+    # because there may be not enough import for adjustments (leading to negative import)
 
     # Method 2 (old method; now used with special cases):  adjustments to ensure export < production
     L109.ag_ALL_Mt_R_C_Y %>%
@@ -575,12 +576,14 @@ module_aglu_L109.ag_an_ALL_R_C_Y <- function(command, ...) {
     # remove trade adj for a special case to avoid negative trade values
     # two cases added for now
     L109.ag_ALL_Mt_R_C_Y %>%
-      filter((year == 1975 & GCAM_region_ID == 10 & GCAM_commodity == "Soybean") |
+      filter((year == 1975 & GCAM_region_ID == 5 & GCAM_commodity == "MiscCrop") |
+               (year == 1975 & GCAM_region_ID == 10 & GCAM_commodity == "Soybean") |
                (year == 1975 & GCAM_region_ID == 18 & GCAM_commodity == "OtherGrain") |
                (year == 2021 & GCAM_region_ID == 8 & GCAM_commodity == "Legumes")) %>%
       bind_rows(
         L109.ag_ALL_Mt_R_C_Y_b %>%
-          filter(!(year == 1975 & GCAM_region_ID == 10 & GCAM_commodity == "Soybean") &
+          filter(!(year == 1975 & GCAM_region_ID == 5 & GCAM_commodity == "MiscCrop") &
+                   !(year == 1975 & GCAM_region_ID == 10 & GCAM_commodity == "Soybean") &
                    !(year == 1975 & GCAM_region_ID == 18 & GCAM_commodity == "OtherGrain") &
                    !(year == 2021 & GCAM_region_ID == 8 & GCAM_commodity == "Legumes"))
       ) ->

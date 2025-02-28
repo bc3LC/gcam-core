@@ -211,12 +211,12 @@ SO2_SHIP_LIMIT_POLICY_MULTIPLIER <- 0.001 * 2
 # AgLU constants ======================================================================
 
 # Time
-aglu.MODEL_MEAN_PERIOD_LENGTH <- 1       # AgLU data use a moving average over this period length in LA.100
-aglu.MODEL_PRICE_YEARS      <- 2013:2017 # consistent with aglu.MODEL_SUA_MEAN_PERIODS
-aglu.MODEL_MACRONUTRIENT_YEARS <- 2013:2017   # consistent with aglu.MODEL_SUA_MEAN_PERIODS; FAO only has data for after 2010
+aglu.MODEL_MEAN_PERIOD_LENGTH <- 3       # AgLU data use a moving average over this period length in LA.100
+aglu.MODEL_PRICE_YEARS      <- 2020:2022 # consistent with aglu.MODEL_SUA_MEAN_PERIODS
+aglu.MODEL_MACRONUTRIENT_YEARS <- 2020:2022   # consistent with aglu.MODEL_SUA_MEAN_PERIODS; FAO only has data for after 2010
 aglu.MODEL_COST_YEARS       <- 2008:2016
 aglu.DEFLATOR_BASE_YEAR     <- MODEL_FINAL_BASE_YEAR      # year used as the basis for computing regional price deflators
-aglu.FALLOW_YEARS           <- 2013:2017 # Years used for calculating the % of fallow land
+aglu.FALLOW_YEARS           <- 2020:2022 # Years used for calculating the % of fallow land
 aglu.AGLU_HISTORICAL_YEARS  <- 1973:MODEL_FINAL_BASE_YEAR
 aglu.BASE_YEAR_IFA          <- 2006       # Base year of International Fertilizer Industry Association (IFA) fertilizer application data
 aglu.BIO_START_YEAR         <- 2025       # Also set in aglu/A_bio_ghost_share
