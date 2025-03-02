@@ -379,14 +379,31 @@ module_aglu_L100.AgMIP2_Food_Waste_Pathways <- function(command, ...) {
       GCAM_FoodWaste_Share_Pathway_SSP0
 
     GCAM_FoodWaste_Share_Pathway_SSP0 %>%
-      mutate(HalfWaste2050 = WasteShare) %>%
+      mutate(HalfWaste2050 = WasteShare,
+             HalfWaste2100 = WasteShare,
+             StaticWaste = WasteShare) %>%
       group_by(scenario, GCAM_region_ID, GCAM_commodity) %>%
       #filter(GCAM_commodity == "Beef", GCAM_region_ID == 1) %>%
+
+      # Half Waste 2050
       mutate(HalfWaste2050 = if_else(year == 2050, 0.5 * HalfWaste2050, HalfWaste2050),
              HalfWaste2050 = if_else(year >= 2050, HalfWaste2050[year == 2050], HalfWaste2050),
              HalfWaste2050 = if_else(year %in% 2025:2045, NA_real_, HalfWaste2050) ) %>%
       # linear decrease by 2050 from 2020
       mutate(HalfWaste2050 = approx_fun(year, HalfWaste2050)) %>%
+
+      #Half Waste 2100
+      mutate(HalfWaste2100 = if_else(year == 2100, 0.5 * HalfWaste2100, HalfWaste2100),
+             HalfWaste2100 = if_else(year >= 2100, HalfWaste2100[year == 2100], HalfWaste2100),
+             HalfWaste2100 = if_else(year %in% 2025:2095, NA_real_, HalfWaste2100) ) %>%
+      # linear decrease by 2100 from 2020
+      mutate(HalfWaste2100 = approx_fun(year, HalfWaste2100)) %>%
+
+      # Static Waste
+      mutate(StaticWaste  = if_else(year == 2100, StaticWaste[year == 2020], StaticWaste),
+             StaticWaste = if_else(year %in% 2025:2095, NA_real_, StaticWaste) ) %>%
+      mutate(StaticWaste = approx_fun(year, StaticWaste)) %>%
+
       ungroup() ->
       L100.AgMIP_FoodWaste_Share_Pathway_SSP
 
