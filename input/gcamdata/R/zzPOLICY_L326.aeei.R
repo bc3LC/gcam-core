@@ -27,13 +27,9 @@ module_policy_L326.aeei <- function(command, ...) {
 
     # Convert to long format and interpolate any missing years
     L326.aeei <- A_aeei %>%
-      gather_years() %>%
-      # Interpolates between min and max years in A_aeei
-      complete(nesting(xml, region, energy.final.demand), year = seq(min(year), max(year), 5)) %>%
-      group_by(xml, region, energy.final.demand) %>%
-      mutate(value = approx_fun(year, value)) %>%
-      ungroup %>%
-      rename(aeei = value)
+      gather_years(value_col = "aeei") %>%
+      policy_interpolate(group_cols = c(xml, region, energy.final.demand),
+                         value_col = aeei)
 
     # Produce outputs
     L326.aeei %>%

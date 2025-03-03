@@ -59,17 +59,11 @@ module_policy_L300.elasticity <- function(command, ...) {
       L300.elasticity_noSSP <- A_elasticity %>%
         filter(is.na(SSP)) %>%
         select(-SSP) %>%
-        gather_years() %>%
-        group_by(xml, region, energy.final.demand, elasticity.type) %>%
-        # Interpolates between min and max years in A_aeei
-        complete(nesting(xml, region, energy.final.demand, elasticity.type), year = seq(min(year), max(year), 5)) %>%
-        # If group only has one, approx_fun doesn't work, so we use this workaround
-        mutate(value_NA = as.numeric(approx_fun(year, value))) %>%
-        ungroup %>%
-        mutate(shell.conductance = if_else(!is.na(value_NA), value_NA, value)) %>%
-        select(-value_NA, -value)
+        gather_years(value_col = "shell.conductance") %>%
+        policy_interpolate(group_cols = c(xml, region, energy.final.demand, elasticity.type),
+                           value_col = shell.conductance)
     } else { L300.elasticity_noSSP <- tibble(xml = character(), region = character(), energy.final.demand = character(),
-                                             elasticity.type = character(), year = numeric(), value = numeric())}
+                                             elasticity.type = character(), year = numeric(), shell.conductance = numeric())}
 
     if (any(!is.na(A_elasticity$SSP))){
       L300.elasticity_SSP <- A_elasticity %>%

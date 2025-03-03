@@ -167,25 +167,9 @@ module_policy_L301.ceilings_floors <- function(command, ...) {
       L301.ceilings_floors_NA <- bind_rows(L301.ceilings_floors_NA, L301.futureEnergy)
     }
 
-    L301.ceilings_floors_NA <- L301.ceilings_floors_NA %>%
-      # Leaving grouped on purpose here
-      group_by(region, market, policy.portfolio.standard, policyType, tech_mapping ) %>%
-      # Interpolates between min and max years for each region/policy combo
-      complete(nesting(xml, region, market, policy.portfolio.standard, policyType, tech_mapping ),
-               year = seq(min(year), max(year), 5))
-
-
-    # Separate out groups with only 1 value since they get turned into NAs with approx_fun
-    L301.ceilings_floors_n1 <- L301.ceilings_floors_NA %>%
-      filter(dplyr::n() == 1) %>%
-      ungroup
-
     L301.ceilings_floors <- L301.ceilings_floors_NA %>%
-      filter(dplyr::n() > 1) %>%
-      mutate(constraint = approx_fun(year, constraint)) %>%
-      ungroup %>%
-      bind_rows(L301.ceilings_floors_n1) %>%
-      arrange(region, policyType, year) %>%
+      policy_interpolate(group_cols = c(xml, region, market, policy.portfolio.standard, policyType, tech_mapping),
+                         constraint) %>%
       left_join(policy_tech_mappings, by = "tech_mapping") %>%
       select(region, market, policy.portfolio.standard, policyType, supplysector, subsector, stub.technology, year, constraint)
 
@@ -352,13 +336,8 @@ module_policy_L301.ceilings_floors <- function(command, ...) {
       filter(variable == "pMultiplier") %>%
       gather_years(value_col = "pMultiplier") %>%
       filter(!is.na(pMultiplier)) %>%
-      # Leaving grouped on purpose here
-      group_by(region, market, policy.portfolio.standard, policyType, tech_mapping) %>%
-      # Interpolates between min and max years for each region/policy combo
-      complete(nesting(xml, region, market, policy.portfolio.standard, policyType, tech_mapping),
-               year = seq(min(year), max(year), 5)) %>%
-      mutate(pMultiplier = approx_fun(year, pMultiplier)) %>%
-      ungroup %>%
+      policy_interpolate(group_cols = c(region, market, policy.portfolio.standard, policyType, tech_mapping),
+                         value_col = pMultiplier) %>%
       left_join(policy_tech_mappings, by = "tech_mapping") %>%
       select(region, supplysector, subsector, stub.technology, res.secondary.output = policy.portfolio.standard, pMultiplier, year)
 

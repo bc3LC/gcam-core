@@ -35,15 +35,8 @@ module_policy_L344.bld_shell_size <- function(command, ...) {
     # Convert to long format and interpolate any missing years
     L344.bld_shell_size_overwrite <- A_building_shell_size %>%
       gather_years() %>%
-      na.omit() %>%
-      group_by(xml, region, gcam.consumer, variable) %>%
-      # Interpolates between min and max years in A_aeei
-      complete(nesting(xml, region, gcam.consumer, variable), year = seq(min(year), max(year), 5)) %>%
-      # If group only has one, approx_fun doesn't work, so we use this workaround
-      mutate(value_NA = as.numeric(approx_fun(year, value))) %>%
-      ungroup %>%
-      mutate(value = if_else(!is.na(value_NA), value_NA, value)) %>%
-      select(-value_NA)
+      policy_interpolate(group_cols = c(xml, region, gcam.consumer, variable),
+                         value_col = value)
 
     # Now replace shell.conductance in L244.ShellConductance_bld
     L344.bld_shell_overwrite <- L344.bld_shell_size_overwrite %>%

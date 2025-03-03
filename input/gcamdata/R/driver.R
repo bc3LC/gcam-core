@@ -458,6 +458,7 @@ driver <- function(all_data = empty_data(),
 #' @param user_modifications A list of function names which implement a user mod chunk. See vignettes/usermod_vignette.Rmd for more details and examples.
 #' @param xml_suffix A suffix to be appended at the end of all XML file name if not null.  Such a feature is
 #' useful when using \code{user_modifications} to generate alternative scenarios.
+#' @param disable_pattern Any functions containing this case-sensitive string will be disabled.
 #' @param ... Additional arguments to be forwarded on to \code{make}
 #' @return A list of all built data (or a data map tibble if requested).
 #' @importFrom magrittr "%>%"
@@ -479,6 +480,7 @@ driver_drake <- function(
   quiet = FALSE,
   user_modifications = NULL,
   xml_suffix = NULL,
+  disable_pattern = NULL,
   ...){
 
 
@@ -527,7 +529,7 @@ driver_drake <- function(
 
   if(!quiet) message("GCAM Data System v", as.character(utils::packageVersion("gcamdata")), sep = "")
 
-  chunklist <- find_chunks()
+  chunklist <- find_chunks(disable_pattern = disable_pattern)
   if(!quiet) message("Found ", nrow(chunklist), " chunks")
   chunkinputs <- chunk_inputs(chunklist$name)
   if(!quiet) message("Found ", nrow(chunkinputs), " chunk data requirements")

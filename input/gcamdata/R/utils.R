@@ -386,20 +386,23 @@ save_chunkdata <- function(chunkdata, write_inputs = FALSE, create_dirs = FALSE,
 #' These are functions with a name of "module_{modulename}_{chunkname}".
 #' @param pattern Regular expression pattern to search for
 #' @param include_disabled Return names of disabled chunks?
+#' @param disable_pattern A pattern to replace DISABLED_MODULES if included
 #' @return A data frame with fields 'name', 'module', and 'chunk'.
 #' @details If a chunk name ends with \code{_DISABLED}, by default its name
 #' will not be returned.
 #' @importFrom magrittr "%>%"
 #' @export
-find_chunks <- function(pattern = "^module_[a-zA-Z\\.]*_.*$", include_disabled = FALSE) {
+find_chunks <- function(pattern = "^module_[a-zA-Z\\.]*_.*$", include_disabled = FALSE, disable_pattern = NULL) {
 
   . <- name <- disabled <- x <- NULL    # silence notes on package check.
 
   assertthat::assert_that(is.character(pattern))
 
+  if (!is.null(disable_pattern)){ DISABLE <- disable_pattern } else { DISABLE <- DISABLED_MODULES}
+
   ls(name = parent.env(environment()), pattern = pattern) %>%
     tibble::tibble(name = .,
-                   disabled = grepl("_DISABLED$", name) | grepl(paste0("^module_.*", DISABLED_MODULES), name)) %>%
+                   disabled = grepl("_DISABLED$", name) | grepl(paste0("^module_.*", DISABLE), name)) %>%
     filter(include_disabled | !disabled) %>%
     tidyr::separate(name, into = c("x", "module", "chunk"), remove = FALSE,
                     sep = "_", extra = "merge") %>%

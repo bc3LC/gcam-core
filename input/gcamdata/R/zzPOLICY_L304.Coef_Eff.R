@@ -31,29 +31,18 @@ module_policy_L304.Coef_Eff <- function(command, ...) {
     L304.StubTechCoef <- A_Coef_Eff %>%
       filter(type == "coefficient") %>%
       gather_years(value_col = "coefficient") %>%
-      filter(!is.na(coefficient)) %>%
-      # Leaving grouped on purpose here
-      group_by(xml, region, supplysector, subsector, stub.technology, minicam.energy.input) %>%
-      # Interpolates between min and max years for each region/policy combo
-      complete(nesting(xml, region, supplysector, subsector, stub.technology, minicam.energy.input),
-               year = seq(min(year), max(year), 5)) %>%
-      mutate(coefficient = approx_fun(year, coefficient),
-             market.name = region) %>%
-      ungroup %>%
+      policy_interpolate(group_cols = c(xml, region, supplysector, subsector, stub.technology, minicam.energy.input),
+                         value_col = coefficient) %>%
+      mutate(market.name = region) %>%
       select(-type)
 
     L304.StubTechEff <- A_Coef_Eff %>%
       filter(type == "efficiency") %>%
       gather_years(value_col = "efficiency") %>%
       filter(!is.na(efficiency)) %>%
-      # Leaving grouped on purpose here
-      group_by(xml, region, supplysector, subsector, stub.technology, minicam.energy.input) %>%
-      # Interpolates between min and max years for each region/policy combo
-      complete(nesting(xml, region, supplysector, subsector, stub.technology, minicam.energy.input),
-               year = seq(min(year), max(year), 5)) %>%
-      mutate(efficiency = approx_fun(year, efficiency),
-             market.name = region) %>%
-      ungroup %>%
+      policy_interpolate(group_cols = c(xml, region, supplysector, subsector, stub.technology, minicam.energy.input),
+                         value_col = efficiency) %>%
+      mutate(market.name = region) %>%
       select(-type)
 
     # Produce outputs

@@ -35,16 +35,10 @@ module_policy_302.inputtaxsubsidy <- function(command, ...) {
 
     # Convert to long
     L302.InputTax <- A_InputTaxesSubsidies %>%
-      gather_years() %>%
+      gather_years(value_col = "input.cost") %>%
       na.omit() %>%
-      group_by(xml, region, supplysector, subsector, stub.technology, minicam.non.energy.input) %>%
-      complete(nesting(xml, region, supplysector, subsector, stub.technology, minicam.non.energy.input),
-               year = seq(min(year), max(year), 5)) %>%
-      # If group only has one, approx_fun doesn't work, so we use this workaround
-      mutate(value_NA = as.numeric(approx_fun(year, value))) %>%
-      ungroup %>%
-      mutate(input.cost = if_else(!is.na(value_NA), value_NA, value)) %>%
-      select(-value_NA, -value)
+      policy_interpolate(group_cols = c(xml, region, supplysector, subsector, stub.technology, minicam.non.energy.input),
+                         value_col = input.cost)
 
     L302.InputTranTax <- L302.InputTax %>%
       filter(grepl("^trn_", supplysector)) %>%
@@ -54,17 +48,11 @@ module_policy_302.inputtaxsubsidy <- function(command, ...) {
       filter(!grepl("^trn_", supplysector))
 
     L302.InputCapitalFCR <- A_InputCapitalFCR %>%
-      gather_years() %>%
-      mutate(value = as.numeric(value)) %>%
+      gather_years(value_col = "fixed.charge.rate") %>%
+      mutate(fixed.charge.rate = as.numeric(fixed.charge.rate)) %>%
       na.omit() %>%
-      group_by(xml, region, supplysector, subsector, stub.technology, input.capital) %>%
-      complete(nesting(xml, region, supplysector, subsector, stub.technology, input.capital),
-               year = seq(min(year), max(year), 5)) %>%
-      # If group only has one, approx_fun doesn't work, so we use this workaround
-      mutate(value_NA = as.numeric(approx_fun(year, value))) %>%
-      ungroup %>%
-      mutate(fixed.charge.rate = if_else(!is.na(value_NA), value_NA, value)) %>%
-      select(-value_NA, -value)
+      policy_interpolate(group_cols = c(xml, region, supplysector, subsector, stub.technology, input.capital),
+                         value_col = fixed.charge.rate)
 
 
     # Produce outputs

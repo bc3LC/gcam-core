@@ -46,13 +46,8 @@ module_policy_L305.FixedOutputTech <- function(command, ...) {
       select(-non.energy.input.cost, -lifetime.remove.start, -lifetime.remove.end) %>%
       gather_years(value_col = "fixedOutput") %>%
       filter(!is.na(fixedOutput)) %>%
-      # Fill in missing years
-      group_by(xml, region, supplysector, subsector, stub.technology) %>%
-      # Interpolates between min and max years for each region/policy combo
-      complete(nesting(xml, region, supplysector, subsector, stub.technology),
-               year = seq(min(year), max(year), 5)) %>%
-      mutate(fixedOutput = approx_fun(year, fixedOutput)) %>%
-      ungroup
+      policy_interpolate(group_cols = c(xml, region, supplysector, subsector, stub.technology),
+                         value_col = fixedOutput)
 
     L305.StubTechLifetime <- A_FixedOutputTech %>%
       select(xml, region, supplysector, subsector, stub.technology, lifetime.remove.start, lifetime.remove.end) %>%
@@ -153,19 +148,10 @@ module_policy_L305.FixedOutputTech <- function(command, ...) {
 
     L305.StubTranTechFixedOutput <- A_FixedOutputTranTech %>%
       select(-create.tech, -tech.copy) %>%
-      gather_years() %>%
-      filter(!is.na(value)) %>%
-      # Fill in missing years
-      group_by(xml, region, supplysector, tranSubsector, stub.technology) %>%
-      # Interpolates between min and max years for each region/policy combo
-      complete(nesting(xml, region, supplysector, tranSubsector, stub.technology),
-               year = seq(min(year), max(year), 5)) %>%
-      # If group only has one, approx_fun doesn't work, so we use this workaround
-      mutate(value_NA = as.numeric(approx_fun(year, value))) %>%
-      ungroup %>%
-      mutate(fixedOutput = if_else(!is.na(value_NA), value_NA, value)) %>%
-      select(-value_NA, -value)
-
+      gather_years(value_col = "fixedOutput") %>%
+      filter(!is.na(fixedOutput)) %>%
+      policy_interpolate(group_cols = c(xml, region, supplysector, tranSubsector, stub.technology),
+                         value_col = fixedOutput)
 
     # Produce outputs ---------------------
     L305.StubTechFixedOutput %>%

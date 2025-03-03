@@ -43,14 +43,8 @@ module_policy_L354.FuelStandards <- function(command, ...) {
       gather_years(value_col = "coefficient") %>%
       # Interpolate between years if needed
       filter(!is.na(coefficient)) %>%
-      group_by(region, supplysector, tranSubsector, stub.technology) %>%
-      complete(nesting(region, supplysector, tranSubsector, stub.technology),
-               year = seq(min(year), max(year), 5)) %>%
-      # If group only has one, approx_fun doesn't work, so we use this workaround
-      mutate(coefficient_NA = as.numeric(approx_fun(year, coefficient))) %>%
-      ungroup %>%
-      mutate(coefficient = if_else(!is.na(coefficient_NA), coefficient_NA, coefficient)) %>%
-      select(-coefficient_NA) %>%
+      policy_interpolate(group_cols = c(region, supplysector, tranSubsector, stub.technology),
+                         value_col = coefficient) %>%
       mutate(market.name = region)
 
 
@@ -72,24 +66,27 @@ module_policy_L354.FuelStandards <- function(command, ...) {
       mutate(UCD_region = if_else(region == "China", "China", UCD_region)) %>%
       select(-n)
 
-    L354.FuelStandards_revised_classes <- L354.FuelStandards_long %>%
-      filter(old_classes == 1) %>%
-      left_join_error_no_match(region_mapping, by = "region") %>%
-      # Any additional mapping needed
-      left_join(UCD_addtl_subsector_mapping, by = c("region", "tranSubsector")) %>%
-      mutate(tranSubsector = if_else(!is.na(mapped.size.class), mapped.size.class, tranSubsector)) %>%
-      select(-mapped.size.class) %>%
-      left_join(UCD_hist_data, by = c("UCD_region",
-                                      "tranSubsector" = "size.class",
-                                      "stub.technology" = "UCD_technology",
-                                      "SSP_sce" = "sce")) %>%
-      # Values of zero can cause issues, so set them to 0.001
-      mutate(value = if_else(value == 0, 0.001, value)) %>%
-      group_by(region, market.name, supplysector, rev_size.class, stub.technology, year.x, xml, SSP_sce, minicam.energy.input) %>%
-      summarise(coefficient = weighted.mean(coefficient, value)) %>%
-      ungroup %>%
-      select(region, supplysector, tranSubsector = rev_size.class, stub.technology, year = year.x, xml, SSP_sce,
-             minicam.energy.input, coefficient, market.name)
+    if (nrow(filter(L354.FuelStandards_long, old_classes == 1)) > 0){
+      L354.FuelStandards_revised_classes <- L354.FuelStandards_long %>%
+        filter(old_classes == 1) %>%
+        left_join_error_no_match(region_mapping, by = "region") %>%
+        # Any additional mapping needed
+        left_join(UCD_addtl_subsector_mapping, by = c("region", "tranSubsector")) %>%
+        mutate(tranSubsector = if_else(!is.na(mapped.size.class), mapped.size.class, tranSubsector)) %>%
+        select(-mapped.size.class) %>%
+        left_join(UCD_hist_data, by = c("UCD_region",
+                                        "tranSubsector" = "size.class",
+                                        "stub.technology" = "UCD_technology",
+                                        "SSP_sce" = "sce")) %>%
+        # Values of zero can cause issues, so set them to 0.001
+        mutate(value = if_else(value == 0, 0.001, value)) %>%
+        group_by(region, market.name, supplysector, rev_size.class, stub.technology, year.x, xml, SSP_sce, minicam.energy.input) %>%
+        summarise(coefficient = weighted.mean(coefficient, value)) %>%
+        ungroup %>%
+        select(region, supplysector, tranSubsector = rev_size.class, stub.technology, year = year.x, xml, SSP_sce,
+               minicam.energy.input, coefficient, market.name)
+    } else { L354.FuelStandards_revised_classes <- L354.FuelStandards_long[0,] %>% select(-old_classes) }
+
 
     L354.FuelStandards_new <- L354.FuelStandards_long %>%
       filter(old_classes == 0) %>%
@@ -102,10 +99,11 @@ module_policy_L354.FuelStandards <- function(command, ...) {
                year, minicam.energy.input, market.name) %>%
       summarise(coefficient = min(coefficient)) %>%
       ungroup
+
     L354.FuelStandards_max <- L354.FuelStandards_new %>%
       left_join_error_no_match(L254.StubTranTechCoef_min,
                                by = c("region", "supplysector", "tranSubsector", "stub.technology",
-                                      "minicam.energy.input", "year",  "market.name")) %>%
+                                      "minicam.energy.input", "year", "market.name")) %>%
       mutate(coefficient = pmax(coefficient.x, coefficient.y)) %>%
       select(xml, LEVEL2_DATA_NAMES[["StubTranTechCoef"]])
 
