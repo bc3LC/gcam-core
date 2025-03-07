@@ -1545,7 +1545,7 @@ module_energy_L244.building_det <- function(command, ...) {
              serv_density = if_else(grepl("coal",building.service.input),observed_base_serv_perflsp,serv_density),
              serv_density = if_else(grepl("TradBio",building.service.input),observed_base_serv_perflsp,serv_density),
              serv_density2 = serv_density,
-             coef = observed_base_serv_perflsp / serv_density*thermal_load,
+             coef = 1 / thermal_load,
              est_base_serv_perflsp = coef * thermal_load * serv_density,
              bias.adder = round(est_base_serv_perflsp-observed_base_serv_perflsp,energy.DIGITS_BIAS_ADDER))
 
@@ -1616,7 +1616,7 @@ module_energy_L244.building_det <- function(command, ...) {
              serv_density=satiation.level*(1-exp((-log(2)/`satiation-impedance`)*afford)),
              serv_density = if_else(grepl("coal",building.service.input),observed_base_serv_perflsp,serv_density),
              serv_density = if_else(grepl("TradBio",building.service.input),observed_base_serv_perflsp,serv_density),
-             coef=observed_base_serv_perflsp/(serv_density*thermal_load),
+             coef = 1 / thermal_load,
              est_base_serv_perflsp=coef*thermal_load*serv_density) %>%
       # Adjust coal and TradBio services (no coef):
       mutate(est_base_serv_perflsp = if_else(grepl("coal",building.service.input),serv_density,est_base_serv_perflsp),
@@ -1754,7 +1754,7 @@ module_energy_L244.building_det <- function(command, ...) {
              serv_density=satiation.level * (1-exp((-log(2)/`satiation-impedance`)*afford)),
              serv_density = if_else(grepl("coal",thermal.building.service.input),observed_base_serv_perflsp,serv_density),
              serv_density = if_else(grepl("TradBio",thermal.building.service.input),observed_base_serv_perflsp,serv_density),
-             coef = observed_base_serv_perflsp / (serv_density*thermal_load),
+             coef = 1 / thermal_load,
              est_base_serv_perflsp = coef * thermal_load * serv_density,
              bias.adder = round(est_base_serv_perflsp-observed_base_serv_perflsp,energy.DIGITS_BIAS_ADDER))
 
