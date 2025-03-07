@@ -179,19 +179,25 @@ double BuildingServiceFunction::calcServiceDensity( BuildingServiceInput* aBuild
                                                     const string& aRegionName,
                                                     const int aPeriod ) const
 {
-    const double PriceAdjustParam = aBasePrice - aBuildingServiceInput->getPricePaid(aRegionName, scenario->getModeltime()->getFinalCalibrationPeriod());
+/*    const double PriceAdjustParam = aBasePrice - aBuildingServiceInput->getPricePaid(aRegionName, scenario->getModeltime()->getFinalCalibrationPeriod());
 
     const double servicePrice = aBuildingServiceInput->getPricePaid(aRegionName, aPeriod);
     const double servicePriceFin = servicePrice + PriceAdjustParam;
 
-    const double cappedPrice = max(servicePriceFin, SectorUtils::getDemandPriceThreshold());
+    */ 
 
+    const double servicePrice = aBuildingServiceInput->getPricePaid(aRegionName, aPeriod);
+
+    const double cappedPrice = max(servicePrice, SectorUtils::getDemandPriceThreshold());
+
+     
+    
     const double serviceAffordability = aIncome / cappedPrice;
 
     double serviceDensity = aBuildingServiceInput->getSatiationDemandFunction()->calcDemand( serviceAffordability );
     // May need to make an adjustment in case of negative prices.
-    if(servicePriceFin < cappedPrice ) {
-        serviceDensity = SectorUtils::adjustDemandForNegativePrice( serviceDensity, servicePriceFin);
+    if(servicePrice < cappedPrice ) {
+        serviceDensity = SectorUtils::adjustDemandForNegativePrice( serviceDensity, servicePrice);
     }
     return serviceDensity;
 
