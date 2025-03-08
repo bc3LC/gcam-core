@@ -72,7 +72,7 @@ module_aglu_L100.FAO_SUA_connection_FoodWasteExtension <- function(command, ...)
         left_join_error_no_match(
           # Base year food waste
           L100.AgMIP_FoodWaste_Share_Pathway_SSP %>%
-            filter(year == MODEL_FINAL_BASE_YEAR, scenario == "gSSP2") %>% select(-year),
+            filter(year == 2015, scenario == "gSSP2") %>% select(-year),
           by = c("GCAM_commodity", "GCAM_region_ID")
         ) %>%
         transmute(GCAM_region_ID, GCAM_commodity, year, value = MKcal/1000 * (1 - WasteShare))

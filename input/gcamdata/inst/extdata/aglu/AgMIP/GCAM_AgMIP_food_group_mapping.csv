@@ -12,6 +12,7 @@ Poultry,Poultry,NonRuminant,NonRuminant,eggs,NonRuminant,Animal
 Poultry,Poultry,NonRuminant,NonRuminant,poultry,NonRuminant,Animal
 SheepGoat,SheepGoat,Ruminant,Ruminant,lamb,Ruminant,Animal
 OtherMeat_Fish,OtherMeat_Fish,OtherMeat_Fish,OtherMeat_Fish,fish,Fish,Animal
+OtherMeat_Fish,OtherMeat_Fish,OtherMeat_Fish,OtherMeat_Fish,fat_ani,Fish,Animal
 Rice,Rice,Rice,Staples,rice,Staples,Others
 Corn,Grains,Grains,Staples,grains,Staples,Others
 Wheat,Grains,Grains,Staples,grains,Staples,Others

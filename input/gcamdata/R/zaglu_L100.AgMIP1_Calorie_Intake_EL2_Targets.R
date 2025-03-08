@@ -47,18 +47,23 @@ module_aglu_L100.AgMIP1_Calorie_Intake_EL2_Targets <- function(command, ...) {
 
     # Process EL2 target raw data
     # The base year was 2020, FLX is the EL2 main scenario
+    # "fat_ani" was previously removed (seem target is zero)
+    # but also due to complications in mapping
+    # now we add it back for waste estimate. But fat is still under other meat!
     EL2_foodgrouptargets_current_population_updated %>%
       filter(Age == "all-a", Diet_scenario == "FLX",
              Unit == "kcal/d_w",
              Year == 2020,
-             !Food_group %in% c("total", "fat_ani")) %>%
+             !Food_group %in% c("total")) %>%
       transmute(measure = Measure, diet_scenario = Diet_scenario, unit = Unit,
                 food_group = Food_group, iso = tolower(Region),
                 year = Year, value = Value) %>%
       spread(measure, value) %>%
-      mutate(intake2020 = abs - chg) %>%
       # DMA (& a few regions) didn't have 2020 value
-      filter(!is.na(abs)) %>%
+      # the same is true for fat_ani, but pct = -100
+      # so zero target
+      replace_na(list(abs = 0)) %>%
+      mutate(intake2020 = abs - chg) %>% #filter(is.na(intake2020))
       rename(targetEL2 = abs) %>% select(-chg, -pct, -year) %>%
       gather(measure, value, targetEL2, intake2020) ->
       AgMIP_foodgrouptargets1

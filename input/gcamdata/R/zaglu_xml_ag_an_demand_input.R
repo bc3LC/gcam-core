@@ -147,13 +147,15 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
 
     L203.StubCalorieContent %>%
       left_join(
-        L100.AgMIP_FoodWaste_Share_Pathway_SSP %>% filter(scenario == "gSSP1") %>%
+        L100.AgMIP_FoodWaste_Share_Pathway_SSP %>%
+          filter(scenario == "gSSP1") %>%
           left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
           transmute(region, subsector = GCAM_commodity, year, WasteShare) %>%
-          mutate(WasteScaler = (1 - WasteShare) ) %>%
+          mutate(NonWasteShare = (1 - WasteShare) ) %>%
           group_by(region, subsector) %>%
-          mutate(WasteScaler = WasteScaler / WasteScaler[year == 2020]) %>%
-          ungroup %>% select(-WasteShare),
+          # 2015 was the model base year when efficiency was defined
+          mutate(WasteScaler = NonWasteShare / NonWasteShare[year == 2015]) %>%
+          ungroup %>% select(-WasteShare, -NonWasteShare),
         by = c("region", "subsector", "year")
       ) %>%
       replace_na(list(WasteScaler = 1)) %>%
@@ -186,13 +188,15 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
 
     L203.StubCalorieContent %>%
       left_join(
-        L100.AgMIP_FoodWaste_Share_Pathway_SSP %>% filter(scenario == "gSSP1") %>%
+        L100.AgMIP_FoodWaste_Share_Pathway_SSP %>%
+          filter(scenario == "gSSP1") %>%
           left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
           transmute(region, subsector = GCAM_commodity, year, WasteShare = HalfWaste2050) %>%
-          mutate(WasteScaler = (1 - WasteShare) ) %>%
+          mutate(NonWasteShare = (1 - WasteShare) ) %>%
           group_by(region, subsector) %>%
-          mutate(WasteScaler = WasteScaler / WasteScaler[year == 2020]) %>%
-          ungroup %>% select(-WasteShare),
+          # 2015 was the model base year when efficiency was defined
+          mutate(WasteScaler = NonWasteShare / NonWasteShare[year == 2015]) %>%
+          ungroup %>% select(-WasteShare, -NonWasteShare),
         by = c("region", "subsector", "year")
       ) %>%
       replace_na(list(WasteScaler = 1)) %>%

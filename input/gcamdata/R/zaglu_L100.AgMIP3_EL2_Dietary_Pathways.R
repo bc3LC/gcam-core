@@ -74,6 +74,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       DF_Macronutrient_FoodItem1
 
     # Adding NEC to L101.CropMeat_Food_Pcal_R_C_Y (GCAM base year intake)
+    # but NEC is supply not intake? does this matter?
     DF_Macronutrient_FoodItem1 %>%
       filter(GCAM_commodity == "NEC") %>%
       transmute(GCAM_region_ID, GCAM_commodity, year = 2015, value = MKcal/1000000) %>%
@@ -86,13 +87,13 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
 
     # compare GCAM base year intake with AgMIP intake and EL2 target
     GCAM_BaseData_Diet_Intake_NEC %>%
-      left_join_error_no_match(GCAM_region_names) %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       filter(year == 2015) %>%
-      left_join_error_no_match(L201.Pop_SSP2) %>%
+      left_join_error_no_match(L201.Pop_SSP2, by = c("year", "region")) %>%
       mutate(value = value / totalPop * 1000000000 /365) %>%
       left_join(
         GCAM_AgMIP_food_group_mapping %>%
-          distinct(GCAM_commodity = GCAM_food_commodities, GCAM_food_agg)) %>%
+          distinct(GCAM_commodity = GCAM_food_commodities, GCAM_food_agg), by = "GCAM_commodity") %>%
       mutate(GCAM_food_agg = if_else(is.na(GCAM_food_agg), GCAM_commodity, GCAM_food_agg)) %>%
       group_by_at(vars(-GCAM_commodity, -value)) %>%
       summarize(value = sum(value), .groups = "drop") %>%
@@ -139,6 +140,8 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
 
 
     #AgMIP_BAU_Diet2020 may need an update later!!!
+    # here, indeed, what we wanted is all near term results from an updated ref
+    # i.e., including 2025
 
     AgMIP_BAU_Diet2020 %>%
       rename(region = Region, GCAM2020_Intake = `2020`) %>%
@@ -162,34 +165,6 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       select(-totalPop)->
       BAU_Diet2020_Agg
 
-    # BY 3/2/2024: Use the same process as taking GCAM BAU Diet 2020 to get 2025 values
-    # Now, we will do the same for 2025 in the 3C Ref diet
-    Diet_3C_Ref %>%
-      filter(year == 2025) %>%
-      rename(GCAM_commodity = technology) %>%
-      left_join(
-        GCAM_AgMIP_food_group_mapping %>%
-          distinct(GCAM_commodity = GCAM_food_commodities, sector = GCAM_food_agg),
-        by = "GCAM_commodity") %>%
-      select(-scenario) %>%
-      group_by_at(vars(-value, -GCAM_commodity)) %>%
-      summarize(value = sum(value), .groups = "drop") %>%
-      rename(measure = year,
-             supplysector = sector) %>%
-      left_join_error_no_match(GCAM_region_names, by = c("region"))-> Diet_3C_Ref_Agg_Pcal_2025
-
-    Diet_3C_Ref_Agg_Pcal_2025 %>%
-      left_join(L101.Pop_thous_Scen_R_Yfut %>%
-                  filter( scenario == "gSSP1") %>%
-                  rename(totalPop = value) %>% select(-scenario) %>%
-                  left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID"),
-                by = c("region", "GCAM_region_ID", "measure" = "year")) %>%
-      mutate(value = value / totalPop * 1000000000 /365) %>%
-      select(-totalPop) %>%
-      mutate(supplysector = if_else(supplysector == "Others", "OtherCrop", supplysector),
-             measure = as.character(measure)) ->
-      Diet_3C_Ref_Agg_2025
-
     GCAM_AgMIP_Supply_Intake_base2 %>%
       left_join_error_no_match(GCAM_region_names, by = c("GCAM_region_ID", "region")) %>%
       spread(measure, value) %>%
@@ -204,37 +179,102 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       # scale GCAM 2020 values to targets using EL2_Scaler
       mutate(GCAM_TargetEL2 = GCAM2020_Intake * EL2_Scaler) ->
       GCAM_AgMIP_Supply_Intake_base3
+    ### old approach above when only 2020 was targeted  ----
+    # we will extend it to 2020 and use SSP1
+    # will update GCAM_AgMIP_Supply_Intake_base3
+
+
+    # BY 3/2/2024: Use the same process as taking GCAM BAU Diet 2020 to get 2025 values ----
+    # Now, we will do the same for both 2020 and 2025 in the 3C Ref diet
+    Diet_3C_Ref %>%
+      filter(year %in% c(2020, 2025)) %>%
+      rename(GCAM_commodity = technology) %>%
+      #distinct(GCAM_commodity) %>% pull
+      left_join(
+        GCAM_AgMIP_food_group_mapping %>%
+          distinct(GCAM_commodity = GCAM_food_commodities, sector = GCAM_food_agg),
+        by = "GCAM_commodity") %>%
+      select(-scenario) %>%
+      group_by_at(vars(-value, -GCAM_commodity)) %>%
+      summarize(value = sum(value), .groups = "drop") %>%
+      left_join_error_no_match(GCAM_region_names, by = c("region")) %>%
+      mutate(sector = replace(sector, sector == "OtherMeat_Fish", "Fish") ) ->
+      Diet_3C_Ref_Agg_Pcal_2025
+
+
+      Diet_3C_Ref_Agg_Pcal_2025 %>%
+        left_join(
+          L101.Pop_thous_Scen_R_Yfut %>%
+            filter( scenario == "gSSP1", year == 2020) %>%
+            rename(totalPop = value) %>% select(-scenario, -year) %>%
+            left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID"),
+          by = c("region", "GCAM_region_ID")
+        ) %>%
+        mutate(value = value / totalPop * 1000000000 /365) %>%
+        select(-totalPop) %>%
+        mutate(year = paste0("GCAM_intake_", year)) %>%
+        spread(year, value) ->
+        Diet_3C_Ref_Agg_2025
+
+    #* near term targets
+
+    GCAM_AgMIP_Supply_Intake_base2 %>%
+      left_join_error_no_match(GCAM_region_names, by = c("GCAM_region_ID", "region")) %>%
+      spread(measure, value) %>%
+      left_join(Diet_3C_Ref_Agg_2025, by = c("GCAM_region_ID", "sector", "region")) %>%
+      mutate(EL2_Scaler = targetEL2/intake2020,
+             GCAMBase_IntakeScaler = intake2020/GCAM_intake_2020) %>%
+      #filter(region == "Pakistan")
+      # assuming "others" in GCAM, mainly misc crops, e.g. stimulants, is fixed
+      # mutate(EL2_Scaler = if_else(sector == "Others", 1, EL2_Scaler)) %>%
+      # it won't affect anything since fish supply is unlimited
+
+      # but let's keep the targets in
+
+      # scale GCAM 2020 values to targets using EL2_Scaler
+      mutate(GCAM_TargetEL2 = GCAM_intake_2020 * EL2_Scaler) ->
+      GCAM_AgMIP_Supply_Intake_base3
+
 
     c("Staples", "Oils", "PlantProtein",
       "Sugar", "FruitsVeg", "OtherCrop",
-      "Ruminant", "NonRuminant", "Dairy", "OtherMeat_Fish", "NEC") ->
+      "Ruminant", "NonRuminant", "Dairy", "Fish", "NEC") ->
       GCAM_supplysector
 
     GCAM_AgMIP_Supply_Intake_base3 %>%
-      select(GCAM_region_ID, sector, region, GCAM2015_Intake, GCAM2020_Intake, GCAM_TargetEL2) %>%
-      gather(measure, value, GCAM2015_Intake, GCAM2020_Intake, GCAM_TargetEL2) %>%
-      mutate(sector = as.character(sector)) %>%
+      select(GCAM_region_ID, sector, region,
+             GCAM_intake_2015 = GCAM2015_Intake, GCAM_intake_2020,
+             GCAM_intake_2025, GCAM_TargetEL2) %>%
+      gather(measure, value, GCAM_intake_2015:GCAM_TargetEL2) %>%
+      mutate(sector = as.character(sector)) %>% #distinct(sector)
       # change others to OtherCrop for GCAM uses
       mutate(sector = if_else(sector == "Others", "OtherCrop", sector)) %>%
       rename(supplysector = sector) %>%
-      mutate(supplysector = factor(supplysector, levels = GCAM_supplysector)) %>%
-      # bind in 2025 values
-      bind_rows(Diet_3C_Ref_Agg_2025) ->
+      mutate(supplysector = factor(supplysector, levels = GCAM_supplysector)) ->
       GCAM_AgMIP_Supply_Intake_base4
 
 
     # GCAM_AgMIP_Supply_Intake_base4 %>%
     #   filter(supplysector != "NEC") %>%
-    #   filter(measure!= "GCAM2015_Intake") ->df
+    #   filter(!measure %in% c("GCAM_intake_2025", "GCAM_intake_2015")) -> df
     #
-    # df %>% ggplot() + facet_wrap(~supplysector, scales = "free_x", nrow = 1) +
+    #
+    # df %>%
+    #   group_by_at(vars(-value, -supplysector)) %>%
+    #   summarize(value = sum(value), .groups = "drop") %>%
+    #   mutate(supplysector = "All") %>%
+    #   bind_rows(df) -> df
+    #
+    # df %>%
+    #   ggplot() +
+    #   facet_wrap(~supplysector, scales = "free_x", nrow = 1) +
     #   geom_point(aes(x = region, y = value, fill = measure, shape = measure), size = 2 ) +
     #
     #   geom_linerange(data = df %>%
     #                    spread(measure, value) %>%
-    #                    mutate(diff = GCAM2050_EL2 - GCAM2020_Intake,
+    #                    mutate(diff = GCAM_TargetEL2 - GCAM_intake_2020,
     #                           Change = if_else(diff >=0, "Inc", "Dec")),
-    #                  aes(x = region, ymin = GCAM2020_Intake,  ymax = GCAM2050_EL2, color = Change),
+    #                  aes(x = region, ymin = GCAM_intake_2020,  ymax = GCAM_TargetEL2, color = Change),
     #                  size = 1, alpha = 0.8 ) +
     #   coord_flip() +
     #   scale_shape_manual(values = c(21, 22)) +
@@ -243,7 +283,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
     #   theme_bw() +
     #   theme(axis.text.x = element_text(angle = 45, hjust = 1)) -> p;p
     #
-    # ggsave(plot = p, "figures/GCAM_EL2IntakeShocks.png", width = 16, height = 14 )
+    # ggsave(plot = p, "figures/GCAM_EL2IntakeShocks.png", width = 18, height = 14 )
 
     # df %>%
     #   filter(GCAM_region_ID %in% c(1, 5, 11)) ->df1
@@ -253,9 +293,9 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
     #
     #   geom_linerange(data = df1 %>%
     #                    spread(measure, value) %>%
-    #                    mutate(diff = GCAM2050_EL2 - GCAM2020_Intake,
+    #                    mutate(diff = GCAM_TargetEL2 - GCAM_intake_2020,
     #                           Change = if_else(diff >=0, "Inc", "Dec")),
-    #                  aes(x = supplysector, ymin = GCAM2020_Intake,  ymax = GCAM2050_EL2, color = Change),
+    #                  aes(x = supplysector, ymin = GCAM_intake_2020,  ymax = GCAM_TargetEL2, color = Change),
     #                  size = 1, alpha = 0.8 ) +
     #   #coord_flip() +
     #   scale_shape_manual(values = c(21, 22)) +
@@ -268,23 +308,23 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
 
     #"GCAM_TargetEL2" will be different depending on interpolation year
     GCAM_AgMIP_Supply_Intake_base4_EL2_2050 <- GCAM_AgMIP_Supply_Intake_base4 %>%
-      mutate(measure = case_when(measure == "GCAM2015_Intake" ~ 2015,
-                                 measure == "GCAM2020_Intake" ~ 2020,
-                                 measure == "2025" ~ 2025,
+      mutate(measure = case_when(measure == "GCAM_intake_2015" ~ 2015,
+                                 measure == "GCAM_intake_2020" ~ 2020,
+                                 measure == "GCAM_intake_2025" ~ 2025,
                                  measure == "GCAM_TargetEL2" ~ 2050)) %>%
       arrange(GCAM_region_ID, region, supplysector, measure)
 
     GCAM_AgMIP_Supply_Intake_base4_EL2_2100 <- GCAM_AgMIP_Supply_Intake_base4 %>%
-      mutate(measure = case_when(measure == "GCAM2015_Intake" ~ 2015,
-                                 measure == "GCAM2020_Intake" ~ 2020,
-                                 measure == "2025" ~ 2025,
+      mutate(measure = case_when(measure == "GCAM_intake_2015" ~ 2015,
+                                 measure == "GCAM_intake_2020" ~ 2020,
+                                 measure == "GCAM_intake_2025" ~ 2025,
                                  measure == "GCAM_TargetEL2" ~ 2100)) %>%
       arrange(GCAM_region_ID, region, supplysector, measure)
 
     GCAM_AgMIP_Supply_Intake_base4_Static <- GCAM_AgMIP_Supply_Intake_base4 %>%
-      mutate(measure = case_when(measure == "GCAM2015_Intake" ~ 2015,
-                                 measure == "GCAM2020_Intake" ~ 2020,
-                                 measure == "2025" ~ 2025)) %>%
+      mutate(measure = case_when(measure == "GCAM_intake_2015" ~ 2015,
+                                 measure == "GCAM_intake_2020" ~ 2020,
+                                 measure == "GCAM_intake_2025" ~ 2025)) %>%
       na.omit() %>%
       arrange(GCAM_region_ID, region, supplysector, measure)
 
@@ -293,7 +333,8 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       filter(supplysector != "NEC") %>%
       distinct(GCAM_region_ID, supplysector) %>%
       repeat_add_columns(tibble(year = seq(2015, 2050,5))) %>%
-      left_join(select(GCAM_AgMIP_Supply_Intake_base4_EL2_2050, -region),  by = c("GCAM_region_ID", "supplysector", "year" = "measure")) %>%
+      left_join(select(GCAM_AgMIP_Supply_Intake_base4_EL2_2050, -region),
+                by = c("GCAM_region_ID", "supplysector", "year" = "measure")) %>%
       group_by_at(vars(-year, -value)) %>%
       mutate(value = approx_fun(year, value)) %>%
       ungroup() ->
@@ -313,7 +354,8 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       filter(supplysector != "NEC") %>%
       distinct(GCAM_region_ID, supplysector) %>%
       repeat_add_columns(tibble(year = seq(2015, 2100,5))) %>%
-      left_join(select(GCAM_AgMIP_Supply_Intake_base4_EL2_2100, -region),  by = c("GCAM_region_ID", "supplysector", "year" = "measure")) %>%
+      left_join(select(GCAM_AgMIP_Supply_Intake_base4_EL2_2100, -region),
+                by = c("GCAM_region_ID", "supplysector", "year" = "measure")) %>%
       group_by_at(vars(-year, -value)) %>%
       mutate(value = approx_fun(year, value)) %>%
       ungroup() ->
@@ -325,7 +367,8 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       filter(supplysector != "NEC") %>%
       distinct(GCAM_region_ID, supplysector) %>%
       repeat_add_columns(tibble(year = seq(2015, 2100,5))) %>%
-      left_join(select(GCAM_AgMIP_Supply_Intake_base4_Static, -region),  by = c("GCAM_region_ID", "supplysector", "year" = "measure")) %>%
+      left_join(select(GCAM_AgMIP_Supply_Intake_base4_Static, -region),
+                by = c("GCAM_region_ID", "supplysector", "year" = "measure")) %>%
       group_by_at(vars(-year, -value)) %>%
       mutate(value = approx_fun(year, value, rule = 2)) %>%
       ungroup() ->
@@ -374,7 +417,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_SSP_EL2_2050
 
     L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_SSP_EL2_2050 %>%
-      filter(year >= 2025) %>%
+      filter(year >= 2020) %>%
       select(scenario, region, energy.final.demand, year, income.elasticity) %>%
       # Taiwan and South American North has constant GDPs after 2050 per our assumptions
       # this led to inf in income elasticity
@@ -404,7 +447,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_SSP_EL2_2100
 
     L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_SSP_EL2_2100 %>%
-      filter(year >= 2025) %>%
+      filter(year >= 2020) %>%
       select(scenario, region, energy.final.demand, year, income.elasticity) %>%
       # Taiwan and South American North has constant GDPs after 2050 per our assumptions
       # this led to inf in income elasticity
@@ -433,7 +476,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_SSP_Static
 
     L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_SSP_Static %>%
-      filter(year >= 2025) %>%
+      filter(year >= 2020) %>%
       select(scenario, region, energy.final.demand, year, income.elasticity) %>%
       # Taiwan and South American North has constant GDPs after 2050 per our assumptions
       # this led to inf in income elasticity
