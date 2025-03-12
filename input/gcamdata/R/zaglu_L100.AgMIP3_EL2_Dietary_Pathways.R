@@ -202,19 +202,19 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       Diet_3C_Ref_Agg_Pcal_2025
 
 
-      Diet_3C_Ref_Agg_Pcal_2025 %>%
-        left_join(
-          L101.Pop_thous_Scen_R_Yfut %>%
-            filter( scenario == "gSSP1", year == 2020) %>%
-            rename(totalPop = value) %>% select(-scenario, -year) %>%
-            left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID"),
-          by = c("region", "GCAM_region_ID")
-        ) %>%
-        mutate(value = value / totalPop * 1000000000 /365) %>%
-        select(-totalPop) %>%
-        mutate(year = paste0("GCAM_intake_", year)) %>%
-        spread(year, value) ->
-        Diet_3C_Ref_Agg_2025
+    Diet_3C_Ref_Agg_Pcal_2025 %>%
+      left_join(
+        L101.Pop_thous_Scen_R_Yfut %>%
+          filter( scenario == "gSSP1", year %in% c(2020, 2025)) %>%
+          rename(totalPop = value) %>% select(-scenario) %>%
+          left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID"),
+        by = c("region", "year", "GCAM_region_ID")
+      ) %>%
+      mutate(value = value / totalPop * 1000000000 /365) %>%
+      select(-totalPop) %>%
+      mutate(year = paste0("GCAM_intake_", year)) %>%
+      spread(year, value) ->
+      Diet_3C_Ref_Agg_2025
 
     #* near term targets
 
