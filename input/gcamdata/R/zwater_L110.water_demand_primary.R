@@ -108,7 +108,7 @@ module_water_L110.water_demand_primary <- function(command, ...) {
     # Multiply the coefficients by the energy flow volumes of these different sectors
     # Note that the energy flow volumes are determined from processing energy balance data;
     # data on each fuel comes from a different place
-    L110.energy_flow_coal <- subset(L1012.en_bal_EJ_R_Si_Fi_Yh, sector == "TPES" & fuel == "coal") %>%
+    L110.energy_flow_coal <- subset(L1012.en_bal_EJ_R_Si_Fi_Yh, sector == energy.TPES_flow & fuel == "coal") %>%
       mutate(supplysector = "regional coal") %>%
       select(GCAM_region_ID, supplysector, year, value)
     L110.energy_flow_oil <- L121.in_EJ_R_TPES_crude_Yh %>%
@@ -128,7 +128,7 @@ module_water_L110.water_demand_primary <- function(command, ...) {
       gather_years(value_col = "efficiency") %>%
       select(supplysector = minicam.energy.input, year, efficiency) %>%
       complete(nesting(supplysector), year = HISTORICAL_YEARS) %>%
-      mutate(efficiency = approx_fun(year, efficiency)) %>%
+      mutate(efficiency = approx_fun(year, efficiency, rule = 2)) %>%
       filter(year %in% HISTORICAL_YEARS)
     L110.energy_flow_nuc <- subset(L1012.en_bal_EJ_R_Si_Fi_Yh, fuel == "elec_nuclear" & sector == "out_electricity generation") %>%
       mutate(sector = "electricity generation", fuel = "nuclear") %>%

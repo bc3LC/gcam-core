@@ -199,7 +199,12 @@ module_emissions_L241.fgas <- function(command, ...) {
       bind_rows(L241.hfc_cool_ef_update_filtered) %>%
       mutate(emiss.coeff = round(value, emissions.DIGITS_EMISSIONS),
              year = as.numeric(year)) %>%
-      select(region, supplysector, subsector, stub.technology, year, Non.CO2, emiss.coeff) ->
+      select(region, supplysector, subsector, stub.technology, year, Non.CO2, emiss.coeff) %>%
+      group_by(region, supplysector, subsector, stub.technology, Non.CO2) %>%
+      tidyr::complete(year = min(MODEL_FUTURE_YEARS)) %>%
+      mutate(emiss.coeff = approx_fun(year, emiss.coeff)) %>%
+      ungroup() %>%
+      filter(year %in% MODEL_FUTURE_YEARS) ->
       L241.hfc_future
 
     # Now subset only the relevant technologies and gases (i.e., drop ones whose values are zero in all years).

@@ -66,6 +66,7 @@ module_gcamusa_L271.nonghg_trn <- function(command, ...) {
     # Pollutant emissions for transportation technologies in all U.S. states
     # 1.1 LDV emission coefficients
     # ===================================================
+    gcamusa.TRN_EMISSION_YEARS <- MODEL_YEARS[MODEL_YEARS >=2005]
     L254.StubTranTech_USA_LDV <- L254.StubTranTech_USA %>%
       filter( supplysector %in% gcamusa.LDV_SUPPLYSECTORS ) %>%
       # this has to be a left join b/c of MARKAL to UCD mapping issues (explained below)
@@ -154,13 +155,13 @@ module_gcamusa_L271.nonghg_trn <- function(command, ...) {
     # ===================================================
     # EFs have 2005 as the earliest year. Copy 2005 values to previous base years
     L271.nonco2_trn_tech_coeff_USA <- L271.nonco2_trn_tech_coeff_USA_LDV_HDV %>%
-      filter(year == min(year) ) %>%
-      select(-year) %>%
-      repeat_add_columns(tibble::tibble(year = c(1990))) %>%
-      # rebind with dataframe that has all years
-      bind_rows( L271.nonco2_trn_tech_coeff_USA_LDV_HDV ) %>%
+      group_by(region, supplysector, tranSubsector, stub.technology, Non.CO2) %>%
+      tidyr::complete(year = MODEL_YEARS[MODEL_YEARS >= 1990]) %>%
+      mutate(emiss.coef = approx_fun(year, emiss.coef, rule = 2)) %>%
+      ungroup() %>%
       #change SO2 to SO2_1
       mutate( Non.CO2 = gsub( "SO2", "SO2_1", Non.CO2 ) )
+
 
     # Separate into base year and future year tables.
     L271.nonco2_trn_tech_coeff_USA_Yb <- L271.nonco2_trn_tech_coeff_USA %>%
@@ -199,7 +200,8 @@ module_gcamusa_L271.nonghg_trn <- function(command, ...) {
       # join with the CEDS data
       left_join( CEDS_emissions, by = c( "year", "Non.CO2" ) ) %>%
       # calculate scaling factor
-      mutate( scaling_factor = CEDS_emissions / total_emissions,
+      # guard against zero emissions which can happen for technologies that did not produce in some/all years
+      mutate( scaling_factor = if_else(total_emissions > 0, CEDS_emissions / total_emissions, 1.0),
       # multiple EF by scaling factor to get scaled EF
               emiss.coef = emiss.coef * scaling_factor ) %>%
       # CH4 and N20 become NA, which is ok because these are GHGs
@@ -222,7 +224,8 @@ module_gcamusa_L271.nonghg_trn <- function(command, ...) {
       # join with the CEDS data
       left_join( CEDS_emissions, by = c( "year", "Non.CO2" ) ) %>%
       # calculate scaling factor
-      mutate( scaling_factor = CEDS_emissions / total_emissions ) %>%
+      # guard against zero emissions which can happen for technologies that did not produce in some/all years
+      mutate( scaling_factor = if_else(total_emissions > 0, CEDS_emissions / total_emissions, 1.0) ) %>%
       # CH4 and N20 become NA, which is ok because these are GHGs
       na.omit() %>%
       # filter for the most recent year (which is the last base year) and use this factor
@@ -475,6 +478,10 @@ module_gcamusa_L271.nonghg_trn <- function(command, ...) {
     ef_col_name <- "final.emissions.coefficient"
     L271.nonco2_trn_emiss_control_USA <- replace_outlier_EFs(L271.nonco2_trn_emiss_control_USA_scaled, to_group, names, ef_col_name)
 
+    # TODO: Needs some fresh thought in conjuction with the L1 processing
+    L271.nonco2_trn_emiss_control_USA %>%
+      mutate(start.year = if_else(start.year == 2015, 2021, start.year)) ->
+      L271.nonco2_trn_emiss_control_USA
 
     # ===================================================
 
