@@ -287,13 +287,17 @@ module_socio_L100.Population_downscale_ctry <- function(command, ...) {
 
     L100.Pop_thous_SSP_ctry_Yfut <-
       L100.Pop_thous_SSP_ctry_Yfut_0 %>%
-      complete(nesting(scenario, iso), year = c(socioeconomics.FINAL_HIST_YEAR, FUTURE_YEARS)) %>%
-      filter(year %in% c(socioeconomics.FINAL_HIST_YEAR, FUTURE_YEARS)) %>%
+      # need to have socioeconomics.SSP_DB_BASEYEAR in the data as the initial point for interpolation
+      # otherwise 2021:2024 could be the same with 2025 (rule = 2 below)
+      complete(nesting(scenario, iso),
+               year = c(socioeconomics.SSP_DB_BASEYEAR:max(FUTURE_YEARS))) %>%
+      filter(year %in% c(socioeconomics.SSP_DB_BASEYEAR:max(FUTURE_YEARS))) %>%
       group_by(scenario, iso) %>%
       # Data is in five year intervals, so interpolate so get data for the base-year before calculating ratios
       mutate(pop = approx_fun(year, pop, rule = 2),
              ratio_iso_ssp = pop / pop[year == socioeconomics.FINAL_HIST_YEAR]) %>%  # Calculate population ratios to final historical year (2010), no units
       select(-pop) %>%
+      filter(year >= socioeconomics.FINAL_HIST_YEAR) %>%
       # Third, project country population values using SSP ratios and final historical year populations.
       # Not all countries in the UN data are in SSP data. Create complete tibble with all UN countries & SSP years.
       ungroup() %>%
