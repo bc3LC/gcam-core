@@ -95,7 +95,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
         GCAM_AgMIP_food_group_mapping %>%
           distinct(GCAM_commodity = GCAM_food_commodities, GCAM_food_agg), by = "GCAM_commodity") %>%
       mutate(GCAM_food_agg = if_else(is.na(GCAM_food_agg), GCAM_commodity, GCAM_food_agg)) %>%
-      group_by_at(vars(-GCAM_commodity, -value)) %>%
+      dplyr::group_by_at(vars(-GCAM_commodity, -value)) %>%
       summarize(value = sum(value), .groups = "drop") %>%
       mutate(GCAM_food_agg = factor(GCAM_food_agg,
                                     levels = rev(COMM_GCAM_food_agg))) %>%
@@ -149,7 +149,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
         GCAM_AgMIP_food_group_mapping %>%
           distinct(GCAM_commodity = GCAM_food_commodities, sector = GCAM_food_agg),
         by = "GCAM_commodity") %>%
-      group_by_at(vars(-GCAM2020_Intake, -GCAM_commodity)) %>%
+      dplyr::group_by_at(vars(-GCAM2020_Intake, -GCAM_commodity)) %>%
       summarize(GCAM2020_Intake = sum(GCAM2020_Intake), .groups = "drop") ->
       BAU_Diet2020_Agg_Pcal
 
@@ -195,7 +195,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
           distinct(GCAM_commodity = GCAM_food_commodities, sector = GCAM_food_agg),
         by = "GCAM_commodity") %>%
       select(-scenario) %>%
-      group_by_at(vars(-value, -GCAM_commodity)) %>%
+      dplyr::group_by_at(vars(-value, -GCAM_commodity)) %>%
       summarize(value = sum(value), .groups = "drop") %>%
       left_join_error_no_match(GCAM_region_names, by = c("region")) %>%
       mutate(sector = replace(sector, sector == "OtherMeat_Fish", "Fish") ) ->
@@ -260,7 +260,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
     #
     #
     # df %>%
-    #   group_by_at(vars(-value, -supplysector)) %>%
+    #   dplyr::group_by_at(vars(-value, -supplysector)) %>%
     #   summarize(value = sum(value), .groups = "drop") %>%
     #   mutate(supplysector = "All") %>%
     #   bind_rows(df) -> df
@@ -335,7 +335,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       repeat_add_columns(tibble(year = seq(2015, 2050,5))) %>%
       left_join(select(GCAM_AgMIP_Supply_Intake_base4_EL2_2050, -region),
                 by = c("GCAM_region_ID", "supplysector", "year" = "measure")) %>%
-      group_by_at(vars(-year, -value)) %>%
+      dplyr::group_by_at(vars(-year, -value)) %>%
       mutate(value = approx_fun(year, value)) %>%
       ungroup() ->
       GCAM_AgMIP_Supply_Intake_base5_EL2_2050
@@ -356,7 +356,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       repeat_add_columns(tibble(year = seq(2015, 2100,5))) %>%
       left_join(select(GCAM_AgMIP_Supply_Intake_base4_EL2_2100, -region),
                 by = c("GCAM_region_ID", "supplysector", "year" = "measure")) %>%
-      group_by_at(vars(-year, -value)) %>%
+      dplyr::group_by_at(vars(-year, -value)) %>%
       mutate(value = approx_fun(year, value)) %>%
       ungroup() ->
       GCAM_AgMIP_Supply_Intake_base6_EL2_2100
@@ -369,7 +369,7 @@ module_aglu_L100.AgMIP3_EL2_Dietary_Pathways <- function(command, ...) {
       repeat_add_columns(tibble(year = seq(2015, 2100,5))) %>%
       left_join(select(GCAM_AgMIP_Supply_Intake_base4_Static, -region),
                 by = c("GCAM_region_ID", "supplysector", "year" = "measure")) %>%
-      group_by_at(vars(-year, -value)) %>%
+      dplyr::group_by_at(vars(-year, -value)) %>%
       mutate(value = approx_fun(year, value, rule = 2)) %>%
       ungroup() ->
       GCAM_AgMIP_Supply_Intake_base6_Static

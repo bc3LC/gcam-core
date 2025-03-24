@@ -216,7 +216,7 @@ module_aglu_L202.an_input <- function(command, ...) {
       mutate(technology = subresource,
              share.weight = 1.0) %>%
       select(LEVEL2_DATA_NAMES[["ResTechShrwt"]]) ->
-    L202.ResTechShrwt
+      L202.ResTechShrwt
 
     # L202.UnlimitedRenewRsrcCurves
     A_agUnlimitedRsrcCurves %>%
@@ -298,6 +298,7 @@ module_aglu_L202.an_input <- function(command, ...) {
              tech.share.weight = if_else(calOutputValue > 0, 1, 0)) %>%
       select(LEVEL2_DATA_NAMES[["StubTechProd"]]) ->
       L202.StubTechProd_in
+
 
     # L202.Supplysector_an: generic animal production supplysector info (159-162)
     A_an_supplysector %>%
@@ -527,9 +528,9 @@ module_aglu_L202.an_input <- function(command, ...) {
     L202.an_nonFeedCost_R_C_0 %>%
       group_by(region, GCAM_commodity, system) %>%
       mutate(Prod_Mt_sys = sum(Prod_Mt),
-                SalesRevenue_bilUSD_sys = sum(SalesRevenue_bilUSD),
-                FeedCost_bilUSD_sys = sum(FeedCost_bilUSD),
-                nonFeedCost_bilUSD_sys = SalesRevenue_bilUSD_sys - FeedCost_bilUSD_sys) %>%
+             SalesRevenue_bilUSD_sys = sum(SalesRevenue_bilUSD),
+             FeedCost_bilUSD_sys = sum(FeedCost_bilUSD),
+             nonFeedCost_bilUSD_sys = SalesRevenue_bilUSD_sys - FeedCost_bilUSD_sys) %>%
       mutate(nonFeedCost = if_else(Prod_Mt == 0, 0, nonFeedCost_bilUSD_sys / Prod_Mt_sys),
              nonFeedCost_FeedCropsOnly = if_else(Prod_Mt == 0, 0, nonFeedCost_bilUSD_sys / Prod_Mt[feed == "FeedCrops"]) ) %>%
       ungroup() ->
@@ -585,7 +586,7 @@ module_aglu_L202.an_input <- function(command, ...) {
       # linear interpolation to 0 in the last year
       mutate(nonFeedCost = if_else(year > MODEL_FINAL_BASE_YEAR, NA_real_, nonFeedCost),
              nonFeedCost = if_else(year >= Zero_Cost_year, 0, nonFeedCost)) %>%
-      group_by_at(vars(-year, -nonFeedCost)) %>%
+      dplyr::group_by_at(vars(-year, -nonFeedCost)) %>%
       mutate(nonFeedCost = approx_fun(year, nonFeedCost, rule = 1)) %>%
       ungroup() %>%
       # bind rows with positive nonFeedCost
@@ -600,6 +601,7 @@ module_aglu_L202.an_input <- function(command, ...) {
       repeat_add_columns(tibble(year = MODEL_YEARS)) %>%
       repeat_add_columns(GCAM_region_names) %>%
       filter(!region %in% aglu.NO_AGLU_REGIONS) %>%
+      filter(!minicam.energy.input %in% c("regional industrial_roundwood")) %>%
       mutate(stub.technology = technology,
              minicam.non.energy.input = "non-feed") %>%
       left_join_error_no_match(L202.an_nonFeedCost_R_C_4,
@@ -607,7 +609,6 @@ module_aglu_L202.an_input <- function(command, ...) {
       mutate(input.cost = round(nonFeedCost, aglu.DIGITS_CALPRICE)) %>%
       select(LEVEL2_DATA_NAMES[["StubTechCost"]]) ->
       L202.StubTechCost_an
-
 
     # Remove any regions for which agriculture and land use are not modeled (308-320)
     # Also, remove DDGS and feedcake subsectors and technologies in regions where these commodities are not available

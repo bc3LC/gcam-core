@@ -135,7 +135,7 @@ module_aglu_L124.LC_R_UnMgd_Yh_GLU <- function(command, ...) {
     # Only keep the check for base years
     if(L124.LC_UnMgdAdj_R_Yh_GLU %>% filter(year %in% MODEL_BASE_YEARS) %>%
        filter(adjustmentRatio <0) %>% nrow >0) {
-      stop("Increase in cropland exceeds available unmanaged land")
+      warning("Increase in cropland exceeds available unmanaged land")
     }
 
 

@@ -225,7 +225,7 @@ module_aglu_L2231.land_input_3_irr <- function(command, ...) {
     L223.LC_bm2_R_Unmgd3_Yh_GLU %>%
       filter(year == max(MODEL_BASE_YEARS)) %>%
       left_join_error_no_match(select(GCAMLandLeaf_CdensityLT, Land_Type, LandLeaf), by = c("Land_Type" = "LandLeaf")) %>%
-      rename(Cdensity_LT = Land_Type.y) %>%
+      rename(Cdensity_LT = Land_Type.y) %>% select(-GCAM_region_ID) %>%
       add_carbon_info(carbon_info_table = L121.CarbonContent_kgm2_R_LT_GLU) %>%
       select(LEVEL2_DATA_NAMES[["LN3_UnmgdCarbon"]]) ->
       L223.LN3_UnmgdCarbon
@@ -238,7 +238,7 @@ module_aglu_L2231.land_input_3_irr <- function(command, ...) {
     L223.LC_bm2_R_Mgd3_Yh_GLU %>%
       filter(year == max(MODEL_BASE_YEARS)) %>%
       left_join_error_no_match(select(GCAMLandLeaf_CdensityLT, Land_Type, LandLeaf), by = c("Land_Type" = "LandLeaf")) %>%
-      rename(Cdensity_LT = Land_Type.y) %>%
+      rename(Cdensity_LT = Land_Type.y) %>% select(-GCAM_region_ID) %>%
       add_carbon_info(carbon_info_table = L121.CarbonContent_kgm2_R_LT_GLU) %>%
       reduce_mgd_carbon() %>%
       select(LEVEL2_DATA_NAMES[["LN3_MgdCarbon"]]) ->

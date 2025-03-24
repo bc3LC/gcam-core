@@ -89,7 +89,7 @@ module_aglu_L100.AgMIP2_Food_Waste_Pathways <- function(command, ...) {
                 by = "GCAM_commodity") %>%
       # keep NEC
       mutate(GCAM_food_agg = if_else(is.na(GCAM_food_agg), GCAM_commodity, GCAM_food_agg)) %>%
-      group_by_at(vars(-GCAM_commodity, -value)) %>%
+      dplyr::group_by_at(vars(-GCAM_commodity, -value)) %>%
       summarize(value = sum(value), .groups = "drop") %>%
       mutate(GCAM_food_agg = factor(GCAM_food_agg,
                                     levels = rev(COMM_GCAM_food_agg))) %>%
@@ -144,7 +144,7 @@ module_aglu_L100.AgMIP2_Food_Waste_Pathways <- function(command, ...) {
 
     # quick global check
     GCAM_AgMIP_Supply_Intake2020 %>% #filter(GCAM_region_ID == 11) %>%
-      group_by_at(vars(-region, -GCAM_region_ID, -sector, -value)) %>%
+      dplyr::group_by_at(vars(-region, -GCAM_region_ID, -sector, -value)) %>%
       summarize(value = sum(value), .groups = "drop") %>%
       spread(measure, value) %>%
       mutate(
@@ -158,7 +158,7 @@ module_aglu_L100.AgMIP2_Food_Waste_Pathways <- function(command, ...) {
     # Our supply matches FAOSTAT (~3284)! so 30.6% waste share for China
 
     GCAM_AgMIP_Supply_Intake2020 %>%
-      group_by_at(vars(-sector, -value)) %>%
+      dplyr::group_by_at(vars(-sector, -value)) %>%
       summarize(value = sum(value), .groups = "drop") %>%
       spread(measure, value) %>%
       mutate(
@@ -189,7 +189,7 @@ module_aglu_L100.AgMIP2_Food_Waste_Pathways <- function(command, ...) {
       mutate(sector = if_else(sector %in% c("OtherMeat_Fish"), "Fish", sector)) %>%
       mutate(sector = if_else(sector %in% c("NEC", "Others"), "OtherNEC", sector)) %>%
       #mutate(sector = if_else(sector %in% c("NEC", "Others", "Fish", "OtherMeat_Fish"), "OtherNEC", sector)) %>%
-      group_by_at(vars(-value)) %>% summarize(value = sum(value),.groups = "drop") %>%
+      dplyr::group_by_at(vars(-value)) %>% summarize(value = sum(value),.groups = "drop") %>%
       filter(GCAM_region_ID != 30) %>%
       spread(measure, value) %>%
       mutate(WasteShare = 1- intake2020/FAO2020_Supply) ->

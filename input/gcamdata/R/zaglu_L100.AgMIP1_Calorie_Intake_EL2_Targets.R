@@ -81,7 +81,7 @@ module_aglu_L100.AgMIP1_Calorie_Intake_EL2_Targets <- function(command, ...) {
       left_join(L100.Pop_2020, by = "iso") %>%
       # remove agg regions or small ones
       filter(!is.na(GCAM_region_ID)) %>%
-      group_by_at(vars(-iso, -weight, -value)) %>%
+      dplyr:::group_by_at(vars(-iso, -weight, -value)) %>%
       summarize(value = weighted.mean(w = weight, value), .groups = "drop") ->
       AgMIP_foodgrouptargets2
 
@@ -109,7 +109,7 @@ module_aglu_L100.AgMIP1_Calorie_Intake_EL2_Targets <- function(command, ...) {
       left_join_error_no_match(
         GCAM_AgMIP_food_group_mapping %>%
           distinct(food_group = AgMIP_food_group, AgMIP_food_group_agg), by = "food_group") %>%
-      group_by_at(vars(-food_group, -value)) %>%
+      dplyr::group_by_at(vars(-food_group, -value)) %>%
       summarize(value = sum(value), .groups = "drop") %>%
       mutate(AgMIP_food_group_agg = factor(AgMIP_food_group_agg,
                                            levels = rev(COMM_AgMIP_food_group_agg))) %>%

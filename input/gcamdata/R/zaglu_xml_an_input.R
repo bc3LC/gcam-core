@@ -35,9 +35,6 @@ module_aglu_an_input_xml <- function(command, ...) {
       "L202.StubTechProd_an",
       "L202.StubTechCoef_an",
       "L202.StubTechCost_an",
-       "L202.StubTechCost_For_proc",
-      "L202.StubTechProd_in_Forest",
-      "L202.StubTechProd_in_pulp_energy",
       # Use new IMAGE data for livestock productivity growth ----
       FILE = "aglu/IMAGE/GCAM_IMAGE_region_mapping",
       FILE = "aglu/IMAGE/IMAGE_an_feed_bySystem",
@@ -49,7 +46,7 @@ module_aglu_an_input_xml <- function(command, ...) {
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
-    } else if(command == driver.DECLARE_OUTPUTS) {
+  } else if(command == driver.DECLARE_OUTPUTS) {
     return(MODULE_OUTPUTS)
   } else if(command == driver.MAKE) {
 
@@ -137,7 +134,7 @@ module_aglu_an_input_xml <- function(command, ...) {
 
       IMAGE_IO_GrowthRate %>%
         #filter(IMAGE_region == "Northern Africa", subsector == "Mixed") %>%
-        group_by_at(vars(-year, -GrowthRate)) %>%
+        dplyr::group_by_at(vars(-year, -GrowthRate)) %>%
         # setting a min value of the change in IO growth
         # IO coef should be monotonically decreasing
         mutate(g = GrowthRate / lag(GrowthRate),
@@ -204,7 +201,6 @@ module_aglu_an_input_xml <- function(command, ...) {
       add_xml_data(L202.StubTechProd_an, "StubTechProd") %>%
       add_xml_data(L202.StubTechCoef_an, "StubTechCoef") %>%
       add_xml_data(L202.StubTechCost_an, "StubTechCost") %>%
-      add_xml_data(L202.StubTechCost_For_proc, "StubTechCost") %>%
       add_precursors(MODULE_OUTPUTS) ->
       an_input.xml
 

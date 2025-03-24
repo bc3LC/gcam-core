@@ -258,7 +258,7 @@ module_aglu_L2252.land_input_5_irr_mgmt <- function(command, ...) {
     L171.ag_EcYield_kgm2_R_C_Y_GLU %>%
       rename(yield = value) %>%
       left_join_error_no_match(GCAMLandLeaf_CdensityLT, by = c("GCAM_subsector" = "LandLeaf")) %>%
-      rename(Cdensity_LT = Land_Type) %>%
+      rename(Cdensity_LT = Land_Type) %>% select(-GCAM_region_ID) %>%
       add_carbon_info(carbon_info_table = L121.CarbonContent_kgm2_R_LT_GLU) %>%
       # Replacing missing values in places with harvested area and production but no assigned cropland
       # If regions have harvested area and production but no cropland assigned in Hyde, we take "unmanaged" land and re-assign it to cropland.
@@ -304,7 +304,7 @@ module_aglu_L2252.land_input_5_irr_mgmt <- function(command, ...) {
       select(region, AgProductionTechnology, yield) %>%
       separate(AgProductionTechnology, c("GCAM_subsector", "GLU", "Irr_Rfd", "level")) %>%
       left_join_error_no_match(GCAMLandLeaf_CdensityLT, by = c("GCAM_subsector" = "LandLeaf")) %>%
-      rename(Cdensity_LT = Land_Type) %>%
+      rename(Cdensity_LT = Land_Type) %>% select(-GCAM_region_ID) %>%
       add_carbon_info(carbon_info_table = L121.CarbonContent_kgm2_R_LT_GLU) %>%
       # There may missing values, where the assigned land type (LT) from which to get the carbon content didn't actually exist. Re-set to defaults.
       mutate(soil.carbon.density = if_else(is.na(soil.carbon.density), mean(soil.carbon.density, na.rm = TRUE), soil.carbon.density),
