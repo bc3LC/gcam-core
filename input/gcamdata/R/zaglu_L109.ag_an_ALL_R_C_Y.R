@@ -568,13 +568,14 @@ module_aglu_L109.ag_an_ALL_R_C_Y <- function(command, ...) {
       # reduce import and export both by the same (GrossExp_Mt - Prod_Mt)
       mutate(GrossImp_Mt = if_else(GrossExp_Mt > Prod_Mt,
                                    GrossImp_Mt - (GrossExp_Mt - Prod_Mt),GrossImp_Mt),
+             GrossImp_Mt = if_else(GrossImp_Mt < 0, 0, GrossImp_Mt),
              GrossExp_Mt = if_else(GrossExp_Mt > Prod_Mt,
                                    Prod_Mt, GrossExp_Mt)) ->
       L109.ag_ALL_Mt_R_C_Y_b
 
     # remove trade adj for a special case to avoid negative trade values
     # two cases added for now
-    L109.ag_ALL_Mt_R_C_Y %>%
+    L109.ag_ALL_Mt_R_C_Y_a %>%
       filter((year == 1975 & GCAM_region_ID == 10 & GCAM_commodity == "Soybean") |
                (year == 1975 & GCAM_region_ID == 18 & GCAM_commodity == "OtherGrain") |
                (year == 2021 & GCAM_region_ID == 8 & GCAM_commodity == "Legumes")) %>%
@@ -587,7 +588,7 @@ module_aglu_L109.ag_an_ALL_R_C_Y <- function(command, ...) {
       L109.ag_ALL_Mt_R_C_Y
 
     if(any(filter(L109.ag_ALL_Mt_R_C_Y, year %in% MODEL_BASE_YEARS)$GrossImp_Mt < 0)){
-      warning("Negative trade values.") }
+      stop("Negative trade values.") }
 
     ## 3.2 livestock
 
