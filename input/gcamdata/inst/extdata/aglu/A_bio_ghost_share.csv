@@ -6,13 +6,11 @@
 # Column types: icn 
 # ----------
 year,preference,ghost.share
-2020,High,0
-2025,High,0.01
-2035,High,0.035
+2030,High,0.01
+2040,High,0.035
 2050,High,0.075
 2100,High,0.075
-2020,Low,0
-2025,Low,0.01
-2035,Low,0.01
+2030,Low,0.01
+2040,Low,0.01
 2050,Low,0.02
 2100,Low,0.02

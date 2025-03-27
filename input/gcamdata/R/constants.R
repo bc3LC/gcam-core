@@ -219,7 +219,7 @@ aglu.DEFLATOR_BASE_YEAR     <- MODEL_FINAL_BASE_YEAR      # year used as the bas
 aglu.FALLOW_YEARS           <- 2020:2022 # Years used for calculating the % of fallow land
 aglu.AGLU_HISTORICAL_YEARS  <- 1973:MODEL_FINAL_BASE_YEAR
 aglu.BASE_YEAR_IFA          <- 2006       # Base year of International Fertilizer Industry Association (IFA) fertilizer application data
-aglu.BIO_START_YEAR         <- 2025       # Also set in aglu/A_bio_ghost_share
+aglu.BIO_START_YEAR         <- 2030       # Also set in aglu/A_bio_ghost_share
 aglu.CROSIT_HISTORICAL_YEAR <- 2005       # Historical year from the CROSIT data
 aglu.FAO_LDS_YEARS          <- 1998:2002  # Years for which FAO harvested area data is averaged over for use in the land data system (LDS)
 aglu.GTAP_HISTORICAL_YEAR   <- 2000       # Is the year that the GTAP data is based on.
