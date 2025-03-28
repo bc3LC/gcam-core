@@ -1,0 +1,30 @@
+# File: GCAM_AgMIP_food_group_mapping.csv
+# Title: GCAM AgMIP food mapping
+# Units: NA
+# Description: Maps GCAM food commodities to AgMIP commodities
+# Column types: ccccccc
+# ----------
+GCAM_food_commodities,GCAM_food_agg0,GCAM_food_agg1,GCAM_food_agg,AgMIP_food_group,AgMIP_food_group_agg,WasteSector
+Beef,Beef,Ruminant,Ruminant,beef,Ruminant,Animal
+Dairy,Dairy,Dairy,Dairy,milk,Dairy,Animal
+Pork,Pork,NonRuminant,NonRuminant,pork,NonRuminant,Animal
+Poultry,Poultry,NonRuminant,NonRuminant,eggs,NonRuminant,Animal
+Poultry,Poultry,NonRuminant,NonRuminant,poultry,NonRuminant,Animal
+SheepGoat,SheepGoat,Ruminant,Ruminant,lamb,Ruminant,Animal
+OtherMeat_Fish,OtherMeat_Fish,OtherMeat_Fish,OtherMeat_Fish,fish,Fish,Animal
+OtherMeat_Fish,OtherMeat_Fish,OtherMeat_Fish,OtherMeat_Fish,fat_ani,Fish,Animal
+Rice,Rice,Rice,Staples,rice,Staples,Others
+Corn,Grains,Grains,Staples,grains,Staples,Others
+Wheat,Grains,Grains,Staples,grains,Staples,Others
+OtherGrain,Grains,Grains,Staples,grains,Staples,Others
+RootTuber,RootTuber,RootTuber,Staples,roots,Staples,Others
+Fruits,FruitsVeg,FruitsVeg,FruitsVeg,fruit_veg,FruitsVeg,FruitsVeg
+Vegetables,FruitsVeg,FruitsVeg,FruitsVeg,fruit_veg,FruitsVeg,FruitsVeg
+SugarCrop,SugarCrop,Sugar,Sugar,sugar,Sugar,Others
+NutsSeeds,NutsSeeds,PlantProtein,PlantProtein,nuts_seeds,PlantProtein,Others
+Legumes,Legumes,PlantProtein,PlantProtein,legumes,PlantProtein,Others
+Soybean,Oils,Oils,Oils,oils,Oils,Others
+FiberCrop,Oils,Oils,Oils,oils,Oils,Others
+OilCrop,Oils,Oils,Oils,oils,Oils,Others
+OilPalm,Oils,Oils,Oils,oils,Oils,Others
+MiscCrop,MiscCrop,Others,Others,other,Others,Others

@@ -25,7 +25,13 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       "FAO_AgProd_Kt_All",
       "FAO_AgArea_Kha_All",
       "FAO_Food_Macronutrient_All",
-      "FAO_Food_MacronutrientRate_MaxValue")
+      "FAO_Food_MacronutrientRate_MaxValue",
+
+      # adding waste model files needed
+      FILE = "aglu/A_demand_food_staples",
+      FILE = "aglu/A_demand_food_nonstaples",
+      FILE = "aglu/AgMIP/AgMIP_SectoralWasteShare_agg_updated_future_SSP",
+      FILE = "aglu/AgMIP/GCAM_AgMIP_food_group_mapping")
 
   MODULE_OUTPUTS <-
     c("L100.FAO_SUA_APE_balance",
@@ -36,10 +42,14 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       "L101.an_Prod_Mt_ctry_C_Y",
       "L101.ag_Food_Mt_R_C_Y",
       "L101.an_Food_Mt_R_C_Y",
-      "L101.CropMeat_Food_Pcal_R_C_Y",
       "L101.ag_Feed_Mt_R_C_Y",
       "L101.GrossTrade_Mt_R_C_Y",
-      "L101.ag_Storage_Mt_R_C_Y")
+      "L101.ag_Storage_Mt_R_C_Y",
+      "L100.demand_food_staples",
+      "L100.demand_food_nonstaples",
+      "L101.CropMeat_Food_Pcal_R_C_Y",
+      "L100.AgMIP_FoodWaste_Share_Pathway_SSP")
+
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -339,8 +349,6 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       DF_Macronutrient_FoodItem4 %>%
       transmute(GCAM_region_ID, GCAM_commodity, year, value = MKcal/1000)
 
-    rm(list = ls(pattern = "DF_Macronutrient_FoodItem*"))
-
 
     # 4. Feed and trade ----
 
@@ -436,7 +444,97 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       L101.ag_Storage_Mt_R_C_Y
 
 
+    # 6. Food waste model (optional; ON by default) ----
 
+    # If FoodWasteModel == TRUE, income elasticity will be updated (lower) and food calorie intake is represented
+    # Note that food waste pathway will be needed in configuration & aglu_ag_an_demand_input_xml
+    FoodWasteModel = TRUE
+
+
+    ## 6.1 If false the following will be carried forward ----
+    # the original food demand model representing calorie availability is used
+    A_demand_food_staples -> L100.demand_food_staples
+    A_demand_food_nonstaples -> L100.demand_food_nonstaples
+
+    # And this one will be updated if factoring in waste
+    L101.CropMeat_Food_Pcal_R_C_Y -> L101.CropMeat_Food_Pcal_R_C_Y
+
+
+    ## 6.2  if TRUE, the original food demand model parameter will be updated (in this chunk!)
+
+    ## 6.2.1 Map aggregated waste sectors back to GCAM sectors and update SSP1 ----
+    # Note that the scenarios are currently purely differentiated by pc GDP
+    # We will update SSP1 to have lower waste, e.g., converging to 25% by 2070
+
+    GCAM_AgMIP_food_group_mapping %>%
+      select(GCAM_commodity = GCAM_food_commodities, WasteSector) %>%
+      distinct() %>%
+      full_join(
+        # 2010 and all late years are include
+        AgMIP_SectoralWasteShare_agg_updated_future_SSP,
+        by = "WasteSector"
+      ) %>% select(-WasteSector) ->
+      L100.AgMIP_FoodWaste_Share_Pathway_SSP_0
+
+
+    L100.AgMIP_FoodWaste_Share_Pathway_SSP_0 %>%
+      spread(scenario, WasteShare) %>%
+      filter(year <= 2025) %>%
+      mutate(SSP1_LowWaste = SSP1) %>%
+      bind_rows(
+        L100.AgMIP_FoodWaste_Share_Pathway_SSP_0 %>%
+          spread(scenario, WasteShare) %>%
+          filter(year > 2025) %>%
+          group_by(GCAM_region_ID, GCAM_commodity) %>%
+          mutate(SSP1_LowWaste = pmin(SSP1, SSP2, SSP3, SSP4, SSP5)) %>%
+          mutate(SSP1_LowWaste = if_else(year >= 2070 & SSP1_LowWaste[year ==2070] > 0.25,
+                                         0.25, SSP1_LowWaste),
+                 SSP1_LowWaste = if_else(year < 2070 & SSP1_LowWaste[year ==2070] == 0.25,
+                                         NA_real_, SSP1_LowWaste ) ) %>% ungroup
+      ) %>%
+      group_by(GCAM_region_ID, GCAM_commodity) %>%
+      mutate(SSP1_LowWaste = approx_fun(year, SSP1_LowWaste)) %>%
+      ungroup() %>%
+      select(-SSP1) %>%
+      rename(SSP1 = SSP1_LowWaste) %>%
+      gather(scenario, WasteShare, -GCAM_region_ID, -year, -GCAM_commodity) ->
+      L100.AgMIP_FoodWaste_Share_Pathway_SSP
+
+
+    ### 6.2.2 Food waste model  ----
+
+    if (FoodWasteModel == TRUE) {
+
+      L100.demand_food_staples %>% mutate(income.elesticity = 0.03) ->
+        L100.demand_food_staples
+      L100.demand_food_nonstaples%>% mutate(income.elesticity = 0.33) ->
+        L100.demand_food_nonstaples
+
+      # Note that we didn't derive historical waste shares so applying last base year values
+      # 2021 (MODEL_FINAL_BASE_YEAR) has the same base values so use SSP2 here
+      # L101.CropMeat_Food_Pcal_R_C_Y is now only intake
+      L101.CropMeat_Food_Pcal_R_C_Y <-
+        DF_Macronutrient_FoodItem4 %>%
+        left_join_error_no_match(
+          # Base year food waste
+          L100.AgMIP_FoodWaste_Share_Pathway_SSP %>%
+            filter(year == MODEL_FINAL_BASE_YEAR, scenario == "SSP2") %>%
+            select(-year),
+          by = c("GCAM_commodity", "GCAM_region_ID")
+        ) %>%
+        transmute(GCAM_region_ID, GCAM_commodity, year, value = MKcal/1000 * (1 - WasteShare))
+
+      ##* L101.ag_Food_Pcal_R_C_Y_WithWaste ----
+      L101.CropMeat_Food_Pcal_R_C_Y_WithWaste <-
+        DF_Macronutrient_FoodItem4 %>%
+        transmute(GCAM_region_ID, GCAM_commodity, year, value = MKcal/1000)
+
+    }
+
+    # Add region names for later waste scenario processing
+    L100.AgMIP_FoodWaste_Share_Pathway_SSP %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") ->
+      L100.AgMIP_FoodWaste_Share_Pathway_SSP
 
     # Produce outputs ----
     #********************************* ----
@@ -501,15 +599,6 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
                      "FAO_Food_MacronutrientRate_MaxValue") ->
       L101.ag_Food_Mt_R_C_Y
 
-    L101.CropMeat_Food_Pcal_R_C_Y %>%
-      add_title("FAO food calories consumption by GCAM region, commodity, and year") %>%
-      add_units("Pcal") %>%
-      add_comments("Aggregates FAO data by GCAM region, commodity, and year") %>%
-      add_comments("Data is also converted from tons to Pcal") %>%
-      add_legacy_name("L101.CropMeat_Food_Pcal_R_C_Y") %>%
-      same_precursors_as(L101.ag_Food_Mt_R_C_Y) ->
-      L101.CropMeat_Food_Pcal_R_C_Y
-
     L101.an_Food_Mt_R_C_Y %>%
       add_title("Animal consumption by GCAM region / commodity / year") %>%
       add_units("Mt") %>%
@@ -549,6 +638,37 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
                      "aglu/A_agStorageSector") ->
       L101.ag_Storage_Mt_R_C_Y
 
+    L100.demand_food_staples %>%
+      add_title("Food demand parameters for staple food") %>%
+      add_units("NA") %>%
+      add_comments("Income elasticity is updated if food waste is modeled") %>%
+      add_legacy_name("L100.demand_food_staples") %>%
+      add_precursors("aglu/A_demand_food_staples") ->
+      L100.demand_food_staples
+
+    L100.demand_food_nonstaples %>%
+      add_title("Food demand parameters for nonstaple food") %>%
+      add_units("NA") %>%
+      add_comments("Income elasticity is updated if food waste is modeled") %>%
+      add_legacy_name("L100.demand_food_nonstaples") %>%
+      add_precursors("aglu/A_demand_food_nonstaples") ->
+      L100.demand_food_nonstaples
+
+    L101.CropMeat_Food_Pcal_R_C_Y %>%
+      add_title("FAO food calories intake / consumption by GCAM region, commodity, and year") %>%
+      add_units("Pcal") %>%
+      add_comments("Aggregates FAO data by GCAM region, commodity, and year") %>%
+      add_comments("Data is also converted from tons to Pcal") %>%
+      add_legacy_name("L101.CropMeat_Food_Pcal_R_C_Y") %>%
+      same_precursors_as(L101.ag_Food_Mt_R_C_Y) ->
+      L101.CropMeat_Food_Pcal_R_C_Y
+
+    L100.AgMIP_FoodWaste_Share_Pathway_SSP %>%
+      add_title("Food waste share in base data and future pathways across SSPs") %>%
+      add_units("NA") %>%
+      add_comments("Generated based on AgMIP intake data and FAO supply data, and cross-sectional relationship between per capital income and waste share") %>%
+      add_precursors("aglu/AgMIP/GCAM_AgMIP_food_group_mapping", "aglu/AgMIP/AgMIP_SectoralWasteShare_agg_updated_future_SSP") ->
+      L100.AgMIP_FoodWaste_Share_Pathway_SSP
 
     # Done & return data----
     return_data(MODULE_OUTPUTS)
