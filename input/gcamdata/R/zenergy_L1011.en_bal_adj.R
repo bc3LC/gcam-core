@@ -25,6 +25,7 @@ module_energy_L1011.en_bal_adj <- function(command, ...) {
              FILE = "energy/EIA_TOT_intlship_kbbld",
              FILE = "energy/mappings/EIA_ctry",
              FILE = "energy/A22.globaltech_coef",
+             "L101.in_EJ_ctry_trn_Fi_Yh",
              "L101.en_bal_EJ_R_Si_Fi_Yh_full"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L1011.en_bal_EJ_R_Si_Fi_Yh",
@@ -47,6 +48,7 @@ module_energy_L1011.en_bal_adj <- function(command, ...) {
     EIA_ctry <- get_data(all_data, "energy/mappings/EIA_ctry")
     A22.globaltech_coef <- get_data(all_data, "energy/A22.globaltech_coef")
     L101.en_bal_EJ_R_Si_Fi_Yh_full <- get_data(all_data, "L101.en_bal_EJ_R_Si_Fi_Yh_full", strip_attributes = TRUE)
+    L101.in_EJ_ctry_trn_Fi_Yh <- get_data(all_data, "L101.in_EJ_ctry_trn_Fi_Yh", strip_attributes = TRUE)
 
     EIA_RFO_intlship_kbbld %>%
       gather_years -> EIA_RFO_intlship_kbbld
@@ -119,14 +121,31 @@ module_energy_L1011.en_bal_adj <- function(command, ...) {
       filter(!(is.na(GCAM_region_ID))) %>%
       select(Country, year, value, iso, GCAM_region_ID) -> L1011.in_EJ_ctry_intlship_TOT_Yh
 
-    # JS 12/2020: Extrapolate EIA data to 2015
-    L1011.in_EJ_ctry_intlship_TOT_Yh_2015<-L1011.in_EJ_ctry_intlship_TOT_Yh %>%
-      filter(year==2014) %>%
-      mutate(year=2015)
+    if(max(EIA_years) < MODEL_FINAL_BASE_YEAR) {
+      warning("Extending L1011.in_EJ_ctry_intlship_TOT_Yh by using relative growth in L101.in_EJ_ctry_trn_Fi_Yh")
+      L101.in_EJ_ctry_trn_Fi_Yh %>%
+        filter(sector == "in_trn_international ship", fuel == "refined liquids", year >= max(EIA_years)) %>%
+        select(iso, year, value) %>%
+        group_by(iso) %>%
+        mutate(growth = value / value[year==max(EIA_years)],
+               growth = if_else(is.na(growth), 0.0, growth),
+               growth = if_else(is.infinite(growth), 0.0, growth)) %>%
+        select(-value) ->
+        IEA_intl_ship_growth
 
-    # JS 12/2020: Add 2015 to the dataset and group by iso
+      L1011.in_EJ_ctry_intlship_TOT_Yh %>%
+        filter(year == max(EIA_years)) %>%
+        select(-year) %>%
+        inner_join(IEA_intl_ship_growth, ., by=c("iso")) %>%
+        mutate(value = value * growth) %>%
+        select(names(L1011.in_EJ_ctry_intlship_TOT_Yh)) %>%
+        filter(year > max(EIA_years)) %>%
+        bind_rows(L1011.in_EJ_ctry_intlship_TOT_Yh, .) ->
+        L1011.in_EJ_ctry_intlship_TOT_Yh
+    }
+
+    # JS 12/2020: group by iso and sort
     L1011.in_EJ_ctry_intlship_TOT_Yh<-L1011.in_EJ_ctry_intlship_TOT_Yh %>%
-      bind_rows(L1011.in_EJ_ctry_intlship_TOT_Yh_2015) %>%
       group_by(year,iso,GCAM_region_ID) %>%
       summarise(value=sum(value)) %>%
       ungroup() %>%
@@ -231,7 +250,8 @@ module_energy_L1011.en_bal_adj <- function(command, ...) {
       add_comments("EIA international shipping data converted to EJ, aggregated by country, ") %>%
       add_comments("adding USSR data to Russia") %>%
       add_legacy_name("L1011.in_EJ_ctry_intlship_TOT_Yh") %>%
-      add_precursors("energy/EIA_RFO_intlship_kbbld", "energy/EIA_TOT_intlship_kbbld", "energy/mappings/EIA_ctry", "common/iso_GCAM_regID") ->
+      add_precursors("energy/EIA_RFO_intlship_kbbld", "energy/EIA_TOT_intlship_kbbld", "energy/mappings/EIA_ctry",
+                     "common/iso_GCAM_regID", "L101.in_EJ_ctry_trn_Fi_Yh") ->
       L1011.in_EJ_ctry_intlship_TOT_Yh
 
     return_data(L1011.en_bal_EJ_R_Si_Fi_Yh, L1011.in_EJ_ctry_intlship_TOT_Yh)
