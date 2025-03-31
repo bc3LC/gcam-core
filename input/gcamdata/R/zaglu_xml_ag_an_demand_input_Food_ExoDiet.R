@@ -36,7 +36,9 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
 
   MODULE_OUTPUTS <-
     c(XML = "ag_an_demand_input_Food_ExoDiet_SSP1_VLLO.xml",
-      XML = "ag_an_demand_input_Food_ExoDiet_SSP1_VLHO.xml")
+      XML = "ag_an_demand_input_Food_ExoDiet_SSP1_VLHO.xml",
+      XML = "ag_an_demand_input_Food_ExoDiet_SSP2_VLLO.xml",
+      XML = "ag_an_demand_input_Food_ExoDiet_SSP2_VLHO.xml")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -155,7 +157,7 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
           left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID"),
         by = c("region", "year", "GCAM_region_ID")
       ) %>%
-      mutate(value = value / totalPop * 10^12 /365) %>% # to kcal/ca/d
+      mutate(value = value / totalPop * 10^9 /365) %>% # to kcal/ca/d
       select(-totalPop) %>%
       mutate(year = paste0("GCAM_intake_", year)) %>%
       spread(year, value) ->
@@ -241,6 +243,7 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
     # E. Develop scenarios by completing the trajectory  of intakes ----
 
     #"GCAM_TargetEL2" will be set to a future year with linear interpolations in-between
+    # Note that target is defined based on kcal/ca/d so no SSP differentiation
 
     # * Scenario VLLO ----
     # For VLLO, we will use 2025 - 2070 linear path and constant after that
@@ -339,7 +342,7 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       left_join(POPGDP_SSPs %>%
                   select(scenario, GCAM_region_ID, year, totalPop, GDP),
                 by = c("GCAM_region_ID", "year", "scenario")) %>%
-      mutate(Pcal = value * 365 * totalPop/1000000000) %>%
+      mutate(Pcal = value * 365 * totalPop/10^9) %>%
       group_by(scenario, GCAM_region_ID, supplysector) %>%
       arrange(scenario, GCAM_region_ID, supplysector, year) %>%
       mutate(Lag_GDP = lag(GDP),
@@ -376,7 +379,7 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       left_join(POPGDP_SSPs %>%
                   select(scenario, GCAM_region_ID, year, totalPop, GDP),
                 by = c("GCAM_region_ID", "year", "scenario")) %>%
-      mutate(Pcal = value * 365 * totalPop/1000000000) %>%
+      mutate(Pcal = value * 365 * totalPop/10^9) %>%
       group_by(scenario, GCAM_region_ID, supplysector) %>%
       arrange(scenario, GCAM_region_ID, supplysector, year) %>%
       mutate(Lag_GDP = lag(GDP),
