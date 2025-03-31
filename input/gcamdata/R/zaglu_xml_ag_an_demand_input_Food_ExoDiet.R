@@ -50,6 +50,8 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
 
     # Load required inputs ----
     get_data_list(all_data, MODULE_INPUTS, strip_attributes = TRUE)
+    cur_env <- environment()
+
 
     # Note that we will calculate total Pcal by food group, which will be exogenously driven
     # by population and "income elasticity" to meet EL2 targets.
@@ -277,10 +279,11 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       ) ->
       GCAM_AgMIP_Supply_Intake_base6_EL2_2070
 
-    # Need to define SSP scenario here
+    ## Need to define SSP scenario here ----
     GCAM_AgMIP_Supply_Intake_base6_EL2_2070 %>%
-      mutate(scenario = "SSP1") ->
-      GCAM_Intake_kcal_Scenario_VLLO_2025_2070
+      repeat_add_columns(tibble(scenario = c("SSP1", "SSP2"))) %>%
+      arrange(scenario)->
+      GCAM_Intake_kcal_Scenario_VLLO_2025_2070_SSP
 
 
     # * Scenario VLHO ----
@@ -306,10 +309,11 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       ungroup() ->
       GCAM_AgMIP_Supply_Intake_base5_EL2_2100
 
-    # Need to define SSP scenario here
+    ## Need to define SSP scenario here ----
     GCAM_AgMIP_Supply_Intake_base5_EL2_2100 %>%
-      mutate(scenario = "SSP1") ->
-      GCAM_Intake_kcal_Scenario_VLHO_2025_2100
+      repeat_add_columns(tibble(scenario = c("SSP1", "SSP2"))) %>%
+      arrange(scenario) ->
+      GCAM_Intake_kcal_Scenario_VLHO_2025_2100_SSP
 
 
     # F. Pcal from kcal per ca per day and derive income elasticity required ----
@@ -338,7 +342,7 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
 
     # derive income elasticity required
     ## Scenario VLLO
-    GCAM_Intake_kcal_Scenario_VLLO_2025_2070 %>%
+    GCAM_Intake_kcal_Scenario_VLLO_2025_2070_SSP %>%
       left_join(POPGDP_SSPs %>%
                   select(scenario, GCAM_region_ID, year, totalPop, GDP),
                 by = c("GCAM_region_ID", "year", "scenario")) %>%
@@ -356,18 +360,18 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
              energy.final.demand = if_else(energy.final.demand == "Staples",
                                            energy.final.demand, paste0("NonStaples_", energy.final.demand)),
              energy.final.demand = paste0("FoodDemand_", energy.final.demand)) ->
-      L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_VLLO_2025_2070
+      L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_VLLO_2025_2070_SSP
 
-    L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_VLLO_2025_2070 %>%
+    L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_VLLO_2025_2070_SSP %>%
       filter(year >= min(MODEL_FUTURE_YEARS)) %>%
       select(scenario, region, energy.final.demand, year, income.elasticity) %>%
       # Taiwan and South American North has constant pc GDP after 2050 per our assumptions
       # this led to inf in income elasticity
       mutate(income.elasticity = replace(income.elasticity, is.infinite(income.elasticity), 0)) ->
-      L100.IncomeElasticity_Food_ExoDiet_VLLO_2025_2070
+      L100.IncomeElasticity_Food_ExoDiet_VLLO_2025_2070_SSP
 
     assertthat::assert_that(
-      L100.IncomeElasticity_Food_ExoDiet_VLLO_2025_2070 %>%
+      L100.IncomeElasticity_Food_ExoDiet_VLLO_2025_2070_SSP %>%
         filter(is.na(income.elasticity)) %>%
         nrow() == 0 )
 
@@ -375,7 +379,7 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
 
 
     ## Scenario VLLO
-    GCAM_Intake_kcal_Scenario_VLHO_2025_2100 %>%
+    GCAM_Intake_kcal_Scenario_VLHO_2025_2100_SSP %>%
       left_join(POPGDP_SSPs %>%
                   select(scenario, GCAM_region_ID, year, totalPop, GDP),
                 by = c("GCAM_region_ID", "year", "scenario")) %>%
@@ -393,18 +397,18 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
              energy.final.demand = if_else(energy.final.demand == "Staples",
                                            energy.final.demand, paste0("NonStaples_", energy.final.demand)),
              energy.final.demand = paste0("FoodDemand_", energy.final.demand)) ->
-      L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_VLHO_2025_2100
+      L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_VLHO_2025_2100_SSP
 
-    L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_VLHO_2025_2100 %>%
+    L101.CropMeat_Food_Pcal_R_C_Y_IntakePathways_VLHO_2025_2100_SSP %>%
       filter(year >= min(MODEL_FUTURE_YEARS)) %>%
       select(scenario, region, energy.final.demand, year, income.elasticity) %>%
       # Taiwan and South American North has constant pc GDP after 2050 per our assumptions
       # this led to inf in income elasticity
       mutate(income.elasticity = replace(income.elasticity, is.infinite(income.elasticity), 0)) ->
-      L100.IncomeElasticity_Food_ExoDiet_VLHO_2025_2100
+      L100.IncomeElasticity_Food_ExoDiet_VLHO_2025_2100_SSP
 
     assertthat::assert_that(
-      L100.IncomeElasticity_Food_ExoDiet_VLHO_2025_2100 %>%
+      L100.IncomeElasticity_Food_ExoDiet_VLHO_2025_2100_SSP %>%
         filter(is.na(income.elasticity)) %>%
         nrow() == 0 )
 
@@ -606,10 +610,12 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
 
     ## SSP1 VLLO ----
 
+    for (ssp in paste0("SSP", 1:2)) {
+
     ## update L203.IncomeElasticity_Food_ExoDiet
     L203.IncomeElasticity_Food_ExoDiet_updated <-
-      L100.IncomeElasticity_Food_ExoDiet_VLLO_2025_2070 %>%
-      filter(scenario == "SSP1") %>% select(-scenario)
+      L100.IncomeElasticity_Food_ExoDiet_VLLO_2025_2070_SSP %>%
+      filter(scenario == ssp) %>% select(-scenario)
 
     # assure sector names are the identical
     assertthat::assert_that(
@@ -619,10 +625,9 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
                        distinct(region, energy.final.demand, year)) %>% nrow ==0
     )
 
-
     ### Produce outputs ----
 
-    create_xml("ag_an_demand_input_Food_ExoDiet_SSP1_VLLO.xml") %>%
+    create_xml(paste0("ag_an_demand_input_Food_ExoDiet_",ssp,"_VLLO.xml")) %>%
       add_logit_tables_xml(L203.Supplysector_demand_Food_ExoDiet, "Supplysector") %>%
       add_logit_tables_xml_generate_levels(L203.SubsectorAll_demand_Food_ExoDiet,
                                            "SubsectorLogit","subsector","nesting-subsector",1,FALSE) %>%
@@ -642,53 +647,66 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       add_xml_data_generate_levels(L2328.StubCalorieContent_Food_ExoDiet, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
       add_xml_data_generate_levels(L2328.StubCaloriePriceConv_Food_ExoDiet, "StubCaloriePriceConv", "subsector","nesting-subsector",1,FALSE) %>%
       add_precursors(MODULE_INPUTS) ->
-      ag_an_demand_input_Food_ExoDiet_SSP1_VLLO.xml
+      ag_an_demand_input_Food_ExoDiet_SSPs
 
+    assign(paste0("ag_an_demand_input_Food_ExoDiet_",ssp,"_VLLO.xml"),
+           value = ag_an_demand_input_Food_ExoDiet_SSPs, envir = cur_env )
+
+
+    }
 
 
     ## SSP1 VLHO ----
 
-    ## update L203.IncomeElasticity_Food_ExoDiet
-    L203.IncomeElasticity_Food_ExoDiet_updated <-
-      L100.IncomeElasticity_Food_ExoDiet_VLHO_2025_2100 %>%
-      filter(scenario == "SSP1") %>% select(-scenario)
+    for (ssp in paste0("SSP", 1:2)) {
 
-    # assure sector names are the identical
-    assertthat::assert_that(
-      dplyr::setdiff(L203.IncomeElasticity_Food_ExoDiet_updated %>%
-                       distinct(region, energy.final.demand, year),
-                     L203.IncomeElasticity_Food_ExoDiet %>%
-                       distinct(region, energy.final.demand, year)) %>% nrow ==0
-    )
+      ## update L203.IncomeElasticity_Food_ExoDiet
+      L203.IncomeElasticity_Food_ExoDiet_updated <-
+        L100.IncomeElasticity_Food_ExoDiet_VLHO_2025_2100_SSP %>%
+        filter(scenario == ssp) %>% select(-scenario)
+
+      # assure sector names are the identical
+      assertthat::assert_that(
+        dplyr::setdiff(L203.IncomeElasticity_Food_ExoDiet_updated %>%
+                         distinct(region, energy.final.demand, year),
+                       L203.IncomeElasticity_Food_ExoDiet %>%
+                         distinct(region, energy.final.demand, year)) %>% nrow ==0
+      )
+
+      ### Produce outputs ----
+
+      create_xml(paste0("ag_an_demand_input_Food_ExoDiet_",ssp,"_VLHO.xml")) %>%
+        add_logit_tables_xml(L203.Supplysector_demand_Food_ExoDiet, "Supplysector") %>%
+        add_logit_tables_xml_generate_levels(L203.SubsectorAll_demand_Food_ExoDiet,
+                                             "SubsectorLogit","subsector","nesting-subsector",1,FALSE) %>%
+        add_xml_data_generate_levels(L203.StubTech_demand_Food_ExoDiet, "StubTech","subsector","nesting-subsector",1,FALSE) %>%
+        add_xml_data_generate_levels(L203.StubTechProd_food_Food_ExoDiet, "StubTechProd", "subsector","nesting-subsector",1,FALSE) %>%
+        add_xml_data_generate_levels(L203.StubCalorieContent_Food_ExoDiet, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
+        add_node_equiv_xml("subsector") %>%
+        add_logit_tables_xml(L203.NestingSubsectorAll_demand_Food_ExoDiet, "SubsectorAll", "SubsectorLogit") %>%
+        add_xml_data(L203.GlobalTechCoef_demand_Food_ExoDiet, "GlobalTechCoef") %>%
+        add_xml_data(L203.GlobalTechShrwt_demand_Food_ExoDiet, "GlobalTechShrwt") %>%
+        # commented here and above as it is an empty table
+        #add_xml_data(L203.GlobalTechInterp_demand_Food_ExoDiet, "GlobalTechInterp") %>%
+        add_xml_data(L203.IncomeElasticity_Food_ExoDiet_updated, "IncomeElasticity") %>%
+        add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
+        add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
+        add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService") %>%
+        add_xml_data_generate_levels(L2328.StubCalorieContent_Food_ExoDiet, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
+        add_xml_data_generate_levels(L2328.StubCaloriePriceConv_Food_ExoDiet, "StubCaloriePriceConv", "subsector","nesting-subsector",1,FALSE) %>%
+        add_precursors(MODULE_INPUTS) ->
+        ag_an_demand_input_Food_ExoDiet_SSPs
+
+      assign(paste0("ag_an_demand_input_Food_ExoDiet_",ssp,"_VLHO.xml"),
+             value = ag_an_demand_input_Food_ExoDiet_SSPs, envir = cur_env )
+
+    }
 
 
-    ### Produce outputs ----
-
-    create_xml("ag_an_demand_input_Food_ExoDiet_SSP1_VLHO.xml") %>%
-      add_logit_tables_xml(L203.Supplysector_demand_Food_ExoDiet, "Supplysector") %>%
-      add_logit_tables_xml_generate_levels(L203.SubsectorAll_demand_Food_ExoDiet,
-                                           "SubsectorLogit","subsector","nesting-subsector",1,FALSE) %>%
-      add_xml_data_generate_levels(L203.StubTech_demand_Food_ExoDiet, "StubTech","subsector","nesting-subsector",1,FALSE) %>%
-      add_xml_data_generate_levels(L203.StubTechProd_food_Food_ExoDiet, "StubTechProd", "subsector","nesting-subsector",1,FALSE) %>%
-      add_xml_data_generate_levels(L203.StubCalorieContent_Food_ExoDiet, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
-      add_node_equiv_xml("subsector") %>%
-      add_logit_tables_xml(L203.NestingSubsectorAll_demand_Food_ExoDiet, "SubsectorAll", "SubsectorLogit") %>%
-      add_xml_data(L203.GlobalTechCoef_demand_Food_ExoDiet, "GlobalTechCoef") %>%
-      add_xml_data(L203.GlobalTechShrwt_demand_Food_ExoDiet, "GlobalTechShrwt") %>%
-      # commented here and above as it is an empty table
-      #add_xml_data(L203.GlobalTechInterp_demand_Food_ExoDiet, "GlobalTechInterp") %>%
-      add_xml_data(L203.IncomeElasticity_Food_ExoDiet_updated, "IncomeElasticity") %>%
-      add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
-      add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
-      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService") %>%
-      add_xml_data_generate_levels(L2328.StubCalorieContent_Food_ExoDiet, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
-      add_xml_data_generate_levels(L2328.StubCaloriePriceConv_Food_ExoDiet, "StubCaloriePriceConv", "subsector","nesting-subsector",1,FALSE) %>%
-      add_precursors(MODULE_INPUTS) ->
-      ag_an_demand_input_Food_ExoDiet_SSP1_VLHO.xml
 
     # Done ----
-
     return_data(MODULE_OUTPUTS)
+
   } else {
     stop("Unknown command")
   }
