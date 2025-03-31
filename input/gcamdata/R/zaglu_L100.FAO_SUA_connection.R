@@ -286,7 +286,7 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       ) %>%
     # Both data were average already
     transmute(GCAM_region_ID, GCAM_commodity,
-              calperg = MKcal / value / 1000,
+              calperg = MKcal / value / 1000, # calorie is not Cal/kilocalorie; just small calorie
               fatperc = MtFat / value * 100,
               proteinperc = MtProtein / value * 100) ->
       DF_Macronutrient_FoodItem2
@@ -328,7 +328,7 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       left_join_error_no_match(DF_Macronutrient_FoodItem3_calperg,
                                by = c("GCAM_commodity", "GCAM_region_ID")) %>%
       mutate(Kcalperg = calperg / 1000,
-             MKcal =  Kcalperg * Mt * 1000) %>%
+             MKcal =  Kcalperg * Mt * 1000) %>%  # calorie is BIG calorie; so MK kilocalorie!
       select(-calperg)
 
 
@@ -348,6 +348,7 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
     L101.CropMeat_Food_Pcal_R_C_Y <-
       DF_Macronutrient_FoodItem4 %>%
       transmute(GCAM_region_ID, GCAM_commodity, year, value = MKcal/1000)
+    # 1 Pcal = 10^15 small cal and 10^12 big Cal (kcal)
 
 
     # 4. Feed and trade ----

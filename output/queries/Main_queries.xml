@@ -4299,6 +4299,44 @@ element input {
                 <xPath buildList="true" dataName="regional-bias" group="false" sumAll="false">gcam-consumer[@name='FoodDemand']//*[@type='input']/regional-bias/node()</xPath>
                 <comments/>
             </supplyDemandQuery>
+            <supplyDemandQuery title="food consumption cost by tech">
+                <axis1 name="technology">technology</axis1>
+                <axis2 name="Year">cost</axis2>
+                <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='FoodDemand_Staples' or @name='FoodDemand_NonStaples')]//
+            *[@type='subsector']//*[@type='technology']/cost/text()</xPath>
+                <comments/>
+            </supplyDemandQuery>
+            <supplyDemandQuery title="food consumption share-weight by subsector">
+                <axis1 name="subsector">subsector</axis1>
+                <axis2 name="Year">share-weight</axis2>
+                <xPath buildList="true" dataName="input" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='FoodDemand_Staples' or @name='FoodDemand_NonStaples')]//
+            *[@type='subsector']/share-weight/text()</xPath>
+                <comments/>
+            </supplyDemandQuery>
+            <supplyDemandQuery title="food consumption share-weight by tech">
+                <axis1 name="technology">technology</axis1>
+                <axis2 name="Year">technology</axis2>
+                <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='FoodDemand_Staples' or @name='FoodDemand_NonStaples')]//
+            *[@type='subsector']/*[@type='technology']/share-weight/node()</xPath>
+                <comments/>
+            </supplyDemandQuery>
+            <supplyDemandQuery title="exogenous food calories intake by food group (ExoDiet)">
+                <axis1 name="technology">technology</axis1>
+                <axis2 name="Year">physical-output[@vintage]</axis2>
+                <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='FoodDemand_Staples' 
+or @name='FoodDemand_NonStaples_Oils'
+or @name='FoodDemand_NonStaples_FruitsVeg'
+or @name='FoodDemand_NonStaples_PlantProtein'
+or @name='FoodDemand_NonStaples_Sugar'
+or @name='FoodDemand_NonStaples_OtherCrop'
+or @name='FoodDemand_NonStaples_Ruminant'
+or @name='FoodDemand_NonStaples_NonRuminant'
+or @name='FoodDemand_NonStaples_Dairy'
+or @name='FoodDemand_NonStaples_Fish')]//
+            *[@type='subsector']//*[@type='technology']/
+            *[@type='output' (:collapse:)]/physical-output/node()</xPath>
+                <comments/>
+            </supplyDemandQuery>
         </queryGroup>
         <queryGroup name="ag trade">
             <supplyDemandQuery title="ag import vs. domestic supply (Regional Armington competition)">

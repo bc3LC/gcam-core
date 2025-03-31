@@ -39,6 +39,10 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       "L203.StapleBaseService",
       "L203.NonStapleBaseService",
       "L203.GlobalTechInterp_demand",
+      # food proc linkage moved from module_energy_food_processing_xml
+      "L2328.StubCalorieContent",
+      "L2328.StubCaloriePriceConv",
+      # food waste pathway
       "L100.AgMIP_FoodWaste_Share_Pathway_SSP")
 
   MODULE_OUTPUTS <-
@@ -104,6 +108,8 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       add_xml_data(L203.DemandNonStapleRegBias, "DemandNonStapleRegBias") %>%
       add_xml_data(L203.StapleBaseService, "StapleBaseService") %>%
       add_xml_data(L203.NonStapleBaseService, "NonStapleBaseService") %>%
+      add_xml_data_generate_levels(L2328.StubCalorieContent, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
+      add_xml_data_generate_levels(L2328.StubCaloriePriceConv, "StubCaloriePriceConv", "subsector","nesting-subsector",1,FALSE) %>%
       add_precursors(MODULE_INPUTS) ->
       ag_an_demand_input_Food_Static.xml
 
@@ -133,8 +139,7 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       # assert that we have values for all future years
       assertthat::assert_that(
         L203.StubCalorieContent1 %>%
-          filter(year >= MODEL_FINAL_BASE_YEAR, is.na(WasteScaler)) %>% nrow() == 0
-      )
+          filter(year >= MODEL_FINAL_BASE_YEAR, is.na(WasteScaler)) %>% nrow() == 0 )
 
       L203.StubCalorieContent1 %>%
         replace_na(list(WasteScaler = 1)) %>%
@@ -165,13 +170,15 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
         add_xml_data(L203.DemandNonStapleRegBias, "DemandNonStapleRegBias") %>%
         add_xml_data(L203.StapleBaseService, "StapleBaseService") %>%
         add_xml_data(L203.NonStapleBaseService, "NonStapleBaseService") %>%
+        add_xml_data_generate_levels(L2328.StubCalorieContent, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
+        add_xml_data_generate_levels(L2328.StubCaloriePriceConv, "StubCaloriePriceConv", "subsector","nesting-subsector",1,FALSE) %>%
         add_precursors(MODULE_INPUTS) ->
         ag_an_demand_input_Food_Intake_SSPs.xml
 
       assign(paste0("ag_an_demand_input_Food_Intake_",ssp,".xml"),
              value = ag_an_demand_input_Food_Intake_SSPs.xml, envir = cur_env )
 
-      }
+    }
 
     return_data(MODULE_OUTPUTS)
 

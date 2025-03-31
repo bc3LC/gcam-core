@@ -1,0 +1,1428 @@
+# File:GCAM_Near_Term_Intake_Reference.csv
+# Title: GCAM Ref diet by region and sector
+# Units: Pcal
+# Description: Need 2025 or more recent projection values for near term calibration to have delayed scenarios. Value here were pulled from a GCAM Ref with not dietary change
+# Column types: cccnnn
+# ----------
+scenario,region,technology,2021,2025,2030
+reference,Africa_Eastern,Corn,38.2153,41.6117,45.3487
+reference,Africa_Eastern,Fruits,11.7887,13.496,16.6596
+reference,Africa_Eastern,Vegetables,3.27155,3.74542,4.62386
+reference,Africa_Eastern,MiscCrop,1.09133,1.24821,1.53976
+reference,Africa_Eastern,FiberCrop,0.350321,0.397319,0.486503
+reference,Africa_Eastern,OilCrop,7.86113,8.92965,10.8886
+reference,Africa_Eastern,OilPalm,8.43818,9.64397,11.9012
+reference,Africa_Eastern,Soybean,1.37403,1.55856,1.91059
+reference,Africa_Eastern,OtherGrain,47.6527,51.7401,56.1623
+reference,Africa_Eastern,Beef,2.61451,2.93434,3.5265
+reference,Africa_Eastern,Dairy,12.0633,13.5734,16.4773
+reference,Africa_Eastern,OtherMeat_Fish,2.57302,2.94766,3.64618
+reference,Africa_Eastern,Pork,0.415416,0.466156,0.568517
+reference,Africa_Eastern,Poultry,0.912568,1.04115,1.28118
+reference,Africa_Eastern,SheepGoat,1.31216,1.49554,1.83587
+reference,Africa_Eastern,Legumes,17.6059,19.9642,24.257
+reference,Africa_Eastern,NutsSeeds,5.66898,6.40766,7.79628
+reference,Africa_Eastern,Rice,20.4008,22.3368,24.411
+reference,Africa_Eastern,RootTuber,19.6943,21.5509,23.6788
+reference,Africa_Eastern,SugarCrop,19.0197,21.7496,26.656
+reference,Africa_Eastern,Wheat,31.6133,34.552,37.9252
+reference,Africa_Northern,Corn,21.5956,22.5573,23.7707
+reference,Africa_Northern,Fruits,8.71916,10.2028,11.888
+reference,Africa_Northern,Vegetables,5.72725,6.70828,7.81853
+reference,Africa_Northern,MiscCrop,0.830265,0.973832,1.13431
+reference,Africa_Northern,FiberCrop,0.0053019,0.00616512,0.00713723
+reference,Africa_Northern,OilCrop,6.39911,7.36297,8.47299
+reference,Africa_Northern,OilPalm,0.434603,0.50863,0.593271
+reference,Africa_Northern,Soybean,10.107,11.7115,13.5993
+reference,Africa_Northern,OtherGrain,4.30897,4.50899,4.75249
+reference,Africa_Northern,Beef,1.7184,2.00353,2.32681
+reference,Africa_Northern,Dairy,8.50158,9.9298,11.556
+reference,Africa_Northern,OtherMeat_Fish,2.92888,3.44351,4.02544
+reference,Africa_Northern,Pork,0.0047138,0.00551761,0.00642382
+reference,Africa_Northern,Poultry,4.88584,5.72726,6.68116
+reference,Africa_Northern,SheepGoat,1.10753,1.29798,1.51361
+reference,Africa_Northern,Legumes,2.5439,2.95359,3.40512
+reference,Africa_Northern,NutsSeeds,1.8454,2.13849,2.44643
+reference,Africa_Northern,Rice,9.9578,10.4043,10.9555
+reference,Africa_Northern,RootTuber,4.40399,4.64125,4.91518
+reference,Africa_Northern,SugarCrop,11.7789,13.7941,16.0184
+reference,Africa_Northern,Wheat,68.3865,72.1571,76.3112
+reference,Africa_Southern,Corn,39.8401,43.8926,48.6357
+reference,Africa_Southern,Fruits,4.16304,4.83755,5.99092
+reference,Africa_Southern,Vegetables,1.39809,1.62315,2.00763
+reference,Africa_Southern,MiscCrop,0.187545,0.217743,0.269656
+reference,Africa_Southern,FiberCrop,0.258234,0.298795,0.368199
+reference,Africa_Southern,OilCrop,4.54743,5.21082,6.32549
+reference,Africa_Southern,OilPalm,4.7324,5.48263,6.77939
+reference,Africa_Southern,Soybean,3.37103,3.88383,4.78582
+reference,Africa_Southern,OtherGrain,4.24734,4.6904,5.20187
+reference,Africa_Southern,Beef,2.65965,3.03851,3.66954
+reference,Africa_Southern,Dairy,2.86855,3.29329,4.01182
+reference,Africa_Southern,OtherMeat_Fish,2.15356,2.50354,3.10037
+reference,Africa_Southern,Pork,1.64449,1.90421,2.34973
+reference,Africa_Southern,Poultry,1.37082,1.58604,1.95543
+reference,Africa_Southern,SheepGoat,0.287038,0.331865,0.407861
+reference,Africa_Southern,Legumes,6.11132,7.05259,8.65432
+reference,Africa_Southern,NutsSeeds,3.32529,3.81856,4.67525
+reference,Africa_Southern,Rice,10.2932,11.3569,12.5923
+reference,Africa_Southern,RootTuber,29.1559,32.1922,35.8077
+reference,Africa_Southern,SugarCrop,6.80766,7.86541,9.69881
+reference,Africa_Southern,Wheat,7.70311,8.51882,9.47627
+reference,Africa_Western,Corn,43.0196,47.2246,52.6085
+reference,Africa_Western,Fruits,14.8886,17.3236,21.0429
+reference,Africa_Western,Vegetables,6.435,7.48647,9.09209
+reference,Africa_Western,MiscCrop,2.21163,2.5724,3.12408
+reference,Africa_Western,FiberCrop,1.27824,1.48472,1.79715
+reference,Africa_Western,OilCrop,7.58499,8.72636,10.4455
+reference,Africa_Western,OilPalm,23.2951,27.0496,32.7974
+reference,Africa_Western,Soybean,3.2726,3.76884,4.53276
+reference,Africa_Western,OtherGrain,48.8484,53.6956,59.8748
+reference,Africa_Western,Beef,2.23319,2.56713,3.07249
+reference,Africa_Western,Dairy,3.20555,3.71547,4.50798
+reference,Africa_Western,OtherMeat_Fish,5.17069,6.03472,7.36298
+reference,Africa_Western,Pork,1.47576,1.71049,2.07367
+reference,Africa_Western,Poultry,2.58654,2.99462,3.62886
+reference,Africa_Western,SheepGoat,1.34587,1.56568,1.90134
+reference,Africa_Western,Legumes,16.5531,19.1611,23.0793
+reference,Africa_Western,NutsSeeds,22.2195,25.5759,30.667
+reference,Africa_Western,Rice,51.9052,57.2107,64.0502
+reference,Africa_Western,RootTuber,118.126,130.684,147.055
+reference,Africa_Western,SugarCrop,15.0081,17.4609,21.1156
+reference,Africa_Western,Wheat,24.7601,27.4277,30.8535
+reference,Argentina,Corn,1.35404,1.3597,1.37349
+reference,Argentina,Fruits,0.879869,0.928088,0.988913
+reference,Argentina,Vegetables,0.564921,0.596101,0.635485
+reference,Argentina,MiscCrop,0.354722,0.374133,0.398691
+reference,Argentina,FiberCrop,0.0446261,0.0471205,0.0502756
+reference,Argentina,OilCrop,3.50809,3.67991,3.90867
+reference,Argentina,Soybean,0.77044,0.805826,0.854935
+reference,Argentina,OtherGrain,0.707753,0.711045,0.719815
+reference,Argentina,Beef,3.16326,3.30077,3.47512
+reference,Argentina,Dairy,3.09134,3.24678,3.44386
+reference,Argentina,OtherMeat_Fish,0.929035,0.980251,1.04467
+reference,Argentina,Pork,1.79239,1.88513,2.00279
+reference,Argentina,Poultry,2.7663,2.91384,3.10023
+reference,Argentina,SheepGoat,0.0785615,0.0818684,0.0860717
+reference,Argentina,Legumes,0.958981,1.00286,1.05863
+reference,Argentina,NutsSeeds,0.543055,0.56661,0.5975
+reference,Argentina,Rice,1.16545,1.16743,1.18065
+reference,Argentina,RootTuber,0.99251,1.00066,1.01715
+reference,Argentina,SugarCrop,4.21002,4.4136,4.68538
+reference,Argentina,Wheat,9.38143,9.44484,9.58349
+reference,Australia_NZ,Corn,0.281041,0.287808,0.295219
+reference,Australia_NZ,Fruits,0.763781,0.814434,0.864677
+reference,Australia_NZ,Vegetables,0.504842,0.538096,0.571118
+reference,Australia_NZ,MiscCrop,0.606156,0.646049,0.684996
+reference,Australia_NZ,FiberCrop,0.329455,0.350061,0.370329
+reference,Australia_NZ,OilCrop,2.63353,2.79511,2.96613
+reference,Australia_NZ,OilPalm,0.369324,0.394402,0.419814
+reference,Australia_NZ,Soybean,0.15075,0.159561,0.169243
+reference,Australia_NZ,OtherGrain,1.01979,1.04862,1.08317
+reference,Australia_NZ,Beef,1.05774,1.11813,1.17834
+reference,Australia_NZ,Dairy,3.67801,3.90433,4.13052
+reference,Australia_NZ,OtherMeat_Fish,1.10371,1.17759,1.25167
+reference,Australia_NZ,Pork,0.911143,0.969979,1.02941
+reference,Australia_NZ,Poultry,1.72917,1.84509,1.96312
+reference,Australia_NZ,SheepGoat,0.519643,0.55073,0.581572
+reference,Australia_NZ,Legumes,0.509551,0.540807,0.57104
+reference,Australia_NZ,NutsSeeds,0.876322,0.924665,0.962637
+reference,Australia_NZ,Rice,0.755204,0.775684,0.794086
+reference,Australia_NZ,RootTuber,0.82643,0.848651,0.873766
+reference,Australia_NZ,SugarCrop,3.12333,3.32277,3.52728
+reference,Australia_NZ,Wheat,5.09181,5.22035,5.38019
+reference,Brazil,Corn,14.8838,14.9686,15.1923
+reference,Brazil,Fruits,6.96592,7.36318,7.70676
+reference,Brazil,Vegetables,2.0256,2.14188,2.24298
+reference,Brazil,MiscCrop,1.05574,1.11532,1.16714
+reference,Brazil,FiberCrop,1.84199,1.94654,2.0411
+reference,Brazil,OilCrop,3.6518,3.87207,4.10477
+reference,Brazil,OilPalm,5.69093,6.06102,6.3401
+reference,Brazil,Soybean,18.2417,19.1184,20.0027
+reference,Brazil,OtherGrain,6.19372,6.25154,6.34019
+reference,Brazil,Beef,8.14932,8.50842,8.79743
+reference,Brazil,Dairy,15.655,16.4472,17.1125
+reference,Brazil,OtherMeat_Fish,2.1347,2.25568,2.35932
+reference,Brazil,Pork,9.40247,9.88303,10.2906
+reference,Brazil,Poultry,12.1943,12.8429,13.3977
+reference,Brazil,SheepGoat,0.192136,0.201097,0.208362
+reference,Brazil,Legumes,6.18081,6.50554,6.79327
+reference,Brazil,NutsSeeds,0.381896,0.400014,0.417108
+reference,Brazil,Rice,14.1872,14.2906,14.5
+reference,Brazil,RootTuber,7.21328,7.26182,7.36671
+reference,Brazil,SugarCrop,21.1822,22.3683,23.4254
+reference,Brazil,Wheat,20.608,20.7453,21.0175
+reference,Canada,Corn,1.64023,1.6638,1.68696
+reference,Canada,Fruits,1.06602,1.12245,1.17429
+reference,Canada,Vegetables,0.652294,0.686674,0.718478
+reference,Canada,MiscCrop,0.774178,0.81593,0.853507
+reference,Canada,FiberCrop,0.0036054,0.00379417,0.00395094
+reference,Canada,OilCrop,4.16466,4.35564,4.55056
+reference,Canada,OilPalm,0,0,0
+reference,Canada,Soybean,0.25194,0.263187,0.274798
+reference,Canada,OtherGrain,0.994288,1.01233,1.02733
+reference,Canada,Beef,1.08546,1.13235,1.17605
+reference,Canada,Dairy,3.59504,3.77843,3.95088
+reference,Canada,OtherMeat_Fish,0.674828,0.711128,0.745382
+reference,Canada,Pork,1.89015,1.98563,2.07576
+reference,Canada,Poultry,2.01822,2.12195,2.22004
+reference,Canada,SheepGoat,0.0655385,0.0686229,0.0714844
+reference,Canada,Legumes,0.757599,0.78895,0.815896
+reference,Canada,NutsSeeds,0.976556,1.02067,1.0488
+reference,Canada,Rice,1.05058,1.06659,1.07809
+reference,Canada,RootTuber,1.33932,1.36517,1.38875
+reference,Canada,SugarCrop,3.85421,4.06956,4.24105
+reference,Canada,Wheat,5.69449,5.76401,5.86532
+reference,Central America and Caribbean,Corn,11.9963,12.2317,12.6115
+reference,Central America and Caribbean,Fruits,4.54534,5.08279,5.6657
+reference,Central America and Caribbean,Vegetables,1.21171,1.35473,1.5098
+reference,Central America and Caribbean,MiscCrop,0.428602,0.479453,0.534639
+reference,Central America and Caribbean,FiberCrop,0.0079544,0.00887226,0.00984217
+reference,Central America and Caribbean,OilCrop,1.29274,1.43802,1.59146
+reference,Central America and Caribbean,OilPalm,2.79656,3.11978,3.47125
+reference,Central America and Caribbean,Soybean,3.94244,4.37583,4.86676
+reference,Central America and Caribbean,OtherGrain,1.66607,1.70503,1.75963
+reference,Central America and Caribbean,Beef,1.05321,1.16433,1.28256
+reference,Central America and Caribbean,Dairy,3.96925,4.40674,4.87561
+reference,Central America and Caribbean,OtherMeat_Fish,1.25739,1.40857,1.57227
+reference,Central America and Caribbean,Pork,1.63361,1.82125,2.02324
+reference,Central America and Caribbean,Poultry,3.85831,4.30957,4.79637
+reference,Central America and Caribbean,SheepGoat,0.0608687,0.0678446,0.075308
+reference,Central America and Caribbean,Legumes,2.80646,3.11638,3.45465
+reference,Central America and Caribbean,NutsSeeds,0.46958,0.518363,0.569816
+reference,Central America and Caribbean,Rice,9.47994,9.65324,9.9176
+reference,Central America and Caribbean,RootTuber,2.67541,2.7363,2.82933
+reference,Central America and Caribbean,SugarCrop,9.8353,10.9668,12.1833
+reference,Central America and Caribbean,Wheat,8.49512,8.70493,8.98228
+reference,Central Asia,Corn,1.59208,1.63753,1.70029
+reference,Central Asia,Fruits,2.60582,2.92234,3.25427
+reference,Central Asia,Vegetables,3.38943,3.80327,4.23826
+reference,Central Asia,MiscCrop,0.892125,1.00205,1.11681
+reference,Central Asia,FiberCrop,1.24015,1.38874,1.5417
+reference,Central Asia,OilCrop,4.90231,5.49585,6.11929
+reference,Central Asia,OilPalm,0.0326237,0.0367319,0.0410812
+reference,Central Asia,Soybean,0.216157,0.241481,0.268258
+reference,Central Asia,OtherGrain,1.59693,1.65353,1.72172
+reference,Central Asia,Beef,3.61675,4.04985,4.50416
+reference,Central Asia,Dairy,11.8807,13.2917,14.7714
+reference,Central Asia,OtherMeat_Fish,2.05858,2.31579,2.58779
+reference,Central Asia,Pork,0.405298,0.453971,0.505104
+reference,Central Asia,Poultry,1.80905,2.0309,2.26384
+reference,Central Asia,SheepGoat,1.4254,1.59958,1.78289
+reference,Central Asia,Legumes,0.766251,0.855176,0.944256
+reference,Central Asia,NutsSeeds,0.916778,1.01702,1.11598
+reference,Central Asia,Rice,1.61959,1.67969,1.74764
+reference,Central Asia,RootTuber,3.87214,4.02185,4.20449
+reference,Central Asia,SugarCrop,5.76943,6.50706,7.24276
+reference,Central Asia,Wheat,27.9661,29.0037,30.1924
+reference,China,Corn,23.2517,22.7893,22.2659
+reference,China,Fruits,40.5402,48.1326,51.8449
+reference,China,Vegetables,76.3605,90.6112,97.5742
+reference,China,MiscCrop,1.62069,1.92521,2.07974
+reference,China,FiberCrop,4.42006,5.21984,5.61297
+reference,China,OilCrop,20.2912,23.9036,25.6446
+reference,China,OilPalm,18.458,21.9285,23.7501
+reference,China,Soybean,46.7019,55.1492,59.4998
+reference,China,OtherGrain,28.0523,27.7515,27.3719
+reference,China,Beef,14.83,17.3803,18.5575
+reference,China,Dairy,24.2673,28.72,30.8632
+reference,China,OtherMeat_Fish,39.5401,47.1561,50.9328
+reference,China,Pork,89.9667,106.629,114.602
+reference,China,Poultry,57.5368,68.2235,73.4025
+reference,China,SheepGoat,6.66266,7.88533,8.47481
+reference,China,Legumes,6.17194,7.26125,7.783
+reference,China,NutsSeeds,41.4474,48.2958,51.5268
+reference,China,Rice,313.597,308.617,302.03
+reference,China,RootTuber,50.8884,50.4756,49.6816
+reference,China,SugarCrop,27.5155,32.6535,35.1669
+reference,China,Wheat,224.728,221.282,217.253
+reference,Colombia,Corn,4.76017,4.7816,4.8653
+reference,Colombia,Fruits,2.87503,3.1535,3.40207
+reference,Colombia,Vegetables,0.488277,0.53599,0.578762
+reference,Colombia,MiscCrop,0.306959,0.336698,0.362941
+reference,Colombia,FiberCrop,6.40E-06,7.02E-06,7.58E-06
+reference,Colombia,OilCrop,0.337978,0.36817,0.393848
+reference,Colombia,OilPalm,3.13524,3.44368,3.71839
+reference,Colombia,Soybean,2.31952,2.52928,2.72635
+reference,Colombia,OtherGrain,1.02933,1.0403,1.06186
+reference,Colombia,Beef,1.04244,1.13471,1.21538
+reference,Colombia,Dairy,2.95723,3.22634,3.46283
+reference,Colombia,OtherMeat_Fish,0.524171,0.57557,0.621442
+reference,Colombia,Pork,0.982344,1.07547,1.15784
+reference,Colombia,Poultry,2.37776,2.60617,2.80865
+reference,Colombia,SheepGoat,0.0012685,0.00138424,0.00148597
+reference,Colombia,Legumes,0.744212,0.809579,0.865054
+reference,Colombia,NutsSeeds,0.138498,0.149075,0.157635
+reference,Colombia,Rice,3.77262,3.80096,3.88546
+reference,Colombia,RootTuber,2.2941,2.30907,2.35886
+reference,Colombia,SugarCrop,7.3617,8.09623,8.73306
+reference,Colombia,Wheat,3.19828,3.22921,3.29125
+reference,EU-12,Corn,1.76879,1.74419,1.68503
+reference,EU-12,Fruits,2.11135,2.21349,2.29118
+reference,EU-12,Vegetables,1.55745,1.63361,1.69261
+reference,EU-12,MiscCrop,1.16886,1.22928,1.27537
+reference,EU-12,FiberCrop,1.04E-04,1.11E-04,1.14E-04
+reference,EU-12,OilCrop,6.79182,7.08162,7.30672
+reference,EU-12,OilPalm,0.132403,0.139197,0.144977
+reference,EU-12,Soybean,0.865569,0.902473,0.934875
+reference,EU-12,OtherGrain,5.66315,5.59687,5.42379
+reference,EU-12,Beef,0.481894,0.501439,0.515368
+reference,EU-12,Dairy,10.7227,11.2259,11.6055
+reference,EU-12,OtherMeat_Fish,1.69485,1.77914,1.84395
+reference,EU-12,Pork,8.63377,9.02603,9.3216
+reference,EU-12,Poultry,3.52511,3.68782,3.81127
+reference,EU-12,SheepGoat,0.115257,0.120501,0.124382
+reference,EU-12,Legumes,0.858754,0.898656,0.928248
+reference,EU-12,NutsSeeds,0.826482,0.858718,0.873692
+reference,EU-12,Rice,0.792311,0.785483,0.758755
+reference,EU-12,RootTuber,3.0604,3.0477,2.96694
+reference,EU-12,SugarCrop,8.64208,9.08818,9.35959
+reference,EU-12,Wheat,19.5342,19.302,18.6827
+reference,EU-15,Corn,6.36031,6.3646,6.36173
+reference,EU-15,Fruits,11.9635,12.5664,12.8769
+reference,EU-15,Vegetables,6.94303,7.29795,7.48687
+reference,EU-15,MiscCrop,7.62159,8.01482,8.22716
+reference,EU-15,FiberCrop,0.162012,0.170144,0.173689
+reference,EU-15,OilCrop,30.6954,32.0444,32.6816
+reference,EU-15,OilPalm,1.70326,1.79598,1.84987
+reference,EU-15,Soybean,9.77584,10.2078,10.4574
+reference,EU-15,OtherGrain,14.4923,14.4613,14.4252
+reference,EU-15,Beef,7.62867,7.98164,8.15757
+reference,EU-15,Dairy,51.5633,54.1122,55.4284
+reference,EU-15,OtherMeat_Fish,9.13309,9.60344,9.85478
+reference,EU-15,Pork,23.0954,24.2049,24.7554
+reference,EU-15,Poultry,14.6385,15.3514,15.7118
+reference,EU-15,SheepGoat,1.1959,1.25403,1.28394
+reference,EU-15,Legumes,2.89609,3.02951,3.09014
+reference,EU-15,NutsSeeds,7.59975,7.91584,7.98501
+reference,EU-15,Rice,6.09727,6.09678,6.06766
+reference,EU-15,RootTuber,11.0527,11.086,11.1069
+reference,EU-15,SugarCrop,33.8004,35.4908,36.2178
+reference,EU-15,Wheat,72.0641,71.9081,71.7332
+reference,Europe_Eastern,Corn,2.60764,2.29535,2.26629
+reference,Europe_Eastern,Fruits,1.20067,1.07184,1.16444
+reference,Europe_Eastern,Vegetables,1.64824,1.47187,1.59938
+reference,Europe_Eastern,MiscCrop,0.617716,0.55365,0.59848
+reference,Europe_Eastern,FiberCrop,0,0,0
+reference,Europe_Eastern,OilCrop,3.01721,2.67188,2.88817
+reference,Europe_Eastern,OilPalm,0.002228,0.00198991,0.00216626
+reference,Europe_Eastern,Soybean,0.295661,0.262294,0.284543
+reference,Europe_Eastern,OtherGrain,2.91855,2.57655,2.54619
+reference,Europe_Eastern,Beef,0.960147,0.854215,0.918366
+reference,Europe_Eastern,Dairy,5.59129,4.98034,5.39457
+reference,Europe_Eastern,OtherMeat_Fish,1.07096,0.955766,1.04056
+reference,Europe_Eastern,Pork,2.06762,1.84378,1.99771
+reference,Europe_Eastern,Poultry,2.69902,2.40864,2.61321
+reference,Europe_Eastern,SheepGoat,0.0199771,0.017771,0.0190637
+reference,Europe_Eastern,Legumes,0.318078,0.282557,0.303548
+reference,Europe_Eastern,NutsSeeds,0.378836,0.334481,0.357082
+reference,Europe_Eastern,Rice,0.418175,0.367851,0.362543
+reference,Europe_Eastern,RootTuber,4.01242,3.54712,3.5212
+reference,Europe_Eastern,SugarCrop,5.71406,5.11045,5.5192
+reference,Europe_Eastern,Wheat,11.6901,10.2834,10.1609
+reference,Europe_Non_EU,Corn,3.67716,3.69259,3.72928
+reference,Europe_Non_EU,Fruits,4.05456,4.45955,4.82956
+reference,Europe_Non_EU,Vegetables,3.31683,3.64772,3.95001
+reference,Europe_Non_EU,MiscCrop,2.17177,2.39196,2.59541
+reference,Europe_Non_EU,FiberCrop,0.830145,0.910124,0.980023
+reference,Europe_Non_EU,OilCrop,6.48167,7.07603,7.60317
+reference,Europe_Non_EU,OilPalm,3.31535,3.65461,3.97101
+reference,Europe_Non_EU,Soybean,0.0880001,0.0960716,0.103942
+reference,Europe_Non_EU,OtherGrain,1.29421,1.30099,1.31376
+reference,Europe_Non_EU,Beef,2.43211,2.67055,2.88747
+reference,Europe_Non_EU,Dairy,12.1396,13.2373,14.2251
+reference,Europe_Non_EU,OtherMeat_Fish,1.09835,1.2142,1.32155
+reference,Europe_Non_EU,Pork,0.910034,1.00419,1.09111
+reference,Europe_Non_EU,Poultry,3.01976,3.32937,3.61371
+reference,Europe_Non_EU,SheepGoat,0.818164,0.901725,0.978338
+reference,Europe_Non_EU,Legumes,2.6124,2.85135,3.06027
+reference,Europe_Non_EU,NutsSeeds,2.81313,3.05791,3.26064
+reference,Europe_Non_EU,Rice,2.04533,2.05759,2.07499
+reference,Europe_Non_EU,RootTuber,2.29834,2.32456,2.36198
+reference,Europe_Non_EU,SugarCrop,7.2127,7.90298,8.52139
+reference,Europe_Non_EU,Wheat,31.9112,32.2317,32.697
+reference,European Free Trade Association,Corn,0.0136711,0.0139041,0.0141385
+reference,European Free Trade Association,Fruits,0.392647,0.419704,0.43411
+reference,European Free Trade Association,Vegetables,0.20724,0.221435,0.229074
+reference,European Free Trade Association,MiscCrop,0.435538,0.465507,0.481898
+reference,European Free Trade Association,FiberCrop,1.66E-05,1.77E-05,1.82E-05
+reference,European Free Trade Association,OilCrop,0.90208,0.956831,0.982813
+reference,European Free Trade Association,OilPalm,0.0125898,0.0134812,0.0139906
+reference,European Free Trade Association,Soybean,0.0760658,0.0807226,0.0834611
+reference,European Free Trade Association,OtherGrain,0.415163,0.420375,0.427224
+reference,European Free Trade Association,Beef,0.289799,0.307493,0.316451
+reference,European Free Trade Association,Dairy,2.01406,2.14856,2.2203
+reference,European Free Trade Association,OtherMeat_Fish,0.433736,0.464008,0.480794
+reference,European Free Trade Association,Pork,0.735054,0.784465,0.81084
+reference,European Free Trade Association,Poultry,0.426253,0.454912,0.470262
+reference,European Free Trade Association,SheepGoat,0.0666378,0.0707228,0.0727331
+reference,European Free Trade Association,Legumes,0.27837,0.29498,0.302271
+reference,European Free Trade Association,NutsSeeds,0.309411,0.327776,0.333055
+reference,European Free Trade Association,Rice,0.124977,0.127131,0.12906
+reference,European Free Trade Association,RootTuber,0.265416,0.270263,0.275859
+reference,European Free Trade Association,SugarCrop,1.27382,1.36648,1.40891
+reference,European Free Trade Association,Wheat,3.06386,3.12559,3.18222
+reference,India,Corn,16.0938,16.0496,16.1361
+reference,India,Fruits,28.5712,33.223,39.7249
+reference,India,Vegetables,27.976,32.5227,38.8622
+reference,India,MiscCrop,9.17251,10.6766,12.7547
+reference,India,FiberCrop,7.92084,9.15588,10.8369
+reference,India,OilCrop,46.4827,53.2569,62.3313
+reference,India,OilPalm,12.1484,14.1868,17.0366
+reference,India,Soybean,21.8118,25.165,29.8812
+reference,India,OtherGrain,40.6317,40.8176,41.2099
+reference,India,Beef,4.33146,4.98828,5.8828
+reference,India,Dairy,120.376,136.633,160.043
+reference,India,OtherMeat_Fish,7.61813,9.00351,10.9502
+reference,India,Pork,0.760444,0.891011,1.07515
+reference,India,Poultry,11.7598,13.8264,16.7062
+reference,India,SheepGoat,1.05038,1.23875,1.50332
+reference,India,Legumes,57.0183,65.8162,77.0788
+reference,India,NutsSeeds,27.6633,31.6378,36.8655
+reference,India,Rice,275.213,276.38,279.51
+reference,India,RootTuber,23.8385,24.0369,24.4804
+reference,India,SugarCrop,87.7795,101.051,119.315
+reference,India,Wheat,227.826,228.211,229.883
+reference,Indonesia,Corn,0.488844,0.498035,0.50779
+reference,Indonesia,Fruits,7.40045,8.46929,9.68629
+reference,Indonesia,Vegetables,3.03628,3.47587,3.97707
+reference,Indonesia,MiscCrop,2.74747,3.1475,3.60587
+reference,Indonesia,FiberCrop,0,0,0
+reference,Indonesia,OilCrop,2.92267,3.30894,3.75428
+reference,Indonesia,OilPalm,26.6134,30.4456,34.8715
+reference,Indonesia,Soybean,8.52524,9.66198,11.0316
+reference,Indonesia,OtherGrain,0.239723,0.241011,0.243707
+reference,Indonesia,Beef,0.786056,0.89334,1.01469
+reference,Indonesia,Dairy,1.38263,1.58523,1.81847
+reference,Indonesia,OtherMeat_Fish,4.92923,5.68057,6.54539
+reference,Indonesia,Pork,0.354989,0.405165,0.462784
+reference,Indonesia,Poultry,6.62764,7.57126,8.65432
+reference,Indonesia,SheepGoat,0.107706,0.123905,0.142509
+reference,Indonesia,Legumes,0.612668,0.69509,0.788248
+reference,Indonesia,NutsSeeds,3.26419,3.69121,4.16791
+reference,Indonesia,Rice,85.0549,86.1712,87.8672
+reference,Indonesia,RootTuber,14.8277,15.0811,15.421
+reference,Indonesia,SugarCrop,21.1073,24.0832,27.4321
+reference,Indonesia,Wheat,17.5689,17.9179,18.292
+reference,Japan,Corn,3.83006,3.72072,3.61184
+reference,Japan,Fruits,1.66637,1.79905,1.79488
+reference,Japan,Vegetables,2.24202,2.42125,2.41852
+reference,Japan,MiscCrop,1.6369,1.76779,1.76202
+reference,Japan,FiberCrop,0,0,0
+reference,Japan,OilCrop,8.03236,8.60258,8.52393
+reference,Japan,OilPalm,0.858553,0.928415,0.930027
+reference,Japan,Soybean,8.17088,8.75938,8.743
+reference,Japan,OtherGrain,1.41655,1.37572,1.34432
+reference,Japan,Beef,1.42257,1.50694,1.48379
+reference,Japan,Dairy,5.40133,5.81459,5.79386
+reference,Japan,OtherMeat_Fish,3.69413,3.98806,3.98301
+reference,Japan,Pork,4.33215,4.64333,4.60626
+reference,Japan,Poultry,6.59683,7.10447,7.08074
+reference,Japan,SheepGoat,0.0327634,0.0351409,0.0348818
+reference,Japan,Legumes,0.474728,0.506645,0.501535
+reference,Japan,NutsSeeds,1.18257,1.26608,1.23853
+reference,Japan,Rice,22.8269,22.3038,21.6734
+reference,Japan,RootTuber,2.35294,2.29603,2.23517
+reference,Japan,SugarCrop,7.79722,8.45059,8.40402
+reference,Japan,Wheat,14.7744,14.4125,13.9912
+reference,Mexico,Corn,34.2436,34.9909,36.1527
+reference,Mexico,Fruits,3.90079,4.24826,4.6162
+reference,Mexico,Vegetables,1.26268,1.37582,1.49544
+reference,Mexico,MiscCrop,0.487424,0.532503,0.579708
+reference,Mexico,FiberCrop,0.0144708,0.0156423,0.0169482
+reference,Mexico,OilCrop,1.36069,1.47032,1.59063
+reference,Mexico,OilPalm,2.82215,3.08707,3.3456
+reference,Mexico,Soybean,3.91596,4.23562,4.59447
+reference,Mexico,OtherGrain,3.62278,3.69128,3.80755
+reference,Mexico,Beef,2.67466,2.88072,3.09585
+reference,Mexico,Dairy,6.76148,7.34894,7.96947
+reference,Mexico,OtherMeat_Fish,1.67111,1.8229,1.9831
+reference,Mexico,Pork,5.24356,5.69669,6.17855
+reference,Mexico,Poultry,7.23833,7.87943,8.5603
+reference,Mexico,SheepGoat,0.142557,0.15348,0.164889
+reference,Mexico,Legumes,2.79291,3.02891,3.26915
+reference,Mexico,NutsSeeds,1.00321,1.08035,1.15479
+reference,Mexico,Rice,2.01104,2.04342,2.10108
+reference,Mexico,RootTuber,1.17028,1.19941,1.24162
+reference,Mexico,SugarCrop,11.752,12.7694,13.8671
+reference,Mexico,Wheat,7.92879,8.11846,8.38148
+reference,Middle East,Corn,7.36146,7.71907,8.22574
+reference,Middle East,Fruits,11.8471,13.5155,15.1784
+reference,Middle East,Vegetables,4.97497,5.6755,6.37479
+reference,Middle East,MiscCrop,3.43507,3.92344,4.3999
+reference,Middle East,FiberCrop,0.222136,0.252539,0.282261
+reference,Middle East,OilCrop,16.0401,18.1382,20.2414
+reference,Middle East,OilPalm,7.32582,8.34384,9.38238
+reference,Middle East,Soybean,6.09827,6.9122,7.75368
+reference,Middle East,OtherGrain,2.54879,2.67212,2.85377
+reference,Middle East,Beef,2.451,2.76648,3.07983
+reference,Middle East,Dairy,12.0089,13.6564,15.2956
+reference,Middle East,OtherMeat_Fish,3.8825,4.43417,4.98231
+reference,Middle East,Pork,0.139619,0.158563,0.177108
+reference,Middle East,Poultry,10.8058,12.3015,13.7835
+reference,Middle East,SheepGoat,2.14452,2.43858,2.73009
+reference,Middle East,Legumes,5.08501,5.74756,6.37293
+reference,Middle East,NutsSeeds,4.54351,5.12069,5.63719
+reference,Middle East,Rice,22.0431,23.1745,24.6005
+reference,Middle East,RootTuber,3.72093,3.92048,4.18997
+reference,Middle East,SugarCrop,22.3929,25.5317,28.568
+reference,Middle East,Wheat,87.2785,92.3443,98.4187
+reference,Pakistan,Corn,5.94227,6.32402,6.73004
+reference,Pakistan,Fruits,2.40372,2.67415,3.19239
+reference,Pakistan,Vegetables,1.6834,1.87814,2.24644
+reference,Pakistan,MiscCrop,0.490064,0.547043,0.653959
+reference,Pakistan,FiberCrop,0.339982,0.37492,0.443811
+reference,Pakistan,OilCrop,0.245319,0.270965,0.320978
+reference,Pakistan,OilPalm,7.66234,8.55908,10.2704
+reference,Pakistan,Soybean,1.71353,1.89607,2.26623
+reference,Pakistan,OtherGrain,0.536911,0.563766,0.59717
+reference,Pakistan,Beef,2.79751,3.09951,3.68237
+reference,Pakistan,Dairy,29.7229,33.0161,39.3587
+reference,Pakistan,OtherMeat_Fish,1.8063,2.01789,2.41854
+reference,Pakistan,Pork,5.88E-05,6.54E-05,7.81E-05
+reference,Pakistan,Poultry,2.77584,3.08553,3.68099
+reference,Pakistan,SheepGoat,0.714357,0.79302,0.944305
+reference,Pakistan,Legumes,3.65692,4.04207,4.78258
+reference,Pakistan,NutsSeeds,0.389104,0.434078,0.514644
+reference,Pakistan,Rice,8.9926,9.64634,10.3559
+reference,Pakistan,RootTuber,2.51889,2.71518,2.93285
+reference,Pakistan,SugarCrop,20.3202,22.2131,26.1465
+reference,Pakistan,Wheat,60.5491,64.9962,69.7366
+reference,Russia,Corn,0.289533,0.287766,0.282384
+reference,Russia,Fruits,3.00358,3.0957,3.16269
+reference,Russia,Vegetables,2.22795,2.2971,2.3485
+reference,Russia,MiscCrop,0.823895,0.849578,0.868133
+reference,Russia,FiberCrop,2.20E-06,2.28E-06,2.34E-06
+reference,Russia,OilCrop,11.7333,12.0935,12.34
+reference,Russia,Soybean,1.46312,1.50309,1.53347
+reference,Russia,OtherGrain,6.07787,6.04954,5.95628
+reference,Russia,Beef,2.56807,2.64073,2.69282
+reference,Russia,Dairy,13.4256,13.8339,14.1337
+reference,Russia,OtherMeat_Fish,2.73827,2.82445,2.88974
+reference,Russia,Pork,6.65607,6.86848,7.02443
+reference,Russia,Poultry,6.60592,6.81641,6.96989
+reference,Russia,SheepGoat,0.317057,0.325754,0.331878
+reference,Russia,Legumes,1.04248,1.06884,1.08147
+reference,Russia,NutsSeeds,0.683626,0.696568,0.696801
+reference,Russia,Rice,1.81135,1.79528,1.75705
+reference,Russia,RootTuber,5.59073,5.54106,5.44387
+reference,Russia,SugarCrop,12.7134,13.1003,13.381
+reference,Russia,Wheat,38.674,38.4526,37.6968
+reference,South Africa,Corn,11.4445,11.7734,12.1974
+reference,South Africa,Fruits,0.522347,0.547288,0.581408
+reference,South Africa,Vegetables,0.543513,0.569656,0.605305
+reference,South Africa,MiscCrop,0.304897,0.319225,0.33873
+reference,South Africa,FiberCrop,0.0077285,0.00805665,0.00851312
+reference,South Africa,OilCrop,2.91037,3.04522,3.24683
+reference,South Africa,OilPalm,2.36594,2.48169,2.64366
+reference,South Africa,Soybean,2.27912,2.37602,2.52218
+reference,South Africa,OtherGrain,1.63104,1.66584,1.72101
+reference,South Africa,Beef,1.6128,1.68316,1.77923
+reference,South Africa,Dairy,1.64685,1.72384,1.82899
+reference,South Africa,OtherMeat_Fish,0.683428,0.716794,0.762573
+reference,South Africa,Pork,0.611018,0.639665,0.678246
+reference,South Africa,Poultry,2.95277,3.09463,3.28539
+reference,South Africa,SheepGoat,0.315089,0.329264,0.348736
+reference,South Africa,Legumes,0.241754,0.251521,0.264785
+reference,South Africa,NutsSeeds,0.40466,0.419712,0.4382
+reference,South Africa,Rice,2.54696,2.61381,2.70032
+reference,South Africa,RootTuber,1.30102,1.33885,1.39257
+reference,South Africa,SugarCrop,5.49765,5.78255,6.16597
+reference,South Africa,Wheat,8.54353,8.79503,9.13017
+reference,South America_Northern,Corn,3.36985,3.38115,3.22101
+reference,South America_Northern,Fruits,1.22443,1.24911,1.5666
+reference,South America_Northern,Vegetables,0.344453,0.351302,0.440454
+reference,South America_Northern,MiscCrop,0.260538,0.265856,0.332986
+reference,South America_Northern,FiberCrop,0.0045793,0.00464106,0.00578886
+reference,South America_Northern,OilCrop,0.278027,0.282751,0.350612
+reference,South America_Northern,OilPalm,0.900188,0.914425,1.14117
+reference,South America_Northern,Soybean,1.61546,1.63933,2.05065
+reference,South America_Northern,OtherGrain,0.337148,0.338623,0.324156
+reference,South America_Northern,Beef,0.534013,0.542698,0.667945
+reference,South America_Northern,Dairy,1.29182,1.31517,1.63735
+reference,South America_Northern,OtherMeat_Fish,0.289547,0.2955,0.370194
+reference,South America_Northern,Pork,0.414738,0.421649,0.5263
+reference,South America_Northern,Poultry,0.818982,0.835098,1.0445
+reference,South America_Northern,SheepGoat,0.0144887,0.0147364,0.0181176
+reference,South America_Northern,Legumes,0.955865,0.966219,1.20234
+reference,South America_Northern,NutsSeeds,0.0384645,0.0389474,0.047793
+reference,South America_Northern,Rice,3.44954,3.4546,3.29059
+reference,South America_Northern,RootTuber,0.731568,0.735037,0.704585
+reference,South America_Northern,SugarCrop,3.07218,3.13863,3.92123
+reference,South America_Northern,Wheat,2.82641,2.83558,2.70974
+reference,South America_Southern,Corn,5.92216,6.04476,6.24403
+reference,South America_Southern,Fruits,3.48293,3.85006,4.1659
+reference,South America_Southern,Vegetables,0.97188,1.07446,1.16282
+reference,South America_Southern,MiscCrop,0.740419,0.818778,0.88592
+reference,South America_Southern,FiberCrop,0.0555911,0.0612327,0.0660318
+reference,South America_Southern,OilCrop,1.38529,1.52073,1.63571
+reference,South America_Southern,OilPalm,2.60065,2.8723,3.10729
+reference,South America_Southern,Soybean,2.71587,2.98393,3.22967
+reference,South America_Southern,OtherGrain,2.89206,2.95812,3.05965
+reference,South America_Southern,Beef,2.18477,2.38747,2.55442
+reference,South America_Southern,Dairy,4.5542,5.00983,5.39563
+reference,South America_Southern,OtherMeat_Fish,2.22592,2.46286,2.66602
+reference,South America_Southern,Pork,2.25946,2.49019,2.6874
+reference,South America_Southern,Poultry,4.91743,5.42986,5.86977
+reference,South America_Southern,SheepGoat,0.146745,0.160713,0.172376
+reference,South America_Southern,Legumes,1.54912,1.69787,1.82131
+reference,South America_Southern,NutsSeeds,0.642462,0.702193,0.74687
+reference,South America_Southern,Rice,8.81767,9.00842,9.30986
+reference,South America_Southern,RootTuber,5.67469,5.82084,6.03214
+reference,South America_Southern,SugarCrop,7.12641,7.86705,8.51334
+reference,South America_Southern,Wheat,13.8006,14.1349,14.6122
+reference,South Asia,Corn,3.96781,4.09168,4.21418
+reference,South Asia,Fruits,3.42241,4.16596,5.36394
+reference,South Asia,Vegetables,4.38359,5.33458,6.86607
+reference,South Asia,MiscCrop,1.70516,2.07557,2.67024
+reference,South Asia,FiberCrop,0.0848641,0.103009,0.131968
+reference,South Asia,OilCrop,5.11872,6.1682,7.83458
+reference,South Asia,OilPalm,5.78507,7.04389,9.08488
+reference,South Asia,Soybean,4.35624,5.24219,6.72021
+reference,South Asia,OtherGrain,1.14912,1.19149,1.23188
+reference,South Asia,Beef,0.688589,0.827982,1.04602
+reference,South Asia,Dairy,7.29192,8.77989,11.2124
+reference,South Asia,OtherMeat_Fish,2.90108,3.55717,4.61847
+reference,South Asia,Pork,0.0616062,0.0743676,0.0953522
+reference,South Asia,Poultry,1.59746,1.93639,2.4834
+reference,South Asia,SheepGoat,0.464955,0.567016,0.730521
+reference,South Asia,Legumes,5.91857,7.11613,9.02614
+reference,South Asia,NutsSeeds,1.27321,1.52069,1.89558
+reference,South Asia,Rice,99.1074,102.688,105.798
+reference,South Asia,RootTuber,6.89489,7.14871,7.42106
+reference,South Asia,SugarCrop,8.37014,10.1475,12.9596
+reference,South Asia,Wheat,28.5068,29.535,30.5826
+reference,South Korea,Corn,1.656,1.62891,1.60275
+reference,South Korea,Fruits,0.741306,0.818322,0.836072
+reference,South Korea,Vegetables,1.72648,1.90539,1.94784
+reference,South Korea,MiscCrop,0.249587,0.275632,0.281023
+reference,South Korea,FiberCrop,0.174867,0.192422,0.195691
+reference,South Korea,OilCrop,2.46888,2.70852,2.74075
+reference,South Korea,OilPalm,1.52264,1.68291,1.7242
+reference,South Korea,Soybean,4.4606,4.88989,4.99063
+reference,South Korea,OtherGrain,0.761355,0.747122,0.736323
+reference,South Korea,Beef,0.963941,1.04886,1.0589
+reference,South Korea,Dairy,1.1453,1.25928,1.28408
+reference,South Korea,OtherMeat_Fish,2.49249,2.753,2.81638
+reference,South Korea,Pork,2.16277,2.37855,2.42391
+reference,South Korea,Poultry,1.5853,1.74764,1.78497
+reference,South Korea,SheepGoat,0.0306726,0.0337462,0.0343244
+reference,South Korea,Legumes,0.168731,0.184363,0.186079
+reference,South Korea,NutsSeeds,0.801193,0.876767,0.878581
+reference,South Korea,Rice,8.47742,8.38174,8.25499
+reference,South Korea,RootTuber,0.563347,0.557296,0.549491
+reference,South Korea,SugarCrop,3.98459,4.39724,4.49508
+reference,South Korea,Wheat,5.51564,5.44038,5.35463
+reference,Southeast Asia,Corn,19.3831,19.7731,20.1828
+reference,Southeast Asia,Fruits,10.9116,12.6872,14.8062
+reference,Southeast Asia,Vegetables,8.83303,10.2698,11.9858
+reference,Southeast Asia,MiscCrop,1.71518,1.99464,2.32972
+reference,Southeast Asia,FiberCrop,0.248102,0.287612,0.334233
+reference,Southeast Asia,OilCrop,7.719,8.86637,10.257
+reference,Southeast Asia,OilPalm,8.84892,10.2755,11.9905
+reference,Southeast Asia,Soybean,8.12397,9.37081,10.9241
+reference,Southeast Asia,OtherGrain,5.14879,5.31048,5.45095
+reference,Southeast Asia,Beef,1.8372,2.11807,2.45846
+reference,Southeast Asia,Dairy,5.14851,5.96221,6.9433
+reference,Southeast Asia,OtherMeat_Fish,13.1645,15.359,17.9968
+reference,Southeast Asia,Pork,11.4771,13.2736,15.4317
+reference,Southeast Asia,Poultry,10.1999,11.8446,13.8202
+reference,Southeast Asia,SheepGoat,0.214629,0.249125,0.290456
+reference,Southeast Asia,Legumes,4.61046,5.30568,6.134
+reference,Southeast Asia,NutsSeeds,6.28994,7.23557,8.32221
+reference,Southeast Asia,Rice,141.876,145.229,148.34
+reference,Southeast Asia,RootTuber,10.8886,11.1852,11.4871
+reference,Southeast Asia,SugarCrop,29.8329,34.5375,40.1537
+reference,Southeast Asia,Wheat,19.7443,20.254,20.7498
+reference,Taiwan,Corn,0.411951,0.404392,0.394388
+reference,Taiwan,Fruits,0.598516,0.635847,0.648813
+reference,Taiwan,Vegetables,0.518405,0.550809,0.56222
+reference,Taiwan,MiscCrop,0.187104,0.198904,0.202819
+reference,Taiwan,OilCrop,0.365727,0.385579,0.390998
+reference,Taiwan,OilPalm,0.593348,0.630377,0.644927
+reference,Taiwan,Soybean,3.2154,3.3904,3.45484
+reference,Taiwan,OtherGrain,0.351193,0.346104,0.338131
+reference,Taiwan,Beef,0.180548,0.189815,0.192088
+reference,Taiwan,Dairy,0.659388,0.697887,0.709923
+reference,Taiwan,OtherMeat_Fish,0.434563,0.46231,0.472251
+reference,Taiwan,Pork,1.52277,1.61394,1.64325
+reference,Taiwan,Poultry,1.30283,1.38212,1.40851
+reference,Taiwan,SheepGoat,0.0530223,0.056039,0.0568906
+reference,Taiwan,Legumes,0.128743,0.135621,0.137083
+reference,Taiwan,NutsSeeds,0.38506,0.405748,0.410761
+reference,Taiwan,Rice,2.36435,2.31782,2.26015
+reference,Taiwan,RootTuber,0.191012,0.188233,0.183974
+reference,Taiwan,SugarCrop,1.48742,1.5859,1.61191
+reference,Taiwan,Wheat,2.21416,2.17898,2.12736
+reference,USA,Corn,13.0102,13.1848,13.4023
+reference,USA,Fruits,9.53326,10.0522,10.475
+reference,USA,Vegetables,4.75585,5.01489,5.2284
+reference,USA,MiscCrop,4.82873,5.08302,5.28689
+reference,USA,FiberCrop,0.647839,0.67922,0.704097
+reference,USA,OilCrop,9.51357,9.93746,10.2621
+reference,USA,OilPalm,0.108832,0.114827,0.119786
+reference,USA,Soybean,31.4306,32.8031,34.0979
+reference,USA,OtherGrain,12.5929,12.7199,12.9322
+reference,USA,Beef,12.2435,12.8178,13.2777
+reference,USA,Dairy,39.0596,41.0472,42.6648
+reference,USA,OtherMeat_Fish,5.11613,5.39142,5.61842
+reference,USA,Pork,14.9683,15.7273,16.3458
+reference,USA,Poultry,22.1047,23.2318,24.1526
+reference,USA,SheepGoat,0.328672,0.344204,0.356588
+reference,USA,Legumes,3.59696,3.74526,3.86427
+reference,USA,NutsSeeds,10.2685,10.6895,10.9931
+reference,USA,Rice,7.34679,7.43086,7.52511
+reference,USA,RootTuber,9.08515,9.22505,9.40685
+reference,USA,SugarCrop,32.3995,34.1012,35.4471
+reference,USA,Wheat,57.2418,57.8454,59.0288
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

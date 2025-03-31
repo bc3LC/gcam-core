@@ -1,0 +1,29 @@
+# File: A_demand_nesting_subsector_Food_ExoDiet.csv
+# Title: Nesting subsectors of agricultural production with exogenous diet at food group levels
+# Unit: NA
+# Description: Generic information for nesting subsectors of agricultural production
+# Source: GCAM assumptions
+# Column types: ccnciccccc 
+# ----------
+supplysector,subsector,logit.exponent,year.fillout,share.weight,apply.to,from.year,to.year,interpolation.function,logit.type
+FoodDemand_Staples,Corn,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_Staples,OtherGrain,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_Staples,Rice,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_Staples,RootTuber,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_Staples,Wheat,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_Oils,FiberCrop,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_Oils,OilCrop,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_Oils,OilPalm,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_Oils,Soybean,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_FruitsVeg,Vegetables,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_FruitsVeg,Fruits,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_PlantProtein,Legumes,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_PlantProtein,NutsSeeds,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_Sugar,SugarCrop,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_OtherCrop,MiscCrop,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_Ruminant,Beef,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_Ruminant,SheepGoat,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_NonRuminant,Pork,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_NonRuminant,Poultry,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_Dairy,Dairy,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
+FoodDemand_NonStaples_Fish,OtherMeat_Fish,-0.25,start-year,1,share-weight,final-calibration-year,end-year,fixed,
