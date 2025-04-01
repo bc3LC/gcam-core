@@ -446,6 +446,7 @@ aglu.DIGITS_WATER_CONTENT <- 2
 aglu.PASTURE_NODE_NAMES <- "Pasture"
 aglu.FOREST_NODE_NAMES <- "Forest"
 aglu.GRASSLAND_NODE_NAMES <- "Grassland"
+aglu.FOREST_SUPPLY_SECTOR <- "Forest"
 
 
 # Energy constants ======================================================================

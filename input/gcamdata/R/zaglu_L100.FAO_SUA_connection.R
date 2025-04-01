@@ -35,9 +35,9 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       "L105.an_Prod_Mt_ctry_C_Y",
       "L101.ag_Food_Mt_R_C_Y",
       "L105.an_Food_Mt_R_C_Y",
-      "L101.CropMeat_Food_Pcal_R_C_Y",
       "L101.ag_Feed_Mt_R_C_Y",
-      "L1091.GrossTrade_Mt_R_C_Y")
+      "L1091.GrossTrade_Mt_R_C_Y",
+      "DF_Macronutrient_FoodItem4")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -286,8 +286,6 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       DF_Macronutrient_FoodItem4 %>%
       transmute(GCAM_region_ID, GCAM_commodity, year, value = MKcal/1000)
 
-    rm(list = ls(pattern = "DF_Macronutrient_FoodItem*"))
-
 
     # 4. Feed and trade ----
 
@@ -369,15 +367,6 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
                      "FAO_Food_MacronutrientRate_2010_2019_MaxValue") ->
       L101.ag_Food_Mt_R_C_Y
 
-    L101.CropMeat_Food_Pcal_R_C_Y %>%
-      add_title("FAO food calories consumption by GCAM region, commodity, and year") %>%
-      add_units("Pcal") %>%
-      add_comments("Aggregates FAO data by GCAM region, commodity, and year") %>%
-      add_comments("Data is also converted from tons to Pcal") %>%
-      add_legacy_name("L101.CropMeat_Food_Pcal_R_C_Y") %>%
-      same_precursors_as(L101.ag_Food_Mt_R_C_Y) ->
-      L101.CropMeat_Food_Pcal_R_C_Y
-
     L105.an_Food_Mt_R_C_Y %>%
       add_title("Animal consumption by GCAM region / commodity / year") %>%
       add_units("Mt") %>%
@@ -407,6 +396,17 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
       add_legacy_name("L1091.GrossTrade_Mt_R_C_Y") %>%
       add_precursors("GCAM_AgLU_SUA_APE_1973_2019") ->
       L1091.GrossTrade_Mt_R_C_Y
+
+    DF_Macronutrient_FoodItem4 %>%
+      add_title("FAO food consumption by GCAM region, commodity, and year") %>%
+      add_units("MKcal") %>%
+      add_comments("Aggregates FAO data by GCAM region, commodity, and year; including waste") %>%
+      add_legacy_name("DF_Macronutrient_FoodItem4") %>%
+      add_precursors("common/GCAM_region_names",
+                     "aglu/FAO/FAO_ag_items_PRODSTAT",
+                     "FAO_Food_Macronutrient_All_2010_2019",
+                     "FAO_Food_MacronutrientRate_2010_2019_MaxValue") ->
+      DF_Macronutrient_FoodItem4
 
     # Done & return data----
     return_data(MODULE_OUTPUTS)

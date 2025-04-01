@@ -1,0 +1,18 @@
+# File: A_demand_supplysector_Food_ExoDiet.csv
+# Title: Supply sectors of agricultural production with exogenous diet at food group levels
+# Unit: Various
+# Description: Generic information for supply sectors of agricultural production
+# Source: GCAM assumptions
+# Column types: cccccninnc 
+# ----------
+supplysector,energy.final.demand,output.unit,input.unit,price.unit,logit.exponent,perCapitaBased,price.elasticity,income.elasticity,logit.type
+FoodDemand_Staples,FoodDemand_Staples,Pcal,Mt,1975$/Mcal,-0.25,0,0,0.1,
+FoodDemand_NonStaples_Oils,FoodDemand_NonStaples_Oils,Pcal,Mt,1975$/Mcal,-0.25,0,0,0.1,
+FoodDemand_NonStaples_FruitsVeg,FoodDemand_NonStaples_FruitsVeg,Pcal,Mt,1975$/Mcal,-0.25,0,0,0.1,
+FoodDemand_NonStaples_PlantProtein,FoodDemand_NonStaples_PlantProtein,Pcal,Mt,1975$/Mcal,-0.25,0,0,0.1,
+FoodDemand_NonStaples_Sugar,FoodDemand_NonStaples_Sugar,Pcal,Mt,1975$/Mcal,-0.25,0,0,0.1,
+FoodDemand_NonStaples_OtherCrop,FoodDemand_NonStaples_OtherCrop,Pcal,Mt,1975$/Mcal,-0.25,0,0,0.1,
+FoodDemand_NonStaples_Ruminant,FoodDemand_NonStaples_Ruminant,Pcal,Mt,1975$/Mcal,-0.25,0,0,0.1,
+FoodDemand_NonStaples_NonRuminant,FoodDemand_NonStaples_NonRuminant,Pcal,Mt,1975$/Mcal,-0.25,0,0,0.1,
+FoodDemand_NonStaples_Dairy,FoodDemand_NonStaples_Dairy,Pcal,Mt,1975$/Mcal,-0.25,0,0,0.1,
+FoodDemand_NonStaples_Fish,FoodDemand_NonStaples_Fish,Pcal,Mt,1975$/Mcal,-0.25,0,0,0.1,

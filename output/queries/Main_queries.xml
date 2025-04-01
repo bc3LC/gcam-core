@@ -4193,14 +4193,14 @@ element input {
             <supplyDemandQuery title="food consumption by type (general)">
                 <axis1 name="sector">sector</axis1>
                 <axis2 name="Year">physical-output[@vintage]</axis2>
-                <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='FoodDemand_Staples' or @name='FoodDemand_NonStaples')]//
+                <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' and (@name='FoodDemand_Staples' or @name='FoodDemand_NonStaples' or @name='FoodDemand_NonStaples_Oils' or @name='FoodDemand_NonStaples_FruitsVeg' or @name='FoodDemand_NonStaples_PlantProtein' or @name='FoodDemand_NonStaples_Sugar' or @name='FoodDemand_NonStaples_OtherCrop' or @name='FoodDemand_NonStaples_Ruminant' or @name='FoodDemand_NonStaples_NonRuminant' or @name='FoodDemand_NonStaples_Dairy' or @name='FoodDemand_NonStaples_Fish')]//
             *[@type='output']/physical-output/node()</xPath>
                 <comments/>
             </supplyDemandQuery>
             <supplyDemandQuery title="food consumption by type (specific)">
                 <axis1 name="technology">technology</axis1>
                 <axis2 name="Year">physical-output[@vintage]</axis2>
-                <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='FoodDemand_Staples' or @name='FoodDemand_NonStaples')]//
+                <xPath buildList="true" dataName="output" group="false" sumAll="false">*[@type='sector' (:collapse:) and (@name='FoodDemand_Staples' or @name='FoodDemand_NonStaples' or @name='FoodDemand_NonStaples_Oils' or @name='FoodDemand_NonStaples_FruitsVeg' or @name='FoodDemand_NonStaples_PlantProtein' or @name='FoodDemand_NonStaples_Sugar' or @name='FoodDemand_NonStaples_OtherCrop' or @name='FoodDemand_NonStaples_Ruminant' or @name='FoodDemand_NonStaples_NonRuminant' or @name='FoodDemand_NonStaples_Dairy' or @name='FoodDemand_NonStaples_Fish')]//
             *[@type='subsector']//*[@type='technology']/
             *[@type='output' (:collapse:)]/physical-output/node()</xPath>
                 <comments/>
