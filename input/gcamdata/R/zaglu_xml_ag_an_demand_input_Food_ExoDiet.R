@@ -422,7 +422,8 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       add_xml_data(L203.IncomeElasticity_Food_ExoDiet_2050EL2, "IncomeElasticity") %>%
       add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
       add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
-      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService")  ->
+      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService") %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_ExoDiet_SSP1_2050EL2.xml
 
     #Diet 2100
@@ -443,7 +444,8 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       add_xml_data(L203.IncomeElasticity_Food_ExoDiet_2100EL2, "IncomeElasticity") %>%
       add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
       add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
-      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService")  ->
+      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService") %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_ExoDiet_SSP1_2100EL2.xml
 
     #Static - updated with static waste
@@ -464,7 +466,8 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       add_xml_data(L203.IncomeElasticity_Food_ExoDiet_Static, "IncomeElasticity") %>%
       add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
       add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
-      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService")  ->
+      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService") %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_ExoDiet_SSP1_Static.xml
 
     # Reg Het Diet
@@ -485,7 +488,8 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       add_xml_data(L203.IncomeElasticity_Food_ExoDiet_reg_het, "IncomeElasticity") %>%
       add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
       add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
-      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService")  ->
+      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService") %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_ExoDiet_SSP1_RegHet_Diet.xml
 
     #Diet Waste 2050
@@ -506,7 +510,8 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       add_xml_data(L203.IncomeElasticity_Food_ExoDiet_2050EL2, "IncomeElasticity") %>%
       add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
       add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
-      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService")  ->
+      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService") %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_ExoDiet_SSP1_2050EL2_HalfWaste2050.xml
 
     #Diet Waste 2100
@@ -527,7 +532,8 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       add_xml_data(L203.IncomeElasticity_Food_ExoDiet_2100EL2, "IncomeElasticity") %>%
       add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
       add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
-      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService")  ->
+      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService") %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_ExoDiet_SSP1_2100EL2_HalfWaste2100.xml
 
     # Reg Het Diet Waste
@@ -548,7 +554,8 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       add_xml_data(L203.IncomeElasticity_Food_ExoDiet_reg_het, "IncomeElasticity") %>%
       add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
       add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
-      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService")  ->
+      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService") %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_ExoDiet_SSP1_RegHet_DietWaste.xml
 
     L203.IncomeElasticity_Food_ExoDiet_2050EL2 <-
@@ -616,7 +623,8 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       add_xml_data(L203.IncomeElasticity_Food_ExoDiet_2050EL2, "IncomeElasticity") %>%
       add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
       add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
-      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService")  ->
+      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService") %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_ExoDiet_SSP2_2050EL2.xml
 
 
@@ -637,7 +645,8 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       add_xml_data(L203.IncomeElasticity_Food_ExoDiet_2050EL2, "IncomeElasticity") %>%
       add_xml_data(L203.PriceElasticity_Food_ExoDiet, "PriceElasticity") %>%
       add_xml_data(L203.PerCapitaBased_Food_ExoDiet, "PerCapitaBased") %>%
-      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService")  ->
+      add_xml_data(L203.BaseService_Food_ExoDiet, "BaseService")  %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T)->
       ag_an_demand_input_Food_ExoDiet_SSP2_2050EL2_HalfWaste.xml
 
 

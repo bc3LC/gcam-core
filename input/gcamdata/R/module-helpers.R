@@ -3,6 +3,67 @@
 # module-helpers.R
 # Module specific helper functions
 
+#' remove_regions_xml
+#'
+#' Helper function to remove regions from an xml object
+#' @param xml xml object that is produced at end of xml chunl
+#' @param regions_to_remove character vector of regions to remove
+#' @param inverse if TRUE, remove all but the specified regions
+#' @importFrom assertthat assert_that
+#' @importFrom dplyr filter left_join rename mutate group_by select summarise_all ungroup
+#' @return xml object without specified regions in each tibble
+#'
+remove_regions_xml <- function(xml, regions_to_remove, inverse = FALSE) {
+  assert_that(is_data_list(xml))
+  assert_that(is.character(regions_to_remove))
+  gcam.regions <- c("USA","Africa_Eastern","Africa_Northern","Africa_Southern",
+                    "Africa_Western","Australia_NZ","Brazil","Canada",
+                    "Central America and Caribbean","Central Asia","China","EU-12",
+                    "EU-15","Europe_Eastern","Europe_Non_EU","European Free Trade Association",
+                    "India","Indonesia","Japan","Mexico",
+                    "Middle East","Pakistan","Russia","South Africa",
+                    "South America_Northern","South America_Southern","South Asia","South Korea",
+                    "Southeast Asia","Taiwan","Argentina","Colombia")
+  if (inverse) {
+    regions_to_remove <- setdiff(gcam.regions, regions_to_remove)
+  }
+
+  xml_data_filtered <- lapply(xml$data_tables, remove_regions_data_tables, regions_to_remove)
+  xml$data_tables <- xml_data_filtered
+  return (xml)
+}
+
+
+#' remove_regions_data_tables
+#'
+#' Helper function to remove regions from a tibble
+#' @param df_list list with data and header
+#' @param regions_to_remove character vector of regions to remove
+#' @importFrom assertthat assert_that
+#' @importFrom dplyr filter left_join rename mutate group_by select summarise_all ungroup
+#' @return data object without specified regions
+#'
+remove_regions_data_tables <- function(df_list, regions_to_remove){
+  assert_that(is_tibble(df_list$data) | is.null(df_list$data))
+  assert_that(is.character(regions_to_remove))
+
+  if (is.null(df_list$data)){ return(df_list)}
+
+  if ("region" %in% names(df_list$data)){
+    df_list$data <- df_list$data %>% filter(!region %in% regions_to_remove)
+    # if traded product, we may need to remove region names in subsector
+    if ("subsector" %in% names(df_list$data)){
+      if (any(grepl("traded", df_list$data$subsector))){
+        df_list$data <- df_list$data %>% filter(!grepl(paste(regions_to_remove, collapse = "|"), subsector))
+      }
+    }
+  }
+  if ("market.name" %in% names(df_list$data)){
+    df_list$data <- df_list$data %>% filter(!market.name %in% regions_to_remove)
+  }
+  return(df_list)
+}
+
 #' set_water_input_name
 #'
 #' Get the appropriate minicam.energy.input name to use in the GCAM supplysector.

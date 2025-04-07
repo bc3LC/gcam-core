@@ -136,7 +136,8 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       add_xml_data(L203.DemandNonStapleRegBias, "DemandNonStapleRegBias") %>%
       add_xml_data(L203.StapleBaseService, "StapleBaseService") %>%
       add_xml_data(L203.NonStapleBaseService, "NonStapleBaseService") %>%
-      add_precursors(MODULE_INPUTS) ->
+      add_precursors(MODULE_INPUTS) %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = F) ->
       ag_an_demand_input_Food.xml
 
 
@@ -183,7 +184,8 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       add_xml_data(L203.DemandNonStapleRegBias, "DemandNonStapleRegBias") %>%
       add_xml_data(L203.StapleBaseService, "StapleBaseService") %>%
       add_xml_data(L203.NonStapleBaseService, "NonStapleBaseService") %>%
-      add_precursors(MODULE_INPUTS) ->
+      add_precursors(MODULE_INPUTS) %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_Waste_SSP1.xml
 
     L203.StubCalorieContent %>%
@@ -224,7 +226,8 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       add_xml_data(L203.DemandNonStapleRegBias, "DemandNonStapleRegBias") %>%
       add_xml_data(L203.StapleBaseService, "StapleBaseService") %>%
       add_xml_data(L203.NonStapleBaseService, "NonStapleBaseService") %>%
-      add_precursors(MODULE_INPUTS) ->
+      add_precursors(MODULE_INPUTS) %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_Waste_SSP1_HalfWaste2050.xml
 
 
@@ -268,7 +271,8 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       add_xml_data(L203.DemandNonStapleRegBias, "DemandNonStapleRegBias") %>%
       add_xml_data(L203.StapleBaseService, "StapleBaseService") %>%
       add_xml_data(L203.NonStapleBaseService, "NonStapleBaseService") %>%
-      add_precursors(MODULE_INPUTS) ->
+      add_precursors(MODULE_INPUTS) %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_Waste_SSP2.xml
 
     L203.StubCalorieContent %>%
@@ -307,7 +311,8 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       add_xml_data(L203.DemandNonStapleRegBias, "DemandNonStapleRegBias") %>%
       add_xml_data(L203.StapleBaseService, "StapleBaseService") %>%
       add_xml_data(L203.NonStapleBaseService, "NonStapleBaseService") %>%
-      add_precursors(MODULE_INPUTS) ->
+      add_precursors(MODULE_INPUTS) %>%
+      remove_regions_xml(c('EU-12','EU-15'), inverse = T) ->
       ag_an_demand_input_Food_Waste_SSP2_HalfWaste2050.xml
 
     return_data(MODULE_OUTPUTS)
