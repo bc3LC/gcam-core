@@ -259,7 +259,7 @@ module_aglu_L100.AgMIP2_Food_Waste_Pathways <- function(command, ...) {
       spread(WasteSector, WasteShare) %>%
       # Ensure animal > other crops
       mutate(Animal = pmax(Animal, Others)) %>%
-      gather(WasteSector, WasteShare, -region, -GCAM_region_ID) %>%
+      tidyr::gather(WasteSector, WasteShare, -region, -GCAM_region_ID) %>%
       # Adding 4% minimium
       mutate(WasteShare = pmax(0.04, WasteShare)) ->
       SectoralWasteShare_agg_updated
@@ -408,25 +408,41 @@ module_aglu_L100.AgMIP2_Food_Waste_Pathways <- function(command, ...) {
     GCAM_FoodWaste_Share_Pathway_SSP0 %>%
       # create template for waste scenarios
       mutate(HalfWaste2050 = WasteShare,
+             HalfWaste2050_low = WasteShare,
              HalfWaste2100 = WasteShare,
+             HalfWaste2100_low = WasteShare,
              StaticWaste = WasteShare) %>%
       group_by(scenario, GCAM_region_ID, GCAM_commodity) %>%
       #filter(GCAM_commodity == "Beef", GCAM_region_ID == 1, scenario == "gSSP1") %>%
 
       # Note that 2025 should be the same across scenarios!
       # Half Waste 2050
-      mutate(HalfWaste2050 = if_else(year == 2050, 0.5 * HalfWaste2050, HalfWaste2050),
+      mutate(HalfWaste2050 = if_else(year == 2050, 0.5 * 0.75 * HalfWaste2050, HalfWaste2050), # only HH waste reduction
              HalfWaste2050 = if_else(year >= 2050, HalfWaste2050[year == 2050], HalfWaste2050),
              HalfWaste2050 = if_else(year %in% 2030:2045, NA_real_, HalfWaste2050) ) %>%
       # linear decrease by 2050 from 2020
       mutate(HalfWaste2050 = approx_fun(year, HalfWaste2050)) %>%
 
+      # Half Waste 2050 - low ambition
+      mutate(HalfWaste2050_low = if_else(year == 2050, 0.75 * 0.75 * HalfWaste2050_low, HalfWaste2050_low), # half of the previous HH waste reduction
+             HalfWaste2050_low = if_else(year >= 2050, HalfWaste2050_low[year == 2050], HalfWaste2050_low),
+             HalfWaste2050_low = if_else(year %in% 2030:2045, NA_real_, HalfWaste2050_low) ) %>%
+      # linear decrease by 2050 from 2020
+      mutate(HalfWaste2050_low = approx_fun(year, HalfWaste2050_low)) %>%
+
       #Half Waste 2100
-      mutate(HalfWaste2100 = if_else(year == 2100, 0.5 * HalfWaste2100, HalfWaste2100),
+      mutate(HalfWaste2100 = if_else(year == 2100, 0.5 * 0.75 * HalfWaste2100, HalfWaste2100), # only HH waste reduction
              HalfWaste2100 = if_else(year >= 2100, HalfWaste2100[year == 2100], HalfWaste2100),
              HalfWaste2100 = if_else(year %in% 2030:2095, NA_real_, HalfWaste2100) ) %>%
       # linear decrease by 2100 from 2020
       mutate(HalfWaste2100 = approx_fun(year, HalfWaste2100)) %>%
+
+      #Half Waste 2100 - low ambition
+      mutate(HalfWaste2100_low = if_else(year == 2100, 0.75 * 0.75 * HalfWaste2100_low, HalfWaste2100_low), # half of the previous HH waste reduction
+             HalfWaste2100_low = if_else(year >= 2100, HalfWaste2100_low[year == 2100], HalfWaste2100_low),
+             HalfWaste2100_low = if_else(year %in% 2030:2095, NA_real_, HalfWaste2100_low) ) %>%
+      # linear decrease by 2100 from 2020
+      mutate(HalfWaste2100_low = approx_fun(year, HalfWaste2100_low)) %>%
 
       # Static Waste
       mutate(StaticWaste  = if_else(year == 2100, StaticWaste[year == 2025], StaticWaste),

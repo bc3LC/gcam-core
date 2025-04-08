@@ -64,8 +64,10 @@ module_aglu_L100.AgMIP1_Calorie_Intake_EL2_Targets <- function(command, ...) {
       # so zero target
       replace_na(list(abs = 0)) %>%
       mutate(intake2020 = abs - chg) %>% #filter(is.na(intake2020))
-      rename(targetEL2 = abs) %>% select(-chg, -pct, -year) %>%
-      gather(measure, value, targetEL2, intake2020) ->
+      rename(targetEL2 = abs) %>%
+      mutate(targetEL2_low = intake2020 + chg/2) %>%
+      select(-chg, -pct, -year) %>%
+      gather(measure, value, targetEL2, targetEL2_low, intake2020) ->
       AgMIP_foodgrouptargets1
 
     ## Join 2020 population to aggregate to GCAM region ----
