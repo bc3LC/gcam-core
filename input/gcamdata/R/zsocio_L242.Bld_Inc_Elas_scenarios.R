@@ -59,6 +59,17 @@ module_socio_L242.Bld_Inc_Elas_scenarios <- function(command, ...) {
       select(scenario, region, energy.final.demand, year, income.elasticity) %>%
       arrange(year)
 
+    # CB: Make sure that Income Elasticity is identical in 2025 and diverges only in 2030
+    # for MODEL_FIRST_FUTURE_YEAR, use SSP2 data for all 5 SSPs
+    L242.pcgdp_thous90USD_Scen_R_Y <- L242.pcgdp_thous90USD_Scen_R_Y |> filter(
+      year > MODEL_FIRST_FUTURE_YEAR) |> rbind(
+        L242.pcgdp_thous90USD_Scen_R_Y |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2")
+      )|> rbind(L242.pcgdp_thous90USD_Scen_R_Y |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP1")
+      )|> rbind(L242.pcgdp_thous90USD_Scen_R_Y |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP3")
+      )|> rbind(L242.pcgdp_thous90USD_Scen_R_Y |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP4")
+      )|> rbind(L242.pcgdp_thous90USD_Scen_R_Y |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP5")
+      )
+
     # Split by scenario and remove scenario column from each tibble
 
     L242.pcgdp_thous90USD_Scen_R_Y <- L242.pcgdp_thous90USD_Scen_R_Y %>%

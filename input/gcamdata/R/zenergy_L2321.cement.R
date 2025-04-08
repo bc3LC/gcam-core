@@ -453,6 +453,19 @@ module_energy_L2321.cement <- function(command, ...) {
       mutate(energy.final.demand = A321.demand[["energy.final.demand"]]) ->
       L2321.IncomeElasticity_cement # intermediate tibble
 
+
+    # CB: Make sure that Income Elasticity is identical in 2025 and diverges only in 2030
+    # for MODEL_FIRST_FUTURE_YEAR, use SSP2 data for all 5 SSPs
+    L2321.IncomeElasticity_cement <- L2321.IncomeElasticity_cement |> filter(
+      year > MODEL_FIRST_FUTURE_YEAR) |> rbind(
+        L2321.IncomeElasticity_cement |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2")
+      )|> rbind(L2321.IncomeElasticity_cement |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP1")
+      )|> rbind(L2321.IncomeElasticity_cement |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP3")
+      )|> rbind(L2321.IncomeElasticity_cement |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP4")
+      )|> rbind(L2321.IncomeElasticity_cement |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP5")
+      )
+
+
     # ===================================================
     # Produce outputs
 

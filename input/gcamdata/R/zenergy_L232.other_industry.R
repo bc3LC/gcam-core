@@ -610,6 +610,18 @@ module_energy_L232.other_industry <- function(command, ...) {
       bind_rows(filter(L232.IncomeElasticity_ind, scenario != "SSP1")) ->
       L232.IncomeElasticity_ind
 
+    # CB: Make sure that Income Elasticity is identical in 2025 and diverges only in 2030
+    # for MODEL_FIRST_FUTURE_YEAR, use SSP2 data for all 5 SSPs
+    L232.IncomeElasticity_ind <- L232.IncomeElasticity_ind |> filter(
+      year > MODEL_FIRST_FUTURE_YEAR) |> rbind(
+        L232.IncomeElasticity_ind |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2")
+      )|> rbind(L232.IncomeElasticity_ind |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP1")
+      )|> rbind(L232.IncomeElasticity_ind |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP3")
+      )|> rbind(L232.IncomeElasticity_ind |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP4")
+      )|> rbind(L232.IncomeElasticity_ind |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP5")
+      )
+
+
     # ===================================================
     # Produce outputs
 

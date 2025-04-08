@@ -35,6 +35,7 @@ MODEL_FINAL_BASE_YEAR   <- max(MODEL_BASE_YEARS)
 
 # Future (not calibrated) model periods. Only level 2 chunks should reference these
 MODEL_FUTURE_YEARS      <- seq(2025, 2100, 5)
+MODEL_FIRST_FUTURE_YEAR <- min(MODEL_FUTURE_YEARS)
 
 # Make sure years are consistent
 if (min(MODEL_FUTURE_YEARS) <= max(HISTORICAL_YEARS)) {

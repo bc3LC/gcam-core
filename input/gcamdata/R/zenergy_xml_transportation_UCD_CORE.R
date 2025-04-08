@@ -144,18 +144,18 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
       # i.e. mismatch between calibrated output and actual.
 
       L254.StubTranTechLoadFactor_SSP <- L254.StubTranTechLoadFactor %>% filter(sce== i)
-      if (i != "CORE"){L254.StubTranTechLoadFactor_SSP<-L254.StubTranTechLoadFactor %>%  filter(sce== i) %>% filter(year>MODEL_FINAL_BASE_YEAR)}
+      if (i != "CORE"){L254.StubTranTechLoadFactor_SSP<-L254.StubTranTechLoadFactor %>%  filter(sce== i) %>% filter(year>MODEL_FIRST_FUTURE_YEAR)}
 
 
       L254.StubTranTechCost_SSP <- L254.StubTranTechCost %>%  filter(sce== i)
-      if (i != "CORE"){L254.StubTranTechCost_SSP<-L254.StubTranTechCost %>%  filter(sce== i) %>% filter(year>MODEL_FINAL_BASE_YEAR)}
+      if (i != "CORE"){L254.StubTranTechCost_SSP<-L254.StubTranTechCost %>%  filter(sce== i) %>% filter(year>MODEL_FIRST_FUTURE_YEAR)}
 
       L254.StubTechTrackCapital_SSP <- L254.StubTechTrackCapital %>%  filter(sce== i)
-      if (i != "CORE"){L254.StubTechTrackCapital_SSP<-L254.StubTechTrackCapital %>%  filter(sce== i) %>% filter(year>MODEL_FINAL_BASE_YEAR)}
+      if (i != "CORE"){L254.StubTechTrackCapital_SSP<-L254.StubTechTrackCapital %>%  filter(sce== i) %>% filter(year>MODEL_FIRST_FUTURE_YEAR)}
 
       L254.StubTranTechCoef_SSP <- L254.StubTranTechCoef %>%  filter(sce== i)
 
-      if (i != "CORE"){L254.StubTranTechCoef_SSP<-L254.StubTranTechCoef %>%  filter(sce== i) %>% filter(year>MODEL_FINAL_BASE_YEAR)}
+      if (i != "CORE"){L254.StubTranTechCoef_SSP<-L254.StubTranTechCoef %>%  filter(sce== i) %>% filter(year>MODEL_FIRST_FUTURE_YEAR)}
 
       L254.StubTech_passthru_SSP <- L254.StubTech_passthru %>% filter(sce==i)
       L254.StubTech_nonmotor_SSP <- L254.StubTech_nonmotor %>% filter(sce==i)
@@ -169,7 +169,7 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
       L254.StubTranTechCalInput_SSP <-  L254.StubTranTechCalInput %>% filter(sce ==i)
       L254.GlobalTranTechInterp_SSP <- L254.GlobalTranTechInterp %>% filter(sce==i)
       L254.GlobalTranTechShrwt_SSP <- L254.GlobalTranTechShrwt %>%  filter(sce==i)
-      if (i != "CORE"){L254.StubTranTechCalInput_SSP<-L254.StubTranTechCalInput %>%  filter(sce== i) %>% filter(year>MODEL_FINAL_BASE_YEAR)}
+      if (i != "CORE"){L254.StubTranTechCalInput_SSP<-L254.StubTranTechCalInput %>%  filter(sce== i) %>% filter(year>MODEL_FIRST_FUTURE_YEAR)}
 
       L254.BaseService_trn_SSP <- L254.BaseService_trn %>% filter(sce =="CORE")
 

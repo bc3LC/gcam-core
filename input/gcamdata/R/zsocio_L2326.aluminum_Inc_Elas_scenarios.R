@@ -131,6 +131,17 @@ module_socio_L2326.aluminum_Inc_Elas_scenarios <- function(command, ...) {
       mutate(income.elasticity = replace(income.elasticity,income.elasticity > 3 , 3),
              income.elasticity = replace(income.elasticity,income.elasticity < -3,-3))
 
+    # CB: Make sure that Income Elasticity is identical in 2025 and diverges only in 2030
+    # for MODEL_FIRST_FUTURE_YEAR, use SSP2 data for all 5 SSPs
+    L2326.pcgdp_thous90USD_Scen_R_Y <- L2326.pcgdp_thous90USD_Scen_R_Y |> filter(
+      year > MODEL_FIRST_FUTURE_YEAR) |> rbind(
+        L2326.pcgdp_thous90USD_Scen_R_Y |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2")
+      )|> rbind(L2326.pcgdp_thous90USD_Scen_R_Y |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP1")
+      )|> rbind(L2326.pcgdp_thous90USD_Scen_R_Y |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP3")
+      )|> rbind(L2326.pcgdp_thous90USD_Scen_R_Y |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP4")
+      )|> rbind(L2326.pcgdp_thous90USD_Scen_R_Y |> filter(year == MODEL_FIRST_FUTURE_YEAR, scenario == "SSP2") |> mutate(scenario = "SSP5")
+      )
+
     # Split by scenario and remove scenario column from each tibble
     L2326.pcgdp_thous90USD_Scen_R_Y <- L2326.pcgdp_thous90USD_Scen_R_Y %>%
       split(.$scenario) %>%
