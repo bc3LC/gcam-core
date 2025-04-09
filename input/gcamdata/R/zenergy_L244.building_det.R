@@ -373,8 +373,22 @@ module_energy_L244.building_det <- function(command, ...) {
       mutate(subregional.population.share = 1/n_groups) %>%
       unite(gcam.consumer,c("gcam.consumer","group"),sep = "_") %>%
       rename(subregional.income.share = share,
-             SSP = scen) %>%
-      select(-GCAM_region_ID) %>%
+             SSP = scen)
+
+    # CB: Make sure that Income Elasticity is identical in 2025 and diverges only in 2030
+    # for MODEL_FIRST_FUTURE_YEAR, use SSP2 data for all 5 SSPs
+        L244.SubregionalShares_SSP <- L244.SubregionalShares_SSP |> filter(
+      pop.year.fillout > MODEL_FIRST_FUTURE_YEAR) |> rbind(
+        L244.SubregionalShares_SSP |> filter(pop.year.fillout == MODEL_FIRST_FUTURE_YEAR, SSP == "SSP2")
+      )|> rbind(L244.SubregionalShares_SSP |> filter(pop.year.fillout == MODEL_FIRST_FUTURE_YEAR, SSP == "SSP2") |> mutate(SSP = "SSP1")
+      )|> rbind(L244.SubregionalShares_SSP |> filter(pop.year.fillout == MODEL_FIRST_FUTURE_YEAR, SSP == "SSP2") |> mutate(SSP = "SSP3")
+      )|> rbind(L244.SubregionalShares_SSP |> filter(pop.year.fillout == MODEL_FIRST_FUTURE_YEAR, SSP == "SSP2") |> mutate(SSP = "SSP4")
+      )|> rbind(L244.SubregionalShares_SSP |> filter(pop.year.fillout == MODEL_FIRST_FUTURE_YEAR, SSP == "SSP2") |> mutate(SSP = "SSP5")
+      ) |> arrange(GCAM_region_ID, gcam.consumer, pop.year.fillout, SSP)%>%
+          select(-GCAM_region_ID)
+
+        # split into list for 5 SSPs, and add metainformation
+        L244.SubregionalShares_SSP <- L244.SubregionalShares_SSP %>%
       split(.$SSP) %>%
       lapply(function(df) {
         select(df, -SSP) %>%

@@ -273,6 +273,16 @@ module_aglu_L2052.ag_prodchange_cost_irr_mgmt <- function(command, ...) {
     get_ssp_regions(L102.pcgdp_thous90USD_Scen_R_Y, GCAM_region_names, "low") ->
       low_reg
 
+    # CB: Make sure that ProdChange is identical in 2025 and diverges only in 2030
+    # for MODEL_FIRST_FUTURE_YEAR, use SSP2 data (ref) for all 5 SSPs (high/low/SSP4)
+    L2052.AgProdChange_irr_high <-
+      L2052.AgProdChange_ag_irr_ref |> filter(year == MODEL_FIRST_FUTURE_YEAR) |>
+    rbind(L2052.AgProdChange_irr_high |> filter(year > MODEL_FIRST_FUTURE_YEAR))
+
+    L2052.AgProdChange_irr_low <-
+      L2052.AgProdChange_ag_irr_ref |> filter(year == MODEL_FIRST_FUTURE_YEAR) |>
+      rbind(L2052.AgProdChange_irr_low |> filter(year > MODEL_FIRST_FUTURE_YEAR))
+
     # Assign the reference agricultural productivity change to median income countries,
     # high change to high income regions, and low change to low income regions
     L2052.AgProdChange_ag_irr_ref %>%
