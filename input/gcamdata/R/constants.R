@@ -30,7 +30,7 @@ HISTORICAL_YEARS        <- 1971:2021
 FUTURE_YEARS            <- (max(HISTORICAL_YEARS)+1):2100
 
 # Calibrated periods in the model. Only level 2 chunks should reference these
-MODEL_BASE_YEARS        <- unique(c(1975, 1990, 2005, 2010, 2015, max(HISTORICAL_YEARS)))
+MODEL_BASE_YEARS        <- unique(c(1975, 1990, 2005, 2010, 2015, 2020, max(HISTORICAL_YEARS)))
 MODEL_FINAL_BASE_YEAR   <- max(MODEL_BASE_YEARS)
 
 # Future (not calibrated) model periods. Only level 2 chunks should reference these
@@ -650,7 +650,7 @@ energy.TRAN_UCD_SIZE_CLASS<-'rev_size.class'
 
 # Constants related to ATB power sector technology costs
 # All relevant ATB database years included in NREL_ATB_capital file (energy.ATB_HISTORICAL_YEARS)
-energy.ATB_HISTORICAL_YEARS <- c(2017, 2019, 2021, 2022)
+energy.ATB_HISTORICAL_YEARS <- c(2017, 2019, 2020, 2021, 2022)
 # Here, we allow for user selectivity. Improvement parameters are taken from the
 # latest ATB year but the user can choose an ATB base year from recent history
 # (from 2015-energy.ATB_LATEST_YEAR)
