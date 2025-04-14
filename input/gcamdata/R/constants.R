@@ -105,7 +105,7 @@ modeltime.MAGICC_C_START_YEAR         <- 1705
 
 # Hector model assumptions
 modeltime.HECTOR_END_YEAR        <- 2300
-modeltime.HECTOR_EMISSIONS_YEAR  <- 2005
+modeltime.HECTOR_EMISSIONS_YEAR  <- 2023
 modeltime.HECTOR_INI_FILE        <- "../input/climate/hector-gcam.ini"
 
 
