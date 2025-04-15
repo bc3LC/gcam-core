@@ -30,7 +30,7 @@ HISTORICAL_YEARS        <- 1971:2021
 FUTURE_YEARS            <- (max(HISTORICAL_YEARS)+1):2100
 
 # Calibrated periods in the model. Only level 2 chunks should reference these
-MODEL_BASE_YEARS        <- unique(c(1975, 1990, 2005, 2010, 2015, 2020, max(HISTORICAL_YEARS)))
+MODEL_BASE_YEARS        <- unique(c(1975, 1990, 2005, 2010, 2015, 2019, 2020, max(HISTORICAL_YEARS)))
 MODEL_FINAL_BASE_YEAR   <- max(MODEL_BASE_YEARS)
 
 # Future (not calibrated) model periods. Only level 2 chunks should reference these
