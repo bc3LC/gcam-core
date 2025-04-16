@@ -116,6 +116,10 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
     L112.CEDS_GCAM_no_intl_shipping <- get_data(all_data, "L102.ceds_GFED_nonco2_tg_R_S_F") %>%
       filter(year %in% HISTORICAL_YEARS)
 
+    # Extract emissions.CEDS_YEARS from the data
+    # This implicitly assumes every file has the same temporal coverage
+    emissions.CEDS_YEARS <- seq(min(L112.CEDS_GCAM_no_intl_shipping$year),max(L112.CEDS_GCAM_no_intl_shipping$year))
+
     #Get CEDS international shipping data
     L112.CEDS_intl_shipping <- get_data(all_data, "L102.ceds_int_shipping_nonco2_tg_S_F") %>%
       filter(year %in% HISTORICAL_YEARS)
