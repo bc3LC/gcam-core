@@ -55,6 +55,7 @@ Core_CEDS,SCC_CEDS_extended,Agg_CEDS_for_scaling,Notes
 ,1A5_Recreational-Equipment-Land,1A1B_Industrial_and_Buildings,
 1A5_Other-unspecified,1A5_Recreational-Equipment-Marine,1A1B_Industrial_and_Buildings,
 1B1_Fugitive-solid-fuels,,not in NEI,not in NEI
+1B1a_Fugitive-coal-mining,,not in NEI,not in NEI
 1B2_Fugitive-petr,1B2ai_Fugitive-petr-prod,1A1B_Industrial_and_Buildings,USA level resource production
 1B2_Fugitive-petr,1B2aiv_Fugitive-petr-refining,1A1B_Industrial_and_Buildings,state level refining
 1B2_Fugitive-petr,1B2av_Fugitive-petr-distr,1A1B_Industrial_and_Buildings,state level distribution

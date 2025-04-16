@@ -38,7 +38,7 @@ CEDS_sector,CEDS_agg_sector
 1A4b_Residential,bld_resid
 1A4c_Agriculture-forestry-fishing,agricultural energy use
 1A5_Other-unspecified,industry_energy
-1B1_Fugitive-solid-fuels,coal
+1B1a_Fugitive-coal-mining,coal
 1B2d_Fugitive-other-energy,unmatched
 1B2_Fugitive-petr-and-gas,oil_gas
 2A1_Cement-production,industry_processes
