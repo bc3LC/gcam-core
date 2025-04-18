@@ -916,7 +916,7 @@ emissions.UNCONVENTIONAL.OIL.FUG.CH4.EMFACT <- 0.0882
 emissions.UNCONVENTIONAL.OIL.FUG.N2O.EMFACT <- 0.000000939
 
 # Time
-emissions.CEDS_YEARS              <- 1970:2019           # Year coverage for CEDS inventory.
+emissions.CEDS_YEARS              <- 1970:2022           # Year coverage for CEDS inventory.
 emissions.CTRL_BASE_YEAR          <- 1975                # Year to read in pollution controls
 emissions.DEFOREST_COEF_YEARS     <- c(2000, 2005)
 emissions.EDGAR_YEARS             <- 1971:2008
