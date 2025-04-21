@@ -104,7 +104,8 @@ modeltime.MAGICC_C_START_YEAR         <- 1705
 
 # Hector model assumptions
 modeltime.HECTOR_END_YEAR        <- 2300
-modeltime.HECTOR_EMISSIONS_YEAR  <- 2005
+# Default to last model base year, but can extent to max CEDS year to use historical emissions as far as possible
+modeltime.HECTOR_EMISSIONS_YEAR  <- max(HISTORICAL_YEARS)
 modeltime.HECTOR_INI_FILE        <- "../input/climate/hector-gcam.ini"
 
 
