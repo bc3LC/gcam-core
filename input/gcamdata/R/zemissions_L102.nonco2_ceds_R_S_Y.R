@@ -100,8 +100,9 @@ module_emissions_L102.nonco2_ceds_R_S_Y <- function(command, ...) {
         CEDS_CO2 <- CEDS_CO2 %>%
           gather_years(value_col = "emissions")
 
-
-
+        # Extract emissions.CEDS_YEARS from the data
+        # This implicitly assumes every file has the same temporal coverage
+        emissions.CEDS_YEARS <- seq(min(CEDS_SO2$year),max(CEDS_SO2$year))
 
         # Add non-CO2 gas names to CEDS data
         CEDS_CH4$Non.CO2 <- "CH4"
@@ -116,6 +117,7 @@ module_emissions_L102.nonco2_ceds_R_S_Y <- function(command, ...) {
         CEDS_N2O$Non.CO2 <- "N2O"
         # CO2 fugitive
         CEDS_CO2$Non.CO2 <- emissions.FUGITIVE_FOSSIL_CO2_NAME
+
         # Prepare unmanaged forest emissions from CMIP to be combined with CEDS data set
         CMIP_unmgd_emissions %>%
           filter(!iso %in% c(emissions.GFED_NODATA)) %>%
@@ -137,7 +139,7 @@ module_emissions_L102.nonco2_ceds_R_S_Y <- function(command, ...) {
         bind_rows(CEDS_CH4 ,CEDS_BC, CEDS_NMVOC, CEDS_NH3, CEDS_OC, CEDS_NOx, CEDS_SO2, CEDS_CO, CEDS_N2O, CEDS_CO2) -> CEDS_data
 
         CEDS_data %>%
-          #ISO code for Serbia is different in CEDS. Change this to GCAM iso for Serbia so that left_join_error_no_match won't fail.
+          #Serbia has two iso's in CEDS. Change kosovo iso to GCAM iso for Serbia so that left_join_error_no_match won't fail.
           mutate(iso=if_else(iso=="srb (kosovo)","srb",iso)) %>%
           filter(iso != "global")->CEDS_allgas
 
