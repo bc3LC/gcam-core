@@ -7,9 +7,9 @@
 #' @param command API command to execute
 #' @param ... other optional parameters, depending on command
 #' @return Depends on \code{command}: either a vector of required inputs, a vector of output names, or (if
-#'   \code{command} is "MAKE") all the generated outputs: \code{GCAM_AgLU_SUA_APE_1973_2019},
-#'   \code{FAO_AgProd_Kt_All},\code{FAO_AgArea_Kha_All},\code{FAO_Food_Macronutrient_All_2010_2019},
-#'   \code{FAO_Food_MacronutrientRate_2010_2019_MaxValue}
+#'   \code{command} is "MAKE") all the generated outputs: \code{GCAM_AgLU_SUA_APE},
+#'   \code{FAO_AgProd_Kt_All},\code{FAO_AgArea_Kha_All},\code{FAO_Food_Macronutrient_All},
+#'   \code{FAO_Food_MacronutrientRate_MaxValue}
 #' @details This chunk compiles balanced supply utilization data in primary equivalent in GCAM region and commodities.
 #' A method to generate primary equivalent is created for the new FAOSTAT supply utilization data (2010 to 2019).
 #' New SUA balance is connected to the old one (before 2010). Production and harvested area data with FAO region and item
@@ -41,11 +41,11 @@ module_aglu_L100.FAO_SUA_PrimaryEquivalent <- function(command, ...) {
       FILE = "aglu/FAO/GCAMFAOSTAT_MacroNutrientRate")
 
   MODULE_OUTPUTS <-
-    c("GCAM_AgLU_SUA_APE_1973_2019",
+    c("GCAM_AgLU_SUA_APE",
       "FAO_AgProd_Kt_All",
       "FAO_AgArea_Kha_All",
-      "FAO_Food_Macronutrient_All_2010_2019",
-      "FAO_Food_MacronutrientRate_2010_2019_MaxValue")
+      "FAO_Food_Macronutrient_All",
+      "FAO_Food_MacronutrientRate_MaxValue")
 
   if(command == driver.DECLARE_INPUTS) {
     return(MODULE_INPUTS)
@@ -774,7 +774,7 @@ module_aglu_L100.FAO_SUA_PrimaryEquivalent <- function(command, ...) {
 
     # 4.2. Connect and bind data from two periods ----
 
-    GCAM_AgLU_SUA_APE_1973_2019 <-
+    GCAM_AgLU_SUA_APE <-
       GCAM_APE_before2010 %>%
       bind_rows(GCAM_APE_after2010) %>%
       mutate(unit = "1000 tonnes") %>%
@@ -788,7 +788,7 @@ module_aglu_L100.FAO_SUA_PrimaryEquivalent <- function(command, ...) {
       summarise(value = sum(value), .groups = "drop")
 
     ## Check balance
-    GCAM_AgLU_SUA_APE_1973_2019 %>% Check_Balance_SUA
+    GCAM_AgLU_SUA_APE %>% Check_Balance_SUA
 
     rm(GCAM_APE_before2010, GCAM_APE_after2010)
 
@@ -921,7 +921,7 @@ module_aglu_L100.FAO_SUA_PrimaryEquivalent <- function(command, ...) {
       FAO_AgProd_Kt_All
 
     assertthat::assert_that(
-      GCAM_AgLU_SUA_APE_1973_2019 %>%
+      GCAM_AgLU_SUA_APE %>%
         filter(element == "Production") %>%
         left_join_error_no_match(
           QCL_PROD_GCAM %>% filter(CropMeat != "Crop_Fodder") %>%
@@ -932,7 +932,7 @@ module_aglu_L100.FAO_SUA_PrimaryEquivalent <- function(command, ...) {
         mutate(diff = abs(value1 - value)) %>%
         filter(diff > 0.0001) %>% nrow() == 0,
         msg = "Primary production from two sources
-              (GCAM_AgLU_SUA_APE_1973_2019 and FAO_AgProd_Kt_Area_Kha) are inconsistent." )
+              (GCAM_AgLU_SUA_APE and FAO_AgProd_Kt_Area_Kha) are inconsistent." )
 
     ## b. All area harvested ----
 
@@ -1042,7 +1042,7 @@ module_aglu_L100.FAO_SUA_PrimaryEquivalent <- function(command, ...) {
         macronutrient == "fatperc" ~ "MtFat",
         macronutrient == "proteinperc" ~ "MtProtein" )) %>%
       left_join_error_no_match(Area_Region_Map %>% select(-region), by = "area_code") ->
-      FAO_Food_Macronutrient_All_2010_2019
+      FAO_Food_Macronutrient_All
 
     ### c. Get the max values of macronutrient conversion rate (per GCAM_commodity) ----
     # This will be used later as an upper bound to improve the data
@@ -1052,15 +1052,15 @@ module_aglu_L100.FAO_SUA_PrimaryEquivalent <- function(command, ...) {
                                by = c("item_code")) %>%
       group_by(GCAM_commodity, macronutrient) %>%
       summarise(max_macronutrient_value = max(macronutrient_value), .groups = "drop") ->
-      FAO_Food_MacronutrientRate_2010_2019_MaxValue
+      FAO_Food_MacronutrientRate_MaxValue
 
 
     #****************************----
     # Produce outputs ----
     #*******************************
 
-    GCAM_AgLU_SUA_APE_1973_2019 %>%
-      add_title("GCAM_AgLU_SUA_APE_1973_2019") %>%
+    GCAM_AgLU_SUA_APE %>%
+      add_title("GCAM_AgLU_SUA_APE") %>%
       add_units("kton") %>%
       add_comments("Supply utilization balance for GCAM commodities and regions in primary equivalent") %>%
       add_precursors("aglu/AGLU_ctry",
@@ -1073,7 +1073,7 @@ module_aglu_L100.FAO_SUA_PrimaryEquivalent <- function(command, ...) {
                      "aglu/FAO/GCAMFAOSTAT_NonFodderProdArea",
                      "aglu/FAO/GCAMFAOSTAT_FBSH_CB",
                      "aglu/FAO/Mapping_item_FBS_GCAM") ->
-      GCAM_AgLU_SUA_APE_1973_2019
+      GCAM_AgLU_SUA_APE
 
     FAO_AgProd_Kt_All %>%
       add_title("FAO_AgProd_Kt_All") %>%
@@ -1101,19 +1101,19 @@ module_aglu_L100.FAO_SUA_PrimaryEquivalent <- function(command, ...) {
                      "aglu/FAO/GCAMFAOSTAT_NonFodderProdArea") ->
       FAO_AgArea_Kha_All
 
-    FAO_Food_Macronutrient_All_2010_2019 %>%
-      add_title("GCAM_AgLU_SUA_APE_1973_2019") %>%
+    FAO_Food_Macronutrient_All %>%
+      add_title("FAO_Food_Macronutrient_All") %>%
       add_units("MKcal, MtFat, MtProtein") %>%
-      add_comments("Macronutrient consumption values connected to food consumption in GCAM_AgLU_SUA_APE_1973_2019") %>%
+      add_comments("Macronutrient consumption values connected to food consumption in GCAM_AgLU_SUA_APE") %>%
       add_precursors("aglu/AGLU_ctry",
                      "common/iso_GCAM_regID",
                      "aglu/FAO/GCAMFAOSTAT_SUA",
                      "aglu/FAO/GCAMFAOSTAT_MacroNutrientRate",
                      "aglu/FAO/Mapping_SUA_PrimaryEquivalent") ->
-      FAO_Food_Macronutrient_All_2010_2019
+      FAO_Food_Macronutrient_All
 
-    FAO_Food_MacronutrientRate_2010_2019_MaxValue %>%
-      add_title("FAO_Food_MacronutrientRate_2010_2019_MaxValue") %>%
+    FAO_Food_MacronutrientRate_MaxValue %>%
+      add_title("FAO_Food_MacronutrientRate_MaxValue") %>%
       add_units("cal per g, fat perc. , protein perc.") %>%
       add_comments("The max value of macronutrient conversion rate across region, year, and SUA items (per GCAM_commodity") %>%
       add_precursors("aglu/AGLU_ctry",
@@ -1121,7 +1121,7 @@ module_aglu_L100.FAO_SUA_PrimaryEquivalent <- function(command, ...) {
                      "aglu/FAO/GCAMFAOSTAT_SUA",
                      "aglu/FAO/GCAMFAOSTAT_MacroNutrientRate",
                      "aglu/FAO/Mapping_SUA_PrimaryEquivalent") ->
-      FAO_Food_MacronutrientRate_2010_2019_MaxValue
+      FAO_Food_MacronutrientRate_MaxValue
 
     return_data(MODULE_OUTPUTS)
 

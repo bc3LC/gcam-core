@@ -161,6 +161,8 @@ module_energy_L222.en_transformation <- function(command, ...) {
       L222.SubsectorInterp_en
 
       # assert that all regions in GCAM_region_names are in A22.SubsectorInterp_en_R
+      A22.SubsectorInterp_en_R <- A22.SubsectorInterp_en_R %>% set_years()
+
       if (GCAM_region_names %>% distinct(region) %>% dplyr::setdiff(A22.SubsectorInterp_en_R %>% distinct(region)) %>% nrow > 0) {
         warning("Regions doesn't exist in A_biomassSupplyShare_R follow USA assumptions. Consider adding all GCAM regions to energy/A22.SubsectorInterp_en_R to avoid this warning.")
       }
