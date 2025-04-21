@@ -38,14 +38,16 @@ CEDS_sector,CEDS_agg_sector
 1A4b_Residential,bld_resid
 1A4c_Agriculture-forestry-fishing,agricultural energy use
 1A5_Other-unspecified,industry_energy
-1B1a_Fugitive-coal-mining,coal
+1B1_Fugitive-solid-fuels,coal
 1B2d_Fugitive-other-energy,unmatched
 1B2_Fugitive-petr-and-gas,oil_gas
 2A1_Cement-production,industry_processes
 2A2_Lime-production,industry_processes
 2A6_Other-minerals,industry_processes
 2B_Chemical-industry,industry_processes
-2C_Metal-production,industry_processes
+2C1_Iron-steel-alloy-prod,industry_processes
+2C3_Aluminum-production,industry_processes
+2C4_Non-Ferrous-other-metals,industry_processes
 2D3_Chemical-products-manufacture-processing,solvents
 2D3_Other-product-use,solvents
 2D_Degreasing-Cleaning,solvents
