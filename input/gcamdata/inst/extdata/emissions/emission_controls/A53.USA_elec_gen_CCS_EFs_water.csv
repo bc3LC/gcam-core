@@ -1,0 +1,520 @@
+# File: A53.USA_elec_gen_CCS_EFs_water.csv
+# Title: Emission factors (EFs) for carbon capture and storage (CCS) electric generation technologies
+# Units: kt/PJ
+# Source: Derived from Cost and Performance Baseline for Fossil Energy Plants Volume 1 Bituminous Coal and Natural Gas and Electricity (NETL Report October 2022)
+# Description: Global emission factors for electric generation technologies with CCS
+# Column types: ccccccnnnnnnnnc
+# ---------
+region,supplysector,nesting.subsector,subsector,stub.technology,Non.CO2,pcGDP_start_NSPS,NSPS_start_year,NSPS_em_coeff,pcGDP_start_retrofit,retrofit_start_year,retrofit_time,retrofit_vintage,retrofit_em_coeff,Notes and sources
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (once through),NOx,NA,2020,0.031384227,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (seawater),NOx,NA,2020,0.031384227,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (recirculating),NOx,NA,2020,0.031384227,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (dry cooling),NOx,NA,2020,0.031384227,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (once through),PM10,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (seawater),PM10,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (recirculating),PM10,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (dry cooling),PM10,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (once through),PM2.5,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (seawater),PM2.5,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (recirculating),PM2.5,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (dry cooling),PM2.5,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (once through),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (seawater),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (recirculating),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (dry cooling),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_conv pul_CCS,coal (conv pul CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (once through),NOx,NA,2020,0.031384227,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (seawater),NOx,NA,2020,0.031384227,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (recirculating),NOx,NA,2020,0.031384227,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (dry cooling),NOx,NA,2020,0.031384227,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (once through),PM10,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (seawater),PM10,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (recirculating),PM10,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (dry cooling),PM10,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (once through),PM2.5,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (seawater),PM2.5,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (recirculating),PM2.5,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (dry cooling),PM2.5,NA,2020,0.003869288,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (once through),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (seawater),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (recirculating),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (dry cooling),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_conv pul_CCS,coal (conv pul CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (once through),NOx,NA,2020,0.021066125,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (seawater),NOx,NA,2020,0.021066125,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (recirculating),NOx,NA,2020,0.021066125,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (dry cooling),NOx,NA,2020,0.021066125,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (once through),PM10,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (seawater),PM10,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (recirculating),PM10,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (dry cooling),PM10,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (once through),PM2.5,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (seawater),PM2.5,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (recirculating),PM2.5,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (dry cooling),PM2.5,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (once through),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (seawater),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (recirculating),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (dry cooling),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,coal,coal_base_IGCC_CCS,coal (IGCC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (once through),NOx,NA,2020,0.021066125,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (seawater),NOx,NA,2020,0.021066125,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (recirculating),NOx,NA,2020,0.021066125,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (dry cooling),NOx,NA,2020,0.021066125,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (once through),PM10,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (seawater),PM10,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (recirculating),PM10,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (dry cooling),PM10,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (once through),PM2.5,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (seawater),PM2.5,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (recirculating),PM2.5,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (dry cooling),PM2.5,NA,2020,0.003009446,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (once through),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (seawater),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (recirculating),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (dry cooling),BC,NA,2020,0.00002,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,coal,coal_int_IGCC_CCS,coal (IGCC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (once through),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (seawater),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (recirculating),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (dry cooling),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (once through),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (seawater),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (recirculating),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (dry cooling),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (once through),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (seawater),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (recirculating),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (dry cooling),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (once through),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (seawater),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (recirculating),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (dry cooling),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,gas,gas_base_CC_CCS,gas (CC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (once through),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (seawater),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (recirculating),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (dry cooling),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (once through),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (seawater),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (recirculating),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (dry cooling),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (once through),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (seawater),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (recirculating),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (dry cooling),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (once through),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (seawater),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (recirculating),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (dry cooling),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,gas,gas_int_CC_CCS,gas (CC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (once through),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (seawater),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (recirculating),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (dry cooling),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (once through),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (seawater),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (recirculating),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (dry cooling),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (once through),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (seawater),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (recirculating),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (dry cooling),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (once through),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (seawater),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (recirculating),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (dry cooling),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,peak generation,gas,gas_peak_CC_CCS,gas (CC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (once through),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (seawater),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (recirculating),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (dry cooling),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (once through),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (seawater),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (recirculating),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (dry cooling),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (once through),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (seawater),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (recirculating),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (dry cooling),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (once through),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (seawater),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (recirculating),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (dry cooling),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,gas,gas_subpeak_CC_CCS,gas (CC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (once through),NOx,NA,2020,0.03267399,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (seawater),NOx,NA,2020,0.03267399,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (recirculating),NOx,NA,2020,0.03267399,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (dry cooling),NOx,NA,2020,0.03267399,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (once through),PM10,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (seawater),PM10,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (recirculating),PM10,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (dry cooling),PM10,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (once through),PM2.5,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (seawater),PM2.5,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (recirculating),PM2.5,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (dry cooling),PM2.5,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (once through),BC,NA,2020,0.000754084,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (seawater),BC,NA,2020,0.000754084,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (recirculating),BC,NA,2020,0.000754084,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (dry cooling),BC,NA,2020,0.000754084,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (once through),OC,NA,2020,0.003288475,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (seawater),OC,NA,2020,0.003288475,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (recirculating),OC,NA,2020,0.003288475,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (dry cooling),OC,NA,2020,0.003288475,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_conv_CCS,biomass (conv CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (once through),NOx,NA,2020,0.03267399,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (seawater),NOx,NA,2020,0.03267399,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (recirculating),NOx,NA,2020,0.03267399,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (dry cooling),NOx,NA,2020,0.03267399,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (once through),PM10,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (seawater),PM10,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (recirculating),PM10,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (dry cooling),PM10,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (once through),PM2.5,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (seawater),PM2.5,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (recirculating),PM2.5,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (dry cooling),PM2.5,NA,2020,0.004299209,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (once through),BC,NA,2020,0.000754084,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (seawater),BC,NA,2020,0.000754084,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (recirculating),BC,NA,2020,0.000754084,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (dry cooling),BC,NA,2020,0.000754084,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (once through),OC,NA,2020,0.003288475,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (seawater),OC,NA,2020,0.003288475,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (recirculating),OC,NA,2020,0.003288475,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (dry cooling),OC,NA,2020,0.003288475,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_conv_CCS,biomass (conv CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (once through),NOx,NA,2020,0.021931856,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (seawater),NOx,NA,2020,0.021931856,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (recirculating),NOx,NA,2020,0.021931856,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (dry cooling),NOx,NA,2020,0.021931856,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (once through),PM10,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (seawater),PM10,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (recirculating),PM10,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (dry cooling),PM10,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (once through),PM2.5,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (seawater),PM2.5,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (recirculating),PM2.5,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (dry cooling),PM2.5,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (once through),BC,NA,2020,0.00058651,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (seawater),BC,NA,2020,0.00058651,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (recirculating),BC,NA,2020,0.00058651,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (dry cooling),BC,NA,2020,0.00058651,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (once through),OC,NA,2020,0.002557703,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (seawater),OC,NA,2020,0.002557703,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (recirculating),OC,NA,2020,0.002557703,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (dry cooling),OC,NA,2020,0.002557703,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,biomass,biomass_base_IGCC_CCS,biomass (IGCC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (once through),NOx,NA,2020,0.021931856,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (seawater),NOx,NA,2020,0.021931856,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (recirculating),NOx,NA,2020,0.021931856,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (dry cooling),NOx,NA,2020,0.021931856,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (once through),PM10,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (seawater),PM10,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (recirculating),PM10,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (dry cooling),PM10,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (once through),PM2.5,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (seawater),PM2.5,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (recirculating),PM2.5,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (dry cooling),PM2.5,NA,2020,0.003343829,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (once through),BC,NA,2020,0.00058651,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (seawater),BC,NA,2020,0.00058651,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (recirculating),BC,NA,2020,0.00058651,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (dry cooling),BC,NA,2020,0.00058651,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (once through),OC,NA,2020,0.002557703,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (seawater),OC,NA,2020,0.002557703,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (recirculating),OC,NA,2020,0.002557703,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (dry cooling),OC,NA,2020,0.002557703,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,biomass,biomass_int_IGCC_CCS,biomass (IGCC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (once through),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (seawater),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (recirculating),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (dry cooling),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (once through),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (seawater),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (recirculating),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (dry cooling),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (once through),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (seawater),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (recirculating),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (dry cooling),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (once through),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (seawater),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (recirculating),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (dry cooling),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,base load generation,refined liquids,refined liquids_base_CC_CCS,refined liquids (CC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (once through),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (seawater),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (recirculating),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (dry cooling),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (once through),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (seawater),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (recirculating),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (dry cooling),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (once through),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (seawater),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (recirculating),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (dry cooling),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (once through),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (seawater),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (recirculating),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (dry cooling),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,intermediate generation,refined liquids,refined liquids_int_CC_CCS,refined liquids (CC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (once through),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (seawater),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (recirculating),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (dry cooling),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (once through),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (seawater),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (recirculating),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (dry cooling),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (once through),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (seawater),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (recirculating),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (dry cooling),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (once through),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (seawater),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (recirculating),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (dry cooling),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,peak generation,refined liquids,refined liquids_peak_CC_CCS,refined liquids (CC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (once through),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (seawater),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (recirculating),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (dry cooling),SO2_1,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (once through),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (seawater),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (recirculating),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (dry cooling),NOx,NA,2020,0.001289763,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (once through),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (seawater),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (recirculating),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (dry cooling),PM10,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (once through),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (seawater),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (recirculating),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (dry cooling),PM2.5,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (once through),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (seawater),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (recirculating),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (dry cooling),BC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (once through),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (seawater),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (recirculating),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (dry cooling),OC,NA,2020,0,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (once through),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (seawater),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (recirculating),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (dry cooling),CO,NA,2020,0.025,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (once through),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (seawater),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (recirculating),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
+All states,subpeak generation,refined liquids,refined liquids_subpeak_CC_CCS,refined liquids (CC CCS) (dry cooling),NMVOC,NA,2020,0.00056,NA,NA,NA,NA,NA,NA
