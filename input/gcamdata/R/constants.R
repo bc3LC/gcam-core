@@ -104,7 +104,8 @@ modeltime.MAGICC_C_START_YEAR         <- 1705
 
 # Hector model assumptions
 modeltime.HECTOR_END_YEAR        <- 2300
-modeltime.HECTOR_EMISSIONS_YEAR  <- 2005
+# Default to last model base year, but can extent to max CEDS year to use historical emissions as far as possible
+modeltime.HECTOR_EMISSIONS_YEAR  <- max(HISTORICAL_YEARS)
 modeltime.HECTOR_INI_FILE        <- "../input/climate/hector-gcam.ini"
 
 
@@ -916,7 +917,6 @@ emissions.UNCONVENTIONAL.OIL.FUG.CH4.EMFACT <- 0.0882
 emissions.UNCONVENTIONAL.OIL.FUG.N2O.EMFACT <- 0.000000939
 
 # Time
-emissions.CEDS_YEARS              <- 1970:2022           # Year coverage for CEDS inventory.
 emissions.CTRL_BASE_YEAR          <- 1975                # Year to read in pollution controls
 emissions.DEFOREST_COEF_YEARS     <- c(2000, 2005)
 emissions.EDGAR_YEARS             <- 1971:2008
