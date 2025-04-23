@@ -28,6 +28,9 @@
 #' @importFrom tidyr complete nesting
 #' @author AJS September 2017
 module_energy_L254.transportation_UCD <- function(command, ...) {
+
+  scen_intensity = 1 # 1 for high, 0.5 for low
+
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/GCAM_region_names",
              FILE = "energy/mappings/UCD_techs",
@@ -572,6 +575,15 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
       rename(stub.technology = tranTechnology) %>%
       select(LEVEL2_DATA_NAMES[["StubTranTechLoadFactor"]],sce) ->
       L254.StubTranTechLoadFactor # OUTPUT
+
+    ## STUDY 14 - LOAD FACTOR
+    st14_loadfactor <- xlsx::read.xlsx('St14_data.xlsx', sheetName = 'TRN-LoadFactor-values') %>%
+      mutate(changeRate = 1 + (changeRate * scen_intensity) / 100)
+    L254.StubTranTechLoadFactor <- L254.StubTranTechLoadFactor %>%
+      left_join(st14_loadfactor, by = c('year','region')) %>%
+      mutate(changeRate = ifelse(is.na(changeRate) | !grepl('trn_pass_road',supplysector), 1, changeRate)) %>%
+      mutate(loadFactor = loadFactor * changeRate) %>%
+      select(LEVEL2_DATA_NAMES[["StubTranTechLoadFactor"]],sce)
 
     # L254.StubTranTechCost: tranTechnology costs (all periods)
     # L154.cost_usdvkm_R_trn_m_sz_tech_F_Y reports non-fuel cost by GCAM region / mode / size class / technology / fuel / year "
