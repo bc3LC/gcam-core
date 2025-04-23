@@ -375,9 +375,10 @@ module_energy_L154.transportation_UCD <- function(command, ...) {
 
 
     # Creating tibble with all GCAM years to join with. The values will be filled out using the first available year.
-    # Remove years in all GCAM years that are already in UCD database
+    # Remove years in all GCAM years that are already in UCD database (note, intensity may have adjusted years so avoid
+    # it when deciding years)
     all_years <- tibble( year = c(HISTORICAL_YEARS, FUTURE_YEARS)) %>%
-      filter(!(year %in% unique(UCD_trn_data$year)))
+      filter(!(year %in%  unique(UCD_trn_data[UCD_trn_data$variable != "intensity", "year", drop = T])))
 
     UCD_trn_data_sce <- bind_rows(UCD_trn_data_SSP1,UCD_trn_data_SSP3,UCD_trn_data_SSP5)
     all_years_SSPs <- tibble( year = c(MODEL_FINAL_BASE_YEAR, MODEL_FUTURE_YEARS)) %>%
