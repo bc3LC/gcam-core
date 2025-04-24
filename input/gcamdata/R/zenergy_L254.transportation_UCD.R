@@ -756,6 +756,17 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
       write_to_all_regions(c(LEVEL2_DATA_NAMES[["IncomeElasticity"]],"sce"), GCAM_region_names = GCAM_region_names) %>% na.omit() ->
       L254.IncomeElasticity_trn # OUTPUT
 
+    ## STUDY 14 - INCOME ELASTICITY
+    st14_incomeElasticity <- xlsx::read.xlsx('St14_data.xlsx', sheetName = 'TRN-Modes-values-IntAv') %>%
+      tidyr::pivot_longer(cols = `X2015`:`X2050`, names_to = 'year', values_to = 'income.elasticity_new') %>%
+      mutate(year = as.numeric(stringr::str_remove(year, 'X')))
+    L254.IncomeElasticity_trn <- L254.IncomeElasticity_trn %>%
+      left_join(st14_incomeElasticity,
+                by = c("region","energy.final.demand","year")) %>%
+      mutate(income.elasticity = ifelse(!is.na(income.elasticity_new), income.elasticity_new, income.elasticity)) %>%
+      select(LEVEL2_DATA_NAMES[["IncomeElasticity"]],sce)
+
+
     # L254.BaseService_trn: Base-year service output of transportation final demand
     L254.StubTranTechOutput %>%
       select(LEVEL2_DATA_NAMES[["StubTranTech"]], year, output,sce) %>%
