@@ -581,7 +581,10 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
       mutate(changeRate = 1 + (changeRate * scen_intensity) / 100)
     L254.StubTranTechLoadFactor <- L254.StubTranTechLoadFactor %>%
       left_join(st14_loadfactor, by = c('year','region')) %>%
-      mutate(changeRate = ifelse(is.na(changeRate) | !grepl('trn_pass_road',supplysector), 1, changeRate)) %>%
+      mutate(changeRate = if_else(is.na(changeRate) |
+                                   !grepl('trn_pass',supplysector) |
+                                   (grepl("trn_pass", supplysector) & grepl("Aviation", tranSubsector)),
+                                 1, changeRate)) %>%
       mutate(loadFactor = loadFactor * changeRate) %>%
       select(LEVEL2_DATA_NAMES[["StubTranTechLoadFactor"]],sce)
 
