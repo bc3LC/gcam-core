@@ -284,6 +284,16 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
         L254.tranSubsectorShrwt # OUTPUT
     }
 
+    ## STUDY 14 - SHARE WEIGHT
+    L254.tranSubsectorShrwt <- xlsx::read.xlsx('St14_data.xlsx', sheetName = 'TRN-Modes-values-SW') %>%
+      select(-mode) %>%
+      tidyr::pivot_longer(cols = `X2015`:`X2050`, names_to = 'year', values_to = 'share.weight') %>%
+      mutate(year = stringr::str_remove(year, 'X'),
+             sce = 'CORE') %>%
+      left_join(L254.tranSubsectorLogit %>%
+                  select(tranSubsector, supplysector),
+                relationship = "many-to-many")
+
 
     if(any(!is.na(A54.tranSubsector_shrwt$year.fillout))) {
       A54.tranSubsector_shrwt %>%
@@ -307,6 +317,12 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
         select(LEVEL2_DATA_NAMES[["tranSubsectorInterp"]],sce) ->
         L254.tranSubsectorInterp # OUTPUT
     }
+
+
+    ## STUDY 14 - SHARE WEIGHT - rm INTERPOLATION RULE
+    L254.tranSubsectorInterp <- L254.tranSubsectorInterp %>%
+      anti_join(unique(select(L254.tranSubsectorShrwt, region, supplysector, tranSubsector)), by = c("region", "supplysector", "tranSubsector"))
+
 
     if(any(!is.na(A54.tranSubsector_interp$to.value))) {
       A54.tranSubsector_interp %>%

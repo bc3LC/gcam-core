@@ -19,6 +19,7 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
     return(c("L254.Supplysector_trn",
              "L254.FinalEnergyKeyword_trn",
              "L254.tranSubsectorLogit",
+             "L254.tranSubsectorShrwt",
              "L254.tranSubsectorShrwtFllt",
              "L254.tranSubsectorInterp",
              "L254.tranSubsectorSpeed",
@@ -70,6 +71,7 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
     L254.Supplysector_trn <- get_data(all_data, "L254.Supplysector_trn")
     L254.FinalEnergyKeyword_trn <- get_data(all_data, "L254.FinalEnergyKeyword_trn")
     L254.tranSubsectorLogit <- get_data(all_data, "L254.tranSubsectorLogit")
+    L254.tranSubsectorShrwt <- get_data(all_data, "L254.tranSubsectorShrwt")
     L254.tranSubsectorShrwtFllt <- get_data(all_data, "L254.tranSubsectorShrwtFllt")
     L254.tranSubsectorInterp <- get_data(all_data, "L254.tranSubsectorInterp")
 
@@ -162,7 +164,7 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
       L254.Supplysector_trn_SSP  <- L254.Supplysector_trn %>% filter(sce==i)
       L254.FinalEnergyKeyword_trn_SSP <- L254.FinalEnergyKeyword_trn %>% filter(sce==i)
       L254.tranSubsectorLogit_SSP <- L254.tranSubsectorLogit %>% filter(sce==i)
-      #L254.tranSubsectorShrwt_SSP <- L254.tranSubsectorShrwt %>%  filter(sce ==i)
+      L254.tranSubsectorShrwt_SSP <- L254.tranSubsectorShrwt %>%  filter(sce ==i)
       L254.tranSubsectorShrwtFllt_SSP <- L254.tranSubsectorShrwtFllt %>%  filter(sce ==i)
       L254.tranSubsectorInterp_SSP <- L254.tranSubsectorInterp %>%  filter(sce ==i)
       L254.tranSubsectorFuelPref_SSP <- L254.tranSubsectorFuelPref %>%  filter(sce ==i)
@@ -180,6 +182,7 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
         add_xml_data(L254.FinalEnergyKeyword_trn_SSP, "FinalEnergyKeyword") %>%
         add_logit_tables_xml(L254.tranSubsectorLogit_SSP, "tranSubsectorLogit", "tranSubsector") %>%
         add_xml_data(L254.tranSubsectorShrwtFllt_SSP, "tranSubsectorShrwtFllt") %>%
+        add_xml_data(L254.tranSubsectorShrwt_SSP, "tranSubsectorShrwt") %>%
         add_xml_data(L254.tranSubsectorInterp_SSP, "tranSubsectorInterp") %>%
         add_xml_data(L254.tranSubsectorSpeed_SSP, "tranSubsectorSpeed") %>%
         add_xml_data(L254.tranSubsectorSpeed_passthru_SSP, "tranSubsectorSpeed") %>%
@@ -215,6 +218,7 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
                        "L254.FinalEnergyKeyword_trn",
                        "L254.tranSubsectorLogit",
                        "L254.tranSubsectorShrwtFllt",
+                       "L254.tranSubsectorShrwt",
                        "L254.tranSubsectorInterp",
                        "L254.tranSubsectorSpeed",
                        "L254.tranSubsectorSpeed_passthru",
