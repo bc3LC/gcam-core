@@ -29,7 +29,8 @@
 #' @author AJS September 2017
 module_energy_L254.transportation_UCD <- function(command, ...) {
 
-  scen_intensity = 1 # 1 for high, 0.5 for low
+  scen_intensity = 0.5 # 1 for high, 0.5 for low
+  scen_name = 'L' # H for high, L for L
 
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/GCAM_region_names",
@@ -285,7 +286,7 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
     }
 
     ## STUDY 14 - SHARE WEIGHT
-    L254.tranSubsectorShrwt <- xlsx::read.xlsx('St14_data.xlsx', sheetName = 'TRN-Modes-values-SW') %>%
+    L254.tranSubsectorShrwt <- xlsx::read.xlsx(paste0('St14_data_',scen_name,'.xlsx'), sheetName = 'TRN-Modes-values-SW') %>%
       select(-mode) %>%
       tidyr::pivot_longer(cols = `X2015`:`X2050`, names_to = 'year', values_to = 'share.weight') %>%
       mutate(year = stringr::str_remove(year, 'X'),
@@ -593,7 +594,7 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
       L254.StubTranTechLoadFactor # OUTPUT
 
     ## STUDY 14 - LOAD FACTOR
-    st14_loadfactor <- xlsx::read.xlsx('St14_data.xlsx', sheetName = 'TRN-LoadFactor-values') %>%
+    st14_loadfactor <- xlsx::read.xlsx(paste0('St14_data_',scen_name,'.xlsx'), sheetName = 'TRN-LoadFactor-values') %>%
       mutate(changeRate = 1 + (changeRate * scen_intensity) / 100)
     L254.StubTranTechLoadFactor <- L254.StubTranTechLoadFactor %>%
       left_join(st14_loadfactor, by = c('year','region')) %>%
@@ -757,7 +758,7 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
       L254.IncomeElasticity_trn # OUTPUT
 
     ## STUDY 14 - INCOME ELASTICITY
-    st14_incomeElasticity <- xlsx::read.xlsx('St14_data.xlsx', sheetName = 'TRN-Modes-values-IntAv') %>%
+    st14_incomeElasticity <- xlsx::read.xlsx(paste0('St14_data_',scen_name,'.xlsx'), sheetName = 'TRN-Modes-values-IntAv') %>%
       tidyr::pivot_longer(cols = `X2015`:`X2050`, names_to = 'year', values_to = 'income.elasticity_new') %>%
       mutate(year = as.numeric(stringr::str_remove(year, 'X')))
     L254.IncomeElasticity_trn <- L254.IncomeElasticity_trn %>%
@@ -766,7 +767,7 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
       mutate(income.elasticity = ifelse(!is.na(income.elasticity_new), income.elasticity_new, income.elasticity)) %>%
       select(LEVEL2_DATA_NAMES[["IncomeElasticity"]],sce)
 
-    st14_incomeElasticity <- xlsx::read.xlsx('St14_data.xlsx', sheetName = 'TRN-PassKM-values') %>%
+    st14_incomeElasticity <- xlsx::read.xlsx(paste0('St14_data_',scen_name,'.xlsx'), sheetName = 'TRN-PassKM-values') %>%
       tidyr::pivot_longer(cols = `X2015`:`X2050`, names_to = 'year', values_to = 'income.elasticity_new') %>%
       mutate(year = as.numeric(stringr::str_remove(year, 'X')))
     L254.IncomeElasticity_trn <- L254.IncomeElasticity_trn %>%

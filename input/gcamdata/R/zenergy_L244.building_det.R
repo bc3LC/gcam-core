@@ -29,6 +29,9 @@
 #' @author RLH September 2017
 
 module_energy_L244.building_det <- function(command, ...) {
+
+  scen_name = 'L' # H for high, L for L
+
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/GCAM_region_names",
              FILE = "energy/calibrated_techs_bld_det",
@@ -221,6 +224,7 @@ module_energy_L244.building_det <- function(command, ...) {
 
     L244.Floorspace <- bind_rows(L244.Floorspace_resid, L244.Floorspace_comm) %>%
       filter(year %in% MODEL_BASE_YEARS)
+
 
     # Demand function
     # L244.DemandFunction_serv and L244.DemandFunction_flsp: demand function types
@@ -459,6 +463,17 @@ module_energy_L244.building_det <- function(command, ...) {
                add_legacy_name(paste0("L244.HDDCDD_", i)))
     }
 
+    ## STUDY 14 - Housing Energy Consumption
+    st14_hdd <- xlsx::read.xlsx(paste0('St14_data_',scen_name,'.xlsx'), sheetName = 'BLD-HDD-values') %>%
+      select(region,gcam.consumer,nodeInput,building.node.input,thermal.building.service.input,
+             year,degree.days.new = paste0('degree.days.',scen_name))
+    L244.HDDCDD_constdd_no_GCM <- L244.HDDCDD_constdd_no_GCM %>%
+      left_join(st14_hdd,
+                by = c("region","gcam.consumer","nodeInput","building.node.input",
+                       "thermal.building.service.input","year")) %>%
+      mutate(degree.days = ifelse(!is.na(degree.days.new), degree.days.new, degree.days)) %>%
+      select(-degree.days.new)
+
     # L244.GenericServiceSatiation: Satiation levels assumed for non-thermal building services
     # First, calculate the service output per unit floorspace in the USA region
     L244.ServiceSatiation_USA <- L144.base_service_EJ_serv %>%
@@ -509,7 +524,19 @@ module_energy_L244.building_det <- function(command, ...) {
     L244.GenericServiceSatiation <- L244.GenericServiceSatiation %>%
       left_join_error_no_match(L244.BS, by = c(LEVEL2_DATA_NAMES[["BldNodes"]], "building.service.input")) %>%
       mutate(satiation.level = pmax(satiation.level, service.per.flsp * 1.0001)) %>%
-      select(-service.per.flsp)
+      select(-service.per.flsp) # OUTPUT
+
+    ## STUDY 14 - Satiation Level
+    st14_satiationLevel <- xlsx::read.xlsx(paste0('St14_data_',scen_name,'.xlsx'), sheetName = 'BLD-EnConsumption-values')
+    L244.GenericServiceSatiation <- L244.GenericServiceSatiation %>%
+      left_join(st14_satiationLevel %>%
+                  filter(sector == 'resid others') %>%
+                  select(new.satiation.level = satiation.level, region, building.service.input = sector),
+                by = c("region", "building.service.input")) %>%
+      mutate(satiation.level = ifelse(nodeInput == 'resid' & region %in% c('EU-12','EU-15'),
+                                      new.satiation.level, satiation.level)) %>%
+      select(-new.satiation.level)
+
 
     # L244.GenericServiceSatiation_SSPs: Satiation levels assumed for non-thermal building services in the SSPs
     # First, calculate the service output per unit floorspace in the USA region
@@ -579,7 +606,8 @@ module_energy_L244.building_det <- function(command, ...) {
       left_join_error_no_match(L244.tmp, by = c(LEVEL2_DATA_NAMES[["BldNodes"]], "thermal.building.service.input")) %>%
       mutate(satiation.level = round(pmax(satiation.level, service.per.flsp * 1.0001),
                                      digits = energy.DIGITS_CALOUTPUT)) %>%
-      select(LEVEL2_DATA_NAMES[["ThermalServiceSatiation"]])
+      select(LEVEL2_DATA_NAMES[["ThermalServiceSatiation"]]) # OUTPUT
+
 
     # L244.ShellConductance_bld: Shell conductance (inverse of shell efficiency)
     L244.ShellConductance_bld <- L144.shell_eff_R_Y %>%
