@@ -90,8 +90,14 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
 
 
     # Section1. Animal stocks ----
-    # corrected the unit issue in the old data
-    # unit should be head (except beehive, which is not used)
+
+    # assert that we have the right unit names
+    # since FAO change "head" to "An"
+    assertthat::assert_that(
+      c("1000 An", "An") %in%
+        (GCAMFAOSTAT_AnimalStock %>% distinct(unit) %>% pull) %>% all()
+    )
+
 
     ##* L100.FAO_an_Stocks ----
     L100.FAO_an_Stocks <-
@@ -101,8 +107,8 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
       # filter out nonexist regions years due to gather e.g., USSR after 1991
       filter(!is.na(value)) %>%
       # change unit if 1000 head to head
-      mutate(value = if_else(unit == "1000 Head", value * 1000, value),
-             unit = if_else(unit == "1000 Head", "Head", unit)) %>%
+      mutate(value = if_else(unit == "1000 An", value * 1000, value),
+             unit = if_else(unit == "1000 An", "An", unit)) %>%
       FAO_REG_YEAR_MAP
 
     ##* L100.FAO_an_Dairy_Stocks ----
@@ -117,7 +123,7 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
     ### Produce outputs ----
     L100.FAO_an_Stocks %>%
       add_title("FAO animal stocks country, item, year", overwrite = T) %>%
-      add_units("number") %>%
+      add_units("Head/An") %>%
       add_comments("FAO animal stocks; unit of 1000 head were converted to head") %>%
       add_precursors("aglu/FAO/GCAMFAOSTAT_AnimalStock",
                      "aglu/AGLU_ctry","common/iso_GCAM_regID") ->
@@ -125,7 +131,7 @@ module_aglu_L100.FAO_preprocessing_OtherData <- function(command, ...) {
 
     L100.FAO_an_Dairy_Stocks %>%
       add_title("FAO dairy producing animal stocks country, item, year", overwrite = T) %>%
-      add_units("Head") %>%
+      add_units("Head/An") %>%
       add_comments("FAO dairy cow stocks") %>%
       add_precursors("aglu/FAO/GCAMFAOSTAT_AnimalStock",
                      "aglu/AGLU_ctry","common/iso_GCAM_regID") ->
