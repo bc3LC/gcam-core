@@ -506,9 +506,12 @@ module_aglu_L100.FAO_SUA_connection <- function(command, ...) {
 
     if (FoodWasteModel == TRUE) {
 
-      L100.demand_food_staples %>% mutate(income.elesticity = 0.03) ->
+      assert_that("income.elasticity" %in% names(L100.demand_food_staples))
+      assert_that("income.elasticity" %in% names(L100.demand_food_nonstaples))
+
+      L100.demand_food_staples %>% mutate(income.elasticity = 0.03) ->
         L100.demand_food_staples
-      L100.demand_food_nonstaples%>% mutate(income.elesticity = 0.33) ->
+      L100.demand_food_nonstaples%>% mutate(income.elasticity = 0.33) ->
         L100.demand_food_nonstaples
 
       # Note that we didn't derive historical waste shares so applying last base year values
