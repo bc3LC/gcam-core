@@ -71,6 +71,7 @@ void CalibrateResourceVisitor::startVisitResource( const AResource* aResource,
                                                    const int aPeriod )
 {
     mCurrentResourceName = aResource->getName();
+    mPrevSubResRemainPrice = 0.0;
 }
 
 void CalibrateResourceVisitor::endVisitResource( const AResource* aResource,
@@ -196,11 +197,13 @@ void CalibrateResourceVisitor::startVisitReserveSubResource( const ReserveSubRes
         // In the case when there has been no production and calibrated production is still
         // zero reset the effective price.  In this case we are essentially calibrating a
         // price wedge which ensures no produciton.  However, how far below the minimum price
-        // we set the wedge could be arbitrary.  Here we set it such that prices need to increase
-        // (or costs decrease) 10% of the cost of the lowest grade to get production in future years.
+        // we set the wedge could be arbitrary.  Here we say that essentially we must fully
+        // deplete all other subresource before producing any from this subresource.
         if(tempCumulProd == 0.0) {
-            // TODO: should be a parsable parameters?
-            tempEffectivePrice = aSubResource->mGrade[ 0 ]->getCost( aPeriod ) * 0.9;
+            tempEffectivePrice = aSubResource->mGrade[ 0 ]->getCost( aPeriod ) - mPrevSubResRemainPrice;
+        }
+        else {
+            mPrevSubResRemainPrice = aSubResource->mGrade.back()->getCost(aPeriod)- tempEffectivePrice;
         }
         
         double mktPrice = scenario->getMarketplace()->getPrice( mCurrentResourceName,
@@ -213,7 +216,6 @@ void CalibrateResourceVisitor::startVisitReserveSubResource( const ReserveSubRes
         
         // Finally, calculate the price adder. This is the difference between the
         // effective price and the global price
-        
         const_cast<ReserveSubResource*>( aSubResource )->mPriceAdder[ aPeriod ] = tempEffectivePrice - mktPrice + techCost;
     }
     else if( aPeriod == 0 ) {
