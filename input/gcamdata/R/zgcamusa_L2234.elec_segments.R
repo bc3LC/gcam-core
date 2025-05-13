@@ -608,12 +608,7 @@ module_gcamusa_L2234.elec_segments <- function(command, ...) {
     L1239.state_elec_supply_USA %>%
       select(state, fuel, segment, year, fraction)%>%
       rename(region = state, supplysector = segment, subsector = fuel) %>%
-      mutate(year = as.numeric(year)) -> L2234.fuelfractions_segment_USA #%>%
-      # extrapolate to all base years
-      #complete(nesting(region, subsector, supplysector), year = MODEL_BASE_YEARS) %>%
-      #group_by(region, subsector, supplysector) %>%
-      #mutate(fraction = approx_fun(year, fraction, rule = 2)) %>%
-      #ungroup()
+      mutate(year = as.numeric(year)) -> L2234.fuelfractions_segment_USA
 
 
     L2234.StubTechProd_elecS_USA %>%

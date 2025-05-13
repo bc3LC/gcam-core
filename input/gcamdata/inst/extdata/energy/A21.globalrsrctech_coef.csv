@@ -3,6 +3,6 @@
 # Units: Unitless
 # Column types: ccccnnnn
 # ----------
-resource,reserve.subresource,resource.reserve.technology,minicam.energy.input,start-year,final-calibration-year,initial-future-year,end-year
+resource,reserve.subresource,resource.reserve.technology,minicam.energy.input,1971,final-calibration-year,initial-future-year,2100
 crude oil,unconventional oil,unconventional oil,regional natural gas,0.124,0.124,0.102,0.102
 crude oil,unconventional oil,unconventional oil,unconventional oil upscaling,1,1,1,1

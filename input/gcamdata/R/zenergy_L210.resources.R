@@ -707,7 +707,7 @@ module_energy_L210.resources <- function(command, ...) {
       select(LEVEL2_DATA_NAMES[["ResReserveTechProfitShutdown"]]) ->
       L210.ResReserveTechProfitShutdown
 
-    # interpolating tech costs for the base year
+    # interpolating tech costs to cover all model years
     A21.globalrsrctech_cost %>%
       complete(nesting(resource, reserve.subresource, resource.reserve.technology, minicam.non.energy.input),
                year = c(year, MODEL_YEARS)) %>%

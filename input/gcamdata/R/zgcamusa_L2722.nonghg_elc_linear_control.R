@@ -164,7 +164,11 @@ module_gcamusa_L2722.nonghg_elc_linear_control <- function(command, ...) {
       select(-c(year, final.emissions.coefficient)) -> L2722.nonghg_elec_tech_coeff_USA_linear_control_off
 
 
-    # TODO: not sure what the intent was here but FIX!!!
+    # double check if we have any linear control with a end year after the start year
+    # this can occur with shifting base years where were attempting to control some
+    # emissions which are now historical
+    # in this case the change in emissions factor would have already been calibrated
+    # so we can safely just filter out the controls in this case
     L2722.nonghg_elec_tech_coeff_USA_linear_control %>%
       filter(end.year > start.year) ->
       L2722.nonghg_elec_tech_coeff_USA_linear_control

@@ -1184,7 +1184,7 @@ gcamusa.TRAN_MODEL_FUTURE_YEARS <- seq(2020, 2100, 5)
 gcamusa.TRN_MARKAL_EMISSION_YEARS <- seq(2005,2050, 5)
 
 # defined for EF years in L271 gcam-usa chunk
-gcamusa.TRN_EMISSION_YEARS <- seq(2005,2100, 5)
+gcamusa.TRN_EMISSION_YEARS <- MODEL_YEARS[MODEL_YEARS >=2005]
 
 # emission factor timestep
 gcamusa.TRN_EF_TIMESTEP <- 5

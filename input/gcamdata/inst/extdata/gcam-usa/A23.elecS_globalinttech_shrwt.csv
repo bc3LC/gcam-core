@@ -5,7 +5,7 @@
 # Source: None (GCAM assumptions)
 # Column types: cccnnnnn 
 # ----------
-supplysector,subsector,technology,start-year,final-calibration-year,initial-future-year,2030,end-year
+supplysector,subsector,technology,1971,final-calibration-year,initial-future-year,2030,2100
 base load generation,wind,wind_base,1,1,1,1,1
 intermediate generation,wind,wind_int,1,1,0,0,0
 subpeak generation,wind,wind_subpeak,1,1,0,0,0

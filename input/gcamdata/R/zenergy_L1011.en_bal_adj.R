@@ -144,7 +144,7 @@ module_energy_L1011.en_bal_adj <- function(command, ...) {
         L1011.in_EJ_ctry_intlship_TOT_Yh
     }
 
-    # JS 12/2020: group by iso and sort
+    # group by iso and sort
     L1011.in_EJ_ctry_intlship_TOT_Yh<-L1011.in_EJ_ctry_intlship_TOT_Yh %>%
       group_by(year,iso,GCAM_region_ID) %>%
       summarise(value=sum(value)) %>%
