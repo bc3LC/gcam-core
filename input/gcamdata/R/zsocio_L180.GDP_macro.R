@@ -20,7 +20,7 @@ module_socio_L180.GDP_macro <- function(command, ...) {
   MODULE_INPUTS <-
     c(FILE = "common/iso_GCAM_regID",
       FILE = "common/GCAM_region_names",
-      FILE = "socioeconomics/SSP/SSP_database_2024",
+      FILE = "socioeconomics/SSP/SSP_database_2025",
       FILE = "socioeconomics/SSP/pop_laborforce_variable",
       FILE = "socioeconomics/SSP/iso_SSP_regID",
       FILE = "socioeconomics/PWT/pwt91",
@@ -244,12 +244,12 @@ module_socio_L180.GDP_macro <- function(command, ...) {
       L180.nationalAccounts
 
     # Using SSP database to derive future labor force
-    SSP_database_2024 %>%
+    SSP_database_2025 %>%
       # make variable names lower case
       dplyr::rename_all(tolower) %>%
       # remove aggregated regions
       filter(!grepl("\\(|World", region)) %>%
-      filter(model == "IIASA-WiC POP 2023") %>%
+      filter(model == "IIASA-WiC POP 2025") %>%
       left_join_error_no_match(
         iso_SSP_regID %>% distinct(iso, region = ssp_country_name),
         by = "region") %>%
@@ -264,7 +264,7 @@ module_socio_L180.GDP_macro <- function(command, ...) {
           rename(hist = value),
         by = c("model", "region", "variable", "unit", "iso", "year")
       ) %>%
-      # new ssp data starts 2020 (socioeconomics.SSP_DB_BASEYEAR)
+      # new ssp data starts 2025 (socioeconomics.SSP_DB_BASEYEAR)
       mutate(value = if_else(year < socioeconomics.SSP_DB_BASEYEAR, hist, value)) %>%
       select(-hist) ->
       SSP_pop_1
@@ -330,7 +330,7 @@ module_socio_L180.GDP_macro <- function(command, ...) {
       add_comments("Total pop and working age population") %>%
       add_legacy_name("NA") %>%
       add_precursors("common/iso_GCAM_regID",
-                     "socioeconomics/SSP/SSP_database_2024",
+                     "socioeconomics/SSP/SSP_database_2025",
                      "socioeconomics/SSP/pop_laborforce_variable",
                      "socioeconomics/SSP/iso_SSP_regID") ->
       L180.laborForceSSP

@@ -20,7 +20,7 @@ module_socio_L100.Population_downscale_ctry <- function(command, ...) {
   MODULE_INPUTS <-
     c(FILE = "socioeconomics/POP/iso_ctry_Maddison",
       FILE = "socioeconomics/POP/Maddison_population",
-      FILE = "socioeconomics/SSP/SSP_database_2024",
+      FILE = "socioeconomics/SSP/SSP_database_2025",
       FILE = "socioeconomics/SSP/iso_SSP_regID",
       FILE = "socioeconomics/POP/UN_popTot")
 
@@ -257,15 +257,16 @@ module_socio_L100.Population_downscale_ctry <- function(command, ...) {
       rename(pop_final_hist = value) %>%
       select(-year)
 
-    # Second, generate ratios of future population to base year for all SSPs. The ratios will be applied to the historical year populations so there are no jumps/inconsistencies.
+    # Second, generate ratios of future population to base year for all SSPs ----
+    # The ratios will be applied to the historical year populations so there are no jumps/inconsistencies.
 
     # use the IIASA-WiC POP model from the SSP database; IIASA-WiC is the official SSP population data set
-    SSP_database_2024 %>%
+    SSP_database_2025 %>%
       # make variable names lower case
       dplyr::rename_all(tolower) %>%
       # remove aggregated regions
       filter(!grepl("\\(|World", region)) %>%
-      filter(model == "IIASA-WiC POP 2023", variable == "Population") %>%
+      filter(model == "IIASA-WiC POP 2025", variable == "Population") %>%
       left_join_error_no_match(
         iso_SSP_regID %>% distinct(iso, region = ssp_country_name),
         by = "region") %>%
@@ -280,18 +281,20 @@ module_socio_L100.Population_downscale_ctry <- function(command, ...) {
           rename(hist = value),
         by = c("model", "region", "variable", "unit", "iso", "year")
       ) %>%
-      # new ssp data starts 2020 (socioeconomics.SSP_DB_BASEYEAR)
+      # new ssp data starts 2025 (socioeconomics.SSP_DB_BASEYEAR)
       mutate(value = if_else(year < socioeconomics.SSP_DB_BASEYEAR, hist, value)) %>%
       select(iso, scenario, year, pop = value) ->
       L100.Pop_thous_SSP_ctry_Yfut_0
 
     L100.Pop_thous_SSP_ctry_Yfut <-
       L100.Pop_thous_SSP_ctry_Yfut_0 %>%
-      # need to have socioeconomics.SSP_DB_BASEYEAR in the data as the initial point for interpolation
+      # need to have 2020 in the data as the initial point for interpolation
       # otherwise 2021:2024 could be the same with 2025 (rule = 2 below)
+      # hard code 2020 here since socioeconomics.SSP_DB_BASEYEAR is now 2025
+      # and base year is 2021
       complete(nesting(scenario, iso),
-               year = c(socioeconomics.SSP_DB_BASEYEAR:max(FUTURE_YEARS))) %>%
-      filter(year %in% c(socioeconomics.SSP_DB_BASEYEAR:max(FUTURE_YEARS))) %>%
+               year = c(2020:max(FUTURE_YEARS))) %>%
+      filter(year %in% c(2020:max(FUTURE_YEARS))) %>%
       group_by(scenario, iso) %>%
       # Data is in five year intervals, so interpolate so get data for the base-year before calculating ratios
       mutate(pop = approx_fun(year, pop, rule = 2),
@@ -331,7 +334,7 @@ module_socio_L100.Population_downscale_ctry <- function(command, ...) {
       add_units("thousand") %>%
       add_comments("Future population calculated as final historical year (2010) population times ratio of SSP future years to SSP 2010") %>%
       add_legacy_name("L100.Pop_thous_SSP_ctry_Yfut") %>%
-      add_precursors("socioeconomics/SSP/SSP_database_2024",
+      add_precursors("socioeconomics/SSP/SSP_database_2025",
                      "socioeconomics/SSP/iso_SSP_regID",
                      "socioeconomics/POP/UN_popTot") ->
       L100.Pop_thous_SSP_ctry_Yfut

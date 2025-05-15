@@ -25,7 +25,7 @@ module_socio_L102.GDP <- function(command, ...) {
 
   MODULE_INPUTS <-
     c(FILE = "common/iso_GCAM_regID",
-      FILE = "socioeconomics/SSP/SSP_database_2024",
+      FILE = "socioeconomics/SSP/SSP_database_2025",
       FILE = "socioeconomics/SSP/iso_SSP_regID",
       FILE = "socioeconomics/GDP/GCAM3_GDP",
       "L100.gdp_mil90usd_ctry_Yh",
@@ -82,17 +82,21 @@ module_socio_L102.GDP <- function(command, ...) {
     # Note that the base year or PPP/MER doesn't matter here
     # We will apply growth rates to historical values
 
-    SSP_database_2024 %>%
+    SSP_database_2025 %>%
       # make variable names lower case
       dplyr::rename_all(tolower) %>%
       # remove aggregated regions
       filter(!grepl("\\(|World", region)) %>%
-      filter(model == 'OECD ENV-Growth 2023' & variable == 'GDP|PPP') %>%
+      filter(model == 'OECD ENV-Growth 2025' & variable == 'GDP|PPP') %>%
       left_join_error_no_match(
         iso_SSP_regID %>% distinct(iso, region = ssp_country_name),
         by = "region") %>%
       gather_years()->
       SSP_gdp_0
+
+    assertthat::assert_that(
+      c(paste0("SSP", 1:5), "Historical Reference") %in%
+        c(SSP_gdp_0 %>% distinct(scenario) %>% pull) %>% all() )
 
       # Using the Historical Reference scenario to fill history of SSPs
     SSP_gdp_0 %>%
@@ -102,7 +106,7 @@ module_socio_L102.GDP <- function(command, ...) {
           rename(hist = value),
         by = c("model", "region", "variable", "unit", "iso", "year")
       ) %>%
-      # new ssp data starts 2020 (socioeconomics.SSP_DB_BASEYEAR)
+      # new ssp data starts 2025 (socioeconomics.SSP_DB_BASEYEAR)
       mutate(value = if_else(year < socioeconomics.SSP_DB_BASEYEAR, hist, value)) %>%
       select(iso, scenario, year, gdp = value) ->
       gdp_bilusd_ctry_Yfut_0
@@ -123,14 +127,14 @@ module_socio_L102.GDP <- function(command, ...) {
     # Step 3 Connect history and future ----
 
     # all regions currently GDP up to 2023 (FAOSTAT)
-    # SSP scenarios use 2020-2100 growth rate from SSP
+    # SSP scenarios use 2025-2100 growth rate from SSP
 
     ## 3.1 for SSP scenarios ----
     # join.gdp.ts hist and future
     gdp.mil90usd.scen.rgn.yr <-
       join.gdp.ts(
         # hist: gdp_mil90usd_rgn before socioeconomics.SSP_DB_BASEYEAR
-        gdp_mil90usd_rgn %>% filter(year <= socioeconomics.SSP_DB_BASEYEAR),
+        gdp_mil90usd_rgn,
         # future: gdp_bilusd_rgn_Yfut
         gdp_bilusd_rgn_Yfut,
         grouping = 'GCAM_region_ID')
@@ -138,6 +142,7 @@ module_socio_L102.GDP <- function(command, ...) {
     # Step 5: Additional adjustment  for Venezuela (South Amer North) and Taiwan ----
 
     # Step 5.1 smoothing GDP when needed (socioeconomics.GDP_Adj_Moving_Average_ISO)
+
 
     GDP_Adj_Moving_Average_GCAM_region_ID <-
       iso_GCAM_regID$GCAM_region_ID[iso_GCAM_regID$iso %in% socioeconomics.GDP_Adj_Moving_Average_ISO]
@@ -348,7 +353,7 @@ module_socio_L102.GDP <- function(command, ...) {
       add_comments("our final calibration period.") %>%
       add_legacy_name("L102.gdp_mil90usd_Scen_R_Y") %>%
       add_precursors("common/iso_GCAM_regID",
-                     "socioeconomics/SSP/SSP_database_2024",
+                     "socioeconomics/SSP/SSP_database_2025",
                      "socioeconomics/SSP/iso_SSP_regID",
                      "L100.gdp_mil90usd_ctry_Yh") ->
       L102.gdp_mil90usd_Scen_R_Y
@@ -363,7 +368,7 @@ module_socio_L102.GDP <- function(command, ...) {
       add_comments("historical; values subsequent are from SSP projections.") %>%
       add_legacy_name("L102.pcgdp_thous90USD_Scen_R_Y") %>%
       add_precursors("common/iso_GCAM_regID",
-                     "socioeconomics/SSP/SSP_database_2024",
+                     "socioeconomics/SSP/SSP_database_2025",
                      "socioeconomics/SSP/iso_SSP_regID",
                      "L100.gdp_mil90usd_ctry_Yh",
                      "L101.Pop_thous_R_Yh",
@@ -379,7 +384,7 @@ module_socio_L102.GDP <- function(command, ...) {
       add_comments("or useful for, anything besides calculating the ratio.") %>%
       add_legacy_name("L102.PPP_MER_R") %>%
       add_precursors("common/iso_GCAM_regID",
-                     "socioeconomics/SSP/SSP_database_2024",
+                     "socioeconomics/SSP/SSP_database_2025",
                      "socioeconomics/SSP/iso_SSP_regID",
                      "L100.gdp_mil90usd_ctry_Yh") ->
       L102.PPP_MER_R
@@ -391,7 +396,7 @@ module_socio_L102.GDP <- function(command, ...) {
       add_comments("Calculates future GDP based on ratio of GCAM3 future to 2010 value.") %>%
       add_legacy_name("L102.gdp_mil90usd_GCAM3_R_Y") %>%
       add_precursors("common/iso_GCAM_regID",
-                     "socioeconomics/SSP/SSP_database_2024",
+                     "socioeconomics/SSP/SSP_database_2025",
                      "socioeconomics/SSP/iso_SSP_regID",
                      "L100.gdp_mil90usd_ctry_Yh",
                      "socioeconomics/GDP/GCAM3_GDP") ->
@@ -404,7 +409,7 @@ module_socio_L102.GDP <- function(command, ...) {
       add_comments("Calculates future GDP based on ratio of GCAM3 future to 2010 value.") %>%
       add_legacy_name("L102.gdp_mil90usd_GCAM3_ctry_Y") %>%
       add_precursors("common/iso_GCAM_regID",
-                     "socioeconomics/SSP/SSP_database_2024",
+                     "socioeconomics/SSP/SSP_database_2025",
                      "socioeconomics/SSP/iso_SSP_regID",
                      "L100.gdp_mil90usd_ctry_Yh",
                      "socioeconomics/GDP/GCAM3_GDP") ->
@@ -416,7 +421,7 @@ module_socio_L102.GDP <- function(command, ...) {
       add_comments("L102.gdp_mil90usd_GCAM3_R_Y divided by population from L101.Pop_thous_GCAM3_R_Y") %>%
       add_legacy_name("L102.pcgdp_thous90USD_GCAM3_R_Y") %>%
       add_precursors("common/iso_GCAM_regID",
-                     "socioeconomics/SSP/SSP_database_2024",
+                     "socioeconomics/SSP/SSP_database_2025",
                      "socioeconomics/SSP/iso_SSP_regID",
                      "L100.gdp_mil90usd_ctry_Yh",
                      "socioeconomics/GDP/GCAM3_GDP",
@@ -429,7 +434,7 @@ module_socio_L102.GDP <- function(command, ...) {
       add_comments("L102.gdp_mil90usd_GCAM3_ctry_Y divided by population from L101.Pop_thous_GCAM3_ctry_Y") %>%
       add_legacy_name("L102.pcgdp_thous90USD_GCAM3_ctry_Y") %>%
       add_precursors("common/iso_GCAM_regID",
-                     "socioeconomics/SSP/SSP_database_2024",
+                     "socioeconomics/SSP/SSP_database_2025",
                      "socioeconomics/SSP/iso_SSP_regID",
                      "L100.gdp_mil90usd_ctry_Yh",
                      "socioeconomics/GDP/GCAM3_GDP",
