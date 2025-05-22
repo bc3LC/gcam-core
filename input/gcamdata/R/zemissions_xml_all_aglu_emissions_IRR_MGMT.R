@@ -28,7 +28,8 @@ module_emissions_all_aglu_emissions_IRR_MGMT_xml <- function(command, ...) {
       "L252.AgMAC_tc_average")
 
   MODULE_OUTPUTS <-
-    c(XML = "all_aglu_emissions_IRR_MGMT.xml",
+    c(XML = "all_aglu_emissions_IRR_MGMT1.xml",
+      XML = "all_aglu_emissions_IRR_MGMT2.xml",
       XML = "all_aglu_emissions_IRR_MGMT_MAC.xml")
 
   if(command == driver.DECLARE_INPUTS) {
@@ -49,24 +50,27 @@ module_emissions_all_aglu_emissions_IRR_MGMT_xml <- function(command, ...) {
     L2112.AGRBio <- rename(L2112.AGRBio, emiss.coef = bio_N2O_coef)
 
     # Produce outputs
-    create_xml("all_aglu_emissions_IRR_MGMT.xml") %>%
+    create_xml("all_aglu_emissions_IRR_MGMT1.xml") %>%
       add_xml_data(L2112.AGRBio, "OutputEmissCoeffAg") %>%
       add_xml_data(L2112.AWB_BCOC_EmissCoeff, "OutputEmissCoeffAg") %>%
       add_xml_data(L2112.nonghg_max_reduction, "AgGDPCtrlMax") %>%
       add_xml_data(L2112.nonghg_steepness, "AgGDPCtrlSteep") %>%
       add_xml_data(L211.AnEmissions, "OutputEmissions") %>%
       add_xml_data(L211.AnNH3Emissions, "OutputEmissions") %>%
-      add_xml_data(L2112.AWBEmissions, "OutputEmissionsAg") %>%
-      add_xml_data(L2112.AGREmissions, "OutputEmissionsAg") %>%
-      add_precursors("L2112.AWBEmissions",
-                     "L2112.AGREmissions",
-                     "L211.AnEmissions",
+      add_precursors("L211.AnEmissions",
                      "L211.AnNH3Emissions",
                      "L2112.AGRBio",
                      "L2112.AWB_BCOC_EmissCoeff",
                      "L2112.nonghg_max_reduction",
                      "L2112.nonghg_steepness") ->
-        all_aglu_emissions_IRR_MGMT.xml
+      all_aglu_emissions_IRR_MGMT1.xml
+
+    create_xml("all_aglu_emissions_IRR_MGMT2.xml") %>%
+      add_xml_data(L2112.AWBEmissions, "OutputEmissionsAg") %>%
+      add_xml_data(L2112.AGREmissions, "OutputEmissionsAg") %>%
+      add_precursors("L2112.AWBEmissions",
+                     "L2112.AGREmissions") ->
+      all_aglu_emissions_IRR_MGMT2.xml
 
     create_xml("all_aglu_emissions_IRR_MGMT_MAC.xml") %>%
       add_xml_data(L252.AgMAC, "AgMAC") %>%
