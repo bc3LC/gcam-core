@@ -116,7 +116,6 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
     cur_env <- environment()
 
     # Adding SSP waste pathways ----
-    ## [SSP1]
     for (ssp in paste0("SSP", 1:5)) {
 
       # Adjust the constant trend based on SSP scenarios
@@ -150,7 +149,7 @@ module_aglu_ag_an_demand_input_xml <- function(command, ...) {
       # assign(paste0("L203.StubCalorieContent_WasteTrend_",ssp),
       #        value = L203.StubCalorieContent_WasteTrend, envir = cur_env )
 
-      create_xml(paste0("ag_an_demand_input_Food_Intake_SSPs_",ssp,".xml")) %>%
+      create_xml(paste0("ag_an_demand_input_Food_Intake_",ssp,".xml")) %>%
         add_logit_tables_xml(L203.Supplysector_demand %>% filter(!grepl("NonFood", supplysector)), "Supplysector") %>%
         add_logit_tables_xml_generate_levels(L203.SubsectorAll_demand_food,
                                              "SubsectorLogit","subsector","nesting-subsector",1,FALSE) %>%
