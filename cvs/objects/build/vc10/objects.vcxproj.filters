@@ -539,9 +539,6 @@
     <ClCompile Include="..\..\consumers\source\consumer.cpp">
       <Filter>Source Files\consumers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\reporting\source\batch_csv_outputter.cpp">
-      <Filter>Source Files\reporting</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\reporting\source\graph_printer.cpp">
       <Filter>Source Files\reporting</Filter>
     </ClCompile>
@@ -1431,9 +1428,6 @@
     </ClInclude>
     <ClInclude Include="..\..\consumers\include\consumer.h">
       <Filter>Header Files\consumers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\reporting\include\batch_csv_outputter.h">
-      <Filter>Header Files\reporting</Filter>
     </ClInclude>
     <ClInclude Include="..\..\reporting\include\graph_printer.h">
       <Filter>Header Files\reporting</Filter>

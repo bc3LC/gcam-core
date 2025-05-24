@@ -754,7 +754,6 @@
     <ClCompile Include="..\..\util\curves\source\point_set_curve.cpp" />
     <ClCompile Include="..\..\util\curves\source\xy_data_point.cpp" />
     <ClCompile Include="..\..\consumers\source\consumer.cpp" />
-    <ClCompile Include="..\..\reporting\source\batch_csv_outputter.cpp" />
     <ClCompile Include="..\..\reporting\source\graph_printer.cpp" />
     <ClCompile Include="..\..\reporting\source\land_allocator_printer.cpp" />
     <ClCompile Include="..\..\reporting\source\xml_db_outputter.cpp" />
@@ -1076,7 +1075,6 @@
     <ClInclude Include="..\..\util\curves\include\point_set_curve.h" />
     <ClInclude Include="..\..\util\curves\include\xy_data_point.h" />
     <ClInclude Include="..\..\consumers\include\consumer.h" />
-    <ClInclude Include="..\..\reporting\include\batch_csv_outputter.h" />
     <ClInclude Include="..\..\reporting\include\graph_printer.h" />
     <ClInclude Include="..\..\reporting\include\xml_db_outputter.h" />
     <ClInclude Include="..\..\functions\include\aproduction_function.h" />
