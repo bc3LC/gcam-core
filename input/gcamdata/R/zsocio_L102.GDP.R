@@ -116,7 +116,7 @@ module_socio_L102.GDP <- function(command, ...) {
       select(IMF_GDP_growth, one_of(c('ISO', socioeconomics.IMF_GDP_YEARS))) %>%
       standardize_iso('ISO') %>%
       change_iso_code('rou', 'rom') %>%
-      gather(year, gdp.rate, -iso) %>%
+      tidyr::gather(year, gdp.rate, -iso) %>%
       full_join(gdp_mil90usd_ctry %>% select(iso) %>% unique, by = 'iso') %>%
       mutate(gdp.rate = if_else(gdp.rate == 'n/a', '0', gdp.rate), # Treat string 'n/a' as missing.
              year = as.integer(year),
@@ -166,6 +166,22 @@ module_socio_L102.GDP <- function(command, ...) {
     ## our final outputs)
     gdp.mil90usd.scen.rgn.yr <-
       bind_rows(gdp.mil90usd.SSP.rgn.yr, gdp.mil90usd.gSSP.rgn.yr)
+
+    # Adjust EU-15
+    gdp_eu15_adj <- read.csv("./inst/extdata/socioeconomics/A01.popgdp_EU15.csv") %>%
+      complete(nesting(scenario, GCAM_region_ID), year = c(2015, unique(L101.Pop_thous_Scen_R_Yfut$year))) %>%
+      mutate(pop = approx_fun(year, pop),
+             gdp = approx_fun(year, gdp)) %>%
+      filter(year > 2015) %>%
+      select(-scenario, -pop) %>%
+      rename(gdp_new = gdp)
+
+    gdp.mil90usd.scen.rgn.yr <- gdp.mil90usd.scen.rgn.yr %>%
+      left_join(gdp_eu15_adj) %>%
+      mutate(gdp = if_else(is.na(gdp_new), gdp, gdp_new)) %>%
+      select(-gdp_new)
+
+
 
     ## Construct a table of population by scenario, region, and year.  We have a
     ## table of historical population, and a table of future population by

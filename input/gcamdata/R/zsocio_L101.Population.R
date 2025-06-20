@@ -148,6 +148,22 @@ module_socio_L101.Population <- function(command, ...) {
       ungroup() ->
       L101.Pop_thous_GCAM3_R_Y
 
+
+    # Adjust Fut pop
+    pop_eu15_adj <- read.csv("./inst/extdata/socioeconomics/A01.popgdp_EU15.csv") %>%
+      complete(nesting(scenario, GCAM_region_ID), year = c(2015, unique(L101.Pop_thous_Scen_R_Yfut$year))) %>%
+      mutate(pop = approx_fun(year, pop),
+             gdp = approx_fun(year, gdp)) %>%
+      filter(year > 2015) %>%
+      select(-scenario, -gdp)
+
+    L101.Pop_thous_Scen_R_Yfut <- L101.Pop_thous_Scen_R_Yfut %>%
+      left_join(pop_eu15_adj) %>%
+      mutate(value = if_else(is.na(pop), value, pop)) %>%
+      select(-pop)
+
+
+
     # Produce outputs
 
     L101.Pop_thous_R_Yh %>%

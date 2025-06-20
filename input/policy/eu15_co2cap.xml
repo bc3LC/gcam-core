@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+   <world>
+      <region name="EU-15">
+         <ghgpolicy name="CO2">
+            <market>EU15</market>   
+            <constraint year="2020">382418</constraint>
+            <constraint year="2025">360770</constraint>
+            <constraint year="2030">339121</constraint>
+            <constraint year="2035">317473</constraint>
+            <constraint year="2040">295825</constraint>
+            <constraint year="2045">274177</constraint>
+            <constraint year="2050">252529</constraint>
+
+                     </ghgpolicy>
+      </region>
+
+  
+   </world>
+</scenario>
