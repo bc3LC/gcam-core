@@ -8,6 +8,8 @@ urban processes,waste_incineration,waste_incineration,non-energy,0,0
 urban processes,landfills,landfills,non-energy,0,0
 urban processes,wastewater,wastewater,non-energy,0,0
 urban processes,aerosols,aerosols,non-energy,0,0
+urban processes,mobile_air_conditioning,mobile_air_conditioning,non-energy,0,0
+urban processes,refrigeration,refrigeration,non-energy,0,0
 urban processes,fire_exting,fire_exting,non-energy,0,0
 industrial processes,adipic acid,adipic acid,non-energy,0,0
 industrial processes,nitric acid,nitric acid,non-energy,0,0

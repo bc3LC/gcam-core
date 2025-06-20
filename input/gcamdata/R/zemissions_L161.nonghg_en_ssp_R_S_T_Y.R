@@ -25,7 +25,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
              FILE = "emissions/GAINS_activities",
              FILE = "emissions/GAINS_emissions",
              "L102.pcgdp_thous90USD_Scen_R_Y",
-             "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+             "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L114.bcoc_tgej_R_en_S_F_2000",
              FILE = "emissions/A61_emfact_rules",
              FILE = "socioeconomics/income_shares",
@@ -67,7 +67,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       # CLE = current legislation, SLE = stringent legislation, MFR = maximum feasible reductions
       tidyr::gather(scenario, value, CLE, MFR, SLE)
     L102.pcgdp_thous90USD_Scen_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_Scen_R_Y")
-    L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP <- get_data(all_data, "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP")
+    L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP <- get_data(all_data, "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP")
     L114.bcoc_tgej_R_en_S_F_2000 <- get_data(all_data, "L114.bcoc_tgej_R_en_S_F_2000") %>%
       tidyr::gather(year, value, `2000`) %>%
       mutate(year = as.integer(year))
@@ -152,7 +152,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
              region_grouping = if_else(value >= emissions.LOW_PCGDP, "highmed", "low"))
 
     # Compute future emissions factors for GAINS scenarios
-    emfact_scaled <- L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP %>%
+    emfact_scaled <- L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP %>%
       filter(year == emissions.GAINS_BASE_YEAR) %>%
       # Add GAINS regions and sectors
       left_join_error_no_match(A_regions %>% select(GCAM_region_ID, GAINS_region), by = "GCAM_region_ID") %>%
@@ -296,7 +296,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
                      "emissions/GAINS_activities",
                      "emissions/GAINS_emissions",
                      "L102.pcgdp_thous90USD_Scen_R_Y",
-                     "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+                     "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L114.bcoc_tgej_R_en_S_F_2000",
                      "emissions/A61_emfact_rules",
                      "socioeconomics/income_shares",
@@ -316,7 +316,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
                      "emissions/GAINS_activities",
                      "emissions/GAINS_emissions",
                      "L102.pcgdp_thous90USD_Scen_R_Y",
-                     "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+                     "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L114.bcoc_tgej_R_en_S_F_2000",
                      "emissions/A61_emfact_rules",
                      "socioeconomics/income_shares",
@@ -336,7 +336,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
                      "emissions/GAINS_activities",
                      "emissions/GAINS_emissions",
                      "L102.pcgdp_thous90USD_Scen_R_Y",
-                     "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+                     "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L114.bcoc_tgej_R_en_S_F_2000",
                      "emissions/A61_emfact_rules",
                      "socioeconomics/income_shares",

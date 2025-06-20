@@ -921,7 +921,6 @@ emissions.UNCONVENTIONAL.OIL.FUG.N2O.EMFACT <- 0.000000939
 # Time
 emissions.CTRL_BASE_YEAR          <- 1975                # Year to read in pollution controls
 emissions.DEFOREST_COEF_YEARS     <- c(2000, 2005)
-emissions.EDGAR_YEARS             <- 1971:2008
 emissions.EPA_HISTORICAL_YEARS    <- 1971:2002
 emissions.EPA_MACC_YEAR           <- seq(2015, 2050, 5)        # based on 2019 EPA nonCO2 report
 emissions.EPA_MACC_FUTURE_YEAR    <- seq(2055, 2100, 5)        # EPA report only covers till 2050
@@ -931,14 +930,11 @@ emissions.FINAL_EMISS_YEAR        <- min(MODEL_FINAL_BASE_YEAR, 2005)
 emissions.GAINS_BASE_YEAR         <- 2005
 emissions.GAINS_YEARS             <- c(2010, 2020, 2030)
 emissions.GHG_CONTROL_READIN_YEAR <- 1975
-emissions.HFC_MODEL_BASE_YEARS    <- MODEL_YEARS[MODEL_YEARS <= 2010] # We don't want this to change in timeshift
 emissions.INVENTORY_MATCH_YEAR    <- 2009                # Select year from which to calculate fuel emissions coefficients (2009 is currently the most recent)
 emissions.MODEL_BASE_YEARS        <- MODEL_BASE_YEARS
 emissions.NH3_EXTRA_YEARS         <- 1971:1989
 emissions.NH3_HISTORICAL_YEARS    <- 1990:2002
 emissions.SSP_FUTURE_YEARS        <- MODEL_YEARS[MODEL_YEARS %in% 2015:2100]
-emissions.HFC_FUT_YEAR            <- 2030            # max year for emissions factors in L241.fgas
-emissions.GV_YEARS                <- c(2020, 2030)   # years to fill in from Guus Velders data
 
 # Other emissions constants
 emissions.CONV_C_CO2    <- 44 / 12 # Convert Carbon to CO2
@@ -1001,7 +997,6 @@ emissions.DIGITS_GFED          <- 12
 # Parameters for the urban processing sector
 emissions.URBAN_PROCESS_PERCAPITABASED <- 1 # service as function of population?
 emissions.URBAN_PROCESS_INCOME_ELASTICITY <- 0
-emissions.URBAN_PROCESS_BASE_SERVICE <- 0.004 # base service (per capita)
 emissions.URBAN_PROCESS_AEEI <- 0 # No energy efficiency improvements
 # Calibrated value for misc emissions from industrial and urban processes
 emissions.INDURB_PROCESS_MISCEMISSIONS_CALVAL <- 0.001

@@ -34,7 +34,8 @@ module_emissions_L231.proc_sector <- function(command, ...) {
              FILE = "emissions/A31.globaltech_coef", # Units and source
              FILE = "energy/A32.globaltech_eff", # Units and source
              "L1322.in_EJ_R_indfeed_F_Yh",
-             "L1322.in_EJ_R_indenergy_F_Yh"))
+             "L1322.in_EJ_R_indenergy_F_Yh",
+             "L232.StubTechProd_industry"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L231.UnlimitRsrc",
              "L231.UnlimitRsrcPrice",
@@ -85,14 +86,15 @@ module_emissions_L231.proc_sector <- function(command, ...) {
       gather_years
     L1322.in_EJ_R_indfeed_F_Yh <- get_data(all_data, "L1322.in_EJ_R_indfeed_F_Yh")
     L1322.in_EJ_R_indenergy_F_Yh <- get_data(all_data, "L1322.in_EJ_R_indenergy_F_Yh")
+    L232.StubTechProd_industry <- get_data(all_data, "L232.StubTechProd_industry")
 
     # ===================================================
     # L231.FinalDemand_urb: Final demand information for urban processes sector
+    # Note base service is not set, that is done later in the script
     L231.FinalDemand_urb <- tibble(region = A_regions$region,
                                    energy.final.demand = "urban processes",
                                    perCapitaBased = emissions.URBAN_PROCESS_PERCAPITABASED,
                                    income.elasticity = emissions.URBAN_PROCESS_INCOME_ELASTICITY,
-                                   base.service = emissions.URBAN_PROCESS_BASE_SERVICE,
                                    aeei = emissions.URBAN_PROCESS_AEEI # Autonomous Energy Efficiency Improvement
     ) %>%
       repeat_add_columns(tibble(year = MODEL_BASE_YEARS))
@@ -187,14 +189,29 @@ module_emissions_L231.proc_sector <- function(command, ...) {
 
     # Calibration and region-specific data
     # L231.StubTechCalInput_calvalue: calibrated input of urban & industrial processes technologies
-    L231.RegionalTechCalValue_urb_ind <- L231.GlobalTechCost_urb_ind %>%
+    L231.RegionalTechCalValue_urb_ind <-
+      L231.GlobalTechCost_urb_ind %>% # Using this just to get structure
       filter(year %in% MODEL_BASE_YEARS) %>%
       select(-minicam.non.energy.input, -input.cost) %>%
       # Assign values to all regions
       repeat_add_columns(tibble(region = A_regions$region)) %>%
       mutate(minicam.energy.input = emissions.REG_TECH_CAL_VALUE_MINICAM_ENERGY_INPUT,
              calibrated.value = emissions.INDURB_PROCESS_MISCEMISSIONS_CALVAL) %>%
-      select(region, sector.name, subsector.name, technology, year, minicam.energy.input, calibrated.value)
+      select(region, sector.name, subsector.name, technology, year, minicam.energy.input, calibrated.value) 
+
+    # Set base service here now that we have this information
+    # Calculate the sum of the calibrated value for urban processes
+    sum.calvalue <- L231.RegionalTechCalValue_urb_ind %>%
+      filter(sector.name == "urban processes") %>%
+      left_join_error_no_match(GCAM_region_names, by = "region") %>%
+      group_by(GCAM_region_ID, region, year) %>%
+      summarise(ind_proc_input = sum(calibrated.value)) %>%
+      ungroup()
+
+    L231.FinalDemand_urb <- L231.FinalDemand_urb %>%
+      left_join_error_no_match(sum.calvalue, by = c("region","year")) %>%
+      mutate(base.service = ind_proc_input) %>%
+      select(-ind_proc_input, -GCAM_region_ID)
 
     # Price information for unlimited resources are largely nominal placeholder values
     # So copying values forward should be fine
@@ -241,9 +258,7 @@ module_emissions_L231.proc_sector <- function(command, ...) {
       filter(resource_type == "unlimited-resource") %>%
       select(region, unlimited.resource = resource, year, price = value)
 
-    # L231.IndCoef: coefficient on industrial processes as an input to the industry sector
-    # Coefficient = sum of calibrated value / change in industry output from 1990
-    # First, interpolate A32.globaltech_eff efficiency values to all years
+    # Interpolate A32.globaltech_eff efficiency values to all years
     L231.Ind_globaltech_eff <- A32.globaltech_eff %>%
       select(-year, -value) %>%
       repeat_add_columns(tibble(year = c(HISTORICAL_YEARS, MODEL_FUTURE_YEARS))) %>%
@@ -257,7 +272,10 @@ module_emissions_L231.proc_sector <- function(command, ...) {
       select(sector = supplysector, fuel = subsector, year, efficiency = value) %>%
       distinct()
 
-    # Next, calculate the sum of the calibrated value
+    # L231.IndCoef: coefficient on industrial processes as an input to the industry sector
+    # Coefficient = sum of calibrated values from process techs / calibrated output of this technology
+
+    # Calculate the sum of the calibrated value
     sum.calvalue <- L231.RegionalTechCalValue_urb_ind %>%
       filter(sector.name == "industrial processes") %>%
       left_join_error_no_match(GCAM_region_names, by = "region") %>%
@@ -265,37 +283,21 @@ module_emissions_L231.proc_sector <- function(command, ...) {
       summarise(ind_proc_input = sum(calibrated.value)) %>%
       ungroup()
 
-    # Now combine input energy info and join with efficiency values
-    L231.IndCoef <- bind_rows(L1322.in_EJ_R_indenergy_F_Yh %>%
-                                mutate(sector = "other industrial energy use"),
-                              L1322.in_EJ_R_indfeed_F_Yh %>%
-                                mutate(sector = "other industrial feedstocks")) %>%
-      left_join_keep_first_only(L231.Ind_globaltech_eff, by = c("sector", "fuel", "year")) %>%
-      # Calculate service as energy * efficiency
-      mutate(service = value * efficiency) %>%
-      na.omit() %>%
-      group_by(GCAM_region_ID, year) %>%
-      summarise(ind_output = sum(service)) %>%
-      ungroup() %>%
-      filter(year %in% MODEL_BASE_YEARS) %>%
-      left_join_error_no_match(sum.calvalue, by = c("GCAM_region_ID", "year")) %>%
-      mutate(coefficient = ind_proc_input / ind_output,
-             supplysector = "other industry",
-             subsector = "other industry",
-             technology = "other industry",
-
-             minicam.energy.input = "industrial processes") %>%
-      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID")
+    # Now combine output with input
+    L231.IndCoef <- L232.StubTechProd_industry %>%
+      left_join_error_no_match(GCAM_region_names, by = "region") %>%
+      select(-"share.weight.year", -"subs.share.weight", -"tech.share.weight", "region" ) %>%
+      left_join(sum.calvalue, by = c("GCAM_region_ID", "year")) %>%
+      # Calculate coefficient as sum cal values over output
+      mutate(coefficient = ind_proc_input / calOutputValue,
+             minicam.energy.input = "industrial processes")
 
     # Interpolate coefficients to model years
     L231.IndCoef <- L231.IndCoef %>%
-      select(-year, -coefficient, -ind_output, -ind_proc_input) %>%
-      distinct %>%
-      repeat_add_columns(tibble(year = MODEL_YEARS)) %>%
-      left_join(L231.IndCoef, by = c("GCAM_region_ID", "region", "supplysector", "subsector", "technology", "minicam.energy.input", "year")) %>%
-      group_by(region, technology) %>%
-      mutate(coefficient = approx_fun(year, coefficient, rule = 2)) %>%
-      ungroup() %>%
+      filter(year == MODEL_FINAL_BASE_YEAR) %>% complete(nesting(region, supplysector, subsector, stub.technology, GCAM_region_ID, coefficient, minicam.energy.input), year = MODEL_FUTURE_YEARS) %>%
+      bind_rows(L231.IndCoef) %>%
+      select(-calOutputValue, -ind_proc_input) %>%
+      rename(technology = stub.technology) %>%
       select(region, supplysector, subsector, technology, year, minicam.energy.input, coefficient)
 
     # ===================================================

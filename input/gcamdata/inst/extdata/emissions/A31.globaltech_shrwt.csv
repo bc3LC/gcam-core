@@ -8,6 +8,8 @@ urban processes,waste_incineration,waste_incineration,1,1,1,1,1
 urban processes,landfills,landfills,1,1,1,1,1
 urban processes,wastewater,wastewater,1,1,1,1,1
 urban processes,aerosols,aerosols,1,1,1,1,1
+urban processes,mobile_air_conditioning,mobile_air_conditioning,1,1,1,1,1
+urban processes,refrigeration,refrigeration,1,1,1,1,1
 urban processes,fire_exting,fire_exting,1,1,1,1,1
 industrial processes,adipic acid,adipic acid,1,1,1,1,1
 industrial processes,nitric acid,nitric acid,1,1,1,1,1
