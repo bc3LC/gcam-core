@@ -3,13 +3,13 @@
       <region name="EU-15">
          <ghgpolicy name="CO2">
             <market>EU15</market>   
-            <constraint year="2020">382418</constraint>
-            <constraint year="2025">360770</constraint>
-            <constraint year="2030">339121</constraint>
-            <constraint year="2035">317473</constraint>
-            <constraint year="2040">295825</constraint>
-            <constraint year="2045">274177</constraint>
-            <constraint year="2050">252529</constraint>
+            <constraint year="2020">711.2225242007627</constraint>
+            <constraint year="2025">617.0293244248618</constraint>
+            <constraint year="2030">526.4203689172753</constraint>
+            <constraint year="2035">461.89902436097054</constraint>
+            <constraint year="2040">348.1032796239964</constraint>
+            <constraint year="2045">284.58710839180355</constraint>
+            <constraint year="2050">188.7710560135551</constraint>
 
                      </ghgpolicy>
       </region>
