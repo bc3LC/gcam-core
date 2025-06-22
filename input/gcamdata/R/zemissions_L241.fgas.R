@@ -126,6 +126,7 @@ module_emissions_L241.fgas <- function(command, ...) {
     # ===================================================
     # Scale EDGAR emission global totals to match Velders
     # Velders totals are more definitive since they are calibrated to observed concentrations
+    # This corrects signifiant biases in two gases in partciular
 
     # Add marker column to iso_Montreal_nonA5_reg
     iso_Montreal_nonA5_reg$marker <- 1
