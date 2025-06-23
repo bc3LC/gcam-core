@@ -21,7 +21,6 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
     return(c(FILE = "emissions/A_regions",
              FILE = "emissions/mappings/GCAM_sector_tech",
              FILE = "emissions/mappings/GCAM_sector_tech_Revised",
-             FILE = "emissions/mappings/gains_to_gcam_sector",
              FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-05-22",
              FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_middle_2025-05-22",
              FILE = "emissions/GAINS/GAINS_region_name_mapping",
@@ -59,8 +58,6 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       GCAM_sector_tech <- get_data(all_data, "emissions/mappings/GCAM_sector_tech_Revised")
     }
 
-    GAINS_sector <- get_data(all_data, "emissions/mappings/gains_to_gcam_sector")
-    # GAINS_activities <- get_data(all_data, "emissions/GAINS_activities")
     GAINS_region_name_mapping <- get_data(all_data,"emissions/GAINS/GAINS_region_name_mapping")
     GAINS_EFhist <- get_data(all_data,"emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-05-22")|>
       pivot_longer(cols=c(-scen,-Group_Region,-EMF30_AGG,-POLLUTANT_FRACTION),names_to = 'year') |>
@@ -150,7 +147,6 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       ungroup() %>%
       select(GAINS_region = TIMER_REGION, IIASA_sector = agg_sector, Non.CO2 = POLL, scenario, year = IDYEARS, scaler)
 
-   # Problem here in that GAINS region names don't match
    # # Determine region groupings
    pcgdp <- L102.pcgdp_thous90USD_Scen_R_Y %>%
      # We are trying to filter to 2010. This code (taking the last historical year) was necessary to
@@ -170,10 +166,6 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       # Remove non-IIASA sectors and technologies with 0 emissions factor in base year. No reason to read in future zeroes.
       filter(!is.na(IIASA_sector), value != 0) %>%
       rename(base_year = year, base_value = value) %>%
-      # Now translate previous GAINS region names into raw format in new GAINS input files
-      rename("A_GAINS_regions"="GAINS_region") %>%
-      left_join_error_no_match(GAINS_region_name_mapping, by = "A_GAINS_regions") %>%
-      select(-A_GAINS_regions) %>% rename("GAINS_region" = "RAW_GAINS_REGIONS") %>%
       # Add emission factor scalers for future years
       left_join(GAINS_emfact_scaler, by = c("GAINS_region", "IIASA_sector", "Non.CO2")) %>%
       # Scale L111/L114 emissions factors to GAINS scalers
@@ -243,7 +235,9 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       complete(year, nesting(GCAM_region_ID, Non.CO2, supplysector, subsector,
                              stub.technology, GAINS_region, IIASA_sector, scenario, region_grouping, policy)) %>%
       select(-GAINS_region, -region_grouping, -policy) %>%
-      rename(value=emfact)# %>%
+      rename(value=emfact)
+
+    # %>%
       # # Calculate minimum by technology/gas
       # group_by(Non.CO2, supplysector, subsector, stub.technology, IIASA_sector, scenario, year, policy, region_grouping) %>%
       # mutate(min_value = min(emfact, na.rm = TRUE)) %>%
@@ -314,7 +308,6 @@ SSP_EF <- SSP_EF |> mutate(SSP_group=case_when(
       add_precursors("emissions/A_regions",
                      "emissions/mappings/GCAM_sector_tech",
                      "emissions/mappings/GCAM_sector_tech_Revised",
-                     "emissions/mappings/gains_to_gcam_sector",
                      "emissions/GAINS_activities",
                      "emissions/GAINS_emissions",
                      "L102.pcgdp_thous90USD_Scen_R_Y",
@@ -334,7 +327,6 @@ SSP_EF <- SSP_EF |> mutate(SSP_group=case_when(
       add_precursors("emissions/A_regions",
                      "emissions/mappings/GCAM_sector_tech",
                      "emissions/mappings/GCAM_sector_tech_Revised",
-                     "emissions/mappings/gains_to_gcam_sector",
                      "emissions/GAINS_activities",
                      "emissions/GAINS_emissions",
                      "L102.pcgdp_thous90USD_Scen_R_Y",
@@ -354,7 +346,6 @@ SSP_EF <- SSP_EF |> mutate(SSP_group=case_when(
       add_precursors("emissions/A_regions",
                      "emissions/mappings/GCAM_sector_tech",
                      "emissions/mappings/GCAM_sector_tech_Revised",
-                     "emissions/mappings/gains_to_gcam_sector",
                      "L102.pcgdp_thous90USD_Scen_R_Y",
                      "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L114.bcoc_tgej_R_en_S_F_2000",
