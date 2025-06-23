@@ -22,8 +22,9 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
              FILE = "emissions/mappings/GCAM_sector_tech",
              FILE = "emissions/mappings/GCAM_sector_tech_Revised",
              FILE = "emissions/mappings/gains_to_gcam_sector",
-             FILE = "emissions/GAINS_activities",
-             FILE = "emissions/GAINS_emissions",
+             FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-05-22",
+             FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_middle_2025-05-22",
+             FILE = "emissions/GAINS/GAINS_region_name_mapping",
              "L102.pcgdp_thous90USD_Scen_R_Y",
              "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L114.bcoc_tgej_R_en_S_F_2000",
@@ -56,18 +57,29 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
 
     if (energy.TRAN_UCD_MODE == "rev.mode"){
       GCAM_sector_tech <- get_data(all_data, "emissions/mappings/GCAM_sector_tech_Revised")
-
     }
 
-
     GAINS_sector <- get_data(all_data, "emissions/mappings/gains_to_gcam_sector")
-    GAINS_activities <- get_data(all_data, "emissions/GAINS_activities")
-    GAINS_emissions <- get_data(all_data, "emissions/GAINS_emissions") %>%
-      # NOTE: these are three different scenarios
-      # CLE = current legislation, SLE = stringent legislation, MFR = maximum feasible reductions
-      tidyr::gather(scenario, value, CLE, MFR, SLE)
+    # GAINS_activities <- get_data(all_data, "emissions/GAINS_activities")
+    GAINS_region_name_mapping <- get_data(all_data,"emissions/GAINS/GAINS_region_name_mapping")
+    GAINS_EFhist <- get_data(all_data,"emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-05-22")|>
+      pivot_longer(cols=c(-scen,-Group_Region,-EMF30_AGG,-POLLUTANT_FRACTION),names_to = 'year') |>
+      mutate(year=as.numeric(year)) |> filter(!is.na(value))
+    GAINS_EF <- get_data(all_data,"emissions/GAINS/SSPs_IMAGE_emf_agg_middle_2025-05-22")|>
+      pivot_longer(cols=c(-scen,-Group_Region,-EMF30_AGG,-POLLUTANT_FRACTION),names_to = 'year') |>
+      mutate(year=as.numeric(year)) |> filter(!is.na(value))
+    #add historic data to each scenario's data
+    GAINS_EF <- rbind(GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP1"),
+                      GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP2"),
+                      GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP3"),
+                      GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP4"),
+                      GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP5"),
+                      GAINS_EFhist |> filter(scen %in% c("SSP1","SSP2","SSP3","SSP4","SSP5"),year==2025),
+                      GAINS_EF)
+
     L102.pcgdp_thous90USD_Scen_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_Scen_R_Y")
     L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP <- get_data(all_data, "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP")
+    # TODO - check if year 2000 is still the right thing to do here
     L114.bcoc_tgej_R_en_S_F_2000 <- get_data(all_data, "L114.bcoc_tgej_R_en_S_F_2000") %>%
       tidyr::gather(year, value, `2000`) %>%
       mutate(year = as.integer(year))
@@ -91,69 +103,66 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       bind_rows(GCAM_sector_tech_resid)
 
     # Aggregate GAINS emissions data by GCAM sector
-    GAINS_emissions_agg <- GAINS_emissions %>%
+    GAINS_EF_agg <- GAINS_EF %>%
+      #rename variables
+      rename(scenario=scen,TIMER_REGION=Group_Region,POLL=POLLUTANT_FRACTION, IDYEARS=year) |>
       # Change pollutant names
       mutate(POLL = replace(POLL, POLL == "NOX", "NOx"),
-             POLL = replace(POLL, POLL == "VOC", "NMVOC")) %>%
+             POLL = replace(POLL, POLL == "VOC", "NMVOC"),
+             POLL = replace(POLL, POLL == "PM_BC", "BC"),
+             POLL = replace(POLL, POLL == "PM_OC", "OC")) %>%
       # Use left_join because NAs in GAINS_sector
-      left_join(GAINS_sector, by = c("TIMER_SECTOR" = "IIASA_Sector")) %>%
+      left_join(GAINS_sector, by = c("EMF30_AGG" = "IIASA_Sector")) %>%
       group_by(TIMER_REGION, agg_sector = GCAM_tag, POLL, IDYEARS, scenario) %>%
-      summarise(value = sum(value)) %>%
+      summarise(value = mean(value)) %>%
       na.omit %>%
       ungroup
 
-    # Aggregate GAINS activity data by GCAM sector
-    GAINS_activities_agg <- GAINS_activities %>%
-      # Use left_join because NAs in GAINS_sector
-      left_join(GAINS_sector, by = c("TIMER_SECTOR" = "IIASA_Sector")) %>%
-      group_by(TIMER_REGION, agg_sector = GCAM_tag, IDYEARS) %>%
-      summarise(ACT = sum(ACT)) %>%
-      na.omit %>%
-      ungroup
+    # Add last model base-year to GAINS EF and interpolate
+    GAINS_EF_agg_newYear <- GAINS_EF_agg %>% filter(IDYEARS == 1990) %>%
+      mutate(value = NA) %>%
+      mutate(IDYEARS = MODEL_FINAL_BASE_YEAR)
 
-    # Compute emissions factors by dividing GAINS activity by GAINS emissions
-    GAINS_emfact <- GAINS_emissions_agg %>%
-      left_join_error_no_match(GAINS_activities_agg, by = c("TIMER_REGION", "agg_sector", "IDYEARS")) %>%
-      mutate(emfact = value / ACT) %>%
-      select(TIMER_REGION, agg_sector, POLL, IDYEARS, scenario, emfact) %>%
-      group_by(TIMER_REGION, agg_sector, POLL, IDYEARS) %>%
-      # Using CLE scenario for base value
-      mutate(CLE_base = emfact[scenario == "CLE"]) %>%
-      ungroup() %>%
-      # Replace SLE & MFR base year (2005) emissions factors with CLE emissions factors.
-      # They don't all start from the same value.
-      mutate(emfact = replace(emfact, IDYEARS == emissions.GAINS_BASE_YEAR, CLE_base[IDYEARS == emissions.GAINS_BASE_YEAR])) %>%
-      select(-CLE_base)
+    GAINS_EF_agg <- rbind(GAINS_EF_agg,GAINS_EF_agg_newYear) %>%
+      group_by(TIMER_REGION, agg_sector, POLL, scenario) %>%
+      mutate(value = approx_fun(IDYEARS, value, rule = 1))
+
+    # TODO - remove this from the constants.R file
+    emissions.GAINS_BASE_YEAR = MODEL_FINAL_BASE_YEAR
+
+    emissions.BASE_YEAR = MODEL_FINAL_BASE_YEAR
+    prev_GAINS_Year <- max(all_GAINS_Years[all_GAINS_Years < MODEL_FINAL_BASE_YEAR])
 
     # Compute emissions factor scaler.
     # These scalers are relative to the previous time period's numbers.
-    GAINS_emfact_scaler <- GAINS_emfact %>%
+    GAINS_emfact_scaler <- GAINS_EF_agg %>% rename(emfact=value) |> filter(agg_sector!="X")|>
       group_by(TIMER_REGION, agg_sector, POLL, scenario) %>%
       # Create column of previous time period value
       mutate(prev = lag(emfact, n = 1L, order_by = IDYEARS)) %>%
       ungroup() %>%
-      filter(IDYEARS > emissions.GAINS_BASE_YEAR) %>%
+      filter(IDYEARS >= emissions.BASE_YEAR) %>%
       # Divide current value by previous value, not allowing value greater than 1 (emissions factors cannot increase with time)
       mutate(scaler = emfact / prev,
              scaler = replace(scaler, scaler > 1, 1)) %>%
+      mutate(scaler = if_else( IDYEARS==emissions.BASE_YEAR,1,scaler)) %>%
       group_by(TIMER_REGION, agg_sector, POLL, scenario) %>%
       mutate(scaler = cumprod(scaler)) %>%
       ungroup() %>%
       select(GAINS_region = TIMER_REGION, IIASA_sector = agg_sector, Non.CO2 = POLL, scenario, year = IDYEARS, scaler)
 
-
-    # Determine region groupings
-    pcgdp <- L102.pcgdp_thous90USD_Scen_R_Y %>%
-      # We are trying to filter to 2010. This code (taking the last historical year) was necessary to
-      # pass the timeshift, but is really not what we want to be doing, since the years in this code
-      # are fairly set in stone right now
-      filter(scenario == "SSP4", year == HISTORICAL_YEARS[length(HISTORICAL_YEARS)]) %>%
-      mutate(value = value * gdp_deflator(HISTORICAL_YEARS[length(HISTORICAL_YEARS)], 1990),
-             region_grouping = if_else(value >= emissions.LOW_PCGDP, "highmed", "low"))
+   # Problem here in that GAINS region names don't match
+   # # Determine region groupings
+   pcgdp <- L102.pcgdp_thous90USD_Scen_R_Y %>%
+     # We are trying to filter to 2010. This code (taking the last historical year) was necessary to
+     # pass the timeshift, but is really not what we want to be doing, since the years in this code
+     # are fairly set in stone right now
+     filter(scenario == "SSP4", year == HISTORICAL_YEARS[length(HISTORICAL_YEARS)]) %>%
+     mutate(value = value * gdp_deflator(HISTORICAL_YEARS[length(HISTORICAL_YEARS)], 1990),
+            region_grouping = if_else(value >= emissions.LOW_PCGDP, "highmed", "low"))
 
     # Compute future emissions factors for GAINS scenarios
     emfact_scaled <- L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP %>%
-      filter(year == emissions.GAINS_BASE_YEAR) %>%
+      filter(year == emissions.BASE_YEAR) %>%
       # Add GAINS regions and sectors
       left_join_error_no_match(A_regions %>% select(GCAM_region_ID, GAINS_region), by = "GCAM_region_ID") %>%
       left_join(GCAM_sector_tech %>% select(supplysector, subsector, stub.technology, IIASA_sector) %>% distinct(),
@@ -161,6 +170,11 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       # Remove non-IIASA sectors and technologies with 0 emissions factor in base year. No reason to read in future zeroes.
       filter(!is.na(IIASA_sector), value != 0) %>%
       rename(base_year = year, base_value = value) %>%
+      # Now translate previous GAINS region names into raw format in new GAINS input files
+      rename("A_GAINS_regions"="GAINS_region") %>%
+      left_join_error_no_match(GAINS_region_name_mapping, by = "A_GAINS_regions") %>%
+      select(-A_GAINS_regions) %>% rename("GAINS_region" = "RAW_GAINS_REGIONS") %>%
+      # Add emission factor scalers for future years
       left_join(GAINS_emfact_scaler, by = c("GAINS_region", "IIASA_sector", "Non.CO2")) %>%
       # Scale L111/L114 emissions factors to GAINS scalers
       mutate(emfact = base_value * scaler) %>%
@@ -174,7 +188,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       left_join(
         emfact_scaled %>%
           filter(year == emissions.GAINS_YEARS[length(emissions.GAINS_YEARS)],
-                 IIASA_sector == "elec_coal", Non.CO2 == "SO2", scenario == "CLE"),
+                 IIASA_sector == "elec_coal", Non.CO2 == "SO2", scenario == "SSP2"),
         by = "GCAM_region_ID") %>%
       mutate(policy = if_else(emfact <= emissions.COAL_SO2_THRESHOLD, "strong_reg", "weak_reg"),
              policy = replace(policy, region_grouping == "low", "low")) %>%
@@ -185,21 +199,22 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
     # Group SSPs by whether we process them the same
     SSP_groups <- tibble(SSP_group = c("1&5", "2", "3&4"))
 
-    # Add the rules for each region, gas, technology
-    EF_rules <- emfact_scaled %>%
-      # This is to have same starting point as old code, which begins with NA omitted 2010 values
-      filter(year == emissions.GAINS_YEARS[1]) %>%
-      na.omit %>%
-      select(-year, -emfact, -scenario) %>%
-      distinct() %>%
-      # Repeat for future years and SSP groups
-      repeat_add_columns(tibble(year = c(2010, 2030, 2050, 2100))) %>%
-      repeat_add_columns(SSP_groups) %>%
-      # Join with policy type, but only for SSP group 2
-      left_join_error_no_match(coal_so2, by = "GCAM_region_ID") %>%
-      mutate(policy = replace(policy, SSP_group != "2", NA)) %>%
-      # Join with rules-use left_join b/c there are NA values in A61_emfact_rules
-      left_join(A61_emfact_rules, by = c("region_grouping", "year", "SSP_group", "policy"))
+    ## Add the rules for each region, gas, technology
+    #EF_rules <- emfact_scaled %>%
+    #  # This is to have same starting point as old code, which begins with NA omitted 2010 values
+    #  filter(year == emissions.GAINS_YEARS[1]) %>%
+    #  na.omit %>%
+    #  select(-year, -emfact, -scenario) %>%
+    #  distinct() %>%
+    #  # Repeat for future years and SSP groups
+    #  repeat_add_columns(tibble(year = c(2010, 2030, 2050, 2100))) %>%
+    #  repeat_add_columns(SSP_groups) %>%
+    #  # Join with policy type, but only for SSP group 2
+    #  left_join_error_no_match(coal_so2, by = "GCAM_region_ID") %>%
+    #  mutate(policy = replace(policy, SSP_group != "2", NA)) %>%
+    #  # Join with rules-use left_join b/c there are NA values in A61_emfact_rules
+    #  left_join(A61_emfact_rules, by = c("region_grouping", "year", "SSP_group", "policy"))
+
 
     # Create a tibble with just marker region values
     # Marker region is Western Europe (13) - some values will be set to its emissions factors in future
@@ -209,15 +224,15 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       stop("Region code for Western Europe (EU-15) has changed from 13 to something else. Please correct in module_emissions_L161.nonghg_en_ssp_R_S_T_Y.")
     }
 
-    marker_region_df <- emfact_scaled %>%
-      filter(GCAM_region_ID == 13) %>%
-      select(-GCAM_region_ID, -GAINS_region, -region_grouping) %>%
-      rename(marker_value = emfact)
+    #marker_region_df <- emfact_scaled %>%
+    #  filter(GCAM_region_ID == 13) %>%
+    #  select(-GCAM_region_ID, -GAINS_region, -region_grouping) %>%
+    #  rename(marker_value = emfact)
 
     # Combine all emissions factors
     EF_all <- emfact_scaled %>%
       # This is to have same starting point as old code, which begins with NA omitted 2010 values
-      filter(year == emissions.GAINS_YEARS[1]) %>%
+      filter(year == MODEL_FINAL_BASE_YEAR) %>%
       na.omit %>%
       select(-year, -emfact) %>%
       left_join(emfact_scaled, by = c("GCAM_region_ID", "Non.CO2", "supplysector", "subsector", "stub.technology",
@@ -227,54 +242,61 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       # Use complete to fill out any region/technology/gas combos that do not have emissions factors for all years
       complete(year, nesting(GCAM_region_ID, Non.CO2, supplysector, subsector,
                              stub.technology, GAINS_region, IIASA_sector, scenario, region_grouping, policy)) %>%
-      # Calculate minimum by technology/gas
-      group_by(Non.CO2, supplysector, subsector, stub.technology, IIASA_sector, scenario, year, policy, region_grouping) %>%
-      mutate(min_value = min(emfact, na.rm = TRUE)) %>%
-      ungroup %>%
-      # Add marker region values
-      left_join(marker_region_df, by = c("Non.CO2", "supplysector", "subsector", "stub.technology", "IIASA_sector", "scenario", "year")) %>%
-      gather(variable, value, emfact, marker_value, min_value) %>%
-      # Add binary columns indicating if value is marker value or minimum value
-      mutate(marker_region = if_else(variable == "marker_value", 1, 0),
-             min = if_else(variable == "min_value", 1, 0)) %>%
-      rename(multiplier_year = year, multiplier_scenario = scenario) %>%
-      select(-GAINS_region, -region_grouping, -variable, -policy)
+      select(-GAINS_region, -region_grouping, -policy) %>%
+      rename(value=emfact)# %>%
+      # # Calculate minimum by technology/gas
+      # group_by(Non.CO2, supplysector, subsector, stub.technology, IIASA_sector, scenario, year, policy, region_grouping) %>%
+      # mutate(min_value = min(emfact, na.rm = TRUE)) %>%
+      # ungroup %>%
+      # # Add marker region values
+      # left_join(marker_region_df, by = c("Non.CO2", "supplysector", "subsector", "stub.technology", "IIASA_sector", "scenario", "year")) %>%
+      # gather(variable, value, emfact, marker_value, min_value) %>%
+      # # Add binary columns indicating if value is marker value or minimum value
+      # mutate(marker_region = if_else(variable == "marker_value", 1, 0),
+      #        min = if_else(variable == "min_value", 1, 0)) %>%
+      # rename(multiplier_year = year, multiplier_scenario = scenario) %>%
+      # select(-GAINS_region, -region_grouping, -variable, -policy)
 
-    SSP_EF <- EF_rules %>%
-      # Join rules with values
-      left_join(EF_all, by = c("GCAM_region_ID", "Non.CO2", "supplysector", "subsector", "stub.technology", "IIASA_sector",
-                                    "multiplier_scenario", "multiplier_year", "marker_region", "min")) %>%
-      # Multiply non-NA values by multipliers
-      mutate(value = replace(value, !is.na(value), multiplier[!is.na(value)] * value[!is.na(value)])) %>%
-      select(GCAM_region_ID, Non.CO2, supplysector, subsector, stub.technology,
-             agg_sector = IIASA_sector, year, value, SSP_group) %>%
-      group_by(GCAM_region_ID, Non.CO2, supplysector, subsector, stub.technology,
-               agg_sector, SSP_group) %>%
-      # Set NA values to previous (non-NA) value
-      mutate(value = if_else(is.na(value), lag(value, n = 1L, order_by = year), value),
-             value = if_else(is.na(value), lag(value, n = 1L, order_by = year), value),
-             value = if_else(is.na(value), lag(value, n = 1L, order_by = year), value),
-             # Emission factors cannot increase-if any increases, change it to value from previous time step
-             prev = lag(value, n = 1L, order_by = year),
-             value = if_else(value > prev & !is.na(prev), prev, value),
-             prev = lag(value, n = 1L, order_by = year),
-             value = if_else(value > prev & !is.na(prev), prev, value),
-             prev = lag(value, n = 1L, order_by = year),
-             value = if_else(value > prev & !is.na(prev), prev, value)) %>%
-      select(-prev) %>%
-      ungroup
+    # SSP_EF <- EF_rules %>%
+    #   # Join rules with values
+    #   left_join(EF_all, by = c("GCAM_region_ID", "Non.CO2", "supplysector", "subsector", "stub.technology", "IIASA_sector",
+    #                                 "multiplier_scenario", "multiplier_year", "marker_region", "min")) %>%
+    #   # Multiply non-NA values by multipliers
+    #   mutate(value = replace(value, !is.na(value), multiplier[!is.na(value)] * value[!is.na(value)])) %>%
+    #   select(GCAM_region_ID, Non.CO2, supplysector, subsector, stub.technology,
+    #          agg_sector = IIASA_sector, year, value, SSP_group) %>%
+    #   group_by(GCAM_region_ID, Non.CO2, supplysector, subsector, stub.technology,
+    #            agg_sector, SSP_group) %>%
+    #   # Set NA values to previous (non-NA) value
+    #   mutate(value = if_else(is.na(value), lag(value, n = 1L, order_by = year), value),
+    #          value = if_else(is.na(value), lag(value, n = 1L, order_by = year), value),
+    #          value = if_else(is.na(value), lag(value, n = 1L, order_by = year), value),
+    #          # Emission factors cannot increase-if any increases, change it to value from previous time step
+    #          prev = lag(value, n = 1L, order_by = year),
+    #          value = if_else(value > prev & !is.na(prev), prev, value),
+    #          prev = lag(value, n = 1L, order_by = year),
+    #          value = if_else(value > prev & !is.na(prev), prev, value),
+    #          prev = lag(value, n = 1L, order_by = year),
+    #          value = if_else(value > prev & !is.na(prev), prev, value)) %>%
+    #   select(-prev) %>%
+    #   ungroup
 
     # Adjustment: Do not write emission factors for the residential sector technologies that do not exist (e.g., heating in Indonesia)
     L244.DeleteService<-bind_rows(L244.DeleteGenericService %>% select(-building.service.input),
                                   L244.DeleteThermalService %>% select(-thermal.building.service.input)) %>%
       select(region,supplysector)
 
-    SSP_EF<-SSP_EF %>%
+    SSP_EF<-EF_all %>%
       left_join_error_no_match(A_regions %>% select(region,GCAM_region_ID), by = "GCAM_region_ID") %>%
       anti_join(L244.DeleteService, by=c("region","supplysector")) %>%
-      select(-region)
+      select(-region)|>rename(agg_sector=IIASA_sector)
 
-
+SSP_EF <- SSP_EF |> mutate(SSP_group=case_when(
+  scenario=="SSP1" ~ "1&5",
+  scenario=="SSP2" ~ "2",
+  scenario=="SSP3" ~ "3&4",
+  .default="NA"
+)) |> filter(SSP_group!="NA")|>select(-scenario)
 
     # Split data by SSP grouping
     out_df <- SSP_EF %>%
@@ -333,8 +355,6 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
                      "emissions/mappings/GCAM_sector_tech",
                      "emissions/mappings/GCAM_sector_tech_Revised",
                      "emissions/mappings/gains_to_gcam_sector",
-                     "emissions/GAINS_activities",
-                     "emissions/GAINS_emissions",
                      "L102.pcgdp_thous90USD_Scen_R_Y",
                      "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L114.bcoc_tgej_R_en_S_F_2000",

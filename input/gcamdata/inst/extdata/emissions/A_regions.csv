@@ -7,7 +7,7 @@
 # ----------
 GCAM_region_ID,region,MAC_region,bio_N2O_coef,SO2_name,GAINS_region
 1,USA,United States,0.011314286,SO2_1,USA
-2,Africa_Eastern,Africa,0.009445905,SO2_3,Western Africa
+2,Africa_Eastern,Africa,0.009445905,SO2_3,Eastern Africa
 3,Africa_Northern,Africa,0.009445905,SO2_3,Northern Africa
 4,Africa_Southern,Africa,0.009445905,SO2_3,Western Africa
 5,Africa_Western,Africa,0.009445905,SO2_3,Western Africa
