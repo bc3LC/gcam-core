@@ -21,6 +21,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
     return(c(FILE = "emissions/A_regions",
              FILE = "emissions/mappings/GCAM_sector_tech",
              FILE = "emissions/mappings/GCAM_sector_tech_Revised",
+             FILE = "emissions/mappings/gains_to_gcam_sector",
              FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-05-22",
              FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_middle_2025-05-22",
              "L102.pcgdp_thous90USD_Scen_R_Y",
@@ -57,6 +58,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       GCAM_sector_tech <- get_data(all_data, "emissions/mappings/GCAM_sector_tech_Revised")
     }
 
+    GAINS_sector <- get_data(all_data, "emissions/mappings/gains_to_gcam_sector")
     GAINS_EFhist <- get_data(all_data,"emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-05-22")|>
       pivot_longer(cols=c(-scen,-Group_Region,-EMF30_AGG,-POLLUTANT_FRACTION),names_to = 'year') |>
       mutate(year=as.numeric(year)) |> filter(!is.na(value))
@@ -126,7 +128,6 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
     emissions.GAINS_BASE_YEAR = MODEL_FINAL_BASE_YEAR
 
     emissions.BASE_YEAR = MODEL_FINAL_BASE_YEAR
-    prev_GAINS_Year <- max(all_GAINS_Years[all_GAINS_Years < MODEL_FINAL_BASE_YEAR])
 
     # Compute emissions factor scaler.
     # These scalers are relative to the previous time period's numbers.
