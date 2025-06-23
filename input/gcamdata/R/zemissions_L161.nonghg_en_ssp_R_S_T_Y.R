@@ -23,7 +23,6 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
              FILE = "emissions/mappings/GCAM_sector_tech_Revised",
              FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-05-22",
              FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_middle_2025-05-22",
-             FILE = "emissions/GAINS/GAINS_region_name_mapping",
              "L102.pcgdp_thous90USD_Scen_R_Y",
              "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L114.bcoc_tgej_R_en_S_F_2000",
@@ -58,7 +57,6 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       GCAM_sector_tech <- get_data(all_data, "emissions/mappings/GCAM_sector_tech_Revised")
     }
 
-    GAINS_region_name_mapping <- get_data(all_data,"emissions/GAINS/GAINS_region_name_mapping")
     GAINS_EFhist <- get_data(all_data,"emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-05-22")|>
       pivot_longer(cols=c(-scen,-Group_Region,-EMF30_AGG,-POLLUTANT_FRACTION),names_to = 'year') |>
       mutate(year=as.numeric(year)) |> filter(!is.na(value))
