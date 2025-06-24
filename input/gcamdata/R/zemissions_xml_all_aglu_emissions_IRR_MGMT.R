@@ -30,6 +30,7 @@ module_emissions_all_aglu_emissions_IRR_MGMT_xml <- function(command, ...) {
   MODULE_OUTPUTS <-
     c(XML = "all_aglu_emissions_IRR_MGMT1.xml",
       XML = "all_aglu_emissions_IRR_MGMT2.xml",
+      XML = "all_aglu_emissions_IRR_MGMT3.xml",
       XML = "all_aglu_emissions_IRR_MGMT_MAC.xml")
 
   if(command == driver.DECLARE_INPUTS) {
@@ -67,10 +68,14 @@ module_emissions_all_aglu_emissions_IRR_MGMT_xml <- function(command, ...) {
 
     create_xml("all_aglu_emissions_IRR_MGMT2.xml") %>%
       add_xml_data(L2112.AWBEmissions, "OutputEmissionsAg") %>%
-      add_xml_data(L2112.AGREmissions, "OutputEmissionsAg") %>%
-      add_precursors("L2112.AWBEmissions",
-                     "L2112.AGREmissions") ->
+      add_precursors("L2112.AWBEmissions") ->
       all_aglu_emissions_IRR_MGMT2.xml
+
+    create_xml("all_aglu_emissions_IRR_MGMT3.xml") %>%
+      add_xml_data(L2112.AGREmissions, "OutputEmissionsAg") %>%
+      add_precursors("L2112.AGREmissions") ->
+      all_aglu_emissions_IRR_MGMT3.xml
+
 
     create_xml("all_aglu_emissions_IRR_MGMT_MAC.xml") %>%
       add_xml_data(L252.AgMAC, "AgMAC") %>%
