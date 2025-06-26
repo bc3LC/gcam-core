@@ -94,13 +94,45 @@ module_emissions_L241.fgas <- function(command, ...) {
     } else {
       ratio_years <-  c(min(FUT_EMISS_GV$Year), emissions.GV_FUTURE_YEARS)}
 
-    FUT_EMISS_GV_NEW %>%
+    # When production declines in the future, we don't want the EF to increase,
+    # (which it will tend to do if we use Em/Prod, due to banks - emissions
+    # continue while production declines), so instead keep production flat if
+    # production starts to decline. This change avoids an unrealistic steep
+    # increase in emissions in nonA5 regions in the immediate future.
+    FirstYr <- MODEL_FINAL_BASE_YEAR
+
+    FUT_EMISS_GV_FUT <- FUT_EMISS_GV_NEW %>%
+      filter(Year >=MODEL_FINAL_BASE_YEAR)
+
+    # First extract maximum production in last historical year or future year
+    FUT_EMISS_GV_FUT %>%
+      group_by(Species, scenario) %>%
+      dplyr::slice_max(Prod_A5) %>% select(Species, scenario,Year) %>%
+      rename(MaxA5Year = Year ) %>%  ungroup() -> MaxProdA5Year
+
+    FUT_EMISS_GV_FUT %>%
+      group_by(Species, scenario) %>%
+      dplyr::slice_max(Prod_nonA5) %>% select(Species, scenario,Year) %>%
+      rename(MaxNonA5Year = Year ) %>%  ungroup() -> MaxProdNonA5Year
+
+    FUT_EMISS_GV_FUT %>%
+      group_by(Species, scenario) %>%
+      # Use left_join's because number of rows differ
+      left_join(MaxProdA5Year, by = c("Species", "scenario"), relationship = "many-to-many") %>%
+      left_join(MaxProdNonA5Year, by = c("Species", "scenario"), relationship = "many-to-many") %>%
+      mutate(Prod_A5max = max(Prod_A5), Prod_nonA5max = max(Prod_nonA5)) %>%
+      ungroup() %>%
+      mutate(Prod_A5 = if_else( Year > MaxA5Year, Prod_A5max, Prod_A5)) %>%
+      mutate(Prod_nonA5 = if_else( Year > MaxNonA5Year, Prod_nonA5max, Prod_A5)) ->
+      FUT_EMISS_GV_FUT
+
+
+    FUT_EMISS_GV_FUT %>%
       # Define emissions factor as emissions over production
       # This is not exactly correct, since emission banks play a big role, but is the closest we can get to GCAM's activity driven formulation
       mutate( EF = Emis_tot / Prod_tot) %>%
       mutate( EF_nonA5 = Emis_nonA5 / Prod_nonA5) %>%
       mutate( EF_A5 = Emis_A5 / Prod_A5) %>%
-      select(-Bank_tot, -Mix_tot,  -Bank_nonA5, -Bank_A5, -Emis_nonA5, -Emis_A5, -Emis_tot, -Prod_tot) %>%
       rename(year = Year) %>%
       filter(year %in% ratio_years) %>%
       group_by(Species) %>%
@@ -114,6 +146,7 @@ module_emissions_L241.fgas <- function(command, ...) {
       # Format the FUT_EMISS_GV species to be consistent with GCAM names by removing the "-"
       mutate(Species=gsub('HFC-43-10mee', 'HFC43', Species)) %>% # special case with different pattern
       mutate(Species = gsub("-", "", Species)) %>%
+      select(-Bank_tot, -Mix_tot,  -Bank_nonA5, -Bank_A5, -Emis_nonA5, -Emis_A5, -Emis_tot, -Prod_tot) %>%
       select(-Prod_nonA5, -Prod_A5, -EF, -EF_nonA5, -EF_A5  ) %>%
       filter(year %in% emissions.GV_FUTURE_YEARS) ->
       L241.FUT_EF_Ratio_All
