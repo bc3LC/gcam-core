@@ -1202,6 +1202,15 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
       mutate(Non.CO2 = paste(Non.CO2,"_AWB",sep="")) ->
       L112.CEDS_GCAM_awb
 
+    # Temporarily add 2016 - 2021 data to the AWB emissions to prepare for matching with AWB production shares below, using
+    # rule = 2 for making 2015 AWB emission values constant through 2021
+    L112.CEDS_GCAM_awb %>%
+      complete(nesting(GCAM_region_ID, Non.CO2, CEDS_agg_sector, CEDS_agg_fuel), year = HISTORICAL_YEARS) %>%
+      group_by(GCAM_region_ID, Non.CO2, CEDS_agg_sector, CEDS_agg_fuel) %>%
+      mutate(emissions = approx_fun(year, emissions, rule = 2)) %>%
+      ungroup() ->
+      L112.CEDS_GCAM_awb
+
     # Calculate AWB Drivers
     # ---------------------
 
