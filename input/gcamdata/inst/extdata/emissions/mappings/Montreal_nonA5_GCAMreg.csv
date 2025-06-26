@@ -1,0 +1,18 @@
+# File: Montreal_nonA5_GCAMreg.csv
+# Title: Montreal protocol nonA5 regions
+# Units: NA
+# Description: Lists GCAM region IDs that are non A5 Montreal protocol regions 
+# Column types: ic 
+# ----------
+GCAM_region_ID,region
+1,USA
+6,Australia_NZ
+8,Canada
+10,Central Asia
+12,EU-12
+13,EU-15
+14,Ukraine
+15,Europe_Non_EU
+16,European Free Trade Association
+19,Japan
+23,Russia

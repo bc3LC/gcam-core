@@ -29,7 +29,7 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
              FILE = "energy/A23.globaltech_input_driver",
              FILE = "energy/A25.globaltech_input_driver",
              FILE = "energy/A26.globaltech_input_driver",
-             "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+             "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L223.GlobalTechEff_elec"))
   } else if(command == driver.DECLARE_OUTPUTS) {
@@ -49,7 +49,7 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
     A51.max_reduction <- get_data(all_data, "emissions/A51.max_reduction")
     A51.steepness <- get_data(all_data, "emissions/A51.steepness")
 
-    L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP <- get_data(all_data, "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP")
+    L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP <- get_data(all_data, "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP")
     L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP <- get_data(all_data, "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP")
     L223.GlobalTechEff_elec <- get_data(all_data, "L223.GlobalTechEff_elec")
 
@@ -77,7 +77,7 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
       L241.nonco2_tech_coeff
 
     # Select the most recent CO emission coefficients for the technologies with exceptions.
-    L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP %>%
+    L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       filter(year == max(year), Non.CO2 == "CO") ->
       L241.co_tgej_R_en_S_F_fy
@@ -308,7 +308,7 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
                      "energy/A23.globaltech_input_driver",
                      "energy/A25.globaltech_input_driver",
                      "energy/A26.globaltech_input_driver",
-                     "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+                     "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP")  ->
       L241.nonco2_tech_coeff
 
@@ -321,7 +321,7 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
       add_comments("technology choice which is implemented with pass-through sector/tech") %>%
       add_precursors("common/GCAM_region_names", "emissions/A_regions",
                      "energy/A_regions",
-                     "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+                     "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L223.GlobalTechEff_elec") ->
       L241.OutputEmissCoeff_elec
@@ -336,7 +336,7 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
                      "emissions/A41.tech_coeff",
                      "emissions/A51.max_reduction",
                      "emissions/A51.steepness",
-                     "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+                     "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP")  ->
       L241.nonco2_max_reduction
 
@@ -350,7 +350,7 @@ module_emissions_L241.en_newtech_nonco2 <- function(command, ...) {
                      "emissions/A41.tech_coeff",
                      "emissions/A51.max_reduction",
                      "emissions/A51.steepness",
-                     "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+                     "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
                      "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP")  ->
       L241.nonco2_steepness
 

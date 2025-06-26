@@ -75,12 +75,14 @@ module_emissions_L1211.nonco2_awb_R_S_T_Y_IRR <- function(command, ...) {
 
     # This section creates L1211.nonco2_tg_R_awb_C_Y_GLU_IRR
 
+    emission.data.years <- 1971:max(L121.nonco2_tg_R_awb_C_Y_GLU$year)
+
     # Multiply emissions by region/GLU/crop/nonCO2 by irr/rfd production shares
     # Non-CO2 emissions by R_C_GLU_irr = non-CO2 emissions by R_C_GLU * irrShare
     L121.nonco2_tg_R_awb_C_Y_GLU %>%
       ## Need to filter for historical years to ensure the join will work, ie. there will be a 1 to 1 match
       ## Note this step was NOT in the original data system
-      filter(year %in% intersect(HISTORICAL_YEARS, emissions.EDGAR_YEARS)) %>%
+      filter(year %in% intersect(HISTORICAL_YEARS, emission.data.years)) %>%
       repeat_add_columns(tibble::tibble(Irr_Rfd = c("IRR", "RFD"))) %>%
       fast_left_join(L1211.ag_irrShare_R_C_Y_GLU_irr,
                      by = c("GCAM_region_ID", "GCAM_commodity", "GCAM_subsector", "GLU", "year", "Irr_Rfd")) %>%

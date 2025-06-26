@@ -8,6 +8,8 @@ urban processes,waste_incineration,waste_incineration,misc emissions sources,1,1
 urban processes,landfills,landfills,misc emissions sources,1,1,1,1,1,1,1,1,1
 urban processes,wastewater,wastewater,misc emissions sources,1,1,1,1,1,1,1,1,1
 urban processes,aerosols,aerosols,misc emissions sources,1,1,1,1,1,1,1,1,1
+urban processes,refrigeration,refrigeration,misc emissions sources,1,1,1,1,1,1,1,1,1
+urban processes,mobile_air_conditioning,mobile_air_conditioning,misc emissions sources,1,1,1,1,1,1,1,1,1
 urban processes,fire_exting,fire_exting,misc emissions sources,1,1,1,1,1,1,1,1,1
 industrial processes,adipic acid,adipic acid,misc emissions sources,1,1,1,1,1,1,1,1,1
 industrial processes,nitric acid,nitric acid,misc emissions sources,1,1,1,1,1,1,1,1,1

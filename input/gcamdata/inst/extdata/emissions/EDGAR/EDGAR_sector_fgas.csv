@@ -1,9 +1,9 @@
 # File: EDGAR_sector_fgas.csv
 # Title: EDGAR sector Fgases 
 # Units: NA
-# Source:  Emissions Database for Global Atmospheric Research, AR4
+# Source:  Emissions Database for Global Atmospheric Research, AR4,
 # Description: EDGAR sector Fgases description from AR4
-# Column types: ccc 
+# Column types: ccc
 # ----------
 IPCC,IPCC_description,agg_sector
 1A1a,Public electricity and heat production,elec_heat
@@ -43,13 +43,20 @@ IPCC,IPCC_description,agg_sector
 7B,Indirect N2O from non-agricultural NOx,soil
 7C,Indirect N2O from non-agricultural NH3,soil
 2E,Production of halocarbons and SF6,halo_prod
-2F1,Refrigeration and Air Conditioning,refrigeration
-2F2,Foam Blowing,foams
-2F4,Aerosols,aerosols
-2F7,Semiconductor/Electronics Manufacture,semiconductors
-2F9,Other F-gas use,other_f_gases
+2F1a,Commerical refrigeration,refrigeration
+2F1b,Domestic refrigeration,refrigeration
+2F1c,Industrial refrigeration,refrigeration
+2F1d,Transport refrigeration,refrigeration
+2F1e,Mobile Air Conditioning,mobile_air_conditioning
+2F1f,Stationary Air Conditioning,stationary_air_conditioning
+2F2a,Closed cell foam,foams
+2F2b,Open cell foam,foams
 2F3,Fire Extinguishers,fire exting
+2F4,Aerosols,aerosols
 2F5,F-gas as Solvent,solvents
-1C2,Memo: International navigation,trn_intl_ship
-1C1,Memo: International aviation,trn_intl_air
+2F7,Semiconductor/Electronics Manufacture,semiconductors
 2F8,Electrical Equipment,elect_equip
+2F9,Other F-gas use,other_f_gases
+2F6,Other ODS,other_f_gases
+1C1,Memo: International aviation,trn_intl_air
+1C2,Memo: International navigation,trn_intl_ship

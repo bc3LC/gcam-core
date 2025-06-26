@@ -642,7 +642,7 @@ module_energy_L232.other_industry <- function(command, ...) {
     }
 
     L232.Supplysector_ind %>%
-      add_title("Supply sector information for industry sector") %>%
+      add_title("Supply sector information for other industrial sector") %>%
       add_units("NA") %>%
       add_comments("For industry sector, the supply sector information (output.unit, input.unit, price.unit, logit.year.fillout, logit.exponent) from A32.sector is expended into all GCAM regions") %>%
       add_legacy_name("L232.Supplysector_ind") %>%
@@ -650,7 +650,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.Supplysector_ind
 
     L232.SubsectorLogit_ind %>%
-      add_title("Subsector logit exponents of industry sector") %>%
+      add_title("Subsector logit exponents of other industrial sector") %>%
       add_units("Unitless") %>%
       add_comments("For industry sector, the subsector logit exponents from A32.subsector_logit are expanded into all GCAM regions with non-existent heat subsectors removed") %>%
       add_legacy_name("L232.SubsectorLogit_ind") %>%
@@ -658,7 +658,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.SubsectorLogit_ind
 
     L232.FinalEnergyKeyword_ind %>%
-      add_title("Supply sector keywords for industry sector") %>%
+      add_title("Supply sector keywords for other industrial sector") %>%
       add_units("NA") %>%
       add_comments("Set supply sector keywords for industry sector for all GCAM regions") %>%
       add_legacy_name("L232.FinalEnergyKeyword_ind") %>%
@@ -666,7 +666,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.FinalEnergyKeyword_ind
 
     L232.SubsectorShrwtFllt_ind %>%
-      add_title("Subsector shareweights of industry sector") %>%
+      add_title("Subsector shareweights of other industrial sector") %>%
       add_units("Unitless") %>%
       add_comments("For industry sector, the subsector shareweights from A32.subsector_shrwt are expanded into all GCAM regions with non-existent heat technologies") %>%
       add_legacy_name("L232.SubsectorShrwtFllt_ind") %>%
@@ -674,7 +674,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.SubsectorShrwtFllt_ind
 
     L232.SubsectorInterp_ind %>%
-      add_title("Subsector shareweight interpolation of industry sector") %>%
+      add_title("Subsector shareweight interpolation of other industrial sector") %>%
       add_units("NA") %>%
       add_comments("For industry sector, the subsector shareweight interpolation function infromation from A32.subsector_interp is expanded into all GCAM regions with non-existent heat technologies removed") %>%
       add_legacy_name("L232.SubsectorInterp_ind") %>%
@@ -682,7 +682,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.SubsectorInterp_ind
 
     L232.StubTech_ind %>%
-      add_title("Identification of stub technologies of industrial sector") %>%
+      add_title("Identification of stub technologies of other industrial sector") %>%
       add_units("NA") %>%
       add_comments("For industry sector, the stub technologies from A32.globaltech_shrwt are expanded into all GCAM regions with non-existent heat technologies removed") %>%
       add_legacy_name("L232.StubTech_ind") %>%
@@ -690,7 +690,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.StubTech_ind
 
     L232.GlobalTechShrwt_ind %>%
-      add_title("Shareweights of global industrial sector technologies") %>%
+      add_title("Shareweights of global other industrial sector technologies") %>%
       add_units("Unitless") %>%
       add_comments("For industry sector, the share weights from A32.globaltech_shrwt are interpolated into all base years and future years") %>%
       add_legacy_name("L232.GlobalTechShrwt_ind") %>%
@@ -698,7 +698,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.GlobalTechShrwt_ind
 
     L232.StubTechInterp_ind %>%
-      add_title("Shareweight interpolation of global industrial sector technologies") %>%
+      add_title("Shareweight interpolation of global other industrial sector technologies") %>%
       add_units("NA") %>%
       add_comments("For industry sector, the interpolation function from A32.globaltech_interp are expanded into all GCAM regions") %>%
       add_legacy_name("L232.StubTechInterp_ind") %>%
@@ -706,7 +706,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.StubTechInterp_ind
 
     L232.GlobalTechEff_ind %>%
-      add_title("Energy inputs and efficiency of global industrial energy use and feedstocks technologies") %>%
+      add_title("Energy inputs and efficiency of global other industrial energy use and feedstocks technologies") %>%
       add_units("Unitless") %>%
       add_comments("For industry sector, the efficiency values from A32.globaltech_eff are interpolated into all base years and future years") %>%
       add_legacy_name("L232.GlobalTechEff_ind") %>%
@@ -714,7 +714,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.GlobalTechEff_ind
 
     L232.GlobalTechCoef_ind %>%
-      add_title("Energy inputs and coefficients of global industry technologies") %>%
+      add_title("Energy inputs and coefficients of global other industrial technologies") %>%
       add_units("Unitless") %>%
       add_comments("For industry sector, the coefficients from A32.globaltech_coef are interpolated into all base years and future years") %>%
       add_legacy_name("L232.GlobalTechCoef_ind") %>%
@@ -722,14 +722,13 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.GlobalTechCoef_ind
 
     L232.GlobalTechCost_ind %>%
-      add_title("Capital costs of global industrial technologies") %>%
+      add_title("Capital costs of global other industrial technologies") %>%
       add_units("1975$/GJ") %>%
       add_comments("For industry sector, the capital costs from A32.globaltech_cost are interpolated into all base years and future years") %>%
       add_legacy_name("L232.GlobalTechCost_ind") %>%
       add_precursors("energy/A32.globaltech_cost") ->
       L232.GlobalTechCost_ind
 
-    L232.GlobalTechTrackCapital_ind
     L232.GlobalTechTrackCapital_ind %>%
       add_title("Convert non-energy inputs to track the annual capital investments.") %>%
       add_units(("Coefficients")) %>%
@@ -754,7 +753,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.GlobalTechCSeq_ind
 
     L232.StubTechCalInput_indenergy %>%
-      add_title("Calibrated input of industrial energy use technologies (including cogen)") %>%
+      add_title("Calibrated input of other industrial energy use technologies (including cogen)") %>%
       add_units("EJ") %>%
       add_comments("Calibrated input of industrial energy use values are calculated using L1328.in_EJ_R_indenergy_F_Yh then added information such as subsector, technology, minicam.energy.input, calibration, tech.share.weight, and etc.") %>%
       add_legacy_name("L232.StubTechCalInput_indenergy") %>%
@@ -762,7 +761,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.StubTechCalInput_indenergy
 
     L232.StubTechCalInput_indfeed %>%
-      add_title("Calibrated input of industrial feedstock technologies") %>%
+      add_title("Calibrated input of other industrial feedstock technologies") %>%
       add_units("EJ") %>%
       add_comments("calibrated input of industrial feedstock technologies values are calculated using L1324.in_EJ_R_indfeed_F_Yh then added information such as subsector, technology, minicam.energy.input, calibration, tech.share.weight, and etc.") %>%
       add_legacy_name("L232.StubTechCalInput_indfeed") %>%
@@ -770,7 +769,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.StubTechCalInput_indfeed
 
     L232.StubTechProd_industry %>%
-      add_title("Calibrated output of industrial sector") %>%
+      add_title("Calibrated output of other industrial sector") %>%
       add_units("EJ") %>%
       add_comments("Service output values are calculated by technology, for energy-use and feedstocks then aggregated by region") %>%
       add_legacy_name("L232.StubTechProd_industry") %>%
@@ -778,15 +777,15 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.StubTechProd_industry
 
     L232.StubTechCoef_industry %>%
-      add_title("Calibrated output of industrial sector") %>%
+      add_title("Calibrated output of otherindustrial sector") %>%
       add_units("Unitless") %>%
       add_comments("Service output values were first aggregated by sector to calculate the portion of each input as coefficients, then the coefficients were interpolated to cover last base year, future years and industry coefficient convergence year") %>%
       add_legacy_name("L232.StubTechCoef_industry") %>%
       add_precursors("L1328.in_EJ_R_indenergy_F_Yh", "L127.in_EJ_R_indchp_F_Yh", "common/GCAM_region_names", "energy/calibrated_techs", "L1324.in_EJ_R_indfeed_F_Yh", "energy/A32.globaltech_eff", "energy/A32.globaltech_shrwt") ->
       L232.StubTechCoef_industry
 
-    L232.FuelPrefElast_indenergy %>%
-      add_title("Fuel preference elasticities of industrial energy use") %>%
+     L232.FuelPrefElast_indenergy %>%
+      add_title("Fuel preference elasticities of other industrial energy use") %>%
       add_units("Unitless") %>%
       add_comments("First, calculate the fuel shares allocated to each fuel, then set fuel preference elasticities as indicated by exogenous rules(A32.fuelprefElasticity), lastly  fill out elasticities from the first future model time period") %>%
       add_legacy_name("L232.FuelPrefElast_indenergy") %>%
@@ -794,7 +793,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.FuelPrefElast_indenergy
 
     L232.PerCapitaBased_ind %>%
-      add_title("Per-capita based flag for industry final demand") %>%
+      add_title("Per-capita based flag for other industrial final demand") %>%
       add_units("NA") %>%
       add_comments("Extracted per-capita based flag for industry final demand from A32.demand") %>%
       add_legacy_name("L232.PerCapitaBased_ind") %>%
@@ -802,7 +801,7 @@ module_energy_L232.other_industry <- function(command, ...) {
       L232.PerCapitaBased_ind
 
     L232.PriceElasticity_ind %>%
-      add_title("Price elasticity of industry final demand") %>%
+      add_title("Price elasticity of other industrial final demand") %>%
       add_units("Unitless") %>%
       add_comments("Extracted price elasticity of industry final demand from A32.demand") %>%
       add_comments("Price elasticities are only applied to future periods. Application in base years will cause solution failure") %>%

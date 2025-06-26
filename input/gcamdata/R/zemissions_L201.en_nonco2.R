@@ -24,7 +24,7 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
              FILE = "emissions/mappings/ind_subsector_revised",
              FILE = "energy/A_regions",
              "L111.nonghg_tg_R_en_S_F_Yh",
-             "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+             "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L112.ghg_tg_R_en_S_F_Yh",
              "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L114.bcoc_tgej_R_en_S_F_2000",
@@ -70,7 +70,7 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
     ind_subsector_revised <- get_data(all_data,"emissions/mappings/ind_subsector_revised")
 
     L111.nonghg_tg_R_en_S_F_Yh <- get_data(all_data, "L111.nonghg_tg_R_en_S_F_Yh", strip_attributes = TRUE)
-    L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP <- get_data(all_data, "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP", strip_attributes = TRUE)
+    L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP <- get_data(all_data, "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP", strip_attributes = TRUE)
     L112.ghg_tg_R_en_S_F_Yh <- get_data(all_data, "L112.ghg_tg_R_en_S_F_Yh", strip_attributes = TRUE)
     L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP <- get_data(all_data, "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP", strip_attributes = TRUE)
     L114.bcoc_tgej_R_en_S_F_2000 <- get_data(all_data, "L114.bcoc_tgej_R_en_S_F_2000", strip_attributes = TRUE)
@@ -281,7 +281,7 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
     L201.nonghg_steepness <- select(L201.nonghg_gdp_control, -max_reduction)
 
     # L201.nonghg_res: Pollutant emissions for energy resources in all regions
-    L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP %>%
+    L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP %>%
       filter(supplysector == "out_resources",
              year %in% MODEL_BASE_YEARS) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
@@ -563,7 +563,7 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
       add_legacy_name("L201.nonghg_res") %>%
       add_precursors("common/GCAM_region_names",
                      "emissions/A_regions",
-                     "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP") ->
+                     "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP") ->
       L201.nonghg_res
 
     # update into using input emissions + output driver

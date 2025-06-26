@@ -77,7 +77,7 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
              FILE = "gcam-usa/emissions/BCOC_PM25_ratios"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L111.nonghg_tg_R_en_S_F_Yh",
-             "L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
+             "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L112.ghg_tg_R_en_S_F_Yh",
              "L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L112.in_EJ_R_en_S_F_Yh_calib_all_baseenergy",
@@ -1202,6 +1202,15 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
       mutate(Non.CO2 = paste(Non.CO2,"_AWB",sep="")) ->
       L112.CEDS_GCAM_awb
 
+    # Temporarily add 2016 - 2021 data to the AWB emissions to prepare for matching with AWB production shares below, using
+    # rule = 2 for making 2015 AWB emission values constant through 2021
+    L112.CEDS_GCAM_awb %>%
+      complete(nesting(GCAM_region_ID, Non.CO2, CEDS_agg_sector, CEDS_agg_fuel), year = HISTORICAL_YEARS) %>%
+      group_by(GCAM_region_ID, Non.CO2, CEDS_agg_sector, CEDS_agg_fuel) %>%
+      mutate(emissions = approx_fun(year, emissions, rule = 2)) %>%
+      ungroup() ->
+      L112.CEDS_GCAM_awb
+
     # Calculate AWB Drivers
     # ---------------------
 
@@ -1417,7 +1426,7 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
       filter(!(Non.CO2 %in% c("CH4", "N2O", "CO2_FUG"))) %>%
       select(GCAM_region_ID, Non.CO2, supplysector, subsector, stub.technology, year, value = emfact) %>%
       bind_rows(GAINS_NG_em_factors %>% filter(!(Non.CO2 %in% c("CH4", "N2O"))) %>% select(-energy))->
-      L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP
+      L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP
 
 
     # Animal NH3 emissions
@@ -1912,14 +1921,14 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
                      "L270.nonghg_tg_state_refinery_F_Yb", "gcam-usa/emissions/BC_OC_assumptions", "gcam-usa/emissions/BCOC_PM25_ratios") ->
       L111.nonghg_tg_R_en_S_F_Yh
 
-    L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP %>%
+    L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP %>%
       na.omit() %>%
-      add_title("Non-ghg emission total shares by GCAM sector, fuel, technology, and driver type for CEDS historical years.") %>%
+      add_title("Non-ghg emission emissions factors by energy sector, gas, region, and historical year.") %>%
       add_units("Tg/EJ") %>%
-      add_comments("Use non-ghg emission totals by GCAM sector, fuel, technology, and driver type for CEDS historical years to derive emission shares.") %>%
+      add_comments("Use non-ghg emission totals by GCAM sector, fuel, technology, and driver type for CEDS historical years to derive emission factors.") %>%
       add_legacy_name("L111.nonghg_tgej_R_en_S_F_Yh") %>%
       same_precursors_as("L111.nonghg_tg_R_en_S_F_Yh") ->
-      L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP
+      L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP
 
     L112.ghg_tg_R_en_S_F_Yh %>%
       add_title("GHG emissions by energy sector, gas, region, and historical year") %>%
@@ -2128,7 +2137,7 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
       ) ->
       L131.nonco2_tg_R_prc_S_S_Yh
 
-    return_data(L111.nonghg_tg_R_en_S_F_Yh, L111.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP, L112.ghg_tg_R_en_S_F_Yh, L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP, L112.in_EJ_R_en_S_F_Yh_calib_all_baseenergy, L113.ghg_tg_R_an_C_Sys_Fd_Yh, L115.nh3_tg_R_an_C_Sys_Fd_Yh, L121.nonco2_tg_R_awb_C_Y_GLU,
+    return_data(L111.nonghg_tg_R_en_S_F_Yh, L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP, L112.ghg_tg_R_en_S_F_Yh, L112.ghg_tgej_R_en_S_F_Yh_infered_combEF_AP, L112.in_EJ_R_en_S_F_Yh_calib_all_baseenergy, L113.ghg_tg_R_an_C_Sys_Fd_Yh, L115.nh3_tg_R_an_C_Sys_Fd_Yh, L121.nonco2_tg_R_awb_C_Y_GLU,
                 L121.AWBshare_R_C_Y_GLU, L122.ghg_tg_R_agr_C_Y_GLU, L122.EmissShare_R_C_Y_GLU, L124.nonco2_tg_R_grass_Y_GLU, L124.nonco2_tg_R_forest_Y_GLU, L124.deforest_coefs,
                 L131.nonco2_tg_R_prc_S_S_Yh,L125.bcoc_tgbkm2_R_grass_2000,L125.bcoc_tgbkm2_R_forest_2000,L125.deforest_coefs_bcoc)
   } else {

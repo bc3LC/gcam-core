@@ -113,7 +113,7 @@ module_emissions_L251.en_ssp_nonco2 <- function(command, ...) {
       group_by(GCAM_region_ID, Non.CO2, supplysector, subsector, stub.technology, agg_sector) %>%
       mutate(value = approx_fun(year, value)) %>%
       # Now add regional information.
-      left_join_error_no_match(A_regions, by = "GCAM_region_ID") %>%
+      left_join_error_no_match(A_regions%>% select(-GAINS_region), by = "GCAM_region_ID") %>%
       # Emission coefficients values are too long, so we round to the 10th decimal point.
       mutate(emiss.coeff = round(value, emissions.DIGITS_EMISSIONS)) %>%
       ungroup() %>%
@@ -122,7 +122,7 @@ module_emissions_L251.en_ssp_nonco2 <- function(command, ...) {
       # Discard columns that are not needed.  Resulting table retains 7 columns.
       # Columns include "region", "supplysector", "subsector", "stub.technology", "year", "Non.CO2", and "emiss.coeff".
       # This applies to the next 2 tables as well.
-      select(-MAC_region, -bio_N2O_coef, -SO2_name, -GAINS_region, -GCAM_region_ID, -agg_sector, -value) ->
+      select(-MAC_region, -bio_N2O_coef, -SO2_name, -GCAM_region_ID, -agg_sector, -value) ->
       L251.ssp15_ef
 
     L161.SSP2_EF %>%
@@ -136,14 +136,14 @@ module_emissions_L251.en_ssp_nonco2 <- function(command, ...) {
       group_by(GCAM_region_ID, Non.CO2, supplysector, subsector, stub.technology, agg_sector) %>%
       mutate(value = approx_fun(year, value)) %>%
       # Now add regional information.
-      left_join_error_no_match(A_regions, by = "GCAM_region_ID") %>%
+      left_join_error_no_match(A_regions %>% select(-GAINS_region), by = "GCAM_region_ID") %>%
       # Emission coefficients values are too long, so we round to the 10th decimal point.
       mutate(emiss.coeff = round(value, emissions.DIGITS_EMISSIONS)) %>%
       ungroup() %>%
       left_join_error_no_match(EnTechInputNameMap, by = c("supplysector", "subsector", "stub.technology")) %>%
       mutate(emiss.coeff= if_else(is.na(emiss.coeff),0,emiss.coeff)) %>%
       # Discard columns that are not needed.
-      select(-MAC_region, -bio_N2O_coef, -SO2_name, -GAINS_region, -GCAM_region_ID, -agg_sector, -value) ->
+      select(-MAC_region, -bio_N2O_coef, -SO2_name,  -GCAM_region_ID, -agg_sector, -value) ->
       L251.ssp2_ef
 
     L161.SSP34_EF %>%
@@ -156,14 +156,14 @@ module_emissions_L251.en_ssp_nonco2 <- function(command, ...) {
       group_by(GCAM_region_ID, Non.CO2, supplysector, subsector, stub.technology, agg_sector) %>%
       mutate(value = approx_fun(year, value)) %>%
       # Now add regional information.
-      left_join_error_no_match(A_regions, by = "GCAM_region_ID") %>%
+      left_join_error_no_match(A_regions %>% select(-GAINS_region), by = "GCAM_region_ID") %>%
       # Emission coefficients values are too long, so we round to the 10th decimal point.
       mutate(emiss.coeff = round(value, emissions.DIGITS_EMISSIONS)) %>%
       ungroup() %>%
       left_join_error_no_match(EnTechInputNameMap, by = c("supplysector", "subsector", "stub.technology")) %>%
       mutate(emiss.coeff= if_else(is.na(emiss.coeff),0,emiss.coeff)) %>%
       # Discard columns that are not needed.
-      select(-MAC_region, -bio_N2O_coef, -SO2_name, -GAINS_region, -GCAM_region_ID, -agg_sector, -value) ->
+      select(-MAC_region, -bio_N2O_coef, -SO2_name, -GCAM_region_ID, -agg_sector, -value) ->
       L251.ssp34_ef
 
     # This section deletes the default GCAM default GDP control functions, so they can be replaced with
