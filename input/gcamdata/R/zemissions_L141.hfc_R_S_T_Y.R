@@ -25,7 +25,7 @@ module_emissions_L141.hfc_R_S_T_Y <- function(command, ...) {
              FILE = "common/iso_GCAM_regID",
              FILE = "emissions/EDGAR/EDGAR_sector_fgas",
              FILE = "emissions/EDGAR/EDGAR_all_F_gases",
-              FILE = "emissions/EDGAR/EDGAR_HFC125",
+              FILE = "emissions/EDGAR/EDGAR_HFC125", #TODO Get rid of all of these, update dependencies
              FILE = "emissions/EDGAR/EDGAR_HFC134a",
              FILE = "emissions/EDGAR/EDGAR_HFC143a",
              FILE = "emissions/EDGAR/EDGAR_HFC152a",
@@ -84,7 +84,23 @@ module_emissions_L141.hfc_R_S_T_Y <- function(command, ...) {
         left_join_error_no_match(iso_GCAM_regID, by = "iso") %>% # Map iso to GCAM region
         select(GCAM_region_ID, iso, EDGAR_agg_sector, Non.CO2, matches(YEAR_PATTERN)) %>%
         gather_years(value_col = "emissions") %>%
+        # Filter out the two HCFCs in EDGAR, Hector has these exogenously
+        filter(!(Non.CO2 %in% c("HCFC-141b","HCFC-142b"))) %>%
         mutate(emissions = as.numeric(emissions)) -> F_gases_formatted
+
+    # Combine emission species with small (GWP-weighted) amounts with another emission species
+    F_gases_formatted_TEMP <- F_gases_formatted %>%
+      # Using AR6 GWPs - these are very small amounts, so will make no practical difference so have hard coded these
+      mutate( emissions = if_else(Non.CO2 == "HFC134", emissions * 1260.0/1530.0, emissions)) %>%
+      mutate( Non.CO2 = if_else(Non.CO2 == "HFC134", "HFC134a", Non.CO2)) %>%
+
+      # Lifetime of HFC-143 is far shorter than HFC-143a, so map to HFC-32 instead which has a closer lifetime
+      mutate( emissions = if_else(Non.CO2 == "HFC143", emissions * 364.0/771.0, emissions)) %>%
+      mutate( Non.CO2 = if_else(Non.CO2 == "HFC143", "HFC32", Non.CO2)) %>%
+
+    # Lifetime of HFC-41 is very short so also convert to HFC-32 (shortest lifetime F-gas in hector)
+      mutate( emissions = if_else(Non.CO2 == "HFC41", emissions * 135.0/771.0, emissions)) %>%
+      mutate( Non.CO2 = if_else(Non.CO2 == "HFC41", "HFC32", Non.CO2))
 
     L141.EDGAR_HFC <- F_gases_formatted %>%
       group_by(GCAM_region_ID, EDGAR_agg_sector, Non.CO2,  year) %>%

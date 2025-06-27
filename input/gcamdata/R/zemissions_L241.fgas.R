@@ -19,7 +19,7 @@ module_emissions_L241.fgas <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/GCAM_region_names",
              FILE = "emissions/A_regions",
-             FILE = "emissions/FUT_EMISS_GV",
+             FILE = "emissions/FUT_EMISS_GV", # TODO Delete this and udpate dependencies
              FILE = "emissions/FUT_EMISS_GV_CP_High",
              FILE = "emissions/FUT_EMISS_GV_CP_Low",
              FILE = "emissions/FUT_EMISS_GV_Kigali_High",
@@ -92,7 +92,7 @@ module_emissions_L241.fgas <- function(command, ...) {
     if(MAX_DATA_YEAR %in% FUT_EMISS_GV_NEW$Year){
       ratio_years <- c(MAX_DATA_YEAR, emissions.GV_FUTURE_YEARS)
     } else {
-      ratio_years <-  c(min(FUT_EMISS_GV$Year), emissions.GV_FUTURE_YEARS)}
+      ratio_years <-  c(min(FUT_EMISS_GV_NEW$Year), emissions.GV_FUTURE_YEARS)}
 
     # When production declines in the future, we don't want the EF to increase,
     # (which it will tend to do if we use Em/Prod, due to banks - emissions
@@ -160,7 +160,7 @@ module_emissions_L241.fgas <- function(command, ...) {
     # If this variable is > 0, then a hybrid scenario
     # If BLEND_FRACT > 0 then scenario is BLEND_FRACT*Kigali + (1-BLEND_FRACT)*CP
     # If BLEND_FRACT < 0 then reduce below Kigali scenario by BLEND_FRACT fraction by 2100
-    BLEND_FRACT <- 0.0
+    BLEND_FRACT <- 0.5
 
     # Select the base F-gas future scenario to use here
     L241.FUT_EF_Ratio_All %>%
@@ -211,7 +211,7 @@ module_emissions_L241.fgas <- function(command, ...) {
       dplyr::summarise(EDGAR_total = sum(value, na.rm = TRUE)) -> EDGAR_Global_Em
 
     FUT_EMISS_GV_NEW %>%
-      filter(scenario %in% SELECT_SCENARIO) %>%
+      filter(scenario %in% paste0(SELECT_SCENARIO,SCEN_HighLow)) %>%
       mutate(Species=gsub('HFC-43-10mee', 'HFC43', Species)) %>% # special case with different pattern
       mutate(Species = gsub("-", "", Species)) %>%
       dplyr::group_by(Non.CO2=Species, year=Year) %>%
@@ -233,7 +233,7 @@ module_emissions_L241.fgas <- function(command, ...) {
       mutate(value = if_else(is.na(ratio), value, value * ratio)) %>%
       select(-ratio) -> L141.hfc_R_S_T_Yh
 
-    # Also scale edgar emission factors to global Velders' totals
+    # Also scale edgar emission factors to global Velders' totals by same ratio
     L141.hfc_ef_R_cooling_Yh %>%
       # Use left join since there will be NAs
       left_join(EM_scaler, by = c("Non.CO2","year")) %>%
