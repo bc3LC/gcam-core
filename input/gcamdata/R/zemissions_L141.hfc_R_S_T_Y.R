@@ -89,7 +89,7 @@ module_emissions_L141.hfc_R_S_T_Y <- function(command, ...) {
         mutate(emissions = as.numeric(emissions)) -> F_gases_formatted
 
     # Combine emission species with small (GWP-weighted) amounts with another emission species
-    F_gases_formatted_TEMP <- F_gases_formatted %>%
+    F_gases_formatted <- F_gases_formatted %>%
       # Using AR6 GWPs - these are very small amounts, so will make no practical difference so have hard coded these
       mutate( emissions = if_else(Non.CO2 == "HFC134", emissions * 1260.0/1530.0, emissions)) %>%
       mutate( Non.CO2 = if_else(Non.CO2 == "HFC134", "HFC134a", Non.CO2)) %>%
