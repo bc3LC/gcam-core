@@ -174,12 +174,34 @@ module_emissions_L253.emission_controls <- function(command, ...) {
         # Combine emission control data with region mapping. If data has meta region mapping, keep corresponding GCAM region
         # Otherwise, keep original region.
         # Using left_join instead of left_join_error_no_match because not all regions have meta region mapping
+
+        # Preserve original data rows
+        em_control_data_rows <- em_control_data %>%
+          select(region,supplysector,subsector,stub.technology,Non.CO2) %>%
+          mutate(org_row = 1)
+
+        # First handle cases without All or All States
+        # If do this together, we get bogus rows with sectors in regions where they don't belong
         em_control_data %>%
-          left_join(meta_region_map, by = c("region" = "meta_region"), relationship = "many-to-many") %>%
+          left_join(meta_region_map %>%  filter(!grepl("All",meta_region)), by = c("region" = "meta_region")) %>%
           filter(GCAM_region %in% dist_heat_regions$region |
                    !supplysector %in% dist_heat_regions$supplysector) %>%
           mutate(region = if_else(is.na(GCAM_region), region, GCAM_region)) %>%
-          select(-GCAM_region) -> em_control_data
+          select(-GCAM_region) %>%
+          # Now eliminate any spurious rows that occur because some region names are equal to country names
+          left_join(em_control_data_rows,by =  c("region", "supplysector", "subsector", "stub.technology", "Non.CO2")) %>%
+          filter(!is.na(org_row)) %>% select(-org_row) -> em_control_data
+
+        # Now handle cases with "ALL"
+        em_control_data %>% filter(grepl("All",region)) %>%
+          left_join(meta_region_map, by = c("region" = "meta_region")) %>%
+          filter(GCAM_region %in% dist_heat_regions$region |
+                   !supplysector %in% dist_heat_regions$supplysector) %>%
+          mutate(region = if_else(is.na(GCAM_region), region, GCAM_region)) %>%
+          select(-GCAM_region) %>%
+          # Add back in data from regions
+          rbind(em_control_data %>% filter(!grepl("All",region))) ->
+          em_control_data
 
         # Stop if regions aren't valid regions
         all_GCAM_regions <- all(em_control_data$region %in% c(GCAM_region_names$region, states_subregions$state))
@@ -228,7 +250,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
                                                            stub.technology, Non.CO2,linear.control, pcGDP_start_retrofit,
                                                            retrofit_time, retrofit_vintage, retrofit_em_coeff, .keep_all = TRUE)
             else distinct(., region, supplysector, subsector, stub.technology, Non.CO2,
-                   linear.control, pcGDP_start_retrofit, retrofit_time,
+                          linear.control, pcGDP_start_retrofit, retrofit_time,
                           retrofit_vintage, retrofit_em_coeff, .keep_all = TRUE)
           } -> L253.EF_retrofit
 
@@ -252,7 +274,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
           arrange(id) %>%
           filter(year %in% MODEL_FUTURE_YEARS) %>%
           mutate(NSPS_start_year = if_else(is.na(NSPS_start_year) & GDP >= pcGDP_start_NSPS,
-                                          as.numeric(year), NSPS_start_year)) %>%
+                                           as.numeric(year), NSPS_start_year)) %>%
           select(-year, -GDP, -id) %>%
           drop_na(NSPS_start_year) %>%
           {
@@ -272,7 +294,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
         # Remove the default generic control since more specific control is in place
         em_control_data %>%
           semi_join(GDP_controlled_techs,
-                   by = c("region", "supplysector", "subsector", "stub.technology", "Non.CO2")) %>%
+                    by = c("region", "supplysector", "subsector", "stub.technology", "Non.CO2")) %>%
           select(region, supplysector, any_of(c("nesting.subsector")), subsector, stub.technology, linear.control, Non.CO2) %>%
           mutate(period = head(MODEL_YEARS, n=1),
                  gdp.control = "GDP_control") -> L253.delete_gdp_control
@@ -303,7 +325,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
           arrange(desc(retrofit_vintage)) %>%
           {
             if("nesting.subsector" %in% names(.)) distinct(., region, supplysector, nesting.subsector, subsector, stub.technology, Non.CO2,
-                   pcGDP_start_retrofit, start.year, retrofit_time, final.emissions.coefficient,
+                                                           pcGDP_start_retrofit, start.year, retrofit_time, final.emissions.coefficient,
                                                            linear.control, end.year, .keep_all = TRUE)
             else distinct(., region, supplysector, subsector, stub.technology, Non.CO2,
                           pcGDP_start_retrofit, start.year, retrofit_time, final.emissions.coefficient,
@@ -322,7 +344,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
           left_join(base_year_eff, by = c("region", "supplysector", "subsector", "stub.technology",
                                           "retrofit_vintage" = "year")) %>%
           left_join(future_year_eff, by = c("supplysector" = "sector.name", "subsector" = "subsector.name",
-                                           "stub.technology" = "technology", "retrofit_vintage" = "year")) %>%
+                                            "stub.technology" = "technology", "retrofit_vintage" = "year")) %>%
           # For techs without efficiencies, we divide by 1 (no change)
           mutate(efficiency.y = if_else(is.na(efficiency.y), 1, efficiency.y),
                  final.emissions.coefficient = if_else(is.na(efficiency.x), final.emissions.coefficient/efficiency.y,
@@ -331,7 +353,7 @@ module_emissions_L253.emission_controls <- function(command, ...) {
         # We do the same for NSPS, but since NSPS can only be applied in future model years, we only join in future efficiency data
         L253.EF_NSPS_new_vintage %>%
           left_join(future_year_eff, by = c("supplysector" = "sector.name", "subsector" = "subsector.name",
-                                       "stub.technology" = "technology", "period" = "year")) %>%
+                                            "stub.technology" = "technology", "period" = "year")) %>%
           mutate(efficiency = if_else(is.na(efficiency), 1, efficiency),
                  emiss.coef = emiss.coef/efficiency) -> L253.EF_NSPS_new_vintage
 

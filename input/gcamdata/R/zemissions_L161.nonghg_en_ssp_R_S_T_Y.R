@@ -18,12 +18,15 @@
 #' @author RLH July 2017
 module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
-    return(c(FILE = "emissions/A_regions",
+    return(c(FILE = "common/GCAM_region_names",
+             FILE = "emissions/A_regions",
              FILE = "emissions/mappings/GCAM_sector_tech",
              FILE = "emissions/mappings/GCAM_sector_tech_Revised",
              FILE = "emissions/mappings/gains_to_gcam_sector",
-             FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-05-22",
-             FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_middle_2025-05-22",
+             FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-07-02",
+             FILE = "emissions/GAINS/SSPs_IMAGE_emf_agg_middle_2025-07-02",
+             FILE = "emissions/GAINS/gains_agg_filtered_2025-07-02",
+             FILE = "emissions/GAINS/drop_folder_vintaged_EF_sectors",
              "L102.pcgdp_thous90USD_Scen_R_Y",
              "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP",
              "L114.bcoc_tgej_R_en_S_F_2000",
@@ -53,26 +56,47 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
     # Load required inputs
     A_regions <- get_data(all_data, "emissions/A_regions")
     GCAM_sector_tech <- get_data(all_data, "emissions/mappings/GCAM_sector_tech")
+    GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
 
     if (energy.TRAN_UCD_MODE == "rev.mode"){
       GCAM_sector_tech <- get_data(all_data, "emissions/mappings/GCAM_sector_tech_Revised")
     }
 
     GAINS_sector <- get_data(all_data, "emissions/mappings/gains_to_gcam_sector")
-    GAINS_EFhist <- get_data(all_data,"emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-05-22")|>
+    GAINS_EFhist <- get_data(all_data,"emissions/GAINS/SSPs_IMAGE_emf_agg_cle_rev_2025-07-02")|>
       pivot_longer(cols=c(-scen,-Group_Region,-EMF30_AGG,-POLLUTANT_FRACTION),names_to = 'year') |>
       mutate(year=as.numeric(year)) |> filter(!is.na(value))
-    GAINS_EF <- get_data(all_data,"emissions/GAINS/SSPs_IMAGE_emf_agg_middle_2025-05-22")|>
+    GAINS_EF <- get_data(all_data,"emissions/GAINS/SSPs_IMAGE_emf_agg_middle_2025-07-02")|>
       pivot_longer(cols=c(-scen,-Group_Region,-EMF30_AGG,-POLLUTANT_FRACTION),names_to = 'year') |>
       mutate(year=as.numeric(year)) |> filter(!is.na(value))
     #add historic data to each scenario's data
-    GAINS_EF <- rbind(GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP1"),
+    GAINS_EF_SLE <- rbind(GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP1"),
                       GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP2"),
                       GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP3"),
                       GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP4"),
                       GAINS_EFhist |> filter(scen=="historical") |> mutate(scen="SSP5"),
                       GAINS_EFhist |> filter(scen %in% c("SSP1","SSP2","SSP3","SSP4","SSP5"),year==2025),
                       GAINS_EF)
+
+    # New versions
+    GAINS_EF <- get_data(all_data,"emissions/GAINS/gains_agg_filtered_2025-07-02") %>%
+      rename(value = ef) %>% na.omit()
+
+    # Copy historical values to each SSP
+    Historical <- GAINS_EF %>% filter(scen == "historical")
+    GAINS_EF <- GAINS_EF %>%
+      rbind(Historical %>% mutate(scen="SSP1")) %>%
+      rbind(Historical %>% mutate(scen="SSP2")) %>%
+      rbind(Historical %>% mutate(scen="SSP3")) %>%
+      filter(scen != "historical") %>%
+      filter(scen != "SSP1_VLLO") # Not producing this scenario at the moment
+
+    USE_SLE_PATHWAYS <- FALSE
+    # Write warning if using SLE pathways instead of scenario pathways
+    if (USE_SLE_PATHWAYS) {
+      warning("SSP SLE pathways will be used for SSP emission factors")
+      GAINS_EF = GAINS_EF_SLE
+    }
 
     L102.pcgdp_thous90USD_Scen_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_Scen_R_Y")
     L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP <- get_data(all_data, "L112.nonghg_tgej_R_en_S_F_Yh_infered_combEF_AP")
@@ -120,6 +144,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       mutate(value = NA) %>%
       mutate(IDYEARS = MODEL_FINAL_BASE_YEAR)
 
+    GAINS_EF_agg$IDYEARS <- as.numeric(GAINS_EF_agg$IDYEARS)
     GAINS_EF_agg <- rbind(GAINS_EF_agg,GAINS_EF_agg_newYear) %>%
       group_by(TIMER_REGION, agg_sector, POLL, scenario) %>%
       mutate(value = approx_fun(IDYEARS, value, rule = 1))
@@ -130,7 +155,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
     emissions.BASE_YEAR = MODEL_FINAL_BASE_YEAR
 
     # Compute emissions factor scaler.
-    # These scalers are relative to the previous time period's numbers.
+    # These scalers are relative to the last model period.
     GAINS_emfact_scaler <- GAINS_EF_agg %>% rename(emfact=value) |> filter(agg_sector!="X")|>
       group_by(TIMER_REGION, agg_sector, POLL, scenario) %>%
       # Create column of previous time period value
@@ -141,6 +166,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       mutate(scaler = emfact / prev,
              scaler = replace(scaler, scaler > 1, 1)) %>%
       mutate(scaler = if_else( IDYEARS==emissions.BASE_YEAR,1,scaler)) %>%
+      arrange(IDYEARS) %>%
       group_by(TIMER_REGION, agg_sector, POLL, scenario) %>%
       mutate(scaler = cumprod(scaler)) %>%
       ungroup() %>%
@@ -175,7 +201,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
              scenario, year, emfact, region_grouping)
 
     # Create list of countries with strong regulation based on elec_coal SO2 emissions factor
-    coal_so2 <- tibble(GCAM_region_ID = A_regions$GCAM_region_ID) %>%
+    AP_regulation_code <- tibble(GCAM_region_ID = A_regions$GCAM_region_ID) %>%
       left_join(
         emfact_scaled %>%
           filter(year == emissions.GAINS_YEARS[length(emissions.GAINS_YEARS)],
@@ -186,6 +212,58 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       # If region is missing a value, assume it is a weak_reg
       replace_na(list(policy = "weak_reg")) %>%
       select(GCAM_region_ID, policy)
+
+    # For SSP3 scenarios, delay policy after 2025 by five years in strong regions and 10 years elsewhere
+    # First shift year is 2030 for SSP scenarios, assume near-term to 2025 it the same so that model results
+    # are identical.
+    # This should be adjusted once base year hits 2025
+    if (MODEL_FIRST_FUTURE_YEAR > 2025) stop("Near-term emission control split year invalid. Adjust")
+    FIRST_ADJ_YR = 2030
+
+    # TODO - make agnostic to size of time step
+    # Define function to do the shift
+    shift_by_year_policy <- function(year, policy) {
+      case_when(
+        year >= FIRST_ADJ_YR & policy == "strong_reg" ~ year+5,
+        year >= FIRST_ADJ_YR & policy != "strong_reg" ~ year+10,
+        TRUE ~ year # leave same otherwise
+      )
+    }
+
+    # Now do the shifting
+    emfact_scaled_SSP3shifted <- emfact_scaled %>%
+      filter(scenario == "SSP3") %>%
+      left_join_error_no_match(AP_regulation_code, by = "GCAM_region_ID") %>%
+      mutate(year = shift_by_year_policy(year, policy) ) %>%
+      filter(year <= max(FUTURE_YEARS))
+
+    # Now copy back and interpolate years for the two cases
+    emfact_scaled_SSP3shifted <- emfact_scaled_SSP3shifted %>%
+      # Copy forward EF from FIRST_ADJ_YR for all regions
+      rbind(emfact_scaled_SSP3shifted %>%
+              filter(year == MODEL_FIRST_FUTURE_YEAR ) %>%
+              mutate(year = FIRST_ADJ_YR)) %>%
+      # Copy forward EF further not strong regions
+      rbind(emfact_scaled_SSP3shifted %>%
+             filter(policy != "strong_reg" & year == MODEL_FIRST_FUTURE_YEAR ) %>%
+             mutate(year = FIRST_ADJ_YR + 5)) %>%
+      # Not sure what is not complete, but it errors without this
+      complete(year, nesting(GCAM_region_ID, Non.CO2, supplysector, subsector,
+                             stub.technology, GAINS_region, IIASA_sector, scenario, region_grouping, policy)) %>%
+      group_by(GCAM_region_ID, Non.CO2, supplysector, subsector, stub.technology, scenario,IIASA_sector, region_grouping,policy, GAINS_region) %>%
+    # For regions with strong regulation, interpolate EF
+      mutate(emfact = if_else(year == FIRST_ADJ_YR & policy == "strong_reg",
+                              (emfact[year==(FIRST_ADJ_YR + 5)]+emfact)/2,emfact)) %>%
+      # For regions without strong regulation, interpolate the 2nd copied EF
+      mutate(emfact = if_else(year == FIRST_ADJ_YR + 5 & policy != "strong_reg",
+                              (emfact[year==(FIRST_ADJ_YR + 10)]+emfact)/2,emfact)) %>%
+      ungroup() %>%
+      select(-policy)
+
+    # Now bind back with rest of scenarios
+    emfact_scaled <- emfact_scaled %>%
+      filter(scenario != "SSP3") %>%
+      rbind(emfact_scaled_SSP3shifted)
 
     # Group SSPs by whether we process them the same
     SSP_groups <- tibble(SSP_group = c("1&5", "2", "3&4"))
@@ -201,7 +279,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
     #  repeat_add_columns(tibble(year = c(2010, 2030, 2050, 2100))) %>%
     #  repeat_add_columns(SSP_groups) %>%
     #  # Join with policy type, but only for SSP group 2
-    #  left_join_error_no_match(coal_so2, by = "GCAM_region_ID") %>%
+    #  left_join_error_no_match(AP_regulation_code, by = "GCAM_region_ID") %>%
     #  mutate(policy = replace(policy, SSP_group != "2", NA)) %>%
     #  # Join with rules-use left_join b/c there are NA values in A61_emfact_rules
     #  left_join(A61_emfact_rules, by = c("region_grouping", "year", "SSP_group", "policy"))
@@ -229,7 +307,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       left_join(emfact_scaled, by = c("GCAM_region_ID", "Non.CO2", "supplysector", "subsector", "stub.technology",
                                       "GAINS_region", "IIASA_sector", "scenario", "region_grouping")) %>%
       # Add in policy
-      left_join_error_no_match(coal_so2, by = "GCAM_region_ID") %>%
+      left_join_error_no_match(AP_regulation_code, by = "GCAM_region_ID") %>%
       # Use complete to fill out any region/technology/gas combos that do not have emissions factors for all years
       complete(year, nesting(GCAM_region_ID, Non.CO2, supplysector, subsector,
                              stub.technology, GAINS_region, IIASA_sector, scenario, region_grouping, policy)) %>%
@@ -283,6 +361,30 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       left_join_error_no_match(A_regions %>% select(region,GCAM_region_ID), by = "GCAM_region_ID") %>%
       anti_join(L244.DeleteService, by=c("region","supplysector")) %>%
       select(-region)|>rename(agg_sector=IIASA_sector)
+
+    # Now remove EF-emission combinations that are being set by the drop folder
+    # At this stage this is indicated by an exogenous file generated by the code
+    # that generates the drop folder file.
+    # TODO: Integrate with data system later
+    drop_folder_vintaged_EF_sectors <- get_data(all_data,"emissions/GAINS/drop_folder_vintaged_EF_sectors")
+    drop_folder_vintaged_EF_sectors %>%
+      left_join_error_no_match(GCAM_region_names, by = "region") %>%
+      mutate(remove = 1) -> drop_folder_vintaged_EF_sectors
+
+    REMOVE_VINTAGED_SECTORS <- TRUE
+    # Write warning if length is non zero
+    if (nrow(drop_folder_vintaged_EF_sectors)>1 && REMOVE_VINTAGED_SECTORS) {
+      warning("SSP Emission factors for all combinations listed in drop_folder_vintaged_EF_sectors will be removed")
+
+    SSP_EF %>% ungroup() %>%
+      # Left join because there will be NA's and multiple matches
+      left_join(drop_folder_vintaged_EF_sectors %>% select(-region),
+                by = c("GCAM_region_ID","supplysector","subsector","stub.technology","Non.CO2")) %>%
+      mutate(remove = replace_na(remove,0 )) %>%
+      filter(remove == 0) %>% select(-remove) %>%
+      arrange(GCAM_region_ID,year,Non.CO2) ->
+      SSP_EF
+    }
 
 SSP_EF <- SSP_EF |> mutate(SSP_group=case_when(
   scenario=="SSP1" ~ "1&5",

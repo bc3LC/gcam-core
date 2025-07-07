@@ -2,7 +2,7 @@
 
 #' module_emissions_L241.en_newtech_nonco2
 #'
-#' Produce emission coefficient tables for model input tables related to new energy technology.
+#' Produce emission coefficient tables for model input tables related to new energy transformation technologies
 #'
 #' @param command API command to execute
 #' @param ... other optional parameters, depending on command

@@ -103,11 +103,31 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
       repeat_add_columns(tibble(group = unique(groups$category))) %>%
       unite(supplysector, c("supplysector","group"), sep = "_")
 
+    # Extract hybrid liquid technologies
+    hybrid_liquidsTechMap <- EnTechInputNameMap %>% filter(stub.technology=="Hybrid Liquids") %>%
+      select(-input.name, -fuel)
+
+    # Identify missing columns
+    missing_columns <- c("GCAM_region_ID","year","Non.CO2")
+    unique_values <- lapply(L111.nonghg_tg_R_en_S_F_Yh[missing_columns], unique)
+
+     # Create all permutations of the missing columns
+    expanded_permutations <- expand.grid(unique_values)
+
+    # merge two dataframes
+    hybrid_techs_expanded <- merge(hybrid_liquidsTechMap, expanded_permutations, by = NULL) %>%
+      # And add default EF of zero (no historical emissions)
+      mutate(value=0)
+
     EnTechInputNameMap<-EnTechInputNameMap %>%
       filter(!grepl("resid",supplysector)) %>%
       bind_rows(EnTechInputNameMap_resid)
 
-
+    # Add Hybrid liquid technologies to the emissions DF with zero emissions
+    # These have no emissions in the base year currently, but we want to add emission factors
+    # elsewhere for these for the future. But to do that they need to be here so that emission
+    # objects are setup
+    L111.nonghg_tg_R_en_S_F_Yh <- rbind(L111.nonghg_tg_R_en_S_F_Yh,hybrid_techs_expanded)
 
     # L201.en_pol_emissions: Pollutant emissions for energy technologies in all regions
     L111.nonghg_tg_R_en_S_F_Yh %>%
@@ -156,9 +176,25 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
       select(-subsector.original) ->
       L201.en_ghg_emissions_remove_IS
 
-    # Separate processing for iron and steel. Previously, iron and steel was input driven + input emissions assigned to the
-    # main combustion fuel. This resulted in unexpected behavior, so we are changing them to be output driven EFs, and replacing
-    # outlier EFs with the global median.
+    # Separate processing for iron and steel. Previously, iron and steel was
+    # input driven + input emissions assigned to the main combustion fuel. This
+    # resulted in unexpected behavior, so we are changing them to be output
+    # driven EFs, and replacing outlier EFs with the global median.
+
+    # These emission factors are currently based on fuel used by each
+    # technology. While this sometimes is still not ideal since emissions will
+    # depend on technology details. If we can find default emission factors for
+    # each technology, these would be better. At that time, add EFs for all
+    # production technologies so that if techs change they will have emissions.
+    # Note that output-based EFs should generally be the same indepedenbt of
+    # fuel use since these are more closely related to the technology not the
+    # fuel.
+
+    # Note that iron and steel sector includes coke-making in terms of
+    # energy/process. At present this is buried in other industry since CEDS
+    # doesn't have coke production separated out. Can update once CEDS has this
+    # level of detail.
+
     # Iron and Steel will have their own tables, so we can remove it from the previous tables
     L201.en_pol_emissions <- L201.en_pol_emissions_remove_IS %>%
       filter(supplysector != "iron and steel")
@@ -184,10 +220,18 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
     ef_col_name <- "emiss.coeff"
     L201.en_iron_and_steel_ef_fixINF <- replace_outlier_EFs(L201.en_iron_and_steel_ef_replace_outliers, to_group, names, ef_col_name)
 
-    # Some entries still have "Inf" for the EF. In these cases, a global median could not be calculated because there was no output
-    # in any region within that year. These EFs can be set to 1.
+    # Some entries still have "Inf" for the EF. Calculate global average EF
+    L201.en_iron_and_steel_ef_fixINF %>%  group_by(year, Non.CO2) %>%
+      mutate(medianEF = median(emiss.coeff)) %>% ungroup() %>%
+      select(-region, -supplysector, -subsector, -stub.technology,-emiss.coeff) ->
+      L201.en_iron_and_steel_aveEF
+
+    # In these cases, use global mean for that emission species.
     L201.en_iron_and_steel_ef <- L201.en_iron_and_steel_ef_fixINF %>%
-      mutate(emiss.coeff = if_else(is.infinite(emiss.coeff), 1, emiss.coeff))
+      # Number of rows increaed so use left_join
+      left_join(L201.en_iron_and_steel_aveEF, by = c("year", "Non.CO2"), relationship = "many-to-many") %>%
+      mutate(emiss.coeff = if_else(is.infinite(emiss.coeff),medianEF, emiss.coeff)) %>%
+      select(-medianEF) %>% distinct()
 
     EnTechInputNameMap %>%
       left_join(ind_subsector_revised %>% select(supplysector,subsector.original,fuel,technology, minicam.energy.input) %>%
@@ -199,6 +243,7 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
       EnTechInputNameMap
 
     # L201.en_bcoc_emissions: BC/OC emissions factors for energy technologies in all regions
+    # TODO - revise, and perhaps remove. This is a legacy from when we were using Bond etal BCOC.
     L114.bcoc_tgej_R_en_S_F_2000 %>%
       filter(supplysector != "out_resources") %>%
       # add region name, extend emissions factors across all base years, and round output

@@ -314,32 +314,48 @@ module_gcamusa_L276.nonghg_othertrn <- function(command, ...) {
     rename(tranSubsector = subsector)
 
   # There is no data for BC/OC in the base year, so use fractions of PM2.5 to calculate BC/OC emission coefficients.
-  L276.nonghg_othertrn_tech_coeff_USA_no_driver_needPM <- compute_BC_OC_transport(L276.nonghg_all_othertrn_tech_coeff_Yb_USA.noBCOC, BC_OC_assumptions_years)
+  L276.nonghg_othertrn_tech_coeff_USA_no_driver_needPM_part <- compute_BC_OC_transport(L276.nonghg_all_othertrn_tech_coeff_Yb_USA.noBCOC, BC_OC_assumptions_years)
 
   # For International Shipping and Aviation, we have BC and OC but no PM.
   # We can use our BC and OC assumptions to calculate PM2.5.
-  L276.nonghg_othertrn_tech_coeff_USA_no_driver <- L276.nonghg_othertrn_tech_coeff_USA_no_driver_needPM %>%
+  L276.nonghg_othertrn_tech_coeff_USA_no_driver_part <- L276.nonghg_othertrn_tech_coeff_USA_no_driver_needPM_part %>%
     filter( grepl( "International", tranSubsector ),
             Non.CO2 == "BC" ) %>%
-    # join with the assumption table
-    left_join_error_no_match( BC_OC_assumptions_years, by = c( "supplysector" = "sector", "tranSubsector", "stub.technology" = "technology", "year" ) ) %>%
+    # join with the assumption table. Left join since we expect hybrid liquids to be missing.
+    left_join( BC_OC_assumptions_years, by = c( "supplysector" = "sector", "tranSubsector", "stub.technology" = "technology", "year" ) )
+
+  # Assume, per unit fuel consumed, hybrids look like other vehicles
+  L276.nonghg_othertrn_tech_coeff_USA_no_driver_part %>% filter(stub.technology=="Hybrid Liquids") -> Hybrid_Liq_Techs
+  L276.nonghg_othertrn_tech_coeff_USA_no_driver_part %>% filter(stub.technology=="Liquids") %>%
+    mutate(stub.technology = "Hybrid Liquids") %>% filter(supplysector %in% unique(unique(Hybrid_Liq_Techs$supplysector))) ->
+    Liquid_Tech_data
+  Hybrid_Liq_Techs <- Hybrid_Liq_Techs %>%
+    # Remove missing data
+    select(-emiss.coef, -BC_fraction, -OC_fraction) %>%
+    # Not expecting a match
+    left_join_error_no_match(Liquid_Tech_data, by = c( "supplysector", "tranSubsector", "stub.technology", "year","Non.CO2","region" ) )
+
+  #Now bind back and finish
+  L276.nonghg_othertrn_tech_coeff_USA_no_driver_hasPM <- L276.nonghg_othertrn_tech_coeff_USA_no_driver_part %>%
+    filter(stub.technology != "Hybrid Liquids") %>%
+    rbind(Hybrid_Liq_Techs) %>%
     # calculate PM2.5
     mutate( emiss.coef = emiss.coef / BC_fraction,
             Non.CO2 = "PM2.5" ) %>%
     # remove unneeded columns
     select( -c( BC_fraction, OC_fraction ) ) %>%
     # bind back to the table containing all other EFs
-    bind_rows( L276.nonghg_othertrn_tech_coeff_USA_no_driver_needPM )
+    bind_rows( L276.nonghg_othertrn_tech_coeff_USA_no_driver_needPM_part )
 
   # For International Ship, we need PM10. We can use PM2.5 to PM10 ratio from EPA to derive this.
-  L276.nonghg_othertrn_tech_coeff_USA_no_driver_hasPM <- L276.nonghg_othertrn_tech_coeff_USA_no_driver %>%
+  L276.nonghg_othertrn_tech_coeff_USA_no_driver_hasPM <- L276.nonghg_othertrn_tech_coeff_USA_no_driver_hasPM %>%
     # filter for International Ship, PM2.5
     filter( tranSubsector == "International Ship", Non.CO2 == "PM2.5" ) %>%
     # calculate the PM10 emission factors based on PM2.5 and EPA ratio
     mutate( emiss.coef = emiss.coef / gcamusa.INTL_SHIP_PM_RATIO,
             Non.CO2 = "PM10" ) %>%
     # bind back to the table with all other EFs
-    bind_rows( L276.nonghg_othertrn_tech_coeff_USA_no_driver )
+    bind_rows( L276.nonghg_othertrn_tech_coeff_USA_no_driver_hasPM )
 
   # Add an input name column to drive emissions
   L276.nonghg_othertrn_tech_coeff_USA_replace.outliers <- L276.nonghg_othertrn_tech_coeff_USA_no_driver_hasPM %>%

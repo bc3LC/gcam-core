@@ -1224,7 +1224,7 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
       L112.ag_ExcessDryBiomass_Mt_R_C_Y_GLU
 
     # Set the default harvest index of 1 and water content to 0.15 for fiber and fodder crops, in order to use
-    # harvest index of 1 and water content to caculate burnable excess biomass in next step.
+    # harvest index of 1 and water content to calculate burnable excess biomass in next step.
     L112.ag_ExcessDryBiomass_Mt_R_C_Y_GLU %>%
       replace_na(list(HarvestIndex = 1, WaterContent = 0.15)) ->
       L112.ag_ExcessDryBiomass_Mt_R_C_Y_GLU_replaced
