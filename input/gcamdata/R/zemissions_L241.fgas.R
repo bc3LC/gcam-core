@@ -160,7 +160,7 @@ module_emissions_L241.fgas <- function(command, ...) {
     # If this variable is > 0, then a hybrid scenario
     # If BLEND_FRACT > 0 then scenario is BLEND_FRACT*Kigali + (1-BLEND_FRACT)*CP
     # If BLEND_FRACT < 0 then reduce below Kigali scenario by BLEND_FRACT fraction by 2100
-    BLEND_FRACT <- 0.5
+    BLEND_FRACT <- 0
 
     # Select the base F-gas future scenario to use here
     L241.FUT_EF_Ratio_All %>%
