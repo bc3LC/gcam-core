@@ -292,7 +292,7 @@ module_emissions_L241.fgas <- function(command, ...) {
       mutate(pop_trend = VReg_Pop / VReg_Pop[year == MODEL_FINAL_BASE_YEAR]) %>%
       ungroup()
 
-    # SAMPLE CODE FOR MAKING A RATIO
+    # SAMPLE CODE FOR USING A RATIO
     L141.hfc_ef_cooling_maxhistyr %>%
       select(-year) %>%
       # Since Guus Velders data set contains information on extra gases we
@@ -308,6 +308,9 @@ module_emissions_L241.fgas <- function(command, ...) {
       # Keep only for future years
       filter(!year %in% emissions.HFC_MODEL_BASE_YEARS) ->
       L241.hfc_cool_ef_update_all
+
+    # From here down, don't need to change.
+
     # First, create a subset of the cooling emission factors from the max year
     L141.hfc_ef_R_cooling_Yh %>%
       filter(year == MAX_DATA_YEAR) %>%
