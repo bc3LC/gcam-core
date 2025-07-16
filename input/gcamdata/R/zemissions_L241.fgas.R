@@ -19,12 +19,14 @@ module_emissions_L241.fgas <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/GCAM_region_names",
              FILE = "emissions/A_regions",
-             FILE = "emissions/FUT_EMISS_GV", # TODO Delete this and udpate dependencies
-             FILE = "emissions/FUT_EMISS_GV_CP_High",
-             FILE = "emissions/FUT_EMISS_GV_CP_Low",
-             FILE = "emissions/FUT_EMISS_GV_Kigali_High",
-             FILE = "emissions/FUT_EMISS_GV_Kigali_Low",
+             FILE = "emissions/FUT_EMISS_GV", # TODO Delete this and update dependencies
+             FILE = "emissions/Velders_HFC/CP2021_constrProdEmis_ObsAgage_OECD-SSP5",
+             FILE = "emissions/Velders_HFC/CP2021_constrProdEmis_ObsAgage_OECD-SSP3",
+             FILE = "emissions/Velders_HFC/KGL2021_constrProdEmis_ObsAgage_OECD-SSP5",
+             FILE = "emissions/Velders_HFC/KGL2021_constrProdEmis_ObsAgage_OECD-SSP3",
              FILE = "emissions/mappings/Montreal_nonA5_GCAMreg",
+             FILE = "emissions/A_regions",
+             FILE = "L201.Pop_GCAM3",
              "L141.hfc_R_S_T_Yh",
              "L141.hfc_ef_R_cooling_Yh",
              "L142.pfc_R_S_T_Yh"))
@@ -41,14 +43,15 @@ module_emissions_L241.fgas <- function(command, ...) {
     GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
     A_regions         <- get_data(all_data, "emissions/A_regions")
     FUT_EMISS_GV      <- get_data(all_data, "emissions/FUT_EMISS_GV")
-    FUT_EMISS_GV_CP_High      <- get_data(all_data, "emissions/FUT_EMISS_GV_CP_High")
-    FUT_EMISS_GV_CP_Low      <- get_data(all_data, "emissions/FUT_EMISS_GV_CP_Low")
-    FUT_EMISS_GV_Kigali_Low      <- get_data(all_data, "emissions/FUT_EMISS_GV_Kigali_Low")
-    FUT_EMISS_GV_Kigali_High      <- get_data(all_data, "emissions/FUT_EMISS_GV_Kigali_High")
+    CP2021_ssp5      <- get_data(all_data, "emissions/Velders_HFC/CP2021_constrProdEmis_ObsAgage_OECD-SSP5")
+    CP2021_ssp3      <- get_data(all_data, "emissions/Velders_HFC/CP2021_constrProdEmis_ObsAgage_OECD-SSP3")
+    KGL2021_ssp3      <- get_data(all_data, "emissions/Velders_HFC/KGL2021_constrProdEmis_ObsAgage_OECD-SSP3")
+    KGL2021_ssp5      <- get_data(all_data, "emissions/Velders_HFC/KGL2021_constrProdEmis_ObsAgage_OECD-SSP5")
     iso_Montreal_nonA5_reg <-  get_data(all_data, "emissions/mappings/Montreal_nonA5_GCAMreg")
     L142.pfc_R_S_T_Yh <- get_data(all_data, "L142.pfc_R_S_T_Yh", strip_attributes = T)
     L141.hfc_R_S_T_Yh <- get_data(all_data, "L141.hfc_R_S_T_Yh", strip_attributes = T)
     L141.hfc_ef_R_cooling_Yh <- get_data(all_data, "L141.hfc_ef_R_cooling_Yh", strip_attributes = T)
+    L201.Pop_GCAM3 <- get_data(all_data,"L201.Pop_GCAM3", strip_attributes = T)
 
     ## silence package check.
     . <- `2010` <- `2020` <- `2030` <- EF <- Emissions <- GCAM_region_ID <- GDP <-
@@ -65,24 +68,24 @@ module_emissions_L241.fgas <- function(command, ...) {
     emissions.HFC_MODEL_BASE_YEARS    <- MODEL_YEARS[MODEL_YEARS <= MODEL_FINAL_BASE_YEAR]
 
     # Combine data into one DF
-    FUT_EMISS_GV_CP_Low$scenario <- "FUT_EMISS_GV_CP_Low"
-    FUT_EMISS_GV_CP_High$scenario <- "FUT_EMISS_GV_CP_High"
-    FUT_EMISS_GV_Kigali_Low$scenario <- "FUT_EMISS_GV_Kigali_Low"
-    FUT_EMISS_GV_Kigali_High$scenario <- "FUT_EMISS_GV_Kigali_High"
+    CP2021_ssp3$scenario <- "CP2021_ssp3"
+    CP2021_ssp5$scenario <- "CP2021_ssp5"
+    KGL2021_ssp3$scenario <- "KGL2021_ssp3"
+    KGL2021_ssp5$scenario <- "KGL2021_ssp5"
 
     # For Kigali scenarios, substitute in the corresponding production data from
     # current policies as this is the driver that we would want to use to derive
     # future emission factor reductions since this is the baseline activity
     # before Kigali phase out. We, therefore, will be estimating how much
     # emissions factors decrease due to Kigali phase-outs
-    FUT_EMISS_GV_Kigali_Low$Prod_tot <- FUT_EMISS_GV_CP_Low$Prod_tot
-    FUT_EMISS_GV_Kigali_High$Prod_tot <- FUT_EMISS_GV_CP_High$Prod_tot
-    FUT_EMISS_GV_Kigali_Low$Prod_A5 <- FUT_EMISS_GV_CP_Low$Prod_A5
-    FUT_EMISS_GV_Kigali_High$Prod_A5 <- FUT_EMISS_GV_CP_High$Prod_A5
-    FUT_EMISS_GV_Kigali_Low$Prod_nonA5 <- FUT_EMISS_GV_CP_Low$Prod_nonA5
-    FUT_EMISS_GV_Kigali_High$Prod_nonA5 <- FUT_EMISS_GV_CP_High$Prod_nonA5
+    KGL2021_ssp3$Prod_tot <- CP2021_ssp3$Prod_tot
+    KGL2021_ssp5$Prod_tot <- CP2021_ssp5$Prod_tot
+    KGL2021_ssp3$Prod_A5 <- CP2021_ssp3$Prod_A5
+    KGL2021_ssp5$Prod_A5 <- CP2021_ssp5$Prod_A5
+    KGL2021_ssp3$Prod_nonA5 <- CP2021_ssp3$Prod_nonA5
+    KGL2021_ssp5$Prod_nonA5 <- CP2021_ssp5$Prod_nonA5
 
-    FUT_EMISS_GV_NEW <- rbind(FUT_EMISS_GV_CP_High,FUT_EMISS_GV_Kigali_Low,FUT_EMISS_GV_Kigali_High,FUT_EMISS_GV_CP_Low)
+    FUT_EMISS_GV_NEW <- rbind(CP2021_ssp5,KGL2021_ssp3,KGL2021_ssp5,CP2021_ssp3)
     emissions.GV_ALL_YEARS <- intersect(FUT_EMISS_GV_NEW$Year[unique(FUT_EMISS_GV_NEW$Year)], MODEL_YEARS)
     emissions.GV_FUTURE_YEARS <- intersect(FUT_EMISS_GV_NEW$Year[unique(FUT_EMISS_GV_NEW$Year) > MODEL_FINAL_BASE_YEAR], MODEL_YEARS)
 
@@ -157,10 +160,10 @@ module_emissions_L241.fgas <- function(command, ...) {
     # For single scenario selection, indicate that scenario here
     SELECT_SCENARIO <- "FUT_EMISS_GV_Kigali"
 
-    # If this variable is > 0, then a hybrid scenario
-    # If BLEND_FRACT > 0 then scenario is BLEND_FRACT*Kigali + (1-BLEND_FRACT)*CP
+    # If this variable is <> 0, then a hybrid scenario
+    # If BLEND_FRACT > 0 then scenario is (1-BLEND_FRACT)*Kigali + BLEND_FRACT*CP
     # If BLEND_FRACT < 0 then reduce below Kigali scenario by BLEND_FRACT fraction by 2100
-    BLEND_FRACT <- 0.5
+    BLEND_FRACT <- 0.0
 
     # Select the base F-gas future scenario to use here
     L241.FUT_EF_Ratio_All %>%
@@ -276,10 +279,36 @@ module_emissions_L241.fgas <- function(command, ...) {
     # ---------------------------------------------------------
     # Estimate future emission trends for cooling emissions
 
-    # First, create a subset of the cooling emission factors from the max year
-    # Eventually these values will be used to estimate future emission factors by scaling with
-    # USA emission factors.
+    # ---------------------------------------------------------
+    # First create default emission factor trends focusing on population-driven emissions
+    # Create default trend for population-based emissions
+    L201.Pop_Trends <- L201.Pop_GCAM3 %>%
+      left_join_error_no_match(A_regions, by = "region") %>%
+      group_by(Velders_region, year) %>%
+      summarize(VReg_Pop = sum(totalPop)) %>%
+      ungroup %>%
+      group_by(Velders_region) %>%
+      # Now that we have total population by Velders region, make ratio from base-year
+      mutate(pop_trend = VReg_Pop / VReg_Pop[year == MODEL_FINAL_BASE_YEAR]) %>%
+      ungroup()
 
+    # SAMPLE CODE FOR MAKING A RATIO
+    L141.hfc_ef_cooling_maxhistyr %>%
+      select(-year) %>%
+      # Since Guus Velders data set contains information on extra gases we
+      # use left_join here because we expect there to be NAs that will latter be dealt with
+      left_join(L241.FUT_EF_Ratio, by = c("Non.CO2" = "Species")) %>%
+      # Again use left_join here because mapping is only for nonA5 regions
+      left_join(iso_Montreal_nonA5_reg, , by = c("GCAM_region_ID","region")) %>%
+      mutate(value = if_else(is.na(marker) , value * ratio_nonA5, value * ratio_A5)) %>%
+      select(-ratio_A5, -ratio_nonA5, -marker ) %>%
+      # Ok to use na.omit since this for future EFs, emissions without Velders
+      # data will  have default growth trend
+      na.omit() %>%
+      # Keep only for future years
+      filter(!year %in% emissions.HFC_MODEL_BASE_YEARS) ->
+      L241.hfc_cool_ef_update_all
+    # First, create a subset of the cooling emission factors from the max year
     L141.hfc_ef_R_cooling_Yh %>%
       filter(year == MAX_DATA_YEAR) %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") ->
