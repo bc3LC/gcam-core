@@ -22,6 +22,7 @@ module_emissions_L141.hfc_R_S_T_Y <- function(command, ...) {
              FILE = "emissions/gcam_fgas_tech",
              FILE = "emissions/other_f_gases",
              "L144.in_EJ_R_bld_serv_F_Yh",
+             "L144.base_service_EJ_serv",
              FILE = "common/iso_GCAM_regID",
              FILE = "emissions/EDGAR/EDGAR_sector_fgas",
              FILE = "emissions/EDGAR/EDGAR_all_F_gases",
@@ -55,6 +56,7 @@ module_emissions_L141.hfc_R_S_T_Y <- function(command, ...) {
     gcam_fgas_tech <- get_data(all_data, "emissions/gcam_fgas_tech", strip_attributes = TRUE)
     other_f_gases <- get_data(all_data, "emissions/other_f_gases")
     L144.in_EJ_R_bld_serv_F_Yh <- get_data(all_data, "L144.in_EJ_R_bld_serv_F_Yh")
+    L144.base_service_EJ_serv <- get_data(all_data, "L144.base_service_EJ_serv")
     iso_GCAM_regID <- get_data(all_data, "common/iso_GCAM_regID")
     EDGAR_sector <- get_data(all_data, "emissions/EDGAR/EDGAR_sector_fgas")
     EDGAR_ALL_EM <- get_data(all_data, "emissions/EDGAR/EDGAR_all_F_gases")
@@ -69,6 +71,9 @@ module_emissions_L141.hfc_R_S_T_Y <- function(command, ...) {
     # ===============================================================
 
     # Initial re-formatting of EDGAR Emissions
+    # Note EDGAR has no cooling emissions in developing regions
+    # All emissions are lumped in with commertial refrigeration
+    # Velders does something analogous, lumped into their "ICR" sector
     EDGAR_ALL_EM_V2 <- EDGAR_ALL_EM %>%
       rename(IPCC = ipcc_code_1996_for_standard_report) %>%
       rename(Non.CO2 = Substance) %>%
@@ -106,7 +111,7 @@ module_emissions_L141.hfc_R_S_T_Y <- function(command, ...) {
       group_by(GCAM_region_ID, EDGAR_agg_sector, Non.CO2,  year) %>%
       summarise(emissions = sum(emissions))
 
-    # Set using data instead of by constant
+    # Set years using data instead of by constant
     edgar_names<-as.numeric(names(EDGAR_ALL_EM_V2))
     emissions.EDGAR_YEARS <- 1971:max(edgar_names[!is.na(edgar_names)])
 
@@ -164,11 +169,12 @@ module_emissions_L141.hfc_R_S_T_Y <- function(command, ...) {
     }
 
     # Compute cooling HFC emissions factors
-    L141.hfc_R_S_T_Yh.long %>% rename(value = emissions) %>%
+    L141.hfc_R_S_T_Yh.long  %>%
       filter(grepl("cooling",supplysector), year %in% HISTORICAL_YEARS) %>%
-      left_join_error_no_match(L141.R_cooling_T_Yh.long %>% select(GCAM_region_ID, year, service, energy = value),
+      # F-gas emission factors are output-based, so calculate EF as emissions over output service
+      left_join_error_no_match(L144.base_service_EJ_serv %>% select(GCAM_region_ID, year, service, value),
                                by = c("GCAM_region_ID", "year", "supplysector" = "service")) %>%
-      mutate(em_fact = value / energy) %>%
+      mutate(em_fact = emissions / value) %>%
       select(GCAM_region_ID, supplysector, subsector, stub.technology, Non.CO2, year, em_fact) %>%
       replace_na(list(em_fact = 0)) %>%
       rename(value = em_fact) -> L141.hfc_ef_R_cooling_Yh
