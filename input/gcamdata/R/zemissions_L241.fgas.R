@@ -26,7 +26,7 @@ module_emissions_L241.fgas <- function(command, ...) {
              FILE = "emissions/Velders_HFC/KGL2021_constrProdEmis_ObsAgage_OECD-SSP3",
              FILE = "emissions/mappings/Montreal_nonA5_GCAMreg",
              FILE = "emissions/A_regions",
-             FILE = "L201.Pop_GCAM3",
+             "L201.Pop_GCAM3",
              "L141.hfc_R_S_T_Yh",
              "L141.hfc_ef_R_cooling_Yh",
              "L142.pfc_R_S_T_Yh"))
@@ -126,17 +126,21 @@ module_emissions_L241.fgas <- function(command, ...) {
       mutate(Prod_A5max = max(Prod_A5), Prod_nonA5max = max(Prod_nonA5)) %>%
       ungroup() %>%
       mutate(Prod_A5 = if_else( Year > MaxA5Year, Prod_A5max, Prod_A5)) %>%
-      mutate(Prod_nonA5 = if_else( Year > MaxNonA5Year, Prod_nonA5max, Prod_A5)) ->
+      mutate(Prod_nonA5 = if_else( Year > MaxNonA5Year, Prod_nonA5max, Prod_A5)) %>%
+      rename(year = Year) %>%
+      # Format the FUT_EMISS_GV species to be consistent with GCAM names by removing the "-"
+      mutate(Species=gsub('HFC-43-10mee', 'HFC43', Species)) %>% # special case with different pattern
+      mutate(Species = gsub("-", "", Species)) ->
       FUT_EMISS_GV_FUT
 
 
     FUT_EMISS_GV_FUT %>%
       # Define emissions factor as emissions over production
-      # This is not exactly correct, since emission banks play a big role, but is the closest we can get to GCAM's activity driven formulation
+      # This is not exactly correct, since emission banks play a big role, but
+      # is the closest we can get to GCAM's activity driven formulation
       mutate( EF = Emis_tot / Prod_tot) %>%
       mutate( EF_nonA5 = Emis_nonA5 / Prod_nonA5) %>%
       mutate( EF_A5 = Emis_A5 / Prod_A5) %>%
-      rename(year = Year) %>%
       filter(year %in% ratio_years) %>%
       group_by(Species) %>%
       # Calculate EF trends we will use to adjust GCAM's emission trajectory
@@ -146,19 +150,15 @@ module_emissions_L241.fgas <- function(command, ...) {
       mutate(ratio_nonA5 = EF_nonA5 / EF_nonA5[year == min(ratio_years)]) %>%
       mutate(ratio_A5 = EF_A5 / EF_A5[year == min(ratio_years)]) %>%
       ungroup %>%
-      # Format the FUT_EMISS_GV species to be consistent with GCAM names by removing the "-"
-      mutate(Species=gsub('HFC-43-10mee', 'HFC43', Species)) %>% # special case with different pattern
-      mutate(Species = gsub("-", "", Species)) %>%
-      select(-Bank_tot, -Mix_tot,  -Bank_nonA5, -Bank_A5, -Emis_nonA5, -Emis_A5, -Emis_tot, -Prod_tot) %>%
-      select(-Prod_nonA5, -Prod_A5, -EF, -EF_nonA5, -EF_A5  ) %>%
-      filter(year %in% emissions.GV_FUTURE_YEARS) ->
+      select(-Bank_tot, -Mix_tot,  -Bank_nonA5, -Bank_A5, -Emis_tot, -Prod_tot) %>%
+      select(-Prod_nonA5, -Prod_A5, -EF, -EF_nonA5, -EF_A5  )  ->
       L241.FUT_EF_Ratio_All
 
     # Default to the "high" scenario set, although there is not a large difference
-    SCEN_HighLow <- "_High"
+    SCEN_HighLow <- "_ssp5"
 
     # For single scenario selection, indicate that scenario here
-    SELECT_SCENARIO <- "FUT_EMISS_GV_Kigali"
+    SELECT_SCENARIO <- "KGL2021"
 
     # If this variable is <> 0, then a hybrid scenario
     # If BLEND_FRACT > 0 then scenario is (1-BLEND_FRACT)*Kigali + BLEND_FRACT*CP
@@ -282,34 +282,72 @@ module_emissions_L241.fgas <- function(command, ...) {
     # ---------------------------------------------------------
     # First create default emission factor trends focusing on population-driven emissions
     # Create default trend for population-based emissions
-    L201.Pop_Trends <- L201.Pop_GCAM3 %>%
-      left_join_error_no_match(A_regions, by = "region") %>%
-      group_by(Velders_region, year) %>%
-      summarize(VReg_Pop = sum(totalPop)) %>%
-      ungroup %>%
-      group_by(Velders_region) %>%
-      # Now that we have total population by Velders region, make ratio from base-year
-      mutate(pop_trend = VReg_Pop / VReg_Pop[year == MODEL_FINAL_BASE_YEAR]) %>%
-      ungroup()
+    L201.Pop_GCAM3 %>%
+      group_by(region) %>%
+      mutate(pop_trend = totalPop / totalPop[year == MODEL_FINAL_BASE_YEAR]) %>%
+      ungroup() %>%
+      select(-totalPop) -> L201.Pop_Trends
 
-    # SAMPLE CODE FOR USING A RATIO
-    L141.hfc_ef_cooling_maxhistyr %>%
-      select(-year) %>%
-      # Since Guus Velders data set contains information on extra gases we
-      # use left_join here because we expect there to be NAs that will latter be dealt with
-      left_join(L241.FUT_EF_Ratio, by = c("Non.CO2" = "Species")) %>%
-      # Again use left_join here because mapping is only for nonA5 regions
-      left_join(iso_Montreal_nonA5_reg, , by = c("GCAM_region_ID","region")) %>%
-      mutate(value = if_else(is.na(marker) , value * ratio_nonA5, value * ratio_A5)) %>%
-      select(-ratio_A5, -ratio_nonA5, -marker ) %>%
-      # Ok to use na.omit since this for future EFs, emissions without Velders
-      # data will  have default growth trend
-      na.omit() %>%
-      # Keep only for future years
-      filter(!year %in% emissions.HFC_MODEL_BASE_YEARS) ->
-      L241.hfc_cool_ef_update_all
+    # Now calculate Velders emission trends to use for initial period for nonA5 regions
+    L241.FUT_EF_Ratio %>%
+      select(Species, year, Emis_nonA5, Emis_A5) %>%
+      # Here we want the actual emission trends
+      group_by(Species) %>%
+      mutate( Etrend_nonA5 = Emis_nonA5 / Emis_nonA5[year == MODEL_FINAL_BASE_YEAR]) %>%
+      mutate( Etrend_A5 = Emis_A5 / Emis_A5[year == MODEL_FINAL_BASE_YEAR]) %>%
+      ungroup() %>%
+      mutate( Etrend_nonA5 = if_else(is.nan(Etrend_nonA5),1,Etrend_nonA5)) %>%
+      mutate( Etrend_A5 = if_else(is.nan(Etrend_A5),1,Etrend_A5)) %>%
+      select(-Emis_nonA5, -Emis_A5) -> Velder_EmTrends
 
-    # From here down, don't need to change.
+    Velder_EmTrends %>%
+      filter(year %in% ratio_years) %>%
+      # Use left join because we know rows will not match
+      left_join(L201.Pop_Trends,by = c(region,year), relationship = "many-to-many") %>%
+      # Use left join since file only marks nonA5 regions
+      left_join(iso_Montreal_nonA5_reg, by = c("region")) %>%
+      # Now assign appropriate region to EmGrowthScaler
+      mutate(EmGrowthScaler = if_else(is.na(marker), Etrend_A5, Etrend_nonA5)) %>%
+      select(-Etrend_nonA5, -Etrend_A5, -marker, -GCAM_region_ID ) %>%
+      # Now set EF_Growth_Mod as EmGrowthScaler / pop_trend
+      # since pop trend is already the default driver in GCAM
+      mutate(EF_Growth_Mod = EmGrowthScaler / pop_trend ) %>%
+      select(-EmGrowthScaler, -pop_trend) ->
+      raw_EF_Growth_Mod
+
+    # Set transition points for country groups where EF trend mod stays
+    # constant so growth isn't never-ending. If we don't do this, the ratio of
+    # emissions to, for example, floorspace gets really high
+    nonA5_transition = 2030
+    A5_transition = 2060
+
+    # Incorporate transition years
+    raw_EF_Growth_Mod  %>%
+      # Use left join since file only marks nonA5 regions
+      left_join(iso_Montreal_nonA5_reg, by = c("region")) %>%
+      select(-GCAM_region_ID) %>%
+      # Now assign transition years
+      mutate(transitionYear = if_else(is.na(marker), A5_transition, nonA5_transition)) %>%
+      unique() %>%
+      # Extend transition for Africa
+     # left_join(A_regions, by = c("region")) %>%
+    #  mutate(transitionYear = if_else(Velders_region=="AFRICA", transitionYear+20, transitionYear)) %>%
+     # select(-marker, -bio_N2O_coef, -GAINS_region, -Velders_region, -MAC_region, -SO2_name,-GCAM_region_ID) %>%
+      # Keep modification constant after transition year
+      group_by(region, Species) %>%
+      mutate(EF_Growth_Mod = if_else(year > transitionYear, EF_Growth_Mod[year==transitionYear], EF_Growth_Mod)) %>%
+      ungroup() %>%
+      # Add GCAM_region_ID
+      left_join_error_no_match(GCAM_region_names, by = "region") %>%
+      select(-transitionYear, -marker, -region) ->
+      EF_Growth_Mod
+
+    # TODO finish calcs and use this scaler below
+
+    # Remove emissions and last model year since don't need those now
+    L241.FUT_EF_Ratio %>%
+      select(-Emis_nonA5, -Emis_A5) %>%
+      filter(year %in% emissions.GV_FUTURE_YEARS) -> L241.FUT_EF_Ratio
 
     # First, create a subset of the cooling emission factors from the max year
     L141.hfc_ef_R_cooling_Yh %>%
@@ -323,13 +361,16 @@ module_emissions_L241.fgas <- function(command, ...) {
       # Since Guus Velders data set contains information on extra gases we
       # use left_join here because we expect there to be NAs that will latter be dealt with
       left_join(L241.FUT_EF_Ratio, by = c("Non.CO2" = "Species")) %>%
-      # Again use left_join here because mapping is only for nonA5 regions
+      # Use left join since file only marks nonA5 regions
       left_join(iso_Montreal_nonA5_reg, , by = c("GCAM_region_ID","region")) %>%
       mutate(value = if_else(is.na(marker) , value * ratio_nonA5, value * ratio_A5)) %>%
       select(-ratio_A5, -ratio_nonA5, -marker ) %>%
       # Ok to use na.omit since this for future EFs, emissions without Velders
-      # data will  have default growth trend
+      # data will have default growth trend
       na.omit() %>%
+      # Now add modification for growth rates different than population
+      left_join(EF_Growth_Mod,by=c("GCAM_region_ID","year"),relationship = "many-to-many") %>%
+      mutate(value = value * EF_Growth_Mod) %>%
       # Keep only for future years
       filter(!year %in% emissions.HFC_MODEL_BASE_YEARS) ->
       L241.hfc_cool_ef_update_all
@@ -352,16 +393,21 @@ module_emissions_L241.fgas <- function(command, ...) {
     # Use the future emission factor ratios to scale process emission factors
     L241.hfc_ef_maxhistyr %>%
       select(-year) %>%
-      # Since Velders data set fewer  gases we
+      # Since Velders data set fewer gases we
       # use left_join here because we expect there to be NAs
       left_join(L241.FUT_EF_Ratio, by = c("Non.CO2" = "Species")) %>%
-      # Again use left_join here because mapping is only for nonA5 regions
+      # Use left join since file only marks nonA5 regions
       left_join(iso_Montreal_nonA5_reg, , by = c("GCAM_region_ID","region")) %>%
       mutate(value = if_else(is.na(marker) , value * ratio_nonA5, value * ratio_A5)) %>%
       select(-ratio_A5, -ratio_nonA5, -marker ) %>%
       # Ok to use na.omit since this for future EFs, emissions without Velders
       # data will  have default growth trend
       na.omit() %>%
+      # Now add modification for growth rates for urban processes
+      left_join(EF_Growth_Mod,by=c("GCAM_region_ID","year"),relationship = "many-to-many") %>%
+      mutate(EF_Growth_Mod = if_else(supplysector=="urban processes",EF_Growth_Mod,1)) %>%
+      mutate(value = value * EF_Growth_Mod) %>%
+      # Keep only for future years
       filter(!year %in% emissions.HFC_MODEL_BASE_YEARS) ->
       L241.hfc_ef_update_all
 
