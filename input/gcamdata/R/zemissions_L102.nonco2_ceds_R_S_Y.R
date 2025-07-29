@@ -73,9 +73,11 @@ module_emissions_L102.nonco2_ceds_R_S_Y <- function(command, ...) {
       # If not, use the pre-saved summary file (i.e., the output of this chunk!) assuming it's available
       if(!is.null(CEDS_CH4) && !is.null(CEDS_BC) && !is.null(CEDS_OC) && !is.null(CEDS_CO) && !is.null(CEDS_NMVOC) && !is.null(CEDS_NH3) && !is.null(CEDS_NOx) && !is.null(CEDS_SO2) && !is.null(CEDS_CO2_all)) {
 
-        # for CO2, keep only fugitive emissions
+        # for CO2, keep only fugitive emissions from fossil production
         CEDS_CO2 <- CEDS_CO2_all %>%
-          filter(grepl("Fugitive",sector))
+          filter(grepl("Fugitive",sector)) %>%
+          # only include oil, gas, and coal production, not other fugitive sectors
+          filter(!(sector %in% c('1B2d_Fugitive-other-energy','1B1_Fugitive-solid-fuels','1B2b_Fugitive-NG-distr')))
 
         #gather years
         CEDS_CH4 <- CEDS_CH4 %>%
@@ -258,3 +260,4 @@ module_emissions_L102.nonco2_ceds_R_S_Y <- function(command, ...) {
       stop("Unknown command")
     }
 }
+
