@@ -325,7 +325,7 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
       select(iso,UCD_sector,year,value,GCAM_region_ID) %>%
       distinct() %>%
       repeat_add_columns(tibble(Non.co2 = unique(GAINS_sector$Non.co2))) %>%
-      left_join(GAINS_sector %>% gather("UCD_sector","em_fact","Freight":"Passenger"),by=c("iso","year","Non.co2","UCD_sector")) %>%
+      left_join(GAINS_sector %>% tidyr::gather("UCD_sector","em_fact","Freight":"Passenger"),by=c("iso","year","Non.co2","UCD_sector")) %>%
       na.omit() %>%
       filter(UCD_sector != "Motorcycle") %>%
       group_by(Non.co2,GCAM_region_ID,year,UCD_sector) %>%
