@@ -139,6 +139,15 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       na.omit %>%
       ungroup
 
+    # FIX FOR SPRING 2025 GAINS VERSIONS (hopefully can remove for versions after that)
+    # This version of the GAINS data has many sectors with an anomalous
+    # increase in EF in 2020. So interpolate over this until that's fixed.
+    GAINS_EF_agg <- GAINS_EF_agg %>%
+      group_by(TIMER_REGION, agg_sector, POLL, scenario) %>%
+      filter(2015 %in% IDYEARS & 2020 %in% IDYEARS & 2025 %in% IDYEARS) %>%
+      mutate( value = if_else(IDYEARS==2020,(value[IDYEARS==2015]+value[IDYEARS==2025])/2,value)) %>%
+      ungroup()
+
     # Add last model base-year to GAINS EF and interpolate
     GAINS_EF_agg_newYear <- GAINS_EF_agg %>% filter(IDYEARS == 1990) %>%
       mutate(value = NA) %>%
