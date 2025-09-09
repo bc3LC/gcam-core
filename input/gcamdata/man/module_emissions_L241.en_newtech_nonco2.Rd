@@ -18,7 +18,7 @@ the generated outputs: \code{L241.nonco2_tech_coeff}, \code{L241.nonco2_max_redu
 original data system was \code{L241.en_newtech_nonco2.R} (emissions level2).
 }
 \description{
-Produce emission coefficient tables for model input tables related to new energy technology.
+Produce emission coefficient tables for model input tables related to new energy transformation technologies
 }
 \details{
 Generate input tables of non-CO2 emission coefficients.

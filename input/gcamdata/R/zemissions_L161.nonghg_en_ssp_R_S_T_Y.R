@@ -123,7 +123,7 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       filter(!grepl("resid",supplysector)) %>%
       bind_rows(GCAM_sector_tech_resid)
 
-    # Aggregate GAINS emissions data by GCAM sector
+    # Average GAINS emissions data by GCAM sector where necessary
     GAINS_EF_agg <- GAINS_EF %>%
       #rename variables
       rename(scenario=scen,TIMER_REGION=Group_Region,POLL=POLLUTANT_FRACTION, IDYEARS=year) |>
@@ -135,6 +135,8 @@ module_emissions_L161.nonghg_en_ssp_R_S_T_Y <- function(command, ...) {
       # Use left_join because NAs in GAINS_sector
       left_join(GAINS_sector, by = c("EMF30_AGG" = "IIASA_Sector")) %>%
       group_by(TIMER_REGION, agg_sector = GCAM_tag, POLL, IDYEARS, scenario) %>%
+      # This should be improved by weighting with base-year IEA data
+      # Or, perhaps more conviently, weighting with base-year CEDS emissions by detailed fuel
       summarise(value = mean(value)) %>%
       na.omit %>%
       ungroup
