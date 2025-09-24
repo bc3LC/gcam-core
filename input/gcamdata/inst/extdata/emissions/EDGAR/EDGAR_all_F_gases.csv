@@ -1,11 +1,9 @@
-﻿# File: EDGAR_all_F_gases.csv
+# File: EDGAR_all_F_gases.csv
 # Title: EDGAR F gases trend
 # Units: Kt
-# Source: EDGAR GHG_2024
-# Download: https://edgar.jrc.ec.europa.eu/dataset_ghg2024
-# Description: EDGAR inventory of F gases
+# Source: EDGAR GHG_2024 https://edgar.jrc.ec.europa.eu/dataset_ghg2024
+# Comments: EDGAR inventory of F gases compounds c-C4F8, C2F6, C3F8, C4F10, C5F12, C6F14, CF4, HCFC-141b, HCFC-142b, HFC-125, HFC-134, HFC-134a, HFC-143, HFC-143a, HFC-152a, HFC-227ea, HFC-23, HFC-236fa, HFC-245fa, HFC-32, HFC-365mfc, HFC-41, HFC-43-10-mee, NF3, SF6
 # Column types: ccccccccnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn 
-# Compounds: "c-C4F8, C2F6, C3F8, C4F10, C5F12, C6F14, CF4, HCFC-141b, HCFC-142b, HFC-125, HFC-134, HFC-134a, HFC-143, HFC-143a, HFC-152a, HFC-227ea, HFC-23, HFC-236fa, HFC-245fa, HFC-32, HFC-365mfc, HFC-41, HFC-43-10-mee, NF3, SF6"
 # ----------
 IPCC_annex,C_group_IM24_sh,Country_code_A3,Name,ipcc_code_1996_for_standard_report,ipcc_code_1996_for_standard_report_name,Substance,fossil_bio,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023
 Non-Annex_I,India +,AFG,Afghanistan,2F1a,Commerical refrigeration,HFC-125,fossil,0,0,0,0,0,0,0,0,0.000078386,0.001722429,0.004717985,0.008054035,0.011545867,0.015106959,0.019441665,0.024114247,0.024875468,0.023784643,0.023850401,0.02457664,0.021797694,0.02102859,0.021594153,0.022631103,0.023668053,0.024705002,0.027388515,0.029934094,0.032883003,0.035609003,0.038349166,0.04115419,0.043911253,0.046678669

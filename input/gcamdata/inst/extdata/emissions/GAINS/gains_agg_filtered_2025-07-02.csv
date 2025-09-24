@@ -3,7 +3,7 @@
 # Units: emission factors
 # Source: GAINS model
 # Description: GAINS emission factor data by sector and gas for historical and modeled years
-# Column types: cccccnn
+# Column types: ccccnn
 # ----------
 scen,Group_Region,EMF30_AGG,POLLUTANT_FRACTION,year,ef
 historical,AFRI_EAST,CEMENT,CO,1990,0.289248389
