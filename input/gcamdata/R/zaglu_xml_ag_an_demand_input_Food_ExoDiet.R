@@ -655,7 +655,7 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
     L203.StubCalorieContent_Food_ExoDiet1 %>%
       replace_na(list(WasteScaler = 1)) %>%
       mutate(efficiency = WasteScaler * efficiency) %>%
-      select(names(L203.StubCalorieContent)) ->
+      select(names(L203.StubCalorieContent_Food_ExoDiet)) ->
       L203.StubCalorieContent_Food_ExoDiet_WasteTrend
 
 
@@ -732,7 +732,7 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       L203.StubCalorieContent_Food_ExoDiet1 %>%
         replace_na(list(WasteScaler = 1)) %>%
         mutate(efficiency = WasteScaler * efficiency) %>%
-        select(names(L203.StubCalorieContent)) ->
+        select(names(L203.StubCalorieContent_Food_ExoDiet)) ->
         L203.StubCalorieContent_Food_ExoDiet_WasteTrend
 
       ### Produce outputs ----
