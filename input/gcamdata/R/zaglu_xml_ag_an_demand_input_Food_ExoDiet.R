@@ -32,7 +32,9 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       "L109.an_ALL_Mt_R_C_Y",
       # food proc linkage moved from module_energy_food_processing_xml
       "L2328.StubCalorieContent",
-      "L2328.StubCaloriePriceConv")
+      "L2328.StubCaloriePriceConv",
+      # waste pathways
+      "L100.AgMIP_FoodWaste_Share_Pathway_SSP")
 
   MODULE_OUTPUTS <-
     c(XML = "ag_an_demand_input_Food_ExoDiet_SSP1_VLLO.xml",
@@ -602,7 +604,9 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
 
     # *****************---------
 
-    # Step 3. update income elasticity with what derived in Step 1 and generate scenario based XML----
+    # Step 3. update income elasticity and food waste pathways  ----
+    ## update income elasticity with what derived in Step 1 and generate scenario based XML
+    ## also update L203.StubCalorieContent_Food_ExoDiet to reflect waste changes
 
 
     # Note that PerCapitaBased is turned off so that future changes in diet will be pure income elast. driven
@@ -622,8 +626,38 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
       dplyr::setdiff(L203.IncomeElasticity_Food_ExoDiet_updated %>%
                        distinct(region, energy.final.demand, year),
                      L203.IncomeElasticity_Food_ExoDiet %>%
-                       distinct(region, energy.final.demand, year)) %>% nrow ==0
+                       distinct(region, energy.final.demand, year)) %>% nrow == 0
     )
+
+
+    # Adjust the constant trend based on SSP scenarios
+    L203.StubCalorieContent_Food_ExoDiet %>%
+      left_join(
+        L100.AgMIP_FoodWaste_Share_Pathway_SSP %>%
+          filter(scenario == ssp) %>%
+          transmute(region, subsector = GCAM_commodity, year, WasteShare) %>%
+          mutate(NonWasteShare = (1 - WasteShare) ) %>%
+          group_by(region, subsector) %>%
+          # 2021 was the model base year when efficiency was defined
+          # we didn't do any adjustment before the base year; assuming waste shares were the same
+          filter(year >= MODEL_FINAL_BASE_YEAR) %>%
+          mutate(WasteScaler = NonWasteShare / NonWasteShare[year == MODEL_FINAL_BASE_YEAR]) %>%
+          ungroup %>% select(-WasteShare, -NonWasteShare) %>%
+          rename(stub.technology = subsector),
+        by = c("region", "stub.technology", "year")
+      ) -> L203.StubCalorieContent_Food_ExoDiet1
+
+    # assert that we have values for all future years
+    assertthat::assert_that(
+      L203.StubCalorieContent_Food_ExoDiet1 %>%
+        filter(year >= MODEL_FINAL_BASE_YEAR, is.na(WasteScaler)) %>% nrow() == 0 )
+
+    L203.StubCalorieContent_Food_ExoDiet1 %>%
+      replace_na(list(WasteScaler = 1)) %>%
+      mutate(efficiency = WasteScaler * efficiency) %>%
+      select(names(L203.StubCalorieContent)) ->
+      L203.StubCalorieContent_Food_ExoDiet_WasteTrend
+
 
     ### Produce outputs ----
 
@@ -633,7 +667,7 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
                                            "SubsectorLogit","subsector","nesting-subsector",1,FALSE) %>%
       add_xml_data_generate_levels(L203.StubTech_demand_Food_ExoDiet, "StubTech","subsector","nesting-subsector",1,FALSE) %>%
       add_xml_data_generate_levels(L203.StubTechProd_food_Food_ExoDiet, "StubTechProd", "subsector","nesting-subsector",1,FALSE) %>%
-      add_xml_data_generate_levels(L203.StubCalorieContent_Food_ExoDiet, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
+      add_xml_data_generate_levels(L203.StubCalorieContent_Food_ExoDiet_WasteTrend, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
       add_node_equiv_xml("subsector") %>%
       add_logit_tables_xml(L203.NestingSubsectorAll_demand_Food_ExoDiet, "SubsectorAll", "SubsectorLogit") %>%
       add_xml_data(L203.GlobalTechCoef_demand_Food_ExoDiet, "GlobalTechCoef") %>%
@@ -673,6 +707,34 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
                          distinct(region, energy.final.demand, year)) %>% nrow ==0
       )
 
+      # Adjust the constant trend based on SSP scenarios
+      L203.StubCalorieContent_Food_ExoDiet %>%
+        left_join(
+          L100.AgMIP_FoodWaste_Share_Pathway_SSP %>%
+            filter(scenario == ssp) %>%
+            transmute(region, subsector = GCAM_commodity, year, WasteShare) %>%
+            mutate(NonWasteShare = (1 - WasteShare) ) %>%
+            group_by(region, subsector) %>%
+            # 2021 was the model base year when efficiency was defined
+            # we didn't do any adjustment before the base year; assuming waste shares were the same
+            filter(year >= MODEL_FINAL_BASE_YEAR) %>%
+            mutate(WasteScaler = NonWasteShare / NonWasteShare[year == MODEL_FINAL_BASE_YEAR]) %>%
+            ungroup %>% select(-WasteShare, -NonWasteShare) %>%
+            rename(stub.technology = subsector),
+          by = c("region", "stub.technology", "year")
+        ) -> L203.StubCalorieContent_Food_ExoDiet1
+
+      # assert that we have values for all future years
+      assertthat::assert_that(
+        L203.StubCalorieContent_Food_ExoDiet1 %>%
+          filter(year >= MODEL_FINAL_BASE_YEAR, is.na(WasteScaler)) %>% nrow() == 0 )
+
+      L203.StubCalorieContent_Food_ExoDiet1 %>%
+        replace_na(list(WasteScaler = 1)) %>%
+        mutate(efficiency = WasteScaler * efficiency) %>%
+        select(names(L203.StubCalorieContent)) ->
+        L203.StubCalorieContent_Food_ExoDiet_WasteTrend
+
       ### Produce outputs ----
 
       create_xml(paste0("ag_an_demand_input_Food_ExoDiet_",ssp,"_VLHO.xml")) %>%
@@ -681,7 +743,7 @@ module_aglu_ag_an_demand_input_Food_ExoDiet_xml <- function(command, ...) {
                                              "SubsectorLogit","subsector","nesting-subsector",1,FALSE) %>%
         add_xml_data_generate_levels(L203.StubTech_demand_Food_ExoDiet, "StubTech","subsector","nesting-subsector",1,FALSE) %>%
         add_xml_data_generate_levels(L203.StubTechProd_food_Food_ExoDiet, "StubTechProd", "subsector","nesting-subsector",1,FALSE) %>%
-        add_xml_data_generate_levels(L203.StubCalorieContent_Food_ExoDiet, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
+        add_xml_data_generate_levels(L203.StubCalorieContent_Food_ExoDiet_WasteTrend, "StubCalorieContent", "subsector","nesting-subsector",1,FALSE) %>%
         add_node_equiv_xml("subsector") %>%
         add_logit_tables_xml(L203.NestingSubsectorAll_demand_Food_ExoDiet, "SubsectorAll", "SubsectorLogit") %>%
         add_xml_data(L203.GlobalTechCoef_demand_Food_ExoDiet, "GlobalTechCoef") %>%
