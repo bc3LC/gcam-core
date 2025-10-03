@@ -75,7 +75,7 @@ namespace {
 
     // default values
     const int def_end_year = 2100;
-    const int def_switch_year = 2005;
+    const int def_switch_year = 2022;
     const char *def_ini_file = "../input/climate/hector-gcam.ini";
 
     // don't ask
@@ -606,9 +606,9 @@ double HectorModel::getTemperature( const int aYear, const bool aAdjHistoricalPe
         // WARNING: this is set as a constant here but was derived from a particular
         // set of Hector assumptions.  And therefore should be sensitive to changing
         // Hector parameters.  Getting this value dynamically is issue JGCRI-469.
-        // Updated to Hector V3.2.0
-        const double GMAT_ADJUST = -0.0493;
-        tempval -= GMAT_ADJUST;
+        // Updated to Hector V3.4.9
+        const double GMSAT_ADJUST = 0.139068606743093;
+        tempval -= GMSAT_ADJUST;
     }
     return tempval;
 }
@@ -632,7 +632,7 @@ double HectorModel::getGmst(const int aYear, const bool aAdjHistoricalPeriod ) c
         // set of Hector assumptions.  And therefore should be sensitive to changing
         // Hector parameters.  Getting this value dynamically is issue JGCRI-469.
         // Updated to Hector V3.2.0
-        const double GMSAT_ADJUST = -0.0406;
+        const double GMSAT_ADJUST = 0.117890513;
         tempval -= GMSAT_ADJUST;
     }
     return tempval;
@@ -717,7 +717,7 @@ void HectorModel::storeConc( const int aYear, const bool aHadError ) {
     // No need to check the index because we checked it in runModel
     int i = yearlyDataIndex( aYear );
 
-    // These are some of the atmospheric concentrations that Hector V3.2.0 provides.
+    // These are some of the atmospheric concentrations that Hector V3.4.9 provides.
     Hector::message_data date( aYear );
     mConcTable["CH4"][i]   = aHadError ? numeric_limits<double>::quiet_NaN() : mHcore->sendMessage( M_GETDATA, D_CH4_CONC,date );
     mConcTable["N2O"][i]   = aHadError ? numeric_limits<double>::quiet_NaN() : mHcore->sendMessage( M_GETDATA, D_N2O_CONC,date );
