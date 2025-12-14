@@ -1,6 +1,8 @@
 # Global Change Analysis Model (GCAM)
 Branch developed for applications in the ScenarioMIP for CMIP7
+
 Includes historical years 2019, 2020
+
 Has Ukraine covered under Eastern Europe
 
 ## Documentation
