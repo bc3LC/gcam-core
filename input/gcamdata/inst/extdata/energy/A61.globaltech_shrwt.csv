@@ -6,3 +6,11 @@
 supplysector,subsector,technology,1971,2100
 carbon-storage,onshore carbon-storage,onshore carbon-storage,1,1
 carbon-storage,offshore carbon-storage,offshore carbon-storage,1,1
+ccs dynamic-capacity,ccs dynamic-capacity,ccs dynamic-capacity,1,1
+onshore CO2 transport,onshore CO2 transport,truck,1,1
+onshore CO2 transport,onshore CO2 transport,pipeline,1,1
+offshore CO2 transport,offshore CO2 transport,ship,1,1
+offshore CO2 transport,offshore CO2 transport,pipeline,1,1
+CO2 pipeline,CO2 pipeline,CO2 pipeline,1,1
+CO2 truck,CO2 truck,CO2 truck,1,1
+CO2 ship,CO2 ship,CO2 ship,1,1

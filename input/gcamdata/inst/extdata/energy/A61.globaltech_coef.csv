@@ -1,8 +1,21 @@
 # File: A61.globaltech_coef.csv
 # Title: Carbon storage global technology coefficient
 # Units: Unitless
-# Column types: ccccii 
+# Column types: ccccnnnnnnnnnnnnnnnnnn 
 # ----------
-supplysector,subsector,technology,minicam.energy.input,1971,2100
-carbon-storage,onshore carbon-storage,onshore carbon-storage,onshore carbon-storage,1,1
-carbon-storage,offshore carbon-storage,offshore carbon-storage,offshore carbon-storage,1,1
+supplysector,subsector,technology,minicam.energy.input,1971,2020,2025,2030,2035,2040,2045,2050,2055,2060,2065,2070,2075,2080,2085,2090,2095,2100
+carbon-storage,onshore carbon-storage,onshore carbon-storage,onshore carbon-storage,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+carbon-storage,onshore carbon-storage,onshore carbon-storage,onshore CO2 transport,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+carbon-storage,offshore carbon-storage,offshore carbon-storage,offshore carbon-storage,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+carbon-storage,offshore carbon-storage,offshore carbon-storage,offshore CO2 transport,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+carbon-storage,onshore carbon-storage,onshore carbon-storage,ccs dynamic-capacity,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+carbon-storage,offshore carbon-storage,offshore carbon-storage,ccs dynamic-capacity,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+onshore CO2 transport,onshore CO2 transport,truck,CO2 truck,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+onshore CO2 transport,onshore CO2 transport,pipeline,CO2 pipeline,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+offshore CO2 transport,offshore CO2 transport,ship,CO2 ship,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+CO2 ship,CO2 ship,CO2 ship,trn_shipping_intl,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333,1833.333333
+CO2 ship,CO2 ship,CO2 ship,elect_td_ind,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104,1.579141104
+offshore CO2 transport,offshore CO2 transport,pipeline,CO2 pipeline,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+CO2 pipeline,CO2 pipeline,CO2 pipeline,elect_td_ind,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878,0.036588878
+CO2 truck,CO2 truck,CO2 truck,trn_freight_road,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667,1180.182667
+CO2 truck,CO2 truck,CO2 truck,elect_td_ind,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952,1.7952

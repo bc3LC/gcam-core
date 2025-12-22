@@ -6,3 +6,9 @@
 supplysector,subsector,logit.exponent,logit.type
 carbon-storage,onshore carbon-storage,-6,
 carbon-storage,offshore carbon-storage,-6,
+ccs dynamic-capacity,ccs dynamic-capacity,-6,
+onshore CO2 transport,onshore CO2 transport,-6,
+offshore CO2 transport,offshore CO2 transport,-6,
+CO2 pipeline,CO2 pipeline,-6,
+CO2 truck,CO2 truck,-6,
+CO2 ship,CO2 ship,-6,
