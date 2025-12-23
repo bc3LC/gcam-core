@@ -1,0 +1,8 @@
+# File: A61.ResSubresourceProdLifetime.csv
+# Title: Average resource injection well lifetime over which the storage capacity will be depleted
+# Units: Years
+# Source: Assume equal to natural gas for now
+# Column types: cci
+# ----------
+resource,reserve.subresource,avg.prod.lifetime
+onshore carbon-storage,onshore carbon-storage,30

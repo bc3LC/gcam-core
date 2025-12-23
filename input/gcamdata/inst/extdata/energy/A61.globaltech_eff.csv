@@ -1,0 +1,8 @@
+# File: A61.globaltech_eff.csv
+# Title: Growth rate constraint on geologic storage defined as a fraction of maximum injectivity in each region. A logistic fit for a gas pipeline analogue is used for slow growth here (k = 0.032 t_inflection = 2126); rapid growth is based on U.S. shale gas data (r = 0.24)
+# Units: Unitless
+# Column types: cccccnnnnnnnnnnnnnnnnnn
+# ----------
+scenario,supplysector,subsector,technology,minicam.energy.input,1971,2020,2025,2030,2035,2040,2045,2050,2055,2060,2065,2070,2075,2080,2085,2090,2095,2100
+slow growth,ccs dynamic-capacity,ccs dynamic-capacity,ccs dynamic-capacity,carbon-storage dynamic,1.65E-02,0.07465946,0.086493235,0.1,0.115349645,0.13270799,0.152229001,0.174045263,0.198256899,0.224919458,0.254031599,0.285523743,0.319249144,0.354978923,0.392402495,0.431134339,0.470727369,0.510692225
+rapid growth,ccs dynamic-capacity,ccs dynamic-capacity,ccs dynamic-capacity,carbon-storage dynamic,7.87E-08,0.009979185,0.032382316,0.1,0.269487452,0.550520865,0.802623937,0.931039988,0.978178051,0.993325575,0.997980282,0.999390813,0.999816438,0.999944705,0.999983345,0.999994984,0.999998489,0.999999545

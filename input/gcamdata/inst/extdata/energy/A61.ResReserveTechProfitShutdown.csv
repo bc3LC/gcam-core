@@ -1,0 +1,7 @@
+# File: A61.ResReserveTechProfitShutdown.csv
+# Title: Resource profit shutdown to characterize an injection well's ability scale back production under unprofitable conditions
+# Units: NA
+# Column types: cccnn
+# ----------
+resource,reserve.subresource,resource.reserve.technology,median.shutdown.point,profit.shutdown.steepness
+onshore carbon-storage,onshore carbon-storage,onshore carbon-storage,0.3,9

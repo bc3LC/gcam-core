@@ -1,0 +1,11 @@
+# File: A61.globaltech_losses.csv
+# Title: CO2 transportation losses
+# Units: kg losses / kg output
+# Comments: estimated from various literature sources
+# Column types: cccccnnn
+# ----------
+supplysector,subsector,technology,minicam.energy.input,Non.CO2,2025,2050,2100
+onshore CO2 transport,onshore CO2 transport,truck,CO2 truck,CO2,0,0,0
+onshore CO2 transport,onshore CO2 transport,pipeline,CO2 pipeline,CO2,0,0,0
+offshore CO2 transport,offshore CO2 transport,ship,trn_freight,CO2,0,0,0
+offshore CO2 transport,offshore CO2 transport,pipeline,CO2 pipeline,CO2,0,0,0
