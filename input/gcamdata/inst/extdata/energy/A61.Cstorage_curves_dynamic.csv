@@ -1,0 +1,18 @@
+# File: A61.Cstorage_curves_dynamic.csv
+# Title: Dynamic capacity cost curve for CCS
+# Units: cost_2008USDtCO2: 2008$/tCO2
+# Source: Derived from FE/NETL CO2 Saline Storage Cost Model (2024) Baseline configuration. https://edx.netl.doe.gov/dataset/fecm-netl-co2-saline-storage-cost-model-co2_s_com-2024-v4
+# Column types: cccnnn
+# ----------
+resource,subresource,grade,available_MtCO2_USA,fraction,cost_2008USDtCO2
+carbon-storage dynamic,ccs dynamic-capacity,grade 0,0,0,0
+carbon-storage dynamic,ccs dynamic-capacity,grade 1,51.72,0.039987607,4.49
+carbon-storage dynamic,ccs dynamic-capacity,grade 2,202.57,0.156618126,5.8
+carbon-storage dynamic,ccs dynamic-capacity,grade 3,400.83,0.309903951,7.27
+carbon-storage dynamic,ccs dynamic-capacity,grade 4,603.4,0.466522077,10.79
+carbon-storage dynamic,ccs dynamic-capacity,grade 5,801.6185575,0.619775861,18.84
+carbon-storage dynamic,ccs dynamic-capacity,grade 6,1000.131187,0.773257008,36.92
+carbon-storage dynamic,ccs dynamic-capacity,grade 7,1140.337704,0.881658459,96.11
+carbon-storage dynamic,ccs dynamic-capacity,grade 8,1199.570456,0.927454592,149.87
+carbon-storage dynamic,ccs dynamic-capacity,grade 9,1277.211218,0.987482979,687.24
+carbon-storage dynamic,ccs dynamic-capacity,grade 10,1293.400741,1,11299.93

@@ -1,0 +1,9 @@
+# File: A61.globaltech_secout.csv
+# Title: Desalinated water as coproduct of CCS brine treatment
+# Units: NA
+# Column types: cccciii
+# ----------
+supplysector,subsector,technology,fractional.secondary.output,1971,2020,2100
+desalinated water CCS,electricity,reverse osmosis,desalinated water,1,1,1
+desalinated water CCS,gas,distillation,desalinated water,1,1,1
+desalinated water CCS,refined liquids,distillation,desalinated water,1,1,1

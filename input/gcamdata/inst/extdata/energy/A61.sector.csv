@@ -5,3 +5,9 @@
 # ----------
 supplysector,output.unit,input.unit,price.unit,logit.exponent,logit.type
 carbon-storage,MtC,MtC,1990$/tC,-6,absolute-cost-logit
+ccs dynamic-capacity,MtC,MtC,1990$/tC,-6,absolute-cost-logit
+onshore CO2 transport,MtC,MtC,1990$/tC,-6,
+offshore CO2 transport,MtC,MtC,1990$/tC,-6,
+CO2 pipeline,MtC,MtC,1990$/tC,-6,
+CO2 truck,MtC,MtC,1990$/tC,-6,
+CO2 ship,MtC,MtC,1990$/tC,-6,

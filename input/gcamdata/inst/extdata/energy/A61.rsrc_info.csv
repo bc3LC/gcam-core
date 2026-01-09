@@ -6,3 +6,4 @@
 resource,resource_type,market,output-unit,price-unit,capacity.factor,subresource
 offshore carbon-storage,unlimited-resource,global,MtC,1990$/tC,0,
 onshore carbon-storage,resource,regional,MtC,1990$/tC,,onshore carbon-storage
+carbon-storage dynamic,renewresource,regional,MtC,1990$/tC,,ccs dynamic-capacity

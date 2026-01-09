@@ -1,9 +1,14 @@
 # File: A61.globaltech_cost.csv
 # Title: Carbon storage offshore storage cost
-# Units: 1975$/tCO2
-# Source: Decarre 2010; CO2 maritime transportation; https://doi.org/10.1016/j.ijggc.2010.05.005
-# Comments: $32/tCO2. Converted to 1975$ and multiplied by 3 to be conservative and then by 0.8 to scale back
-# Column types: ccccii 
+# Units: 19990$/tC
+# Source: Onshore pipeline cost from NETL CO2 transport cost model (2023); doubled for offshore pipelines.  CO2 ship cost from Al Baroudi et al (2021).  CO2 truck costs from Meyers et al (2024).  Offshore CO2 storage cost only (i.e., excl. transport) from Schmelz et al 2020.
+# Comments: Non-energy costs only.  Transportation + electricity input cost is calculated endogenously
+# Column types: ccccnnc 
 # ----------
-supplysector,subsector,technology,minicam.non.energy.input,1971,2100
-carbon-storage,offshore carbon-storage,offshore carbon-storage,non-energy,211,211
+supplysector,subsector,technology,minicam.non.energy.input,1971,2100,comments
+onshore CO2 transport,onshore CO2 transport,truck,non-energy,14.6,14.6,https://doi.org/10.1016/j.ijggc.2024.104123
+onshore CO2 transport,onshore CO2 transport,truck,cost-adder,83,83,Adjusted such that total cost in USA region $100/tCO2 (2024 USD)
+onshore CO2 transport,onshore CO2 transport,pipeline,non-energy,4.073708246,4.073708246,https://netl.doe.gov/energy-analysis/details?id=d3086f60-278d-4e97-a649-8e4d5ce5e93c
+offshore CO2 transport,offshore CO2 transport,ship,non-energy,28.86,28.86,https://doi.org/10.1016/j.apenergy.2021.116510
+offshore CO2 transport,offshore CO2 transport,pipeline,non-energy,8.147416492,8.147416492,https://netl.doe.gov/energy-analysis/details?id=d3086f60-278d-4e97-a649-8e4d5ce5e93c
+carbon-storage,offshore carbon-storage,offshore carbon-storage,storage cost only,37.28,37.28,https://doi.org/10.1098/rsfs.2019.0065

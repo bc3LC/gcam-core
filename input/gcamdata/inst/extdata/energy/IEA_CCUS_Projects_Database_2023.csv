@@ -1,0 +1,588 @@
+# File: IEA_CCUS_Projects_Database_2023.csv
+# Title: Operational + Under Construction CCUS Capacity
+# Units: MtCO2 per year
+# Source: IEA 2023
+# Column types: cccciiiicnnnccc
+# ----------
+Project name,Country,Partners,Project type,Announcement,FID,Operation,Suspension/decommissioning,Project Status,Project phase,Announced capacity (low) (Mt CO2/yr),Announced capacity (high) (Mt CO2/yr),Sector,Fate of carbon,Part of CCUS hub
+3D DMX ArcelorMittal and IFPEN Dunkirk (full-scale),France,"ArcelorMittal, ifp, Axens, Uetikon, Grassco, brevik, TotalEnergies",Capture,2019,,2025,,Planned,1,1,1,Iron and steel,Unknown/unspecified,
+8Rivers H2 (8RH2) (WY),United States,"8Rivers, Wyoming Energy Authority",Capture,2022,,,,Planned,,,,Hydrogen/ammonia,Dedicated storage,
+Abu Dhabi CCS Phase 1: Emirates Steel Industries,United Arab Emirates,"ADNOC, Masdar",Full chain,2007,2012,2016,,Operational,1,0.8,0.8,Iron and steel,EOR,
+Abu Dhabi CCS Phase 2: Habshan and Bab gas plant,United Arab Emirates,ADNOC,Full chain,2020,,2030,,Planned,2,1.9,1.9,Natural gas processing,EOR,
+Abu Dhabi CCS Phase 2: Shah gas plant,United Arab Emirates,ADNOC,Full chain,2020,,2030,,Planned,2,2.3,2.3,Natural gas processing,EOR,
+Acorn CCS phase 1-Capture at St Fergus,United Kingdom,"Storegga (30%), Shell (30%), Harbour (30%), North Sea Midstream partners (10%)",Capture,2016,2023,2024,,Planned,,0.3,0.3,Natural gas processing,Dedicated storage,Acorn CCS
+Acorn CCS phase 1-T&S,United Kingdom,"Storegga (30%), Shell (30%), Harbour (30%), North Sea Midstream partners (10%)",T&S,2016,2023,2024,,Planned,1,0.3,0.8,CO2 T&S,Dedicated storage,Acorn CCS
+Acorn CCS phase 2,United Kingdom,"Storegga (30%), Shell (30%), Harbour (30%), North Sea Midstream partners (10%)",T&S,2017,,,,Planned,2,5,5,CO2 T&S,Dedicated storage,Acorn CCS
+Acorn H2,United Kingdom,"Storegga, Chrysaor, Shell and Total",Capture,2018,,2025,,Planned,,0.4,0.4,Hydrogen/ammonia,Dedicated storage,Acorn CCS
+Adbri Calix new Lime plant Kwinana,Australia,"Adbri, Calix, CarbonTP, Heavy Industry Low Emissions Technology Co-Operative Research Centre",Capture,2021,,,,Planned,,,,Other industry,Dedicated storage,South West Hub Project
+ADM & Wolf Carbon Solutions pipeline (IA),United States,"ADM, Wolf Carbon Solutions (Wolf Midstream)",Transport,2022,,,,Planned,,12,12,CO2 transport,,ADM & Wolf Carbon Solutions pipeline
+ADM Cedar rapids bioethanol (IA),United States,ADM,Capture,2022,,,,Planned,,,,Biofuels,Dedicated storage,ADM & Wolf Carbon Solutions pipeline
+ADM Clinton bioethanol (IA),United States,ADM,Capture,2022,,,,Planned,,,,Biofuels,Dedicated storage,ADM & Wolf Carbon Solutions pipeline
+Advanced CO2 Capture from Hydrogen Production Unit at Phillips 66 Rodeo Refinery (CA),United States,Phillips 66,Capture,2021,,,,Planned,,,,Other fuel transformation,Unknown/unspecified,
+Aemetis CCS Keyes facility (CA),United States,Aemetis,Full chain,2021,,2024,,Planned,,0.4,0.4,Biofuels,Dedicated storage,Aemetis CCS
+Aemetis CCS Riverbank facility (CA),United States,Aemetis,Full chain,2021,,2024,,Planned,,,,Biofuels,Dedicated storage,Aemetis CCS
+Air Liquide Botlek Rotterdam refinery,Netherlands,Air Liquide,Capture,2012,2023,2024,,Planned,,0.5,0.5,Other fuel transformation,Dedicated storage,Porthos
+Air Liquide Total Energies Grandpuits biorefinery,France,"Air Liquide, Total Energies",CCU,2022,,,,Planned,,0.11,0.11,Other fuel transformation,Use,
+AirCapture DACU at Nutrien Kennewick Fertilizer (WA),United States,"AirCapture, Nutrien",CCU,2022,,,,Planned,,,,Direct Air Capture,Use,
+AirCapture Nuclear DAC at JM Farley Nuclear (AL),United States,"Southern Company, Battelle, AirCapture LLC",Capture,2022,,,,Planned,,,,Direct Air Capture,Dedicated storage,
+Alberta Carbon Grid (ALB) phase 1 (Industrial heartland),Canada,"Pembina Pipeline Corporation, TC Energy",T&S,2021,,,,Planned,,10,10,CO2 T&S,Dedicated storage,Alberta Carbon Grid (ALB)
+Alberta Carbon Grid (ALB) phase 2,Canada,"Pembina Pipeline Corporation, TC Energy",T&S,2021,,,,Planned,,10,10,CO2 T&S,Unknown/unspecified,Alberta Carbon Grid (ALB)
+Alberta Carbon Trunk Line (ACTL) (ALB),Canada,"Wolf Carbon Solutions (Wolf Midstream), Enhance energy",Transport,2011,2014,2020,,Operational,,14.6,14.6,CO2 transport,,Alberta Carbon Trunk Line (ACTL)
+Altera Stella Maris CCS Project,Norway,"Altera, Hoegh LNG, Sevan SSP (FEED)",T&S,2020,,,,Planned,,10,10,CO2 T&S,Dedicated storage,Altera Stella Maris CCS/ Havstjerne 
+Aluminium Bahrain MHI capture,Bahrain,"Aluminium Bahrain (Alba), Mitsubishi HI (Feasibility/tech)",Capture,2022,,,,Planned,,,,Other industry,Unknown/unspecified,
+ANRAV-CCUS (Heidelberg Materials Devnya plant),Bulgaria,Heidelberg Materials,Full chain,2022,,2028,,Planned,,0.8,0.8,Cement,Dedicated storage,
+Antwerp@C CO2 Export Hub phase 1,Belgium,"Air Liquide, BASF, Borealis, ExxonMobil, INEOS, Total Energies, Fluxys and the Port of Antwerp",Transport,2019,2023,2027,,Planned,1,2.5,2.5,CO2 transport,,Antwerp@C
+Antwerp@C CO2 Export Hub phase 2,Belgium,"Air Liquide, BASF, Borealis, ExxonMobil, INEOS, Total Energies, Fluxys and the Port of Antwerp",Transport,2019,2023,2030,,Planned,2,7.5,7.5,CO2 transport,,Antwerp@C
+Aramis CCS phase 1,Netherlands,"TotalEnergies, Shell, EBN, Gasunie",T&S,2019,2025,2027,,Planned,1,5,5,CO2 T&S,Dedicated storage,Aramis CCS
+Aramis CCS phase 2,Netherlands,"TotalEnergies, Shell, EBN, Gasunie",T&S,2019,,,,Planned,2,3,3,CO2 T&S,Dedicated storage,Aramis CCS
+Arcelor LanzaTech Carbalyst (Steelanol) Ghent,Belgium,"ArcelorMittal, LanzaTech",CCU,2011,2015,2022,,Operational,,0.125,0.125,Iron and steel,Use,
+Arcelor Mittal Air Liquide Low-carbon steel (phase 2?),France,"Arcelor Mittal, Air Liquide",Capture,2020,,2030,,Planned,2,1,2.85,Iron and steel,Dedicated storage,
+Arkalon CO2 Compression Facility (KS),United States,Conestoga,Full chain,,,2009,,Operational,,0.19,0.31,Biofuels,EOR,
+Arthit offshore gas field CCS,Thailand,"PTTEP, Honeywell (tech and FEED)",Full chain,2022,,2026,,Planned,,,,Natural gas processing,Dedicated storage,
+Arun CCS (Arun LNG),Indonesia,"PEMA, Tutuka Ariadji, Carbon Aceh",Full chain,2022,,2028,,Planned,,,,Natural gas processing,Dedicated storage,
+Ascension Clean Energy (ACE) complex (LA),United States,"Clean Hydrogen Works, Denbury Carbon Solutions (CO2 T&S), Hafnia (ammonia export)",Capture,2022,2024,2027,,Planned,,12,12,Hydrogen/ammonia,Dedicated storage,Denbury Green Pipeline/Denbury Ascension Parish sequestration
+Athabasca Banks Carbon Hub (ALB),Canada, Vault 44.01 Ltd. and Moraine Initiatives Ltd.,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Athabasca Banks Carbon Hub (ALB)
+Athabasca Leismer project (ALB),Canada,Entropy Inc,Capture,2022,2023,2024,,Planned,,0.164,0.164,Other fuel transformation,Unknown/unspecified,
+Atlas Carbon Sequestration Hub Phase 1 (former Polaris Shell hub) (ALB),Canada,"Shell Canada Limited, ATCO Energy Solutions, Suncor Energy",T&S,2021,2023,2025,,Planned,1,0.75,0.75,CO2 T&S,Dedicated storage,Atlas Carbon Sequestration Hub
+Atlas Carbon Sequestration Hub Phase 2 (former Polaris Shell hub) (Alb),Canada,Shell,T&S,2021,,,,Planned,2,9.25,9.25,CO2 storage,Dedicated storage,Atlas Carbon Sequestration Hub
+Augusta C2 ,"Italy, Greece",Buzzi Unicem Spa,Transport,2022,,2029,,Planned,,0.2,0.2,CO2 transport,,Augusta-C2/Prinos CO2 storage
+Aukra Hydrogen Hub,Norway,"Aker, Shell, CapeOmega",Capture,2021,2024,,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+Avedøre and Asnæs Power Station (Ørsted),Denmark,"Orsted, Aker CC (tech)",CCU,2021,,2025,,Planned,,0.4,0.4,Power and heat,Use,
+Bacton Thames Net Zero initiative,United Kingdom,Eni,Storage,2022,,2027,,Planned,,6,10,CO2 storage,Dedicated storage,Bacton Thames Net Zero initiative
+Balikpapan Refinery,Indonesia,"Pertamina, Air Liquide",Full chain,2022,,,,Planned,,,,Other fuel transformation,Unknown/unspecified,
+Barents Blue ammonia project Train 1,Norway,"Horisont Energi, Fertiberia",Capture,2021,2023,2025,,Planned,1,1.84,2,Hydrogen/ammonia,Dedicated storage,Polaris offshore storage facility
+Barents Blue ammonia project Train 2,Norway,"Horisont Energi, Fertiberia",Capture,2021,,,,Planned,2,1.84,2,Hydrogen/ammonia,Dedicated storage,Polaris offshore storage facility
+Barents Blue ammonia project Train 3,Norway,"Horisont Energi, Fertiberia",Capture,2021,,,,Planned,3,1.84,2,Hydrogen/ammonia,Dedicated storage,Polaris offshore storage facility
+Barossa and Darwin liquefied natural gas (DLNG) CCUS,Australia,"Santos (43.4%), SK E&S, JERA",Capture,2021,2023,2025,,Planned,,2.3,2.3,Natural gas processing,Dedicated storage,Bayu-Undan field storage hub
+Battle River Carbon Hub (ALB),Canada, Heartland Generation Ltd. ,Storage,2022,,,,Planned,,5,5,CO2 storage,Dedicated storage,Battle River Carbon Hub (ALB)
+Bayou Bend CCS offshore (TX),United States,"Chevron (50%), Talos Energy (25% and operator), Carbonvert (25%)",Storage,2021,,,,Planned,,,,CO2 storage,Dedicated storage,Bayou Bend CCS offshore (TX)
+Bayu-Undan field storage hub Timor-Leste phase 1,Australia,"Santos (43.4%) , SK E&S (25%), INPEX (11.4%), ENI (11%), JERA (6.1%), Tokyo Gas (3.1%)",T&S,2021,2025,2027,,Planned,1,2.3,2.3,CO2 T&S,Dedicated storage,Bayu-Undan field storage hub
+Bayu-Undan field storage hub Timor-Leste phase 2,Australia,"Santos (43.4%) , SK E&S (25%), INPEX (11.4%), ENI (11%), JERA (6.1%), Tokyo Gas (3.1%)",T&S,2021,2025,,,Planned,2,10,10,CO2 T&S,Dedicated storage,Bayu-Undan field storage hub
+BIGST gas fiels Cluster Heads of Agreement,Malaysia,"Petronas, JX Nippon",Full chain,2022,,,,Planned,,,,Natural gas processing,Dedicated storage,
+Biorecro Igelsta plant,Sweden,"Biorecro, Soderenergi",Capture,2020,,,,Planned,,0.65,0.65,Power and heat,Dedicated storage,
+BIR Waste-to-Energy Bergen,Norway,"BIR, Aker Carbon Capture",Capture,2021,,,,Planned,,0.1,0.1,Power and heat,Unknown/unspecified,
+Blue Biston ATR advanced CCUS system (WY),United States,"Tallgrass MLP Operations, LLC",Capture,2021,,,,Planned,,1.66,1.66,Hydrogen/ammonia,Unknown/unspecified,
+Blue but better (ALB) (Air Products Hydrogen Production and Liquefaction Facility),Canada,"Air Products, Baker Hughes",Capture,2021,2022,2024,,Under construction,,3,3,Hydrogen/ammonia,Unknown/unspecified,Alberta Carbon Trunk Line (ACTL)
+Bonanza BioEnergy CCUS (KS),United States,Conestoga,Full chain,2010,,2012,,Operational,,0.1,0.1569,Biofuels,EOR,
+Bonaparte CCS Assessment G7-AP,Australia,"Inpex (53%), TotalEnergies (26%), Woodside (21%, operator)",Storage,2022,,2026,,Planned,,2,2,CO2 storage,Dedicated storage,
+Boral Southern Highlands cement and lime facilities,Australia,"Boral, Calix",CCU,2022,,,,Planned,,0.1,0.1,Other industry,Use,
+Borealis Antwerp CCS,Belgium,Borealis,Capture,2021,2023,2030,,Planned,,,,Other industry,Unknown/unspecified,
+Borregaard / SAE (Borg CO2),Norway,"Borg Havn, Borregaard",Capture,2019,,,,Planned,,0.15,0.15,Power and heat,Dedicated storage,Northern Lights
+Boryeong LNG Terminal blue hydrogen,Korea,SK E&S,Full chain,2022,,2025,,Planned,,0.15,0.15,Hydrogen/ammonia,Dedicated storage,
+Boundary Dam CCS (SASK),Canada,Saskpower,Full chain,2008,2010,2014,,Operational,,1,1,Power and heat,EOR,
+Bow River Hub (ALB),Canada, Inter Pipeline Ltd. and Entropy Inc. ,Storage,2022,,,,Planned,,5,5,CO2 storage,Dedicated storage,Bow River Hub (ALB)
+BP H2Teesside Phase 1,United Kingdom,"BP, ADNOC",Capture,2021,,2027,,Planned,1,1,1,Hydrogen/ammonia,Dedicated storage,Northern Endurance Partnership
+BP H2Teesside Phase 2,United Kingdom,"BP, ADNOC",Capture,2021,,2030,,Planned,2,1,1,Hydrogen/ammonia,Dedicated storage,Northern Endurance Partnership
+Brazeau Carbon Sequestration Hub (ALB),Canada, Tidewater Midstream & Infrastructure Ltd.,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Brazeau Carbon Sequestration Hub (ALB)
+Bridgeport Energy Moonie CCUS Project,Australia,Bridgeport Energy Limited,T&S,2018,,2023,,Planned,,0.12,0.12,CO2 T&S,EOR,Bridgeport Energy Moonie CCUS Project
+Broadwing Clean Energy Complex (IL),United States,"8Rivers, ADM",Capture,2021,2023,2025,,Planned,,1,1,Power and heat,Unknown/unspecified,Decatur IL
+Bushmills Ethanol Atwater (MN),United States,"Bushmills Ethanol, Summit Carbon Solutions",Capture,2022,,2024,,Planned,,0.23,0.23,Biofuels,Dedicated storage,Midwest carbon express
+Buxton Lime Net Zero,United Kingdom,Tarmac,Capture,2022,,,,Planned,,,,Other industry,Dedicated storage,
+Buzzi Unicem Augusta cement plant,Italy,Buzzi Unicem Spa,Capture,2022,,,,Planned,,0.2,0.2,Cement,Dedicated storage,Augusta-C2/Prinos CO2 storage
+C Zero phase 1,Germany,"Air Liquide, Lhoist, Duisport",Transport,2023,,,,Planned,1,1.2,1.2,CO2 transport,,C Zero/Nautilus
+C Zero phase 2,Germany,"Air Liquide, Lhoist, Duisport",Transport,2023,,,,Planned,2,1.2,1.2,CO2 transport,,C Zero/Nautilus
+C Zero phase 3,Germany,"Air Liquide, Lhoist, Duisport",Transport,2023,,,,Planned,3,0.3,0.3,CO2 transport,,C Zero/Nautilus
+CalCapture CCS+ Elk Hills power plant (CA) ,United States,"Next carbon solutions (NextDecade), California Resource Corporation (Carbon TerraVault)",Full chain,2019,2023,2024,,Planned,,1.4,1.4,Power and heat,EOR,Elk hills 
+CalCC Lhoist Air Liquide Lime plant Rety,France,"Air Liquide, Lhoist",Capture,2022,,2028,,Planned,,0.61,0.61,Other industry,Dedicated storage,D'Artagnan
+Caledonia Clean Energy (previously Captain Clean Energy),United Kingdom,Summit Power,Full chain,2012,,2025,,Planned,,3,3,Power and heat,Dedicated storage,
+Callisto phase 1,"France, Italy","Air Liquide, Snam, Eni, Elengy",Transport,2023,,2030,,Planned,1,3.6,3.6,CO2 transport,,Ravenna Hub
+Callisto phase 2,"France, Italy","Air Liquide, Snam, Eni, Elengy",Transport,2023,,2040,,Planned,2,2.8,2.8,CO2 transport,,Ravenna Hub
+Calpine Baytown Energy Center (TX),United States,"Calpine, Technip Energies, Shell, Zachry Group",Capture,2023,,,,Planned,,2,2,Power and heat,Unknown/unspecified,
+Calpine Deer Park Energy Center (TX),United States,Calpine Texas CCUS Holdings,Capture,2021,,,,Planned,,0.82,5,Power and heat,Dedicated storage,
+Calpine Delta Energy Center (CA),United States,"ION Clean Energy, Inc., Calpine",Capture,2021,,,,Planned,,,,Power and heat,Dedicated storage,
+Carbon America Bridgeport Ethanol (NE),United States,Carbon America,Full chain,2022,,,,Planned,,0.175,0.175,Biofuels,Dedicated storage,
+Carbon America Sterling ethanol (CO),United States,Carbon America,Full chain,2022,2024,,,Planned,,,,Biofuels,Dedicated storage,
+Carbon America Yuma ethanol (CO),United States,Carbon America,Full chain,2022,2024,,,Planned,,,,Biofuels,Dedicated storage,
+Carbon Capture at Corn-processing complex (NE),United States,ADM,Capture,2022,,,,Planned,,,,Biofuels,Dedicated storage,Eastern Wyoming Sequestration Hub (WY)
+Carbon Capture at Ince Fertiliser Site,United Kingdom,CF Fertilisers,Capture,2018,,,,Planned,,0.4,0.4,Other industry,Dedicated storage,Liverpool Bay CO2 storage
+Carbon capture plant Stanlow (FCC),United Kingdom,"Essar Oil, Kent (pre-FEED)",Capture,2019,,,,Planned,,,,Other fuel transformation,Dedicated storage,Liverpool Bay CO2 storage
+Carbon Capture Retrofit at Sherman Generating Station (TX),United States,"Bechtel National, Inc.",Capture,2019,,,,Planned,,,,Power and heat,Unknown/unspecified,
+Carbon Clean CEMEX Rudersdorf plant phase 1,Germany,"CEMEX, carbon clean",CCU,2021,,2026,,Planned,1,0.1095,0.1095,Cement,Use,
+Carbon Clean CEMEX Rudersdorf plant phase 2,Germany,"CEMEX, carbon clean",CCU,2021,,,,Planned,2,0.584,0.584,Cement,Use,
+Carbon Engineering Constellation Nuclear DACS at Byron Generation Station (IL),United States,"Constellation, 1PointFive, Worley, Carbon Engineering, PNNL, U of IL",Capture,2022,,,,Planned,,0.25,0.25,Direct Air Capture,Dedicated storage,Illinois Storage Corridor
+Carbon Storage Complect Southeastern Michigan (Mi),United States,Battelle Memorial Institute,Storage,2023,,,,Planned,,,,CO2 storage,Dedicated storage,Carbon Storage Complect Southeastern Michigan (Mi)
+Carbon2Business LafargeHolcim Laegerdorf (Westkuste100/Hyscale100),Germany,"Holcim Group, Hyscale100 consortium",CCU,2020,,2027,,Planned,,1,1,Cement,Use,
+Carbon2ProductAustria (C2PAT) - Lafarge Mannersdorf,Austria,Holcim Group,Capture,2020,,2030,,Planned,1,0.7,0.7,Cement,Dedicated storage,
+CarbonCapture DACU Carbon Cure at Gary Works (IN),United States,"CarbonCapture, CarbonCure, US Steel",CCU,2022,,,,Planned,,,,Direct Air Capture,Use,
+CarbonEngineering Lanzatech Project AtmosFUEL,United Kingdom,"LanzaTech, Carbon Engineering, Virgin Atlantic, British Airways",CCU,2021,,2029,,Planned,,0.3,0.3,Direct Air Capture,Use,
+CarbonNet,Australia,"Victorian Government/Australian Government, (DNV)",T&S,2010,2024,2030,,Planned,,5,5,CO2 T&S,Dedicated storage,CarbonNET
+Cardinal Ethanol Union City (IN),United States,"One Carbon Partnership (Cardinal Ethanol, Vault 44.01 joint venture)",Full chain,2023,,,,Planned,,0.4,0.4,Biofuels,Dedicated storage,
+"CCS Baltic Constium, Klapeida terminal","Latvia, Lithuania",Kalipedos Nafta AB,Transport,2022,2024,2030,,Planned,,4,4,CO2 transport,,"CCS Baltic Constium, Klapeida terminal"
+CCUS at Red Hills natural gas processing complex (NM) EOR Phase 2,United States,Targa Resources Group,Full chain,2022,2022,2023,,Under construction,1,0.36,0.36,Natural gas processing,EOR,
+CCUS at Red Hills natural gas processing complex (NM) EOR Phase 3,United States,Targa Resources Group,Full chain,2022,,2024,,Planned,2,0.26,0.26,Natural gas processing,EOR,
+"CCUS hub at Strahcona Resources Cold Lake Lindbergh, Orion, and Tucker SAGD facilities (x 3 projects) (ALB)",Canada,Strathcona Resources Ltd.,Capture,2022,,,,Planned,,,,Other fuel transformation,Unknown/unspecified,
+Cementa Slite plant,Sweden,"Heidelberg Materials, Cementa",Capture,2021,,2030,,Planned,,1.8,1.8,Cement,Dedicated storage,
+CEMEX Balcones Cement plant (TX),United States,"Research Triangle Institute (RTI) International, Cemex",Capture,2020,,,,Planned,,0.5,0.5,Cement,Unknown/unspecified,
+Central Alberta Hub (ALB),Canada," Wolf Carbon Solutions Inc., Whitecap Resources Inc., The First Nation Capital Investment Partnership (FNCIP), and Heart Lake First Nation",Storage,2022,,2024,,Planned,,2,3,CO2 storage,Dedicated storage,"Alberta Carbon TrunkLine (Transport), Central Alberta Hub (ALB) (Storage)"
+Central Louisiana Regional Carbon Storage (CENLA) Hub (LA),United States,"CapturePoint Solutions, Energy transfer",T&S,2022,2023,2027,,Under construction,,10,10,CO2 T&S,Dedicated storage,CENLA hub
+Centrica Equinor hydrogen hub Easington collaboration,United Kingdom,"Centrica, Equinor",Full chain,2022,,,,Planned,,,,Hydrogen/ammonia,Dedicated storage,
+Century plant - (TX),United States,"Occidental, Sandridge Energy",Full chain,2008,2008,2010,,Operational,,4.32,4.32,Natural gas processing,EOR,
+Cerilon gas-to-liquids complex (ND),United States,Cerilon GTL,Full chain,2021,,,,Planned,1,2,2,Other fuel transformation,Dedicated storage,
+CF Fertilisers Billingham Ammonia CCS,United Kingdom,CF Fertilisers,Capture,2021,,,,Planned,,,,Other industry,Dedicated storage,Northern Endurance Partnership
+CF Industries and Mitsui Blue ammonia complex (LA),United States,"CF Industries, Mitsui",Full chain,2022,2023,2027,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+CF Industries blue ammonia Donaldsonville (LA),United States,"CF Industries, ExxonMobil (storage), EnLink Midstream (transport)",Capture,2020,2021,2025,,Under construction,,2,2,Hydrogen/ammonia,Dedicated storage,EnLink transport network & ExxonMobil Vermilion parish storag
+CF Industries blue ammonia Yazoo (LA),United States,CF Industries,Capture,2020,,,,Planned,,0.5,0.5,Hydrogen/ammonia,Dedicated storage,
+Changling Gas plant /Jilin Oil Field CO2-EOR Full-scale (Jilin),People's Republic of China,"PetroChina, CNPC",Full chain,2006,2015,2018,,Operational,,0.43,0.6,Natural gas processing,EOR,
+Chevron Mitsui CO2 shipping SGP-AUS,Singapore,"Chevron, Mitsui",Transport,2022,,,,Planned,,2.5,2.5,CO2 transport,,Chevron Mitsui CO2 shipping SGP-AUS
+China Energy Jinjie Power,People's Republic of China,China Energy,Full chain,2018,2019,2021,,Operational,,0.15,0.15,Power and heat,EOR,
+China Energy Taizhou power,People's Republic of China,China Energy,Capture,2021,2021,2023,,Under construction,,0.5,0.5,Power and heat,Mixed,
+CinfraCap (Carbon Infrastructure Capture) - Port of Gothenburg,Sweden,"Nordion Energi, Göteborg Energi, Renova, Gothenburg Port Authority, Preem, and St1.",Transport,2020,,,,Planned,,1.5,1.5,CO2 transport,,CinfraCap
+ClimAid Copenhagen Malmö Port Amager Bakke CO2 capture,Denmark,"Babcock & Wilcox, Copenhagen Port",Full chain,2020,,2025,,Planned,,0.5,0.5,Power and heat,Dedicated storage,
+Climeworks DAC at Brawley Geothermal (CA),United States,"University of Illinios, Climeworks",Full chain,2022,,,,Planned,,,,Direct Air Capture,Dedicated storage,
+Climeworks Gulf Coast MoU (LA),United States,"Climeworks, Gulf Coast Sequestration",Capture,2022,,2030,,Planned,,1,1,Direct Air Capture,Dedicated storage,Gulf Coast Sequestration Hub
+Climeworks Mammoth Project,Iceland,"Climeworks, Carbfix",Full chain,2022,2022,2024,,Under construction,,0.036,0.036,Direct Air Capture,Dedicated storage,
+Climeworks Norsk e fuel phase 1,Norway,"Sunfire GmbH, Climeworks AG, Paul Wurth SA (SMS group), Valinor (Norsk Vind)",CCU,2020,2023,2024,,Planned,1,0.03,0.03,Direct Air Capture,Use,
+Climeworks Norsk e fuel phase 2,Norway,"Sunfire GmbH, Climeworks AG, Paul Wurth SA (SMS group), Valinor (Norsk Vind)",CCU,2020,,2026,,Planned,2,0.03,0.03,Direct Air Capture,Use,
+Climeworks Norsk e fuel phase 3,Norway,"Sunfire GmbH, Climeworks AG, Paul Wurth SA (SMS group), Valinor (Norsk Vind)",CCU,2020,,2029,,Planned,3,0.17,0.17,Direct Air Capture,Use,
+Climeworks Orca,Iceland,"Climeworks, CarbFix",Full chain,,,2021,,Operational,,0.004,0.004,Direct Air Capture,Dedicated storage,
+Clive CO2-EOR (ACTL) (ALB),Canada,Enhance Energy,Storage,2011,2014,2020,,Operational,,0.44,1.12,CO2 storage,EOR,Alberta Carbon Trunk Line (ACTL)
+CNOOC Enping offshore CCS,People's Republic of China,CNOOC,Full chain,2021,2021,2023,,Under construction,,0.3,0.3,Natural gas processing,Unknown/unspecified,
+CNPC China Northwest (Xinjiang) hub phase 1,People's Republic of China,"CNPC, OGCI",T&S,2019,2023,2025,,Planned,1,1.5,1.5,CO2 T&S,EOR,CNPC China Northwest (Xinjiang) hub
+CNPC China Northwest (Xinjiang) hub phase 2,People's Republic of China,"CNPC, OGCI",T&S,2019,,2030,,Planned,2,1.5,1.5,CO2 T&S,EOR,CNPC China Northwest (Xinjiang) hub
+CNPC China Northwest (Xinjiang) hub refinery hydrogen,People's Republic of China,"CNPC, OGCI",Capture,2019,2023,2025,,Planned,,1.5,1.5,Other fuel transformation,EOR,CNPC China Northwest hub
+CO2 capture at Coal Creek (ND),United States,"EERC, NDIC, Rainbow Energy, Mitshubishi HI, Kiewit",Capture,2021,2025,,,Planned,,,,Power and heat,Unknown/unspecified,
+CO2 capture at Duke Energy's East Bend Station (KY),United States,"EPRI, MTR",Capture,2018,,,,Planned,,,,Power and heat,EOR,
+CO2 TO METHANOL Finnfjord Ferrosilicon,Norway,"Statkraft, Carbon Recycling International",CCU,2017,2023,,,Planned,,0.3,0.3,Iron and steel,Use,
+CO2MENT LafargeHolcim Florence (CO),United States,"Electricore, Svante, Holcim Group, Oxy Low Carbon Venture, TotalEnergies",Full chain,2020,,2025,,Planned,,0.7,1.5,Cement,Dedicated storage,
+CO2nnectNow HES Wilhelmshaven Tank Terminal phase 1,Germany,Wintershall Dea,Transport,2022,,2028,,Planned,,10,10,CO2 transport,,CO2nnectNow HES Wilhelmshaven Tank Terminal
+"CO2TransPorts phase 2 (cross-border pipeline, phase 1 is Portos and Antwerp?)",Netherlands,"Port of Rotterdam, port of Antwerp, North Sea Port, Fluxys, Gasunie",Transport,2022,,,,Planned,1,5,5,CO2 transport,,CO2TransPorts
+"CO2TransPorts phase 2 (cross-border pipeline, phase 1 is Portos and Antwerp?)",Netherlands,"Port of Rotterdam, port of Antwerp, North Sea Port, Fluxys, Gasunie",Transport,2022,,,,Planned,1,,,CO2 transport,,CO2TransPorts
+Coastal Bend Carbon Management Partnership (TX),United States,"Port of Corpus Christi,Talos Energy, Howard Energy Partners,Texas A&M University System",Storage,2022,,,,Planned,,1,1.5,CO2 storage,Dedicated storage,Coastal Bend Carbon Management Partnership (TX)
+Coda terminal Phase 1,Iceland,"Carbfix, Dan-unity CO2",T&S,2021,2023,2026,,Planned,1,0.5,0.5,CO2 T&S,Dedicated storage,Coda terminal
+Coda terminal Phase 2,Iceland,"Carbfix, Dan-unity CO2",T&S,2021,,2028,,Planned,2,0.5,0.5,CO2 T&S,Dedicated storage,Coda terminal
+Coda terminal phase 3,Iceland,"Carbfix, Dan-unity CO2",T&S,2021,,2031,,Planned,3,2,2,CO2 T&S,Dedicated storage,Coda terminal
+Coffeyville fertiliser Plant (KS),United States,"Coffeyville Resources, Chaparral Energy, Coffeyville Resource Nitrogen Fertilizers",Full chain,2011,2011,2013,,Operational,,0.7,0.9,Other industry,EOR,
+Competitive Power Ventures CCGT (WV),United States,Competitive Power Ventures,Capture,2021,,,,Planned,,,,Power and heat,Unknown/unspecified,
+Co-op Belle Plain Ethanol Complex,Canada,Federated Co-operatives (FCL) and Whitecap Resources Inc.,Capture,2021,,2024,,Planned,,0.25,0.25,Biofuels,EOR,Weyburn storage unit
+Co-op Regina Refinery Complex,Canada,Federated Co-operatives (FCL) and Whitecap Resources Inc.,Capture,2021,,2026,,Planned,,0.25,0.25,Other fuel transformation,EOR,Weyburn storage unit
+Core Energy CO2-EOR South Chester plant (MI),United States,Core Energy,Full chain,,,2003,,Operational,,0.35,0.35,Natural gas processing,EOR,
+Corn LP Goldfield biorefinery (IA),United States,"Corn LP, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.18,0.215,Biofuels,Dedicated storage,Midwest carbon express
+Corporation Energy Blue Ammonia/hydrogen Baidaratskaya Bay,Russian Federation,"Corporation Energy, Toyo Engineering Corporation, Itochu Plantech Inc, Others",Full chain,2021,,2025,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+Corporation Energy Blue Ammonia/hydrogen Seyakha,Russian Federation,"Corporation Energy, Toyo Engineering Corporation, Itochu Plantech Inc, Others",Full chain,2021,,2026,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+Corpus Christi offshore storage (TX),United States,"Port of Corpus Christi, 1845 Carbon Storage LLC, Strategic Sequestration Development LLC, and the University of Texas Bureau of Economic Geology’s Gulf Coast Carbon Center",Storage,2023,,,,Planned,,,,CO2 storage,Dedicated storage,Corpus Christi offshore storage (TX)
+Cortez Pipeline (CO-TX),United States,Kinder Morgan,Transport,,,1983,,Operational,,19.3,19.3,CO2 transport,,Cortez Pipeline
+CORY EfW plant,United Kingdom,Cory,Full chain,2021,,2026,,Planned,,1.5,1.5,Power and heat,Dedicated storage,
+Coyote Clean Power Project (CO),United States,"8Rivers, Southern Ute Indian Reservation",Full chain,2021,2023,2025,,Planned,,0.865,0.865,Power and heat,Unknown/unspecified,
+CRP Haifeng Project,People's Republic of China,China Resources Power,Capture,2013,,2030,,Planned,1,1,1,Power and heat,Unknown/unspecified,
+Cstore 1,Australia,"deepC-store (dev and operator), Mitsui (for shipping), Technip Energies (TEN) (pre-FEED for hub facility)",T&S,2021,,,,Planned,,1.5,7.5,CO2 T&S,Dedicated storage,Cstore 1
+CTSCo Project,Australia,Glencore Carbon Transport and Storage Company (CTSCo),Full chain,2010,2022,2023,,Under construction,,0.11,0.11,Power and heat,Dedicated storage,
+DAC-1 Ector County (TX) train 1,United States,"Occidental, 1PointFive, Carbon Engineering",Full chain,2019,2022,2025,,Under construction,1,0.5,0.5,Direct Air Capture,EOR,
+DAC-1 Ector County(TX) train 2,United States,"Occidental, 1PointFive, Carbon Engineering",Full chain,2019,,2026,,Planned,2,0.5,0.5,Direct Air Capture,EOR,
+Dakota Ethanol Wentworth biorefinery (SD),United States,"Dakota Ethanol, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.22,0.257,Biofuels,Dedicated storage,Midwest carbon express
+Dakota H2 Hub (ND),United States,"Bakken Energy, Mitsubishi HI (as Mitsubishi Power Americas), Mandan, Hidatsa, and Arikara Nation",Full chain,2021,,2027,,Planned,,,,Hydrogen/ammonia,Dedicated storage,
+Dalstur Energy Coal India coal hydrogen,India,"Dalstur Energy (Kolkata), Coal India (CIL)",Capture,2022,,,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+Damhead Creek CCGT power station,United Kingdom,Oilex,Capture,2022,,,,Planned,,,,Power and heat,Dedicated storage,Medway Hub CCS
+D'Artagnan Dunkirk CO2 Hub Phase 1,France,"ArcelorMittal, Port of Dunkerque, Chaux et Dolomines du boulonnais, Verdalis, Air Liquide",Transport,2021,,2027,,Planned,1,3,3,CO2 transport,,D'Artagnan/Nautilus
+D'Artagnan Dunkirk CO2 Hub Phase 2,France,"ArcelorMittal, Port of Dunkerque, Chaux et Dolomines du boulonnais, Verdalis, Air Liquide",Transport,2021,,2031,,Planned,2,1.4,1.4,CO2 transport,,D'Artagnan/Nautilus
+D'Artagnan Dunkirk CO2 Hub Phase 3,France,"ArcelorMittal, Port of Dunkerque, Chaux et Dolomines du boulonnais, Verdalis, Air Liquide",Transport,2021,,2035,,Planned,3,5.6,5.6,CO2 transport,,D'Artagnan/Nautilus
+Daya Bay CCS Hub,People's Republic of China,"Shell, ExxonMobil, CNOOC, and Guangdong Provincial Development & Reform Commission (JSA)",T&S,2022,,,,Planned,,10,10,CO2 T&S,Dedicated storage,Daya Bay CCS Hub
+Decatur project (IL),United States,"ADM, Midwest Geological Sequestration Consortium",Full chain,2009,2011,2011,2014,Decommissioned,,0.33,0.33,Biofuels,Dedicated storage,
+DelpHYnus hydrogen production Theddlethorpe,United Kingdom,Neptune Energy,Capture,2021,,,,Planned,,,,Hydrogen/ammonia,Dedicated storage,Delphynus
+Delta Rhyne Corridor_CO2,"Netherlands, Germany","Shell, Port of Rotterdam, bp, RWE, thyssenkrupp, LyondellBasell, Heidelberg Materials, Attero and Chemelot",Transport,2021,2024,2027,,Planned,,14.9,14.9,CO2 transport,,Connected to German Carbon Grid
+Denbury / Mitsubishi Gulf Coast ammonia project (TBD),United States,"Mitsubishi, Denbury",T&S,2021,,,,Planned,,1.8,1.8,CO2 T&S,Dedicated storage,
+Denbury Ascension Parish sequestration (LA),United States,Denbury Carbon Solutions,Storage,2022,,2025,,Planned,,12,12,CO2 storage,Dedicated storage,Denbury Ascension Parish sequestration
+Denbury Delta Pipeline (MS),United States,Denbury Carbon Solutions,Transport,,,2007,,Operational,,,,CO2 transport,,Denbury Delta Pipeline
+Denbury Free state Pipeline (MS),United States,Denbury Carbon Solutions,Transport,,,2006,,Operational,,,,CO2 transport,,Denbury Free state Pipeline
+Denbury Green Pipeline (LA-TX),United States,Denbury Carbon Solutions,Transport,,,2010,,Operational,,16,16,CO2 transport,,Denbury Green Pipeline
+Denbury NEJD Pipeline (MS-LA),United States,Denbury Carbon Solutions,Transport,,,2001,,Operational,,,,CO2 transport,,Denbury NEJD Pipeline
+Denbury West Gwinville Pipeline (MS),United States,Denbury Carbon Solutions,Transport,,,2008,,Operational,,,,CO2 transport,,Denbury West Gwinville Pipeline
+Donghae CCS Project,Korea,"SK Innovation, Honeywell Tech, Hyundai, Korea National Oil Corp.",Full chain,2022,2024,2026,,Planned,,0.4,0.4,Other fuel transformation,Dedicated storage,
+Dos Bocas refinery,Mexico,Pemex,Capture,,,,,Planned,,,,Other fuel transformation,Unknown/unspecified,
+Dow Fort Saskatchewan ethylene facility (ALB),Canada,Dow Chemical,Capture,2021,,2029,,Planned,,,,Other industry,EOR,Alberta Carbon Trunk Line (ACTL)
+Drax BECCS Project (Phase 1),United Kingdom,"Drax, Worley (FEED), Mitsubishi HI (tech)",Capture,2019,2024,2027,,Planned,1,4.3,4.3,Power and heat,Dedicated storage,Northern Endurance Partnership
+Drax BECCS Project (Phase 2),United Kingdom,"Drax, Worley (FEED), Mitsubishi HI (tech)",Capture,2019,2024,2030,,Planned,2,3.7,3.7,Power and heat,Dedicated storage,Northern Endurance Partnership
+Dry Fork Integrated Commercial CCS (WY),United States,"Membrane Technology and Research, Basin Electric Power Cooperative, Electric Power Research Institute, University of Wyoming, Bismarck",Full chain,2016,,2025,,Planned,,3,3,Power and heat,Unknown/unspecified,
+East Calgary Region Carbon Sequestration Hub (ALB),Canada, Reconciliation Energy Transition Inc. (RETI),Storage,2022,,,,Planned,,5,5,CO2 storage,Dedicated storage,East Calgary Region Carbon Sequestration Hub (ALB)
+Eastern Louisiana Clean Hydrogen Complex (LA) ,United States,Air Products,Full chain,2021,,2026,,Planned,,5,5,Hydrogen/ammonia,Dedicated storage,
+Eastern Wyoming Sequestration Hub (WY),United States,Tallgrass energy,Storage,2022,,,,Planned,,,,CO2 T&S,Dedicated storage,Eastern Wyoming Sequestration Hub (WY)
+ECO2CEE (previously Poland EU CCS Interconnector) phase 1,"Poland, Lithuania, Latvia","Air Liquide Polska, PKN Orlen, Lafarge Cement, Orlen Lietuva",Transport,2021,,2028,,Planned,1,2.5,2.5,CO2 transport,,ECO2CEE
+ECO2CEE (previously Poland EU CCS Interconnector) phase 2,"Poland, Lithuania, Latvia","Air Liquide Polska, PKN Orlen, Lafarge Cement, Orlen Lietuva",Transport,2021,,2031,,Planned,2,6.5,6.5,CO2 transport,,ECO2CEE
+ECO2CEE (previously Poland EU CCS Interconnector) phase 3,"Poland, Lithuania, Latvia","Air Liquide Polska, PKN Orlen, Lafarge Cement, Orlen Lietuva",Transport,2021,,2033,,Planned,3,0.3,0.3,CO2 transport,,ECO2CEE
+ECO2Normandy phase 1,France,"Air Liquide, Borealis, Esso, TotalEnergies, Yara",Transport,2023,,2028,,Planned,1,1.2,1.2,CO2 transport,,ECO2Normandy/Nautilus
+ECO2Normandy phase 2,France,"Air Liquide, Borealis, Esso, TotalEnergies, Yara",Transport,2023,,2031,,Planned,2,1.2,1.2,CO2 transport,,ECO2Normandy/Nautilus
+ECO2Normandy phase 3,France,"Air Liquide, Borealis, Esso, TotalEnergies, Yara",Transport,2023,,2036,,Planned,3,0.65,0.65,CO2 transport,,ECO2Normandy/Nautilus
+Edmonton Blue Hydrogen plant (ALB) (Shell Polaris),Canada,"Mitsubishi Coporation, Shell Canada",Capture,2021,,,,Planned,,,,Hydrogen/ammonia,Dedicated storage,Polaris CCS transport and storage hub
+Eemshaven port terminal (NoordKaap) phase 1,Netherlands,"Cape Omega, Neptune Energy",T&S,2023,,2028,,Planned,1,8,8,CO2 T&S,Dedicated storage,Noorkaap
+Enabling Production of Low Carbon Emissions Steel through CO2 Capture from Blast Furnace Gases (Cleaveland-Cliffs Burns Harbors steel plant DOE pre-FEED) (IN),United States,"Dastur International Inc., ON Clean Energy, Inc., University of Texas",Capture,2020,,,,Planned,,2,2,Iron and steel,Unknown/unspecified,
+Enbridge Ingleside Energy Center Low carbon ammonia (TX),United States,"Enbridge, Humble Midstream",Full chain,2022,,2026,,Planned,,,,Hydrogen/ammonia,Dedicated storage,
+Eneos J-Power coal power capture,Japan,"Eneos Holdings, J-Power",Full chain,2022,2026,,,Planned,,,,Power and heat,Dedicated storage,
+Energy Recovery Facility Edmonton EcoPark,United Kingdom,North London Waste Authority (NLWA),Capture,2020,,,,Planned,,,,Power and heat,Dedicated storage,Becton Thames Net Zero Initiative
+ENI Casalborsetti (Ravenna) power plant (Ravenna phase 2),Italy,Eni,Capture,2020,,2027,,Planned,1,0.8,0.8,Power and heat,Dedicated storage,Ravenna Hub
+ENI Venice bio-refinery Porto Marghera (Ravenna phase 2),Italy,Eni,Capture,2020,,2027,,Planned,,0.3,0.3,Other fuel transformation,Dedicated storage,Ravenna Hub
+Enid fertiliser (OK),United States,"Koch Nitrogen Company, Chaparral Energy",Full chain,,,1982,,Operational,,0.68,0.68,Other industry,EOR,
+EnLink midstream network (LA),United States,EnLink Midstream,Transport,2022,,2025,,Planned,,2,2,CO2 transport,,Enlink midstream network (LA)
+Equinor Smeaheia storage,Norway,Equinord,T&S,2022,,,,Planned,,20,20,CO2 T&S,Dedicated storage,Wilhelmshaven/Smeahia
+Errai storage project,Norway,"Horisont Energi, Neptune Energy",Storage,2021,2024,2026,,Planned,,4,8,CO2 storage,Dedicated storage,Errai storage project/Nautilus
+Ervia Cork CCS -  Aghada CCGT,Ireland,"Aghata, Ervia Cork",Capture,2018,,2028,,Planned,,,,Power and heat,Unknown/unspecified,Ervia Cork CCS
+Ervia Cork CCS - Irving refinery,Ireland,"Irving Oil, Ervia Cork",Capture,2018,,2028,,Planned,,2.5,2.5,Other fuel transformation,Unknown/unspecified,Ervia Cork CCS
+Ervia Cork CCS - Whitegate CCGT,Ireland,"Whitegate, Ervia Cork",Capture,2018,,2028,,Planned,,,,Power and heat,Unknown/unspecified,Ervia Cork CCS
+EU2NSEA,"Norway (storage), Belgium, Denmark, France, Germany, Latvia, the Netherlands, Poland, Sweden / Switzerland",Equinor and partners (incl. Heidelberg Materials),T&S,2022,,2029,,Planned,,20,20,CO2 T&S,Dedicated storage,EU2NSEA
+Exshaw Cement Carbon Capture and Bow Valley Decarbonization (ALB),Canada,Lafarge Canada,Capture,2022,,,,Planned,,,,Cement,Unknown/unspecified,Bow River Hub (ALB)
+Exxonmobil Antwerp Refinery CCS,Belgium,Exxonmobil,Capture,2021,2023,2030,,Planned,,,,Other fuel transformation,Unknown/unspecified,
+ExxonMobil Baytown petrochemical site (TX),United States,"ExxonMobil, Honeywell (tech), Technip Energies (FEED)",Capture,2022,2024,2028,,Planned,,7,7,Other fuel transformation,Dedicated storage,Houston CCS Hub
+Exxonmobil Botlek Rotterdam refinery,Netherlands,Exxonmobil,Capture,2019,,2024,,Planned,,,,Other fuel transformation,Dedicated storage,Porthos
+ExxonMobil Fawley refinery,United Kingdom,"ExxonMobil (UK affilIate Esso), SGN, Macquarie",Capture,2021,,2030,,Planned,,2,2,Other fuel transformation,Dedicated storage,
+ExxonMobil Vermilion parish storage (LA),United States,ExxonMobil,Storage,2022,,2025,,Planned,,2,2,CO2 storage,Dedicated storage,ExxonMobil Vermilion parish storage
+Fidelis Project Cyclus Baton Rouge (LA),United States,"Fidelis new energy  (Cyclus Steam & Power, Gron Fuels, Capio Sequestration)",Full chain,2022,,2032,,Planned,,1,1,Power and heat,Dedicated storage,
+Fluxys-Equinor Belgium-Norway Trunk Line ,"Belgium, Norway","Fluxys, Equinor",Transport,2022,2025,2030,,Planned,,20,40,CO2 transport,,Connected to German Carbon Grid
+Freeport LNG CCS (TX),United States,"Talos Energy, Freeport LNG, Storegga",Full chain,2021,,2024,,Planned,,,,Natural gas processing,Dedicated storage,
+Frevar KF / Kvitebjorn BIO-EL (Borg CO2),Norway,"Borg Havn, Kvitebjørn Bio-El and FREVAR",Capture,2019,,,,Planned,,0.135,0.135,Power and heat,Dedicated storage,Northern Lights
+Frog Lake Power Plant (ALB),Canada,"Net Power, Kanata Clean Power, WSP Canada, VAULT 44.01",Capture,2021,2023,2025,,Planned,,0.7,0.8,Power and heat,Dedicated storage,Kanata CarbonHub
+FS Lucas do Rio Verde ethanol biorefinery complex,Brazil,"Summit Agricultural group, Tapajós Participações S.A",Full chain,2021,,2030,,Planned,,,,Biofuels,Dedicated storage,
+Future Biogas plants phase 1,United Kingdom,Future Biogas,Capture,2021,,2024,,Planned,1,0.2,0.2,Biofuels,Dedicated storage,Northern Lights
+Future Biogas plants phase 2,United Kingdom,Future Biogas,Capture,2021,,2028,,Planned,2,0.345,0.345,Biofuels,Dedicated storage,Northern Lights
+G2 Net-Zero (LA),United States,"Net Power, Siemens, EJM",Capture,2020,,2027,,Planned,,4,4,Natural gas processing,Unknown/unspecified,
+Gasha Mega-project gas concession,United Arab Emirates,"ADNOC (55%), Eni (25%), Wintershall Dea (10%), OMV (5%), Lukoil (5%)",Full chain,2021,2023,2025,,Planned,,,,Natural gas processing,Unknown/unspecified,
+Genesee CCS (ALB),Canada,"Capital Power, Enbridge",Capture,2021,2023,2027,,Planned,,3,3,Power and heat,Dedicated storage, Open Access Wabamun Carbon Hub
+Geothermal CCS Croatia,Croatia,Hydrocarbons Agency Croatia,T&S,2022,2025,2031,,Planned,,0.63,0.63,CO2 T&S,Dedicated storage,Geothermal CCS Croatia
+Geovault Carnarvon Basin CCS assessment,Australia,Buru Energy (Geovault) and Energy Resources Ltd,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,
+Gerald Gentleman Station Carbon Capture (NE),United States,"ION Engineering, Nebraska Public Power District, Siemens, Koch Modular, Sargent & Lundy",Capture,2013,,2025,,Planned,,3.8,3.8,Power and heat,EOR,
+German carbon transport grid,Germany,"Open Grid Europe (OGE), TES",Transport,2022,2023,2028,,Planned,,18.8,25.8,CO2 transport,,German Carbon transport grid
+Ghent Carbon Hub,Belgium,"Fluxys, ArcelorMittal, North Sea Port",Transport,2022,,2027,,Planned,,6,6,CO2 transport,,Connected to German Carbon Grid
+Glacial Lakes Energy Aberdeen biorefinery (SD),United States,"Glacial Lakes Energy, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.12,0.14,Biofuels,Dedicated storage,Midwest carbon express
+Glacial Lakes Energy Mina biorefinery (SD),United States,"Glacial Lakes Energy, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.34,0.4,Biofuels,Dedicated storage,Midwest carbon express
+Glacial Lakes Energy Watertown biorefinery (SD),United States,"Glacial Lakes Energy, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.32,0.372,Biofuels,Dedicated storage,Midwest carbon express
+Glacier Gas Plant CCS Full capacity (ALB),Canada,"Advantage Entropy Inc. ABC Engineering, University of Regina",Full chain,2021,2023,2023,,Planned,1,0.2,0.2,Natural gas processing,Unknown/unspecified,
+Go4ECOPlant Lafarge Polska Kujawy plant,Poland,"Lafarge Cement Polska (Holcim Group), Air Liquide",Capture,2022,,2027,,Planned,,,,Cement,Dedicated storage,Poland EU CCS Interconnector
+Golden Grain Energy Mason City biorefinery (IA),United States,"Golden Grain Energy, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.29,0.343,Biofuels,Dedicated storage,Midwest carbon express
+Gorgon CCS,Australia,"Chevron (47.3 per cent, operator), Shell (25 per cent), ExxonMobil (25 per cent), Osaka Gas (1.25 per cent), Tokyo Gas (1 per cent), Chubu Electric Power (0.417 per cent)",Full chain,2009,2009,2019,,Operational,,3.4,4,Natural gas processing,Dedicated storage,
+Grain CCGT power station,United Kingdom,Oilex,Capture,2022,,,,Planned,,,,Power and heat,Dedicated storage,Medway Hub CCS
+Grande Prairie Net Zero Gateway (ALB),Canada, Keyera Corp.  and Entropy Inc. ,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,"Grande Prairie Net Zero Gateway, NorthRiver Midstream Inc. (ALB)"
+Granite Falls biorefinery (MN),United States,"Granite Falls Energy, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.15,0.18,Biofuels,Dedicated storage,Midwest carbon express
+Great Plains Synfuel Plant (ND) Weyburn-Midale (SK),United States,"Dakota Gasification company, Cenovus, Whitecap, Cardinal",Full chain,1997,,2000,,Operational,,3,3,Other fuel transformation,EOR,Weyburn storage unit
+Green Plains Atkinson biorefinery (NE),United States,"Green Plains Atkinson, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.14,0.157,Biofuels,Dedicated storage,Midwest carbon express
+Green Plains Central City biorefinery (NE),United States,"Green Plains Central City, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.3,0.332,Biofuels,Dedicated storage,Midwest carbon express
+Green Plains Fairmont biorefinery (MN),United States,"Green Plains Fairmont, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.3,0.343,Biofuels,Dedicated storage,Midwest carbon express
+Green Plains Otter Tail biorefinery (MN),United States,"Green Plains Otter Tail, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.172,0.172,Biofuels,Dedicated storage,Midwest carbon express
+Green Plains Shenandoah biorefinery (MN),United States,"Green Plains Shenandoah, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.21,0.235,Biofuels,Dedicated storage,Midwest carbon express
+Green Plains Superior biorefinery (IA),United States,"Green Plains Superior, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.15,0.172,Biofuels,Dedicated storage,Midwest carbon express
+Green Plains Wood River biorefinery (NE),United States,"Green Plains Wood River, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.31,0.346,Biofuels,Dedicated storage,Midwest carbon express
+Green Plains York biorefinery (NE),United States,"Green Plains York, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.13,0.143,Biofuels,Dedicated storage,Midwest carbon express
+GreenGen Tianjin Huaneng IGCC Project Phase III,People's Republic of China,Huaneng,Full chain,2011,,2030,,Planned,1,2,2,Power and heat,Unknown/unspecified,
+Greenview Region CCS Project (ALB),Canada, ARC Resources Ltd. ,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Greenview Region CCS Project (ALB)
+Guanghui Energy CCUS integation project Phase 1,People's Republic of China,"Guanghui Energy CO., Ltd",Full chain,2022,2022,,,Under construction,,0.1,0.1,Other fuel transformation,EOR,
+Gulf Coast Sequestration Hub Lake Charles (LA),United States,Gulf Coast Sequestration,Storage,2020,,2030,,Planned,,2.7,2.7,CO2 storage,Dedicated storage,Gulf Coast Sequestration Hub
+Gulf of Mexico CCS Partnership Hub,United States,"Carbon Zero (Storage), Cox (field owner), Crescent Midstream (pipeline operator), Repsol",T&S,2022,,,,Planned,,,,CO2 T&S,Dedicated storage,Gulf of Mexico CCS Partnership Hub
+Gundih gas field EGR,Indonesia,"Pertamina, ITB, the Japan Group, Exxon?",Full chain,2020,,2026,,Planned,,0.3,0.3,Natural gas processing,EOR,
+H21 Leeds City Gate - Teesside hydrogen,United Kingdom,Northern Gas Networks,Capture,2014,,2035,,Planned,,1.5,1.5,Hydrogen/ammonia,Dedicated storage,
+H2BE,Belgium,"Equinor, Engie",Capture,2021,,2030,,Planned,,,,Hydrogen/ammonia,Dedicated storage,
+H2biscus,Malaysia,"SEDC, Lotte Chemical, Samsung Engineering, POSCO
+",Capture,2022,,,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+H2GE Rostock,Germany,"Equinor, VNG",Capture,2022,,,,Planned,,2,2,Hydrogen/ammonia,Dedicated storage,Northern Lights
+H2morrow,Germany,"OGE, Equinor, Thyssenkrupp Steel Europe",Capture,2019,,2027,,Planned,,1.9,1.9,Hydrogen/ammonia,Dedicated storage,
+H2NorthEast (Kellas Midstream Teesside Blue Hydrogen) Phase 1,United Kingdom,Kellas Midestream,Capture,2021,2024,2027,,Planned,,,,Hydrogen/ammonia,Dedicated storage,Northern Endurance Partnership
+H2NorthEast (Kellas Midstream Teesside Blue Hydrogen) Phase 2,United Kingdom,Kellas Midestream,Capture,2021,,2030,,Planned,,,,Hydrogen/ammonia,Dedicated storage,Northern Endurance Partnership
+H2Perth Woodside,Australia,"Woodside, McDermott (pre-FEED)",Full chain,2021,2023,,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+Hackberry Carbon Sequestration (HCS) project at Cameron LNG (LA),United States,"TotalEnergies, Sempra Infrastructure, Mitsui, and Mitsubishi",Full chain,2022,,,,Planned,,2,2,Natural gas processing,Dedicated storage,
+Hanson UK Padeswood Plant CCS,United Kingdom,"Heidelberg Materials, Hanson, Mitsubishi HI (pre-FEED)",Capture,2021,2023,2028,,Planned,,0.8,0.8,Cement,Dedicated storage,Liverpool Bay CO2 storage
+Haru Oni HIF Chile eFuels Magallanes phase 1,Chile,"HIF, Porsche, Siemens Energy, Enel Green Power, Enap, Empresas Gasco, ExxconMobil, Global thermostat",CCU,2021,2023,2025,,Planned,1,0.23,0.23,Direct Air Capture,Use,
+Haru Oni HIF Chile eFuels Magallanes phase 2,Chile,"HIF, Porsche, Siemens Energy, Enel Green Power, Enap, Empresas Gasco, ExxconMobil, Global thermostat",CCU,2021,,2026,,Planned,2,1.3,1.3,Direct Air Capture,Use,
+Haynesville Shale natural gas (LA),United States,"CapturePoint Solutions, Energy transfer",Capture,2022,2023,,,Planned,,,,Natural gas processing,Dedicated storage,CENLA hub
+"Heartland Greenway (IA, IL, MN, NE, SD) ",United States,"Valero, Black rock, Navigator",Transport,2021,2023,2025,,Planned,,10,15,CO2 transport,,Heartland Greenway
+Heidelberg Materials CBR Antoing Cement Plant (Project Anthemis),Belgium,Heidelberg Materials,Capture,2023,,2028,,Planned,,0.8,0.8,Cement,Dedicated storage,
+Heidelberg Materials Mitchell plant (IN),United States,Heidelberg Materials,Capture,2022,,,,Planned,,2,2,Cement,Dedicated storage,Mitchell CarbonSAFE (IL)
+Heidelberg Materials's Hanover cement plant (LEILAC 2),Germany,"Heidelberg Materials, Calix",Capture,2021,2023,2025,,Planned,,0.1,0.1,Cement,Use,
+HERO basalt CarbonSafe (OR),United States,University of Wyoming,Storage,2023,,,,Planned,,,,CO2 storage,Dedicated storage,HERO basalt CarbonSafe (OR)
+Heron Lake biorefinery (MN),United States,"Heron Lake BioEnergy, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.16,0.186,Biofuels,Dedicated storage,Midwest carbon express
+HIF USA eFuels Matagorda County (TX),United States,HIF USA,CCU,2021,2023,2026,,Planned,,2.2,2.2,Direct Air Capture,Use,
+Highwater Ethanol Lamberton biorefinery (MN),United States,"Highwater Ethanol Lamberton, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.13,0.157,Biofuels,Dedicated storage,Midwest carbon express
+Hinton Bioenergy CCS project (ALB),Canada," Vault 44.01 Ltd, West Fraser, TorchLight Bioresources",Capture,2022,,,,Planned,,1.3,1.3,Other industry,Unknown/unspecified,
+Holcim Exshaw Plant,Canada,Holcim Group and partners,Full chain,2023,,2030,,Planned,,1.3,1.3,Cement,Dedicated storage,
+Holcim Koromacno Plant,Croatia,Holcim Group,Capture,2023,,2027,,Planned,,0.4,0.4,Cement,Dedicated storage,Geothermal CCS Croatia
+Holcim Milaki Plant,Greece,Holcim Group,Capture,2023,,2027,,Planned,,1,1,Cement,Dedicated storage,Prinos CO2 storage
+Holcim Oburg cement plant,Belgium,Holcim Group,Capture,2022,,,,Planned,,1.3,1.3,Cement,Dedicated storage,
+Homeland Energy Solutions Lawler biorefinery (IA),United States,"Homeland Energy Solutions, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.49,0.572,Biofuels,Dedicated storage,Midwest carbon express
+Horizon H2 capture tailings CCS (ALB),Canada,Canadian Natural Resources Ltd,CCU,,,2009,,Operational,,0.438,0.438,Other fuel transformation,Use,
+Huaneng Zhengning coal power plant,People's Republic of China,China Huaneng,CCU,2021,2022,2023,,Under construction,,1.5,1.5,Power and heat,Use,
+Husker Ag Plainview biorefinery (NE),United States,"Husker Ag, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.27,0.315,Biofuels,Dedicated storage,Midwest carbon express
+H-vision plant 1,Netherlands,H-Vision consortium,Capture,2018,,2027,,Planned,1,1.3,1.3,Hydrogen/ammonia,Dedicated storage,Porthos
+H-vision plant 2,Netherlands,H-Vision consortium,Capture,2018,,2030,,Planned,2,1.3,1.3,Hydrogen/ammonia,Dedicated storage,Porthos
+HyDEMO (shelved??),Norway,Equinor,Capture,2020,2025,,,Planned,,0.15,0.15,Hydrogen/ammonia,Dedicated storage,
+Hydrogen 2 Magnum (H2M),Netherlands,"Nuon (Vattenfall sub.), Equinor, Gasunie",Capture,2017,,2025,,Planned,,1.3,1.3,Hydrogen/ammonia,Dedicated storage,Northern Lights
+Hydrogen Energy Supply Chain (HESC) Project Full scale (CarbonNET),Australia,"Kawasaki heavy industries, J-POWER, Iwatani Corporation, Marubeni Corporation, AGL, Sumitomo Corporation",Capture,2018,,2030,,Planned,1,1.8,4.39,Hydrogen/ammonia,Dedicated storage,CarbonNET
+Hydrogen to Humber (H2H) Saltend,United Kingdom,"Equinor, SSE Thermal, Linde (FEED), BOC (Operation and maintenance)",Capture,2020,2023,2027,,Planned,,1.4,1.4,Hydrogen/ammonia,Dedicated storage,Northern Endurance Partnership
+HyNet Hydrogen Production Project (HPP) Stanlow (Hynet Nortwest phase 1),United Kingdom,"Vertex Hydrogen (Essar Oil and progressive energy), Johnson Matthey",Capture,2019,2023,2026,,Planned,,0.81,0.81,Hydrogen/ammonia,Dedicated storage,Liverpool Bay CO2 storage
+Hynet Northwest phase 2,United Kingdom,,Capture,2019,,2030,,Planned,,8.1,8.1,Hydrogen/ammonia,Dedicated storage,Liverpool Bay CO2 storage
+Hynovi project (Vicat Montalieu plant),France,Vicat,CCU,2021,,2025,,Planned,,0.5,0.5,Cement,Use,
+Hyskies Vattenfall CHP Lanzatech,Sweden,"Vattenfall, SAS, Shell, Lanzatech",CCU,2021,,2027,,Planned,,,,Power and heat,Use,
+Illinois Clean Fuels Project (IL),United States,"Illinois clean fuels,",Capture,2013,2024,2026,,Planned,,8.1,9.7,Biofuels,Dedicated storage,
+Illinois Industrial Carbon Capture and Storage (IL),United States,ADM,Full chain,2009,2011,2017,,Operational,,0.5,1,Biofuels,Dedicated storage,
+In Salah,Algeria,"bp, Sonatrach, Equinor",Full chain,,,2014,2011,Decommissioned,,0.5,0.5,Natural gas processing,Dedicated storage,
+Ince Bioenergy Carbon Capture and Storage (InBECCS) phase 2,United Kingdom,"Bioenergy Infrastructure Group (BIG), Peel NRE",Capture,2021,,,,Planned,1,,,Power and heat,Dedicated storage,Liverpool Bay CO2 storage
+Indian Oil Corporation Koyali refinery,India,"Indian Oil Corporation (IOCL), Dastur, Air Liquide and BEG for FEED",Full chain,2021,,2025,,Planned,,0.7,0.7,Other fuel transformation,EOR and use,
+Ineos Antwerp CCS,Belgium,INEOS,Capture,2021,2023,2030,,Planned,,,,Other industry,Unknown/unspecified,
+INEOS Grangemouth refinery and hydrogen production,United Kingdom,"INEOS, Petroineos",Capture,2021,,2030,,Planned,,1,1,Hydrogen/ammonia,Dedicated storage,Acorn CCS
+Innovative Integration of Carbon Capture for Clean Power (ALB),Canada,Heartland Generation Ltd,Capture,2022,,,,Planned,,,,Power and heat,Unknown/unspecified,
+Inpex Abadi LNG,Indonesia,"Inpex 65%, Shell (trying to find a buyer for its shares)",Capture,2018,,2030,,Planned,,2.413793103,2.413793103,Natural gas processing,Unknown/unspecified,
+"Integrated Mid-Continent Stacked Carbon Storage Hub CarbonSAFE (NB, KS)",United States,"Battelle Memorial Institute, ADM, Schlumberger Carbon Services, and the Geological Survey of the Nebraska Conservation and Survey Division",T&S,2017,,,,Planned,,1.9,1.9,CO2 T&S,Dedicated storage,"Integrated Mid-Continent Stacked Carbon Storage Hub CarbonSAFE (NB, KS)"
+"Integratred clean ammonia production, Port of Corpus Christi (TX) phase 1",United States,"Rwe, Lotte Chemical Corporation, Mitsubishi Corporation (JSA)",Capture,2023,,2030,,Planned,1,,,Hydrogen/ammonia,Unknown/unspecified,
+"Integratred clean ammonia production, Port of Corpus Christi (TX) phase 2",United States,"Rwe, Lotte Chemical Corporation, Mitsubishi Corporation (JSA)",Capture,2023,,,,Planned,2,10,10,Hydrogen/ammonia,Unknown/unspecified,
+Itochu/Petronas ammonia project (ALB),Canada,"Itochu Corporation, Petronas Energy Canada Ltd",Full chain,2021,2023,2027,,Planned,,,,Hydrogen/ammonia,Dedicated storage,
+Jambaran Tiung Biru gas processing Sukowati oil field EOR,Indonesia,"Pertamina, Lemigas",Full chain,2020,2023,2028,,Planned,,0.9,2,Natural gas processing,EOR,
+James M  Barry Electric Generating Plant CCUS (AL),United States,"Southern Company Services, Linde Gas North America LLC, GE Gas Power",Capture,2022,,2030,,Planned,,0.5,0.5,Power and heat,Unknown/unspecified,
+Javelina Refinery CCS (TX),United States,"Port of Corpus Christi Authority, Howard Midstream",Capture,2021,,,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+Jiangsu Sailboat Green Methanol plant Shengong petrochemical,People's Republic of China," Jiangsu Sailboat Petrochemicals, Carbon Recycling International",CCU,2021,,,,Planned,,0.15,0.16,Other industry,Use,
+Jiling Petrochemical CCUS (Nanjing refinery),People's Republic of China,Sinopec,Full chain,2021,2022,2023,,Operational,,0.1,0.1,Other fuel transformation,EOR,Jiangsu oilfield
+J-Power Sumitomo joint feasibility clean hydrogen Latrobe Valley (VI),Australia,"J-Power, Sumitomo corporation",Full chain,2023,,,,Planned,,,,Hydrogen/ammonia,Dedicated storage,
+Jubail CCS Hub agreement,Saudi Arabia,"Saudi Aramco, SLB, Linde",T&S,2022,,2027,,Planned,,9,9,CO2 T&S,Dedicated storage,Jubail CCS hub
+K6 Program- Lumbres cement plant,France,"EQIOM, Air Liquide, France Industries, VDZ",Capture,2021,2026,2028,,Planned,,0.81,0.81,Cement,Dedicated storage,
+Kairos@C,Belgium,"Air Liquide, BASF",Capture,2021,2023,2025,,Planned,,1.42,1.42,Other industry,Dedicated storage,
+Karamay Xinjiang Dunhua methanol plant,People's Republic of China,Dunhua Oil Company,Full chain,,,2015,,Operational,,0.1,0.1,Other industry,EOR,
+Keadby 3 Carbon Capture Power Station,United Kingdom,"SSE Thermal, Equinor, FEED: Aker Solutions, Siemens Energy and Doosan Babcock",Capture,2020,,2028,,Planned,,1.5,1.5,Power and heat,Dedicated storage,Northern Endurance Partnership
+Keadby Hydrogen Power Station Project,United Kingdom,"SSE Thermal, Equinor, Fugro (ground investigation contract)",Capture,2021,,2029,,Planned,,,,Hydrogen/ammonia,Dedicated storage,Northern Endurance Partnership
+Kemper county CCUS (MS),United States,"Mississippi Power, Souther Energy",Full chain,,2010,2017,2017,Decommissioned,,3,3,Power and heat,EOR,
+Kern River Eastridge cogeneration plant San Joaquin Valley (CA),United States,Chevron,Capture,2022,,,,Planned,,,,Power and heat,Dedicated storage,
+KeyState Natural Gas Synthesis & CCUS (PA),United States,KeyState,Full chain,2021,,2024,,Planned,,0.104,0.104,Other industry,Dedicated storage,
+Kollsnes DAC facility,Norway,"Carbon Removal, Carbon Engineering, Oxy Low Carbon Ventures ",Full chain,2021,,,,Planned,,0.5,1,Direct Air Capture,Dedicated storage,
+KVA Linth Waste-to-Energy Bergen,Switzerland,"KVA Linth, Aker Carbon Capture",Capture,2020,,2025,,Planned,,0.1,0.1,Power and heat,Unknown/unspecified,
+L10 CCS,Netherlands,"Neptune, EBN & Rosewood Exploration & XTO Netherlands (Feasibility study)",T&S,2021,2023,2026,,Planned,,4,5,CO2 T&S,Dedicated storage,L10 CCS
+Labarge Shute Creek Gas Processing Plant 1.2 Mtpa expansion (WY),United States,ExxonMobil ,Full chain,2021,2022,2025,,Under construction,,1.2,1.2,Natural gas processing,Unknown/unspecified,
+Labarge Shute Creek Gas Processing Plant 2010 expansion (WY),United States,ExxonMobil,Full chain,2008,2008,2010,,Operational,2,3.5,3.5,Natural gas processing,EOR,
+Labarge Shute Creek Gas Processing Plant original (WY),United States,ExxonMobil,Full chain,,1984,1986,,Operational,1,3.5,3.5,Natural gas processing,EOR,
+LafargeHolcim Hover cement works Hannover phase 2,Germany,"Holcim Group, Cool Planet Technologies",Capture,2021,,2024,,Planned,1,0.194,0.184,Cement,Unknown/unspecified,
+LafargeHolcim Hover cement works Hannover phase 3,Germany,"Holcim Group, Cool Planet Technologies",Capture,2021,,2028,,Planned,2,0.8,0.8,Cement,Unknown/unspecified,
+LafargeHolcim Ste Genevieve plant (MO),United States,"University of Illinois, Holcim Group, Air Liquide",Capture,2021,,,,Planned,,2.9,2.9,Cement,Dedicated storage,
+Lake Charles Methanol (LA),United States,"Denbury, Fluor",Capture,2009,2023,2025,,Planned,,4,4.2,Other industry,Use and storage,
+Lapis Energy El Dorado (AR),United States,"Lapis Energy, LSB",Full chain,2022,,2025,,Planned,,0.45,0.45,Hydrogen/ammonia,Dedicated storage,
+Large-Scale and Wide-Area Carbon Capture and Storage,Japan,"ITOCHU, Mitsubishi HI, INPEX, Taisei",T&S,2023,,2030,,Planned,,,,CO2 T&S,Dedicated storage,Large-Scale and Wide-Area Carbon Capture and Storage
+LG&E Cane Run NGCC CR7 (KY),United States,"LG&E Cane Run, Electric Power Research Institute (FEED), University of Kentucky (tech), DOE (FEED funding)",Capture,2022,,,,Planned,,1.7,1.7,Power and heat,Unknown/unspecified,
+Lincolnway Energy Nevada biorefinery (IA),United States,"Lincolnway Energy, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.22,0.257,Biofuels,Dedicated storage,Midwest carbon express
+Linde hydrogen plant for OCI fertilizer blue ammonia Beaumont (TX),United States,"Linde (owns, builds, operates)",Capture,2022,2023,2025,,Under construction,,1.7,1.7,Hydrogen/ammonia,Dedicated storage,
+Linde-BASF capture SMR plant Covent (LA),United States,Praxair,Capture,2020,,,,Planned,,1.36145,1.36145,Hydrogen/ammonia,Unknown/unspecified,
+Linde-bp Texas CCS H2 (TX)-Transport and storage,United States,"BP, Linde",T&S,2022,,,,Planned,,15,15,CO2 T&S,Dedicated storage,Linde-bp Texas CCS H2 (TX)-Transport and storage
+LIPOR Maia Energy Recovery Plant PtL facility,Portugal,"LIPOR (Intermunicipal Waste Management of Greater Porto), P2X Europe and Veolia",CCU,2022,,,,Planned,,0.1,0.1,Power and heat,Use,
+Little Sioux Corn Processors Marcus biorefinery (IA),United States,"Little Sioux Corn Processors, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.39,0.458,Biofuels,Dedicated storage,Midwest carbon express
+Liverpool Bay CO2 storage phase 1,United Kingdom,Eni,T&S,2020,,2025,,Planned,1,4.5,4.5,CO2 T&S,Dedicated storage,Liverpool Bay CO2 storage
+Liverpool Bay CO2 storage phase 2,United Kingdom,Eni,T&S,2020,,2030,,Planned,2,5.5,5.5,CO2 T&S,Dedicated storage,Liverpool Bay CO2 storage
+Lone Cypress Hydrogen project (CA),United States,"Lone Cypress Energy services, California Resources Corporation (Carbon TerraVault)",Full chain,2022,2023,2025,,Planned,,0.1,0.1,Hydrogen/ammonia,Dedicated storage,Elk Hills field
+Longford gas plant,Australia,ExxonMobil,Capture,2022,,2025,,Planned,,2,2,Natural gas processing,Dedicated storage,SEA CCS
+Lost Cabin Gas Plant (WY),United States,"Contango Oil & Gas (bought plant in 2021 from Conocophillips), Denbury",Full chain,2010,2011,2013,,Operational,,0.9,0.9,Natural gas processing,EOR,
+Louis Dreyfus Grand Junction biorefinery (IA),United States,"Louis Dreyfus Grand Junction, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.29,0.343,Biofuels,Dedicated storage,Midwest carbon express
+Louis Dreyfus Norfolk biorefinery (IA),United States,"Louis Dreyfus Norfolk, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.13,0.152,Biofuels,Dedicated storage,Midwest carbon express
+Louisiana Green Fuels Project  (LA),United States,Strategic Biofuels LLC,Full chain,2021,2023,2027,,Planned,,,,Biofuels,Dedicated storage,
+Lyse Forus Energigjenvinning Stavanger ,Norway,"Lyse, Forus Energi, Aker CC (tech)",Capture,2021,,2024,,Planned,,0.1,0.1,Power and heat,Dedicated storage,
+Marquis Industrial Complex (IL),United States,Marquis Inc.,Full chain,2022,,,,Planned,,,,Biofuels,Dedicated storage,
+Marubeni Pertamina pulp mill BECCS project,Indonesia,"Marubeni Corp, Pertamina",Capture,2022,,,,Planned,,,,Other industry,Dedicated storage,
+Maskwa Project (ALB),Canada, Kiwetinohk Energy Corp.,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Maskwa Project (ALB)
+Meadowbrook storage hub (ALB),Canada,"Bison Low Carbon Ventures , Enerflex, PrairieSky Royalty, IRC Enterprises",Storage,2022,,2025,,Planned,,3,3,CO2 storage,Dedicated storage,Meadowbrook storage hub (ALB)
+Medway CCGT power station,United Kingdom,Oilex,Capture,2022,,,,Planned,,,,Power and heat,Dedicated storage,Medway Hub CCS
+Medway CCS Hub,United Kingdom,Oilex,T&S,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Medway Hub CCS
+Mendota BECCS power project (Clean Energy Systems Carbon Negative Energy Plant - Central Valley) (CA),United States,"Schlumberger New Energy, Chevron Corp., Microsoft and Clean Energy Systems
+Chevron Corporation, Schlumberger New Energy, Microsoft and Clean Energy Systems",Full chain,2021,2023,2025,,Planned,,0.3,0.3,Power and heat,Dedicated storage,
+MEPAU Mid West CCUS hub,Australia,"Mitsui E&P Australia (MEPAU), JOGMEC",Full chain,2021,,2028,,Planned,,,,Hydrogen/ammonia,Dedicated storage,Mid West CCUS hub
+Merritt Electrofuels Project DAC (BC),Canada,"Huron Clean Energy , Oxy Low Carbon Ventures, Upper Nicola Band and Carbon Engineering ",CCU,2021,2023,2026,,Planned,,0.25,0.25,Direct Air Capture,Use,
+Mid West Clean Energy Project,Australia,"Pilot Energy, Warrego Energy, APA group
+",Full chain,2021,,2025,,Planned,,,,Hydrogen/ammonia,Dedicated storage,
+Midwest AgEnergy Blue Flint ethanol (ND),United States,Midwest Ag Energy,Full chain,2020,,2023,,Planned,,0.2,0.2,Biofuels,Dedicated storage,
+"Midwest Carbon Express (NE, SD, ND, MI, IA)",United States,Summit carbon solutions (SK E&S 10%),T&S,2021,2023,2024,,Planned,,12,12,CO2 T&S,Dedicated storage,Midwest carbon express
+Mikawa Power Plant BECCS Fukuoka Prefecture,Japan,"SIGMA Power Ariake (Toshiba), ESS",Capture,2016,2017,2020,,Operational,,0.18,0.18,Power and heat,Unknown/unspecified,
+Mineral carbonation international Carbon Plant demonstrator,Australia,Mineral Carbonation International,CCU,2021,,2023,,Under construction,,0.3,0.3,Other industry,Use,
+Minnkota-Summit Carbon Solutions storage (ND),United States,"Summit Carbon solutions, Minnkota",Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,
+Mitchell CarbonSAFE (IL),United States,Board of Trustees of the University of Illinois,Storage,2023,,,,Planned,,1.666666667,1.666666667,CO2 storage,Dedicated storage,Mitchell CarbonSAFE (IL)
+MOL Szank field CO2 EOR,Hungary,MOL group,Full chain,,,1992,,Operational,,0.16,0.16,Natural gas processing,EOR,
+Moomba Carbon Capture and Storage,Australia,"Santos, Beach Energy",Full chain,2019,2021,2024,,Under construction,1,1.7,1.7,Natural gas processing,Dedicated storage,Moomba storage hub
+Mote biomass-to-hydrogen plant (CA),United States,"Mote, CarbonCure, Fluor Corporation, SungasRenewables",Capture,2021,,2025,,Planned,,0.14,0.14,Hydrogen/ammonia,Use and storage,
+MoU ADNOC ENEOS Mitsui Ruwais Industrial Area (2  phases?),United Arab Emirates,"ADNOC, ENEOS, Mitsui",Capture,2022,,,,Planned,,,,Other industry,Unknown/unspecified,
+Muara Enim Downstream Coal to Dimethyl Ether (DME) Project,Indonesia,Pertamina,Capture,2021,,2024,,Planned,,,,Other fuel transformation,EOR,
+Multi-user Burrup CCUS hub and network (Karratha CCS Project),Australia,"Woodside, bp, Shell, Chevron, MIMI (50/50 Mitsubishi and Mitsui)",T&S,2022,,,,Planned,,,,CO2 T&S,Dedicated storage,Burrup CCUS hub
+Mustang Station Carbon Capture (TX),United States,"Golden Spread Electric Cooperative,  University of Texas at Austin ",Full chain,2019,,2025,,Planned,,1.5,1.5,Power and heat,EOR,
+Nanhai petrochemical plant-Capture for Daya bay CCS,People's Republic of China,Shell,Capture,2022,,,,Planned,,,,Other industry,Dedicated storage,Daya bay CCS Hub
+Nauticol and Enhance Energy blue methanol project (ALB),Canada,"Nauticol, Enhance Energy",Capture,2021,,2025,,Planned,,1,0.9,Other industry,EOR,Alberta Carbon Trunk Line (ACTL)
+Neptune Energy L10 Area CCS development phase 1,Netherlands,"Neptune Energy, EBN, Rosewood Exploration, and XTO Netherlands",T&S,2020,,,,Planned,1,5,5,CO2 T&S,Dedicated storage,Neptune Energy L10
+Neptune Energy L10 Area CCS development phase 2,Netherlands,"Neptune Energy, EBN, Rosewood Exploration, and XTO Netherlands",T&S,2020,,,,Planned,2,3,3,CO2 T&S,Dedicated storage,Neptune Energy L10
+Net Power Odessa gas plant (TX),United States,"Net Power, Oxy (T&S), 8 Rivers capital (funding)",Full chain,2022,,2026,,Planned,,,,Power and heat,Dedicated storage,Oxy CO2 sequestration hub (TX)
+Net Zero Teesside Power,United Kingdom,"BP, Equinor, Technip Energies (FEED), GE Gas Power (FEED)",Capture,2018,2023,2026,,Planned,,2,2,Power and heat,Dedicated storage,Northern Endurance Partnership
+NextDecade Rio Grande LNG (TX),United States,"NextDecade, Mitsubishi HI (ESA/Tech)",Full chain,2021,2023,2025,,Planned,,5,5,Natural gas processing,Unknown/unspecified,Houston CCS Hub
+Niigata East Port CCUS Hub & Cluster,Japan,JAPEX,T&S,2022,,2030,,Planned,,,,CO2 T&S,Dedicated storage,Niigata East Port CCUS Hub & Cluster
+Norcem Brevik,Norway,"Norcem, Aker CC (tech)",Capture,2016,2020,2024,,Under construction,,0.4,0.4,Cement,Dedicated storage,Northern Lights
+Norske Skog Saugbrugs (Borg CO2),Norway,"Borg Havn, Norske Skog Saugbrugs",Capture,2019,,,,Planned,,0.27,0.27,Other industry,Dedicated storage,Northern Lights
+North Drumheller Hub (ALB),Canada, Bison Low Carbon Ventures Inc. ,Storage,2022,,,,Planned,,3,3,CO2 storage,Dedicated storage,North Drumheller Hub (ALB)
+North East Alliance blue ammonia Yakutia Phase 1,Russian Federation,"North East Alliance, Gas production companies in Western Yakutia
+",Full chain,2021,,2026,,Planned,1,,,Hydrogen/ammonia,EOR,
+North East Alliance blue ammonia Yakutia Phase 2,Russian Federation,"North East Alliance, Gas production companies in Western Yakutia
+",Full chain,2021,,2030,,Planned,2,,,Hydrogen/ammonia,EOR,
+Northeast Scotland DAC,United Kingdom,"Storegga, Carbon Engineering. This project is led by Storegga, through its wholly owned subsidiary Pale Blue Dot Energy, with technology partner Carbon Engineering (CE), engineering partner Petrofac Facilities Management, and support from the Universities of Cambridge and Edinburgh.",Capture,2021,,2026,,Planned,,0.5,1,Direct Air Capture,Dedicated storage,Acorn CCS
+Northern America Edmonton Cement (ALB),Canada,"Heidelberg Materials (Lehigh Cement), Enbridge, Mitsubishi HI (feasibility)",Capture,2019,,2026,,Planned,,0.6,0.78,Cement,Dedicated storage, Open Access Wabamun Carbon Hub
+Northern Endurance Partnership,United Kingdom,"BP, National Grid, Equinor, Shell and Total (partners), Worley (technical advisors)",T&S,2020,,,,Planned,,4,4,CO2 T&S,Dedicated storage,Northern Endurance Partnership
+Northern Lights Phase 1,Norway,"Shell, TotalEnergies, Equinor, Yara Slusiskil (Source of CO2) ",T&S,2017,2020,2024,,Under construction,1,1.5,1.5,CO2 T&S,Dedicated storage,Northern Lights
+Northern Lights Phase 2,Norway,"Shell, TotalEnergies, Equinor",T&S,2017,,2026,,Planned,2,3.7,3.7,CO2 T&S,Dedicated storage,Northern Lights
+Northern Plains Nitrogen Blue ammonia (ND),United States,"Northern Plains Nitrogen, Summit Carbon Solutions (T&S)",Capture,2013,2023,,,Planned,,0.5,0.5,Other industry,Dedicated storage,Midwest carbon express
+Novatek Obskiy Gas Chemical Complex Blue ammonia,Russian Federation,Novatek,Full chain,2021,,2027,,Planned,,,,Hydrogen/ammonia,Dedicated storage,
+NWR CO2 Recovery Unit (Sturgeon Refinery) (ACTL) (ALB),Canada,Northwest Redwater Partnership,Capture,2011,2014,2020,,Operational,,1.3,1.3,Other fuel transformation,EOR,Alberta Carbon Trunk Line (ACTL)
+OCI Fertilizer plant phase 1,United States,"OCI, Enerflex (CO2 capture), Blackrock (funding), Navigor (T)",Capture,2021,2022,2025,,Under construction,1,0.45,0.45,Other industry,Dedicated storage,Heartland Greenway
+OCI Fertilizer plant phase 2,United States,"OCI, Enerflex (CO2 capture), Blackrock (funding), Navigor (T)",Capture,2021,,,,Planned,2,0.25,0.25,Other industry,Dedicated storage,Heartland Greenway
+Oil Sands CCUS Pathways to Net Zero (ALB) (14 facilities),Canada,"Pathways Alliance (CNRL, Cenovus Energy, ConocoPhilips, Imperial, MEG Energy, and Suncor)",Capture,2022,,2030,,Planned,,10,12,Other fuel transformation,Unknown/unspecified,Oil Sands CCUS Pathways to Net Zero
+Oil Sands CCUS Pathways to Net Zero (ALB) (T&S),Canada,"Pathways Alliance (CNRL, Cenovus Energy, ConocoPhilips, Imperial, MEG Energy, and Suncor)",T&S,2022,,2030,,Planned,,10,12,CO2 T&S,Unknown/unspecified,Oil Sands CCUS Pathways to Net Zero
+Omifco ammonia capture,Oman,"OQ group, Omifco",Capture,2023,,,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+One Earth Energy ethanol CCS (IL),United States,One Earth Energy,Full chain,2020,,,,Planned,,0.45,1.7,Biofuels,Dedicated storage,Illinois Storage Corridor
+Opal Carbon Hub (ALB),Canada, Kiwetinohk Energy Corp.,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Opal Carbon Hub (ALB)
+Open Access Wabamun Carbon Hub (ALB),Canada,"Enbridge, Capital Power, Lehigh Cement and  First Nation Capital Investment Partnership (FNCIP)",Storage,2022,,,,Planned,,4,4,CO2 T&S,Dedicated storage,Open Access Wabamun Carbon Hub
+Origins Project (ALB),Canada,Enhance Energy,Storage,2022,,2024,,Planned,,20,20,CO2 storage,Dedicated storage,Origins Project
+Oslo Waste to Energy Capture Klemetsrud,Norway,Hafslund Oslo Celsio (formerly Fortum Oslo Varme),Capture,2016,2022,2025,,Under construction,,0.4,0.4,Power and heat,Dedicated storage,Northern Lights
+Oxy BlueBonnet CO2 sequestration hub (TX),United States,"1PointFive (Oxy Low carbon ventures), Natural Resource Partners L.P",Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Oxy CO2 sequestration hub (TX)
+Oxy CE DAC 100 plants announcement (- 30 in Texas) expansion 2030,Unknown,"1PointFive, Carbon Engineering",Full chain,2022,,2030,,Planned,1,,,Direct Air Capture,Dedicated storage,
+Oxy CE DAC 100 plants announcement (- 30 in Texas) expansion 2035,Unknown,"1PointFive, Carbon Engineering",Full chain,2022,,2035,,Planned,2,,,Direct Air Capture,Dedicated storage,
+Oxy CE Kleberg County DAC plants (TX),United States,"Occidental, 1PointFive, Carbon Engineering",Capture,2022,,2025,,Planned,1,1,1,Direct Air Capture,Dedicated storage,Oxy CO2 sequestration hub (TX)
+Oxy CE Kleberg County DAC plants (TX) expansion 2030 (15 plants),United States,"Occidental, 1PointFive, Carbon Engineering",Capture,2022,,2030,,Planned,2,,,Direct Air Capture,Dedicated storage,Oxy CO2 sequestration hub (TX)
+Oxy CE Kleberg County DAC plants (TX) expansion 2035 (15 plants),United States,"Occidental, 1PointFive, Carbon Engineering",Capture,2022,,2035,,Planned,3,,,Direct Air Capture,Dedicated storage,Oxy CO2 sequestration hub (TX)
+Papua LNG CCS,Papua New Guinea,Total Energies,Full chain,2018,2023,2027,,Planned,,1,1,Natural gas processing,Dedicated storage,
+PCS Nitrogen Geismar Ammonia plant (LA),United States,"Nutrien, Denbury",Full chain,2022,2023,2027,,Planned,,1.2,1.8,Hydrogen/ammonia,Dedicated storage,
+PCS Nitrogen-Geismar plant (LA),United States,"Nutrien, Denbury",Full chain,2011,2011,2013,,Operational,,0.2,0.3,Other industry,EOR,
+Pecos County Ultra Clean Fuels Refining (TX),United States,MMEX,Capture,2021,,,,Planned,,,,Other fuel transformation,EOR,
+Pembroke Net Zero Centre (PNZC),United Kingdom,RWE,Capture,2022,2023,2040,,Planned,,,,Power and heat,Dedicated storage,
+Peterhead Carbon Capture Power Station,United Kingdom,"SSE Thermal, Equinor",Capture,2021,2023,2030,,Planned,,1.5,1.5,Power and heat,Dedicated storage,Acorn CCS
+Petra Nova Carbon Capture (TX),United States,"Equity: NRG and JX Nippon, Debt: JBIC & Mizhou bank (backed by NEXI)",Full chain,2009,2014,2016,2020,Suspended,,1.4,1.4,Power and heat,EOR,
+Petrobras Santos Basin pre-salt oilfield CCS,Brazil,Petrobas,Full chain,2011,,2013,,Operational,,3,8.7,Natural gas processing,EOR,
+Petronas Kasawari gas field CCS project (Kasawari Phase 2 project),Malaysia,"Petronas, Technip, National Petroleum Construction Company, Baker Hughes (compressor)",Full chain,2020,2022,2025,,Under construction,,3.3,3.3,Natural gas processing,Dedicated storage,
+Phillips 66 Humber refinery,United Kingdom,"Phillips 66, Babcock & Wilcox (FEED)",Capture,2021,,2028,,Planned,,4,4,Other fuel transformation,Dedicated storage,Viking CCS
+Pieridae Caroline Carbon Capture Power Complex Phase 1 (ALB),Canada,Pieridae Energy Ltd.,Full chain,2021,,,,Planned,1,1,1,Power and heat,Dedicated storage,
+Pieridae Caroline Carbon Capture Power Complex Phase 2 (ALB),Canada,Pieridae Energy Ltd.,Full chain,2021,,,,Planned,2,2,2,Power and heat,Dedicated storage,
+Pincher Creek Carbon Sequestration Hub (ALB),Canada, West Lake Energy Corp.,Storage,2022,,,,Planned,,2.7,2.7,CO2 storage,Dedicated storage,Pincher Creek Carbon Sequestration Hub (ALB)
+Pine Lake Corn Processors Steamboat Rock biorefinery (IA),United States,"Pine Lake Corn Processors, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.19,0.229,Biofuels,Dedicated storage,Midwest carbon express
+Plant Daniel Carbon Capture (MS) ,United States,"Southern Company Services, Linde Gas North America LLC",Capture,2019,,2025,,Planned,,1.8,1.8,Power and heat,Dedicated storage,ECO2S
+Plymouth Energy Merrill biorefinery (IA),United States,"Plymouth Energy, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.13,0.157,Biofuels,Dedicated storage,Midwest carbon express
+"POET 18 bioprocessing plants (IA, NE, SD)",United States,POET,Capture,2021,,2025,,Planned,,5,5,Biofuels,Dedicated storage,Heartland Greenway
+Polaris CCS capture (ALB),Canada,Shell,Capture,2021,2023,2025,,Planned,1,0.75,0.75,Other fuel transformation,Dedicated storage,Atlas Carbon Sequestration Hub
+Polaris offshore storage facility,Norway,"Horisont Energi, Fertiberia ",Storage,2021,2023,,,Planned,,,,CO2 storage,Dedicated storage,Polaris offshore storage facility
+Port of Aalborg terminal and pipeline to Fyrkat,Denmark,Capio Danmark,Transport,2022,,2026,,Planned,,4,4,CO2 transport,,NORNE
+Port of Kalundborg terminal and pipeline to Trelleborg phase 1,Denmark,Capio Danmark,Transport,2022,,2026,,Planned,1,4,4,CO2 transport,,NORNE
+Port of Kalundborg terminal and pipeline to Trelleborg phase 2,Denmark,Capio Danmark,Transport,2022,,2030,,Planned,2,8,8,CO2 transport,,NORNE
+Porthos phase 1,Netherlands,"Energie Beheer Nederland (EBN), Gasunie, and the Port of Rotterdam",T&S,2018,2023,2025,,Planned,1,2.5,2.5,CO2 T&S,Dedicated storage,Porthos
+Porthos phase 2,Netherlands,"Energie Beheer Nederland (EBN), Gasunie, and the Port of Rotterdam",T&S,2018,,,,Planned,2,2.5,2.5,CO2 T&S,Dedicated storage,Porthos
+Prairie State Generating Station Carbon Capture (IL),United States,"Prairie Research Institute (University of Illinois), Mitsubishi Heavy Industries, Kiewit Engineering Group, Sargent & Lundy",Full chain,2019,,2025,,Planned,,5,7.2,Power and heat,Dedicated storage,Illinois Storage Corridor
+Prax Lindsey Oil Refinery Phase 1,United Kingdom,Prax,Capture,2021,,2027,,Planned,1,0.55,0.55,Other fuel transformation,Dedicated storage,Viking CCS
+Prax Lindsey Oil Refinery Phase 2,United Kingdom,Prax,Capture,2021,,2029,,Planned,2,0.55,0.55,Other fuel transformation,Dedicated storage,Viking CCS
+Preem CCS at Lysekil refinery,Sweden,"Preem, Aker solutions, Equinor",Capture,2018,,2025,,Planned,,0.6,0.6,Other fuel transformation,Dedicated storage,Northern Lights
+Prinos CCS phase 1,Greece,Energean,T&S,2021,,2027,,Planned,2,2,2,CO2 T&S,Dedicated storage,Prinos CO2 storage
+Prinos CCS phase 1,Greece,Energean,T&S,2021,,2025,,Planned,1,1,1,CO2 T&S,Dedicated storage,Prinos CO2 storage
+Prinos sigma plant,Greece,Energean,Capture,2022,,2025,,Planned,,1,1,Natural gas processing,Dedicated storage,Prinos CO2 storage
+Project Air,Sweden,"Perstorp Oxo AB (capture and methanol), FORTUM SVERIGE AB (hydrogen), Sydkraft AB",CCU,2020,,2025,,Planned,,0.5,0.5,Biofuels,Use,
+Project Bifrost Phase 1,Denmark," Danish Underground Consortium (TotalEnergies, Noreco, Nordsofonden), Orsted, TU Denmark",T&S,2021,,2030,,Planned,1,2,3,CO2 T&S,Dedicated storage,Project Bifrost
+Project Bifrost Phase 2,Denmark," Danish Underground Consortium (TotalEnergies, Noreco, Nordsofonden), Orsted, TU Denmark",T&S,2021,,2032,,Planned,2,10,10,CO2 T&S,Dedicated storage,Project Bifrost
+Project Bison (WY) Phase 1,United States,"CarbonCapture, Frontier Carbon Solutions",Full chain,2022,,2024,,Planned,1,0.01,0.01,Direct Air Capture,Dedicated storage,
+Project Bison (WY) Phase 2,United States,"CarbonCapture, Frontier Carbon Solutions",Full chain,2022,,2026,,Planned,2,0.2,0.2,Direct Air Capture,Dedicated storage,
+Project Bison (WY) Phase 3,United States,"CarbonCapture, Frontier Carbon Solutions",Full chain,2022,,2028,,Planned,3,0.8,0.8,Direct Air Capture,Dedicated storage,
+Project Bison (WY) Phase 4,United States,"CarbonCapture, Frontier Carbon Solutions",Full chain,2022,,2028,,Planned,4,4,4,Direct Air Capture,Dedicated storage,
+Project Cavendish Phase 1,United Kingdom,"Arup, VPI, National Grid Ventures, Shell, SSE Thermal, Uniper, Acorn
+",Capture,2021,2023,2026,,Planned,1,1.2,1.2,Hydrogen/ammonia,Dedicated storage,Acorn CCS
+Project Cavendish Phase 2,United Kingdom,"Arup, VPI, National Grid Ventures, Shell, SSE Thermal, Uniper, Acorn
+",Capture,2021,2023,2026,,Planned,2,1.8,1.8,Hydrogen/ammonia,Dedicated storage,Acorn CCS
+Project Clear Horizon (ALB),Canada, City of Medicine Hat,Full chain,2022,,,,Planned,,,,Power and heat,Unknown/unspecified,Project Clear Horizon (ALB)
+Project ECO2S: Early CO2 Storage Complex in Kemper County (MS),United States,Southern States Energy Board,T&S,2017,,,,Planned,,3,3,CO2 storage,Dedicated storage,Project ECO2S: Early CO2 Storage Complex in Kemper County (MS)
+Project Greensand phase 1,Denmark,"INEOS E&P, Wintershell Dea, Welltec (storage)",T&S,2020,2024,2025,,Planned,1,1.5,1.5,CO2 T&S,Dedicated storage,Project Greensand
+Project Greensand phase 2,Denmark,"INEOS E&P, Wintershell Dea, Welltec (storage)",T&S,2020,,2030,,Planned,2,6.5,6.5,CO2 T&S,Dedicated storage,Project Greensand
+Project Hajar,Oman,"Mission Zero, 44.01",CCU,2022,,2024,,Planned,,0.001,0.001,Direct Air Capture,Use,
+Project Interseqt - Hereford Ethanol Plant (TX),United States,"White Energy, Oxy Low Carbon Ventures",Full chain,2018,,2023,,Planned,,0.35,0.35,Biofuels,EOR,
+Project Interseqt - Plainview Ethanol Plant (TX),United States,"White Energy, Oxy Low Carbon Ventures",Full chain,2018,,2023,,Planned,,0.35,0.35,Biofuels,EOR,
+Project Lochridge (LA),United States,Southern States Energy Board,Storage,2023,,,,Planned,,,,CO2 storage,Dedicated storage,Project Lochridge (LA)
+Project OASIS Shelby County (AL),United States,Southern States Energy Board,Storage,2023,,,,Planned,,,,CO2 storage,Dedicated storage,Project OASIS Shelby County (AL)
+Project Phoenix ammonia (WY),United States,"North Shore Energy, Starwood Energy Group",Full chain,2022,,,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+Project Pouakai Hydrogen Production with CCS,New Zealand,"8Rivers, Toshiba, McDermott, Exelon, Oxy",Full chain,2018,,2024,,Planned,,1,1,Hydrogen/ammonia,Unknown/unspecified,
+Project Tundra at Milton R Young Station (ND),United States,Minnkota Power Cooperative Inc.,Full chain,2018,2023,2026,,Planned,,3.1,3.6,Power and heat,Dedicated storage,Minnkota-Summit Carbon solutions storage (ND)
+Projects Trelleborg and Fyrkat (2 storage sites) phase 1,Denmark,Capio Danmark,Storage,2022,,2026,,Planned,1,2.3,2.6,CO2 storage,Dedicated storage,NORNE
+Projects Trelleborg and Fyrkat (2 storage sites) phase 2,Denmark,Capio Danmark,Storage,2022,,2030,,Planned,2,16.4,16.4,CO2 storage,Dedicated storage,NORNE
+Protos CO2 network phase 1,United Kingdom,"Peel NRE, Progressive Energy",Transport,2022,,,,Planned,1,0.8,0.8,CO2 transport,,Liverpool Bay CO2 storage
+Protos CO2 network phase 2,United Kingdom,"Peel NRE, Progressive Energy",Transport,2022,,,,Planned,2,0.4,0.4,CO2 transport,,Liverpool Bay CO2 storage
+"PT Panca Amara Utama (PAU) Banggai ammonia plant, Luwuk Central Sulawesi",Indonesia,"JOGMEC, Mitsubishi, PT Panca Amara Utama, ITB",Full chain,2021,,2028,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+PYCASSO hub phase 1 - eastern and western pipeline,France,"Terega, Pole Avenia, Agglo Pau, Holcim Group, Université de Pau, BGRM, IFPEN, Schlumberger, Repsol, CNAM, geostock, geopetrol",T&S,2021,2025,2030,,Planned,1,2.5,2.5,CO2 T&S,Dedicated storage,PYCASSO hub
+PYCASSO hub phase 2 - northern and cross-border pipeline,France,"Terega, Pole Avenia, Agglo Pau, Holcim Group, Université de Pau, BGRM, IFPEN, Schlumberger, Repsol, CNAM, geostock, geopetrol",T&S,2021,2025,2035,,Planned,2,3.4,3.4,CO2 T&S,Dedicated storage,PYCASSO hub
+Qatar LNG,Qatar,"Qatar Petroleum, ExxonMobil",Full chain,2019,,2019,,Operational,,2.1,2.1,Natural gas processing,Dedicated storage,
+Qatar North Field East Project CCS,Qatar,Qatar Petroleum,Full chain,2018,2021,2025,,Under construction,,2.9,2.9,Natural gas processing,Dedicated storage,
+Quad County Corn Processors Galva biorefinery (IA),United States,"Quad County Corn Processors, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.09,0.109,Biofuels,Dedicated storage,Midwest carbon express
+Quest (ALB),Canada,"Shell (60%), Marathon oil (20%), Chevron Canada (20%), CNRL",Full chain,2009,2012,2015,,Operational,,1,1.2,Other fuel transformation,Dedicated storage,
+Ram River Carbon Sequestration Hub (ALB),Canada, Tidewater Midstream & Infrastructure Ltd.,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Ram River Carbon Sequestration Hub (ALB)
+Ravenna Hub phase 1,Italy,"Eni, Snam",T&S,2020,2023,2023,,Planned,1,0.025,0.025,CO2 T&S,Dedicated storage,Ravenna Hub
+Ravenna Hub phase 2,Italy,"Eni, Snam",T&S,2020,2023,2027,,Planned,2,3.975,3.975,CO2 T&S,Dedicated storage,Ravenna Hub
+Red Trail Energy BECCS Project (ND),United States,"Plains CO2 Reduction Partnership,  Energy & Environmental Research Centre,  Red Trail Energy",Full chain,2016,,2022,,Operational,,0.18,0.18,Biofuels,Dedicated storage,
+Redcar Energy Centre EfW,United Kingdom,Redcar Energy (Low Carbon and PMAC Energy),Capture,2021,2023,2025,,Planned,,0.4,0.4,Power and heat,Dedicated storage,Northern Endurance Partnership
+Redfield Energy biorefinery (ND),United States,"Red River BioRefinery, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.15,0.172,Biofuels,Dedicated storage,Midwest carbon express
+Removr large-scale plant,Unknown (Europe),"Removr (Greencap 40%, Vanir Green Industries 60%), Carbfix",Capture,2022,,2025,,Planned,,0.002,0.002,Direct Air Capture,,
+Repsol Sakakemang Block carbon capture,Indonesia,"Repsol, Petronas, MOECO",Full chain,2021,2023,2027,,Planned,,1.5,2,Natural gas processing,Dedicated storage,
+Ringneck Energy & Feed Onida biorefinery (SD),United States,"Ringneck Energy, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.19,0.229,Biofuels,Dedicated storage,Midwest carbon express
+Rockpoint and Inter Pipeline Carbon Sequestration Hub,Canada,Inter Pipeline and Rockpoint Gas Storage,T&S,2022,,,,Planned,,6,6,CO2 T&S,Dedicated storage,Rockpoint and Inter Pipeline Carbon Sequestration Hub
+Rocky Mountain Carbon (ALB),Canada,"West Fraser, Torchlight Bioresources",Capture,2023,2025,2027,,Planned,,1,1.3,Other industry,Dedicated storage,"Rocky Mountain Carbon Vault (ALB), ADM"
+Rocky Mountain Carbon Vault (ALB),Canada, Vault 44.01 Ltd.,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Rocky Mountain Carbon Vault (ALB)
+Rohm chemical plant (x2),Germany,"Rohm, Aker carbon capture",CCU,2023,,,,Planned,,0.5,0.5,Other industry,Use,
+Rolling Hills Carbon Sequestration Hub (ALB),Canada, AltaGas Ltd. and Whitecap Resources Inc.,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Rolling Hills Carbon Sequestration Hub (ALB)
+Roughrider Carbon Storage Hub (ND),United States,University of North Dakota,Storage,2023,,,,Planned,,,,CO2 storage,Dedicated storage,Roughrider Carbon Storage Hub (ND)
+Runcorn CCS project,United Kingdom,"Viridor, Aker CC (tech)",Capture,2021,2023,2026,,Planned,,0.95,0.95,Power and heat,Dedicated storage,Liverpool Bay CO2 storage
+RWE Amer power plant,Netherlands,RWE,Capture,2022,,2032,,Planned,,5.5,7,Power and heat,Dedicated storage,Noorkaap
+RWE CCGT Staythorpe (+ another new build?),United Kingdom,RWE,Capture,2022,,,,Planned,,,,Power and heat,Dedicated storage,Viking CCS
+RWE Eemshaven power plant,Netherlands,RWE,Capture,2022,,2030,,Planned,,5.5,7,Power and heat,Dedicated storage,Noorkaap
+Santos Bonaparte Basin storage,Australia,"Santos Offshore Pty Ltd (40% and Operator), Chevron Australia Pty Ltd (30%) and SK E&S (30%) ",Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,Santos Bonaparte Basin storage
+Santos Carnavon Basin storage (Reindeer CCS),Australia,Santos Offshore Pty Ltd (50% and Operator) and Chevron Australia Pty Ltd (50%),Storage,2022,2025,2028,,Planned,,2.4,2.4,CO2 storage,Dedicated storage,Santos Carnavon Basin storage (Reindeer CCS)
+Santos Moomba storage Hub,Australia,"Santos, Beach Energy",Storage,2019,,,,Planned,,20,20,CO2 T&S,Dedicated storage,Santos Moomba storage Hub
+"Santos Port Botany, New South Wales",Australia,"Santos, Qenos",CCU,2021,,,,Planned,,0.15,0.15,Hydrogen/ammonia,Use,
+SHARC Neste,Finland,"Neste
+Oyj",Capture,2021,,2025,,Planned,,,,Other fuel transformation,Dedicated storage,Northern Lights
+Shell Deer Park Chemical complex (TX),United States,Wood Environment & Infrastructure Solutions,Capture,2021,,,,Planned,,,,Other industry,Unknown/unspecified,
+Shell Energy and Chemicals Park Rotterdam biodiesel & SAF (former Pernis),Netherlands,Shell,Capture,2021,2021,2024,,Under construction,,0.38,0.38,Biofuels,Dedicated storage,Porthos
+Shell heavy residue gasification CCU - Pernis refinery,Netherlands,Shell,CCU,,,1997,,Operational,,0.4,0.4,Other fuel transformation,Use,
+Shell Uniper Humber Hub Blue North Killingholme,United Kingdom,"Shell, Uniper",Capture,2022,2024,2027,,Planned,,1.6,1.6,Hydrogen/ammonia,Dedicated storage,Northern Endurance Partnership
+Shepard Energy Centre (SEC) (ALB),Canada,Enmax Energy Corporation,Capture,2022,,,,Planned,,,,Power and heat,Unknown/unspecified,
+Sinopec Nanjing Chemical Industries CCUS Cooperation Project,People's Republic of China,Sinopec,Full chain,2015,,2021,,Operational,,0.2,0.2,Other industry,EOR,Jiangsu oilfield
+Sinopec Qilu Petrochemical Shengli,People's Republic of China,"Sinopec, Qilu Petrochemical",Full chain,2012,2021,2022,,Operational,,0.7,1,Other industry,EOR,Shengli oilfield
+Sinopec Shengli Power Plant CCS,People's Republic of China,Sinopec,Full chain,2011,,2030,,Planned,,1,2,Power and heat,EOR,Shengli oilfield
+Siouxland Energy Cooperative Sioux Center biorefinery (IA),United States,"Siouxland Energy Cooperative, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.16,0.186,Biofuels,Dedicated storage,Midwest carbon express
+Sizewell C nuclear-powered DAC Full-scale,United Kingdom,"Sizewell C,  Nottingham University, Strata Technology, Atkins and Doosan Babcock",Capture,2022,,2030,,Planned,1,0.05,0.05,Direct Air Capture,Dedicated storage,
+Sleipner,Norway,"Equinor, Eni",Full chain,1991,,1996,,Operational,,1,1,Natural gas processing,Dedicated storage,
+Snohvit CO2 capture and storage,Norway,"Equinor, Petoro, TotalEnergies, Neptune, Wintershall",Full chain,2002,2002,2008,,Operational,,0.7,0.7,Natural gas processing,Dedicated storage,
+South East Australia carbon capture and storage (SEA CCS) hub,Australia,"Esso Australia Resources Pty Ltd, BHP Petroleum Pty Ltd ",T&S,2022,,2025,,Planned,,2,2,CO2 T&S,Dedicated storage,Sea CCS hub
+South West Blue Hydrogen,Australia,Pilot Energy,Capture,2021,,,,Planned,,,,Hydrogen/ammonia,Dedicated storage,South West Hub Project
+South West Hub Project,Australia,"Department of Mines, Industry Regulation and Safety (DMIRS)",Storage,2010,,,,Planned,,0.8,0.8,CO2 T&S,Dedicated storage,South West Hub Project
+Spirit Energy CCUS hub,United Kingdom,Spirit Energy (Centrica and Stadtwerke Mucnchen GmbH joint venture),T&S,2023,,,,Planned,,,,CO2 T&S,Storage,Spirit Energy CCUS hub
+Stockholm Exergi Värtan CHP CCS (BECCS@STHLM),Sweden,"Stockolm Exergi, CO2 Capsol",Capture,2021,,2026,,Planned,,0.7,0.7,Power and heat,Dedicated storage,
+Structure A&E,Lybia,"Eni, National Oil Corporation (NOC) Libya",Full chain,2023,,2026,,Planned,,,,Natural gas processing,Dedicated storage,
+Suek Blue Ammonia Borodinsky,Russian Federation,"Agency for Economic Development of the Leningrad Region, Suek",Full chain,2021,,2027,,Planned,,,,Hydrogen/ammonia,EOR,
+Suez Tees Valley / Haverton Hill Waste to Energy CCS,United Kingdom,Suez,Capture,2020,2025,2027,,Planned,,0.24,0.24,Power and heat,Dedicated storage,Northern Endurance Partnership
+Suncor Edmonton Refinery (ALB) phase 1,Canada,"Suncor, ATCO",Capture,2021,2024,2028,,Planned,1,2,2,Other fuel transformation,Unknown/unspecified,Atlas Carbon Sequestration Hub
+Suncor Edmonton Refinery (ALB) phase 2,Canada,"Suncor, Svante",Capture,2022,,,,Planned,2,,,Other fuel transformation,Unknown/unspecified,Atlas Carbon Sequestration Hub
+Sutter CO CCS Project (CA),United States,Gas Technology Institute,Storage,2023,,,,Planned,,,,CO2 storage,Dedicated storage,Sutter CO CCS Project (CA)
+Svante capture Linde SMR plant (TX) ,United States,"Linde, Svante",Capture,2021,,,,Planned,,1.1,1.1,Hydrogen/ammonia,Dedicated storage,
+T6-Kanata CarbonHub (ALB),Canada,"Kanata Clean Power & Climate Technologies Corp, Vault 44.01, Carbonvert Inc., Frog Lake First Nations #121 & #122, and  Kehewin Cree Nation, Tribal Chiefs Ventures Inc.",Storage,2021,,,,Planned,,,,CO2 storage,Dedicated storage,T6-Kanata CarbonHub (ALB)
+TA’ZIZ blue ammonia,United Arab Emirates,"ADNOC, TA'ZIZ, Fertiglobe, Mitsui, GS Energy",Full chain,2020,2023,2025,,Planned,,,,Hydrogen/ammonia,Unknown/unspecified,
+Taiwan Cement Hoping/Heping plant,Chinese Taipei,Taiwan cement,Capture,2019,,2030,,Planned,1,0.1,0.1,Cement,Use,
+Tampa Electric Company Polk Power station NGCC (FL),United States,"Tampa Electric Company, ION Clean Energy, DOE (FEED funding)",Capture,2022,,,,Planned,,3.7,3.7,Power and heat,Dedicated storage,
+Tangguh LNG Vorwata LNG,Indonesia,"BP, Mitsubishi, Inpex,  JX  Nippon,  KG  Mitsui,  LNG  Japan,  CNOOC",Full chain,2021,2023,2027,,Planned,,2.5,3.3,Natural gas processing,EOR,
+Tees Valley Energy Recovery Facility (TVERF),United Kingdom,Hartlepool Borough Council (leading partnership with 6 other councils),Capture,2022,,2026,,Planned,,,,Power and heat,Dedicated storage,Northern Endurance Partnership
+Terrell Natural Gas Processing Plant (former Val Verde) (TX),United States,"Blue Source, Occidental, Chevron",Full chain,,,1972,,Operational,,0.4,0.5,Natural gas processing,EOR,
+Tharaldson Ethanol Casselton biorefinery (ND),United States,"Tharaldson Ethanol, Summit Carbon Solutions",Capture,2021,2023,2024,,Planned,,0.43,0.501,Biofuels,Dedicated storage,Midwest carbon express
+The Grande Prairie CCS Hub (ALB),Canada, Enhance Energy Inc.,Storage,2022,,,,Planned,,,,CO2 storage,Dedicated storage,The Grande Prairie CCS Hub (ALB)
+The ZEROS project Chambers & Liberty County (Jefferson) (TX),United States,Texas Water Resources Institute,Capture,2019,,2023,,Planned,,1.5,1.5,Power and heat,EOR,
+Tomakomai CCS demonstration project,Japan,Japan CCS,Full chain,2008,,2016,2019,Operational,,0.1,0.1,Hydrogen/ammonia,Dedicated storage,
+Tomakomai CCUS hub & cluster,Japan,"Idemitsu, Hokkaido Electric Power, JAPEX",Full chain,2023,,2030,,Planned,,,,CO2 T&S,Dedicated storage,
+TotalEnergies Normandy hydrogen production unit,France,"TotalEnergies, Air Liquide",Capture,2021,,2030,,Planned,,0.65,0.65,Other fuel transformation,Unknown/unspecified,
+Tourmaline Clearwater CCUS (ALB),Canada, Tourmaline Oil Corp.,Storage,2022,,,,Planned,,10,10,CO2 storage,Dedicated storage,Tourmaline Clearwater CCUS (ALB)
+Trudvang storage project,Norway,"Sval (40%), Storegga (30%), Netptune energy (30%)",T&S,2023,,2029,,Planned,,9,9,CO2 T&S,Dedicated storage,Trudvang storage project
+Tulare County Carbon Storage Project (CA),United States,Advanced Resources International Inc.,Storage,2023,,,,Planned,,,,CO2 storage,Dedicated storage,Tulare County Carbon Storage Project (CA)
+Twence Hengelo facility,Netherlands,"Twence, Aker CC (tech)",CCU,2019,2021,2023,,Under construction,,0.1,0.1,Power and heat,Use,
+Uinta Basin Carbon SAFE (UT),United States,University of Utah,Storage,2023,,,,Planned,,,,CO2 storage,Dedicated storage,Uinta Basin Carbon SAFE (UT)
+Uthmaniyah CO2-EOR demonstration,Saudi Arabia,Saudi Aramco,Full chain,2013,2013,2015,,Operational,,0.8,0.8,Natural gas processing,Use and EOR,
+Valero Port Arthur Refinery (TX),United States,"Air products, Denbury",Full chain,2009,2011,2013,,Operational,,0.9,0.9,Other fuel transformation,EOR,
+Växjö Energi CHP CCS Sandviksverket,Sweden,Växjö Energi ,Capture,2021,,2027,,Planned,,0.18,0.18,Power and heat,Dedicated storage,
+Velocys Bayou Fuels (MS),United States,"Velocys, Oxy Low Carbon Ventures",Capture,2019,,2024,,Planned,,0.3,0.5,Biofuels,EOR,Oxy Low carbon ventures
+Venture Global LNG Calcasieu Pass CCS (LA),United States,Venture Global,Full chain,2021,,,,Planned,,0.5,0.5,Natural gas processing,Unknown/unspecified,
+Venture Global LNG CP2 liquefaction facility CCS (LA),United States,Venture Global,Full chain,2021,,,,Planned,,0.5,0.5,Natural gas processing,Dedicated storage,
+Venture Global LNG Plaquemines CCS (LA),United States,Venture Global,Full chain,2021,,,,Planned,,,,Natural gas processing,Unknown/unspecified,
+Vestforbrænding's Ejby incineration plant ,Denmark,Vestforbrænding,CCU,2019,,2025,,Planned,,0.45,0.45,Power and heat,Use,
+Viking CCS Phase 1,United Kingdom,"Harbour Energg, kent (engineering provider) ",T&S,2020,2024,2027,,Planned,1,3.6,3.6,CO2 T&S,Dedicated storage,Viking CCS
+Viking CCS Phase 2,United Kingdom,Harbour Energy,T&S,2020,,2030,,Planned,2,6.4,6.4,CO2 T&S,Dedicated storage,Viking CCS
+Viking CCS Phase 3,United Kingdom,Harbour Energy,T&S,2020,,2035,,Planned,3,5,5,CO2 T&S,Dedicated storage,Viking CCS
+Voestalpine hot briquetted iron plant Portland (TX),United States,"Board of Trustees of the University of Illinois, Voestalpine, Air Liquide",Full chain,2022,,,,Planned,,,,Iron and steel,Dedicated storage,
+VPI Immingham CHP plant CCS,United Kingdom,Vitol VPI Immingham,Capture,2019,,2027,,Planned,,3,3,Power and heat,Dedicated storage,Viking CCS
+Wabash Valley Resources (IN),United States,Wabash Valley Resources,Full chain,2016,,2024,,Planned,,1.65,1.65,Hydrogen/ammonia,Dedicated storage,
+WCS Redwater CO2 Recovery Unit (formerly nutrien) (ACTL) (ALB) phase 1,Canada,"Nutrien, ACTL",Capture,2011,2019,2019,,Operational,1,0.3,0.3,Other industry,EOR,Alberta Carbon Trunk Line (ACTL)
+WCS Redwater CO2 Recovery Unit (formerly nutrien) (ACTL) (ALB) phase 2,Canada,Agrium Canada Partnership,Capture,2022,,,,Planned,2,,,Other industry,Unknown/unspecified,Alberta Carbon Trunk Line (ACTL)
+WH2V therminal (Wilhelshaven green energy hub phase 1),"Belgium, Germany, Netherlands, Switzerland, United States",TES,Transport,2022,,2029,,Planned,,10,10,CO2 transport,,Connected to German Carbon Grid
+Whitetail Clean Energy,United Kingdom,"8Rivers, Sembcorp Energy UK",Capture,2021,2023,2025,,Planned,,0.8,0.8,Power and heat,Dedicated storage,Northern Endurance Partnership
+Wilhelmshaven Energy Hub BlueHyNow,Germany,Wintershall Dea,Capture,2022,,,,Planned,,,,Hydrogen/ammonia,Dedicated storage,WH2V eng hub
+Wintershall Dea Luna storage,Norway,"Wintershall Dea (60%), CapeOmega (40%)",Storage,2022,2025,,,Planned,,5,5,CO2 storage,Dedicated storage,Wintershall dea Luna
+Wintershall Dea-Equinor Gernany-Norway pipeline phase 1,"Germany, Norway","Wintershall Dea, Equinor",Transport,2022,,2032,,Planned,1,20,20,CO2 transport,,Wintershall Dea-Equinor Gernany-Norway pipeline
+Wintershall Dea-Equinor Gernany-Norway pipeline phase 2,"Germany, Norway","Wintershall Dea, Equinor",Transport,2022,,2037,,Planned,2,20,20,CO2 transport,,Wintershall Dea-Equinor Gernany-Norway pipeline
+Wintershell dea-Fluxys belgium-germany pipeline,"Germany, Norway","Wintershell dea, Fluxys",Transport,2023,,2030,,Planned,,30,30,CO2 transport,,Wintershell dea-Fluxys belgium-germany pipeline
+Woodside Browse CCS Assessment,Australia,Woodside energy,Full chain,2022,,,,Planned,,,,Natural gas processing,Dedicated storage,
+Yamal LNG,Russian Federation,Novatek,Full chain,,2023,,,Planned,,,,Natural gas processing,Unknown/unspecified,
+Yangchang integrated CCUS Yulin Coal Chemical,People's Republic of China,Yanchang Petroleum,Full chain,2015,,2023,,Planned,,0.3,0.3,Other fuel transformation,EOR,
+Yara Sluiskil fertiliser,Netherlands,Yara,Capture,2022,,2025,,Planned,,0.8,0.8,Other industry,Dedicated storage,Northern Lights
+Zeeland Refinery,Netherlands,"Air Liquide, TotalEnergies",Capture,2021,,,,Planned,,0.8,0.8,Other fuel transformation,Dedicated storage,
+ZerCal250,United Kingdom,"Origin, Singleton Birch",Capture,2021,,,,Planned,,,,Other industry,Dedicated storage,Northern Endurance Partnership

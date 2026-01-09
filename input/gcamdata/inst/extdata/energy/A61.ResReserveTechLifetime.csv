@@ -1,0 +1,8 @@
+# File: A61.ResReserveTechLifetime.csv
+# Title: Total lifetime a Technology has to produce a reserve 
+# Units: Years
+# Source: Assumed to be so long that all reserve gets produced
+# Column types: ccci
+# ----------
+resource,reserve.subresource,resource.reserve.technology,lifetime
+onshore carbon-storage,onshore carbon-storage,onshore carbon-storage,100

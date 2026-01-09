@@ -6,3 +6,9 @@
 supplysector,subsector,year.fillout,share.weight,logit.type
 carbon-storage,onshore carbon-storage,start-year,1,
 carbon-storage,offshore carbon-storage,start-year,1,
+ccs dynamic-capacity,ccs dynamic-capacity,start-year,1,
+onshore CO2 transport,onshore CO2 transport,start-year,1,
+offshore CO2 transport,offshore CO2 transport,start-year,1,
+CO2 pipeline,CO2 pipeline,start-year,1,
+CO2 truck,CO2 truck,start-year,1,
+CO2 ship,CO2 ship,start-year,1,
