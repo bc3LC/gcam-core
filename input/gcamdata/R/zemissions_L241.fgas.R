@@ -167,7 +167,9 @@ module_emissions_L241.fgas <- function(command, ...) {
     # If BLEND_FRACT > 0 then scenario is (1-BLEND_FRACT)*Kigali + BLEND_FRACT*CP
     # If BLEND_FRACT < 0 then reduce below Kigali scenario by BLEND_FRACT fraction
     #    by 2100 starting in year FDEC_START_YEAR
-    BLEND_FRACT <- 0.0
+    # we create 3 scenarios by repeating driver_drake with 3 different BLEND_FRACT settings
+    #
+    BLEND_FRACT <- -0.5
 
     # Select the base F-gas future scenario to use here
     L241.FUT_EF_Ratio_All %>%
@@ -176,8 +178,14 @@ module_emissions_L241.fgas <- function(command, ...) {
       select(-scenario, - ratio, -Emis_nonA5, -Emis_A5) ->
       L241.FUT_EF_Ratio
 
+    #get rid of duplicates (mostly rows with NA in 2025), we only have 16 species times 10 periods...
+    L241.FUT_EF_Ratio <- unique(L241.FUT_EF_Ratio)
+
+    L241.FUT_EF_Ratio_base <- L241.FUT_EF_Ratio |> rename(base_nonA5=ratio_nonA5, base_A5 = ratio_A5)
+
     # Modify if requested (BLEND_FRACT == 0 means just use the selected base scenario)
-    if ( BLEND_FRACT > 0 ) { # Branch for incomplete implementation of Kigali
+    if ( BLEND_FRACT != 0){
+      if ( BLEND_FRACT > 0 ) { # Branch for incomplete implementation of Kigali
       if( !grepl("KGL",SELECT_SCENARIO) ) stop('Select a Kigali base scenario in order to generate a blended scenario')
       L241.FUT_EF_Ratio_All %>%
         select(-Emis_nonA5, -Emis_A5) %>%
@@ -203,9 +211,15 @@ module_emissions_L241.fgas <- function(command, ...) {
         mutate(fraction = 1 - (year - FDEC_START_YEAR) / (max(MODEL_YEARS) - FDEC_START_YEAR)*abs(BLEND_FRACT)) %>%
         mutate(fraction = if_else(year < FDEC_START_YEAR, 1, fraction)) %>%
         group_by(Species) %>%
-        mutate( ratio_nonA5 = ratio_nonA5 * fraction, ratio_A5 = ratio_A5 * fraction ) %>%
-        select( -fraction)
-     }
+        mutate( ratio_nonA5 = ratio_nonA5 * fraction, ratio_A5 = ratio_A5 * fraction ) #%>%
+       # select( -fraction)
+    }
+     #phase in difference to base scenario (pure Kigali, blend = 0)
+      phase_in <- data.frame(year = seq(2025,2100,5),share_blended = c(0,seq(0.05,0.95,0.15),rep(1,8)))
+      L241.FUT_EF_Ratio <- L241.FUT_EF_Ratio |> left_join(L241.FUT_EF_Ratio_base,by = c(Species,year)) |> left_join(phase_in)
+      L241.FUT_EF_Ratio <- L241.FUT_EF_Ratio |> mutate(ratio_nonA5 = base_nonA5*(1-share_blended) + ratio_nonA5 * share_blended,
+                                                       ratio_A5 = base_A5 * (1-share_blended) + ratio_A5 * share_blended)
+    }
 
     # ===================================================
     # Scale EDGAR emission global totals to match Velders
