@@ -117,7 +117,7 @@ module_energy_L261.Cstorage <- function(command, ...) {
 
     IEA_data <- IEA_CCUS_Projects_Database %>%
       filter(`Project type` %in% c('Full chain','T&S','Storage'),
-             !(`Project Status` %in% c('Suspended','Decommissioned')),
+             !(`Project Status` %in% c('Suspended','Decommissioned','Cancelled')),
              !is.na(`Estimated capacity by IEA (Mt CO2/yr)`)) %>%
       group_by(Partners) %>%
       fill(Operation,.direction = 'downup') %>%
@@ -149,7 +149,8 @@ module_energy_L261.Cstorage <- function(command, ...) {
                                                             if_else(str_detect(country_name,'Australia'),'Australia',
                                                                     if_else(str_detect(country_name,'Malaysia'),'Malaysia',
                                                                             if_else(country_name == "Chinese Taipei",'Taiwan',
-                                                                                    if_else(country_name == "Lybia","Libyan Arab Jamahiriya",country_name)))))))),
+                                                                                    if_else(country_name == "Lybia","Libyan Arab Jamahiriya",
+                                                                                            if_else(country_name == "Island","Iceland",country_name))))))))),
              country_name = if_else(grepl("-",country_name),
                                     sub("-.*$", "", country_name),
                                     country_name)) %>%
