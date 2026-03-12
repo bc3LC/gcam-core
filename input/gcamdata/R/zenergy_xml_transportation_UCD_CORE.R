@@ -50,7 +50,8 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
              "L254.BaseService_trn"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     #xml_files<- c("transportation_UCD_CORE.xml","transportation_UCD_SSP1.xml","transportation_UCD_SSP3.xml","transportation_UCD_SSP5.xml","transportation_UCD_highEV.xml")
-    xml_files<- c("transportation_UCD_CORE.xml","transportation_UCD_SSP1.xml","transportation_UCD_SSP3.xml","transportation_UCD_SSP5.xml")
+    xml_files<- c("transportation_UCD_CORE.xml","transportation_incelas_SSP1.xml","transportation_incelas_SSP2.xml",
+                  "transportation_incelas_SSP3.xml","transportation_incelas_SSP4.xml","transportation_incelas_SSP5.xml")
     names(xml_files) <- rep("XML", length(xml_files))
     return(xml_files)
   } else if(command == driver.MAKE) {
@@ -114,48 +115,60 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
     curr_env <- environment()
 
     #for (i in c("CORE","SSP1","SSP3","SSP5", "highEV")){
-    for (i in c("CORE","SSP1","SSP3","SSP5")){
-      xml_name <- paste0("transportation_UCD_", i, ".xml")
+    #new logic cb 2026-03: Get income elasticities dependent on actual gdp/capita projections, so separate for all SSPs
+    #"CORE" still uses the income elasticities based on the old approach with constant elasticity
+    #the only differentiation for SSPs we keep for now (which also should make it manageable to keep this up-to-date):
+    #income elasticity (this file)
+    #cost of battery electric vehicles (module_energy_transportation_BEVratios)
+    #so all scenarios need to load transportation_UCD_CORE.xml file
+    #SSP scenarios should furthermore also add a specific income elasticity file, and a UCD_ADD_[ATBscenario] file for BEV costs, choosing
+    #among 'Conservative' (can be used for SSP3 and 4, though not using any add file leads to even more pessimistic costs)
+    #     'Mid' (plausible for scenarios with very little policy stringency under SSP2 and SSP5)
+    #     'Advanced' (plausible for scenarios with high policy stringency under SSP2 and SSP5, and most scenarios using SSP1)
+    for (i in c("CORE","SSP1","SSP2","SSP3","SSP4","SSP5")){
+
       #Read SSP specific data
       L254.tranSubsectorSpeed_SSP <- L254.tranSubsectorSpeed %>% filter(sce== i)
       L254.StubTranTech_SSP <- L254.StubTranTech %>% filter(sce== i)
       #kbn 2020-03-26 We have energy demand assumptions only for SSP1. So get that data for SSP1. For the other SSPs, keep
       #data from the CORE.
-      if (i=="SSP1"){
-      #VOTT and Demand data
-      L254.tranSubsectorSpeed_passthru_SSP <- L254.tranSubsectorSpeed_passthru %>% filter(sce==i)
-      L254.tranSubsectorVOTT_SSP<- L254.tranSubsectorVOTT %>% filter(sce==i)
-      L254.tranSubsectorFuelPref_SSP<-L254.tranSubsectorFuelPref %>% filter(sce==i)
-      L254.PerCapitaBased_trn_SSP<- L254.PerCapitaBased_trn %>% filter(sce==i)
-      L254.PriceElasticity_trn_SSP <- L254.PriceElasticity_trn %>%  filter(sce==i)
-      L254.IncomeElasticity_trn_SSP <- L254.IncomeElasticity_trn %>% filter(sce==i)}else{
-        L254.tranSubsectorSpeed_passthru_SSP <- L254.tranSubsectorSpeed_passthru %>% filter(sce=="CORE")
-        L254.tranSubsectorVOTT_SSP<- L254.tranSubsectorVOTT %>% filter(sce=="CORE")
-        L254.tranSubsectorFuelPref_SSP<-L254.tranSubsectorFuelPref %>% filter(sce=="CORE")
-        L254.PerCapitaBased_trn_SSP <- L254.PerCapitaBased_trn %>% filter(sce=="CORE")
-        L254.PriceElasticity_trn_SSP <- L254.PriceElasticity_trn %>% filter(sce=="CORE")
-        L254.IncomeElasticity_trn_SSP <- L254.IncomeElasticity_trn %>% filter(sce=="CORE")
-      }
+      if (i!="CORE"){
+        xml_name <- paste0("transportation_incelas_", i, ".xml")
+      #Income elasticities
+      L254.IncomeElasticity_trn_SSP <- L254.IncomeElasticity_trn %>% filter(sce==i)
+
+      #Create xmls
+      create_xml(xml_name) %>%
+        add_xml_data(L254.IncomeElasticity_trn_SSP, "IncomeElasticity") %>%
+        add_precursors("L254.IncomeElasticity_trn")  %>%
+        assign(xml_name, ., envir = curr_env)
+
+      }else{
+        xml_name <- paste0("transportation_UCD_", i, ".xml")
+        L254.tranSubsectorSpeed_passthru_SSP <- L254.tranSubsectorSpeed_passthru %>% filter(sce==i)
+        L254.tranSubsectorVOTT_SSP<- L254.tranSubsectorVOTT %>% filter(sce==i)
+        L254.tranSubsectorFuelPref_SSP<-L254.tranSubsectorFuelPref %>% filter(sce==i)
+        L254.PerCapitaBased_trn_SSP <- L254.PerCapitaBased_trn %>% filter(sce==i)
+        L254.PriceElasticity_trn_SSP <- L254.PriceElasticity_trn %>% filter(sce==i)
+        L254.IncomeElasticity_trn_SSP <- L254.IncomeElasticity_trn %>% filter(sce==i)
+      # } # most of these are now only written into CORE file, much of this data was already inconsistent
 
 
 
       #kbn 2020-02-11 For the SSPs, we want to bring in values such as co-efficients, load factors and costs after the base year. This is because we are
       # feeding the model outputs from the CORE in the base year, so having SSP values for these variables in the base year would lead to a calibration error
       # i.e. mismatch between calibrated output and actual.
+      #cb 2026-03 this is not needed anymore, as all these factors have been, and going forward will only be updated consistenctly for CORE
 
       L254.StubTranTechLoadFactor_SSP <- L254.StubTranTechLoadFactor %>% filter(sce== i)
-      if (i != "CORE"){L254.StubTranTechLoadFactor_SSP<-L254.StubTranTechLoadFactor %>%  filter(sce== i) %>% filter(year>MODEL_FIRST_FUTURE_YEAR)}
 
 
       L254.StubTranTechCost_SSP <- L254.StubTranTechCost %>%  filter(sce== i)
-      if (i != "CORE"){L254.StubTranTechCost_SSP<-L254.StubTranTechCost %>%  filter(sce== i) %>% filter(year>MODEL_FIRST_FUTURE_YEAR)}
 
       L254.StubTechTrackCapital_SSP <- L254.StubTechTrackCapital %>%  filter(sce== i)
-      if (i != "CORE"){L254.StubTechTrackCapital_SSP<-L254.StubTechTrackCapital %>%  filter(sce== i) %>% filter(year>MODEL_FIRST_FUTURE_YEAR)}
 
       L254.StubTranTechCoef_SSP <- L254.StubTranTechCoef %>%  filter(sce== i)
 
-      if (i != "CORE"){L254.StubTranTechCoef_SSP<-L254.StubTranTechCoef %>%  filter(sce== i) %>% filter(year>MODEL_FIRST_FUTURE_YEAR)}
 
       L254.StubTech_passthru_SSP <- L254.StubTech_passthru %>% filter(sce==i)
       L254.StubTech_nonmotor_SSP <- L254.StubTech_nonmotor %>% filter(sce==i)
@@ -169,7 +182,6 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
       L254.StubTranTechCalInput_SSP <-  L254.StubTranTechCalInput %>% filter(sce ==i)
       L254.GlobalTranTechInterp_SSP <- L254.GlobalTranTechInterp %>% filter(sce==i)
       L254.GlobalTranTechShrwt_SSP <- L254.GlobalTranTechShrwt %>%  filter(sce==i)
-      if (i != "CORE"){L254.StubTranTechCalInput_SSP<-L254.StubTranTechCalInput %>%  filter(sce== i) %>% filter(year>MODEL_FIRST_FUTURE_YEAR)}
 
       L254.BaseService_trn_SSP <- L254.BaseService_trn %>% filter(sce =="CORE")
 
@@ -244,7 +256,7 @@ module_energy_transportation_UCD_CORE_xml <- function(command, ...) {
                        "L254.IncomeElasticity_trn",
                        "L254.BaseService_trn")  %>%
                         assign(xml_name, ., envir = curr_env)
-
+}
 
       ret_data <- c(ret_data, xml_name)
 

@@ -1,4 +1,5 @@
 ﻿stub.technology,region,scenario,vehicle_powertrain_ev,vehicle_detail_ev,fuel_category_ev,metric,vehicle_class,vehicle_powertrain_ice,vehicle_detail_ice,fuel_category_ice,sceanrio_ATB
+Bus,High,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 7 Medium School,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
 Heavy truck,High,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 8 Longhaul Sleeper,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
 Medium truck,High,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 6 Medium StepVan,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
 Light truck,High,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 4 Medium Box,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
@@ -6,14 +7,16 @@ Large Car and Truck,High,Mid / Advanced,Battery Electric,Battery Electric Vehicl
 Car,High,Mid / Advanced,Battery Electric,Battery Electric Vehicle (400-mile range),Electricity,Modeled Vehicle Price (2022$),Midsize,Gasoline,Gasoline ICE Vehicle (spark ignition),Gasoline,Mid / Advanced
 Mini Car,High,Mid / Advanced,Battery Electric,Battery Electric Vehicle (400-mile range),Electricity,Modeled Vehicle Price (2022$),Compact,Gasoline,Gasoline ICE Vehicle (spark ignition),Gasoline,Mid / Advanced
 2W and 3W,High,Mid / Advanced,Battery Electric,Battery Electric Vehicle (150-mile range),Electricity,Modeled Vehicle Price (2022$),Compact,Gasoline,Gasoline ICE Vehicle (spark ignition),Gasoline,Mid / Advanced
-Heavy truck,Medium,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 8 Refuse Heavy,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
+Bus,Medium,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 7 Medium School,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
+Heavy truck,Medium,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 8 Regional DayCab,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
 Medium truck,Medium,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 6 Medium Construction,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
 Light truck,Medium,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 3 Medium Van,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
 Large Car and Truck,Medium,Mid / Advanced,Battery Electric,Battery Electric Vehicle (300-mile range),Electricity,Modeled Vehicle Price (2022$),Pickup,Gasoline,Gasoline ICE Vehicle (spark ignition),Gasoline,Mid / Advanced
 Car,Medium,Mid / Advanced,Battery Electric,Battery Electric Vehicle (300-mile range),Electricity,Modeled Vehicle Price (2022$),Midsize,Gasoline,Gasoline ICE Vehicle (spark ignition),Gasoline,Mid / Advanced
 Mini Car,Medium,Mid / Advanced,Battery Electric,Battery Electric Vehicle (300-mile range),Electricity,Modeled Vehicle Price (2022$),Compact,Gasoline,Gasoline ICE Vehicle (spark ignition),Gasoline,Mid / Advanced
 2W and 3W,Medium,Mid / Advanced,Battery Electric,Battery Electric Vehicle (150-mile range),Electricity,Modeled Vehicle Price (2022$),Compact,Gasoline,Gasoline ICE Vehicle (spark ignition),Gasoline,Mid / Advanced
-Heavy truck,Low,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 8 Regional DayCab,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
+Bus,Low,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 7 Medium School,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
+Heavy truck,Low,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 7 Tractor DayCab,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
 Medium truck,Low,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 6 Medium Box,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
 Light truck,Low,Mid / Advanced,Battery Electric,Battery Electric Vehicle,Electricity,Modeled Vehicle Price (2022$),Class 3 Medium School,Diesel,Diesel ICE Vehicle,Diesel,Mid / Advanced
 Large Car and Truck,Low,Mid / Advanced,Battery Electric,Battery Electric Vehicle (200-mile range),Electricity,Modeled Vehicle Price (2022$),Pickup,Gasoline,Gasoline ICE Vehicle (spark ignition),Gasoline,Mid / Advanced

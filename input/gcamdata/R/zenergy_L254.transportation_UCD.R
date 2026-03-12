@@ -61,7 +61,12 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
              "L154.intensity_MJvkm_R_trn_m_sz_tech_F_Y",
              "L154.loadfactor_R_trn_m_sz_tech_F_Y",
              "L154.speed_kmhr_R_trn_m_sz_tech_F_Y",
-             "L154.out_mpkm_R_trn_nonmotor_Yh"))
+             "L154.out_mpkm_R_trn_nonmotor_Yh",
+             "L252.IncomeElasticity_trn_SSP1",
+             "L252.IncomeElasticity_trn_SSP2",
+             "L252.IncomeElasticity_trn_SSP3",
+             "L252.IncomeElasticity_trn_SSP4",
+             "L252.IncomeElasticity_trn_SSP5"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L254.Supplysector_trn",
              "L254.FinalEnergyKeyword_trn",
@@ -179,6 +184,18 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
     L154.loadfactor_R_trn_m_sz_tech_F_Y <- get_data(all_data, "L154.loadfactor_R_trn_m_sz_tech_F_Y",strip_attributes = TRUE)
     L154.speed_kmhr_R_trn_m_sz_tech_F_Y <- get_data(all_data, "L154.speed_kmhr_R_trn_m_sz_tech_F_Y",strip_attributes = TRUE)
     L154.out_mpkm_R_trn_nonmotor_Yh <- get_data(all_data, "L154.out_mpkm_R_trn_nonmotor_Yh",strip_attributes = TRUE)
+    L252.IncomeElasticity_trn_SSP1 <- get_data(all_data, "L252.IncomeElasticity_trn_SSP1",strip_attributes = TRUE)
+    L252.IncomeElasticity_trn_SSP2 <- get_data(all_data, "L252.IncomeElasticity_trn_SSP2",strip_attributes = TRUE)
+    L252.IncomeElasticity_trn_SSP3 <- get_data(all_data, "L252.IncomeElasticity_trn_SSP3",strip_attributes = TRUE)
+    L252.IncomeElasticity_trn_SSP4 <- get_data(all_data, "L252.IncomeElasticity_trn_SSP4",strip_attributes = TRUE)
+    L252.IncomeElasticity_trn_SSP5 <- get_data(all_data, "L252.IncomeElasticity_trn_SSP5",strip_attributes = TRUE)
+    L252.IncomeElasticity_trn_SSP <-
+      L252.IncomeElasticity_trn_SSP1 |> mutate(scenario="SSP1") |> rbind(
+        L252.IncomeElasticity_trn_SSP2 |> mutate(scenario="SSP2"))|> rbind(
+          L252.IncomeElasticity_trn_SSP3 |> mutate(scenario="SSP3"))|> rbind(
+            L252.IncomeElasticity_trn_SSP4 |> mutate(scenario="SSP4"))|> rbind(
+              L252.IncomeElasticity_trn_SSP5 |> mutate(scenario="SSP5"))
+
 
     # ===================================================
 
@@ -724,6 +741,106 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
       repeat_add_columns(tibble(year = MODEL_FUTURE_YEARS)) %>%
       write_to_all_regions(c(LEVEL2_DATA_NAMES[["IncomeElasticity"]],"sce"), GCAM_region_names = GCAM_region_names) %>% na.omit() ->
       L254.IncomeElasticity_trn # OUTPUT
+
+    #parameters to scale and shift the overall income elasticity as function of gdp/capita relationship as defined in A52.inc_elas_SSPx.csv files
+    #each adjusted by sector to produce first-order plausible per-capita demand trajectories in regions with different starting GDP/cap
+    #(whereas the "CORE" scenario defined above based on A54.demand mostly locks in disparaties of per capita demands)
+    scaling_factor_pas = 1
+    scaling_factor_frt = 1
+    scaling_factor_avi = 0.8
+    scaling_factor_shp = 0.8
+    offset_pas = 0
+    offset_frt = -0.3
+    offset_avi = 0.2
+    offset_shp = -0.5
+    #initialize variable to store values
+    L254.IncomeElasticity_trn_SSP <- NULL
+
+    for(i in c("SSP1","SSP2","SSP3","SSP4","SSP5")){
+
+      # Read in generic transport service income elasticities based on A52.inc_elas_SSPx.csv
+      # when x = 1,2,5 we so far use the corresponding A52.inc_elas_SSPx.csv, while for x = 3 we use A52.inc_elas_SSP5.csv,
+      # and for x = 4 we use A52.inc_elas_SSP2.csv.
+      # with the format consistent with income elasticity query (columns: region, energy-final-demand, year, value).
+      inc_elas <- L252.IncomeElasticity_trn_SSP |> filter(scenario == i) |> rename(value=income.elasticity)
+
+      # Passenger
+      inc_elas_psg <- inc_elas %>%
+        mutate(energy.final.demand = "trn_pass") %>%
+        mutate(value = value * scaling_factor_pas + offset_pas)
+
+      # Freight
+      inc_elas_frt <- inc_elas %>%
+        mutate(energy.final.demand = "trn_freight") %>%
+        mutate(value = value * scaling_factor_frt + offset_frt)
+
+      # International aviation
+      inc_elas_avi <- inc_elas %>%
+        mutate(energy.final.demand = "trn_aviation_intl") %>%
+        mutate(value = value * scaling_factor_avi + offset_avi) %>%
+        mutate(value = ifelse(value < 1.05 & scenario %in% c("SSP3","SSP5"), 1.05, value)) %>% # Manually adjust elasticities so that their values are not below 1.05 (was originally only in SSP3 and SSP5)
+        mutate(value = case_when(  #Adjust to account for 2021-2025 aviation demand bouncing back to around the 2019 level
+          region == "Africa_Eastern" & year == 2025 ~ 7.12,
+          region == "Africa_Northern" & year == 2025 ~ 3.92,
+          region == "Africa_Southern" & year == 2025 ~ 14.1,
+          region == "Africa_Western" & year == 2025 ~ 3.08,
+          region == "Argentina" & year == 2025 ~ 15,
+          region == "Australia_NZ" & year == 2025 ~ 20,
+          region == "Brazil" & year == 2025 ~ 6.69,
+          region == "Canada" & year == 2025 ~ 11.15,
+          region == "Central America and Caribbean" & year == 2025 ~ 2.8,
+          region == "Central Asia" & year == 2025 ~ 1.93,
+          region == "China" & year == 2025 ~ 1.96,
+          region == "Colombia" & year == 2025 ~ 3.47,
+          region == "EU-12" & year == 2025 ~ 9.17,
+          region == "EU-15" & year == 2025 ~ 10.46,
+          region == "Europe_Non_EU" & year == 2025 ~ 3.15,
+          region == "European Free Trade Association" & year == 2025 ~ 19.83,
+          region == "India" & year == 2025 ~ 2.24,
+          region == "Indonesia" & year == 2025 ~ 8.01,
+          region == "Japan" & year == 2025 ~ 9.01,
+          region == "Mexico" & year == 2025 ~ 3.51,
+          region == "Middle East" & year == 2025 ~ 5.79,
+          region == "Pakistan" & year == 2025 ~ 4.81,
+          region == "South Africa" & year == 2025 ~ 28.46,
+          region == "South America_Northern" & year == 2025 ~ 0.22,
+          region == "South America_Southern" & year == 2025 ~ 8.24,
+          region == "South Asia" & year == 2025 ~ 4.18,
+          region == "South Korea" & year == 2025 ~ 5.24,
+          region == "Southeast Asia" & year == 2025 ~ 17.75,
+          region == "Taiwan" & year == 2025 ~ 3.59,
+          region == "USA" & year == 2025 ~ 3.21,
+          TRUE ~ value
+        ))
+
+      # International shipping
+      inc_elas_shp <- inc_elas %>%
+        mutate(energy.final.demand = "trn_shipping_intl") %>%
+        mutate(value = value * scaling_factor_shp + offset_shp)
+
+      #bind 4 sectors together
+      inc_elas_trn_SSP <- bind_rows(inc_elas_psg, inc_elas_frt, inc_elas_avi, inc_elas_shp)
+
+      #link 5 SSPs together one by one
+      L254.IncomeElasticity_trn_SSP <- L254.IncomeElasticity_trn_SSP |> rbind(inc_elas_trn_SSP |> rename(sce = scenario))
+
+    }
+
+    #using old approach for CORE, but keeping the SSP versions from new approach
+    L254.IncomeElasticity_trn <- L254.IncomeElasticity_trn |>filter(sce=="CORE") |>
+      rbind(L254.IncomeElasticity_trn_SSP |> rename(income.elasticity=value))
+
+    #checking values
+    ggplot()+
+      geom_line(data=L254.IncomeElasticity_trn |> filter(region %in% c("USA","Africa_Eastern","China"),sce=="CORE"),aes(x=year,y=income.elasticity,color=sce))+
+      facet_grid(region~energy.final.demand)+ coord_cartesian(ylim=c(-0.5,3))+theme_bw()+
+      scale_color_manual(values=c("black","green","blue","brown","orange","red"))
+    ggplot()+
+      geom_line(data=L254.IncomeElasticity_trn |> filter(region %in% c("USA","Africa_Eastern","China")),aes(x=year,y=income.elasticity,color=sce))+
+      facet_grid(region~energy.final.demand)+ coord_cartesian(ylim=c(-0.5,3))+theme_bw()+
+      scale_color_manual(values=c("black","green","blue","brown","orange","red"))
+    ggsave(filename = "../income_elasticity.png")
+    ggsave(filename = "../income_elasticity_core.png", width=7.34,height = 5.69)
 
     # L254.BaseService_trn: Base-year service output of transportation final demand
     L254.StubTranTechOutput %>%

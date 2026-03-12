@@ -19,6 +19,9 @@ module_socio_L252.Trn_Inc_Elas_scenarios <- function(command, ...) {
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "common/GCAM_region_names",
              FILE = "socioeconomics/A52.inc_elas",
+             FILE = "socioeconomics/A52.inc_elas_SSP1",
+             FILE = "socioeconomics/A52.inc_elas_SSP2",
+             FILE = "socioeconomics/A52.inc_elas_SSP5",
              "L102.pcgdp_thous90USD_Scen_R_Y"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c("L252.IncomeElasticity_trn_SSP1",
@@ -37,6 +40,17 @@ module_socio_L252.Trn_Inc_Elas_scenarios <- function(command, ...) {
     # Load required inputs
     GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
     A52.inc_elas <- get_data(all_data, "socioeconomics/A52.inc_elas")
+    A52.inc_elas_SSP1 <- get_data(all_data, "socioeconomics/A52.inc_elas_SSP1")
+    A52.inc_elas_SSP2 <- get_data(all_data, "socioeconomics/A52.inc_elas_SSP2")
+    A52.inc_elas_SSP5 <- get_data(all_data, "socioeconomics/A52.inc_elas_SSP5")
+
+    A52.inc_elas <- A52.inc_elas_SSP1 |> mutate(scenario="SSP1") |> rbind(
+      A52.inc_elas_SSP2 |> mutate(scenario="SSP2")) |> rbind(
+      A52.inc_elas_SSP2 |> mutate(scenario="SSP4")) |> rbind(
+      A52.inc_elas_SSP5 |> mutate(scenario="SSP5")) |> rbind(
+      A52.inc_elas_SSP5 |> mutate(scenario="SSP3"))
+
+
     L102.pcgdp_thous90USD_Scen_R_Y <- get_data(all_data, "L102.pcgdp_thous90USD_Scen_R_Y", strip_attributes = TRUE) %>%
       rename(pcgdp_90thousUSD = value) %>%
       mutate(year = as.integer(year))
@@ -57,6 +71,23 @@ module_socio_L252.Trn_Inc_Elas_scenarios <- function(command, ...) {
       # KVC: previously this had `ungroup(GCAM_region_ID)`, but that isn't supported
       ungroup() %>%
       select(-pcgdp_90thousUSD, -GCAM_region_ID)
+
+    for (i in c("SSP1","SSP2","SSP3","SSP4","SSP5")){
+    L252.IncomeElasticity_trn_SSP[L252.IncomeElasticity_trn_SSP$scenario == i,] <- L102.pcgdp_thous90USD_Scen_R_Y[L102.pcgdp_thous90USD_Scen_R_Y$scenario == i,] %>%
+      filter(year %in% MODEL_FUTURE_YEARS) %>%
+      # Using approx rather than approx_fun because data is from assumption file, not in our tibble
+      mutate(income.elasticity = approx(x = A52.inc_elas[A52.inc_elas$scenario == i,]$pcgdp_90thousUSD, y = A52.inc_elas[A52.inc_elas$scenario == i,]$inc_elas,
+                                        # Rule 2 means that data outside of the interval of input
+                                        # data will be assigned the closest data extreme
+                                        xout = pcgdp_90thousUSD, rule = 2)[['y']],
+             energy.final.demand = "transportation") %>%
+      mutate(income.elasticity = round(income.elasticity, energy.DIGITS_INCELAS_TRN)) %>%
+      # Add in region names
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      # KVC: previously this had `ungroup(GCAM_region_ID)`, but that isn't supported
+      ungroup() %>%
+      select(-pcgdp_90thousUSD, -GCAM_region_ID)
+    }
 
     # Split by scenario - turns into list of tibbles
     L252.IncomeElasticity_trn_SSP <- L252.IncomeElasticity_trn_SSP %>%
