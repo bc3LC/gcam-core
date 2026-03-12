@@ -830,17 +830,17 @@ module_energy_L254.transportation_UCD <- function(command, ...) {
     L254.IncomeElasticity_trn <- L254.IncomeElasticity_trn |>filter(sce=="CORE") |>
       rbind(L254.IncomeElasticity_trn_SSP |> rename(income.elasticity=value))
 
-    #checking values
-    ggplot()+
-      geom_line(data=L254.IncomeElasticity_trn |> filter(region %in% c("USA","Africa_Eastern","China"),sce=="CORE"),aes(x=year,y=income.elasticity,color=sce))+
-      facet_grid(region~energy.final.demand)+ coord_cartesian(ylim=c(-0.5,3))+theme_bw()+
-      scale_color_manual(values=c("black","green","blue","brown","orange","red"))
-    ggplot()+
-      geom_line(data=L254.IncomeElasticity_trn |> filter(region %in% c("USA","Africa_Eastern","China")),aes(x=year,y=income.elasticity,color=sce))+
-      facet_grid(region~energy.final.demand)+ coord_cartesian(ylim=c(-0.5,3))+theme_bw()+
-      scale_color_manual(values=c("black","green","blue","brown","orange","red"))
-    ggsave(filename = "../income_elasticity.png")
-    ggsave(filename = "../income_elasticity_core.png", width=7.34,height = 5.69)
+    # #checking values
+    # ggplot()+
+    #   geom_line(data=L254.IncomeElasticity_trn |> filter(region %in% c("USA","Africa_Eastern","China"),sce=="CORE"),aes(x=year,y=income.elasticity,color=sce))+
+    #   facet_grid(region~energy.final.demand)+ coord_cartesian(ylim=c(-0.5,3))+theme_bw()+
+    #   scale_color_manual(values=c("black","green","blue","brown","orange","red"))
+    # ggplot()+
+    #   geom_line(data=L254.IncomeElasticity_trn |> filter(region %in% c("USA","Africa_Eastern","China")),aes(x=year,y=income.elasticity,color=sce))+
+    #   facet_grid(region~energy.final.demand)+ coord_cartesian(ylim=c(-0.5,3))+theme_bw()+
+    #   scale_color_manual(values=c("black","green","blue","brown","orange","red"))
+    # ggsave(filename = "../income_elasticity.png")
+    # ggsave(filename = "../income_elasticity_core.png", width=7.34,height = 5.69)
 
     # L254.BaseService_trn: Base-year service output of transportation final demand
     L254.StubTranTechOutput %>%

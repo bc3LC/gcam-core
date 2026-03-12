@@ -68,30 +68,6 @@ module_energy_transportation_BEVratios <- function(command, ...) {
     ratio <- L254.StubTranTechCost |> filter(tranSubsector %in% modes,stub.technology %in% c("BEV","Liquids")) |>
       pivot_wider(names_from = stub.technology,values_from = input.cost) |> mutate(value=BEV/Liquids)
 
-
-library(ggplot2)
-
-    ggplot()+
-      geom_line(data=ratio|>filter(region=="USA"),aes(x=year,y=value,linetype=tranSubsector,color=sce))+
-      geom_hline(yintercept=1)
-    ggplot()+
-      geom_line(data=ratio|>filter(region=="USA",tranSubsector %in% c("Domestic Ship","Domestic Aviation")),aes(x=year,y=value,linetype=tranSubsector,color=sce))+
-      geom_hline(yintercept=1)
-
-
-    ggplot()+
-      geom_line(data=ratio,aes(x=year,y=value,linetype=tranSubsector,color=sce))+
-      facet_wrap(~region,nrow=5) + scale_y_continuous(limits=c(0.5,2))
-
-    ggplot()+
-      geom_line(data=ratio,aes(x=year,y=value,linetype=sce,color=tranSubsector))+
-      facet_wrap(~region,nrow=5) + scale_y_continuous(limits=c(0.5,2))
-
-    ggplot()+
-      geom_line(data=ratio |> filter(sce=="CORE"),aes(x=year,y=value,linetype=sce,color=tranSubsector))+
-      facet_wrap(~region,nrow=5) + scale_y_continuous(limits=c(0.5,2))
-
-
     map <- read.csv("inst/extdata/energy/mappings/ATB_UCD_mapping.csv")
     atb <- read.csv("inst/extdata/energy/ATB_vehicles.csv")
     atb_ratio <- atb |> filter(metric=="Modeled Vehicle Price (2022$)")
@@ -170,21 +146,18 @@ library(ggplot2)
 
     map_reg <- map_reg |> rbind(data.frame(gcam = setdiff(unique(ratio$region),unique(map_reg$gcam)),
                                            region = rep("Low",26)))
-    ggplot()+
-      geom_line(data=ratio |> filter(region=="USA",sce=="CORE",tranSubsector=="Car"),aes(x=year,y=value,linetype=tranSubsector,color=sce))+
-      geom_line(data=atb_rat |> filter(region=="High",scenario %in% c("Mid","Advanced"),tranSubsector=="Car"),aes(x=year,y=value,linetype=tranSubsector,color=scenario))+
-      geom_hline(yintercept=1)+geom_hline(yintercept=0)+scale_linetype_manual(values=c("dotted","dashed","solid","dotted","dashed","solid"))
-
-    for(i in c("2W and 3W","Mini Car","Car","Large Car and Truck","Light truck","Medium truck","Heavy truck","Bus","Domestic Ship","Domestic Aviation")){
-    ggplot()+
-        # geom_line(data=atb_rat |> filter(region %in% c("High","Medium","Low"),scenario %in% c("Mid","Advanced","Conservative"),tranSubsector==i),aes(x=year,y=value,linetype=region),color="white")+
-      geom_line(data=ratio |> filter(region %in% c("USA","EU-15","China"),sce %in% c("SSP1","CORE"),tranSubsector==i),aes(x=year,y=value,linetype=region,color=sce))+
-        geom_line(data=atb_rat |> filter(region %in% c("High","Medium","Low"),scenario %in% c("Mid","Advanced","Conservative"),tranSubsector==i),aes(x=year,y=value,linetype=region,color=scenario))+
-      # scale_y_continuous(limits=c(0.5,3))+
-      geom_hline(yintercept=1)+geom_hline(yintercept=0)+geom_vline(xintercept=2050)+scale_linetype_manual(values=c("dotted","dashed","solid","dotted","dashed","solid"))+ggtitle(i)+theme_bw()
-
-    ggsave(filename=paste0("../ratio",i,"_0312.png"), width=7.34,height = 5.69)
-      }
+#  optional diagnostic plots
+    # library(ggplot2)
+    # for(i in c("2W and 3W","Mini Car","Car","Large Car and Truck","Light truck","Medium truck","Heavy truck","Bus","Domestic Ship","Domestic Aviation")){
+    # ggplot()+
+    #     # geom_line(data=atb_rat |> filter(region %in% c("High","Medium","Low"),scenario %in% c("Mid","Advanced","Conservative"),tranSubsector==i),aes(x=year,y=value,linetype=region),color="white")+
+    #   geom_line(data=ratio |> filter(region %in% c("USA","EU-15","China"),sce %in% c("SSP1","CORE"),tranSubsector==i),aes(x=year,y=value,linetype=region,color=sce))+
+    #     geom_line(data=atb_rat |> filter(region %in% c("High","Medium","Low"),scenario %in% c("Mid","Advanced","Conservative"),tranSubsector==i),aes(x=year,y=value,linetype=region,color=scenario))+
+    #   # scale_y_continuous(limits=c(0.5,3))+
+    #   geom_hline(yintercept=1)+geom_hline(yintercept=0)+geom_vline(xintercept=2050)+scale_linetype_manual(values=c("dotted","dashed","solid","dotted","dashed","solid"))+ggtitle(i)+theme_bw()
+    #
+    # ggsave(filename=paste0("../ratio",i,"_0312.png"), width=7.34,height = 5.69)
+    #   }
 
     atb_rat <- left_join(map_reg,atb_rat)
     atb_rat <- atb_rat |> rename(group=region,region=gcam)
@@ -216,15 +189,15 @@ library(ggplot2)
 
 
 
-    ggplot()+
-      geom_line(data=ratio,aes(x=year,y=BEV,linetype=tranSubsector,color=sce),alpha=0.5)+
-      geom_line(data=atb_rat,aes(x=year,y=BEV,linetype=tranSubsector,color=sce))+
-      facet_wrap(~region,nrow=5) #+ scale_y_continuous(limits=c(0.5,2))
-
-    ggplot()+
-      geom_line(data=ratio|>filter(region=="USA"),aes(x=year,y=BEV,linetype=tranSubsector,color=sce),alpha=0.2)+
-      geom_line(data=atb_rat|>filter(region=="USA"),aes(x=year,y=BEV,linetype=tranSubsector,color=sce))+
-      facet_wrap(~region,nrow=5)# + scale_y_continuous(limits=c(0.5,2))
+    # ggplot()+
+    #   geom_line(data=ratio,aes(x=year,y=BEV,linetype=tranSubsector,color=sce),alpha=0.5)+
+    #   geom_line(data=atb_rat,aes(x=year,y=BEV,linetype=tranSubsector,color=sce))+
+    #   facet_wrap(~region,nrow=5) #+ scale_y_continuous(limits=c(0.5,2))
+    #
+    # ggplot()+
+    #   geom_line(data=ratio|>filter(region=="USA"),aes(x=year,y=BEV,linetype=tranSubsector,color=sce),alpha=0.2)+
+    #   geom_line(data=atb_rat|>filter(region=="USA"),aes(x=year,y=BEV,linetype=tranSubsector,color=sce))+
+    #   facet_wrap(~region,nrow=5)# + scale_y_continuous(limits=c(0.5,2))
 
     #prepare data to add for add-on files
     L254.StubTranTechCost <- L254.StubTranTechCost |> filter(stub.technology=="Liquids") |>rbind(
