@@ -1153,6 +1153,9 @@ gcamusa.MIN_PRIM_ENERGY_YEAR <- 1990
 # GCAM-USA does not have energy-for-water so desalination is an exogenous, unlimited resource with a fixed price
 gcamusa.DESALINATION_PRICE <- 0.214  # 1975$/m3
 
+# EIA Data Years - Form 923 (Facility Level Energy Use and Cogen Output)
+gcamusa.EIA_923_DATA_YEARS <- c(2005, 2010, 2015,2021)
+
 # GCAM-USA transportation emissions vehicle classes
 gcamusa.MOVES_BASE_YEAR_CLASSES <- c(2005,2010,2015) # Year classes of cars to be used to get base year vintaged emissions
 gcamusa.MOVES_MIN_VINTAGE_YEAR <- 1990 # Earliest vintage year used

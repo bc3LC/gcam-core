@@ -1,0 +1,45 @@
+# File: EIA_agg_gcam_fuels.csv
+# Title: Mapping file for EIA cogen fuels to GCAM fuels
+# Units: NA
+# Column types: ccc
+# ----------
+eia_fuel,agg_fuel,gcam_fuel
+BIT,COL,coal
+LIG,COL,coal
+SUB,COL,coal
+WC,WOC,coal
+SC,COL,coal
+DFO,DFO,refined liquids
+JF,WOO,refined liquids
+KER,WOO,refined liquids
+PC,PC,refined liquids
+RFO,RFO,refined liquids
+WO,WOO,refined liquids
+NG,NG,gas
+BFG,OOG,gas
+OG,OOG,gas
+PG,OOG,gas
+NUC,NUC,nuclear
+AB,ORW,biomass
+MSB,MLG,biomass
+OBS,ORW,biomass
+WDS,WWW,biomass
+OBL,ORW,biomass
+BLQ,WWW,biomass
+SLW,ORW,biomass
+WDL,WWW,biomass
+LFG,MLG,gas
+OBG,ORW,biomass
+GEO,GEO,geothermal
+WAT,HYC,hydro
+SUN,SUN,solar
+WND,WND,wind
+PUR,OTH,other
+WH,OTH,other
+OTH,OTH,other
+MSN,OTH,other
+TDF,OTH,other
+MSW,WWW,biomass
+ANT,COL,coal
+MWH,OTH,other
+RC,COL,coal

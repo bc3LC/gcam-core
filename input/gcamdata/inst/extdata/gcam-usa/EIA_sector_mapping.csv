@@ -1,0 +1,13 @@
+# File: EIA_sector_mapping.csv
+# Title: Mapping file for EIA sector numbers
+# Units: NA
+# Column types: iccc
+# ----------
+eia_sector,sector_name,sector_name_full,explanation
+1,utility,Electric Utility,Traditional regulated electric utilities.
+2,ipp_noncogen,NAICS-22 Non-Cogen,Independent power producers which are not cogenerators.
+3,ipp_cogen,NAICS-22 Cogen,"Independent power producers which are cogenerators, but whose primary business purpose is the sale of electricity to the public."
+4,comm_noncogen,Commercial NAICS Non-Cogen,"Commercial non-cogeneration facilities that produce electric power, are connected to the grid, and can sell power to the public."
+5,comm_cogen,Commercial NAICS Cogen,"Commercial cogeneration facilities that produce electric power, are connected to the grid, and can sell power to the public."
+6,ind_noncogen,Industrial NAICS Non-Cogen,"Industrial non-cogeneration facilities that produce electric power, are connected to the grid, and can sell power to the public."
+7,ind_cogen,Industrial NAICS Cogen,"Industrial cogeneration facilities that produce electric power, are connected to the grid, and can sell power to the public."
