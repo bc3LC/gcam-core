@@ -82,21 +82,21 @@ module_energy_transportation_BEVratios <- function(command, ...) {
     for (i in seq(1,dim(map)[1])){
       tmp <- atb_ratio |> filter(scenario=="Advanced",vehicle_powertrain==map[i,4],vehicle_detail==map[i,5],fuel_category==map[i,6],vehicle_class==map[i,8])|>
         select(year,value) |> left_join(atb_ratio |> filter(scenario=="Advanced",vehicle_powertrain==map[i,9],vehicle_detail==map[i,10],fuel_category==map[i,11],vehicle_class==map[i,8])|>
-                                          select(year,value)|>rename(denominator=value)) |> mutate(value=value/denominator)
+                                          select(year,value)|>rename(denominator=value),by = join_by(year)) |> mutate(value=value/denominator)
       atb_rat <- atb_rat |> rbind(tmp |> select(-denominator) |> mutate(scenario="Advanced",tranSubsector=map[i,1],region=map[i,2]))
     }
 
     for (i in seq(1,dim(map)[1])){
       tmp <- atb_ratio |> filter(scenario=="Mid",vehicle_powertrain==map[i,4],vehicle_detail==map[i,5],fuel_category==map[i,6],vehicle_class==map[i,8])|>
         select(year,value) |> left_join(atb_ratio |> filter(scenario=="Mid",vehicle_powertrain==map[i,9],vehicle_detail==map[i,10],fuel_category==map[i,11],vehicle_class==map[i,8])|>
-                                          select(year,value)|>rename(denominator=value)) |> mutate(value=value/denominator)
+                                          select(year,value)|>rename(denominator=value),by = join_by(year)) |> mutate(value=value/denominator)
       atb_rat <- atb_rat |> rbind(tmp |> select(-denominator) |> mutate(scenario="Mid",tranSubsector=map[i,1],region=map[i,2]))
     }
 
     for (i in seq(1,dim(map)[1])){
       tmp <- atb_ratio |> filter(scenario=="Conservative",vehicle_powertrain==map[i,4],vehicle_detail==map[i,5],fuel_category==map[i,6],vehicle_class==map[i,8])|>
         select(year,value) |> left_join(atb_ratio |> filter(scenario=="Conservative",vehicle_powertrain==map[i,9],vehicle_detail==map[i,10],fuel_category==map[i,11],vehicle_class==map[i,8])|>
-                                          select(year,value)|>rename(denominator=value)) |> mutate(value=value/denominator)
+                                          select(year,value)|>rename(denominator=value),by = join_by(year)) |> mutate(value=value/denominator)
       atb_rat <- atb_rat |> rbind(tmp |> select(-denominator) |> mutate(scenario="Conservative",tranSubsector=map[i,1],region=map[i,2]))
     }
 
@@ -127,12 +127,12 @@ module_energy_transportation_BEVratios <- function(command, ...) {
     )
 
     #double check that scenario ordering is always correct (correcting the few cases with ATB inconsistencies)
-    atb_rat <- atb_rat|>pivot_wider(names_from = scenario) |> rowwise() |> mutate(lowest=min(Advanced,Conservative,Mid),
+    atb_rat <- atb_rat|>pivot_wider(names_from = scenario) |> dplyr::rowwise() |> mutate(lowest=min(Advanced,Conservative,Mid),
                         medi=median(c(Advanced,Conservative,Mid)),highest=max(Advanced,Conservative,Mid)) |>
                         select(-Advanced,-Conservative,-Mid) |> rename(Advanced=lowest,Mid=medi,Conservative=highest)|>
                         pivot_longer(cols=c(Advanced,Conservative,Mid),names_to = 'scenario')
     #double check that regional ordering is always correct (correcting the few cases where different ATB categories cross over in ratio over time)
-    atb_rat <- atb_rat|>pivot_wider(names_from = region) |> rowwise() |> mutate(lowest=min(Low,Medium,High),
+    atb_rat <- atb_rat|>pivot_wider(names_from = region) |> dplyr::rowwise() |> mutate(lowest=min(Low,Medium,High),
                                                                                      medi=median(c(Low,Medium,High)),highest=max(Low,Medium,High)) |>
       select(-Low,-High,-Medium) |> rename(Low=lowest,Medium=medi,High=highest)|>
       pivot_longer(cols=c(Low,Medium,High),names_to = 'region')
@@ -159,7 +159,7 @@ module_energy_transportation_BEVratios <- function(command, ...) {
     # ggsave(filename=paste0("../ratio",i,"_0312.png"), width=7.34,height = 5.69)
     #   }
 
-    atb_rat <- left_join(map_reg,atb_rat)
+    atb_rat <- left_join(map_reg,atb_rat,by = join_by(region),relationship = "many-to-many") #
     atb_rat <- atb_rat |> rename(group=region,region=gcam)
 
     #adjust atb to have all scenarios existing in L254, but renamed scen names, and
@@ -168,8 +168,6 @@ module_energy_transportation_BEVratios <- function(command, ...) {
     atb_rat <- atb_rat |> filter(scenario %in% c("Mid","Advanced")) |>rbind(
       atb_rat |> filter(scenario =="Advanced") |> mutate(scenario="test",value =100)) |> rbind(
         atb_rat |> filter(scenario =="Conservative"))  |> rename(sce=scenario,ratio=value)
-
-    library(dplyr)
 
     #prepare ratio to be used for calculation of new values
     #get rid of value (ratio between BEV and Liquids price plotted before)
@@ -181,8 +179,9 @@ module_energy_transportation_BEVratios <- function(command, ...) {
       rbind(ratio |> filter(sce=="CORE") |> mutate(sce="Advanced"))
 
     # make atb ratio be minimum of atb_rat and the ratio before
-    atb_rat <- left_join(ratio |> filter(year>2025),atb_rat |> filter(year>2025)) |>
-      rowwise()|>
+    atb_rat <- left_join(ratio |> filter(year>2025),atb_rat |> filter(year>2025),
+                         by = join_by(region, tranSubsector, year, sce)) |>
+      dplyr::rowwise()|> #
       mutate(BEV=min(BEV,ratio*Liquids)) |>
       # mutate(BEV=ratio*Liquids) |>
       ungroup()
