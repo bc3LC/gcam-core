@@ -18,6 +18,7 @@
 	</Files>
 	<ScenarioComponents>
         <Value name = "climate">../input/gcamdata/xml/hector.xml</Value>
+			
 			<Value name = "resources">../input/gcamdata/xml/resources.xml</Value>
 			<Value name = "energy_supply">../input/gcamdata/xml/en_supply.xml</Value>
 			<Value name = "energy_transformation">../input/gcamdata/xml/en_transformation.xml</Value>
@@ -25,7 +26,6 @@
 			<Value name = "heat">../input/gcamdata/xml/heat.xml</Value>
 			<Value name = "hydrogen">../input/gcamdata/xml/hydrogen.xml</Value>
 			<Value name = "energy_distribution">../input/gcamdata/xml/en_distribution.xml</Value>
-
 			<Value name = "industry">../input/gcamdata/xml/other_industry.xml</Value>
  			<Value name = "iron_steel">../input/gcamdata/xml/iron_steel.xml</Value>
 			<Value name = "iron_steel trade">../input/gcamdata/xml/iron_steel_trade.xml</Value>   
@@ -38,7 +38,7 @@
 			<Value name = "fertilizer_energy">../input/gcamdata/xml/en_Fert.xml</Value>
 			<Value name = "hddcdd">../input/gcamdata/xml/HDDCDD_constdd_no_GCM.xml</Value>
 			<Value name = "building">../input/gcamdata/xml/building_det.xml</Value>
-           <Value name = "transportation">../input/gcamdata/xml/transportation_UCD_CORE.xml</Value>
+			<Value name = "transportation">../input/gcamdata/xml/transportation_UCD_CORE.xml</Value>
 			<Value name = "carbon_content">../input/gcamdata/xml/Ccoef.xml</Value>
 			<Value name = "carbon_storage">../input/gcamdata/xml/Cstorage.xml</Value>
 			
@@ -55,16 +55,16 @@
 			<Value name = "land4">../input/gcamdata/xml/land_input_4_IRR_MGMT.xml</Value>
 			<Value name = "land5">../input/gcamdata/xml/land_input_5_IRR_MGMT.xml</Value>
 
-			<Value name = "demand_nonfood">../input/gcamdata/xml/ag_an_demand_input_NonFood.xml</Value>
-		<Value name = "demand_food">../input/gcamdata/xml/ag_an_demand_input_Food_ExoDiet_SSP1_VLLO.xml</Value>
-
-			<Value name = "demand_paper">../input/gcamdata/xml/paper_delete_ag_demand.xml</Value>
+		<Value name = "demand_nonfood">../input/gcamdata/xml/ag_an_demand_input_NonFood.xml</Value>
+		<Value name = "demand_food">../input/gcamdata/xml/ag_an_demand_input_Food_Intake_SSP2.xml</Value>
+		
+		<Value name = "demand_paper">../input/gcamdata/xml/paper_delete_ag_demand.xml</Value>
 			<Value name = "bio_trade">../input/gcamdata/xml/bio_trade.xml</Value>
 			<Value name = "ag_trade">../input/gcamdata/xml/ag_trade.xml</Value>
 		      <Value name = "ag_storage">../input/gcamdata/xml/ag_storage.xml</Value>
 			
 			<Value name = "unlim_supply_water">../input/gcamdata/xml/unlimited_water_supply.xml</Value>
-			<!-- Value name = "water_supply">../input/gcamdata/xml/water_supply_constrained.xml</Value -->
+			<Value name = "water_supply">../input/gcamdata/xml/water_supply_constrained.xml</Value>
 			<Value name = "water_desal">../input/gcamdata/xml/desalination.xml</Value>
 			<Value name = "water_td">../input/gcamdata/xml/water_td.xml</Value>
 			<Value name = "efw_coefs">../input/gcamdata/xml/EFW_input_coefs.xml</Value>
@@ -108,32 +108,73 @@
             <Value name = "gas_trade">../input/gcamdata/xml/gas_trade.xml</Value>
 
         <Value name = "prune_ag">../input/gcamdata/xml/prune_empty_ag.xml</Value>
-
 		
+<!-- SOCIOECONOMICS & SSP based input files -->
+			
 <!-- SOCIOECONOMICS -->
 			<Value name="socioeconomics">../input/gcamdata/xml/socioeconomics_SSP1.xml</Value>
 			
 			<!-- INDUSTRY -->
-			<Value name="ind">../input/scenmip/other_industry_incelas_vllo_v2.xml</Value>		
-			<Value name = "iron_steel_income_elas">../input/scenmip/iron_steel_incelas_vllo_v2.xml</Value>   
-			<Value name = "Off_road_income_elas">../input/xml_new_incelas/Off_road_incelas_ssp1.xml</Value>  
-			<Value name = "chemical_income_elas">../input/scenmip/chemical_incelas_vllo.xml</Value>   
-			<Value name = "aluminum_income_elas">../input/scenmip/aluminum_incelas_vllo.xml</Value> 
-			<Value name = "paper_income_elas">../input/scenmip/paper_incelas_vllo.xml</Value> 
-			<Value name="cement">../input/scenmip/cement_incelas_vllo.xml</Value>
+			<Value name="ind">../input/addons_scenmip/other_industry_incelas_ssp1.xml</Value>		
+			<Value name = "iron_steel_income_elas">../input/addons_scenmip/iron_steel_incelas_ssp1.xml</Value>   
+			<Value name = "Off_road_income_elas">../input/addons_scenmip/Off_road_incelas_ssp1.xml</Value>  
+			<Value name = "chemical_income_elas">../input/addons_scenmip/chemical_incelas_ssp1.xml</Value>   
+			<Value name = "aluminum_income_elas">../input/addons_scenmip/aluminum_incelas_ssp1.xml</Value> 
+			<Value name = "paper_income_elas">../input/addons_scenmip/paper_incelas_ssp1.xml</Value> 
+			<Value name="cement">../input/addons_scenmip/cement_incelas_ssp1.xml</Value>
 			
 			<!-- TRANSPORTATION -->
-			<Value name = "transportation">../input/scenmip_add/transportation_UCD_add_SSP1.xml</Value>
-			<Value name = "transportation2">../input/transport_incelas/trn_inc_elas_gcamdata_SSP1.xml</Value>
-
+			<Value name = "transportation">../input/addons_scenmip/transportation_UCD_add_SSP1.xml</Value>
+			<Value name = "transportation2">../input/addons_scenmip/trn_inc_elas_gcamdata_SSP1.xml</Value>
+			
 			<!-- BUILDINGS -->
-			<Value name="bld">../input/xml_new_incelas/building_SSP1.xml</Value>
+			<Value name="bld">../input/addons_scenmip/building_SSP1.xml</Value>
 			
 			<!-- AGLU -->
 			<!-- Value name="aglu">../input/gcamdata/xml/food_SSP1.xml</Value -->
-			<Value name="aglu">../input/xml_new_incelas/ag_prodchange_ssp1_IRR_MGMT.xml</Value>
+			<Value name="aglu">../input/gcamdata/xml/ag_prodchange_ssp1_IRR_MGMT.xml</Value>
+						
+			<!-- CCS -->
+			<Value name="ccs">../input/gcamdata/xml/ccs_supply_lowest.xml</Value>
+			<Value name="ccs">../input/gcamdata/xml/no_offshore_ccs.xml</Value>
 			
-			<!-- WIND -->
+			<!-- FOSSIL -->
+			<Value name="resource_extraction">../input/gcamdata/xml/resources_SSP1.xml</Value>
+			
+			<!-- NON-CO2 -->
+			<!-- Value name="nonco2">../input/gcamdata/xml/delete_gdp_control.xml</Value -->
+			<!-- Value name="nonco2">../input/gcamdata/xml/ssp15_emissions_factors.xml</Value -->
+			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP1.xml</Value>
+
+			<!-- WASTEWATER TREATMENT FRACTIONS -->
+			<Value name="wwtrt">../input/gcamdata/xml/EFW_WWtrt_coefs_SSP1.xml</Value>
+
+
+			
+            		<Value name = "prune_ag">../input/gcamdata/xml/prune_empty_ag.xml</Value>
+
+
+<!--Other addons-->
+      			<!--Add-on Files for ALL Scenarios-->
+       <Value name = "Transport_NG">../input/addons_scenmip/GlobalTranTech_NG_0.xml</Value>
+        <Value name = "elec_tech_cost">../input/addons_scenmip/GCAM_GlobalTechCapital_CoalCCS.xml</Value>
+        <Value name = "elec_coal_igcc">../input/addons_scenmip/elec_coal-igcc-off.xml</Value>
+	<Value name = "elec_coal_igcc">../input/addons_scenmip/elec_coal-igcc-off_water.xml</Value>
+        <Value name = "elec_lifetime">../input/addons_scenmip/elec_life50.xml</Value>
+        <Value name = "elec_halflife">../input/addons_scenmip/elec_scurve_life50.xml</Value>
+        <Value name = "no_new_refining_coal_oecd">../input/addons_scenmip/no_new_coal_refining_2100update.xml</Value> 
+        <Value name = "ccs_shrwt">../input/addons_scenmip/GlobalTechShrwt_ccs_blastfur4.xml</Value>
+	
+        <Value name = "gas_CCS_cost">../input/addons_scenmip/highcost_gasCCS_mg.xml</Value>
+	<Value name = "GasShrwt">../input/addons_scenmip/GCAM6_GasShrwt_HalfStart2035.xml</Value>
+	<Value name = "OilShrwt">../input/addons_scenmip/GCAM6_NGFS2024_OilElecSW.xml</Value>
+		
+	
+        <Value name = "no_new_power">../input/addons_scenmip/US_adjustment_v5.xml</Value> 
+        <Value name = "no_new_power">../input/addons_scenmip/EU_adjustment_v5.xml</Value>
+<Value name = "nuclear_shrwt">../input/addons_scenmip/G20_2023_Nuclear_ShareWeights_v5.xml</Value>
+	<Value name = "JapanNuclearRestart">../input/addons_scenmip/fixed_output_nuclear_japan_v3.xml</Value>
+<!-- WIND -->
 			<Value name="wind">../input/gcamdata/xml/wind_adv.xml</Value>
 			
 			<!-- SOLAR -->
@@ -142,107 +183,80 @@
 			<!-- GEOTHERMAL -->
 			<Value name="geothermal">../input/gcamdata/xml/geo_adv.xml</Value>
 			<Value name="geothermal">../input/gcamdata/xml/geo_tech_adv.xml</Value>
+
+<Value name = "bio_limit">../input/addons_scenmip/bio_ceiling_B150Linear_v2.xml</Value>
+        <Value name = "bio_limit">../input/addons_scenmip/bio_ceiling_mkt_firstsecondallgen_fixed.xml</Value>
+<Value name = "elec_coal_conv">../input/addons_scenmip/elec_coal-conv-off2035.xml</Value> 
+        <Value name = "elec_coal_conv">../input/addons_scenmip/elec_coal-conv-off2035_water.xml</Value>
+
+<Value name = "coal_elec_constraint">../input/addons_scenmip/NGFS2024_CoalElecCeiling_v3.xml</Value>
+        <Value name ="coal_elec_constraint_link">../input/addons_scenmip/coal_constr_link2100_water.xml</Value>
+<Value name = "Solar_shrwt">../input/addons_scenmip/Low_CSP_Shareweight_0p25_High_PV_Shareweight_2p0_0forSomeRegions_v3.xml</Value>
+
+	<Value name = "nonco2_energy_2025">../input/addons_scenmip/all_energy_emissions_MAC_dummy_v2.xml</Value>
+		    <Value name = "nonco2_fgas_2025">../input/addons_scenmip/all_fgas_emissions_MAC_dummy_v3.xml</Value>
+		    <Value name = "nonco2_aglu_2025">../input/addons_scenmip/all_aglu_emissions_IRR_MGMT_MAC_dummy_v2.xml</Value> 
+		    <Value name = "nonco2_proc_2025">../input/addons_scenmip/ind_urb_processing_sectors_MAC_dummy_v2.xml</Value>
+
+			 <Value name = "nonco2_energy_2030">../input/addons_scenmip/all_energy_emissions_MAC_2030.xml</Value>
+		    <Value name = "nonco2_fgas_2030">../input/addons_scenmip/all_fgas_emissions_MAC_2030_v3.xml</Value>
+		    <Value name = "nonco2_aglu_2030">../input/addons_scenmip/all_aglu_emissions_IRR_MGMT_MAC_2030.xml</Value> 
+		    <Value name = "nonco2_proc_2030">../input/addons_scenmip/ind_urb_processing_sectors_MAC_2030.xml</Value>
+
+			<Value name = "ch4_mac">../input/addons_scenmip/Ch4_agr_MAC_NewValuesInterpolated_WithPost2050_3-19.xml</Value>
+
+			<!--UPDATED EMISS FACTORS-->
+<Value name="nonco2_a">../input/gcamdata/xml/ssp15_emissions_factors.xml</Value>
 			
-			<!-- NUCLEAR -->
-			<Value name="nuclear">../input/gcamdata/xml/nuclear_low.xml</Value>
-			
-			<!-- CCS -->
-			<Value name="ccs">../input/gcamdata/xml/ccs_supply_lowest.xml</Value>
-			<Value name="ccs">../input/gcamdata/xml/no_offshore_ccs.xml</Value>
-			
-			<!-- FOSSIL -->
-			<Value name="resource_extraction">../input/gcamdata/xml/resources_SSP1.xml</Value>
-			
-			<!-- RENEWABLES -->		
-			
-			
-			<!-- NON-CO2 -->
-			<Value name="nonco2">../input/gcamdata/xml/delete_gdp_control.xml</Value>
-			<Value name="nonco2">../input/gcamdata/xml/ssp15_emissions_factors.xml</Value>
-			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP1.xml</Value>
 
-			<!-- WASTEWATER TREATMENT FRACTIONS -->
-			<Value name="wwtrt">../input/gcamdata/xml/EFW_WWtrt_coefs_SSP1.xml</Value>
+ <!-- Kigali -->
+			<Value name = "nonco2_fgas">../input/addons_scenmip/all_fgas_emissions_mid.xml</Value>
 
-            <Value name = "prune_ag">../input/gcamdata/xml/prune_empty_ag.xml</Value>
-<Value name = "Transport_NG">../input/ngfs/GlobalTranTech_NG_0.xml</Value>
-        <Value name = "elec_tech_cost">../input/ngfs/GCAM_GlobalTechCapital_CoalCCS.xml</Value>
-        <Value name = "elec_coal_igcc">../input/ngfs/elec_coal-igcc-off.xml</Value>
-	<Value name = "elec_coal_igcc">../input/ngfs/elec_coal-igcc-off_water.xml</Value>
-        <Value name = "elec_lifetime">../input/ngfs/elec_life50.xml</Value>
-        <Value name = "elec_halflife">../input/ngfs/elec_scurve_life50.xml</Value>
-        <Value name = "no_new_refining_coal_oecd">../input/ngfs/no_new_coal_refining_2100update.xml</Value> 
-        <Value name = "ccs_shrwt">../input/ngfs/GlobalTechShrwt_ccs_blastfur4.xml</Value>
-	
-        <Value name = "gas_CCS_cost">../input/ngfs/highcost_gasCCS_mg.xml</Value>
-	<Value name = "GasShrwt">../input/ngfs/GCAM6_GasShrwt_HalfStart2035.xml</Value>
-	<Value name = "OilShrwt">../input/ngfs/GCAM6_NGFS2024_OilElecSW.xml</Value>
-		
-	
-        <Value name = "no_new_power">../input/ngfs/US_adjustment_v5.xml</Value> 
-        <Value name = "no_new_power">../input/ngfs/EU_adjustment_v5.xml</Value>
-<Value name = "nuclear_shrwt">../input/G20/G20_2023_Nuclear_ShareWeights_v5.xml</Value>
-	<Value name = "JapanNuclearRestart">../input/ngfs/fixed_output_nuclear_japan_v3.xml</Value>
-
-	<Value name = "ch4_mac">../input/ngfs/Ch4_agr_MAC_NewValuesInterpolated_WithPost2050_3-19.xml</Value>
- 	<Value name = "bio_limit">../input/ngfs/bio_ceiling_B100Linear_v2.xml</Value>
-        <Value name = "bio_limit">../input/scenmip/bio_ceiling_mkt_firstsecondallgen_fixed.xml</Value>
-
- <Value name = "elec_coal_conv">../input/ngfs/elec_coal-conv-off2025_v2.xml</Value> 
-        <Value name = "elec_coal_conv">../input/ngfs/elec_coal-conv-off2025_water.xml</Value>
-		<Value name = "coal_elec_constraint">../input/ngfs/NGFS2024_CoalElecCeiling_v3.xml</Value>
-        <Value name ="coal_elec_constraint_link">../input/ngfs/coal_constr_link2100_water.xml</Value>
-        <Value name = "CoalShrwt">../input/ngfs/GCAM6_CoalShrwt_HalfStart2025.xml</Value>
-
-        <Value name = "wind_shrwt">../input/ngfs/wind_shrwt_high_v2.xml</Value>
-		<Value name = "solar_shrwt">../input/ngfs/solar_shrwt_high_v3.xml</Value>
-		<Value name = "SolarCosts">../input/ngfs/solar_adv_PVonly.xml</Value>
-		<Value name = "Solar_shrwt">../input/ngfs/Low_CSP_Shareweight_0p25_High_PV_Shareweight_2p0_0forSomeRegions_v3.xml</Value>
-
-<!-- Value name = "Trans_Pass_Shareweight">../input/ngfs/NGFS2024_Shareweight_Trn_Pass_Global.xml</Value>
-		<Value name = "Trans_Freight_Shareweight">../input/ngfs/NGFS2024_Shareweight_Trn_Freight_Global.xml</Value -->
-
- <!--DAC-->
-<Value name = "dac">../input/gcamdata/xml/dac_ssp1.xml</Value>
+<Value name="pass">../input/addons_scenmip/bev_cars_bus_shrwt_china.xml</Value>
+<Value name = "indonesia1">../input/addons_scenmip/ind_other_service_demand_IDN_XL2.xml</Value> 
+<Value name = "indonesia2">../input/addons_scenmip/ind_other_gas_IDN_shrwt_XL2.xml</Value> 
 
 <!-- HYDRO ADJUSTMENT -->
-			<Value name="hydro">../input/scenmip/hydro_fix_pol_v2.xml</Value>
-
-<!-- TRANSPORT ADJUSTMENT -->
-			<Value name="freight1">../input/scenmip/ff_trucks_phaseout_vllo_v2.xml</Value>
-			<Value name="freight2">../input/scenmip/bev_trucks_shrwt_vllo.xml</Value>
-			<Value name="freight3">../input/scenmip/rail_shrwt_vllo.xml</Value>
-
-			<Value name="pass1">../input/scenmip/ff_cars_bus_phaseout_vllo.xml</Value>
-			<Value name="pass2">../input/scenmip/bev_cars_bus_shrwt_vllo.xml</Value>
-			<Value name="rail1">../input/scenmip/rail_shrwt_vllo.xml</Value>
+			<Value name="hydro">../input/addons_scenmip/hydro_fix_pol_v2.xml</Value>
 
 
 <!-- CDR -->
+ 			<Value name = "dac">../input/gcamdata/xml/dac_ssp2.xml</Value>
+ 	
+<Value name="enh_weathering">../input/addons_scenmip/Weathering.xml</Value>
+<Value name = "carbon_storage">../input/addons_scenmip/Cstorage_v2.xml</Value>
+<Value name = "carbon_storage">../input/addons_scenmip/Cstorage_v2.xml</Value>
+<Value name = "carbon_storage2">../input/addons_scenmip/high_cost_ccs_v1.xml</Value>
+
+ <Value name="feasibility_cdr1">../input/addons_scenmip/cstorage_cost_default_Onshore.xml</Value>
+<Value name="feasibility_cdr2">../input/addons_scenmip/cstorage_cost_default_Offshore.xml</Value>
+<!-- Value name="feasibility_cdr3">../input/addons_scenmip/cstorage_volume_current_oil_and_gas_potential_Offshore.xml</Value -->
+<!-- Value name="feasibility_cdr4">../input/addons_scenmip/cstorage_volume_current_oil_and_gas_potential_Onshore.xml</Value -->
+<Value name="feasibility_cdr5">../input/addons_scenmip/cstorage_volume_prudent_potential_Onshore.xml</Value>
+<Value name="feasibility_cdr6">../input/addons_scenmip/cstorage_volume_prudent_potential_Offshore.xml</Value>
+
+<Value name = "carbon price">../input/addons_scenmip/Cstorage_slow_v3.xml</Value>
 
 
-<!-- Value name = "energy_transformation_biochar">../input/cdr_orig/en_transformation_biochar.xml</Value>
-			<Value name = "carbon_storage_biochar">../input/cdr/Cstorage_biochar.xml</Value -->
-<Value name="enh_weathering">../input/cdr/Weathering.xml</Value>
+<!--GHGs-->
+<!-- Value name = "kigali_fgas">../input/addons_scenmip/all_fgas_emissions_kigali.xml</Value -->
+<Value name="enh_weathering_constraint1">../input/addons_scenmip/cwf_mid_ew_constraint.xml</Value>
 
-<Value name = "nonco2_fgas">../input/fgas/all_fgas_emissions_SSP15_v3.xml</Value>
+<Value name="enh_weathering_constraint2">../input/addons_scenmip/EW_constraint_mkt.xml</Value>
+  <!--GHGs-->
+ 
+    <Value name = "carbon price">../input/addons_scenmip/scenmip_ctax_l_2025_2030_260127.xml</Value>
+   <Value name = "c_tax_l">../input/addons_scenmip/scenmip_ctax_l_260131.xml</Value>
+          <Value name = "ghg_link">../input/addons_scenmip/scenmip_ghg_link_vl_luc0_v6.xml</Value>		
 
+		<Value name = "luc_tax">../input/addons_scenmip/regional_luc_tax_vl_251216a.xml</Value>
+<Value name = "luc_link">../input/addons_scenmip/scenmip_luc_link.xml</Value>
 
+			<Value name = "solver">../input/addons_scenmip/cal_broyden_config_max20k.xml</Value>
 
- <!--GHGs-->
-
- <Value name = "ghg constraint">../input/scenmip/scenmip_ctax_vl_2025_2030_250409.xml</Value> 
-<Value name = "luc_tax">../input/scenmip/scenmip_ctax_vl2_250411b.xml</Value>
-       <Value name = "ghg_link">../input/scenmip/scenmip_ghg_link_vl_luc0_v6.xml</Value>
-		 
-		<Value name = "luc_tax">../input/scenmip/regional_luc_tax_vl_250406.xml</Value>
-		<Value name = "luc_link">../input/scenmip/scenmip_luc_link.xml</Value>
-
-
-<Value name = "solver">../input/solution/cal_broyden_config_20k.xml</Value>
 	</ScenarioComponents>
 	<Strings>
-		<Value name="scenarioName">scenmip_vllo1_251104a</Value>
+		<Value name="scenarioName">smip_l1_AM_260212</Value>
 		<Value name="debug-region">USA</Value>
 		<Value name="MAGICC-input-dir">../input/magicc/inputs</Value>
 		<Value name="MAGICC-output-dir">../output</Value>
