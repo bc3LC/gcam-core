@@ -79,8 +79,11 @@
 			<Value name = "primary_ene_water">../input/gcamdata/xml/water_demand_primary.xml</Value>
 			
 			<Value name = "ind_urb_proc">../input/gcamdata/xml/ind_urb_processing_sectors.xml</Value>
-			<Value name = "nonco2_energy">../input/gcamdata/xml/all_energy_emissions.xml</Value>
 			<Value name = "nonco2_fgas1">../input/gcamdata/xml/all_fgas_emissions.xml</Value>
+			<Value name = "nonco2_energy">../input/addons_scenmip/AP_Non-SSP-specific/all_energy_emissions.xml</Value>
+			<Value name="nonco2">../input/addons_scenmip/AP_SSP2/delete_gdp_control.xml</Value >
+			<Value name="nonco2">../input/addons_scenmip/AP_SSP2/ssp2_emissions_factors.xml</Value>
+			<Value name="nonco2">../input/addons_scenmip/AP_SSP2/emission_factor_controls.xml</Value>
 
 
 
@@ -136,8 +139,6 @@
 			<Value name="resource_extraction">../input/gcamdata/xml/resources_SSP2.xml</Value>
 			
 			<!-- NON-CO2 -->
-			<!-- Value name="nonco2">../input/gcamdata/xml/delete_gdp_control.xml</Value>
-			<Value name="nonco2">../input/gcamdata/xml/ssp2_emissions_factors.xml</Value -->
 			<Value name="nonco2">../input/gcamdata/xml/MACC_TC_SSP2.xml</Value>
 			
 			<!-- WASTEWATER TREATMENT FRACTIONS -->
@@ -208,8 +209,6 @@
 
 <Value name = "Trans_Pass_Shareweight">../input/addons_scenmip/NGFS2024_Shareweight_Trn_Pass_Global_vlho.xml</Value>
 		<Value name = "Trans_Freight_Shareweight">../input/addons_scenmip/NGFS2024_Shareweight_Trn_Freight_Global_vlho.xml</Value>
-<!--UPDATED EMISS FACTORS-->
-<Value name="nonco2_a">../input/gcamdata/xml/ssp2_emissions_factors.xml</Value>
 			
 
  <!-- Kigali -->

@@ -79,8 +79,11 @@
 			<Value name = "primary_ene_water">../input/gcamdata/xml/water_demand_primary.xml</Value>
 			
 			<Value name = "ind_urb_proc">../input/gcamdata/xml/ind_urb_processing_sectors.xml</Value>
-			<Value name = "nonco2_energy">../input/gcamdata/xml/all_energy_emissions.xml</Value>
 			<Value name = "nonco2_fgas1">../input/gcamdata/xml/all_fgas_emissions.xml</Value>
+			<Value name = "nonco2_energy">../input/addons_scenmip/AP_Non-SSP-specific/all_energy_emissions.xml</Value>
+			<Value name="nonco2">../input/addons_scenmip/AP_SSP3_SLE/delete_gdp_control.xml</Value >
+			<Value name="nonco2">../input/addons_scenmip/AP_SSP3_SLE/ssp34_emissions_factors.xml</Value>
+			<Value name="nonco2">../input/addons_scenmip/AP_SSP3_SLE/emission_factor_controls.xml</Value>
 
 
 
@@ -161,8 +164,6 @@
 			<Value name="ccs">../input/gcamdata/xml/no_offshore_ccs.xml</Value>
 						
 			<!-- NON-CO2 -->
-			<!-- Value name="nonco2">../input/gcamdata/xml/delete_gdp_control.xml</Value>
-			<Value name="nonco2">../input/gcamdata/xml/ssp34_emissions_factors.xml</Value -->
 
 			<!-- WASTEWATER TREATMENT FRACTIONS -->
 			<Value name="wwtrt">../input/gcamdata/xml/EFW_WWtrt_coefs_SSP3.xml</Value>
@@ -227,8 +228,8 @@
 <Value name="freight">../input/addons_scenmip/bev_trucks_shrwt_low_h_v2.xml</Value>
 
   <!--UPDATED EMISS FACTORS-->
-<Value name="nonco2_a">../input/addons_scenmip/ssp34_emissions_factors_SLE.xml</Value>
-			<Value name="nonco2_b">../input/addons_scenmip/emission_factor_controls_user_SSP3_SLE.xml</Value>
+<!--Value name="nonco2_a">../input/addons_scenmip/ssp34_emissions_factors_SLE.xml</Value>
+			<Value name="nonco2_b">../input/addons_scenmip/emission_factor_controls_user_SSP3_SLE.xml</Value-->
 
  <!--GHGs-->
 
