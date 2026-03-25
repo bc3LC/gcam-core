@@ -125,6 +125,7 @@
 			<!-- TRANSPORTATION -->
 			<!-- Value name="trn">../input/addons_scenmip/transportation_UCD_add_SSP3.xml</Value -->
 			<Value name="trn2">../input/addons_scenmip/trn_inc_elas_gcamdata_SSP3_using_SSP5_curve_250722.xml</Value>
+			<!--value name = "transportation2">../input/gcamdata/xml/transportation_incelas_SSP3.xml</Value-->
 
 			<!-- BUILDINGS -->
 			<Value name="bld">../input/addons_scenmip/building_SSP3.xml</Value>
