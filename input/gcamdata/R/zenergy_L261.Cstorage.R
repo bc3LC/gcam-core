@@ -327,7 +327,7 @@ module_energy_L261.Cstorage <- function(command, ...) {
     # logistic fits for each region
     eff_post_2030 <- calibrated_eff_2030 %>%
       filter(year %in% MODEL_YEARS,
-             grade == 'grade 7') %>%
+             grade == 'grade 10') %>%
       complete(year = c(year, MODEL_YEARS), nesting(region,scenario,k)) %>%
       group_by(scenario,region) %>%
       fill(efficiency, .direction = 'up') %>%
@@ -338,9 +338,10 @@ module_energy_L261.Cstorage <- function(command, ...) {
       ungroup()
 
     L261.StubTechEff <- eff_post_2030 %>%
-      mutate(efficiency = case_when(is.na(efficiency) & year > 2030 ~ (1/(1+exp(-k*(year - x0)))),
-                                    year == 2035 ~ (1/(1+exp(-k*(year - x0)))),
-                                    TRUE~efficiency),
+      mutate(efficiency =
+                     if_else(year > 2030,
+                             1/(1+exp(-k*(year - x0))),
+                             efficiency),
              supplysector = 'ccs dynamic-capacity',
              subsector = 'ccs dynamic-capacity',
              stub.technology = 'ccs dynamic-capacity',
@@ -348,7 +349,7 @@ module_energy_L261.Cstorage <- function(command, ...) {
              market.name = region) %>%
       mutate(efficiency = round(efficiency,energy.DIGITS_EFFICIENCY),
              efficiency = if_else(efficiency == 0, 0.001,efficiency)) %>%
-      select(c('scenario',LEVEL2_DATA_NAMES[['StubTechEff']])) -> L261.StubTechEff
+      select(c('scenario',LEVEL2_DATA_NAMES[['StubTechEff']]))
 
     L261.TechPmult <- L261.StubTechEff %>%
       rename(technology = stub.technology,
