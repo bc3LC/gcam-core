@@ -201,7 +201,7 @@ module_energy_transportation_BEVratios <- function(command, ...) {
     #prepare data to add for add-on files
     L254.StubTranTechCost <- L254.StubTranTechCost |> filter(stub.technology=="Liquids") |>rbind(
       atb_rat |> select(-Liquids,-group,-ratio) |> mutate(stub.technology="BEV") |> rename(input.cost=BEV)
-    ) |> filter(stub.technology=="BEV")
+    ) |> filter(!is.na(input.cost),stub.technology=="BEV")
 
     # ratio <- L254.StubTranTechCost |> filter(tranSubsector %in% modes,stub.technology %in% c("BEV","Liquids")) |>
     #   pivot_wider(names_from = stub.technology,values_from = input.cost) |> mutate(value=BEV/Liquids)
