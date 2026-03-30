@@ -79,9 +79,11 @@
 			<Value name = "primary_ene_water">../input/gcamdata/xml/water_demand_primary.xml</Value>
 			
 			<Value name = "ind_urb_proc">../input/gcamdata/xml/ind_urb_processing_sectors.xml</Value>
-			<Value name = "nonco2_energy">../input/gcamdata/xml/all_energy_emissions.xml</Value>
+			<Value name = "nonco2_energy">../input/addons_scenmip/AP_Non-SSP-specific/all_energy_emissions.xml</Value>
 			<Value name = "nonco2_fgas1">../input/gcamdata/xml/all_fgas_emissions.xml</Value>
-
+			<Value name="nonco2">../input/addons_scenmip/AP_SSP1/delete_gdp_control.xml</Value >
+			<Value name="nonco2">../input/addons_scenmip/AP_SSP1/ssp15_emissions_factors.xml</Value>
+			<Value name="nonco2">../input/addons_scenmip/AP_SSP1/emission_factor_controls.xml</Value>
 
 
 			<Value name = "nonco2_unmgd">../input/gcamdata/xml/all_unmgd_emissions.xml</Value>
@@ -122,8 +124,8 @@
 			<Value name="cement">../input/addons_scenmip/cement_incelas_ssp5.xml</Value>
 			
 			<!-- TRANSPORTATION -->
-			<Value name = "transportation">../input/addons_scenmip/transportation_UCD_add_SSP5.xml</Value>
-			<Value name="trn">../input/addons_scenmip/trn_inc_elas_gcamdata_SSP5_adj.xml</Value>
+			<Value name = "transportation">../input/gcamdata/xml/transportation_EVcost_Mid.xml</Value>
+			<Value name="trn">../input/gcamdata/xml/transportation_incelas_SSP5.xml</Value>
 
 			
 			<!-- BUILDINGS -->
@@ -181,11 +183,10 @@
  
 	<Value name = "ch4_mac">../input/addons_scenmip/Ch4_agr_MAC_NewValuesInterpolated_WithPost2050_3-19.xml</Value>
  <!-- BIO CONSTRAINT TO LIMIT THE IMPACT OF C PRICE IN THE NEAR TERM -->
-			<Value name = "bio_limit">../input/addons_scenmip/bio_ceiling_B150_post2030_v6.xml</Value>
+	<Value name = "bio_limit">../input/addons_scenmip/bio_ceiling_B150_post2030_v6.xml</Value>
         <Value name = "bio_limit">../input/addons_scenmip/bio_ceiling_mkt_firstsecondallgen_fixed.xml</Value>
 
-<!--UPDATED EMISS FACTORS-->
-<Value name="nonco2_a">../input/gcamdata/xml/ssp15_emissions_factors.xml</Value>
+
 
 <Value name = "nonco2_energy">../input/addons_scenmip/all_energy_emissions_MAC_dummy_v2.xml</Value>
 		    <Value name = "nonco2_fgas">../input/addons_scenmip/all_fgas_emissions_MAC_dummy_v3.xml</Value>
@@ -204,7 +205,6 @@
 <Value name="freight">../input/addons_scenmip/bev_trucks_shrwt_low_h5.xml</Value>
 
 <!-- CDR -->
-
 <Value name="enh_weathering">../input/addons_scenmip/Weathering.xml</Value>
 <Value name="feasibility_cdr1">../input/addons_scenmip/cstorage_cost_default_Onshore.xml</Value>
 <Value name="feasibility_cdr2">../input/addons_scenmip/cstorage_cost_default_Offshore.xml</Value>
@@ -216,18 +216,21 @@
 
  <!--GHGs-->
 
- <Value name = "ghg constraint">../input/addons_scenmip/scenmip_ctax_h_2020_2030_250625a.xml</Value> 
-<Value name = "luc_tax">../input/addons_scenmip/scenmip_ctax_h5_250626a.xml</Value>
+<Value name = "ghg constraint">../input/addons_scenmip/scenmip_ctax_h_2020_2030_250625a.xml</Value> 
+<Value name = "c_tax1">../input/addons_scenmip/scenmip_ctax_h5_250728_2065.xml</Value>
+<Value name = "c_tax2">../input/addons_scenmip/scenmip_ctax_hl5_251103_2070.xml</Value>
        <Value name = "ghg_link">../input/addons_scenmip/scenmip_ghg_link_luc0_v5.xml</Value>
 		
- <Value name = "luc_tax">../input/addons_scenmip/regional_luc_tax_h5_250626.xml</Value>
+ <Value name = "luc_tax1">../input/addons_scenmip/regional_luc_tax_h5_250728_2065.xml</Value>
+ <Value name = "luc_tax2">../input/addons_scenmip/regional_luc_tax_hl5_251106_2070.xml</Value>
 <Value name = "luc_link">../input/addons_scenmip/scenmip_luc_link.xml</Value>
+
 
 			<Value name = "solver">../input/addons_scenmip/cal_broyden_config_20k.xml</Value>
 
 	</ScenarioComponents>
 	<Strings>
-		<Value name="scenarioName">scenmip_h5_260301</Value>
+		<Value name="scenarioName">scenmip_hl5_260325</Value>
 		<Value name="debug-region">USA</Value>
 		<Value name="MAGICC-input-dir">../input/magicc/inputs</Value>
 		<Value name="MAGICC-output-dir">../output</Value>
