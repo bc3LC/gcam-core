@@ -22,7 +22,6 @@ module_gcamusa_L123.Electricity <- function(command, ...) {
              FILE = "gcam-usa/NREL_us_re_technical_potential",
              "L123.in_EJ_R_elec_F_Yh",
              "L123.out_EJ_R_elec_F_Yh",
-             FILE = "gcam-usa/EIA_elect_td_ownuse",
              "L126.in_EJ_R_elecownuse_F_Yh",
              "L126.out_EJ_R_elecownuse_F_Yh",
              "L101.inEIA_EJ_state_S_F",
@@ -38,7 +37,7 @@ module_gcamusa_L123.Electricity <- function(command, ...) {
 
     # Silence package checks
     State <- state <- state_name <- GCAM_region_ID <- year <- value <- sector <-
-      fuel <- CSP_GWh <- value.x <- value.y <- net_EJ_USA <- DirectUse_MWh <- NULL
+      fuel <- CSP_GWh <- value.x <- value.y <- net_EJ_USA <- state_share <- NULL
 
     # Load required inputs
     states_subregions <- get_data(all_data, "gcam-usa/states_subregions")
@@ -52,7 +51,6 @@ module_gcamusa_L123.Electricity <- function(command, ...) {
       filter(GCAM_region_ID == gcam.USA_CODE)
     L123.out_EJ_R_elec_F_Yh <- get_data(all_data, "L123.out_EJ_R_elec_F_Yh") %>%
       filter(GCAM_region_ID == gcam.USA_CODE)
-    EIA_elect_td_ownuse <- get_data(all_data, "gcam-usa/EIA_elect_td_ownuse")
     L126.in_EJ_R_elecownuse_F_Yh <- get_data(all_data, "L126.in_EJ_R_elecownuse_F_Yh") %>%
       filter(GCAM_region_ID == gcam.USA_CODE)
     L126.out_EJ_R_elecownuse_F_Yh <- get_data(all_data, "L126.out_EJ_R_elecownuse_F_Yh") %>%
@@ -115,40 +113,35 @@ module_gcamusa_L123.Electricity <- function(command, ...) {
       select(-value.x, -value.y)
 
     # ELECTRICITY - OWNUSE
-    # NOTE: Electricity net own use energy is apportioned to states on the basis of EIA's direct use by state
-    # First calculate the national own use quantity
+    # First calculate the national own use quantity (loss = total generation - electricity delivered)
     L123.net_EJ_USA_ownuse <- L126.in_EJ_R_elecownuse_F_Yh %>%
       left_join_error_no_match(L126.out_EJ_R_elecownuse_F_Yh, by = c("sector", "fuel", "year")) %>%
       # Net value = input value - output value
       mutate(net_EJ_USA = value.x - value.y) %>%
       select(sector, year, net_EJ_USA)
 
-    # Then build table with each state's share of the national ownuse. Note that this is assumed invariant over time.
-    L123.net_pct_state_USA_ownuse_elec <- tidyr::crossing(state = gcamusa.STATES,
-                                                 sector = "electricity ownuse",
-                                                 fuel = "electricity",
-                                                 year = HISTORICAL_YEARS) %>%
-      # Add in ownuse by state
-      left_join_error_no_match(EIA_elect_td_ownuse %>%
-                                 select(State, DirectUse_MWh), by = c("state" = "State")) %>%
-      group_by(sector, fuel, year) %>%
-      # Compute state share of total
-      mutate(value = DirectUse_MWh / sum(DirectUse_MWh)) %>%
-      ungroup()
-
-    # Net own use = national total multiplied by each state's share
-    L123.net_EJ_state_ownuse_elec <- L123.net_pct_state_USA_ownuse_elec %>%
-      left_join_error_no_match(L123.net_EJ_USA_ownuse, by = c("sector", "year")) %>%
-      # Multiply state share by USA total
-      mutate(value = value * net_EJ_USA)
-
-    # The input of the electricity_net_ownuse sector is equal to sum of all generation (industrial CHP + electric sector)
+    # The input of the electricity_net_ownuse sector is equal to sum of all generation (industrial CHP + electric sector).
+    # This is computed first so that state generation shares (utility + CHP) can be used to distribute
+    # the national ownuse loss below, keeping the ownuse allocation consistent with the CHP allocation.
     L123.in_EJ_state_ownuse_elec <- bind_rows(L123.out_EJ_state_elec_F, L132.out_EJ_state_indchp_F) %>%
       group_by(state, year) %>%
       summarise(value = sum(value)) %>%
       ungroup() %>%
       mutate(sector = "electricity ownuse",
              fuel = "electricity") %>%
+      select(state, sector, fuel, year, value)
+
+    # Distribute the national ownuse loss to states in proportion to each state's total electricity
+    # generation (utility + CHP). This ensures the ownuse allocation is consistent with the CHP
+    # state distribution (which uses EIA industrial fuel shares), so the grid-region electricity
+    # balance closes correctly. Previously, a static EIA DirectUse_MWh share was used, which
+    # diverged from the CHP state distribution and caused grid-region calibration mismatches.
+    L123.net_EJ_state_ownuse_elec <- L123.in_EJ_state_ownuse_elec %>%
+      group_by(sector, fuel, year) %>%
+      mutate(state_share = value / sum(value)) %>%
+      ungroup() %>%
+      left_join_error_no_match(L123.net_EJ_USA_ownuse, by = c("sector", "year")) %>%
+      mutate(value = state_share * net_EJ_USA) %>%
       select(state, sector, fuel, year, value)
 
     # Output of electricity_net_ownuse sector is equal to input minus ownuse "net" energy
@@ -191,11 +184,11 @@ module_gcamusa_L123.Electricity <- function(command, ...) {
       add_title("Output of electricity net ownuse by state") %>%
       add_units("EJ") %>%
       add_comments("Input values from L123.in_EJ_state_ownuse_elec subtracted by net values") %>%
-      add_comments("Net values created with states shares from EIA_elect_td_ownuse and USA total net from L126 files") %>%
+      add_comments("Net ownuse loss distributed to states proportionally to total electricity generation (utility + CHP)") %>%
       add_legacy_name("L123.out_EJ_state_ownuse_elec") %>%
       add_precursors("L101.inEIA_EJ_state_S_F", "gcam-usa/NREL_us_re_technical_potential",
                      "gcam-usa/states_subregions", "L123.out_EJ_R_elec_F_Yh", "L132.out_EJ_state_indchp_F",
-                     "L126.in_EJ_R_elecownuse_F_Yh", "L126.out_EJ_R_elecownuse_F_Yh", "gcam-usa/EIA_elect_td_ownuse")  ->
+                     "L126.in_EJ_R_elecownuse_F_Yh", "L126.out_EJ_R_elecownuse_F_Yh")  ->
       L123.out_EJ_state_ownuse_elec
 
     return_data(L123.in_EJ_state_elec_F, L123.out_EJ_state_elec_F, L123.in_EJ_state_ownuse_elec, L123.out_EJ_state_ownuse_elec)
