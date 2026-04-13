@@ -210,7 +210,8 @@ module_gcamusa_L132.industry_cogen <- function(command, ...) {
       add_units("Units vary, in column titles") %>%
       add_comments("Generated using data from EIA") %>%
       add_precursors("gcam-usa/EIA_non_util_elec_2005", "gcam-usa/EIA_non_util_elec_2010",
-                     "gcam-usa/EIA_non_util_elec_2015", "gcam-usa/EIA_agg_gcam_fuels",
+                     "gcam-usa/EIA_non_util_elec_2015", "gcam-usa/EIA_non_util_elec_2021",
+                     "gcam-usa/EIA_agg_gcam_fuels",
                      "gcam-usa/EIA_sector_mapping", "gcam-usa/A_fuel_conv") ->
       L132.EIA_non_util_elec_USAind
 
