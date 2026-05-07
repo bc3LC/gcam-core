@@ -198,9 +198,14 @@ module_gcamusa_L132.industry_cogen <- function(command, ...) {
     L132.EIA_non_util_elec_USAind <- bind_rows(L132.EIA_non_util_elec_USAind_cogenfuel, L132.EIA_non_util_elec_USAind_otherfuel)
 
     # Update Input Data Check
-    if(max(L132.EIA_non_util_elec_USAind$year) != MODEL_FINAL_BASE_YEAR){
+    if(!(MODEL_FINAL_BASE_YEAR %in% L132.EIA_non_util_elec_USAind$year)){
       stop(paste0("Outdated Data: update EIA Form 923 data to the Base Year (", MODEL_FINAL_BASE_YEAR, ")"))
     }
+
+    # Filter to HISTORICAL_YEARS only - data beyond MODEL_FINAL_BASE_YEAR is loaded but not used
+    # This ensures compatibility with downstream chunks that expect only historical years
+    L132.EIA_non_util_elec_USAind <- L132.EIA_non_util_elec_USAind %>%
+      filter(year %in% HISTORICAL_YEARS)
 
     # ===================================================
     # Produce outputs
