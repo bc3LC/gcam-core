@@ -1,0 +1,126 @@
+================================================================================
+CHP DATA INTEGRATION CHANGES
+Branch: dev/cgs_master_indCHPcaldata-dhl
+Summary of changes relative to origin/dev/cgs_master_indCHPcaldata-dhl
+Date: May 2026
+Author: DLoughlin
+================================================================================
+
+OVERVIEW
+--------
+This branch was cloned with a placeholder EIA 2021 CHP data file (a copy of
+2015 data) and code that loaded it but lacked the downstream safeguards to
+prevent build errors. The changes below replaced the fake data with real 2021
+EIA Form 923 data and added the code changes needed to integrate it cleanly
+into the gcamdata build pipeline.
+
+--------------------------------------------------------------------------------
+COMMIT HISTORY (local, not yet pushed to origin)
+--------------------------------------------------------------------------------
+
+  eaee49ebf4  Fix EIA_non_util_elec_2021.csv parsing error in gcamdata
+  ade8413638  Replace fake EIA_non_util_elec_2021.csv with real 2021 data
+  00bc4ad4a7  Re-integrate EIA 2021 CHP data changes from dev/gcam-usa-det-ind-core-update
+  aa32af76a6  Fixing natural gas calibration issues in Canada and South America_Northern
+
+  (The first three commits above are the CHP-related changes described in this
+   file. The fourth is a separate natural gas trade calibration fix - see inline
+   comments in the affected files for details.)
+
+--------------------------------------------------------------------------------
+CHANGED FILES (CHP-related)
+--------------------------------------------------------------------------------
+
+1. input/gcamdata/inst/extdata/gcam-usa/EIA_non_util_elec_2021.csv
+   (commits ade8413638 and eaee49ebf4)
+
+   BEFORE: Placeholder file - a direct copy of EIA_non_util_elec_2015.csv with
+           only the comment header slightly modified. All 12,450 data rows had
+           YEAR=2015. The file comment read:
+           "FAKE - UPDATE FILE - JUST COPIED 2015 FOR NOW UPDATE"
+
+   AFTER:  Real EIA Form 923 2021 data processed from the raw EIA download:
+             EIA923_Schedules_2_3_4_5_M_12_2021_Final_Revision.csv
+           - 15,796 facility records with YEAR=2021
+           - Matches the column structure of EIA_non_util_elec_2015.csv (94 cols)
+           - Three extra columns in the 2021 raw file were dropped to match the
+             2015 format: "Reserved", "Balancing Authority Code",
+             "Respondent Frequency"
+           - "#" characters removed from ALL text columns (Plant Name, Operator
+             Name, and others). The original 2015 comment only mentioned Plant
+             Name, but the 2021 data also contained "#" in Operator Name (e.g.,
+             "Nevada Cogeneration Assoc # 2", "NC Mun Power Agny #1"). These
+             caused gcamdata's comment="#" CSV reader to truncate those rows,
+             producing a fatal parsing error.
+           - Bare "." values in numeric columns replaced with blanks.
+
+   PROCESSING SCRIPT: C:\Users\danlo\process_EIA923_2021.R
+           Standalone R script used to generate the file. Re-run this script
+           if the source data needs to be regenerated.
+
+2. input/gcamdata/R/zgcamusa_L132.industry_cogen.R
+   (commit 00bc4ad4a7)
+
+   BEFORE: Data validation check used max() == comparison:
+             if(max(L132.EIA_non_util_elec_USAind$year) != MODEL_FINAL_BASE_YEAR)
+           No filter applied before passing data to downstream chunks.
+
+   AFTER:  Two changes:
+
+   a) Data validation check uses %in% instead of max() ==:
+             if(!(MODEL_FINAL_BASE_YEAR %in% L132.EIA_non_util_elec_USAind$year))
+      Rationale: With 2021 data now included, max(year) == 2021, which would
+      always fail the old check against MODEL_FINAL_BASE_YEAR = 2015.
+
+   b) HISTORICAL_YEARS filter added before output:
+             L132.EIA_non_util_elec_USAind <- L132.EIA_non_util_elec_USAind %>%
+               filter(year %in% HISTORICAL_YEARS)
+      Rationale: The 2021 data rows (year=2021) must not be passed to downstream
+      chunks (e.g., module_gcamusa_L123.Electricity) which perform joins keyed on
+      HISTORICAL_YEARS (1971:2015) and would throw a left_join_error_no_match if
+      given a year outside that range.
+
+--------------------------------------------------------------------------------
+UNCHANGED FILES (already correct on origin)
+--------------------------------------------------------------------------------
+
+  input/gcamdata/R/constants.R
+    - gcamusa.EIA_923_DATA_YEARS already included 2021. No change needed.
+
+  input/gcamdata/R/zgcamusa_L132.industry_cogen.R (inputs/precursors)
+    - FILE = "gcam-usa/EIA_non_util_elec_2021" declaration
+    - get_data(..., "gcam-usa/EIA_non_util_elec_2021") load call
+    - add_precursors(..., "gcam-usa/EIA_non_util_elec_2021") declaration
+    - All three were already present on the origin branch. No change needed.
+
+--------------------------------------------------------------------------------
+CURRENT BEHAVIOR vs. FUTURE BEHAVIOR
+--------------------------------------------------------------------------------
+
+  CURRENT (MODEL_FINAL_BASE_YEAR = 2015):
+    - 2021 data is loaded and processed internally by L132.industry_cogen
+    - Filtered out before output by the HISTORICAL_YEARS filter
+    - No impact on calibration targets or model solution
+    - Data system builds without errors or warnings
+
+  FUTURE (when MODEL_FINAL_BASE_YEAR is updated to 2020 or 2025):
+    - Remove or update the HISTORICAL_YEARS filter in L132.industry_cogen.R
+    - Update MODEL_FINAL_BASE_YEAR and HISTORICAL_YEARS constants
+    - 2021 data will automatically flow through to calibration
+    - May need to source a real EIA 2020 or 2025 data file at that time
+
+--------------------------------------------------------------------------------
+VALIDATION
+--------------------------------------------------------------------------------
+
+  The file passes gcamdata's exact read conditions:
+    readr::read_csv(file, comment="#", col_types="icicciccciiccccc[77 x n]i")
+  with options(warn=2) (warnings-as-errors), which is how load_csv_files()
+  in utils.R reads all extdata CSV files.
+
+  Expected output after rebuilding data system in R:
+    loadd(L132.EIA_non_util_elec_USAind)
+    unique(L132.EIA_non_util_elec_USAind$year)
+    # Should return: 2005 2010 2015  (2021 filtered out for current base year)
+
+================================================================================
