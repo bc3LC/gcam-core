@@ -1,5 +1,3 @@
-# Copyright 2019 Battelle Memorial Institute; see the LICENSE file.
-
 #' module_energy_L1011.ff_GrossTrade
 #'
 #' Calculate primary fossil fuel (coal, natural gas, crude oil) product balances, by region / commodity / year.
@@ -165,7 +163,27 @@ module_energy_L1011.ff_GrossTrade <- function(command, ...) {
       # Fill in missing values through interpolation between values and copying edge values forwards / backwards
       # TODO: the one place this extrapolation function is most questionable is for LNG,
       # which only picked up in the last several years.
-      mutate(value = approx_fun(year, value, rule = 2)) %>%
+      {
+        d <- arrange(., year, .by_group = TRUE)
+        d_const <- d %>%
+          fill(value, .direction = "up") %>%
+          mutate(value = approx_fun(year, value, rule = 2))
+
+        if(identical(Sys.getenv("GCAM_GAS_TRADE_LINEAR_INTERP", unset = "0"), "1")) {
+          has_prev <- cumsum(!is.na(d$value)) > 0
+          has_next <- rev(cumsum(rev(!is.na(d$value))) > 0)
+          interior_na <- is.na(d$value) & has_prev & has_next
+          value_lin <- approx_fun(d$year, d$value, rule = 1)
+          is_gas <- as.character(d$Commodity_Code) %in% c("271111", "271121")
+
+          d$value <- if_else(is_gas & interior_na & !is.na(value_lin),
+                             value_lin,
+                             d_const$value)
+          d
+        } else {
+          d_const
+        }
+      } %>%
       ungroup() %>%
       # Map COMTRADE commodity to GCAM fuel commodities
       # Note that we also track trade modes for natural gas (pipeline vs. LNG) here
@@ -389,3 +407,4 @@ module_energy_L1011.ff_GrossTrade <- function(command, ...) {
     stop("Unknown command")
   }
 }
+

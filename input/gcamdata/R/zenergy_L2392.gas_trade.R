@@ -755,8 +755,9 @@ if(command == driver.DECLARE_INPUTS) {
   L2392.Production_reg_dom_NG %>%
     add_title("Technology calibration for regional NG commodities: consumption of domestic production") %>%
     add_units("EJ") %>%
-    add_comments("Filtered directly from L239.Production_reg_dom as domestic NG should not change") %>%
-    add_precursors("L239.Production_reg_dom") ->
+    add_comments("Filtered from L239.Production_reg_dom for regional natural gas supplysector.") %>%
+    add_precursors("L239.Production_reg_dom",
+                   "common/GCAM_region_names") ->
     L2392.Production_reg_dom_NG
 
   return_data(L2392.Delete_Supplysector_tra_NG,

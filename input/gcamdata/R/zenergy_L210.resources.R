@@ -42,6 +42,7 @@ module_energy_L210.resources <- function(command, ...) {
              FILE = "energy/A21.globalrsrctech_coef",
              "L111.RsrcCurves_EJ_R_Ffos",
              "L111.Prod_EJ_R_F_Yh",
+             "L121.in_EJ_R_unoil_F_Yh",
              "L112.RsrcCurves_Mt_R_U",
              "L113.RsrcCurves_EJ_R_MSW",
              "L114.RsrcCurves_EJ_R_wind",
@@ -109,7 +110,8 @@ module_energy_L210.resources <- function(command, ...) {
       resource_type <- scenario <-subResourceCapacityFactor <- subresource <- subresource_type <- resource.reserve.technology <-
       minicam.non.energy.input <- input.cost <- cal.reserve <- renewresource <- sub.renewable.resource <-
       avg.prod.lifetime <- timestep <- lifetime <- year_operate <- final_year <- GCAM_region_ID <-
-      sector <- smooth.renewable.subresource <- tech.change <- reserve.subresource <- technology <- prod_value <- NULL
+      sector <- smooth.renewable.subresource <- tech.change <- reserve.subresource <- technology <- prod_value <-
+      unoil_NG_EJ <- minicam.energy.input <- NULL
 
     all_data <- list(...)[[1]]
 
@@ -142,6 +144,7 @@ module_energy_L210.resources <- function(command, ...) {
       gather_years(value_col = "coefficient")
     L111.RsrcCurves_EJ_R_Ffos <- get_data(all_data, "L111.RsrcCurves_EJ_R_Ffos", strip_attributes = TRUE)
     L111.Prod_EJ_R_F_Yh <- get_data(all_data, "L111.Prod_EJ_R_F_Yh", strip_attributes = TRUE)
+    L121.in_EJ_R_unoil_F_Yh <- get_data(all_data, "L121.in_EJ_R_unoil_F_Yh", strip_attributes = TRUE)
     L112.RsrcCurves_Mt_R_U <- get_data(all_data, "L112.RsrcCurves_Mt_R_U", strip_attributes = TRUE)
     L113.RsrcCurves_EJ_R_MSW <- get_data(all_data, "L113.RsrcCurves_EJ_R_MSW", strip_attributes = TRUE)
     L114.RsrcCurves_EJ_R_wind <- get_data(all_data, "L114.RsrcCurves_EJ_R_wind", strip_attributes = TRUE)
@@ -489,6 +492,46 @@ module_energy_L210.resources <- function(command, ...) {
       left_join_error_no_match(A10.subrsrc_info, by = c("fuel" = "resource","technology"= "subresource")) %>%
       mutate(cal.production = round(value, energy.DIGITS_CALPRODUCTION)) %>%
       select(region, resource = fuel, subresource= technology, year, cal.production)
+
+    # For regions that produce unconventional oil, the resource-reserve technology consumes
+    # regional natural gas at a fixed coefficient. In calibration years where L121 has a row,
+    # L122.gasproc_refining already subtracts that demand from gas-processing output, so the
+    # natural gas resource cal.production matches IEA stats. But for base years where L121 has
+    # NO row (i.e., 2019/2020 in the prebuilt branch), the subtraction never happened, so the
+    # resource cal.production is understated by exactly the unoil NG demand.
+    unoil_gas_coef <- A21.globalrsrctech_coef %>%
+      filter(resource.reserve.technology == "unconventional oil",
+             grepl("natural gas", minicam.energy.input),
+             year == min(year)) %>%
+      pull(coefficient) %>%
+      unique()
+    L121.unoil_NG_demand <- L111.Prod_EJ_R_F_Yh %>%
+      filter(technology == "unconventional oil", year %in% MODEL_BASE_YEARS) %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      mutate(unoil_NG_EJ = value * unoil_gas_coef) %>%
+      select(region, GCAM_region_ID, year, unoil_NG_EJ)
+
+    # Identify base years covered by L121 for each region
+    L121.covered_region_years <- L121.in_EJ_R_unoil_F_Yh %>%
+      filter(fuel == "gas") %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      select(region, year) %>%
+      distinct()
+
+    # Keep only unoil NG demand for region/years NOT covered by L121
+    L210.unoil_NG_uncovered <- L121.unoil_NG_demand %>%
+      anti_join(L121.covered_region_years, by = c("region", "year"))
+
+    # Add the uncovered unoil NG demand to natural gas cal.production
+    if(nrow(L210.unoil_NG_uncovered) > 0) {
+      L210.RsrcCalProd <- L210.RsrcCalProd %>%
+        left_join(L210.unoil_NG_uncovered %>% select(region, year, unoil_NG_EJ),
+                  by = c("region", "year")) %>%
+        mutate(cal.production = if_else(resource == "natural gas" & !is.na(unoil_NG_EJ),
+                                        round(cal.production + unoil_NG_EJ, energy.DIGITS_CALPRODUCTION),
+                                        cal.production)) %>%
+        select(-unoil_NG_EJ)
+    }
 
     L210.Reserve_EJ_R_F_Yh %>%
       rename(cal.reserve = value) %>%
@@ -890,7 +933,8 @@ module_energy_L210.resources <- function(command, ...) {
       add_units("EJ/yr") %>%
       add_comments("Data from L111.Prod_EJ_R_F_Yh") %>%
       add_legacy_name("L210.RsrcCalProd") %>%
-      add_precursors("L111.Prod_EJ_R_F_Yh", "common/GCAM_region_names", "energy/A10.subrsrc_info") ->
+      add_precursors("L111.Prod_EJ_R_F_Yh", "common/GCAM_region_names", "energy/A10.subrsrc_info",
+                     "L121.in_EJ_R_unoil_F_Yh", "energy/A21.globalrsrctech_coef") ->
       L210.RsrcCalProd
 
     L210.ReserveCalReserve %>%
@@ -1065,4 +1109,4 @@ module_energy_L210.resources <- function(command, ...) {
     stop("Unknown command")
   }
 }
-
+      unoil_NG_EJ <- unoil_gas_coef <- final.calibration.year <- NULL

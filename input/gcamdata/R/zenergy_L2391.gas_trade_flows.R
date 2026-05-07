@@ -41,6 +41,15 @@ module_energy_L2391.gas_trade_flows <- function(command, ...) {
       GrossImp_EJ <- Prod_EJ <- fuel <- technology <- primary.consumption <- PrimaryFuelCO2Coef.name <- PrimaryFuelCO2Coef <-
       production <- consumption <- GCAM_region_ID <- NULL # silence package check notes
 
+    disable_statdiff <- identical(Sys.getenv("GCAM_GAS_TRADE_TOGGLE_DISABLE_STATDIFF", unset = "0"), "1")
+    freeze_carrier_shares <- identical(Sys.getenv("GCAM_GAS_TRADE_TOGGLE_FREEZE_CARRIER_SHARES", unset = "0"), "1")
+    rebalance_canada_namer <- identical(Sys.getenv("GCAM_GAS_TRADE_TOGGLE_REBALANCE_CANADA_NAMER", unset = "0"), "1")
+    rebalance_global_2019_2020 <- identical(Sys.getenv("GCAM_GAS_TRADE_TOGGLE_REBALANCE_GLOBAL_2019_2020", unset = "0"), "1")
+
+    toggle_regions <- c("Canada", "South America_Northern")
+    toggle_years <- c(2019, 2020)
+    rebalance_region <- "Canada"
+    rebalance_years <- c(2019, 2020)
 
     # ----------------------------------------
     # Load required inputs
@@ -303,6 +312,96 @@ module_energy_L2391.gas_trade_flows <- function(command, ...) {
     # "gas trade statistical differences" market.
     L2391.gas_flow_balances %>%
       distinct(region, year, reg_NG_exports_diff) -> L2391.gas_export_diff
+
+    L2391.gas_export_diff_before_rebalance <- L2391.gas_export_diff
+
+    if(rebalance_canada_namer) {
+      L2391.gas_export_diff %>%
+        filter(region == rebalance_region,
+               year %in% rebalance_years,
+               reg_NG_exports_diff > 0) %>%
+        rename(delta_requested = reg_NG_exports_diff) %>%
+        left_join(L2391.gas_export_diff %>%
+                    filter(region != rebalance_region,
+                           year %in% rebalance_years,
+                           reg_NG_exports_diff > 0) %>%
+                    group_by(year) %>%
+                    summarise(other_export_total = sum(reg_NG_exports_diff), .groups = "drop"),
+                  by = "year") %>%
+        replace_na(list(other_export_total = 0)) %>%
+        mutate(delta = pmin(delta_requested, other_export_total)) -> L2391.rebalance_targets
+
+      if(nrow(L2391.rebalance_targets) > 0) {
+        L2391.rebalance_counterparts <- L2391.gas_export_diff %>%
+          filter(region != rebalance_region,
+                 year %in% rebalance_years,
+                 reg_NG_exports_diff > 0) %>%
+          left_join(select(L2391.rebalance_targets, year, delta), by = "year") %>%
+          replace_na(list(delta = 0)) %>%
+          group_by(year) %>%
+          mutate(other_export_total = sum(reg_NG_exports_diff),
+                 offset = if_else(other_export_total > 0,
+                                  -delta * (reg_NG_exports_diff / other_export_total), 0)) %>%
+          ungroup() %>%
+          select(region, year, offset)
+
+        L2391.rebalance_anchor <- L2391.rebalance_targets %>%
+          transmute(region = rebalance_region, year, offset = delta)
+
+        bind_rows(L2391.rebalance_anchor, L2391.rebalance_counterparts) %>%
+          group_by(region, year) %>%
+          summarise(offset = sum(offset), .groups = "drop") -> L2391.rebalance_offsets
+
+        L2391.gas_export_diff <- L2391.gas_export_diff %>%
+          left_join(L2391.rebalance_offsets, by = c("region", "year")) %>%
+          replace_na(list(offset = 0)) %>%
+          mutate(reg_NG_exports_diff = round(reg_NG_exports_diff - offset, energy.DIGITS_CALOUTPUT)) %>%
+          select(-offset)
+      }
+    }
+
+    if(rebalance_global_2019_2020) {
+      L2391.gas_export_diff %>%
+        filter(year %in% rebalance_years) %>%
+        group_by(year) %>%
+        summarise(total_pos = sum(pmax(reg_NG_exports_diff, 0)),
+                  total_neg = sum(abs(pmin(reg_NG_exports_diff, 0))),
+                  scale_pos = if_else(total_pos > 0, total_neg / total_pos, 1),
+                  .groups = "drop") -> L2391.rebalance_global_scales
+
+      L2391.gas_export_diff <- L2391.gas_export_diff %>%
+        left_join(select(L2391.rebalance_global_scales, year, scale_pos), by = "year") %>%
+        mutate(scale_pos = if_else(is.na(scale_pos), 1, scale_pos),
+               reg_NG_exports_diff = if_else(year %in% rebalance_years & reg_NG_exports_diff > 0,
+                                             round(reg_NG_exports_diff * scale_pos, energy.DIGITS_CALOUTPUT),
+                                             reg_NG_exports_diff)) %>%
+        select(-scale_pos)
+    }
+
+    L2391.gas_export_diff_after_rebalance <- L2391.gas_export_diff
+
+    if(identical(Sys.getenv("GCAM_GAS_TRADE_DEBUG", unset = "0"), "1")) {
+      debug_dir <- file.path("output", "gcam_diagnostics", "gas_trade")
+      dir.create(debug_dir, recursive = TRUE, showWarnings = FALSE)
+      try(write.csv(L2391.gas_export_diff_before_rebalance, file.path(debug_dir, "L2391_rebalance_pipeline_before_debug.csv"), row.names = FALSE), silent = TRUE)
+      try(write.csv(L2391.gas_export_diff_after_rebalance, file.path(debug_dir, "L2391_rebalance_pipeline_after_debug.csv"), row.names = FALSE), silent = TRUE)
+      try(write.csv(
+        L2391.gas_export_diff_after_rebalance %>%
+          rename(reg_NG_exports_diff_after = reg_NG_exports_diff) %>%
+          full_join(L2391.gas_export_diff_before_rebalance %>%
+                      rename(reg_NG_exports_diff_before = reg_NG_exports_diff),
+                    by = c("region", "year")) %>%
+          replace_na(list(reg_NG_exports_diff_before = 0,
+                          reg_NG_exports_diff_after = 0)) %>%
+          mutate(delta = reg_NG_exports_diff_after - reg_NG_exports_diff_before),
+        file.path(debug_dir, "L2391_rebalance_pipeline_diff_debug.csv"), row.names = FALSE), silent = TRUE)
+      if(exists("L2391.rebalance_targets")) {
+        try(write.csv(L2391.rebalance_targets, file.path(debug_dir, "L2391_rebalance_canada_namer_debug.csv"), row.names = FALSE), silent = TRUE)
+      }
+      if(exists("L2391.rebalance_global_scales")) {
+        try(write.csv(L2391.rebalance_global_scales, file.path(debug_dir, "L2391_rebalance_global_scales_debug.csv"), row.names = FALSE), silent = TRUE)
+      }
+   }
 
     # Regions that export more than allocated to pipeline & LNG
     L2391.gas_export_diff %>%

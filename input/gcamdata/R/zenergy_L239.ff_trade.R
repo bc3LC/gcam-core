@@ -28,7 +28,9 @@ module_energy_L239.ff_trade <- function(command, ...) {
       FILE = "energy/A_ff_TradedTechnology",
       "L202.CarbonCoef",
       "L2011.ff_GrossTrade_EJ_R_C_Y",
-      "L2011.ff_ALL_EJ_R_C_Y")
+      "L2011.ff_ALL_EJ_R_C_Y",
+      "L121.in_EJ_R_unoil_F_Yh",
+      "L111.Prod_EJ_R_F_Yh")
 
   MODULE_OUTPUTS <-
     c("L239.PrimaryConsKeyword_en",
@@ -222,6 +224,43 @@ module_energy_L239.ff_trade <- function(command, ...) {
              tech.share.weight = subs.share.weight) %>%
       select(LEVEL2_DATA_NAMES[["Production"]])
 
+    # Add unoil NG demand for region/years absent from L121 (e.g. 2019/2020 in prebuilt branch).
+    # In those years L122 never subtracted unoil NG from gas-processing, so domestic cal must include it.
+    unoil_gas_coef <- L121.in_EJ_R_unoil_F_Yh %>%
+      filter(fuel == "gas") %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      left_join(L111.Prod_EJ_R_F_Yh %>%
+                  filter(technology == "unconventional oil") %>%
+                  select(GCAM_region_ID, year, unoil_prod = value),
+                by = c("GCAM_region_ID", "year")) %>%
+      filter(!is.na(unoil_prod), unoil_prod > 0, value > 0) %>%
+      summarise(coef = mean(value / unoil_prod)) %>%
+      pull(coef)
+    L239.unoil_NG_demand <- L111.Prod_EJ_R_F_Yh %>%
+      filter(technology == "unconventional oil", year %in% MODEL_BASE_YEARS) %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      mutate(unoil_NG_EJ = value * unoil_gas_coef, GCAM_Commodity = "natural gas") %>%
+      select(region, GCAM_Commodity, year, unoil_NG_EJ)
+    L239.unoil_NG_covered <- L121.in_EJ_R_unoil_F_Yh %>%
+      filter(fuel == "gas") %>%
+      left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
+      select(region, year) %>% distinct()
+    L239.unoil_NG_uncovered <- L239.unoil_NG_demand %>%
+      anti_join(L239.unoil_NG_covered, by = c("region", "year"))
+    if(nrow(L239.unoil_NG_uncovered) > 0) {
+      L239.Production_reg_dom <- L239.Production_reg_dom %>%
+        left_join(L239.unoil_NG_uncovered %>%
+                    mutate(supplysector = paste0("regional ", GCAM_Commodity)) %>%
+                    select(region, supplysector, year, unoil_NG_EJ),
+                  by = c("region", "supplysector", "year")) %>%
+        mutate(calOutputValue = if_else(!is.na(unoil_NG_EJ),
+                                        round(calOutputValue + unoil_NG_EJ, energy.DIGITS_CALOUTPUT),
+                                        calOutputValue),
+               subs.share.weight = if_else(calOutputValue > 0, 1, 0),
+               tech.share.weight = subs.share.weight) %>%
+        select(LEVEL2_DATA_NAMES[["Production"]])
+    }
+
     # Regional oil competes regional crude oil and regional unconventional oil, but this is all done within a region
     # We'll calibrate any intraregional competition here.
     A_ff_RegionalTechnology_R_Y %>%
@@ -352,7 +391,9 @@ module_energy_L239.ff_trade <- function(command, ...) {
       add_precursors("common/GCAM_region_names",
                      "energy/A_ff_RegionalTechnology",
                      "L2011.ff_ALL_EJ_R_C_Y",
-                     "L2011.ff_GrossTrade_EJ_R_C_Y") ->
+                     "L2011.ff_GrossTrade_EJ_R_C_Y",
+                     "L121.in_EJ_R_unoil_F_Yh",
+                     "L111.Prod_EJ_R_F_Yh") ->
       L239.Production_reg_dom
 
     L239.Consumption_intraregional %>%
@@ -360,7 +401,9 @@ module_energy_L239.ff_trade <- function(command, ...) {
       add_units("EJ") %>%
       add_comments("Consumption of commodities competed within-region") %>%
       add_precursors("energy/A_ff_RegionalTechnology",
-                     "L2011.ff_ALL_EJ_R_C_Y") ->
+                     "L2011.ff_ALL_EJ_R_C_Y",
+      "L121.in_EJ_R_unoil_F_Yh",
+      "L111.Prod_EJ_R_F_Yh") ->
       L239.Consumption_intraregional
 
     L239.CarbonCoef %>%

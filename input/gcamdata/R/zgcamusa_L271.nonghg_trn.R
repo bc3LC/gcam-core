@@ -393,6 +393,7 @@ module_gcamusa_L271.nonghg_trn <- function(command, ...) {
       bind_rows(negative_degrades_replaced) %>%
       # Add linear control object and round to 15 decimal places
       mutate(linear.control = "Emissions Coefficient Degradation",
+             start.year = pmax(start.year, MODEL_FINAL_BASE_YEAR),
              final.emissions.coefficient = round(final.emissions.coefficient,gcamusa.DIGITS_TRN_EF_DEGRADE)) %>%
       select(region,supplysector,tranSubsector,stub.technology,year,Non.CO2,linear.control,start.year,end.year,final.emissions.coefficient)
 
@@ -435,6 +436,7 @@ module_gcamusa_L271.nonghg_trn <- function(command, ...) {
     L271.nonco2_trn_emiss_control_USA_scaled <- bind_rows( L271.nonco2_trn_emiss_control_USA, remaining_future_years ) %>%
       # set allow EF increase (boolean) to 1
       mutate( allow.ef.increase = 1,
+              start.year = pmax(start.year, MODEL_FINAL_BASE_YEAR),
       #Re-name pollutants to match names of GCAM gases
         Non.CO2 = gsub( "VOC", "NMVOC", Non.CO2 ),
         Non.CO2 = gsub( "NOX", "NOx", Non.CO2 ),

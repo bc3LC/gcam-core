@@ -151,11 +151,11 @@ module_energy_L2011.ff_ALL_R_C_Y <- function(command, ...) {
              GrossImp_EJ = if_else(GrossImp_EJ < 0, -1*GrossExp_EJ_old, GrossImp_EJ),
              net_trade = GrossExp_EJ - GrossImp_EJ) %>%
       select(names(L1011.ff_GrossTrade_EJ_R_C_Y)) ->
-      L2011.ff_GrossTrade_EJ_R_C_Final_Cal_Year
+      L2011.ff_GrossTrade_EJ_R_C_Comtrade_Years
     }
     # This structure does not allow regions to trade more product than they produce, so decrease
     # Exports and Imports for any region where GrossExp is greater than production
-    L2011.ff_GrossTrade_EJ_R_C_Final_Cal_Year %>%
+    L2011.ff_GrossTrade_EJ_R_C_Comtrade_Years %>%
       left_join_error_no_match(GCAM_region_names, by = "GCAM_region_ID") %>%
       left_join_error_no_match(L2011.ff_ALL_EJ_R_C_Y %>% select(region, fuel, year, production),
                                by = c("region", "GCAM_Commodity" = "fuel", "year")) %>%
@@ -165,18 +165,18 @@ module_energy_L2011.ff_ALL_R_C_Y <- function(command, ...) {
       mutate(GrossImp_EJ = if_else(GrossExp_EJ == production, GrossImp_EJ - (GrossExp_EJ - 0.95*production), GrossImp_EJ),
              GrossExp_EJ = if_else(GrossExp_EJ == production, 0.95*production, GrossExp_EJ)) %>%
       select(names(L1011.ff_GrossTrade_EJ_R_C_Y)) ->
-      L2011.ff_GrossTrade_EJ_R_C_Final_Cal_Year_adj
+      L2011.ff_GrossTrade_EJ_R_C_Comtrade_Years_adj
 
-    #Only the final calibration period's calibration matters, so for earlier periods simply assume that
+    # For periods without Comtrade coverage (e.g. 1975, 1990, 2005), simply assume
     # each region is solely an importer or an exporter.
     L2011.ff_ALL_EJ_R_C_Y %>%
       left_join_error_no_match(GCAM_region_names, by = "region") %>%
-      filter(! year %in% L2011.ff_GrossTrade_EJ_R_C_Final_Cal_Year_adj$year) %>%
+      filter(! year %in% L2011.ff_GrossTrade_EJ_R_C_Comtrade_Years_adj$year) %>%
       mutate(GrossExp_EJ = if_else(net_trade<=0, 0, net_trade),
              GrossImp_EJ = if_else(net_trade<0, -1*net_trade, 0),
              GCAM_Commodity = fuel) %>%
-      select(names(L2011.ff_GrossTrade_EJ_R_C_Final_Cal_Year_adj)) %>%
-      bind_rows(L2011.ff_GrossTrade_EJ_R_C_Final_Cal_Year_adj)->
+      select(names(L2011.ff_GrossTrade_EJ_R_C_Comtrade_Years_adj)) %>%
+      bind_rows(L2011.ff_GrossTrade_EJ_R_C_Comtrade_Years_adj)->
       L2011.ff_GrossTrade_EJ_R_C_Y
 
     #Produce outputs
