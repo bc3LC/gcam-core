@@ -111,7 +111,7 @@ module_energy_L210.resources <- function(command, ...) {
       minicam.non.energy.input <- input.cost <- cal.reserve <- renewresource <- sub.renewable.resource <-
       avg.prod.lifetime <- timestep <- lifetime <- year_operate <- final_year <- GCAM_region_ID <-
       sector <- smooth.renewable.subresource <- tech.change <- reserve.subresource <- technology <- prod_value <-
-      unoil_NG_EJ <- minicam.energy.input <- NULL
+      unoil_NG_EJ <- minicam.energy.input <- unoil_NG_EJ <- unoil_gas_coef <- final.calibration.year <- NULL
 
     all_data <- list(...)[[1]]
 
@@ -1109,4 +1109,4 @@ module_energy_L210.resources <- function(command, ...) {
     stop("Unknown command")
   }
 }
-      unoil_NG_EJ <- unoil_gas_coef <- final.calibration.year <- NULL
+     # unoil_NG_EJ <- unoil_gas_coef <- final.calibration.year <- NULL
