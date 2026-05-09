@@ -172,24 +172,7 @@ module_energy_L1011.ff_GrossTrade <- function(command, ...) {
           fill(value, .direction = "up") %>%
           mutate(value = approx_fun(year, value, rule = 2))
 
-        if(identical(Sys.getenv("GCAM_GAS_TRADE_LINEAR_INTERP", unset = "0"), "1")) {
-          # Mark only interior missing values (i.e., observed values exist before and after)
-          has_prev <- cumsum(!is.na(d$value)) > 0
-          has_next <- rev(cumsum(rev(!is.na(d$value))) > 0)
-          interior_na <- is.na(d$value) & has_prev & has_next
-
-          # Linear interpolation for interior gaps only (rule = 1; no edge extrapolation)
-          value_lin <- approx_fun(d$year, d$value, rule = 1)
-          is_gas <- as.character(d$Commodity_Code) %in% c("271111", "271121")
-
-          # Use linear interpolation for gas interior gaps; otherwise fall back to constant baseline
-          d$value <- if_else(is_gas & interior_na & !is.na(value_lin),
-                             value_lin,
-                             d_constant$value)
-          d
-        } else {
-          d_constant
-        }
+        d_constant
       } %>%
       ungroup() %>%
       # Map COMTRADE commodity to GCAM fuel commodities
@@ -414,4 +397,5 @@ module_energy_L1011.ff_GrossTrade <- function(command, ...) {
     stop("Unknown command")
   }
 }
+
 
