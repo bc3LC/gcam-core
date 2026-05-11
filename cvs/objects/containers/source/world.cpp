@@ -46,9 +46,6 @@
 #include <vector>
 #include <map>
 #include <algorithm>
-#include <fstream>
-#include <cstdlib>
-#include <cmath>
 
 #include "util/base/include/xml_helper.h"
 #include "containers/include/world.h"
@@ -257,99 +254,10 @@ void World::calc( const int aPeriod, const std::vector<IActivity*>& aItemsToCalc
     
     // Increment the world.calc count based on the number of items to solve. 
     mCalcCounter->incrementCount( static_cast<double>( aItemsToCalc.size() ) / static_cast<double>( mGlobalOrdering.size() ) );
-
-    const char* gasTradeDebugEnv = std::getenv( "GCAM_GAS_TRADE_DEBUG" );
-    const bool gasTradeDebug = gasTradeDebugEnv && std::string( gasTradeDebugEnv ) == "1";
-    const bool trackGasTradeContrib = gasTradeDebug && ( aPeriod == 5 || aPeriod == 6 );
-
-    static std::map<int, long> sCalcCallByPeriod;
-    const long calcCall = ++sCalcCallByPeriod[ aPeriod ];
-
-    // Determine log path: use GCAM_GAS_TRADE_CONTRIB_LOG env var if set, otherwise
-    // fall back to a path relative to the Configuration's working directory.
-    static std::string sContribLogPath;
-    if( sContribLogPath.empty() ) {
-        const char* explicitPath = std::getenv( "GCAM_GAS_TRADE_CONTRIB_LOG" );
-        if( explicitPath ) {
-            sContribLogPath = std::string( explicitPath );
-        } else {
-            // Use same directory as main_log.txt: ILogger resolves relative paths
-            // from the working directory.  Use the same relative path GCAM uses for
-            // all its logs.
-            sContribLogPath = "logs/gas_trade_runtime_contrib.csv";
-        }
-    }
-
-    std::ofstream contribLog;
-    if( trackGasTradeContrib ) {
-        if( aPeriod == 5 && calcCall == 1 ) {
-            std::ofstream resetLog( sContribLogPath.c_str(), std::ios::out | std::ios::trunc );
-            if( resetLog.is_open() ) {
-                resetLog << "period,year,calc_call,activity_index,activity,market_region,market_good,before_demand,after_demand,delta_demand,before_supply,after_supply,delta_supply\n";
-                resetLog.flush();
-            }
-        }
-        contribLog.open( sContribLogPath.c_str(), std::ios::out | std::ios::app );
-    }
-
-    const gcamstr gasMarketGood = "natural gas";
-    const gcamstr gasRegionCanada = "Canada";
-    const gcamstr gasRegionSouthAmericaNorth = "South America_Northern";
-    const int currYear = scenario->getModeltime()->getper_to_yr( aPeriod );
-
-    auto escapeCSV = []( const std::string& aText ) {
-        std::string escaped = aText;
-        size_t pos = 0;
-        while( ( pos = escaped.find( '"', pos ) ) != std::string::npos ) {
-            escaped.insert( pos, 1, '"' );
-            pos += 2;
-        }
-        return std::string("\"") + escaped + "\"";
-    };
     
     // Perform calculation on each item to calculate. 
-    int activityIndex = 0;
-    for( vector<IActivity*>::const_iterator it = aItemsToCalc.begin(); it != aItemsToCalc.end(); ++it, ++activityIndex ) {
-        if( trackGasTradeContrib && contribLog.is_open() ) {
-            const double beforeDemandCanada = scenario->getMarketplace()->getDemand( gasMarketGood, gasRegionCanada, aPeriod );
-            const double beforeSupplyCanada = scenario->getMarketplace()->getSupply( gasMarketGood, gasRegionCanada, aPeriod );
-            const double beforeDemandSAN = scenario->getMarketplace()->getDemand( gasMarketGood, gasRegionSouthAmericaNorth, aPeriod );
-            const double beforeSupplySAN = scenario->getMarketplace()->getSupply( gasMarketGood, gasRegionSouthAmericaNorth, aPeriod );
-
-            (*it)->calc( aPeriod );
-
-            const double afterDemandCanada = scenario->getMarketplace()->getDemand( gasMarketGood, gasRegionCanada, aPeriod );
-            const double afterSupplyCanada = scenario->getMarketplace()->getSupply( gasMarketGood, gasRegionCanada, aPeriod );
-            const double afterDemandSAN = scenario->getMarketplace()->getDemand( gasMarketGood, gasRegionSouthAmericaNorth, aPeriod );
-            const double afterSupplySAN = scenario->getMarketplace()->getSupply( gasMarketGood, gasRegionSouthAmericaNorth, aPeriod );
-
-            const double deltaDemandCanada = afterDemandCanada - beforeDemandCanada;
-            const double deltaSupplyCanada = afterSupplyCanada - beforeSupplyCanada;
-            const double deltaDemandSAN = afterDemandSAN - beforeDemandSAN;
-            const double deltaSupplySAN = afterSupplySAN - beforeSupplySAN;
-
-            const bool changedCanada = std::fabs( deltaDemandCanada ) > 1e-12 || std::fabs( deltaSupplyCanada ) > 1e-12;
-            const bool changedSAN = std::fabs( deltaDemandSAN ) > 1e-12 || std::fabs( deltaSupplySAN ) > 1e-12;
-
-            if( changedCanada || changedSAN ) {
-                const std::string activityDesc = escapeCSV( (*it)->getDescription() );
-                if( changedCanada ) {
-                    contribLog << aPeriod << ',' << currYear << ',' << calcCall << ',' << activityIndex << ','
-                               << activityDesc << ",\"Canada\",\"natural gas\","
-                               << beforeDemandCanada << ',' << afterDemandCanada << ',' << deltaDemandCanada << ','
-                               << beforeSupplyCanada << ',' << afterSupplyCanada << ',' << deltaSupplyCanada << '\n';
-                }
-                if( changedSAN ) {
-                    contribLog << aPeriod << ',' << currYear << ',' << calcCall << ',' << activityIndex << ','
-                               << activityDesc << ",\"South America_Northern\",\"natural gas\","
-                               << beforeDemandSAN << ',' << afterDemandSAN << ',' << deltaDemandSAN << ','
-                               << beforeSupplySAN << ',' << afterSupplySAN << ',' << deltaSupplySAN << '\n';
-                }
-            }
-        }
-        else {
-            (*it)->calc( aPeriod );
-        }
+    for( vector<IActivity*>::const_iterator it = aItemsToCalc.begin(); it != aItemsToCalc.end(); ++it ) {
+        (*it)->calc( aPeriod );
     }
 #ifdef GNU_SOURCE
     feenableexcept(except);

@@ -1109,4 +1109,3 @@ module_energy_L210.resources <- function(command, ...) {
     stop("Unknown command")
   }
 }
-     # unoil_NG_EJ <- unoil_gas_coef <- final.calibration.year <- NULL

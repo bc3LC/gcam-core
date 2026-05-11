@@ -16,3 +16,5 @@ R/README.html
 ^data-raw$
 coverage.R
 ^appveyor\.yml$
+^\.positai$
+^\.claude$

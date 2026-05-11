@@ -1910,20 +1910,4 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="input\gcamdata\R\zenergy_L2011.ff_ALL_R_C_Y.R" />
-    <None Include="input\gcamdata\check_trade.R" />
-    <None Include="input\gcamdata\check_canada.R" />
-    <None Include="input\gcamdata\R\zenergy_L2392.gas_trade.R" />
-    <None Include="input\gcamdata\R\zenergy_L2391.gas_trade_flows.R" />
-    <None Include=".github\copilot-instructions.md" />
-    <None Include="input\gcamdata\inst\extdata\energy\A_ff_RegionalNestingSubsector_NG.csv" />
-    <None Include="GCAM_gas_trade_calibration_handoff_summary.md" />
-    <None Include=".Renviron" />
-    <None Include="HANDOFF_GAS_TRADE_DEBUG.md" />
-    <None Include="HANDOFF_GAS_TRADE_PROFILING.md" />
-    <None Include="PROFILING_STRATEGY.md" />
-    <None Include="output\gcam_diagnostics\scripts\gas_trade_identity_bridge_compare.R" />
-    <None Include="HANDOFF_GAS_TRADE_NEXT_SESSION_2026-05-03.md" />
-  </ItemGroup>
 </Project>

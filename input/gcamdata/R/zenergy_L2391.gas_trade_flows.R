@@ -304,7 +304,6 @@ module_energy_L2391.gas_trade_flows <- function(command, ...) {
     L2391.gas_flow_balances %>%
       distinct(region, year, reg_NG_exports_diff) -> L2391.gas_export_diff
 
-
     # Regions that export more than allocated to pipeline & LNG
     L2391.gas_export_diff %>%
       filter(reg_NG_exports_diff > 0) %>%
@@ -512,4 +511,3 @@ module_energy_L2391.gas_trade_flows <- function(command, ...) {
     stop("Unknown command")
   }
 }
-
