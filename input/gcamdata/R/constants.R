@@ -449,6 +449,9 @@ aglu.PROTECTION_DATA_SOURCE_DEFAULT <- FALSE
 # Protection, UnsuitableHighProtection, UnsuitableLowProtection
 aglu.NONPROTECT_LAND_STATUS <- c("SuitableUnprotected","Unknown")
 
+# These are the landleafs protected for the Nature and Sustainability scenarios
+# aglu.NONPROTECT_LAND_STATUS <- c("SuitableUnprotected","Unknown", "SuitableHighProtectionIntact", "SuitableHighProtectionDeforested", "SuitableLow Protection")
+
 # Default fraction for protected land. This is used if the
 # aglu.PROTECTION_DATA_SOURCE is set to TRUE or if protection data is
 # unavailable.
