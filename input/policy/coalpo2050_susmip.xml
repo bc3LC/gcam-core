@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario>
+    <world>
+        <region name="Canada">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="USA">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2035" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2035" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="EU-15">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="EU-12">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="European Free Trade Association">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Africa_Northern">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Middle East">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Argentina">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="South America_Southern">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Mexico">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Brazil">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Australia_NZ">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="Japan">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+        <region name="South Korea">
+            <supplysector name="electricity">
+                <subsector name="coal">
+                    <interpolation-rule apply-to="share-weight" delete="1" from-year="2021" to-year="2300">
+                        <interpolation-function name="s-curve"/>
+                        <to-value>1</to-value>
+<overwrite-policy warn="0">NEVER</overwrite-policy>
+                    </interpolation-rule>
+                    <interpolation-rule apply-to="share-weight" from-year="2021" to-year="2050">
+                        <interpolation-function name="s-curve"/>
+                    </interpolation-rule>
+                    <share-weight year="2050">0</share-weight>
+                    <share-weight year="2055">0</share-weight>
+                    <share-weight year="2060">0</share-weight>
+                    <share-weight year="2065">0</share-weight>
+                    <share-weight year="2070">0</share-weight>
+                    <share-weight year="2075">0</share-weight>
+                    <share-weight year="2080">0</share-weight>
+                    <share-weight year="2085">0</share-weight>
+                    <share-weight year="2090">0</share-weight>
+                    <share-weight year="2095">0</share-weight>
+                    <share-weight year="2100">0</share-weight>
+                </subsector>
+            </supplysector>
+        </region>
+    </world>
+</scenario>

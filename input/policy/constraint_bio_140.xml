@@ -1,0 +1,1474 @@
+<?xml version="1.0" encoding="UTF-8"?><scenario name="CCSP450">
+    <world>
+        <region name="USA">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+
+
+
+            </policy-portfolio-standard>
+        </region>
+        <region name="Canada">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="EU-15">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Europe_Non_EU">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="European Free Trade Association">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Japan">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Australia_NZ">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Central Asia">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Russia">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="China">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Middle East">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Africa_Eastern">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Africa_Northern">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Africa_Southern">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Africa_Western">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="South Africa">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Brazil">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Central America and Caribbean">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Mexico">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="South America_Northern">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="South America_Southern">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Argentina">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Colombia">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Indonesia">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Pakistan">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="South Asia">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Southeast Asia">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Taiwan">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="Europe_Eastern">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="EU-12">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="South Korea">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+        <region name="India">
+            <policy-portfolio-standard name="Bio_Policy">
+<policyType>tax</policyType>     <market>global</market>
+
+<constraint year="2025">48.569441413</constraint>
+<constraint year="2030">58.569441413</constraint>
+<constraint year="2035">68.569441413</constraint>
+<constraint year="2040">78.569441413</constraint>
+<constraint year="2045">88.569441413</constraint>
+<constraint year="2050">98.569441413</constraint>
+<constraint year="2055">108.569441413</constraint>
+<constraint year="2060">118.569441413</constraint>
+<constraint year="2065">122</constraint>
+<constraint year="2070">126</constraint>
+<constraint year="2075">130</constraint>
+<constraint year="2080">132</constraint>
+<constraint year="2085">134</constraint>
+<constraint year="2090">136</constraint>
+<constraint year="2095">138</constraint>
+<constraint year="2100">140</constraint>
+            </policy-portfolio-standard>
+        </region>
+<global-technology-database>
+            <location-info sector-name="regional biomass" subsector-name="regional biomass">
+                <technology name="regional biomass">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+            </location-info>
+            <location-info sector-name="regional corn for ethanol" subsector-name="regional corn for ethanol">
+                <technology name="regional corn for ethanol">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+            </location-info>
+            <location-info sector-name="regional sugar for ethanol" subsector-name="regional sugar for ethanol">
+                <technology name="regional sugar for ethanol">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+            </location-info>
+            <location-info sector-name="regional biomassOil" subsector-name="regional biomassOil">
+                <technology name="biomassOil">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+                <technology name="OilCrop">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+                <technology name="OilPalm">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+                <technology name="Soybean">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+            </location-info>
+
+<location-info sector-name="regional woodpulp for energy" subsector-name="regional woodpulp for energy">
+                <technology name="regional woodpulp for energy">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+                <technology name="OilCrop">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+                <technology name="OilPalm">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+                <technology name="Soybean">
+                    <period year="1975">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="1990">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2005">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2010">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2015">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2020">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2025">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2030">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2035">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2040">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2045">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2050">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2055">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2060">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2065">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2070">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2075">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2080">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2085">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2090">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2095">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                    <period year="2100">
+ 
+<input-tax name="Bio_Policy"/>   </period>
+                </technology>
+            </location-info>
+
+        </global-technology-database>
+    </world>
+</scenario>
